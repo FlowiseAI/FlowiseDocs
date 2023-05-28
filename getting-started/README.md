@@ -17,12 +17,6 @@ npm install -g flowise
 <pre class="language-bash"><code class="lang-bash"><strong>npx flowise start
 </strong></code></pre>
 
-With username & password
-
-```bash
-npx flowise start --FLOWISE_USERNAME=user --FLOWISE_PASSWORD=1234
-```
-
 3. Open [http://localhost:3000](http://localhost:3000)
 
 ## 🐳 Docker
