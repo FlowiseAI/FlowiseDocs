@@ -13,4 +13,11 @@
 
 <figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
+5. To add authorization, navigate to Variables tab and add:
+
+* FLOWISE\_USERNAME
+* FLOWISE\_PASSWORD
+
+<figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+
 That's it! You now have a deployed Flowise on Railway [🎉](https://emojipedia.org/party-popper/)[🎉](https://emojipedia.org/party-popper/)

@@ -26,7 +26,7 @@
 
 10. Select the plan and Create Web Service.&#x20;
 
-<figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (15) (1).png" alt=""><figcaption></figcaption></figure>
 
 11. If you want to add app level authorization, navigate to Environment tab and add:
 
