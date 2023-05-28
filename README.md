@@ -1,11 +1,18 @@
-<!-- markdownlint-disable MD030 -->
+---
+description: Docs for Flowise - Drag & drop UI to build your customized LLM flow
+---
 
 # Flowise Docs
 
-<a href="https://github.com/FlowiseAI/Flowise">
-<img width="100%" src="https://github.com/FlowiseAI/Flowise/blob/main/images/flowise.gif?raw=true"></a>
+[![](https://github.com/FlowiseAI/Flowise/blob/main/images/flowise.gif?raw=true)](https://github.com/FlowiseAI/Flowise)
 
-Docs for Flowise - Drag & drop UI to build your customized LLM flow using [LangchainJS](https://github.com/hwchase17/langchainjs)
+## [🤔](https://emojipedia.org/thinking-face/) What is Flowise?
+
+Flowise is built on top of [LangChainJS](https://github.com/hwchase17/langchainjs), with the aim to make it easy for people to visualize and build LLM apps.
+
+Watch a quickstart demo (2mins)
+
+{% embed url="https://youtu.be/d7vfUodP0c4" %}
 
 ## 🙌 Contributing
 
