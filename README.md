@@ -1,10 +1,8 @@
----
-description: Docs for Flowise - Drag & drop UI to build your customized LLM flow
----
-
 # Flowise Docs
 
-[![](https://github.com/FlowiseAI/Flowise/blob/main/images/flowise.gif?raw=true)](https://github.com/FlowiseAI/Flowise)
+<figure><img src=".gitbook/assets/flowise.gif" alt=""><figcaption></figcaption></figure>
+
+Docs for Flowise - Drag & drop UI to build your customized LLM flow
 
 ## [🤔](https://emojipedia.org/thinking-face/) What is Flowise?
 
