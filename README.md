@@ -1,4 +1,4 @@
-# Flowise Docs
+# Welcome to Flowise
 
 <figure><img src=".gitbook/assets/flowise.gif" alt=""><figcaption></figcaption></figure>
 
@@ -15,7 +15,3 @@ Watch a quickstart demo (2mins)
 ## 🙌 Contributing
 
 See [contributing guide](CONTRIBUTING.md). Reach out to us at [Discord](https://discord.gg/jbaHfsRVBW) if you have any questions or issues.
-
-## 📄 License
-
-Source code in this repository is made available under the [MIT License](LICENSE.md).
