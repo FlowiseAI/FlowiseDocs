@@ -15,7 +15,7 @@ See how to set username & password [setting-username-and-password.md](setting-us
 
 ## Chatflow level
 
-Image you have a chatflow constructed, and you only want certain people to be able to access and interact with it. You can achieve that by assigning an API key for that specific chatflow.
+Imagine you have a chatflow constructed, and you only want certain people to be able to access and interact with it. You can achieve that by assigning an API key for that specific chatflow.
 
 ### API Key
 
