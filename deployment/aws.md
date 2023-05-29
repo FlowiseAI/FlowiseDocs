@@ -16,7 +16,7 @@ This setup requires some basic understanding of how AWS works.
 
 3. Fill in your preferred key pair name. For Windows, we will use `.ppk` and PuTTY to connect to the instance. For Mac and Linux, we will use `.pem` and OpenSSH
 
-<figure><img src="../.gitbook/assets/image (15).png" alt="" width="370"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (15) (2).png" alt="" width="370"><figcaption></figcaption></figure>
 
 4. Click **Create key pair** and select a location path to save the `.ppk` file
 5. Open the left side bar, and open a new tab from **Security Groups**. Then **Create security group**
@@ -29,18 +29,18 @@ This setup requires some basic understanding of how AWS works.
 
 7. Back to the first tab (EC2 Launch an instance) and scroll down to **Network settings**. Select the security group you've just created
 
-<figure><img src="../.gitbook/assets/image (7).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 8. Click **Launch instance**. Navigate back to EC2 Dashboard, after few mins we should be able to see a new instance up and running [🎉](https://emojipedia.org/party-popper/)
 
-<figure><img src="../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (17) (1).png" alt=""><figcaption></figcaption></figure>
 
-## SSH into instance (Windows)&#x20;
+## How to Connect to your instance (Windows)&#x20;
 
 1. For Windows, we are going to use PuTTY. You can download one from [here](https://www.chiark.greenend.org.uk/\~sgtatham/putty/latest.html).
 2. Open PuTTY and fill in the **HostName** with your instance's Public IPv4 DNS name
 
-<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
 
 3. From the left hand side bar of PuTTY Configuration, expand **SSH** and click on **Auth**. Click Browse and select the `.ppk` file you downloaded earlier.
 
@@ -52,11 +52,11 @@ This setup requires some basic understanding of how AWS works.
 
 5. Then login as `ec2-user`
 
-<figure><img src="../.gitbook/assets/image (5).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 6. Now you are connected to the EC2 instance
 
-## SSH into instance (Mac and Linux)
+## How to Connect to your instance (Mac and Linux)
 
 1. Open the Terminal application on your Mac/Linux.
 2. (Optional) Set the permissions of the private key file to restrict access to it:
@@ -154,7 +154,7 @@ nano .env
 
 <figure><img src="../.gitbook/assets/image (13).png" alt="" width="375"><figcaption></figcaption></figure>
 
-4. (Optional) You can also specify `FLOWISE_USERNAME` and `FLOWISE_PASSWORD` for app level authorization. See more [#docker](../authorization/setting-username-and-password.md#docker "mention")
+4. (Optional) You can also specify `FLOWISE_USERNAME` and `FLOWISE_PASSWORD` for app level authorization. See more [setting-username-and-password.md](../authorization/setting-username-and-password.md "mention")
 5. Then press `Ctrl + X` to Exit, and `Y` to save the file
 6. Run docker compose
 
@@ -166,6 +166,18 @@ docker-compose up -d
 
 ```
 http://ec2-123-456-789.compute-1.amazonaws.com:3000
+```
+
+8. You can bring the app down by:
+
+```bash
+docker-compose stop
+```
+
+9. You can pull from latest image by:
+
+```bash
+docker pull flowiseai/flowise
 ```
 
 ## Using NGINX

@@ -12,4 +12,5 @@
   * [Render](deployment/render.md)
   * [Railway](deployment/railway.md)
   * [AWS](deployment/aws.md)
+  * [Digital Ocean](deployment/digital-ocean.md)
 * [Contributing](CONTRIBUTING.md)
