@@ -11,6 +11,7 @@
 * [Deployment](deployment/README.md)
   * [Render](deployment/render.md)
   * [Railway](deployment/railway.md)
+  * [Replit](deployment/replit.md)
   * [AWS](deployment/aws.md)
   * [Digital Ocean](deployment/digital-ocean.md)
 * [Contributing](CONTRIBUTING.md)

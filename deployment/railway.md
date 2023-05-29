@@ -18,6 +18,6 @@
 * FLOWISE\_USERNAME
 * FLOWISE\_PASSWORD
 
-<figure><img src="../.gitbook/assets/image (15) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (15) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 That's it! You now have a deployed Flowise on Railway [🎉](https://emojipedia.org/party-popper/)[🎉](https://emojipedia.org/party-popper/)

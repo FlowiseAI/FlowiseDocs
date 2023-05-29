@@ -6,11 +6,11 @@ In this section, we are going to create a Droplet. For more information, refer t
 
 1. First, Click **Droplets** from the dropdown
 
-<figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (15) (2).png" alt=""><figcaption></figcaption></figure>
 
 2. Select Data Region and a Basic $6/mo Droplet type&#x20;
 
-<figure><img src="../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (17) (1).png" alt=""><figcaption></figcaption></figure>
 
 3. Select Authentication Method. In this example, we are going to use Password
 

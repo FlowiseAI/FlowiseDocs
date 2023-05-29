@@ -4,6 +4,7 @@ Flowise can be deployed to any cloud services. Here's few commonly used cloud pr
 
 * [Render](render.md)
 * [Railway](railway.md)
+* [Replit](replit.md)
 
 These services are easy to use. However they are ephemeral, which means the data will be wiped once the apps restart.&#x20;
 

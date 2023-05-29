@@ -16,7 +16,7 @@ This setup requires some basic understanding of how AWS works.
 
 3. Fill in your preferred key pair name. For Windows, we will use `.ppk` and PuTTY to connect to the instance. For Mac and Linux, we will use `.pem` and OpenSSH
 
-<figure><img src="../.gitbook/assets/image (15) (2).png" alt="" width="370"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (15) (2) (1).png" alt="" width="370"><figcaption></figcaption></figure>
 
 4. Click **Create key pair** and select a location path to save the `.ppk` file
 5. Open the left side bar, and open a new tab from **Security Groups**. Then **Create security group**
@@ -25,7 +25,7 @@ This setup requires some basic understanding of how AWS works.
 
 6. Fill in your preferred security group name and description. Next, add the following to Inbound Rules and **Create security group**
 
-<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
 
 7. Back to the first tab (EC2 Launch an instance) and scroll down to **Network settings**. Select the security group you've just created
 
@@ -33,7 +33,7 @@ This setup requires some basic understanding of how AWS works.
 
 8. Click **Launch instance**. Navigate back to EC2 Dashboard, after few mins we should be able to see a new instance up and running [🎉](https://emojipedia.org/party-popper/)
 
-<figure><img src="../.gitbook/assets/image (17) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (17) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## How to Connect to your instance (Windows)&#x20;
 
@@ -48,7 +48,7 @@ This setup requires some basic understanding of how AWS works.
 
 4. Click **Open** and **Accept** the pop up message
 
-<figure><img src="../.gitbook/assets/image (18).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (18) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 5. Then login as `ec2-user`
 
@@ -152,7 +152,7 @@ cd Flowise && cd docker
 nano .env
 ```
 
-<figure><img src="../.gitbook/assets/image (13).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 4. (Optional) You can also specify `FLOWISE_USERNAME` and `FLOWISE_PASSWORD` for app level authorization. See more [setting-username-and-password.md](../authorization/setting-username-and-password.md "mention")
 5. Then press `Ctrl + X` to Exit, and `Y` to save the file
@@ -219,7 +219,7 @@ press `Ctrl + X` to Exit, and `Y` to save the file
    ```
 7. Go to your DNS provider, and add a new A record. Name will be your domain name, and value will be the Public IPv4 address from EC2 instance
 
-<figure><img src="../.gitbook/assets/image (3).png" alt="" width="367"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (2).png" alt="" width="367"><figcaption></figcaption></figure>
 
 6. You should now be able to open the app: `http://yourdomain.com`.
 
