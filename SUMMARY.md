@@ -11,4 +11,5 @@
 * [Deployment](deployment/README.md)
   * [Render](deployment/render.md)
   * [Railway](deployment/railway.md)
+  * [AWS](deployment/aws.md)
 * [Contributing](CONTRIBUTING.md)
