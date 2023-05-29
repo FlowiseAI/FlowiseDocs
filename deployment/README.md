@@ -5,7 +5,7 @@ Flowise can be deployed to any cloud services. Here's few commonly used cloud pr
 * [Render](render.md)
 * [Railway](railway.md)
 
-More technical but reliable
+More technical setup:
 
-* AWS
+* [AWS](aws.md)
 

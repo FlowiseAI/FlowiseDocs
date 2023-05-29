@@ -13,7 +13,7 @@
 
 6. Connect Your Github Account
 
-<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
 7. Select your forked Flowise repo and click Connect
 8. Fill in your preferred app name, and select Node for Runtime
