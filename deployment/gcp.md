@@ -3,9 +3,9 @@
 ## Prerequisites
 
 1. Notedown your Google Cloud [ProjectId]
-2. Install Git
-3. Install the Google Cloud CLI
-4. Install Docker Desktop
+2. Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+3. Install the [Google Cloud CLI](https://cloud.google.com/sdk/docs/install-sdk)
+4. Install [Docker Desktop](https://docs.docker.com/desktop/)
 
 ## Setup Kubernetes Cluster
 
@@ -34,7 +34,7 @@ kubectl config use-context gke_[ProjectId]_[DataCenter]_[ClusterName]
 
 ## Build and Push the Docker image
 
-Run following commands to build and pushe the Docker image to GCP Container Registry.
+Run the following commands to build and push the Docker image to GCP Container Registry.
 1. Clone the Flowise
 ```
 git clone https://github.com/FlowiseAI/Flowise.git
@@ -55,7 +55,7 @@ yarn build
 > RUN apk add --no-cache python3 make g++
 > ```
 
-3. Build as Docker image, make sure your Docker desktop app is running
+3. Build as Docker image, make sure the Docker desktop app is running
 ```
 docker build -t gcr.io/[ProjectId]/flowise:dev .
 ```
@@ -66,8 +66,8 @@ docker push gcr.io/[ProjectId]/flowise:dev
 
 ## Deployment to GCP
 
-1. Create a `yamls` root folder in the project
-2. Add the `deployment.yaml` file into that folder
+1. Create a `yamls` root folder in the project.
+2. Add the `deployment.yaml` file into that folder.
 ```
 # deployment.yaml
 apiVersion: "v1"
@@ -97,7 +97,7 @@ spec:
             1Gi"
         
 ```
-3. Add the `service.yaml` file into that folder
+3. Add the `service.yaml` file into that folder.
 ```
 # service.yaml
 apiVersion: "v1"
@@ -122,7 +122,7 @@ It will be look like below.
 <figcaption></figcaption>
 </figure>
 
-4. Deploy the yaml files by running following commands
+4. Deploy the yaml files by running following commands.
 ```
 kubectl apply -f yamls/deployment.yaml
 kubectl apply -f yamls/service.yaml
