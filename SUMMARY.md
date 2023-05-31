@@ -14,5 +14,5 @@
   - [Replit](deployment/replit.md)
   - [AWS](deployment/aws.md)
   - [Digital Ocean](deployment/digital-ocean.md)
-  - [Test](deployment/test.md)
+  - [GCP](deployment/gcp.md)
 - [Contributing](CONTRIBUTING.md)
