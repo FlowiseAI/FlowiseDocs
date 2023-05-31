@@ -25,14 +25,15 @@ Found an issue? [Report it](https://github.com/FlowiseAI/Flowise/issues/new/choo
 ## 📖 Contribute to Docs
 
 1. Fork the official [Flowise Docs Repo](https://github.com/FlowiseAI/FlowiseDocs)
-2. Clone your forked repository.
+2. Clone your forked repository
 3. Create a new branch
-4. Switch to the newly created branch.
-5.  Go into repository folder
+4. Switch to the newly created branch
+5. Go into repository folder
 
-    ```bash
-    cd FlowiseDocs
-    ```
+   ```bash
+   cd FlowiseDocs
+   ```
+
 6. Make changes
 7. Commit changes and submit Pull Request from forked branch pointing to [Flowise Docs main](https://github.com/FlowiseAI/FlowiseDocs).
 
@@ -46,4 +47,4 @@ Before we can merge your contribution you have to sign our [Contributor License 
 
 ## 📜 Code of Conduct
 
-This project and everyone participating in it are governed by the Code of Conduct which can be found in the [file](CODE\_OF\_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to hello@flowiseai.com.
+This project and everyone participating in it are governed by the Code of Conduct which can be found in the [file](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to hello@flowiseai.com.
