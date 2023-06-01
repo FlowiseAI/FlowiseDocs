@@ -21,7 +21,7 @@ Imagine you have a chatflow constructed, and you only want certain people to be 
 
 In dashboard, navigate to API Keys section, and you should be able to see a DefaultKey created. You can also add or delete any keys.
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Chatflow
 
@@ -37,5 +37,5 @@ After assigning an API key, one can only access the chatflow API when the Author
 
 An example of calling the API using POSTMAN
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 

@@ -8,11 +8,11 @@ This setup requires some basic understanding of how AWS works.
 
 1. In the EC2 dashboard, click **Launch Instance**
 
-<figure><img src="../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (19) (1).png" alt=""><figcaption></figcaption></figure>
 
 2. Scroll down and **Create new key pair** if you don't have one
 
-<figure><img src="../.gitbook/assets/image (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 3. Fill in your preferred key pair name. For Windows, we will use `.ppk` and PuTTY to connect to the instance. For Mac and Linux, we will use `.pem` and OpenSSH
 
@@ -21,7 +21,7 @@ This setup requires some basic understanding of how AWS works.
 4. Click **Create key pair** and select a location path to save the `.ppk` file
 5. Open the left side bar, and open a new tab from **Security Groups**. Then **Create security group**
 
-<figure><img src="../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (20) (1).png" alt=""><figcaption></figcaption></figure>
 
 6. Fill in your preferred security group name and description. Next, add the following to Inbound Rules and **Create security group**
 
@@ -33,7 +33,7 @@ This setup requires some basic understanding of how AWS works.
 
 8. Click **Launch instance**. Navigate back to EC2 Dashboard, after few mins we should be able to see a new instance up and running [🎉](https://emojipedia.org/party-popper/)
 
-<figure><img src="../.gitbook/assets/image (17) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (17) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## How to Connect to your instance (Windows)&#x20;
 
@@ -44,11 +44,11 @@ This setup requires some basic understanding of how AWS works.
 
 3. From the left hand side bar of PuTTY Configuration, expand **SSH** and click on **Auth**. Click Browse and select the `.ppk` file you downloaded earlier.
 
-<figure><img src="../.gitbook/assets/image.png" alt="" width="296"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (23).png" alt="" width="296"><figcaption></figcaption></figure>
 
 4. Click **Open** and **Accept** the pop up message
 
-<figure><img src="../.gitbook/assets/image (18) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (18) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 5. Then login as `ec2-user`
 

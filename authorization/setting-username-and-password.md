@@ -1,4 +1,4 @@
-# 🔒 Setting username & password
+# Setting username & password
 
 ## NPM
 

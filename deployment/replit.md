@@ -3,11 +3,11 @@
 1. Sign in to [Replit](https://replit.com/\~)
 2. Create a new **Repl**. Select **Node.js** as Template and fill in your preferred **Title**.
 
-<figure><img src="../.gitbook/assets/image (18).png" alt="" width="368"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (18) (1).png" alt="" width="368"><figcaption></figcaption></figure>
 
 3. After a new Repl is created, switch to Shell tab
 
-<figure><img src="../.gitbook/assets/image (13).png" alt="" width="359"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13) (2).png" alt="" width="359"><figcaption></figcaption></figure>
 
 4. Type in `npm install -g flowise` into the Shell terminal window
 
@@ -15,7 +15,7 @@
 
 5. Then followed by `npx flowise start`
 
-<figure><img src="../.gitbook/assets/image (17).png" alt="" width="356"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (17) (1).png" alt="" width="356"><figcaption></figcaption></figure>
 
 6. You should now be able to see Flowise on Replit!
 
@@ -29,4 +29,4 @@ npx flowise start --FLOWISE_USERNAME=user --FLOWISE_PASSWORD=1234
 
 8. You will now see a login page. Simply login with the username and password you've set.
 
-<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12) (2).png" alt=""><figcaption></figcaption></figure>

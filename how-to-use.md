@@ -25,7 +25,7 @@ You can also embed a chat widget to your website.&#x20;
 
 Simply copy paste the embedded code provided to anywhere in the `<body>` tag of your html file.
 
-<figure><img src=".gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (8) (2).png" alt=""><figcaption></figcaption></figure>
 
 Watch how to do that:
 
