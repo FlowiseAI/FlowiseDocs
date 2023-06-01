@@ -2,8 +2,9 @@
 
 * [Welcome to Flowise](README.md)
 * [Getting Started](getting-started/README.md)
-  * [🐳 Docker](getting-started/README.md)
-  * [👨‍💻 Developers](getting-started/README.md)
+  * [⚡ Quick Start](http://localhost:5000/s/y8ifwt9BYklr92KDdr48/getting-started#quick-start)
+  * [🐳 Docker](http://localhost:5000/s/y8ifwt9BYklr92KDdr48/getting-started#docker)
+  * [👨💻 Developers](http://localhost:5000/s/y8ifwt9BYklr92KDdr48/getting-started#developers)
 * [Authorization](authorization/README.md)
   * [Setting username & password](authorization/setting-username-and-password.md)
 * [How to Use](how-to-use.md)
