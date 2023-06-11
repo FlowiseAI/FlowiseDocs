@@ -30,7 +30,7 @@
 1. Input Collection Name into **Chroma Upsert Document** node or **Chroma Load Existing Index** node. (e.g. elon-musk)\
    ![](<../.gitbook/assets/image (37).png>)![](<../.gitbook/assets/image (31).png>)
 2. **Document** can be connect with any node under [**Document Loader**](../document-loaders.md) category
-3. **Embeddings** can be connect with any node under [**Embeddings** ](../embeddings.md)category
+3. **Embeddings** can be connect with any node under [**Embeddings** ](../embeddings/)category
 
 ## Resources
 

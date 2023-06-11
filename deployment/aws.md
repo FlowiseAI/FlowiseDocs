@@ -44,7 +44,7 @@ This setup requires some basic understanding of how AWS works.
 
 3. From the left hand side bar of PuTTY Configuration, expand **SSH** and click on **Auth**. Click Browse and select the `.ppk` file you downloaded earlier.
 
-<figure><img src="../.gitbook/assets/image (23).png" alt="" width="296"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (23) (1).png" alt="" width="296"><figcaption></figcaption></figure>
 
 4. Click **Open** and **Accept** the pop up message
 

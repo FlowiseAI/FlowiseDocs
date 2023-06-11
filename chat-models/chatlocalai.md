@@ -4,7 +4,7 @@
 
 [**LocalAI** ](https://github.com/go-skynet/LocalAI)is a drop-in replacement REST API that’s compatible with OpenAI API specifications for local inferencing. It allows you to run LLMs (and not only) locally or on-prem with consumer grade hardware, supporting multiple model families that are compatible with the ggml format.
 
-To use LocalAI within Flowise, follow the steps below:
+To use ChatLocalAI within Flowise, follow the steps below:
 
 1. ```bash
    git clone https://github.com/go-skynet/LocalAI
@@ -28,6 +28,8 @@ wget https://gpt4all.io/models/ggml-gpt4all-j.bin -O models/ggml-gpt4all-j
 In the `/models` folder, you should be able to see the downloaded model in there:
 
 <figure><img src="../.gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
+
+Refer [here](https://localai.io/model-compatibility/index.html) for list of supported models.
 
 4. ```bash
    docker-compose up -d --pull always

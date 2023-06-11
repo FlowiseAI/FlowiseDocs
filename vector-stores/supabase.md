@@ -80,9 +80,9 @@
 
     <figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 3. Copy & Paste each details (_API Key, URL, Table Name, Query Name_) into **Supabase Upsert Document** node or **Supabase Load Existing** node\
-   ![](<../.gitbook/assets/image (21).png>)![](<../.gitbook/assets/image (29).png>)
+   ![](<../.gitbook/assets/image (21) (1).png>)![](<../.gitbook/assets/image (29) (1).png>)
 4. **Document** can be connect with any node under [**Document Loader**](../document-loaders.md) category
-5. **Embeddings** can be connect with any node under [**Embeddings** ](../embeddings.md)category
+5. **Embeddings** can be connect with any node under [**Embeddings** ](../embeddings/)category
 
 ## Resources
 
