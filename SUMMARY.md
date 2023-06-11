@@ -16,6 +16,8 @@
   * [Digital Ocean](deployment/digital-ocean.md)
   * [GCP](deployment/gcp.md)
 * [Document Loaders](document-loaders.md)
+* [Chat Models](chat-models/README.md)
+  * [ChatLocalAI](chat-models/chatlocalai.md)
 * [Embeddings](embeddings.md)
 * [Vector Stores](vector-stores/README.md)
   * [Pinecone](vector-stores/pinecone.md)
