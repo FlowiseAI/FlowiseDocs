@@ -34,7 +34,7 @@ For Mac/Linux, follow this [guide](https://docs.digitalocean.com/products/drople
 2. ```
    sudo sh get-docker.sh
    ```
-3. Install docket-compose:
+3. Install docker-compose:
 
 ```
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
