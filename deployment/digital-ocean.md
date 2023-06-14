@@ -210,7 +210,7 @@ sudo ln -s /opt/certbot/bin/certbot /usr/bin/certbot
 sudo certbot --nginx
 ```
 
-5. After following the certificate generation wizard, we will be able to access our EC2 instance via HTTPS using the address `https://yourdomain.com`
+5. After following the certificate generation wizard, we will be able to access our Droplet via HTTPS using the address https://yourdomain.com
 
 ### Set up automatic renewal
 
