@@ -182,7 +182,7 @@ Nginx is now configured as a reverse proxy for your application server. You shou
 
 ### Step 3 — Installing Certbot for HTTPS (SSL)
 
-If you'd like to add a secure `https` connection to your Droplet like `https://yourdomain.com`, you'll need to do the following:
+If you'd like to add a secure `https` connection to your Droplet like https://yourdomain.com, you'll need to do the following:
 
 1. For installing Certbot and enabling HTTPS on NGINX, we will rely on Python. So, first of all, let's set up a virtual environment:
 
