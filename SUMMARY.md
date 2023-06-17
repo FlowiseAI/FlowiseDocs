@@ -10,6 +10,7 @@
 * [How to Use](how-to-use/README.md)
   * [API](http://localhost:5000/s/y8ifwt9BYklr92KDdr48/how-to-use#api)
   * [Embed](http://localhost:5000/s/y8ifwt9BYklr92KDdr48/how-to-use#embed)
+  * [Streaming](http://localhost:5000/s/y8ifwt9BYklr92KDdr48/how-to-use#streaming)
 * [Deployment](deployment/README.md)
   * [Render](deployment/render.md)
   * [Railway](deployment/railway.md)
