@@ -36,7 +36,7 @@ curl http://localhost:8080/v1/embeddings -H "Content-Type: application/json" -d 
 
 Drag and drop a new LocalAIEmbeddings component to canvas:
 
-<figure><img src="../.gitbook/assets/image (21).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (21) (1).png" alt=""><figcaption></figcaption></figure>
 
 Fill in the fields:
 

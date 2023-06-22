@@ -40,7 +40,7 @@ This setup requires some basic understanding of how AWS works.
 1. For Windows, we are going to use PuTTY. You can download one from [here](https://www.chiark.greenend.org.uk/\~sgtatham/putty/latest.html).
 2. Open PuTTY and fill in the **HostName** with your instance's Public IPv4 DNS name
 
-<figure><img src="../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 3. From the left hand side bar of PuTTY Configuration, expand **SSH** and click on **Auth**. Click Browse and select the `.ppk` file you downloaded earlier.
 

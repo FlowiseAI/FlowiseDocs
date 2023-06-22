@@ -11,7 +11,7 @@
 
 4. Type in `npm install -g flowise` into the Shell terminal window
 
-<figure><img src="../.gitbook/assets/image (3).png" alt="" width="354"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt="" width="354"><figcaption></figcaption></figure>
 
 5. Then followed by `npx flowise start`
 
