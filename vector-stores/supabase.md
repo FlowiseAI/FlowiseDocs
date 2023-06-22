@@ -21,7 +21,7 @@
 6.  Click **New query**\
 
 
-    <figure><img src="../.gitbook/assets/image (36).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (36) (1).png" alt=""><figcaption></figcaption></figure>
 7.  Copy & Paste [query ](https://js.langchain.com/docs/modules/indexes/vector\_stores/integrations/supabase#create-a-table-and-search-function-in-your-database)and run it by `Ctrl + Enter` or click **RUN**\
     **Table name**: documents\
     **Query name**: match\_documents
@@ -75,7 +75,7 @@
 1.  Click **Project Settings**\
 
 
-    <figure><img src="../.gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (30) (1).png" alt=""><figcaption></figcaption></figure>
 2.  Get your **Project URL & API Key**
 
     <figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
