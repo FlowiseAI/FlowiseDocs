@@ -34,7 +34,7 @@ With the new [OpenAI Function Calling](https://openai.com/blog/function-calling-
 
 **Goal**: Have the agent automatically get the stock price movement, retrieve related stock news, and add a new record to Airtable.
 
-Let's get started!
+Let's get started[🚀](https://emojipedia.org/rocket/)
 
 ### Create Tools
 
@@ -222,7 +222,9 @@ You should see 3 tools created:
 
 ### Create Chatflow
 
-You can use the template **OpenAI Agent** from marketplace, and replace the tools with **Custom Tool**. Select the tool you have created:
+You can use the template **OpenAI Function** **Agent** from marketplace, and replace the tools with **Custom Tool**. Select the tool you have created.
+
+Note: OpenAI Function Agent only supports 0613 models currently.
 
 <figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
@@ -257,4 +259,4 @@ _<mark style="color:orange;">Stock Ticker: OSTK Price Move: 17.47% News Summary:
 
 
 
-Voila that's how you can create your own custom tool and use it with the OpenAI Agent!
+[🎉](https://emojipedia.org/party-popper/)[🎉](https://emojipedia.org/party-popper/)**Voila!** That's how you can create your own custom tool and use it with the OpenAI Function Agent!
