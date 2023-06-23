@@ -55,4 +55,4 @@ For instance, in your front-end application, you can dynamically generate a **se
 
 Example of a POST call:
 
-<figure><img src="../.gitbook/assets/image (38).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (41).png" alt=""><figcaption></figcaption></figure>

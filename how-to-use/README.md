@@ -11,6 +11,16 @@ You can use the chatflow as API and connect to frontend applications.
 
 <figure><img src="../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
 
+You also have the flexibility to override input configuration with **overrideConfig** property.
+
+<figure><img src="../.gitbook/assets/image (43).png" alt=""><figcaption></figcaption></figure>
+
+If the flow contains [Document Loaders](../document-loaders.md), the API looks slightly different. Instead of passing as JSON body, form-data is being used. This allows you to upload any files to the API.&#x20;
+
+Note: It is user's responsibility to make sure the file type is compatible with the expected file type from document loader. For example, if a Text File Loader is being used, you should only upload file with `.txt` extension.
+
+<figure><img src="../.gitbook/assets/image (37).png" alt=""><figcaption></figcaption></figure>
+
 Watch how to connect to [Bubble](https://bubble.io/)
 
 {% embed url="https://youtu.be/kOwmPe8aLAA" %}
@@ -21,7 +31,7 @@ Watch how to connect to [FlutterFlow](https://flutterflow.io/)
 
 ## Streaming
 
-Flowise also support streaming back to your front end application if **ConversationalRetrievalQAChain** or **OpenAI Function Agent** is being used.
+Flowise also support streaming back to your front end application when the final node is a **Chain** or **OpenAI Function Agent.**
 
 <figure><img src="../.gitbook/assets/screely-1687030897806.png" alt=""><figcaption></figcaption></figure>
 
@@ -126,3 +136,4 @@ Watch how to do that:
 
 {% embed url="https://github.com/FlowiseAI/Flowise/assets/26460777/c128829a-2d08-4d60-b821-1e41a9e677d0" %}
 
+You can also customize your own embedded chat widget UI and pass **chatflowConfig** JSON object to override existing config. See [configuration list](https://github.com/FlowiseAI/FlowiseChatEmbed#configuration).
