@@ -122,7 +122,7 @@ const url = 'https://morning-star.p.rapidapi.com/news/list?performanceId=' + $pe
 const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '0f2167913bmshbd0a3a345279246p10095cjsnb9934dbdaca2',
+		'X-RapidAPI-Key': 'replace with your api key',
 		'X-RapidAPI-Host': 'morning-star.p.rapidapi.com'
 	}
 };
