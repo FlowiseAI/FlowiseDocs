@@ -55,7 +55,7 @@ Description is an important piece as ChatGPT is relying on this to decide when t
 
 <figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
-* JavaScript Function: We are going to use [Morning Star](https://rapidapi.com/apidojo/api/morning-star) `/market/v2/get-movers` API to get data. Copy the Code and paste it in.
+* JavaScript Function: We are going to use [Morning Star](https://rapidapi.com/apidojo/api/morning-star) `/market/v2/get-movers` API to get data. First you have to click Subscribe to Test if you haven't already, then copy the code and paste it into JavaScript Function.
   * Add `const fetch = require('node-fetch');` at the top to import the library. You can import any built-in NodeJS [modules](https://www.w3schools.com/nodejs/ref\_modules.asp) and [external libraries](https://github.com/FlowiseAI/Flowise/blob/main/packages/components/src/utils.ts#L289).
   * Return the `result` at the end.
 
@@ -106,7 +106,7 @@ Output Schema tells ChatGPT what to return as a JSON object. In this case, we ar
 
 <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
-* JavaScript Function: We are going to use [Morning Star](https://rapidapi.com/apidojo/api/morning-star) `/news/list` API to get the data. Copy the Code and paste it in.&#x20;
+* JavaScript Function: We are going to use [Morning Star](https://rapidapi.com/apidojo/api/morning-star) `/news/list` API to get the data. First you have to click Subscribe to Test if you haven't already, then copy the code and paste it into JavaScript Function.
   * Add `const fetch = require('node-fetch');` at the top to import the library. You can import any built-in NodeJS [modules](https://www.w3schools.com/nodejs/ref\_modules.asp) and [external libraries](https://github.com/FlowiseAI/Flowise/blob/main/packages/components/src/utils.ts#L289).
   * Return the `result` at the end.
 * Next, replace the hard-coded url query parameter performanceId: `0P0000OQN8` to the property variable specified in Output Schema: `$performanceId`
