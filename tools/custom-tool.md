@@ -53,13 +53,13 @@ Create a new Tool with the following details (you can change as you want):
 
 Description is an important piece as ChatGPT is relying on this to decide when to use this tool.
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 * JavaScript Function: We are going to use [Morning Star](https://rapidapi.com/apidojo/api/morning-star) `/market/v2/get-movers` API to get data. Copy the Code and paste it in.
   * Add `const fetch = require('node-fetch');` at the top to import the library. You can import any built-in NodeJS [modules](https://www.w3schools.com/nodejs/ref\_modules.asp) and [external libraries](https://github.com/FlowiseAI/Flowise/blob/main/packages/components/src/utils.ts#L289).
   * Return the `result` at the end.
 
-<figure><img src="../.gitbook/assets/Untitled (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Untitled (4).png" alt=""><figcaption></figcaption></figure>
 
 The final code should be:
 
@@ -112,7 +112,7 @@ Output Schema tells ChatGPT what to return as a JSON object. In this case, we ar
 * Next, replace the hard-coded url query parameter performanceId: `0P0000OQN8` to the property variable specified in Output Schema: `$performanceId`
 * You can use any properties specified in Output Schema as variables in the JavaScript Function by appending a prefix `$` at the front of the variable name.
 
-<figure><img src="../.gitbook/assets/Untitled.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Untitled (2).png" alt=""><figcaption></figcaption></figure>
 
 Final code:
 
@@ -173,7 +173,7 @@ ChatGPT will returns a JSON object like this:
 { "stock": "SOME TICKER", "move": "20%", "news_summary": "Some summary" }
 ```
 
-<figure><img src="../.gitbook/assets/image (21).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>
 
 * JavaScript Function: We are going to use [Airtable Create Record API](https://airtable.com/developers/web/api/create-records) to create a new record to an existing table. You can find the tableId and baseId from [here](https://www.highviewapps.com/kb/where-can-i-find-the-airtable-base-id-and-table-id/). You'll also need to create a personal access token, find how to do it [here](https://www.highviewapps.com/kb/how-do-i-create-an-airtable-personal-access-token/).
 
@@ -222,7 +222,7 @@ You can now save it.
 
 You should see 3 tools created:
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 ### Create Chatflow
 
@@ -230,7 +230,7 @@ You can use the template **OpenAI Function** **Agent** from marketplace, and rep
 
 Note: OpenAI Function Agent only supports 0613 models currently.
 
-<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 
 Save the chatflow and start testing it. For starter, you can try asking:
 

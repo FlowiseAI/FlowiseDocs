@@ -19,7 +19,7 @@
 
 6. You should now be able to see Flowise on Replit!
 
-<figure><img src="../.gitbook/assets/image (15).png" alt="" width="363"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (15) (3).png" alt="" width="363"><figcaption></figcaption></figure>
 
 7. If you would like to turn on [app level authorization](../authorization/setting-username-and-password.md), change the command to:
 
@@ -29,4 +29,4 @@ npx flowise start --FLOWISE_USERNAME=user --FLOWISE_PASSWORD=1234
 
 8. You will now see a login page. Simply login with the username and password you've set.
 
-<figure><img src="../.gitbook/assets/image (12) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12) (2) (1).png" alt=""><figcaption></figcaption></figure>

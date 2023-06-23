@@ -31,3 +31,5 @@
   * [Pinecone](vector-stores/pinecone.md)
   * [Supabase](vector-stores/supabase.md)
   * [Chroma](vector-stores/chroma.md)
+* [Memory](memory/README.md)
+  * [Zep Memory](memory/zep-memory.md)

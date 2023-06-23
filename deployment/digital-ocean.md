@@ -8,7 +8,7 @@ In this section, we are going to create a Droplet. For more information, refer t
 
 <figure><img src="../.gitbook/assets/image (15) (2).png" alt=""><figcaption></figcaption></figure>
 
-2. Select Data Region and a Basic $6/mo Droplet type&#x20;
+2. Select Data Region and a Basic $6/mo Droplet type
 
 <figure><img src="../.gitbook/assets/image (17) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -66,7 +66,7 @@ cd Flowise && cd docker
 nano .env
 ```
 
-<figure><img src="../.gitbook/assets/image (10).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10) (2).png" alt="" width="375"><figcaption></figcaption></figure>
 
 4. (Optional) You can also specify `FLOWISE_USERNAME` and `FLOWISE_PASSWORD` for app level authorization. See more [setting-username-and-password.md](../authorization/setting-username-and-password.md "mention")
 5. Then press `Ctrl + X` to Exit, and `Y` to save the file
@@ -89,20 +89,21 @@ docker-compose stop
 docker pull flowiseai/flowise
 ```
 
-
 ## Adding Reverse Proxy & SSL
-A reverse proxy is the recommended method to expose an application server to the internet.
-It will let us connect to our droplet using a URL alone instead of the server IP and port number. This provides security benefits in isolating the application server from direct internet access, the ability to centralize firewall protection, a minimized attack plane for common threats such as denial of service attacks, and most importantly for our purposes, the ability to terminate SSL/TLS encryption in a single place.
+
+A reverse proxy is the recommended method to expose an application server to the internet. It will let us connect to our droplet using a URL alone instead of the server IP and port number. This provides security benefits in isolating the application server from direct internet access, the ability to centralize firewall protection, a minimized attack plane for common threats such as denial of service attacks, and most importantly for our purposes, the ability to terminate SSL/TLS encryption in a single place.
+
 > A lack of SSL on your Droplet will cause the embeddable widget and API endpoints to be inaccessible in modern browsers. This is because browsers have begun to deprecate HTTP in favor of HTTPS, and block HTTP requests from pages loaded over HTTPS.
 
-
 ### Step 1 — Installing Nginx
+
 1. Nginx is available for installation with apt through the default repositories. Update your repository index, then install Nginx:
 
 ```bash
 sudo apt update
 sudo apt install nginx
 ```
+
 > Press Y to confirm the installation. If you are asked to restart services, press ENTER to accept the defaults.
 
 2. You need to allow access to Nginx through your firewall. Having set up your server according to the initial server prerequisites, add the following rule with ufw:
@@ -116,7 +117,9 @@ sudo ufw allow 'Nginx HTTP'
 ```bash
 systemctl status nginx
 ```
+
 Output:
+
 ```bash
 ● nginx.service - A high performance web server and a reverse proxy server
      Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
@@ -130,19 +133,20 @@ Output:
              ├─9919 "nginx: master process /usr/sbin/nginx -g daemon on; master_process on;"
              └─9920 "nginx: worker process
 ```
+
 Next you will add a custom server block with your domain and app server proxy.
 
-
 ### Step 2 — Configuring your Server Block + DNS Record
-It is recommended practice to create a custom configuration file for your new server block additions, instead of editing the default configuration directly. 
+
+It is recommended practice to create a custom configuration file for your new server block additions, instead of editing the default configuration directly.
+
 1. Create and open a new Nginx configuration file using nano or your preferred text editor:
-   
+
 ```bash
 sudo nano /etc/nginx/sites-available/your_domain
 ```
 
 2. Insert the following into your new file, making sure to replace `your_domain` with your own domain name:
-
 
 ```
 server {
@@ -159,17 +163,22 @@ server {
     }
 }
 ```
-3. Save and exit, with `nano` you can do this by hitting `CTRL+O` then `CTRL+X`.
 
+3. Save and exit, with `nano` you can do this by hitting `CTRL+O` then `CTRL+X`.
 4. Next, enable this configuration file by creating a link from it to the sites-enabled directory that Nginx reads at startup, making sure again to replace `your_domain` with your own domain name::
+
 ```bash
 sudo ln -s /etc/nginx/sites-available/your_domain /etc/nginx/sites-enabled/
 ```
+
 5. You can now test your configuration file for syntax errors:
+
 ```bash
 sudo nginx -t
 ```
+
 6. With no problems reported, restart Nginx to apply your changes:
+
 ```bash
 sudo systemctl restart nginx
 ```

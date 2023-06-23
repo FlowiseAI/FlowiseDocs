@@ -48,17 +48,17 @@ The default filesystem for services running on Render is ephemeral. Flowise data
 1. On the left hand side bar, click **Disks**
 2. Name your disk, and specify the **Mount Path** to `/opt/render/.flowise`
 
-<figure><img src="../.gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (37).png" alt=""><figcaption></figcaption></figure>
 
 3. Click the **Environment** section, and add a new environment variable:
 
 * Key: `DATABASE_PATH`
 * Value: `/opt/render/.flowise`
 
-<figure><img src="../.gitbook/assets/image (41).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (42).png" alt=""><figcaption></figcaption></figure>
 
 4. Clear build cache and deploy
 
-<figure><img src="../.gitbook/assets/image (36).png" alt="" width="194"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (41).png" alt="" width="194"><figcaption></figcaption></figure>
 
 5. Now try creating a flow and save it in Flowise. Then try restarting service or redeploy, you should still be able to see the flow you have saved previously.

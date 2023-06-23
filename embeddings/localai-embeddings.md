@@ -13,7 +13,7 @@ To use LocalAI Embeddings within Flowise, follow the steps below:
    </strong></code></pre>
 3. LocalAI provides an [API endpoint](https://localai.io/api-endpoints/index.html#applying-a-model---modelsapply) to download/install the model. In this example, we are going to use BERT Embeddings model:
 
-<figure><img src="../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (27) (1).png" alt=""><figcaption></figcaption></figure>
 
 4. In the `/models` folder, you should be able to see the downloaded model in there:
 
