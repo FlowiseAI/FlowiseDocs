@@ -55,7 +55,9 @@ Description is an important piece as ChatGPT is relying on this to decide when t
 
 <figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
-* JavaScript Function: We are going to use [Morning Star](https://rapidapi.com/apidojo/api/morning-star) `/market/v2/get-movers` API to get data. Copy the Code and paste it in. Remember to add `const fetch = require('node-fetch');` at the top to import the library, and return the `result` at the end.
+* JavaScript Function: We are going to use [Morning Star](https://rapidapi.com/apidojo/api/morning-star) `/market/v2/get-movers` API to get data. Copy the Code and paste it in.
+  * Add `const fetch = require('node-fetch');` at the top to import the library. You can import any built-in NodeJS [modules](https://www.w3schools.com/nodejs/ref\_modules.asp) and [external libraries](https://github.com/FlowiseAI/Flowise/blob/main/packages/components/src/utils.ts#L289).
+  * Return the `result` at the end.
 
 <figure><img src="../.gitbook/assets/Untitled (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -104,8 +106,10 @@ Output Schema tells ChatGPT what to return as a JSON object. In this case, we ar
 
 <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
-* JavaScript Function: We are going to use [Morning Star](https://rapidapi.com/apidojo/api/morning-star) `/news/list` API to get the data. Copy the Code and paste it in. Remember to add `const fetch = require('node-fetch');` at the top to import the library, and return the `result` at the end.
-* Next, replace the hard-coded url query parameter performanceId: `0P0000OQN8` to the property specified in Output Schema: `$performanceId`
+* JavaScript Function: We are going to use [Morning Star](https://rapidapi.com/apidojo/api/morning-star) `/news/list` API to get the data. Copy the Code and paste it in.&#x20;
+  * Add `const fetch = require('node-fetch');` at the top to import the library. You can import any built-in NodeJS [modules](https://www.w3schools.com/nodejs/ref\_modules.asp) and [external libraries](https://github.com/FlowiseAI/Flowise/blob/main/packages/components/src/utils.ts#L289).
+  * Return the `result` at the end.
+* Next, replace the hard-coded url query parameter performanceId: `0P0000OQN8` to the property variable specified in Output Schema: `$performanceId`
 * You can use any properties specified in Output Schema as variables in the JavaScript Function by appending a prefix `$` at the front of the variable name.
 
 <figure><img src="../.gitbook/assets/Untitled.png" alt=""><figcaption></figcaption></figure>
