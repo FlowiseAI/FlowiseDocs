@@ -28,4 +28,4 @@ There are different type of ways to store memory:
 * Buffer Memory
 * Buffer Window Memory
 * Conversation Summary Memory
-* Zep Memory
+* [Zep Memory](zep-memory.md)
