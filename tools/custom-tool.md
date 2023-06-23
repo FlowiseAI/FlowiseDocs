@@ -173,7 +173,7 @@ ChatGPT will returns a JSON object like this:
 { "stock": "SOME TICKER", "move": "20%", "news_summary": "Some summary" }
 ```
 
-<figure><img src="../.gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (36).png" alt=""><figcaption></figcaption></figure>
 
 * JavaScript Function: We are going to use [Airtable Create Record API](https://airtable.com/developers/web/api/create-records) to create a new record to an existing table. You can find the tableId and baseId from [here](https://www.highviewapps.com/kb/where-can-i-find-the-airtable-base-id-and-table-id/). You'll also need to create a personal access token, find how to do it [here](https://www.highviewapps.com/kb/how-do-i-create-an-airtable-personal-access-token/).
 
@@ -230,7 +230,7 @@ You can use the template **OpenAI Function** **Agent** from marketplace, and rep
 
 Note: OpenAI Function Agent only supports 0613 models currently.
 
-<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
 
 Save the chatflow and start testing it. For starter, you can try asking:
 

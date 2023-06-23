@@ -13,13 +13,13 @@ You can use the chatflow as API and connect to frontend applications.
 
 You also have the flexibility to override input configuration with **overrideConfig** property.
 
-<figure><img src="../.gitbook/assets/image (43).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (45).png" alt=""><figcaption></figcaption></figure>
 
 If the flow contains [Document Loaders](../document-loaders.md), the API looks slightly different. Instead of passing as JSON body, form-data is being used. This allows you to upload any files to the API.&#x20;
 
 Note: It is user's responsibility to make sure the file type is compatible with the expected file type from document loader. For example, if a Text File Loader is being used, you should only upload file with `.txt` extension.
 
-<figure><img src="../.gitbook/assets/image (37).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (41).png" alt=""><figcaption></figcaption></figure>
 
 Watch how to connect to [Bubble](https://bubble.io/)
 

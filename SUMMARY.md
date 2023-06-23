@@ -20,6 +20,7 @@
   * [Azure](deployment/azure.md)
   * [Digital Ocean](deployment/digital-ocean.md)
   * [GCP](deployment/gcp.md)
+* [Environment Variables](environment-variables.md)
 * [Document Loaders](document-loaders.md)
 * [Chat Models](chat-models/README.md)
   * [ChatLocalAI](chat-models/chatlocalai.md)

@@ -13,7 +13,7 @@ In this example, we are going to deploy to Render.
 1. Head over to [Zep Repo](https://github.com/getzep/zep#quick-start) and click **Deploy to Render**
 2. This will bring you to Render's Blueprint page and simply click **Create New Resources**
 
-<figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (21).png" alt=""><figcaption></figcaption></figure>
 
 3. When the deployment is done, you should see 3 applications created on your dashboard
 
@@ -21,7 +21,7 @@ In this example, we are going to deploy to Render.
 
 4. Simply click the first one called **zep** and copy the deployed URL
 
-<figure><img src="../.gitbook/assets/image (36).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (38).png" alt=""><figcaption></figcaption></figure>
 
 ## Use in Flowise UI
 
@@ -35,7 +35,7 @@ In this example, we are going to deploy to Render.
 
 3. Save the chatflow and test it out to see if conversations are remembered.
 
-<figure><img src="../.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
 
 4. Now try clearing the chat history, and see if it still remember the previous conversations
 
@@ -55,4 +55,4 @@ For instance, in your front-end application, you can dynamically generate a **se
 
 Example of a POST call:
 
-<figure><img src="../.gitbook/assets/image (41).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (43).png" alt=""><figcaption></figcaption></figure>
