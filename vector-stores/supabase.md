@@ -64,7 +64,7 @@
       order by documents.embedding <=> query_embedding
       limit match_count;
     end;
-    $$;sql
+    $$;
 
     ```
 
