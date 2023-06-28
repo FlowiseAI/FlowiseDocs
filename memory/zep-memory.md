@@ -21,7 +21,7 @@ In this example, we are going to deploy to Render.
 
 4. Simply click the first one called **zep** and copy the deployed URL
 
-<figure><img src="../.gitbook/assets/image (38).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (38) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Use in Flowise UI
 

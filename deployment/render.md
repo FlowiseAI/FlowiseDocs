@@ -9,7 +9,7 @@
 
 5. Select "Web Service"
 
-![](<../.gitbook/assets/image (9) (1) (1) (1).png>)
+![](<../.gitbook/assets/image (9) (1) (1) (1) (1).png>)
 
 6. Connect Your Github Account
 

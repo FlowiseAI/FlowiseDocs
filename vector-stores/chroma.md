@@ -16,7 +16,7 @@
     cd chroma
     ```
 
-    <figure><img src="../.gitbook/assets/image (38) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (38) (1) (1).png" alt=""><figcaption></figcaption></figure>
 4.  Run docker compose to build up Chroma image and container
 
     ```powershell

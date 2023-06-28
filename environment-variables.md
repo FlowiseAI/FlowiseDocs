@@ -28,4 +28,4 @@ You can set all these variables in the `.env` file inside `docker` folder. Refer
 
 ## Railway
 
-<figure><img src=".gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
