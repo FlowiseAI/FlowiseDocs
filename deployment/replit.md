@@ -9,34 +9,34 @@
 
 <figure><img src="../.gitbook/assets/image (38).png" alt="" width="219"><figcaption></figcaption></figure>
 
-3. Create 3 Secrets to skip Chromium download for Puppeteer and Playwright libraries.
+4. Create 3 Secrets to skip Chromium download for Puppeteer and Playwright libraries.
 
 <table><thead><tr><th width="403">Secrets</th><th>Value</th></tr></thead><tbody><tr><td>PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD</td><td>1</td></tr><tr><td>PUPPETEER_SKIP_DOWNLOAD</td><td>true</td></tr><tr><td>PUPPETEER_SKIP_CHROMIUM_DOWNLOAD</td><td>true</td></tr></tbody></table>
 
 <figure><img src="../.gitbook/assets/image (9).png" alt="" width="535"><figcaption></figcaption></figure>
 
-3. You can now switch to Shell tab
+5. You can now switch to Shell tab
 
 <figure><img src="../.gitbook/assets/image (13) (2).png" alt="" width="539"><figcaption></figcaption></figure>
 
-4. Type in `npm install -g flowise` into the Shell terminal window. If you are having error about incompatible node version, use the following command `yarn global add react --ignore-engines`
+6. Type in `npm install -g flowise` into the Shell terminal window. If you are having error about incompatible node version, use the following command `yarn global add react --ignore-engines`
 
 <figure><img src="../.gitbook/assets/image (3) (1).png" alt="" width="530"><figcaption></figcaption></figure>
 
-5. Then followed by `npx flowise start`
+7. Then followed by `npx flowise start`
 
 <figure><img src="../.gitbook/assets/image (17) (1).png" alt="" width="533"><figcaption></figcaption></figure>
 
-6. You should now be able to see Flowise on Replit!
+8. You should now be able to see Flowise on Replit!
 
 <figure><img src="../.gitbook/assets/image (15) (3).png" alt="" width="545"><figcaption></figcaption></figure>
 
-7. If you would like to turn on [app level authorization](../authorization/setting-username-and-password.md), change the command to:
+9. If you would like to turn on [app level authorization](../authorization/setting-username-and-password.md), change the command to:
 
 ```bash
 npx flowise start --FLOWISE_USERNAME=user --FLOWISE_PASSWORD=1234
 ```
 
-8. You will now see a login page. Simply login with the username and password you've set.
+10. You will now see a login page. Simply login with the username and password you've set.
 
 <figure><img src="../.gitbook/assets/image (12) (2) (1).png" alt=""><figcaption></figcaption></figure>
