@@ -17,7 +17,7 @@ In this example, we are going to deploy to Render.
 
 3. When the deployment is done, you should see 3 applications created on your dashboard
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 4. Simply click the first one called **zep** and copy the deployed URL
 

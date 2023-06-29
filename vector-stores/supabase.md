@@ -3,23 +3,19 @@
 ## Prerequisite
 
 1. Register an account for [Supabase](https://supabase.com/)
-2.  Click **New project**\
-
+2.  Click **New project**\\
 
     <figure><img src="../.gitbook/assets/image (8) (2) (1).png" alt=""><figcaption></figcaption></figure>
 3.  Input required fields\
     **Name**, name of the project to be created. (e.g. Flowise)\
-    **Database** Password, password to your postgres database. (e.g. click **Generate a password**)\
-
+    **Database** Password, password to your postgres database. (e.g. click **Generate a password**)\\
 
     <figure><img src="../.gitbook/assets/image (25) (1).png" alt=""><figcaption></figcaption></figure>
 4. Click **Create new project** and wait for the project to finish setting up
-5.  Click **SQL Editor**\
-
+5.  Click **SQL Editor**\\
 
     <figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
-6.  Click **New query**\
-
+6.  Click **New query**\\
 
     <figure><img src="../.gitbook/assets/image (36) (1).png" alt=""><figcaption></figcaption></figure>
 7.  Copy & Paste [query ](https://js.langchain.com/docs/modules/indexes/vector\_stores/integrations/supabase#create-a-table-and-search-function-in-your-database)and run it by `Ctrl + Enter` or click **RUN**\
@@ -72,13 +68,12 @@
 
 ## Setup
 
-1.  Click **Project Settings**\
-
+1.  Click **Project Settings**\\
 
     <figure><img src="../.gitbook/assets/image (30) (1).png" alt=""><figcaption></figcaption></figure>
 2.  Get your **Project URL & API Key**
 
-    <figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (2) (3).png" alt=""><figcaption></figcaption></figure>
 3. Copy & Paste each details (_API Key, URL, Table Name, Query Name_) into **Supabase Upsert Document** node or **Supabase Load Existing** node\
    ![](<../.gitbook/assets/image (21) (1) (1).png>)![](<../.gitbook/assets/image (29) (1).png>)
 4. **Document** can be connect with any node under [**Document Loader**](../document-loaders.md) category
