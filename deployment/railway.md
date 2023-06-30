@@ -3,7 +3,7 @@
 1. Click the following prebuilt [template](https://railway.app/template/YK7J0v?referralCode=Rt5mqt)
 2. Click Deploy Now
 
-<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 3. Change to your preferred repository name and click Deploy
 

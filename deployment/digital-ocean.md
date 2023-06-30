@@ -14,7 +14,7 @@ In this section, we are going to create a Droplet. For more information, refer t
 
 3. Select Authentication Method. In this example, we are going to use Password
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (2).png" alt=""><figcaption></figcaption></figure>
 
 4. After a while you should be able to see your droplet created successfully
 

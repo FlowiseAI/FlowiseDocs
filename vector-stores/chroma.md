@@ -9,7 +9,7 @@
     git clone https://github.com/chroma-core/chroma.git
     ```
 
-    <figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 3.  Change directory path to your cloned Chroma
 
     ```powershell
