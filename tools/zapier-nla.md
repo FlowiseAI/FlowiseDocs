@@ -31,7 +31,10 @@
 Send a Zoho email to chungyau.ong@flowiseai.com, body content is Testing Zapier NLA.
 ```
 ![](<../.gitbook/assets/zapier/nla/8.png>)
-![](<../.gitbook/assets/zapier/nla/9.png>)
+<p align="center">
+<img src="../.gitbook/assets/zapier/nla/9.png">
+</p>
+
 
 ## Resources
 
