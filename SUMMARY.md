@@ -2,15 +2,14 @@
 
 * [Welcome to Flowise](README.md)
 * [Getting Started](getting-started/README.md)
-  * [Docker](getting-started/README.md)
-  * [Developers](getting-started/README.md)
+  *
+  *
 * [Contributing](CONTRIBUTING.md)
 * [Authorization](authorization/README.md)
   * [Setting username & password](authorization/setting-username-and-password.md)
 * [How to Use](how-to-use/README.md)
-  * [API](http://localhost:5000/s/y8ifwt9BYklr92KDdr48/how-to-use#api)
-  * [Streaming](http://localhost:5000/s/y8ifwt9BYklr92KDdr48/how-to-use#streaming)
-  * [Embed](http://localhost:5000/s/y8ifwt9BYklr92KDdr48/how-to-use#embed)
+  * [Streaming](how-to-use/README.md)
+  * [Embed](how-to-use/README.md)
 * [Deployment](deployment/README.md)
   * [Render](deployment/render.md)
   * [Railway](deployment/railway.md)
