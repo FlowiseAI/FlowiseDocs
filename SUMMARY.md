@@ -29,6 +29,7 @@
   * [Zep Memory](memory/zep-memory.md)
 * [Tools](tools/README.md)
   * [Custom Tool](tools/custom-tool.md)
+  * [Zapier NLA](tools/zapier-nla.md)
 * [Vector Stores](vector-stores/README.md)
   * [Pinecone](vector-stores/pinecone.md)
   * [Supabase](vector-stores/supabase.md)
