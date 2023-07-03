@@ -2,4 +2,4 @@
 
 Flowise can be used in 3rd party platform. Here are some usage examples:
 
-* [Zapier Zaps](zapier-zap.md)
+* [Zapier Zaps](zapier-zaps.md)
