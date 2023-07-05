@@ -12,3 +12,4 @@ Cloud providers like AWS, Azure, GCP, DigitalOcean are slightly more technical t
 * [Azure](azure.md)
 * [DigitalOcean](digital-ocean.md)
 * [GCP](gcp.md)
+* [Kubernetes using Helm](https://artifacthub.io/packages/helm/cowboysysop/flowise)
