@@ -3,43 +3,46 @@
 1. Fork [Flowise Official Repository](https://github.com/FlowiseAI/Flowise)
 2. Visit your github profile to assure you have successfully made a fork
 3. Sign in to [Render](https://dashboard.render.com)
-4. Click "New +"
+4. Click **New +**
 
-<figure><img src="../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/render/1.png" alt="" width="563"><figcaption></figcaption></figure>
 
-5. Select "Web Service"
+5. Select **Web Service**
 
-![](<../.gitbook/assets/image (9) (1) (1) (1) (1).png>)
+<figure><img src="../.gitbook/assets/render/2.png" alt="" width="563"><figcaption></figcaption></figure>
 
-6. Connect Your Github Account
+6. Connect Your GitHub Account
 
-<figure><img src="../.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
+7. Select your forked Flowise repo and click **Connect**
 
-7. Select your forked Flowise repo and click Connect
-8. Fill in your preferred app name, and select Node for Runtime
+<figure><img src="../.gitbook/assets/render/3.png" alt="" width="563"><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
+8. Fill in your preferred **Name** and **Region**, and use `Docker` as your **Runtime**
 
-9. Fill in the Build command and Start command as follow:
+<figure><img src="../.gitbook/assets/render/4.png" alt="" width="563"><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+9. Select an **Instance**
 
-10. Select the plan and Create Web Service.&#x20;
+<figure><img src="../.gitbook/assets/render/5.png" alt="" width="563"><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (15) (1).png" alt=""><figcaption></figcaption></figure>
-
-11. If you want to add app level authorization, navigate to Environment tab and add:
+10. [OPTIONAL] Add app level authorization, click **Advanced** and add `Environment Variable`
 
 * FLOWISE\_USERNAME
 * FLOWISE\_PASSWORD
 
-<figure><img src="../.gitbook/assets/image (12) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/render/6.png" alt="" width="563"><figcaption></figcaption></figure>
 
-Navigate to the deployed URL and that's it [🚀](https://emojipedia.org/rocket/)[🚀](https://emojipedia.org/rocket/)
+11. Click **Create Web Service**
 
-Detail walkthrough video:
+<figure><img src="../.gitbook/assets/render/7.png" alt="" width="563"><figcaption></figcaption></figure>
 
-{% embed url="https://youtu.be/s33v5cIeqA4" %}
+12. Navigate to the deployed URL and that's it [🚀](https://emojipedia.org/rocket/)[🚀](https://emojipedia.org/rocket/)
+
+<figure><img src="../.gitbook/assets/render/8.png" alt="" width="563"><figcaption></figcaption></figure>
+
+<!-- Detail walkthrough video:
+
+{% embed url="https://youtu.be/s33v5cIeqA4" %} -->
 
 ## Persistent Disk
 
@@ -48,17 +51,17 @@ The default filesystem for services running on Render is ephemeral. Flowise data
 1. On the left hand side bar, click **Disks**
 2. Name your disk, and specify the **Mount Path** to `/opt/render/.flowise`
 
-<figure><img src="../.gitbook/assets/image (42).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/render/9.png" alt="" width="563"><figcaption></figcaption></figure>
 
 3. Click the **Environment** section, and add a new environment variable:
 
 * Key: `DATABASE_PATH`
 * Value: `/opt/render/.flowise`
 
-<figure><img src="../.gitbook/assets/image (46).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/render/10.png" alt="" width="563"><figcaption></figcaption></figure>
 
-4. Clear build cache and deploy
+4. Click **Manual Deploy** then select **Clear build cache & deploy**
 
-<figure><img src="../.gitbook/assets/image (44).png" alt="" width="194"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/render/11.png" alt="" width="563"><figcaption></figcaption></figure>
 
 5. Now try creating a flow and save it in Flowise. Then try restarting service or redeploy, you should still be able to see the flow you have saved previously.
