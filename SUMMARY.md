@@ -2,14 +2,12 @@
 
 * [Welcome to Flowise](README.md)
 * [Getting Started](getting-started/README.md)
-  *
-  *
 * [Contributing](CONTRIBUTING.md)
 * [Authorization](authorization/README.md)
   * [Setting username & password](authorization/setting-username-and-password.md)
 * [How to Use](how-to-use/README.md)
-  * [Streaming](how-to-use/README.md)
-  * [Embed](how-to-use/README.md)
+  *
+  *
 * [Deployment](deployment/README.md)
   * [Render](deployment/render.md)
   * [Railway](deployment/railway.md)
@@ -33,3 +31,5 @@
   * [Pinecone](vector-stores/pinecone.md)
   * [Supabase](vector-stores/supabase.md)
   * [Chroma](vector-stores/chroma.md)
+* [3rd Party Platform Integration](3rd-party-platform-integration/README.md)
+  * [Zapier Zaps](3rd-party-platform-integration/zapier-zaps.md)
