@@ -9,40 +9,38 @@
 
 5. Select **Web Service**
 
-<figure><img src="../.gitbook/assets/render/2.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/render/2.png" alt=""><figcaption></figcaption></figure>
 
 6. Connect Your GitHub Account
-
 7. Select your forked Flowise repo and click **Connect**
 
 <figure><img src="../.gitbook/assets/render/3.png" alt="" width="563"><figcaption></figcaption></figure>
 
-8. Fill in your preferred **Name** and **Region**, and use `Docker` as your **Runtime**
+8. Fill in your preferred **Name** and **Region.**
+9. You  `Docker` as your **Runtime**
 
-<figure><img src="../.gitbook/assets/render/4.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/render/4.png" alt=""><figcaption></figcaption></figure>
 
 9. Select an **Instance**
 
-<figure><img src="../.gitbook/assets/render/5.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/render/5.png" alt=""><figcaption></figcaption></figure>
 
-10. [OPTIONAL] Add app level authorization, click **Advanced** and add `Environment Variable`
+10. \[OPTIONAL] Add app level authorization, click **Advanced** and add `Environment Variable`
 
 * FLOWISE\_USERNAME
 * FLOWISE\_PASSWORD
 
-<figure><img src="../.gitbook/assets/render/6.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/render/6.png" alt=""><figcaption></figcaption></figure>
+
+There are list of env variables you can configure. Refer to [environment-variables.md](../environment-variables.md "mention")
 
 11. Click **Create Web Service**
 
-<figure><img src="../.gitbook/assets/render/7.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/render/7.png" alt=""><figcaption></figcaption></figure>
 
 12. Navigate to the deployed URL and that's it [🚀](https://emojipedia.org/rocket/)[🚀](https://emojipedia.org/rocket/)
 
-<figure><img src="../.gitbook/assets/render/8.png" alt="" width="563"><figcaption></figcaption></figure>
-
-<!-- Detail walkthrough video:
-
-{% embed url="https://youtu.be/s33v5cIeqA4" %} -->
+<figure><img src="../.gitbook/assets/render/8.png" alt=""><figcaption></figcaption></figure>
 
 ## Persistent Disk
 
@@ -51,17 +49,17 @@ The default filesystem for services running on Render is ephemeral. Flowise data
 1. On the left hand side bar, click **Disks**
 2. Name your disk, and specify the **Mount Path** to `/opt/render/.flowise`
 
-<figure><img src="../.gitbook/assets/render/9.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/render/9.png" alt=""><figcaption></figcaption></figure>
 
 3. Click the **Environment** section, and add a new environment variable:
 
 * Key: `DATABASE_PATH`
 * Value: `/opt/render/.flowise`
 
-<figure><img src="../.gitbook/assets/render/10.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/render/10.png" alt=""><figcaption></figcaption></figure>
 
 4. Click **Manual Deploy** then select **Clear build cache & deploy**
 
-<figure><img src="../.gitbook/assets/render/11.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/render/11.png" alt=""><figcaption></figcaption></figure>
 
 5. Now try creating a flow and save it in Flowise. Then try restarting service or redeploy, you should still be able to see the flow you have saved previously.

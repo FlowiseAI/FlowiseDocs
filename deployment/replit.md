@@ -7,7 +7,7 @@
 
 3. After a new Repl is created, on the left hand side bar, click Secret:
 
-<figure><img src="../.gitbook/assets/image (2).png" alt="" width="219"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (4).png" alt="" width="219"><figcaption></figcaption></figure>
 
 4. Create 3 Secrets to skip Chromium download for Puppeteer and Playwright libraries.
 

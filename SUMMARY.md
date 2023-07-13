@@ -6,8 +6,6 @@
 * [Authorization](authorization/README.md)
   * [Setting username & password](authorization/setting-username-and-password.md)
 * [How to Use](how-to-use/README.md)
-  *
-  *
 * [Deployment](deployment/README.md)
   * [Render](deployment/render.md)
   * [Railway](deployment/railway.md)

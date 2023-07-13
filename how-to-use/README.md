@@ -29,7 +29,7 @@ Note: It is user's responsibility to make sure the file type is compatible with 
 
 An example of API call with `form-data` using Postman:
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (4).png" alt=""><figcaption></figcaption></figure>
 
 Watch how to connect to [Bubble](https://bubble.io/)
 
