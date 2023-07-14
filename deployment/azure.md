@@ -68,3 +68,26 @@ az containerapp create \
 ```
 
 4. Visit the url printed from the output of the previous command.
+
+##Persistent Disk in Container Apps
+
+The default filesystem is ephemeral. The flows/data created in app is temporary and it might get deleted.
+
+There are two accepted ways to add persistent storage to containers: bind mounts and volumes. Bind mounts create a mapping, which is the binding, between the container environment and Azure file share.
+
+1. Create a Storage Account in Azure portal
+2. In Storage Account create a new FileShare with Read/Write access
+3. Connect FileShare through Azure Files (tab on the left -> Settings/Azure Files) in Container Apps Environment
+4. Go to the Container instance (Under the revision select containers) and create a new revision.
+5. Within the new revision select the container settings edit & redeploy option, Navigate to volume mounts.
+6. Select File Shares and from dropdown chose the created fileshare (which is created in Step 2).
+7. Provide a mount path to selected fileshare(For eg. "/root/.flowise")
+8. After setting the fileshare. Select the basics tab, modify the existing command override to:
+/bin/sh,-c,apk add sqlite && sqlite3 /root/.flowise/database.sqlite 'PRAGMA journal_mode=WAL;' && flowise start
+
+9. Save settings and wait for the newly created revision to be provisioned.
+10. Once provisioned visit the new revision url.
+11. You can always verify the database getting updated by browsing the fileshare.
+12. Upload the database.sqlite file to fileshare will also be useful in case of copying database to production from local environment.
+
+More Information visit : https://learn.microsoft.com/en-us/azure/container-apps/storage-mounts?pivots=azure-portal
