@@ -6,7 +6,7 @@
 
 ## Create a Container Instance without Persistent Storage
 
-#### In Portal
+### In Portal
 
 1. Search for Container Instances in Marketplace and click Create:
 
@@ -38,7 +38,7 @@
 
 <figure><img src="../.gitbook/assets/8.png" alt=""><figcaption><p>Flowise application deployed as Container Instance</p></figcaption></figure>
 
-## Create using Azure CLI
+### Create using Azure CLI
 
 1. Create a resource group (if you don't already have one)
 
