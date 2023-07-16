@@ -55,7 +55,7 @@ az container create -g flowise-rg \
 	--name flowise \
 	--image flowiseai/flowise \
 	--command-line "/bin/sh -c 'flowise start'" \
-	--environment-variables FLOWISE_USER=flowise-user FLOWISE_PASSWORD=flowise-password \
+	--environment-variables FLOWISE_USERNAME=flowise-user FLOWISE_PASSWORD=flowise-password \
 	--ip-address public \
 	--ports 80 3000 \
 	--restart-policy OnFailure
@@ -84,7 +84,7 @@ az container create -g flowise-rg \
 	--name flowise \
 	--image flowiseai/flowise \
 	--command-line "/bin/sh -c 'flowise start'" \
-	--environment-variables FLOWISE_USER=flowise-user FLOWISE_PASSWORD=flowise-password DATABASE_PATH=/opt/flowise/.flowise \
+	--environment-variables FLOWISE_USERNAME=flowise-user FLOWISE_PASSWORD=flowise-password DATABASE_PATH=/opt/flowise/.flowise \
 	--ip-address public \
 	--ports 80 3000 \
 	--restart-policy OnFailure \
