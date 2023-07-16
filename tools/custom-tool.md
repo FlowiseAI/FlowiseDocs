@@ -265,21 +265,28 @@ _<mark style="color:orange;">Stock Ticker: OSTK Price Move: 17.47% News Summary:
 
 [🎉](https://emojipedia.org/party-popper/)[🎉](https://emojipedia.org/party-popper/)**Voila!** That's how you can create your own custom tool and use it with the OpenAI Function Agent!
 
-### Additional
+### Additional Dependencies
 
 You can import any built-in NodeJS [modules](https://www.w3schools.com/nodejs/ref\_modules.asp) and supported [external libraries](https://github.com/FlowiseAI/Flowise/blob/main/packages/components/src/utils.ts#L289) into the **JavaScript Function**.
 
-To import any non-supported libraries, you can easily add the new npm package to `package.json` in `packages/components` folder.
+1. To import any non-supported libraries, you can easily add the new npm package to `package.json` in `packages/components` folder.
 
 ```bash
 cd Flowise && cd packages && cd components
 yarn add <your-library>
 cd .. && cd ..
+yarn install
 yarn build
+```
+
+2. Then, add the imported libraries to `TOOL_FUNCTION_EXTERNAL_DEP` environment variable. Refer [#builtin-and-external-dependencies](../environment-variables.md#builtin-and-external-dependencies "mention") for more details.
+3. Start the app
+
+```
 yarn start
 ```
 
-You can then use the newly added library in the **JavaScript Function** like so:
+4. You can then use the newly added library in the **JavaScript Function** like so:
 
 ```javascript
 const axios = require('axios')
