@@ -6,6 +6,8 @@
 
 ## Create a Container Instance without Persistent Storage
 
+Without persistent storage your data is kept in memory. This means that on a container restart, all the data that you stored will disappear.
+
 ### In Portal
 
 1. Search for Container Instances in Marketplace and click Create:
