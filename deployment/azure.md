@@ -46,26 +46,17 @@
 az group create --name flowise-rg --location "West US"
 ```
 
-2. Create a Container App Environment
+2. Create a Container Instance
 
 ```bash
-az containerapp env create --name flowise-env --resource-group flowise-rg --location "West US"
+az container create -g flowise-rg \
+	--name flowise \
+	--image flowiseai/flowise \
+	--command-line "/bin/sh -c 'flowise start'" \
+	--environment-variables FLOWISE_USER=flowise-user FLOWISE_PASSWORD=flowise-password \
+	--ip-address public \
+	--ports 80 3000 \
+	--restart-policy OnFailure
 ```
 
-3. Create a Container App
-
-```bash
-az containerapp create \
-  --name flowise \
-  --resource-group flowise-rg \
-  --environment flowise-env  \
-  --image docker.io/flowiseai/flowise:latest \
-  --ingress external \
-  --target-port 3000 \
-  --command "flowise" "start" \
-  --secrets password="p@ssw0ord!" \
-  --env-vars FLOWISE_USERNAME="flowise-user" FLOWISE_PASSWORD="secretref:password"
-  --query properties.configuration.ingress.fqdn
-```
-
-4. Visit the url printed from the output of the previous command.
+3. Visit the IP address (including port :3000) printed from the output of the above command.
