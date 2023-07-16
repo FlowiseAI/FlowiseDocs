@@ -92,3 +92,6 @@ az container create -g flowise-rg \
 	--azure-file-volume-mount-path /opt/flowise/.flowise
 ```
 
+5. Visit the IP address (including port :3000) printed from the output of the above command.
+6. From now on your data will be stored in an SQLite database which you can find in your File share.
+
