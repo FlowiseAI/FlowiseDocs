@@ -12,33 +12,33 @@ Without persistent storage your data is kept in memory. This means that on a con
 
 1. Search for Container Instances in Marketplace and click Create:
 
-<figure><img src="../.gitbook/assets/1.png" alt=""><figcaption><p>Container Instances entry in Azure's Marketplace</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/azure/1.png" alt=""><figcaption><p>Container Instances entry in Azure's Marketplace</p></figcaption></figure>
 
 2. Select or create a Resource group, Container name, Region, Image source `Other registry`, Image type, Image `flowiseai/flowise` OS type and Size. Then click "Next: Networking" to configure Flowise ports:
 
-<figure><img src="../.gitbook/assets/2.png" alt=""><figcaption><p>First page in the Container Instance create wizard</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/azure/2.png" alt=""><figcaption><p>First page in the Container Instance create wizard</p></figcaption></figure>
 
 3. Add a new port `3000 (TCP)` next to the default `80 (TCP)`. Then Select "Next: Advanced":
 
-<figure><img src="../.gitbook/assets/3.png" alt=""><figcaption><p>Second page in the Container Instance create wizard. It asks for netowrking type and ports.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/azure/3.png" alt=""><figcaption><p>Second page in the Container Instance create wizard. It asks for netowrking type and ports.</p></figcaption></figure>
 
 4. Set Restart policy to `On failure`. Next, add 2 Environment variables `FLOWISE_USER` and `FLOWISE_PASSWORD`. Add Command override. Finally click "Review + create":
 
-<figure><img src="../.gitbook/assets/4.png" alt=""><figcaption><p>Third page in the Container Instance create wizard. It asks for restart policy, environment variables and command that runs on container start.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/azure/4.png" alt=""><figcaption><p>Third page in the Container Instance create wizard. It asks for restart policy, environment variables and command that runs on container start.</p></figcaption></figure>
 
 5. Review final settings and click "Create":
 
-<figure><img src="../.gitbook/assets/5.png" alt=""><figcaption><p>Final review and create page for a Container Instance.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/azure/5.png" alt=""><figcaption><p>Final review and create page for a Container Instance.</p></figcaption></figure>
 
 6. Once creation is completed, click on "Go to resource"
 
-<figure><img src="../.gitbook/assets/6.png" alt=""><figcaption><p>Resource creation result page in Azure.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/azure/6.png" alt=""><figcaption><p>Resource creation result page in Azure.</p></figcaption></figure>
 
 7. Visit your Flowise instance by copying IP address and adding :3000 as a port:
 
-<figure><img src="../.gitbook/assets/7.png" alt=""><figcaption><p>Container Instance overview page</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/azure/7.png" alt=""><figcaption><p>Container Instance overview page</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/8.png" alt=""><figcaption><p>Flowise application deployed as Container Instance</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/azure/8.png" alt=""><figcaption><p>Flowise application deployed as Container Instance</p></figcaption></figure>
 
 ### Create using Azure CLI
 
