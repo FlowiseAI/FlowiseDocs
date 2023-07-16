@@ -60,3 +60,35 @@ az container create -g flowise-rg \
 ```
 
 3. Visit the IP address (including port :3000) printed from the output of the above command.
+
+## Create a Container Instance with Persistent Storage
+
+The creation of a Container Instance with persistent storage is only possible using CLI:
+
+1. Create a resource group (if you don't already have one)
+
+```bash
+az group create --name flowise-rg --location "West US"
+```
+
+2. Create the Storage Account resource (or use existing one) inside above resource group. You can check how to do it [here](https://learn.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-portal?tabs=azure-portal).
+
+3. Inside Azure Storage create new File share. You can check how to do it [here](https://learn.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-portal?tabs=azure-portal).
+
+4. Create a Container Instance
+
+```bash
+az container create -g flowise-rg \
+	--name flowise \
+	--image flowiseai/flowise \
+	--command-line "/bin/sh -c 'flowise start'" \
+	--environment-variables FLOWISE_USER=flowise-user FLOWISE_PASSWORD=flowise-password DATABASE_PATH=/opt/flowise/.flowise \
+	--ip-address public \
+	--ports 80 3000 \
+	--restart-policy OnFailure \
+	--azure-file-volume-share-name flowise-fileshare \
+	--azure-file-volume-account-name flowisestorage123 \
+	--azure-file-volume-account-key here goes your key to Storage Account \
+	--azure-file-volume-mount-path /opt/flowise/.flowise
+```
+
