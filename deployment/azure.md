@@ -88,9 +88,9 @@ az container create -g flowise-rg \
 	--ip-address public \
 	--ports 80 3000 \
 	--restart-policy OnFailure \
-	--azure-file-volume-share-name flowise-fileshare \
-	--azure-file-volume-account-name flowisestorage123 \
-	--azure-file-volume-account-key here goes your access key to Storage Account \
+	--azure-file-volume-share-name here goes the name of your File share \
+	--azure-file-volume-account-name here goes the name of your Storage Account \
+	--azure-file-volume-account-key here goes the access key to your Storage Account \
 	--azure-file-volume-mount-path /opt/flowise/.flowise
 ```
 
