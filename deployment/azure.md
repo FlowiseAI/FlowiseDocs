@@ -1,41 +1,42 @@
-
-# Microsoft Azure
+# Azure
 
 ## Prerequisites
 
-1. [Optional] [Install Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) if you'd like to follow the cli based commands
+1. \[Optional] [Install Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) if you'd like to follow the cli based commands
 
-## Create a Container App
+## Create a Container Instance without Persistent Storage
 
-1. Search for Container App in Marketplace and click Create
+#### In Portal
 
-<figure><img src="../.gitbook/assets/azure/1.png"><figcaption>Container Apps entry in Azure's Marketplace</figcaption></figure>
+1. Search for Container Instances in Marketplace and click Create:
 
-2. Select or create a Resource Group, Container App Name, Region, and a Container App Environment. Then click "Next: Container" to configure Flowise container.
+<figure><img src="../.gitbook/assets/1.png" alt=""><figcaption><p>Container Instances entry in Azure's Marketplace</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/azure/2.png"><figcaption>First page in the Container App create wizard. It asks for app name, location and environment.</figcaption></figure>
+2. Select or create a Resource group, Container name, Region, Image source `Other registry`, Image type, Image `flowiseai/flowise` OS type and Size. Then click "Next: Networking" to configure Flowise ports:
 
-3. Select a container name, then select "Docker hub" and "Public" image. Use `docker.io` for server, and `flowiseai/flowise` for "Image and tag". Set "Command override" to `/bin/sh, -c, flowise start`. Set a `FLOWISE_USERNAME` and `FLOWISE_PASSWORD` values here as well. Then Select "Next: Ingress"
+<figure><img src="../.gitbook/assets/2.png" alt=""><figcaption><p>First page in the Container Instance create wizard</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/azure/3.png"><figcaption>Second page in the Container App create wizard. It asks for container name, image name, and environment variables.</figcaption></figure>
+3. Add a new port `3000 (TCP)` next to the default `80 (TCP)`. Then Select "Next: Advanced":
 
-4. Enable ingress. Select "Accepting traffic from anywhere". Then select "HTTP", and set the target port to `3000`. Finally click "Review + create"
+<figure><img src="../.gitbook/assets/3.png" alt=""><figcaption><p>Second page in the Container Instance create wizard. It asks for netowrking type and ports.</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/azure/4.png"><figcaption>Third page in the Container App create wizard. It asks for ingress/HTTP settings.</figcaption></figure>
+4. Set Restart policy to `On failure`. Next, add 2 Environment variables `FLOWISE_USER` and `FLOWISE_PASSWORD`. Add Command override. Finally click "Review + create":
 
-5. Review final settings and click "Create"
+<figure><img src="../.gitbook/assets/4.png" alt=""><figcaption><p>Third page in the Container Instance create wizard. It asks for restart policy, environment variables and command that runs on container start.</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/azure/5.png"><figcaption>Final review and create page for a container app.</figcaption></figure>
+5. Review final settings and click "Create":
+
+<figure><img src="../.gitbook/assets/5.png" alt=""><figcaption><p>Final review and create page for a Container Instance.</p></figcaption></figure>
 
 6. Once creation is completed, click on "Go to resource"
 
-<figure><img src="../.gitbook/assets/azure/6.png"><figcaption>Resource creation result page in Azure.</figcaption></figure>
+<figure><img src="../.gitbook/assets/6.png" alt=""><figcaption><p>Resource creation result page in Azure.</p></figcaption></figure>
 
-7. Visit your Flowise instance by clicking on "Application Url"
+7. Visit your Flowise instance by copying IP address and adding :3000 as a port:
 
-<figure><img src="../.gitbook/assets/azure/7.png"><figcaption>Container App overview page</figcaption></figure>
+<figure><img src="../.gitbook/assets/7.png" alt=""><figcaption><p>Container Instance overview page</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/azure/8.png"><figcaption>Container App overview page</figcaption></figure>
+<figure><img src="../.gitbook/assets/8.png" alt=""><figcaption><p>Flowise application deployed as Container Instance</p></figcaption></figure>
 
 ## Create using Azure CLI
 
