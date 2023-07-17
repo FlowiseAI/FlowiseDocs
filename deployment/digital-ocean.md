@@ -60,13 +60,22 @@ git clone https://github.com/FlowiseAI/Flowise.git
 cd Flowise && cd docker
 ```
 
-3. Create a `.env` file and specify PORT. You can use your favourit editor. I'll use `nano`
+3. Create a `.env` file. You can use your favourite editor. I'll use `nano`
 
 ```bash
 nano .env
 ```
 
 <figure><img src="../.gitbook/assets/image (10) (2).png" alt="" width="375"><figcaption></figcaption></figure>
+
+4. Specify the env variables:
+
+```sh
+PORT=3000
+DATABASE_PATH=/root/.flowise
+APIKEY_PATH=/root/.flowise
+LOG_PATH=/root/.flowise/logs
+```
 
 4. (Optional) You can also specify `FLOWISE_USERNAME` and `FLOWISE_PASSWORD` for app level authorization. See more [setting-username-and-password.md](../authorization/setting-username-and-password.md "mention")
 5. Then press `Ctrl + X` to Exit, and `Y` to save the file

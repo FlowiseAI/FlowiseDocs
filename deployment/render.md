@@ -51,12 +51,13 @@ The default filesystem for services running on Render is ephemeral. Flowise data
 
 <figure><img src="../.gitbook/assets/render/9.png" alt=""><figcaption></figcaption></figure>
 
-3. Click the **Environment** section, and add a new environment variable:
+3. Click the **Environment** section, and add these new environment variables:
 
-* Key: `DATABASE_PATH`
-* Value: `/opt/render/.flowise`
+* DATABASE\_PATH - `/opt/render/.flowise`
+* APIKEY\_PATH - `/opt/render/.flowise`
+* LOG\_PATH - `/opt/render/.flowise/logs`
 
-<figure><img src="../.gitbook/assets/render/10.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 4. Click **Manual Deploy** then select **Clear build cache & deploy**
 

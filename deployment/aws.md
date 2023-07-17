@@ -12,7 +12,7 @@ This setup requires some basic understanding of how AWS works.
 
 2. Scroll down and **Create new key pair** if you don't have one
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 3. Fill in your preferred key pair name. For Windows, we will use `.ppk` and PuTTY to connect to the instance. For Mac and Linux, we will use `.pem` and OpenSSH
 
@@ -146,7 +146,7 @@ git clone https://github.com/FlowiseAI/Flowise.git
 cd Flowise && cd docker
 ```
 
-3. Create a `.env` file and specify PORT. You can use your favourit editor. I'll use `nano`
+3. Create a `.env` file. You can use your favourite editor. I'll use `nano`
 
 ```bash
 nano .env
@@ -154,9 +154,18 @@ nano .env
 
 <figure><img src="../.gitbook/assets/image (13) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
-4. (Optional) You can also specify `FLOWISE_USERNAME` and `FLOWISE_PASSWORD` for app level authorization. See more [setting-username-and-password.md](../authorization/setting-username-and-password.md "mention")
-5. Then press `Ctrl + X` to Exit, and `Y` to save the file
-6. Run docker compose
+4. Specify the env variables:
+
+```sh
+PORT=3000
+DATABASE_PATH=/root/.flowise
+APIKEY_PATH=/root/.flowise
+LOG_PATH=/root/.flowise/logse
+```
+
+5. (Optional) You can also specify `FLOWISE_USERNAME` and `FLOWISE_PASSWORD` for app level authorization. See more [setting-username-and-password.md](../authorization/setting-username-and-password.md "mention")
+6. Then press `Ctrl + X` to Exit, and `Y` to save the file
+7. Run docker compose
 
 ```bash
 docker-compose up -d

@@ -74,9 +74,7 @@ az group create --name flowise-rg --location "West US"
 ```
 
 2. Create the Storage Account resource (or use existing one) inside above resource group. You can check how to do it [here](https://learn.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-portal?tabs=azure-portal).
-
 3. Inside Azure Storage create new File share. You can check how to do it [here](https://learn.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-portal?tabs=azure-portal).
-
 4. Create a Container Instance
 
 ```bash
@@ -84,7 +82,7 @@ az container create -g flowise-rg \
 	--name flowise \
 	--image flowiseai/flowise \
 	--command-line "/bin/sh -c 'flowise start'" \
-	--environment-variables FLOWISE_USERNAME=flowise-user FLOWISE_PASSWORD=flowise-password DATABASE_PATH=/opt/flowise/.flowise \
+	--environment-variables FLOWISE_USERNAME=flowise-user FLOWISE_PASSWORD=flowise-password DATABASE_PATH=/opt/flowise/.flowise APIKEY_PATH=/opt/flowise/.flowise LOG_PATH=/opt/flowise/.flowise/logs \
 	--ip-address public \
 	--ports 80 3000 \
 	--restart-policy OnFailure \
@@ -96,4 +94,3 @@ az container create -g flowise-rg \
 
 5. Visit the IP address (including port :3000) printed from the output of the above command.
 6. From now on your data will be stored in an SQLite database which you can find in your File share.
-

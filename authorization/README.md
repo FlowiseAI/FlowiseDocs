@@ -9,7 +9,7 @@ Flowise has 2 authorization:
 
 App level authorization protects your Flowise instance by username and password. This protects your apps from being accessible by anyone when deployed online.
 
-<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 See how to set username & password [setting-username-and-password.md](setting-username-and-password.md "mention")
 
@@ -37,5 +37,5 @@ After assigning an API key, one can only access the chatflow API when the Author
 
 An example of calling the API using POSTMAN
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 

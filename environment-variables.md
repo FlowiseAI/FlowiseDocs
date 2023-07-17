@@ -2,7 +2,7 @@
 
 Flowise support different environment variables to configure your instance. You can specify the following variables in the `.env` file inside `packages/server` folder. Refer to [.env.example](https://github.com/FlowiseAI/Flowise/blob/main/packages/server/.env.example) file.
 
-<table><thead><tr><th width="222">Variable</th><th>Description</th><th width="151">Type</th><th>Default</th></tr></thead><tbody><tr><td>PORT</td><td>The HTTP port Flowise runs on</td><td>Number</td><td>3000</td></tr><tr><td>FLOWISE_USERNAME</td><td>Username to login</td><td>String</td><td></td></tr><tr><td>FLOWISE_PASSWORD</td><td>Password to login</td><td>String</td><td></td></tr><tr><td>DEBUG</td><td>Show logs from every calls</td><td>Boolean</td><td></td></tr><tr><td>DATABASE_PATH</td><td>Location where database is saved</td><td>String</td><td><code>your-home-dir/.flowise</code></td></tr><tr><td>APIKEY_PATH</td><td>Location where api keys are saved</td><td>String</td><td><code>Flowise/packages/server</code></td></tr><tr><td>SECRETKEY_PATH</td><td>Location where encryption key (used to encrypt/decrypt credentials) is saved</td><td>String</td><td><code>Flowise/packages/server</code></td></tr><tr><td>LOG_PATH</td><td>Location where log files are stored</td><td>String</td><td><code>Flowise/logs</code></td></tr><tr><td>LOG_LEVEL</td><td>Set different levels of logs</td><td>Enum String: <code>info</code>, <code>verbose</code>, <code>debug</code></td><td><code>info</code></td></tr><tr><td>EXECUTION_MODE</td><td>Whether predictions run in their own process or the main process</td><td>Enum String: <code>child,</code> <code>main</code></td><td><code>main</code></td></tr><tr><td>TOOL_FUNCTION_BUILTIN_DEP</td><td>NodeJS built-in modules to be used for Tool Function</td><td>String</td><td></td></tr><tr><td>TOOL_FUNCTION_EXTERNAL_DEP</td><td>External modules to be used for Tool Function</td><td>String</td><td></td></tr></tbody></table>
+<table><thead><tr><th width="222">Variable</th><th>Description</th><th width="151">Type</th><th>Default</th></tr></thead><tbody><tr><td>PORT</td><td>The HTTP port Flowise runs on</td><td>Number</td><td>3000</td></tr><tr><td>FLOWISE_USERNAME</td><td>Username to login</td><td>String</td><td></td></tr><tr><td>FLOWISE_PASSWORD</td><td>Password to login</td><td>String</td><td></td></tr><tr><td>DEBUG</td><td>Print logs onto terminal/console</td><td>Boolean</td><td></td></tr><tr><td>DATABASE_PATH</td><td>Location where database is saved</td><td>String</td><td><code>your-home-dir/.flowise</code></td></tr><tr><td>APIKEY_PATH</td><td>Location where API keys are saved</td><td>String</td><td><code>Flowise/packages/server</code></td></tr><tr><td>SECRETKEY_PATH</td><td>Location where encryption key (used to encrypt/decrypt credentials) is saved</td><td>String</td><td><code>Flowise/packages/server</code></td></tr><tr><td>PASSPHRASE</td><td>Secret phrase used to create encryption key</td><td>String</td><td><code>MYPASSPHRASE</code></td></tr><tr><td>LOG_PATH</td><td>Location where log files are stored</td><td>String</td><td><code>Flowise/logs</code></td></tr><tr><td>LOG_LEVEL</td><td>Different log levels for loggers to be saved</td><td>Enum String: <code>info</code>, <code>verbose</code>, <code>debug</code></td><td><code>info</code></td></tr><tr><td>EXECUTION_MODE</td><td>Whether predictions run in their own process or the main process</td><td>Enum String: <code>child,</code> <code>main</code></td><td><code>main</code></td></tr><tr><td>TOOL_FUNCTION_BUILTIN_DEP</td><td>NodeJS built-in modules to be used for Tool Function</td><td>String</td><td></td></tr><tr><td>TOOL_FUNCTION_EXTERNAL_DEP</td><td>External modules to be used for Tool Function</td><td>String</td><td></td></tr></tbody></table>
 
 ## Execution Mode
 
@@ -12,7 +12,7 @@ When EXECUTION\_MODE is set to `main`, each prediction will run in the main thre
 
 We recommend using `main` mode in general unless you have multiple intensive prediction tasks that have to be carried out simultaneously.
 
-## BuiltIn and External Dependencies
+## Built-In and External Dependencies
 
 For security reasons, by default Tool Function only allow certain dependencies. It's possible to lift that restriction for built-in and external modules by setting the following environment variables:
 
@@ -32,6 +32,20 @@ export TOOL_FUNCTION_BUILTIN_DEP=crypto,fs
 # Allow usage of external npm modules.
 export TOOL_FUNCTION_EXTERNAL_DEP=axios,moment
 ```
+
+## Debug and Logs
+
+* `DEBUG`: if set to true, will print logs to terminal/console:
+
+<figure><img src=".gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+* `LOG_LEVEL`: Different log levels for loggers to be saved. Can be `error`, `info`, `verbose`, or `debug.` By default it is set to `info,` only `logger.info` will be saved to the log files. If you want to have complete details, set to `debug`.
+
+<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption><p><strong>server-requests.log.jsonl - logs every request sent to Flowise</strong></p></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption><p><strong>server.log - logs general actions on Flowise</strong></p></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image (5).png" alt=""><figcaption><p><strong>server-error.log - logs error with stack trace</strong></p></figcaption></figure>
 
 ## NPM
 
