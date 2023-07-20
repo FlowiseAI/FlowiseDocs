@@ -8,7 +8,7 @@ This flow is used to upsert all information from a website to a vector database,
 
 You can find the example flow called - **Conversational Retrieval QA Chain** from the marketplace templates.
 
-Here, we are going to use Cheerio Web Scraper node to scrape links from a given URL.
+Here, we are going to use **Cheerio Web Scraper** node to scrape links from a given URL. Also replacing **RecursiveTextSplitter** to **HtmlToMarkdown** for cleaner data preparation.
 
 <figure><img src="../.gitbook/assets/Untitled (4).png" alt=""><figcaption></figcaption></figure>
 
