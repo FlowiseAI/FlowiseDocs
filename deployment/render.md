@@ -17,7 +17,7 @@
 <figure><img src="../.gitbook/assets/render/3.png" alt="" width="563"><figcaption></figcaption></figure>
 
 8. Fill in your preferred **Name** and **Region.**
-9. Select  `Docker` as your **Runtime**
+9. Select `Docker` as your **Runtime**
 
 <figure><img src="../.gitbook/assets/render/4.png" alt=""><figcaption></figcaption></figure>
 
@@ -57,7 +57,7 @@ The default filesystem for services running on Render is ephemeral. Flowise data
 * APIKEY\_PATH - `/opt/render/.flowise`
 * LOG\_PATH - `/opt/render/.flowise/logs`
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (5).png" alt=""><figcaption></figcaption></figure>
 
 4. Click **Manual Deploy** then select **Clear build cache & deploy**
 

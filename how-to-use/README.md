@@ -151,8 +151,10 @@ You can also customize your own embedded chat widget UI and pass **chatflowConfi
 To modify the full source code of embedded chat widget, follow these steps:
 
 1. Fork the [Flowise Chat Embed](https://github.com/FlowiseAI/FlowiseChatEmbed) repository
-2. Then you can make any code changes and push to the forked repository. One of the popular ask is to remove Flowise [branding](https://github.com/HenryHengZJ/FlowiseChatEmbed-Test/blob/main/src/components/Bot.tsx#L337).
-3. You can then use it as embedded chat like so:
+2. Then you can make any code changes. One of the popular ask is to remove Flowise [branding](https://github.com/HenryHengZJ/FlowiseChatEmbed-Test/blob/main/src/components/Bot.tsx#L337).
+3. Run `yarn build`
+4. Push changes to the forked repo
+5. You can then use it as embedded chat like so:
 
 Replace `username` to your Github username, and `forked-repo` to your forked repo.
 
@@ -165,7 +167,7 @@ Replace `username` to your Github username, and `forked-repo` to your forked rep
 &#x3C;/script>
 </code></pre>
 
-<figure><img src="../.gitbook/assets/image.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 ```html
 <script type="module">
