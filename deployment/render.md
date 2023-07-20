@@ -17,7 +17,7 @@
 <figure><img src="../.gitbook/assets/render/3.png" alt="" width="563"><figcaption></figcaption></figure>
 
 8. Fill in your preferred **Name** and **Region.**
-9. You  `Docker` as your **Runtime**
+9. Select  `Docker` as your **Runtime**
 
 <figure><img src="../.gitbook/assets/render/4.png" alt=""><figcaption></figcaption></figure>
 
