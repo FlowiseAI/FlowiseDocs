@@ -167,7 +167,7 @@ Replace `username` to your Github username, and `forked-repo` to your forked rep
 &#x3C;/script>
 </code></pre>
 
-<figure><img src="../.gitbook/assets/image (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 ```html
 <script type="module">

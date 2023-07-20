@@ -27,11 +27,11 @@ In this example, we are going to deploy to Render.
 
 1. Back to Flowise application, simply create a new canvas or use one of the template from marketplace. In this example, we are going to use **Simple Conversational Chain**
 
-<figure><img src="../.gitbook/assets/Untitled (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Untitled (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 2. Replace **Buffer Memory** with **Zep Memory**. Then replace the **Base URL** with the Zep URL you have copied above
 
-<figure><img src="../.gitbook/assets/Untitled.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Untitled (5).png" alt=""><figcaption></figcaption></figure>
 
 3. Save the chatflow and test it out to see if conversations are remembered.
 
@@ -39,7 +39,7 @@ In this example, we are going to deploy to Render.
 
 4. Now try clearing the chat history, and see if it still remember the previous conversations
 
-<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
 
 By default, the first chat message id will be used as **sessionId** for Zep Memory, allowing AI to remember the conversations.
 
@@ -49,7 +49,7 @@ When chat history is cleared, all chat messages will be deleted. When user ask a
 
 To use as API, especially when multiple users are interacting with the flow, you can use **sessionId** to differentiate conversations between each user.
 
-<figure><img src="../.gitbook/assets/Untitled (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Untitled (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 For instance, in your front-end application, you can dynamically generate a **sessionId** using a combination of **userid** and **timestamp**. When user clear the chats from your front-end application, you can generate a new **sessionId** with the same **userid** and <mark style="color:red;">**new**</mark> **timestamp**. This will begins a new chat session with no previous conversations memory.
 
