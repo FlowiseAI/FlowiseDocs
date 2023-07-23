@@ -19,7 +19,7 @@
 
 <figure><img src="../.gitbook/assets/image (13) (2).png" alt="" width="539"><figcaption></figcaption></figure>
 
-6. Type in `npm install -g flowise` into the Shell terminal window. If you are having error about incompatible node version, use the following command `yarn global add react --ignore-engines`
+6. Type in `npm install -g flowise` into the Shell terminal window. If you are having error about incompatible node version, use the following command `yarn global add flowise --ignore-engines`
 
 <figure><img src="../.gitbook/assets/image (3) (1).png" alt="" width="530"><figcaption></figcaption></figure>
 
