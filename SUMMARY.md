@@ -31,5 +31,7 @@
   * [Chroma](vector-stores/chroma.md)
 * [3rd Party Platform Integration](3rd-party-platform-integration/README.md)
   * [Zapier Zaps](3rd-party-platform-integration/zapier-zaps.md)
+* [Migration Guide](migration-guide/README.md)
+  * [v1.3.0 Migration Guide](migration-guide/v1.3.0-migration-guide.md)
 * [Use Cases](use-cases/README.md)
   * [Web Scrape QnA](use-cases/web-scrape-qna.md)
