@@ -21,7 +21,33 @@ An example of API call using Postman:
 
 <table><thead><tr><th width="161">Key</th><th>Description</th><th>Type</th><th>Required</th></tr></thead><tbody><tr><td>question</td><td>User's question</td><td>string</td><td>Yes</td></tr><tr><td>overrideConfig</td><td>Override existing flow configuration</td><td>object</td><td>No</td></tr><tr><td>history</td><td>Provide list of history messages to the flow</td><td>array</td><td>No</td></tr></tbody></table>
 
-If the flow contains [Document Loaders](../document-loaders.md), the API looks slightly different. Instead of passing as JSON body, form-data is being used. This allows you to upload any files to the API.&#x20;
+```json
+// Example body request
+{
+    "question": "What's my name?",
+    "history": [
+        {
+            "message": "Hello, how can I assist you?",
+            "type": "apiMessage"
+        },
+        {
+            "type": "userMessage",
+            "message": "Hello I am Bob"
+        },
+        {
+            "type": "apiMessage",
+            "message": "Hello Bob! how can I assist you?"
+        }
+    ],
+    "overrideConfig": {
+        "returnSourceDocuments": true
+    }
+}
+```
+
+#### Flow with Document Loaders
+
+If the flow contains [Document Loaders](../document-loaders.md), the API looks slightly different. Instead of passing as **JSON** body, **form-data** is being used. This allows you to upload any files to the API.&#x20;
 
 Note: It is user's responsibility to make sure the file type is compatible with the expected file type from document loader. For example, if a Text File Loader is being used, you should only upload file with `.txt` extension.
 
