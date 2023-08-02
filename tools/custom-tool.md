@@ -1,5 +1,9 @@
 # Custom Tool
 
+Watch how to use custom tools
+
+{% embed url="https://youtu.be/HSp9LkkTVY0" %}
+
 ## Problem
 
 Function usually takes in structured input data. Let's say you want the LLM to be able to call Airtable Create Record [API](https://airtable.com/developers/web/api/create-records), the body parameters has to be structured in a specific way. For example:
