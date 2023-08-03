@@ -10,6 +10,7 @@
   * [Render](deployment/render.md)
   * [Railway](deployment/railway.md)
   * [Replit](deployment/replit.md)
+  * [Hugging Face](deployment/hugging-face.md)
   * [AWS](deployment/aws.md)
   * [Azure](deployment/azure.md)
   * [Digital Ocean](deployment/digital-ocean.md)
