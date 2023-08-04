@@ -10,7 +10,7 @@
     **Name**, name of the corpus to be created.
 
     <figure><img src="../.gitbook/assets/vectara/2.png" alt=""><figcaption></figcaption></figure>
-4.  Click **Create** and wait for the project to finish setting up
+4.  Click **Create** and wait for the corpus to finish setting up
 
 ## Setup
 
