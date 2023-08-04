@@ -24,9 +24,9 @@
 4.  Get your **Corpus ID, API Key, and Customer ID**
 
     <figure><img src="../.gitbook/assets/vectara/5.png" alt=""><figcaption></figcaption></figure>
-6. Copy & Paste each details (Corpus ID, Customer ID, API Key) into _**Vectara Upsert Document**_ node or _**Vectara Load Existing Index**_ node\
+5. Copy & Paste each details (Corpus ID, Customer ID, API Key) into _**Vectara Upsert Document**_ node or _**Vectara Load Existing Index**_ node\
    ![](<../.gitbook/assets/vectara/7.png>)
-3. **Document** can be connect with any node under [**Document Loader**](../document-loaders.md) category
+6. **Document** can be connect with any node under [**Document Loader**](../document-loaders.md) category
 
 ## Resources
 
