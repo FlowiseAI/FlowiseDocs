@@ -7,7 +7,7 @@
 
     <figure><img src="../.gitbook/assets/vectara/1.png" alt=""><figcaption></figcaption></figure>
 3.  Input required fields\
-    **Name**, name of the corpus to be created.
+    **Name**, name of the corpus to be created
 
     <figure><img src="../.gitbook/assets/vectara/2.png" alt=""><figcaption></figcaption></figure>
 4.  Click **Create** and wait for the corpus to finish setting up
@@ -17,10 +17,10 @@
 1.  Click on the **"Authorization"** tab in the corpus view
 
     <figure><img src="../.gitbook/assets/vectara/3.png" alt=""><figcaption></figcaption></figure>
-2.  Click on the **"Create API Key"** button, choose a name for the API key and pick the **QueryService & IndexService** option.
+2.  Click on the **"Create API Key"** button, choose a name for the API key and pick the **QueryService & IndexService** option
 
     <figure><img src="../.gitbook/assets/vectara/4.png" alt=""><figcaption></figcaption></figure>
-3.  Click **Create** to create the API key.
+3.  Click **Create** to create the API key
 4.  Get your **Corpus ID, API Key, and Customer ID**
 
     <figure><img src="../.gitbook/assets/vectara/5.png" alt=""><figcaption></figcaption></figure>
