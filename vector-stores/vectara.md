@@ -7,7 +7,7 @@
 
     <figure><img src="../.gitbook/assets/vectara/1.png" alt=""><figcaption></figcaption></figure>
 3.  Input required fields\
-    **Name**, name of the corpus to be created
+    **Name**: name of the corpus to be created
 
     <figure><img src="../.gitbook/assets/vectara/2.png" alt=""><figcaption></figcaption></figure>
 4.  Click **Create** and wait for the corpus to finish setting up
