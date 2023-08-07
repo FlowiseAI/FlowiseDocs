@@ -97,7 +97,7 @@ Create a new Tool with the following details (you can change as you want):
 
 * Name: get\_stock\_news
 * Description: Get latest news for a stock
-* Output Schema:&#x20;
+* Output Schema:
   * Property: performanceId
   * Type: string
   * Description: id of the stock, which is referred as performanceID in the API
@@ -150,26 +150,19 @@ Create a new Tool with the following details (you can change as you want):
 
 * Name: add\_airtable
 * Description: Add the stock, news summary & price move to Airtable
-*   Output Schema:&#x20;
-
-    * Property: stock
-    * Type: string
-    * Description: stock ticker
-    * Required: true
-
-
-
-    * Property: move
-    * Type: string
-    * Description: price move in %
-    * Required: true
-
-
-
-    * Property: news\_summary
-    * Type: string
-    * Description: news summary of the stock
-    * Required: true
+* Output Schema:
+  * Property: stock
+  * Type: string
+  * Description: stock ticker
+  * Required: true
+  * Property: move
+  * Type: string
+  * Description: price move in %
+  * Required: true
+  * Property: news\_summary
+  * Type: string
+  * Description: news summary of the stock
+  * Required: true
 
 ChatGPT will returns a JSON object like this:
 
@@ -242,8 +235,6 @@ _<mark style="color:blue;">What is the stock that has the biggest price movement
 
 _<mark style="color:orange;">The stock that has the biggest price movement today is Overstock.com (OSTK) with a price move of 17.47%.</mark>_
 
-
-
 You can then follow up with another question to get the news of that particular stock:
 
 _<mark style="color:blue;">What are the latest news about this stock that might cause the price movement?</mark>_
@@ -255,8 +246,6 @@ _<mark style="color:orange;">Here are the latest news about Overstock.com (OSTK)
 
 _<mark style="color:orange;">Please note that these news articles are for informational purposes only and may not be the sole reason for the price movement. It is always recommended to conduct thorough research and analysis before making any investment decisions.</mark>_
 
-
-
 Lastly, you can ask ChatGPT to add a new record to Airtable:
 
 _<mark style="color:blue;">Can you add a record to Airtable with the stock ticker, price move and news summary?</mark>_
@@ -265,11 +254,11 @@ _<mark style="color:orange;">I have added a record to Airtable with the followin
 
 _<mark style="color:orange;">Stock Ticker: OSTK Price Move: 17.47% News Summary: Overstock.com's shares experienced a significant increase after successfully winning a bid for Bed Bath & Beyond assets worth $21.5 million.</mark>_
 
-
-
 [🎉](https://emojipedia.org/party-popper/)[🎉](https://emojipedia.org/party-popper/)**Voila!** That's how you can create your own custom tool and use it with the OpenAI Function Agent!
 
-### Additional Dependencies
+### Additional
+
+#### Import External Dependencies
 
 You can import any built-in NodeJS [modules](https://www.w3schools.com/nodejs/ref\_modules.asp) and supported [external libraries](https://github.com/FlowiseAI/Flowise/blob/main/packages/components/src/utils.ts#L289) into the **JavaScript Function**.
 
@@ -296,3 +285,31 @@ yarn start
 const axios = require('axios')
 ```
 
+#### Override Function from API
+
+In some cases, you would like to have the custom tool function to be dynamic. For example, you are creating a chatbot using this particular flow for multiple users. Each user has their own API key. And this API key is needed for the tool function to be successfully executed.
+
+Using the example above, we have a custom tool (`get_stock_movers`) with id `customTool_0` from the flow.
+
+<figure><img src="../.gitbook/assets/image (38).png" alt=""><figcaption></figcaption></figure>
+
+Now, I can override the existing tool function with the following body:
+
+```json
+{
+    "question": "What is the stock that has the biggest price movement today?",
+    "overrideConfig": {
+        "customToolFunc": {
+            "customTool_0": "return 'ELLONMUSK'"
+        }
+    }
+}
+```
+
+Example of POSTMAN call
+
+<figure><img src="../.gitbook/assets/image (42).png" alt=""><figcaption></figcaption></figure>
+
+As seen from the logs below, the tool was invoked and successfully exited with the `ELLONMUSK` string output.
+
+<figure><img src="../.gitbook/assets/image (44).png" alt=""><figcaption></figcaption></figure>
