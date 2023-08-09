@@ -205,3 +205,6 @@ Replace `username` to your Github username, and `forked-repo` to your forked rep
 </script>
 ```
 
+Watch how to embed Flowise in a Bootstrap 5 website
+
+{% embed url="https://youtu.be/4paQ2wObDQ4" %}
