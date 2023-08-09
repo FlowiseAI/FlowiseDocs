@@ -18,6 +18,7 @@
 * [Databases](databases.md)
 * [Document Loaders](document-loaders.md)
 * [Chat Models](chat-models/README.md)
+  * [Azure ChatOpenAI](chat-models/azure-chatopenai.md)
   * [ChatLocalAI](chat-models/chatlocalai.md)
 * [Embeddings](embeddings/README.md)
   * [LocalAI Embeddings](embeddings/localai-embeddings.md)
