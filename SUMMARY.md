@@ -21,6 +21,7 @@
   * [Azure ChatOpenAI](chat-models/azure-chatopenai.md)
   * [ChatLocalAI](chat-models/chatlocalai.md)
 * [Embeddings](embeddings/README.md)
+  * [Azure OpenAI Embeddings](embeddings/azure-openai-embeddings.md)
   * [LocalAI Embeddings](embeddings/localai-embeddings.md)
 * [Memory](memory/README.md)
   * [Zep Memory](memory/zep-memory.md)

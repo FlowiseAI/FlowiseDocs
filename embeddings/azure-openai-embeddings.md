@@ -1,4 +1,4 @@
-# Azure ChatOpenAI
+# Azure OpenAI Embeddings
 
 ## Prerequisite
 
@@ -9,7 +9,7 @@
 
 ## Setup
 
-### Azure ChatOpenAI
+### Azure OpenAI Embeddings
 
 1.  Click **Go to Azure OpenaAI Studio**
     <figure><img src="../.gitbook/assets/azure/azure-general/2.png" alt="" width="563"><figcaption></figcaption></figure>
@@ -21,28 +21,28 @@
     <figure><img src="../.gitbook/assets/azure/azure-general/4.png" alt="" width="563"><figcaption></figcaption></figure>
 
 4.  Select as shown below and click **Create**
-    <figure><img src="..\.gitbook\assets\azure\azure-chatopenai\1.png" alt="" width="563"><figcaption></figcaption></figure>
+    <figure><img src="..\.gitbook\assets\azure\azure-openai-embeddings\1.png" alt="" width="563"><figcaption></figcaption></figure>
 
-5.  Successfully created **Azure ChatOpenAI** \
-    Deployment name: `gpt-35-turbo` \
+5.  Successfully created **Azure OpenAI Embeddings** \
+    Deployment name: `text-embedding-ada-002` \
     Instance name: `top right conner`
-    <figure><img src="..\.gitbook\assets\azure\azure-chatopenai\2.png" alt="" width="563"><figcaption></figcaption></figure>
+    <figure><img src="..\.gitbook\assets\azure\azure-openai-embeddings\2.png" alt="" width="563"><figcaption></figcaption></figure>
 
 ### Flowise
 
-1.  **Chat Models** > drag **Azure ChatOpenAI** node
-    <figure><img src="..\.gitbook\assets\azure\azure-chatopenai\3.png" alt="" width="563"><figcaption></figcaption></figure>
+1.  **Embeddings** > drag **Azure OpenAI Embeddings** node
+    <figure><img src="..\.gitbook\assets\azure\azure-openai-embeddings\3.png" alt="" width="563"><figcaption></figcaption></figure>
     
 2.  **Connect Credential** > click **Create New**
-    <figure><img src="..\.gitbook\assets\azure\azure-chatopenai\4.png" alt="" width="563"><figcaption></figcaption></figure>
+    <figure><img src="..\.gitbook\assets\azure\azure-openai-embeddings\4.png" alt="" width="563"><figcaption></figcaption></figure>
 
-3.  Copy & Paste each details (API Key, Instance & Deployment name, [API Version](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference#chat-completions)) into **Azure ChatOpenAI** node
-    <figure><img src="..\.gitbook\assets\azure\azure-chatopenai\5.png" alt="" width="563"><figcaption></figcaption></figure>
+3.  Copy & Paste each details (API Key, Instance & Deployment name, [API Version](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference#chat-completions)) into **Azure OpenAI Embeddings** node
+    <figure><img src="..\.gitbook\assets\azure\azure-openai-embeddings\5.png" alt="" width="563"><figcaption></figcaption></figure>
     
-4.  Voila [🎉](https://emojipedia.org/party-popper/), you have created **Azure ChatOpenAI node** in Flowise
+4.  Voila [🎉](https://emojipedia.org/party-popper/), you have created **Azure OpenAI Embeddings node** in Flowise
     <figure><img src="../.gitbook/assets/azure/azure-general/5.png" alt="" width="563"><figcaption></figcaption></figure>
 
 ## Resources
 
-* [LangChain JS Azure ChatOpenAI](https://js.langchain.com/docs/modules/model_io/models/chat/integrations/azure)
+* [LangChain JS Azure OpenAI Embeddings](https://js.langchain.com/docs/modules/data_connection/text_embedding/integrations/azure_openai)
 * [Azure OpenAI Service REST API reference](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference)
