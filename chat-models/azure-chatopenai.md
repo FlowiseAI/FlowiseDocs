@@ -21,23 +21,23 @@
     <figure><img src="../.gitbook/assets/azure/azure-general/4.png" alt="" width="563"><figcaption></figcaption></figure>
 
 4.  Select as shown below and click **Create**
-    <figure><img src="..\.gitbook\assets\azure\azure-chatopenai\1.png" alt="" width="563"><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/azure/azure-chatopenai/1.png" alt="" width="563"><figcaption></figcaption></figure>
 
 5.  Successfully created **Azure ChatOpenAI** \
     Deployment name: `gpt-35-turbo` \
     Instance name: `top right conner`
-    <figure><img src="..\.gitbook\assets\azure\azure-chatopenai\2.png" alt="" width="563"><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/azure/azure-chatopenai/2.png" alt="" width="563"><figcaption></figcaption></figure>
 
 ### Flowise
 
 1.  **Chat Models** > drag **Azure ChatOpenAI** node
-    <figure><img src="..\.gitbook\assets\azure\azure-chatopenai\3.png" alt="" width="563"><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/azure/azure-chatopenai/3.png" alt="" width="563"><figcaption></figcaption></figure>
     
 2.  **Connect Credential** > click **Create New**
-    <figure><img src="..\.gitbook\assets\azure\azure-chatopenai\4.png" alt="" width="563"><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/azure/azure-chatopenai/4.png" alt="" width="563"><figcaption></figcaption></figure>
 
 3.  Copy & Paste each details (API Key, Instance & Deployment name, [API Version](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference#chat-completions)) into **Azure ChatOpenAI** node
-    <figure><img src="..\.gitbook\assets\azure\azure-chatopenai\5.png" alt="" width="563"><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/azure/azure-chatopenai/5.png" alt="" width="563"><figcaption></figcaption></figure>
     
 4.  Voila [🎉](https://emojipedia.org/party-popper/), you have created **Azure ChatOpenAI node** in Flowise
     <figure><img src="../.gitbook/assets/azure/azure-general/5.png" alt="" width="563"><figcaption></figcaption></figure>
