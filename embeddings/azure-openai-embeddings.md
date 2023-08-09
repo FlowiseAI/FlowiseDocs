@@ -21,23 +21,23 @@
     <figure><img src="../.gitbook/assets/azure/azure-general/4.png" alt="" width="563"><figcaption></figcaption></figure>
 
 4.  Select as shown below and click **Create**
-    <figure><img src="..\.gitbook\assets\azure\azure-openai-embeddings\1.png" alt="" width="563"><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/azure/azure-openai-embeddings/1.png" alt="" width="563"><figcaption></figcaption></figure>
 
 5.  Successfully created **Azure OpenAI Embeddings** \
     Deployment name: `text-embedding-ada-002` \
     Instance name: `top right conner`
-    <figure><img src="..\.gitbook\assets\azure\azure-openai-embeddings\2.png" alt="" width="563"><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/azure/azure-openai-embeddings/2.png" alt="" width="563"><figcaption></figcaption></figure>
 
 ### Flowise
 
 1.  **Embeddings** > drag **Azure OpenAI Embeddings** node
-    <figure><img src="..\.gitbook\assets\azure\azure-openai-embeddings\3.png" alt="" width="563"><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/azure/azure-openai-embeddings/3.png" alt="" width="563"><figcaption></figcaption></figure>
     
 2.  **Connect Credential** > click **Create New**
-    <figure><img src="..\.gitbook\assets\azure\azure-openai-embeddings\4.png" alt="" width="563"><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/azure/azure-openai-embeddings/4.png" alt="" width="563"><figcaption></figcaption></figure>
 
 3.  Copy & Paste each details (API Key, Instance & Deployment name, [API Version](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference#chat-completions)) into **Azure OpenAI Embeddings** node
-    <figure><img src="..\.gitbook\assets\azure\azure-openai-embeddings\5.png" alt="" width="563"><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/azure/azure-openai-embeddings/5.png" alt="" width="563"><figcaption></figcaption></figure>
     
 4.  Voila [🎉](https://emojipedia.org/party-popper/), you have created **Azure OpenAI Embeddings node** in Flowise
     <figure><img src="../.gitbook/assets/azure/azure-general/5.png" alt="" width="563"><figcaption></figcaption></figure>
