@@ -285,6 +285,10 @@ yarn start
 const axios = require('axios')
 ```
 
+Watch how to add additional dependencies and import libraries
+
+{% embed url="https://youtu.be/0H1rrisc0ok" %}
+
 #### Override Function from API
 
 In some cases, you would like to have the custom tool function to be dynamic. For example, you are creating a chatbot using this particular flow for multiple users. Each user has their own API key. And this API key is needed for the tool function to be successfully executed.
