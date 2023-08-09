@@ -33,6 +33,7 @@
   * [Pinecone](vector-stores/pinecone.md)
   * [Supabase](vector-stores/supabase.md)
   * [Chroma](vector-stores/chroma.md)
+  * [Vectara](deployment/vectara.md)
 * [3rd Party Platform Integration](3rd-party-platform-integration/README.md)
   * [Zapier Zaps](3rd-party-platform-integration/zapier-zaps.md)
 * [Migration Guide](migration-guide/README.md)
