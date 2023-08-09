@@ -42,7 +42,7 @@ _**Few things to keep in mind**_
 
 This flow is used to load an existing index/collection from vector store, typically after you have upserted the documents to that particular index/collection.
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
 If you have specified namespace or metadata from the upsert flow, remember to specify here as well, under the **Additional Parameters** in Pinecone node.
 

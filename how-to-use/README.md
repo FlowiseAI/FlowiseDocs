@@ -17,7 +17,7 @@ You also have the flexibility to override input configuration with **overrideCon
 
 An example of API call using Postman:
 
-<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (2).png" alt=""><figcaption></figcaption></figure>
 
 <table><thead><tr><th width="161">Key</th><th>Description</th><th>Type</th><th>Required</th></tr></thead><tbody><tr><td>question</td><td>User's question</td><td>string</td><td>Yes</td></tr><tr><td>overrideConfig</td><td>Override existing flow configuration</td><td>object</td><td>No</td></tr><tr><td>history</td><td>Provide list of history messages to the flow</td><td>array</td><td>No</td></tr></tbody></table>
 
@@ -47,7 +47,7 @@ An example of API call using Postman:
 
 #### Flow with Document Loaders
 
-If the flow contains [Document Loaders](../document-loaders.md), the API looks slightly different. Instead of passing as **JSON** body, **form-data** is being used. This allows you to upload any files to the API.&#x20;
+If the flow contains [Document Loaders](../document-loaders.md), the API looks slightly different. Instead of passing as **JSON** body, **form-data** is being used. This allows you to upload any files to the API.
 
 Note: It is user's responsibility to make sure the file type is compatible with the expected file type from document loader. For example, if a Text File Loader is being used, you should only upload file with `.txt` extension.
 
@@ -162,7 +162,7 @@ socket.disconnect();
 
 ## Embed
 
-You can also embed a chat widget to your website.&#x20;
+You can also embed a chat widget to your website.
 
 Simply copy paste the embedded code provided to anywhere in the `<body>` tag of your html file.
 
@@ -193,7 +193,7 @@ Replace `username` to your Github username, and `forked-repo` to your forked rep
 &#x3C;/script>
 </code></pre>
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (2).png" alt="" width="563"><figcaption></figcaption></figure>
 
 ```html
 <script type="module">
