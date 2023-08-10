@@ -23,3 +23,15 @@
 6. There are list of env variables you can configure. Refer to [environment-variables.md](../environment-variables.md "mention")
 
 That's it! You now have a deployed Flowise on Railway [🎉](https://emojipedia.org/party-popper/)[🎉](https://emojipedia.org/party-popper/)
+
+## Persistent Volume
+
+The default filesystem for services running on Railway is ephemeral. Flowise data isn’t persisted across deploys and restarts. To solve this issue, we can use [Railway Volume](https://docs.railway.app/reference/volumes).
+
+To ease the steps, we have a Railway template with volume mounted: [https://railway.app/template/nEGbjR](https://railway.app/template/nEGbjR)
+
+Just click Deploy and fill in the Env Variables like below:
+
+<figure><img src="../.gitbook/assets/image.png" alt="" width="420"><figcaption></figcaption></figure>
+
+Now try creating a flow and save it in Flowise. Then try restarting service or redeploy, you should still be able to see the flow you have saved previously.

@@ -32,11 +32,11 @@
 
 5. Back to Flowise canvas, drag and drop Vectara nodes. Click **Create New** from the Credentials dropdown:
 
-<figure><img src="../.gitbook/assets/image.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 6. Copy & Paste each details (Corpus ID, Customer ID, API Key) into below:
 
-<figure><img src="../.gitbook/assets/image (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 7. Now you can connect any Document node under [**Document Loader**](../document-loaders.md) category to Vectara [🎉](https://emojipedia.org/party-popper/)
 
