@@ -5,11 +5,11 @@
 
 <figure><img src="../.gitbook/assets/image (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
-1. Change to your preferred repository name and click Deploy
+3. Change to your preferred repository name and click Deploy
 
 <figure><img src="../.gitbook/assets/image (2) (1) (2).png" alt="" width="375"><figcaption></figcaption></figure>
 
-2. If succeeds, you should be able to see a deployed URL
+4. If succeeds, you should be able to see a deployed URL
 
 <figure><img src="../.gitbook/assets/image (2) (2).png" alt=""><figcaption></figcaption></figure>
 
