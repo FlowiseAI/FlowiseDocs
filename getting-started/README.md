@@ -24,7 +24,7 @@ npm install -g flowise
 ### Docker Compose
 
 1. Go to `docker` folder at the root of the project
-2. Create `.env` file and specify the `PORT` (refer to `.env.example`)
+2. Copy the `.env.example` file and paste it as another file named `.env`
 3. `docker-compose up -d`
 4. Open [http://localhost:3000](http://localhost:3000)
 5. You can bring the containers down by `docker-compose stop`
