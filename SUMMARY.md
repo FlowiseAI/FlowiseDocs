@@ -40,3 +40,4 @@
   * [v1.3.0 Migration Guide](migration-guide/v1.3.0-migration-guide.md)
 * [Use Cases](use-cases/README.md)
   * [Web Scrape QnA](use-cases/web-scrape-qna.md)
+  * [Webhook Tool](use-cases/webhook-tool.md)
