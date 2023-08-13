@@ -1,5 +1,9 @@
 # Vectara
 
+## Quickstart Tutorial
+
+{% embed url="https://youtu.be/OJK-jdFYn6I" %}
+
 ## Prerequisite
 
 1. Register an account for [Vectara](https://console.vectara.com/signup)
