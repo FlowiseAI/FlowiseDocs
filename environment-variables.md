@@ -14,6 +14,10 @@ Flowise supports [LangSmith](https://docs.smith.langchain.com/) tracing with the
 
 <table><thead><tr><th width="247">Variable</th><th>Description</th><th width="151">Type</th></tr></thead><tbody><tr><td>LANGCHAIN_TRACING_V2</td><td>Turn LangSmith tracing ON or OFF</td><td>Enum String: <code>true</code>, <code>false</code></td></tr><tr><td>LANGCHAIN_ENDPOINT</td><td>LangSmith endpoint</td><td>String</td></tr><tr><td>LANGCHAIN_API_KEY</td><td>LangSmith API Key</td><td>String</td></tr><tr><td>LANGCHAIN_PROJECT</td><td>Project to trace on LangSmith</td><td>String</td></tr></tbody></table>
 
+Watch how connect Flowise and LangSmith
+
+{% embed url="https://youtu.be/BGGhRxS3AVQ" %}
+
 ## Execution Mode
 
 When EXECUTION\_MODE is set to `child` , each prediction will spawn a new [NodeJS child process](https://nodejs.org/api/child\_process.html). These child processes can run simultaneously, proving a multicore functionality. However, more resources (CPU/RAM) are needed for the additional processes.
