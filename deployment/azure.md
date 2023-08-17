@@ -22,7 +22,7 @@ Without persistent storage your data is kept in memory. This means that on a con
 
 <figure><img src="../.gitbook/assets/azure/deployment/3.png" alt=""><figcaption><p>Second page in the Container Instance create wizard. It asks for netowrking type and ports.</p></figcaption></figure>
 
-4. Set Restart policy to `On failure`. Next, add 2 Environment variables `FLOWISE_USER` and `FLOWISE_PASSWORD`. Add Command override `["/bin/sh", "-c", "flowise start"]`. Finally click "Review + create":
+4. Set Restart policy to `On failure`. Next, add 2 Environment variables `FLOWISE_USERNAME` and `FLOWISE_PASSWORD`. Add Command override `["/bin/sh", "-c", "flowise start"]`. Finally click "Review + create":
 
 <figure><img src="../.gitbook/assets/azure/deployment/4.png" alt=""><figcaption><p>Third page in the Container Instance create wizard. It asks for restart policy, environment variables and command that runs on container start.</p></figcaption></figure>
 
