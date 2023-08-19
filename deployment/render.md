@@ -1,5 +1,9 @@
 # Render
 
+Watch how to deploy Flowise to Render
+
+{% embed url="https://youtu.be/l-0NzOMeCco" %}
+
 1. Fork [Flowise Official Repository](https://github.com/FlowiseAI/Flowise)
 2. Visit your github profile to assure you have successfully made a fork
 3. Sign in to [Render](https://dashboard.render.com)
