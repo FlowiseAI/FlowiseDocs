@@ -57,6 +57,32 @@ An example of API call with `form-data` using Postman:
 
 <figure><img src="../.gitbook/assets/image (1) (4).png" alt=""><figcaption></figcaption></figure>
 
+An example of API call using Python
+
+```python
+import requests
+
+API_URL = "your-flowise-api"
+
+# use form data to upload files
+form_data = {
+    "files": ('state_of_the_union.txt', open('state_of_the_union.txt', 'rb'))
+}
+
+body_data = {
+    "question": "what is this document about?",
+    "returnSourceDocuments": True
+}
+
+def query(form_data):
+    response = requests.post(API_URL, files=form_data, data=body_data)
+    print(response)
+    return response.json()
+
+output = query(form_data)
+print(output)
+```
+
 Watch how to connect to [Bubble](https://bubble.io/)
 
 {% embed url="https://youtu.be/kOwmPe8aLAA" %}
