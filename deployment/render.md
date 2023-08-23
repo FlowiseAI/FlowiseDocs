@@ -71,3 +71,5 @@ The default filesystem for services running on Render is ephemeral. Flowise data
 Watch how to deploy to Render
 
 {% embed url="https://youtu.be/Fxyc6-frgrI" %}
+
+{% embed url="https://youtu.be/l-0NzOMeCco" %}
