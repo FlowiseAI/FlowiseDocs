@@ -83,13 +83,13 @@ output = query(form_data)
 print(output)
 ```
 
+Watch how to use Flowise API
+
+{% embed url="https://youtu.be/LhN560DhlzU" %}
+
 Watch how to connect to [Bubble](https://bubble.io/)
 
 {% embed url="https://youtu.be/kOwmPe8aLAA" %}
-
-Watch how to connect to [FlutterFlow](https://flutterflow.io/)
-
-{% embed url="https://youtu.be/iI84yym473Q" %}
 
 ## Streaming
 
@@ -234,3 +234,7 @@ Replace `username` to your Github username, and `forked-repo` to your forked rep
 Watch how to embed Flowise in a Bootstrap 5 website
 
 {% embed url="https://youtu.be/4paQ2wObDQ4" %}
+
+Watch how to add chatbot to website
+
+{% embed url="https://youtu.be/XOeCV1xyN48" %}

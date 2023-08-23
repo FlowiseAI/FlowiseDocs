@@ -109,3 +109,7 @@ yarn dev
 
 Any code changes will reload the app automatically on [http://localhost:8080](http://localhost:8080)
 
+Watch an introduction & setup tutorial on Flowise, shoutout to Leon!
+
+{% embed url="https://youtu.be/tD6fwQyUIJE" %}
+

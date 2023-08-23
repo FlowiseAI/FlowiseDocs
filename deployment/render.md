@@ -67,3 +67,7 @@ The default filesystem for services running on Render is ephemeral. Flowise data
 <figure><img src="../.gitbook/assets/render/11.png" alt=""><figcaption></figcaption></figure>
 
 5. Now try creating a flow and save it in Flowise. Then try restarting service or redeploy, you should still be able to see the flow you have saved previously.
+
+Watch how to deploy to Render
+
+{% embed url="https://youtu.be/Fxyc6-frgrI" %}

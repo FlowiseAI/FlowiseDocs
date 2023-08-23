@@ -55,6 +55,10 @@ Fill in the fields:
 
 That's it! For more information, refer to LocalAI [docs](https://localai.io/basics/getting\_started/index.html).
 
+Watch how you can use LocalAI on Flowise
+
+{% embed url="https://youtu.be/0B0oIs8NS9k" %}
+
 
 
 

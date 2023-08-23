@@ -6,3 +6,7 @@ In Flowise, there are several vector stores integrations that can be used. Each 
 
 * [Upsert Document](../use-cases/web-scrape-qna.md#upsert-flow)
 * [Load Existing Index/Table](../use-cases/web-scrape-qna.md#load-existing-index-flow)
+
+Watch an intro on Vector Stores and how you can use that on Flowise
+
+{% embed url="https://youtu.be/m0nr1_pnAxc" %}
