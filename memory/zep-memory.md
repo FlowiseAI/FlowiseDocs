@@ -57,7 +57,7 @@ Example of a POST call:
 
 <figure><img src="../.gitbook/assets/image (43).png" alt=""><figcaption></figcaption></figure>
 
-### Zep Authentication
+## Zep Authentication
 
 Zep allows you to secure your instance using JWT authentication. We'll be using the `zepcli` command line utility [here](https://github.com/getzep/zepcli/releases).
 
