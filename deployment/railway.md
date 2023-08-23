@@ -7,7 +7,7 @@
 
 3. Change to your preferred repository name and click Deploy
 
-<figure><img src="../.gitbook/assets/image (2) (1) (2).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (2) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 4. If succeeds, you should be able to see a deployed URL
 
@@ -37,6 +37,6 @@ Just click Deploy and fill in the Env Variables like below:
 * LOG\_PATH - `/opt/railway/.flowise/logs`
 * SECRETKEY\_PATH - `/opt/railway/.flowise`
 
-<figure><img src="../.gitbook/assets/image (1).png" alt="" width="420"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt="" width="420"><figcaption></figcaption></figure>
 
 Now try creating a flow and save it in Flowise. Then try restarting service or redeploy, you should still be able to see the flow you have saved previously.

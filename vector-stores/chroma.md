@@ -23,7 +23,7 @@ docker-compose up -d --build
 
 5. If success, you will be able to see the docker images spun up:
 
-<figure><img src="../.gitbook/assets/image (4) (1).png" alt="" width="390"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (3).png" alt="" width="390"><figcaption></figcaption></figure>
 
 ## Setup
 
@@ -37,7 +37,7 @@ docker-compose up -d --build
 * **Chroma Upsert Document** - Upsert document chunks with embeddings into Chroma
 * **Chroma Load Existing Index** - load existing collection from Chroma
 
-<figure><img src="../.gitbook/assets/image (2) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (2).png" alt="" width="563"><figcaption></figcaption></figure>
 
 ### Additional
 

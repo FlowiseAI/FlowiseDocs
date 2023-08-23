@@ -70,7 +70,7 @@ gcloud auth application-default login
 4. Finally, click "Add" button.
 5. **🎉**You can now use ChatGoogleVertexAI with the credential in Flowise now!
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 ### Resources
 
