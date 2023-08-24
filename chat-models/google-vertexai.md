@@ -58,13 +58,15 @@ gcloud auth application-default login
 
 <figure><img src="../.gitbook/assets/gcp_credential/google_vertex_auth.png" alt="" width="563"><figcaption></figcaption></figure>
 
-3. Register your credential file. There are 2 ways to register your credential file.
+3. Register your credential file. There are 3 ways to register your credential file.
 
 <figure><img src="../.gitbook/assets/gcp_credential/register_credential.png" alt="" width="563"><figcaption></figcaption></figure>
 
-* **Option 1 : Enter path of your credential file**
+* **Option 1 : Skip registering credential file**
+  * If you're already using GCP or have a default credential file, enable `Skip Extra Credential File` to pass adding credential file.
+* **Option 2 : Enter path of your credential file**
   * If you have credential file on your machine, you can enter the path of your credential file into `Google Application Credential File Path`
-* **Option 2 : Paste text of your credential file**
+* **Option 3 : Paste text of your credential file**
   * Or you can copy all text in the credential file and paste it into `Google Credential JSON Object`
 
 4. Finally, click "Add" button.
