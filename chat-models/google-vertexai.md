@@ -13,7 +13,7 @@
 
 <figure><img src="../.gitbook/assets/gcp_credential/vertex_AI_enable.png" alt="" width="563"><figcaption></figcaption></figure>
 
-## Create credential file
+## Create credential file (Optional)
 
 There are 2 ways to create credential file
 
@@ -53,6 +53,12 @@ gcloud auth application-default login
 
 ## Flowise
 
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+### Without credential file
+If you are using a GCP service like Cloud Run, or if you have installed default credentials on your local machine, you do not need to set this credential.
+
+### With credential file
 1. Go to Credential page on Flowise and click **"Add credential"**
 2. Click Google Vertex Auth
 
@@ -70,9 +76,9 @@ gcloud auth application-default login
 4. Finally, click "Add" button.
 5. **🎉**You can now use ChatGoogleVertexAI with the credential in Flowise now!
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 ### Resources
 
 * [LangChain JS GoogleVertexAI](https://js.langchain.com/docs/api/llms\_googlevertexai/classes/GoogleVertexAI)
-* [Google Service accounts overview](https://cloud.google.com/iam/docs/service-account-overview?hl=ja)
+* [Google Service accounts overview](https://cloud.google.com/iam/docs/service-account-overview?)
+* [Try Google Vertex AI Palm 2 with Flowise: Without Coding to Leverage Intuition](https://tech.beatrust.com/entry/2023/08/22/Try_Google_Vertex_AI_Palm_2_with_Flowise%3A_Without_Coding_to_Leverage_Intuition)
