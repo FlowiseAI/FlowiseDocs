@@ -80,5 +80,5 @@ If you are using a GCP service like Cloud Run, or if you have installed default 
 ### Resources
 
 * [LangChain JS GoogleVertexAI](https://js.langchain.com/docs/api/llms\_googlevertexai/classes/GoogleVertexAI)
-* [Google Service accounts overview](https://cloud.google.com/iam/docs/service-account-overview?hl=ja)
+* [Google Service accounts overview](https://cloud.google.com/iam/docs/service-account-overview?)
 * [Try Google Vertex AI Palm 2 with Flowise: Without Coding to Leverage Intuition](https://tech.beatrust.com/entry/2023/08/22/Try_Google_Vertex_AI_Palm_2_with_Flowise%3A_Without_Coding_to_Leverage_Intuition)
