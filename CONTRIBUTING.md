@@ -1,4 +1,4 @@
-# Contributing to Flowise Docs
+# Contributing
 
 We appreciate any form of contributions.
 
@@ -28,12 +28,11 @@ Found an issue? [Report it](https://github.com/FlowiseAI/Flowise/issues/new/choo
 2. Clone your forked repository
 3. Create a new branch
 4. Switch to the newly created branch
-5. Go into repository folder
+5.  Go into repository folder
 
-   ```bash
-   cd FlowiseDocs
-   ```
-
+    ```bash
+    cd FlowiseDocs
+    ```
 6. Make changes
 7. Commit changes and submit Pull Request from forked branch pointing to [Flowise Docs main](https://github.com/FlowiseAI/FlowiseDocs).
 
@@ -41,10 +40,8 @@ Found an issue? [Report it](https://github.com/FlowiseAI/Flowise/issues/new/choo
 
 A member of the FlowiseAI team will automatically be notified/assigned when you open a pull request. You can also reach out to us on [Discord](https://discord.gg/jbaHfsRVBW).
 
-## 📃 Contributor License Agreement
-
 Before we can merge your contribution you have to sign our [Contributor License Agreement (CLA)](https://cla-assistant.io/FlowiseAI/Flowise). The CLA contains the terms and conditions under which the contribution is submitted. You need to do this only once for your first pull request. Keep in mind that without a signed CLA we cannot merge your contribution.
 
 ## 📜 Code of Conduct
 
-This project and everyone participating in it are governed by the Code of Conduct which can be found in the [file](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to hello@flowiseai.com.
+This project and everyone participating in it are governed by the Code of Conduct which can be found in the [file](CODE\_OF\_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to hello@flowiseai.com.
