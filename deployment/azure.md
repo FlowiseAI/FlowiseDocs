@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-1. \[Optional] [Install Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) if you'd like to follow the cli based commands
+1. _(Optional)_ [Install Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) if you'd like to follow the cli based commands
 
 ## Create a Container Instance without Persistent Storage
 
