@@ -78,7 +78,7 @@ SECRETKEY_PATH=/root/.flowise
 LOG_PATH=/root/.flowise/logs
 ```
 
-4. (Optional) You can also specify `FLOWISE_USERNAME` and `FLOWISE_PASSWORD` for app level authorization. See more [setting-username-and-password.md](../authorization/setting-username-and-password.md "mention")
+4. _(Optional)_ You can also specify `FLOWISE_USERNAME` and `FLOWISE_PASSWORD` for app level authorization. See more [setting-username-and-password.md](../authorization/setting-username-and-password.md "mention")
 5. Then press `Ctrl + X` to Exit, and `Y` to save the file
 6. Run docker compose
 

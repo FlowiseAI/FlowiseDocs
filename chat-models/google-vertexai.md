@@ -13,7 +13,7 @@
 
 <figure><img src="../.gitbook/assets/gcp_credential/vertex_AI_enable.png" alt="" width="563"><figcaption></figcaption></figure>
 
-## Create credential file (Optional)
+## Create credential file _(Optional)_
 
 There are 2 ways to create credential file
 

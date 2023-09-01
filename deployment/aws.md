@@ -59,7 +59,7 @@ This setup requires some basic understanding of how AWS works.
 ## How to Connect to your instance (Mac and Linux)
 
 1. Open the Terminal application on your Mac/Linux.
-2. (Optional) Set the permissions of the private key file to restrict access to it:
+2. _(Optional)_ Set the permissions of the private key file to restrict access to it:
 
 ```bash
 chmod 400 /path/to/mykey.pem
@@ -164,7 +164,7 @@ SECRETKEY_PATH=/root/.flowise
 LOG_PATH=/root/.flowise/logs
 ```
 
-5. (Optional) You can also specify `FLOWISE_USERNAME` and `FLOWISE_PASSWORD` for app level authorization. See more [setting-username-and-password.md](../authorization/setting-username-and-password.md "mention")
+5. _(Optional)_ You can also specify `FLOWISE_USERNAME` and `FLOWISE_PASSWORD` for app level authorization. See more [setting-username-and-password.md](../authorization/setting-username-and-password.md "mention")
 6. Then press `Ctrl + X` to Exit, and `Y` to save the file
 7. Run docker compose
 

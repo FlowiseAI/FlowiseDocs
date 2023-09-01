@@ -25,7 +25,7 @@
 
 <figure><img src="../.gitbook/assets/render/5.png" alt=""><figcaption></figcaption></figure>
 
-10. \[OPTIONAL] Add app level authorization, click **Advanced** and add `Environment Variable`
+10. _(Optional)_ Add app level authorization, click **Advanced** and add `Environment Variable`
 
 * FLOWISE\_USERNAME
 * FLOWISE\_PASSWORD
