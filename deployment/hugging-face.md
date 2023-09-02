@@ -11,9 +11,10 @@
 ### Set the environment variables
 
 1. Go to **Settings** of your new space and find the **Variables and Secrets** section
-2. Click on **New variable** and add the name as `PORT` with value `7860`.
-3. _(Optional)_ Save it and now click on **New secret**
-4. _(Optional)_ Fill in with your environment variables, such as database credentials, file paths, etc. You can check for valid fields in the `.env.example` [here](https://github.com/FlowiseAI/Flowise/blob/main/docker/.env.example).
+2. Click on **New variable** and add the name as `PORT` with value `7860`
+3. Click on **Save**
+4. _(Optional)_ Click on **New secret**
+5. _(Optional)_ Fill in with your environment variables, such as database credentials, file paths, etc. You can check for valid fields in the `.env.example` [here](https://github.com/FlowiseAI/Flowise/blob/main/docker/.env.example)
 
 ### Create a Dockerfile
 
