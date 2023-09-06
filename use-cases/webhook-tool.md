@@ -104,3 +104,7 @@ Go to the Discord channel, and you will be able to see the message:
 <figure><img src="../.gitbook/assets/image (54).png" alt=""><figcaption></figcaption></figure>
 
 That's it! OpenAI Function Agent will be able to automatically figure out what to pass as the message and send it over to Discord. This is just a quick example of how to trigger a webhook workflow with dynamic body. The same idea can be applied to workflow that has a webhook and Gmail, GoogleSheets etc.
+
+Watch how to connect Flowise to Google Sheets using webhooks
+
+{% embed url="https://youtu.be/fehXLdRLJFo" %}
