@@ -108,9 +108,9 @@ That's it! OpenAI Function Agent will be able to automatically figure out what t
 ## Tutorials
 
 - Watch a step-by-step instruction video on using Webhooks with Flowise custom tools.
-
 {% embed url="https://youtu.be/_K9xJqEgnrU" %}
 
 - Watch how to connect Flowise to Google Sheets using webhooks
 
+Watch how to connect Flowise to Google Sheets using webhooks
 {% embed url="https://youtu.be/fehXLdRLJFo" %}
