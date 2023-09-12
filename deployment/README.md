@@ -17,8 +17,14 @@ Cloud providers like AWS, Azure, GCP, DigitalOcean are slightly more technical t
 
 ## Rate Limit Setup Guide
 
-1. Host Flowise.
-2. Add `NUMBER_OF_PROXIES` as environment name and `1` as the environment value into your host's environment.
-3. Check IP address using `{{hosted_url}}/api/v1/ip` via enter the URL into browser or API request.
-4. If returned IP address from API request does not match your IP address (which you can get by going to http://ip.nfriedly.com/ or https://api.ipify.org/).
-5. Increase the number of proxies by 1 until it matches your IP address.
+1. **Host Flowise:** Begin by hosting the Flowise service.
+
+2. **Set Environment Variable:** Create an environment variable named `NUMBER_OF_PROXIES` and set its value to `1` within your hosting environment.
+
+3. **Check IP Address:** To verify the IP address, access the following URL: `{{hosted_url}}/api/v1/ip`. You can do this either by entering the URL into your web browser or by making an API request.
+
+4. **Compare IP Addresses:** After making the request, compare the IP address returned to your current IP address. You can find your current IP address by visiting either of these websites:
+   - [http://ip.nfriedly.com/](http://ip.nfriedly.com/)
+   - [https://api.ipify.org/](https://api.ipify.org/)
+
+5. **Adjust Proxies:** If the IP address returned does not match your current IP address, increment the number of proxies by 1. Repeat this process until the IP address matches your own.
