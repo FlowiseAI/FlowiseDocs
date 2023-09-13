@@ -27,4 +27,4 @@ Cloud providers like AWS, Azure, GCP, DigitalOcean are slightly more technical t
    - [http://ip.nfriedly.com/](http://ip.nfriedly.com/)
    - [https://api.ipify.org/](https://api.ipify.org/)
 
-5. **Adjust Proxies:** If the IP address returned does not match your current IP address, increment the number of proxies by 1. Repeat this process until the IP address matches your own.
+5. **Adjust Proxies:** If the IP address returned does not match your current IP address, increase the number of proxies by 1. Repeat this process until the IP address matches your own.
