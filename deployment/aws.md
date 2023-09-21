@@ -12,7 +12,7 @@ This setup requires some basic understanding of how AWS works.
 
 2. Scroll down and **Create new key pair** if you don't have one
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 3. Fill in your preferred key pair name. For Windows, we will use `.ppk` and PuTTY to connect to the instance. For Mac and Linux, we will use `.pem` and OpenSSH
 
@@ -35,7 +35,7 @@ This setup requires some basic understanding of how AWS works.
 
 <figure><img src="../.gitbook/assets/image (17) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-## How to Connect to your instance (Windows)&#x20;
+## How to Connect to your instance (Windows)
 
 1. For Windows, we are going to use PuTTY. You can download one from [here](https://www.chiark.greenend.org.uk/\~sgtatham/putty/latest.html).
 2. Open PuTTY and fill in the **HostName** with your instance's Public IPv4 DNS name
@@ -65,7 +65,7 @@ This setup requires some basic understanding of how AWS works.
 chmod 400 /path/to/mykey.pem
 ```
 
-3. Use the `ssh` command to connect to your EC2 instance, specifying the username (`ec2-user`), Public IPv4 DNS, and the path to the `.pem` file.&#x20;
+3. Use the `ssh` command to connect to your EC2 instance, specifying the username (`ec2-user`), Public IPv4 DNS, and the path to the `.pem` file.
 
 ```bash
 ssh -i /Users/username/Documents/mykey.pem ec2-user@ec2-123-45-678-910.compute-1.amazonaws.com
@@ -172,7 +172,7 @@ LOG_PATH=/root/.flowise/logs
 docker-compose up -d
 ```
 
-7. Your application is now ready at your Public IPv4 DNS on port 3000:&#x20;
+7. Your application is now ready at your Public IPv4 DNS on port 3000:
 
 ```
 http://ec2-123-456-789.compute-1.amazonaws.com:3000
@@ -275,7 +275,3 @@ echo "0 0,12 * * * root /opt/certbot/bin/python -c 'import random; import time; 
 ## Congratulations!
 
 You have successfully setup Flowise apps on EC2 instance with SSL certificate on your domain[🥳](https://emojipedia.org/partying-face/)
-
-
-
-&#x20;    &#x20;

@@ -79,11 +79,11 @@ zepcli.exe -i
 
 You will first get your SECRET Token:
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 Then you will get JWT Token:
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### 2. Configure Auth environment variables <a href="#2-configure-auth-environment-variables" id="2-configure-auth-environment-variables"></a>
 
