@@ -71,6 +71,8 @@ services:
             - DEBUG=${DEBUG}
             - DATABASE_PATH=${DATABASE_PATH}
             - APIKEY_PATH=${APIKEY_PATH}
+            - SECRETKEY_PATH=${SECRETKEY_PATH}
+            - FLOWISE_SECRETKEY_OVERWRITE=${FLOWISE_SECRETKEY_OVERWRITE}
             - LOG_PATH=${LOG_PATH}
             - LOG_LEVEL=${LOG_LEVEL}
             - EXECUTION_MODE=${EXECUTION_MODE}
