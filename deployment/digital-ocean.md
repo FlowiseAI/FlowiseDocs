@@ -242,3 +242,33 @@ echo "0 0,12 * * * root /opt/certbot/bin/python -c 'import random; import time; 
 ## Congratulations!
 
 You have successfully setup Flowise on your Droplet, with SSL certificate on your domain [🥳](https://emojipedia.org/partying-face/)
+
+## Steps to update Flowise on Digital Ocean
+
+1. Navigate to the directory you installed flowise in
+```bash
+cd Flowise/docker
+```
+
+2. Stop and remove docker image
+   
+Note: This will not delete your flows as the database is stored in a separate folder
+
+```bash
+sudo docker-compose stop
+sudo docker-compose rm
+```
+
+3. Pull the latest Flowise Image
+
+You can check the latest version release [here](https://github.com/FlowiseAI/Flowise/releases)
+
+```bash
+docker pull flowiseai/flowise
+```
+
+4. Start the docker
+
+```bash
+docker-compose up -d
+```
