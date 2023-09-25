@@ -114,3 +114,7 @@ That's it! OpenAI Function Agent will be able to automatically figure out what t
 * Watch how to connect Flowise to Google Sheets using webhooks
 
 {% embed url="https://youtu.be/fehXLdRLJFo" %}
+
+* Watch how to connect Flowise to Microsoft Excel using webhooks
+
+{% embed url="https://youtu.be/cB2GC8JznJc" %}
