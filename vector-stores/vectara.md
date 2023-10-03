@@ -6,7 +6,7 @@
 
 ## Prerequisite
 
-1. Register an account for [Vectara](https://console.vectara.com/signup)
+1. Register an account for [Vectara](https://vectara.com/integrations/flowise)
 2. Click **Create Corpus**
 
 <figure><img src="../.gitbook/assets/vectara/1.png" alt=""><figcaption></figcaption></figure>
@@ -62,5 +62,6 @@ For more details on how to use Vectara filters, please refer to the [official do
 
 ## Resources
 
-* [LangChain JS Vectara Blog](https://blog.langchain.dev/langchain-vectara-better-together/)
+* [LangChain JS Vectara Blog Post](https://blog.langchain.dev/langchain-vectara-better-together/)
 * [5 Reasons to Use Vectara's Langchain Integration Blog Post](https://vectara.com/5-reasons-to-use-vectaras-langchain-integration/)
+* [Vectara Boomerang embedding model Blog Post](https://vectara.com/introducing-boomerang-vectaras-new-and-improved-retrieval-model/)
