@@ -4,7 +4,7 @@
 
 It is suitable when you are using Flowise as API, and want the AI to remember conversations between different users. You can achieve that using **sessionId**.
 
-## Deploy Zep
+## Guide to Deploy Zep to Render
 
 You can easily deploy Zep to cloud services like [Render](https://render.com/), [Flyio](https://fly.io/). If you prefer to test it locally, you can also spin up a docker container by following their [quick guide](https://github.com/getzep/zep#quick-start).
 
@@ -22,6 +22,36 @@ In this example, we are going to deploy to Render.
 4. Simply click the first one called **zep** and copy the deployed URL
 
 <figure><img src="../.gitbook/assets/image (38) (1).png" alt=""><figcaption></figcaption></figure>
+
+## Guide to Deploy Zep to Digital Ocean (via Docker)
+
+1. Clone the Repo
+```bash
+git clone https://github.com/getzep/zep.git
+cd zep
+nano .env
+
+```
+
+2. Add IN your OpenAI API Key in.ENV
+
+```bash
+ZEP_OPENAI_API_KEY=
+
+```
+
+```bash
+docker-compose up -d --build
+```
+
+3. Allow firewall access to port 8000
+
+```bash
+sudo ufw allow from any to any port 8000 proto tcp
+ufw status numbered
+```
+
+If using Digital ocean separate firewall from dashboard, make sure port 8000 is added there too
 
 ## Use in Flowise UI
 
