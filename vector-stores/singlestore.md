@@ -1,7 +1,5 @@
 # SingleStore
 
-##
-
 ## Setup
 
 1. Register an account on [SingleStore](https://www.singlestore.com/)
