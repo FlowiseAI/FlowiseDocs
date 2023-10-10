@@ -35,6 +35,7 @@
   * [Supabase](vector-stores/supabase.md)
   * [Chroma](vector-stores/chroma.md)
   * [Vectara](vector-stores/vectara.md)
+  * [SingleStore](vector-stores/singlestore.md)
 * [3rd Party Platform Integration](3rd-party-platform-integration/README.md)
   * [Zapier Zaps](3rd-party-platform-integration/zapier-zaps.md)
 * [Rate Limit](rate-limit.md)
