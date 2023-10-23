@@ -32,6 +32,8 @@
 
 <figure><img src="../.gitbook/assets/render/6.png" alt=""><figcaption></figcaption></figure>
 
+Add `NODE_VERSION` with value `18.18.1` as the node version to run the instance.
+
 There are list of env variables you can configure. Refer to [environment-variables.md](../environment-variables.md "mention")
 
 11. Click **Create Web Service**
@@ -59,8 +61,6 @@ The default filesystem for services running on Render is ephemeral. Flowise data
 * SECRETKEY\_PATH - `/opt/render/.flowise`
 
 <figure><img src="../.gitbook/assets/image (1) (5).png" alt=""><figcaption></figcaption></figure>
-
-
 
 4. Click **Manual Deploy** then select **Clear build cache & deploy**
 
