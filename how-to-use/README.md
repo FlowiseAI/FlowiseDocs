@@ -47,7 +47,7 @@ An example of API call using Postman:
 
 #### Flow with Document Loaders
 
-If the flow contains [Document Loaders](../document-loaders.md), the API looks slightly different. Instead of passing as **JSON** body, **form-data** is being used. This allows you to upload any files to the API.
+If the flow contains [Document Loaders](../document-loaders/), the API looks slightly different. Instead of passing as **JSON** body, **form-data** is being used. This allows you to upload any files to the API.
 
 Note: It is user's responsibility to make sure the file type is compatible with the expected file type from document loader. For example, if a Text File Loader is being used, you should only upload file with `.txt` extension.
 

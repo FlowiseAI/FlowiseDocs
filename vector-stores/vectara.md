@@ -42,7 +42,7 @@
 
 <figure><img src="../.gitbook/assets/vectara/7 (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
-7. Now you can connect any Document node under [**Document Loader**](../document-loaders.md) category to Vectara [🎉](https://emojipedia.org/party-popper/)
+7. Now you can connect any Document node under [**Document Loader**](../document-loaders/) category to Vectara [🎉](https://emojipedia.org/party-popper/)
 
 ## Filters
 

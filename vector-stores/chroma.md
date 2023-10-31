@@ -29,7 +29,7 @@ docker-compose up -d --build
 
 | Input           | Description                                                                                                                                        | Default               |
 | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| Document        | Can be connected with nodes from [Document Loader](../document-loaders.md)                                                                         |                       |
+| Document        | Can be connected with nodes from [Document Loader](../document-loaders/)                                                                           |                       |
 | Embeddings      | Can be connected with nodes from [Embeddings](../embeddings/)                                                                                      |                       |
 | Collection Name | Chroma collection name. Refer to [here](https://docs.trychroma.com/usage-guide#creating-inspecting-and-deleting-collections) for naming convention |                       |
 | Chroma URL      | Specify the URL of your chroma instance                                                                                                            | http://localhost:8000 |
