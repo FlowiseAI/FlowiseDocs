@@ -7,5 +7,6 @@ A retrieval-based question-answering chain, which integrates with a retrieval co
 - Memory (optional)
 ## Parameters
 - System Message
-- 
+- Chain Option
 ## Outputs
+Retrieves previously loaded data to answer user queries
