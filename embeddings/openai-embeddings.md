@@ -13,7 +13,7 @@ An embedding is a vector (list) of floating point numbers. The distance between 
 ## Inputs 
 Connect Credential = OpenAI API Key 
 ## Additional Parameters 
-1. Strip new Lines
+1. Strip New Lines (toggle on / off) 
 1. Batch Size
 1. Timeout
 1. Base Path
