@@ -5,4 +5,4 @@ Separator: default "\n\n" <br>
 Chunck Size: the maximum size of your chunk length by number of characters <br>
 Chunck Overlap: the maximum overlap between chunks. It can be nice to have some overlap to maintain some continuity between chunks (e.g. do a sliding window) <br>
 ## Output 
-Charater Text Splitter: 
+Charater Text Splitter: the split chunks of text
