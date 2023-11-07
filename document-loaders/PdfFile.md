@@ -1,8 +1,8 @@
 # Pdf File
 
 ## Inputs 
-**Text Splitter**
-**PDF File**
-**Usage**
-One Document per Page OR One Document per File
+**Text Splitter** <br>
+**PDF File** <br>
+**Usage** <br>
+One Document per Page OR One Document per File <br>
 ## Output
