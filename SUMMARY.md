@@ -5,6 +5,8 @@
 * [Contributing](CONTRIBUTING.md)
 * [Authorization](authorization/README.md)
   * [Setting username & password](authorization/setting-username-and-password.md)
+* [Cache](cache/README.md)
+  * [InMemory Cache](cache/in-memory-cache.md) 
 * [How to Use](how-to-use/README.md)
 * [Deployment](deployment/README.md)
   * [Render](deployment/render.md)
