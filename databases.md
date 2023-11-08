@@ -1,5 +1,9 @@
 # Databases
 
+* Watch how to use Flowise databases SQLite and MySQL/MariaDB
+
+{% embed url="https://youtu.be/R-6uV1Cb8I8" %}
+
 Flowise supports 3 database types:
 
 * SQLite
