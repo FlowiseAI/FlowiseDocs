@@ -31,6 +31,8 @@
   * [OpenAI Embeddings](embeddings/openai-embeddings.md)
 * [Memory](memory/README.md)
   * [Zep Memory](memory/zep-memory.md)
+* [Text Splitters](text-splitters/README.md)
+  * [Character Text Splitter](text-splitters/character-text-splitter.md)
 * [Tools](tools/README.md)
   * [Custom Tool](tools/custom-tool.md)
   * [Zapier NLA](tools/zapier-nla.md)
