@@ -28,6 +28,7 @@
 * [Embeddings](embeddings/README.md)
   * [Azure OpenAI Embeddings](embeddings/azure-openai-embeddings.md)
   * [LocalAI Embeddings](embeddings/localai-embeddings.md)
+  * [OpenAI Embeddings](embeddings/openai-embeddings.md)
 * [Memory](memory/README.md)
   * [Zep Memory](memory/zep-memory.md)
 * [Tools](tools/README.md)
