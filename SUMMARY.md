@@ -16,6 +16,8 @@
   * [Digital Ocean](deployment/digital-ocean.md)
   * [GCP](deployment/gcp.md)
 * [Environment Variables](environment-variables.md)
+* [Agents](agents/README.md)
+  *[AirTable Agent](agents/air-table.md)  
 * [Databases](databases.md)
 * [Document Loaders](document-loaders/README.md)
   * [S3 File Loader](document-loaders/s3-file-loader.md)
