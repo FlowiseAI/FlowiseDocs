@@ -1,5 +1,5 @@
 # Airtable Agent
-Used to answer queries from Airtable
+Used to answer queries from [Airtable](https://www.airtable.com/)
 ## Inputs
 - Language Model
 - Connect Credential
