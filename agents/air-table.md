@@ -5,8 +5,7 @@ Used to answer queries from [Airtable](https://www.airtable.com/)
 - Connect Credential
 - Base Id
 - Table Id
-
 ## Additional Parameters
-
-
+- Limits
 ## Output
+- AgentExecutor
