@@ -4,4 +4,7 @@
 - Allowed Tools
 - Memory
 - OpenAI Model
+## Additional Parameters
+- System Message 
 ## Output
+- AgentExecutor
