@@ -23,9 +23,9 @@ Current conversation:
 {history}
 ```
 
-There are different type of ways to store memory:
+There are 2 main ways to store conversations:
 
-* Buffer Memory
-* Buffer Window Memory
-* Conversation Summary Memory
-* [Zep Memory](zep-memory.md)
+* [Short Term Memory](short-term-memory.md)
+* [Long Term Memory](long-term-memory/)
+
+For OpenAI Assistant, [Threads](threads.md) will be used to store conversations.
