@@ -1,5 +1,9 @@
 # CSV Agent
-Used to anser queries of a CSV file
+Used to answer queries of a CSV file
 ## Inputs 
-
+- Language Model
+- CSV file
+## Additional Parameters
+- System Message
 ## Output
+- Agent Executor
