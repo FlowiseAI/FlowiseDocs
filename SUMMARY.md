@@ -28,7 +28,7 @@
   * [Open AI Agent](agents/open-ai-agent.md) 
 * [Databases](databases.md)
 * [Document Loaders](document-loaders/README.md)
-  * [S3 File Loader](document-loaders/s3-file-loader.md) 
+  * [S3 File Loader](document-loaders/s3-file-loader.md)
 * [Chat Models](chat-models/README.md)
   * [Azure ChatOpenAI](chat-models/azure-chatopenai.md)
   * [ChatLocalAI](chat-models/chatlocalai.md)
