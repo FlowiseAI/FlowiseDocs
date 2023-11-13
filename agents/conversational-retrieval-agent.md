@@ -4,5 +4,10 @@
 - Uses OpenAI's Function calling 
 
 ## Inputs
-
+- Allowed Tools
+- Memory
+- OpenAI Chat Model
+## Aditional Parameters
+- Systme Message
 ## Outputs
+- Agent Executor
