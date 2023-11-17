@@ -17,5 +17,3 @@ Watch a full demo (18mins)
 ## 🙌 Contributing
 
 See [contributing guide](CONTRIBUTING.md). Reach out to us at [Discord](https://discord.gg/jbaHfsRVBW) if you have any questions or issues.
-
-11/17
