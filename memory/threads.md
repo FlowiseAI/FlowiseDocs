@@ -12,7 +12,7 @@ By default, UI and Embedded Chat will automatically separate threads for multipl
 
 ### Prediction API
 
-POST /`api/v1/prediction/{your-chatflowid}`, specify the **`chatId`**&#x20;
+POST /`api/v1/prediction/{your-chatflowid}`, specify the **`chatId`** . Same thread will be used for the same chatId.
 
 ```json
 {

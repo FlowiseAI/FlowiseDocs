@@ -94,3 +94,7 @@ az container create -g flowise-rg \
 
 5. Visit the IP address (including port :3000) printed from the output of the above command.
 6. From now on your data will be stored in an SQLite database which you can find in your File share.
+
+Watch video tutorial on deploying to Azure Container Instance:
+
+{% embed url="https://www.youtube.com/watch?v=yDebxDfn2yk" %}
