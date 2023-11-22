@@ -9,6 +9,7 @@
   * [InMemory Cache](cache/in-memory-cache.md)
 * [Chains](chains/README.md)
   * [Conversaltional Retrieval QA Chain](chains/conversational-retrieval-qa-chain.md)
+  * [Vectara QA Chain](chains/vectara-chain.md)
 * [How to Use](how-to-use/README.md)
 * [Deployment](deployment/README.md)
   * [Render](deployment/render.md)
