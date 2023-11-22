@@ -1,7 +1,8 @@
-# Conversaltional Retrieval QA Chain
+# Conversational Retrieval QA Chain
 
-A chain for performing question-answering tasks with a retrieval component.\
+A chain for performing question-answering tasks with a retrieval component.
 
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 ## Definitions
 
@@ -11,15 +12,20 @@ A chain for performing question-answering tasks with a retrieval component.\
 
 ## Inputs
 
-* Language Model
-* Vector Store Retriever
-* Memory (optional)
+* [Language Model](../chat-models/)
+* [Vector Store Retriever](../vector-stores/)
+* [Memory (optional)](../memory/)
 
 ## Parameters
 
-* System Message
-* Chain Option
+| Name                    | Description                                                                                                                                               |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Return Source Documents | To return citations/sources that were used to build up the response                                                                                       |
+| System Message          | An instruction for LLM on how to answer query                                                                                                             |
+| Chain Option            | Method on how to summarize, answer questions, and extract information from documents. Read [more](https://js.langchain.com/docs/modules/chains/document/) |
 
 ## Outputs
 
-Retrieves previously loaded data to answer user queries
+| Name                           | Description                   |
+| ------------------------------ | ----------------------------- |
+| ConversationalRetrievalQAChain | Final node to return response |
