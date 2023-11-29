@@ -37,6 +37,6 @@ Just click Deploy and fill in the Env Variables like below:
 * LOG\_PATH - `/opt/railway/.flowise/logs`
 * SECRETKEY\_PATH - `/opt/railway/.flowise`
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt="" width="420"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt="" width="420"><figcaption></figcaption></figure>
 
 Now try creating a flow and save it in Flowise. Then try restarting service or redeploy, you should still be able to see the flow you have saved previously.
