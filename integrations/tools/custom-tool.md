@@ -258,9 +258,156 @@ _<mark style="color:orange;">Stock Ticker: OSTK Price Move: 17.47% News Summary:
 
 ### Additional
 
+#### Pass Session ID to Function
+
+By default, Function in custom tool has access to the following flow configurations:
+
+```json5
+$flow.sessionId 
+$flow.chatId
+$flow.chatflowId
+```
+
+Below is an example of sending the sessionId to Discord webhook:
+
+{% tabs %}
+{% tab title="Javascript" %}
+```javascript
+const fetch = require('node-fetch');
+const webhookUrl = "https://discord.com/api/webhooks/1124783587267";
+const content = $content; // captured from output schema
+const sessionId = $flow.sessionId;
+
+const body = {
+	"content": `${mycontent} and the sessionid is ${sessionId}`
+};
+
+const options = {
+	method: 'POST',
+	headers: {
+		'Content-Type': 'application/json'
+	},
+	body: JSON.stringify(body)
+};
+
+const url = `${webhookUrl}?wait=true`
+
+try {
+	const response = await fetch(url, options);
+	const text = await response.text();
+	return text;
+} catch (error) {
+	console.error(error);
+	return '';
+}
+```
+{% endtab %}
+{% endtabs %}
+
+#### Pass variables to Function
+
+In some cases, you would like to pass variables to custom tool function.
+
+For example, you are creating a chatbot that uses a custom tool. The custom tool is executing a HTTP POST call and API key is needed for successful authenticated request. You can pass it as a variable.
+
+By default, Function in custom tool has access to variables:
+
+```
+$vars.<variable-name>
+```
+
+Example of how to pass variables in Flowise using API and Embedded:
+
+{% tabs %}
+{% tab title="Javascript API" %}
+```javascript
+async function query(data) {
+    const response = await fetch(
+        "http://localhost:3000/api/v1/prediction/<chatflow-id>",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        }
+    );
+    const result = await response.json();
+    return result;
+}
+
+query({
+    "question": "Hey, how are you?",
+    "overrideConfig": {
+        "vars": {
+            "apiKey": "abc"
+        }
+    }
+}).then((response) => {
+    console.log(response);
+});
+```
+{% endtab %}
+
+{% tab title="Embed" %}
+```html
+<script type="module">
+    import Chatbot from 'https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js';
+    Chatbot.init({
+        chatflowid: 'chatflow-id',
+        apiHost: 'http://localhost:3000',
+        chatflowConfig: {
+          vars: {
+            apiKey: 'def'
+          }
+        }
+    });
+</script>
+```
+{% endtab %}
+{% endtabs %}
+
+Example of how to receive the variables in custom tool:
+
+{% tabs %}
+{% tab title="Javascript" %}
+```javascript
+const fetch = require('node-fetch');
+const webhookUrl = "https://discord.com/api/webhooks/1124783587267";
+const content = $content; // captured from output schema
+const sessionId = $flow.sessionId;
+const apiKey = $vars.apiKey;
+
+const body = {
+	"content": `${mycontent} and the sessionid is ${sessionId}`
+};
+
+const options = {
+	method: 'POST',
+	headers: {
+		'Content-Type': 'application/json',
+		'Authorization': `Bearer ${apiKey}`
+	},
+	body: JSON.stringify(body)
+};
+
+const url = `${webhookUrl}?wait=true`
+
+try {
+	const response = await fetch(url, options);
+	const text = await response.text();
+	return text;
+} catch (error) {
+	console.error(error);
+	return '';
+}
+```
+{% endtab %}
+{% endtabs %}
+
 #### Import External Dependencies
 
-You can import any built-in NodeJS [modules](https://www.w3schools.com/nodejs/ref\_modules.asp) and supported [external libraries](https://github.com/FlowiseAI/Flowise/blob/main/packages/components/src/utils.ts#L289) into the **JavaScript Function**.
+You can import any built-in NodeJS [modules](https://www.w3schools.com/nodejs/ref\_modules.asp) and supported [external libraries](https://github.com/FlowiseAI/Flowise/blob/main/packages/components/src/utils.ts#L289) into Function.
 
 1. To import any non-supported libraries, you can easily add the new npm package to `package.json` in `packages/components` folder.
 
@@ -288,32 +435,3 @@ const axios = require('axios')
 Watch how to add additional dependencies and import libraries
 
 {% embed url="https://youtu.be/0H1rrisc0ok" %}
-
-#### Override Function from API
-
-In some cases, you would like to have the custom tool function to be dynamic. For example, you are creating a chatbot using this particular flow for multiple users. Each user has their own API key. And this API key is needed for the tool function to be successfully executed.
-
-Using the example above, we have a custom tool (`get_stock_movers`) with id `customTool_0` from the flow.
-
-<figure><img src="../../.gitbook/assets/image (38).png" alt=""><figcaption></figcaption></figure>
-
-Now, I can override the existing tool function with the following body:
-
-```json
-{
-    "question": "What is the stock that has the biggest price movement today?",
-    "overrideConfig": {
-        "customToolFunc": {
-            "customTool_0": "return 'ELLONMUSK'"
-        }
-    }
-}
-```
-
-Example of POSTMAN call
-
-<figure><img src="../../.gitbook/assets/image (42).png" alt=""><figcaption></figcaption></figure>
-
-As seen from the logs below, the tool was invoked and successfully exited with the `ELLONMUSK` string output.
-
-<figure><img src="../../.gitbook/assets/image (44).png" alt=""><figcaption></figcaption></figure>
