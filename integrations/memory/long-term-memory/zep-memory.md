@@ -92,11 +92,11 @@ zepcli.exe -i
 
 You will first get your SECRET Token:
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Then you will get JWT Token:
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### 2. Configure Auth environment variables <a href="#2-configure-auth-environment-variables" id="2-configure-auth-environment-variables"></a>
 
@@ -111,10 +111,10 @@ ZEP_AUTH_SECRET=<the secret you generated above>
 
 Add a new credential for Zep, and put in the JWT Token in the API Key field:
 
-<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 #### 4. Use the created credential on Zep node <a href="#2-configure-auth-environment-variables" id="2-configure-auth-environment-variables"></a>
 
 In the Zep node Connect Credential, select the credential you have just created. And that's it!
 
-<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>

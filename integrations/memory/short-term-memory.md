@@ -67,4 +67,4 @@ In the `/api/v1/prediction/{your-chatflowid}` POST body request, specify the **`
 
 All conversations can be visualized and managed from UI as well:
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>

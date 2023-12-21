@@ -17,7 +17,7 @@ If you do not specify anything, by default only the given URL page will be scrap
 * **Get Relative Links Method** - how to crawl all relative links, Web Crawl or Sitemap
 * **Get Relative Links Limit** - how many links to crawl, set 0 to crawl all
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 When you open the chat and start asking question, all links will be scraped and upserted into vector database (Pinecone in this case).
 
@@ -46,7 +46,7 @@ This flow is used to load an existing index/collection from vector store, typica
 
 If you have specified namespace or metadata from the upsert flow, remember to specify here as well, under the **Additional Parameters** in Pinecone node.
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 It is recommended to specify a system message for the **Conversational Retrieval QA Chain**. For example, you can specify the name of AI, the language to answer, the response when answer its not found (to prevent hallucination).
 
@@ -60,7 +60,7 @@ I want you to act as a document that I am having a conversation with. Your name 
 
 That's it! You can start asking question [🤔](https://emojipedia.org/thinking-face/)
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 You can also turn on the Return Source Documents option to return a list of document chunks where the AI's response is coming from.
 
