@@ -1,6 +1,6 @@
 # Streaming
 
-Flowise also support streaming back to your front end application when the final node is a **Chain** or **OpenAI Function Agent.**
+Flowise supports streaming back to your front end application when the final node is a **Chain** or **OpenAI Function Agent.**
 
 <figure><img src="../.gitbook/assets/screely-1687030897806.png" alt=""><figcaption></figcaption></figure>
 

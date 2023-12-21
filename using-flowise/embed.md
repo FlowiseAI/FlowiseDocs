@@ -1,8 +1,6 @@
 # Embed
 
-You can also embed a chat widget to your website.
-
-Simply copy paste the embedded code provided to anywhere in the `<body>` tag of your html file.
+You can embed a chat widget to your website. Simply copy paste the embedded code provided to anywhere in the `<body>` tag of your html file.
 
 <figure><img src="../.gitbook/assets/image (8) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
