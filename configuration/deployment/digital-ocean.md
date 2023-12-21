@@ -18,7 +18,7 @@ In this section, we are going to create a Droplet. For more information, refer t
 
 4. After a while you should be able to see your droplet created successfully
 
-<figure><img src="../../.gitbook/assets/image (7) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## How to Connect to your Droplet
 
