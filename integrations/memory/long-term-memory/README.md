@@ -2,7 +2,7 @@
 
 Long Term Memory in Flowise refers to memory nodes that are capable of persisting past conversations, that can be later retrieved to resume the conversation. This allows the conversations for different users to be isolated.
 
-There are 5 short term memory nodes in Flowise:
+There are 5 long term memory nodes in Flowise:
 
 * DynamoDB Chat Memory
 * Motorhead Memory
