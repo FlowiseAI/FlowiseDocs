@@ -266,6 +266,7 @@ By default, Function in custom tool has access to the following flow configurati
 $flow.sessionId 
 $flow.chatId
 $flow.chatflowId
+$flow.input
 ```
 
 Below is an example of sending the sessionId to Discord webhook:
