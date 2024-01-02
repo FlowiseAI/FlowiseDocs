@@ -23,8 +23,8 @@
     <figure><img src="../../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>
 2. Copy & Paste each details (_API Key, Environment, Index Name_) into _**Pinecone Upsert Document**_ node or **Pinecone Load Existing Index** node\
    ![](<../../.gitbook/assets/image (39) (1).png>)![](<../../.gitbook/assets/image (12) (2).png>)
-3. **Document** can be connect with any node under [**Document Loader**](../document-loaders/) category
-4. **Embeddings** can be connect with any node under [**Embeddings** ](../embeddings/)category
+3. **Document** can be connected with any node under [**Document Loader**](../document-loaders/) category
+4. **Embeddings** can be connected with any node under [**Embeddings** ](../embeddings/)category
 
 ## Resources
 
