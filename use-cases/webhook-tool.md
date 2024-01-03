@@ -42,7 +42,7 @@ From the dashboard, click **Tools**, then click **Create**
 
 We can then fill in the following fields (feel free to change this according to your needs):
 
-* **Tool Name**: make\_webhook
+* **Tool Name**: make\_webhook (must be in snake\_case)
 * **Tool Description**: Useful when you need to send message to Discord
 * **Tool Icon Src**: [https://github.com/FlowiseAI/Flowise/assets/26460777/517fdab2-8a6e-4781-b3c8-fb92cc78aa0b](https://github.com/FlowiseAI/Flowise/assets/26460777/517fdab2-8a6e-4781-b3c8-fb92cc78aa0b)
 * **Output Schema**:
@@ -104,6 +104,8 @@ Go to the Discord channel, and you will be able to see the message:
 <figure><img src="../.gitbook/assets/image (54).png" alt=""><figcaption></figcaption></figure>
 
 That's it! OpenAI Function Agent will be able to automatically figure out what to pass as the message and send it over to Discord. This is just a quick example of how to trigger a webhook workflow with dynamic body. The same idea can be applied to workflow that has a webhook and Gmail, GoogleSheets etc.
+
+You can read more on how to pass chat information like `sessionId`, `flowid` and `variables` to custom tool - [#additional](../integrations/tools/custom-tool.md#additional "mention")
 
 ## Tutorials
 

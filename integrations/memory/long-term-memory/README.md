@@ -26,7 +26,7 @@ You can separate the conversations for multiple users by specifying a unique **`
 
 <figure><img src="../../../.gitbook/assets/image (76).png" alt="" width="563"><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/Untitled (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Untitled (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 2. In the `/api/v1/prediction/{your-chatflowid}` POST body request, specify the **`sessionId`** in **`overrideConfig`**
 
