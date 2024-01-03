@@ -11,6 +11,7 @@ To get a Qdrant cloud instance:
 
 <figure><img src="../../.gitbook/assets/qdrant/2.png" alt=""><figcaption></figcaption></figure>
 3. Choose your cluster configurations and region.
+
 4. Hit **Create** to provision your cluster.
 
 ## Setup
@@ -20,9 +21,9 @@ To get a Qdrant cloud instance:
 2. Enter the required info (_Connect Credential, Qdrant server URL, Collection name_) into the _**Qdrant**_ node\
    ![](<../../.gitbook/assets/qdrant/3.png>)![](<../../.gitbook/assets/qdrant/1.png>)
 
-3. **Document** input can be connected with any node under [**Document Loader**](../document-loaders/) category.
+4. **Document** input can be connected with any node under [**Document Loader**](../document-loaders/) category.
 
-4. **Embeddings** input can be connected with any node under [**Embeddings**](../embeddings/)category.
+5. **Embeddings** input can be connected with any node under [**Embeddings**](../embeddings/)category.
 
 ## Resources
 
