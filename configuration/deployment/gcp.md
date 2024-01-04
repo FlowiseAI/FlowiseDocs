@@ -154,3 +154,37 @@ kubectl apply -f yamls/service.yaml
 ## Congratulations!
 
 You have successfully hosted the Flowise apps on GCP [🥳](https://emojipedia.org/partying-face/)
+
+## Timeout
+
+By default, there is a 30 seconds timeout assigned to the proxy by GCP. This caused issue when the response is taking longer than 30 seconds threshold to return. In order to fix this issue, make the following changes to YAML files:
+
+Note: To set the timeout to be 10 minutes (for example) -- we specify 600 seconds below.
+
+1. Create a `backendconfig.yaml` file with the following content:
+
+```yaml
+apiVersion: cloud.google.com/v1
+kind: BackendConfig
+metadata:
+  name: flowise-backendconfig
+  namespace: your-namespace
+spec:
+  timeoutSec: 600
+```
+
+2. Issue: `kubectl apply -f backendconfig.yaml`
+3. Update your `service.yaml` file with the following reference to the `BackendConfig`:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    cloud.google.com/backend-config: '{"default": "flowise-backendconfig"}'
+  name: flowise-service
+  namespace: your-namespace
+...
+```
+
+4. Issue: `kubectl apply -f service.yaml`
