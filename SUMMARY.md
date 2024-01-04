@@ -52,6 +52,7 @@
   * [Vector Stores](integrations/vector-stores/README.md)
     * [Chroma](integrations/vector-stores/chroma.md)
     * [Pinecone](integrations/vector-stores/pinecone.md)
+    * [Elastic](integrations/vector-stores/elastic.md)
     * [Qdrant](integrations/vector-stores/qdrant.md)
     * [SingleStore](integrations/vector-stores/singlestore.md)
     * [Supabase](integrations/vector-stores/supabase.md)

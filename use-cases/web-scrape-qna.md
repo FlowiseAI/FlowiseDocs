@@ -10,22 +10,22 @@ We are going to use **Cheerio Web Scraper** node to scrape links from a given UR
 
 **HtmlToMarkdown Text Splitter** to split the scraped content into smaller pieces.
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 If you do not specify anything, by default only the given URL page will be scraped. If you want to crawl the rest of relative links, click **Additional Parameters.**
 
 * **Get Relative Links Method** - how to crawl all relative links, Web Crawl or Sitemap
 * **Get Relative Links Limit** - how many links to crawl, set 0 to crawl all
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 On the top right corner, you will notice a green button:
 
-<figure><img src="../.gitbook/assets/Untitled.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Untitled (1).png" alt=""><figcaption></figcaption></figure>
 
 A dialog will be shown that allow users to upsert data to Pinecone:
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 Under the hood, following actions will be executed:
 
@@ -52,11 +52,11 @@ I want you to act as a document that I am having a conversation with. Your name 
 ```
 {% endcode %}
 
-<figure><img src="../.gitbook/assets/Untitled (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Untitled (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 You can also turn on the Return Source Documents option to return a list of document chunks where the AI's response is coming from.
 
-<figure><img src="../.gitbook/assets/Untitled (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Untitled (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 The same logic can be applied to any document use cases, not just limited to web scraping.
 
