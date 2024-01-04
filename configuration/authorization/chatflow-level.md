@@ -6,13 +6,13 @@ After you have a chatflow constructed, you might want to allow certain people to
 
 In dashboard, navigate to API Keys section, and you should be able to see a DefaultKey created. You can also add or delete any keys.
 
-<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Chatflow
 
 Navigate to the chatflow, and now you can select the API Key you want to use to protect the chatflow.
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 After assigning an API key, one can only access the chatflow API when the Authorization header is provided with the correct API key specified during a HTTP call.
 

@@ -10,20 +10,26 @@ To get a Qdrant cloud instance:
 2. Select **Clusters** and then click **+ Create**.
 
 <figure><img src="../../.gitbook/assets/qdrant/2.png" alt=""><figcaption></figcaption></figure>
-3. Choose your cluster configurations and region.
 
+3. Choose your cluster configurations and region.
 4. Hit **Create** to provision your cluster.
 
 ## Setup
 
 1. Get/Create your **API Key** from the **Data Access Control** section of the [Cloud Dashboard](https://cloud.qdrant.io/overview).
+2. Add a new **Qdrant** node on canvas.
+3. Create new Qdrant credential using the API Key
 
-2. Enter the required info (_Connect Credential, Qdrant server URL, Collection name_) into the _**Qdrant**_ node\
-   ![](<../../.gitbook/assets/qdrant/3.png>)![](<../../.gitbook/assets/qdrant/1.png>)
+<figure><img src="../../.gitbook/assets/qdrant/1.png" alt="" width="563"><figcaption></figcaption></figure>
 
-4. **Document** input can be connected with any node under [**Document Loader**](../document-loaders/) category.
+4. Enter the required info into the **Qdrant** node:
+   * Qdrant server URL
+   * Collection name
 
-5. **Embeddings** input can be connected with any node under [**Embeddings**](../embeddings/)category.
+<figure><img src="../../.gitbook/assets/qdrant/3.png" alt="" width="239"><figcaption></figcaption></figure>
+
+5. **Document** input can be connected with any node under [**Document Loader**](../document-loaders/) category.
+6. **Embeddings** input can be connected with any node under [**Embeddings**](../embeddings/)category.
 
 ## Resources
 

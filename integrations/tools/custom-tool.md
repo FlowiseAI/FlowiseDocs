@@ -116,7 +116,7 @@ Output Schema tells ChatGPT what to return as a JSON object. In this case, we ar
 * Next, replace the hard-coded url query parameter performanceId: `0P0000OQN8` to the property variable specified in Output Schema: `$performanceId`
 * You can use any properties specified in Output Schema as variables in the JavaScript Function by appending a prefix `$` at the front of the variable name.
 
-<figure><img src="../../.gitbook/assets/Untitled (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Untitled (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Final code:
 

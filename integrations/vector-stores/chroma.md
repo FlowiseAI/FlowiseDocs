@@ -34,10 +34,7 @@ docker-compose up -d --build
 | Collection Name | Chroma collection name. Refer to [here](https://docs.trychroma.com/usage-guide#creating-inspecting-and-deleting-collections) for naming convention |                       |
 | Chroma URL      | Specify the URL of your chroma instance                                                                                                            | http://localhost:8000 |
 
-* **Chroma Upsert Document** - Upsert document chunks with embeddings into Chroma
-* **Chroma Load Existing Index** - load existing collection from Chroma
-
-<figure><img src="../../.gitbook/assets/image (2) (1) (2).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image.png" alt="" width="238"><figcaption></figcaption></figure>
 
 ### Additional
 

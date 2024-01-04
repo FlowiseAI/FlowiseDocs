@@ -10,7 +10,7 @@ We are going to use **Cheerio Web Scraper** node to scrape links from a given UR
 
 **HtmlToMarkdown Text Splitter** to split the scraped content into smaller pieces.
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
 If you do not specify anything, by default only the given URL page will be scraped. If you want to crawl the rest of relative links, click **Additional Parameters.**
 
@@ -21,7 +21,7 @@ If you do not specify anything, by default only the given URL page will be scrap
 
 On the top right corner, you will notice a green button:
 
-<figure><img src="../.gitbook/assets/Untitled (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Untitled (2).png" alt=""><figcaption></figcaption></figure>
 
 A dialog will be shown that allow users to upsert data to Pinecone:
 
@@ -36,13 +36,13 @@ Under the hood, following actions will be executed:
 
 Navigate to Pinecone dashboard, you will be able to see new vectors being added.
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Query
 
 Querying is relatively straight-forward. After you have verified that data is upserted to vector database, you can start asking question in the chat:
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 It is recommended to specify a system message for the **Conversational Retrieval QA Chain**. For example, you can specify the name of AI, the language to answer, the response when answer its not found (to prevent hallucination).
 

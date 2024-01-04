@@ -29,7 +29,7 @@ This setup requires some basic understanding of how AWS works.
 
 7. Back to the first tab (EC2 Launch an instance) and scroll down to **Network settings**. Select the security group you've just created
 
-<figure><img src="../../.gitbook/assets/image (7) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 8. Click **Launch instance**. Navigate back to EC2 Dashboard, after few mins we should be able to see a new instance up and running [🎉](https://emojipedia.org/party-popper/)
 
@@ -52,7 +52,7 @@ This setup requires some basic understanding of how AWS works.
 
 5. Then login as `ec2-user`
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 6. Now you are connected to the EC2 instance
 

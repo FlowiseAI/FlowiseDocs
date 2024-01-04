@@ -37,7 +37,7 @@
 
 ## Flowise Setup
 
-1. Add a new **Elasticsearch** node on canvas and create new credential
+1. Add a new **Elasticsearch** node on canvas and fill in the **Index Name**
 
 <figure><img src="../../.gitbook/assets/elastic10.png" alt="" width="275"><figcaption></figcaption></figure>
 
@@ -51,17 +51,17 @@
 
 4. After credential has been created successfully, you can start upserting the data
 
-<figure><img src="../../.gitbook/assets/Untitled.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Untitled (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/elastic13.png" alt=""><figcaption></figcaption></figure>
 
 5. After data has been upserted successfully, you can verify it from Elastic dashboard:
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
 6. Voila! You can now start asking question in the chat
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 ## Resources
 
