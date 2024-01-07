@@ -1,6 +1,6 @@
 # Sealos
 
-1. Click the following prebuilt [template](https://cloud.sealos.io/?openapp=system-template%3FtemplateName%3Dflowise)
+1. Click the following prebuilt [template](https://template.cloud.sealos.io/deploy?templateName=flowise)
 2. add authorization
 
 * FLOWISE\_USERNAME

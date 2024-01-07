@@ -15,6 +15,7 @@
   * [Deployment](configuration/deployment/README.md)
     * [Render](configuration/deployment/render.md)
     * [Railway](configuration/deployment/railway.md)
+    *  [Sealos](configuration/deployment/sealos.md)
     * [Replit](configuration/deployment/replit.md)
     * [Hugging Face](configuration/deployment/hugging-face.md)
     * [AWS](configuration/deployment/aws.md)
