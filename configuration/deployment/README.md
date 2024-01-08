@@ -4,6 +4,7 @@ Flowise can be deployed to any cloud services. Here's few commonly used cloud pr
 
 * [Render](render.md)
 * [Railway](railway.md)
+* [Sealos](sealos.md)
 * [Replit](replit.md)
 * [Hugging Face](hugging-face.md)
 
