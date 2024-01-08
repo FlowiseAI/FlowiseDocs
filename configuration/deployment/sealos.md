@@ -1,27 +1,26 @@
 # Sealos
 
 1. Click the following prebuilt [template](https://template.cloud.sealos.io/deploy?templateName=flowise)
-2. add authorization
+2. Add authorization
+   * FLOWISE\_USERNAME
+   * FLOWISE\_PASSWORD
 
-* FLOWISE\_USERNAME
-* FLOWISE\_PASSWORD
+<figure><img src="../../.gitbook/assets/1.jpg" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/sealos/deployment/1.jpg" alt=""><figcaption><p>Sealos's template for flowise </p></figcaption></figure>
-
-3. click "Deploy Application" on the template page to start deployment.
+3. Click "Deploy Application" on the template page to start deployment.
 4. Once deployment concludes, click "Details" to navigate to the application's details.
 
-<figure><img src="../.gitbook/assets/sealos/deployment/2.png" alt=""><figcaption><p>Detail page for flowise application </p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2.png" alt=""><figcaption></figcaption></figure>
 
 5. Wait for the application's status to switch to running. Subsequently, click on the external link to open the application's Web interface directly through the external domain.
 
-<figure><img src="../.gitbook/assets/sealos/deployment/3.png" alt=""><figcaption><p>external link for flowise application </p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/3.png" alt=""><figcaption></figcaption></figure>
 
 ## Persistent Volume
 
-just click "Update" top-right on the app details page, then click "Advanced" -> "Add volume", Fill in the value of "mount path": `/root/.flowise`.
+Click "Update" top-right on the app details page, then click "Advanced" -> "Add volume", Fill in the value of "mount path": `/root/.flowise`.
 
-<figure><img src="../.gitbook/assets/sealos/deployment/4.png" alt=""><figcaption><p>Persistent Volume for flowise application </p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/4.png" alt="" width="375"><figcaption></figcaption></figure>
 
 To wrap up, click the "Deploy" button.
 
