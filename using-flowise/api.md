@@ -168,6 +168,55 @@ query(formData).then((response) => {
 
 For other [Document Loaders](../integrations/document-loaders/) nodes without Upload File functionality, the API body is in **JSON** format similar to [Prediction API](api.md#prediction-api).
 
+{% tabs %}
+{% tab title="Python" %}
+```python
+import requests
+
+API_URL = "http://localhost:3000/api/v1/vector/upsert/<chatlfowid>"
+
+def query(form_data):
+    response = requests.post(API_URL, json=payload)
+    print(response)
+    return response.json()
+
+output = query({
+    "overrideConfig": { # optional
+        "returnSourceDocuments": true
+    }
+})
+print(output)
+```
+{% endtab %}
+
+{% tab title="Javascript" %}
+```javascript
+async function query(data) {
+    const response = await fetch(
+        "http://localhost:3000/api/v1/vector/upsert/<chatlfowid>",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        }
+    );
+    const result = await response.json();
+    return result;
+}
+
+query({
+    "overrideConfig": { // optional
+        "returnSourceDocuments": true
+    }
+}).then((response) => {
+    console.log(response);
+});
+```
+{% endtab %}
+{% endtabs %}
+
 ### Message API
 
 * GET `/api/v1/chatmessage/{your-chatflowid}`

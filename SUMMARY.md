@@ -8,6 +8,7 @@
   * [Streaming](using-flowise/streaming.md)
   * [Embed](using-flowise/embed.md)
   * [Variables](using-flowise/variables.md)
+  * [Analytic](using-flowise/analytic.md)
 * [Configuration](configuration/README.md)
   * [Auth](configuration/authorization/README.md)
     * [App Level](configuration/authorization/app-level.md)
