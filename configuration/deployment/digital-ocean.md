@@ -93,7 +93,7 @@ docker-compose up -d
 docker-compose stop
 ```
 
-7. You can pull from latest image by:
+9. You can pull from latest image by:
 
 ```bash
 docker pull flowiseai/flowise
