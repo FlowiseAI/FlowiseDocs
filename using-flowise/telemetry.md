@@ -6,28 +6,28 @@ Flowise open source repository has a built-in telemetry that collects anonymous 
 
 You can verify these claims by finding all locations `telemetry.sendTelemetry` is called from the source code.
 
-<table><thead><tr><th width="238">Event</th><th>Metadata</th></tr></thead><tbody><tr><td>chatflow_created</td><td><pre class="language-json"><code class="lang-json"><strong>{
-</strong><strong>    "version": &#x3C;app-version>,
-</strong><strong>    "chatlowId": &#x3C;chatflow-id>,
-</strong><strong>    "flowGraph": {
-</strong><strong>        "nodes": [&#x3C;nodeid-1>, &#x3C;nodeid-2>],
-</strong><strong>        "edges": [
-</strong><strong>            {
-</strong><strong>                "source": &#x3C;nodeid-1>,
-</strong><strong>                "target": &#x3C;nodeid-2>
-</strong><strong>            }
-</strong><strong>        ]
-</strong><strong>    }
-</strong>}
-</code></pre></td></tr><tr><td>tool_created</td><td><pre class="language-json"><code class="lang-json"><strong>{
-</strong><strong>    "version": &#x3C;app-version>,
-</strong><strong>    "toolId": &#x3C;tool-id>,
-</strong><strong>    "toolName": &#x3C;tool-name>
-</strong>}
-</code></pre></td></tr><tr><td>assistant_created</td><td><pre class="language-json"><code class="lang-json"><strong>{
-</strong><strong>    "version": &#x3C;app-version>,
-</strong><strong>    "assistantId": &#x3C;assistant-id>
-</strong>}
+<table><thead><tr><th width="238">Event</th><th>Metadata</th></tr></thead><tbody><tr><td>chatflow_created</td><td><pre class="language-json"><code class="lang-json">{
+    "version": &#x3C;app-version>,
+    "chatlowId": &#x3C;chatflow-id>,
+    "flowGraph": {
+        "nodes": [&#x3C;nodeid-1>, &#x3C;nodeid-2>],
+        "edges": [
+            {
+                "source": &#x3C;nodeid-1>,
+                "target": &#x3C;nodeid-2>
+            }
+        ]
+    }
+}
+</code></pre></td></tr><tr><td>tool_created</td><td><pre class="language-json"><code class="lang-json">{
+    "version": &#x3C;app-version>,
+    "toolId": &#x3C;tool-id>,
+    "toolName": &#x3C;tool-name>
+}
+</code></pre></td></tr><tr><td>assistant_created</td><td><pre class="language-json"><code class="lang-json">{
+    "version": &#x3C;app-version>,
+    "assistantId": &#x3C;assistant-id>
+}
 </code></pre></td></tr><tr><td>vector_upserted</td><td><pre class="language-json"><code class="lang-json">{
     "version": &#x3C;app-version>,
     "chatlowId": &#x3C;chatflow-id>,
