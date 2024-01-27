@@ -28,7 +28,7 @@ Name the corpus to be created and click **Create Corpus** then wait for the corp
 
 <figure><img src="../../.gitbook/assets/vectara/4.png" alt=""><figcaption></figcaption></figure>
 
-1. Back to Flowise canvas, and create your chatflow. Click **Create New** from the Credentials dropdown ane enter your Vectara credentials.
+5. Back to Flowise canvas, and create your chatflow. Click **Create New** from the Credentials dropdown ane enter your Vectara credentials.
 
 <figure><img src="../../.gitbook/assets/vectara/5.png" alt="" width="500"><figcaption></figcaption></figure>
 
@@ -36,7 +36,8 @@ Name the corpus to be created and click **Create Corpus** then wait for the corp
 
 ## Vectara Query Parameters
 
-For finer control over the Vectara query parameters, click on "Additional Parameters" and then you can update the following parameters from their default:
+For finer control over the Vectara query parameters, click on "**Additional Parameters**" and then you can update the following parameters from their default:
+
 * Metadata Filter: Vectara supports meta-data filtering. To use [filtering](https://docs.vectara.com/docs/common-use-cases/filtering-by-metadata/filter-overview), ensure that metadata fields you want to filter by are defined in your Vectara corpus.
 * "Sentences before" and "Sentences after": these control how many sentences before/after the matching text are returned as results from the Vectara retrieval engine
 * Lambda: defines the behavior of [hybrid search](https://docs.vectara.com/docs/learn/hybrid-search) in Vectara
