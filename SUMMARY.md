@@ -34,6 +34,7 @@
     * [Conversational Retrieval QA Chain](integrations/chains/conversational-retrieval-qa-chain.md)
     * [Vectara QA Chain](integrations/chains/vectara-chain.md)
   * [Document Loaders](integrations/document-loaders/README.md)
+    * [Cheerio Web Scrapper](integrations/document-loaders/cheerio-web-scraper.md)
     * [S3 File Loader](integrations/document-loaders/s3-file-loader.md)
     * [PDF Files](integrations/document-loaders/pdf-file.md)
   * [Chat Models](integrations/chat-models/README.md)
