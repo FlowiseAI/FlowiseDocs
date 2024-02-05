@@ -13,7 +13,7 @@ Cheerio is lightweight and doesn't require a full browser environment like some 
 2. Select `Web Crawl` or `Scrape XML Sitemap` in **Get Relative Links Method**.
 3. Input `0` in **Get Relative Links Limit** to retrieve all links available from the provided URL.
 
-## Mange Links
+## Manage Links
 
 1. Click **Manage Links**.
 2.  _(Optional)_ Input desired URL to be scraped.
