@@ -45,3 +45,8 @@ Flowise supports using custom base URL and headers for Chat OpenAI. Users can ea
 
 <figure><img src="../../.gitbook/assets/image (5).png" alt="" width="563"><figcaption></figcaption></figure>
 
+## Custom Model
+
+For models that are not supported on ChatOpenAI node, you can use ChatOpenAI Custom for that. This allow users to fill in model name such as `mistralai/Mixtral-8x7B-Instruct-v0.1`
+
+<figure><img src="../../.gitbook/assets/image (84).png" alt=""><figcaption></figcaption></figure>
