@@ -17,7 +17,7 @@ If you do not specify anything, by default only the given URL page will be scrap
 * **Get Relative Links Method** - how to crawl all relative links, Web Crawl or Sitemap
 * **Get Relative Links Limit** - how many links to crawl, set 0 to crawl all
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 On the top right corner, you will notice a green button:
 
@@ -25,7 +25,7 @@ On the top right corner, you will notice a green button:
 
 A dialog will be shown that allow users to upsert data to Pinecone:
 
-<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Under the hood, following actions will be executed:
 
@@ -36,13 +36,13 @@ Under the hood, following actions will be executed:
 
 Navigate to Pinecone dashboard, you will be able to see new vectors being added.
 
-<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Query
 
 Querying is relatively straight-forward. After you have verified that data is upserted to vector database, you can start asking question in the chat:
 
-<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 It is recommended to specify a system message for the **Conversational Retrieval QA Chain**. For example, you can specify the name of AI, the language to answer, the response when answer its not found (to prevent hallucination).
 

@@ -12,7 +12,7 @@ This setup requires some basic understanding of how AWS works.
 
 2. Scroll down and **Create new key pair** if you don't have one
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 3. Fill in your preferred key pair name. For Windows, we will use `.ppk` and PuTTY to connect to the instance. For Mac and Linux, we will use `.pem` and OpenSSH
 
@@ -52,7 +52,7 @@ This setup requires some basic understanding of how AWS works.
 
 5. Then login as `ec2-user`
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 6. Now you are connected to the EC2 instance
 
