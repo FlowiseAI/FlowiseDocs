@@ -1,6 +1,10 @@
 # Refine
 
-"create and refine" an answer by sequentially going through each retrieved text chunk. This makes a separate LLM call per Node. Good for more detailed answers.
+Create and refine an answer by sequentially going through each retrieved text chunk.&#x20;
+
+**Pros**: Good for more detailed answers
+
+**Cons**: Separate LLM call per Node (can be expensive)
 
 <figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 

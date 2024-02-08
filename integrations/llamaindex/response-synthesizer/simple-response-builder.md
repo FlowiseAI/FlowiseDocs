@@ -1,5 +1,9 @@
 # Simple Response Builder
 
-Given a set of text chunks and the query, apply the query to each text chunk while accumulating the responses into an array. Returns a concatenated string of all responses. Good for when you need to run the same query separately against each text chunk.
+Using a collection of text segments and a query, execute the query on each segment, gathering the responses into an array. Return a combined string containing all responses.&#x20;
+
+**Pros**: Useful for individually querying each text segment with the same query
+
+**Cons**: Not suitable for complex and detailed answer
 
 <figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>

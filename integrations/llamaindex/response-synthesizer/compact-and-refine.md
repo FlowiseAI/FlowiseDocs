@@ -2,7 +2,11 @@
 
 This is the default when no Response Synthesizer is explicilty defined.&#x20;
 
-"compact" the prompt during each LLM call by stuffing as many text chunks that can fit within the maximum prompt size. If there are too many chunks to stuff in one prompt, "create and refine" an answer by going through multiple compact prompts. The same as `refine`, but should result in less LLM calls.
+Compact the prompt during each LLM call by stuffing as many text chunks that can fit within the maximum prompt size. If there are too many chunks to stuff in one prompt, "create and refine" an answer by going through multiple compact prompts.
+
+**Pros**: The same as [Refine](refine.md), Good for more detailed answers, and should result in less LLM calls
+
+**Cons**: Due to the multiple LLM calls , can be expensive
 
 <figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 

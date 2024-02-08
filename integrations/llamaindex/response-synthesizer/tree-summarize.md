@@ -1,6 +1,10 @@
 # Tree Summarize
 
-Given a set of text chunks and the query, recursively construct a tree and return the root node as the response. Good for summarization purposes.
+When provided with text chunks and a query, recursively build a tree structure and return the root node as the result.&#x20;
+
+**Pros**: Beneficial for summarization tasks
+
+**Cons**: Accuracy of answer might be lost during traversal of tree structure
 
 <figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
