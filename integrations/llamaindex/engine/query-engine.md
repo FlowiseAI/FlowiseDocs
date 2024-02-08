@@ -14,7 +14,6 @@ A query engine serves as an end-to-end pipeline enabling users to ask questions 
 | Name                    | Description                                                         |
 | ----------------------- | ------------------------------------------------------------------- |
 | Return Source Documents | To return citations/sources that were used to build up the response |
-| System Message          | An instruction for LLM on how to answer query                       |
 
 ## Outputs
 
