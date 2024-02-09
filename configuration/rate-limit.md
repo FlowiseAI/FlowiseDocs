@@ -10,12 +10,13 @@ When you share your chatflow to public with no API authorization through API or 
 
 Using the example above, that means only 20 messages are allowed to be received in 60 seconds. The rate limitation is tracked by IP-address. If you have deployed Flowise on cloud service, you'll have to set `NUMBER_OF_PROXIES` env variable.
 
-## Rate Limit Setup Guide
+## Cloud-Hosted Rate Limit Setup Guide
 
-1. **Host Flowise:** Begin by hosting the Flowise service.
-2. **Set Environment Variable:** Create an environment variable named `NUMBER_OF_PROXIES` and set its value to `1` within your hosting environment.
-3. **Check IP Address:** To verify the IP address, access the following URL: `{{hosted_url}}/api/v1/ip`. You can do this either by entering the URL into your web browser or by making an API request.
-4. **Compare IP Addresses:** After making the request, compare the IP address returned to your current IP address. You can find your current IP address by visiting either of these websites:
+1. **Cloud Host Flowise:** Start by hosting Flowise in the cloud.
+2. **Set Environment Variable:** Create an environment variable named `NUMBER_OF_PROXIES` and set its value to `0` in your hosting environment.
+3. **Restart Cloud-Hosted Flowise Service:** This enables Flowise to apply changes of environment variables.
+4. **Check IP Address:** To verify the IP address, access the following URL: `{{hosted_url}}/api/v1/ip`. You can do this either by entering the URL into your web browser or by making an API request.
+5. **Compare IP Address** After making the request, compare the IP address returned to your current IP address. You can find your current IP address by visiting either of these websites:
    * [http://ip.nfriedly.com/](http://ip.nfriedly.com/)
    * [https://api.ipify.org/](https://api.ipify.org/)
-5. **Adjust Proxies:** If the IP address returned does not match your current IP address, increase the number of proxies by 1. Repeat this process until the IP address matches your own.
+6. **Incorrect IP Address:** If the returned IP address does not match your current IP address, increase `NUMBER_OF_PROXIES` by 1 and restart Cloud-Hosted Flowise. Repeat this process until the IP address matches your own.
