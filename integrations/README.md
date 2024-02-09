@@ -2,13 +2,13 @@
 
 In Flowise, nodes are referred to as integrations. Similar to LEGO, you can build a customized LLM ochestration flow, a chatbot, an agent with all the integrations available in Flowise.
 
-* [Cache](cache/)
-* [Chains](chains/)
-* [Document Loaders](document-loaders/)
-* [Chat Models](chat-models/)
-* [Embeddings](embeddings/)
-* [Memory](memory/)
-* [Text Splitters](text-splitters/)
-* [Tools](tools/)
-* [Vector Stores](vector-stores/)
+* [Cache](langchain/cache/)
+* [Chains](langchain/chains/)
+* [Document Loaders](langchain/document-loaders/)
+* [Chat Models](langchain/chat-models/)
+* [Embeddings](langchain/embeddings/)
+* [Memory](langchain/memory/)
+* [Text Splitters](langchain/text-splitters/)
+* [Tools](langchain/tools/)
+* [Vector Stores](langchain/vector-stores/)
 * [External Integrations](3rd-party-platform-integration/)
