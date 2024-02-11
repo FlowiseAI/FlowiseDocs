@@ -82,32 +82,30 @@ docker push gcr.io/[ProjectId]/flowise:dev
 
 ```
 # deployment.yaml
-apiVersion: "v1"
-kind: "Deployment"
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: "flowise"
+  name: flowise
   labels:
-    app: "flowise"
+    app: flowise
 spec:
   selector:
     matchLabels:
-      app: "flowise"
+      app: flowise
   replicas: 1
   template:
     metadata:
       labels:
-        app: "flowise"
+        app: flowise
     spec:
       containers:
-      - name: "flowise"
-        image: "gcr.io/[ProjectId]/flowise:dev"
-        imagePullPolicy: "Always"
+      - name: flowise
+        image: gcr.io/[ProjectID]/flowise:dev
+        imagePullPolicy: Always
         resources: 
           requests:
-            cpu: 1
-            memory: "
-            1Gi"
-        
+            cpu: "1"
+            memory: "1Gi"
 ```
 
 3. Add the `service.yaml` file into that folder.
