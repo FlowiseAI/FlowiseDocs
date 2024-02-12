@@ -10,9 +10,8 @@ Watch a quickstart demo (2mins)
 
 {% embed url="https://youtu.be/d7vfUodP0c4" %}
 
-Watch a full demo (18mins)
-
-{% embed url="https://youtu.be/fn4GCZuiwdk?si=xeUH1RUqzgDmJ81U" %}
+Watch a full demo (10 mins)
+{% embed url="https://youtu.be/kAyKOsm8L5Y" %}
 
 ## 🙌 Contributing
 
