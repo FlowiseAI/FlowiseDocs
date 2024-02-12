@@ -111,5 +111,5 @@ Any code changes will reload the app automatically on [http://localhost:8080](ht
 
 Watch an introduction & setup tutorial on Flowise, shoutout to Leon!
 
-{% embed url="https://youtu.be/tD6fwQyUIJE" %}
+{% embed url="https://youtu.be/nqAK_L66sIQ" %}
 
