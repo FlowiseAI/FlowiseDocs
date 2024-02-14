@@ -1,5 +1,15 @@
 # Azure
 
+Flowise as Azure App Service with Postgres
+
+## Prerequisites
+1. [Install Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
+2. [Terraform CLI](https://developer.hashicorp.com/terraform/install)
+
+
+<details>
+<summary> Azure Continer Instance</summary>
+
 ## Prerequisites
 
 1. _(Optional)_ [Install Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) if you'd like to follow the cli based commands
@@ -98,3 +108,5 @@ az container create -g flowise-rg \
 Watch video tutorial on deploying to Azure Container Instance:
 
 {% embed url="https://www.youtube.com/watch?v=yDebxDfn2yk" %}
+
+</details>
