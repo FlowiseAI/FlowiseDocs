@@ -1,6 +1,6 @@
 # Azure
 
-Flowise as Azure App Service with Postgres
+## Flowise as Azure App Service with Postgres: Using Terraform
 
 
 ### Prerequisites
@@ -62,13 +62,10 @@ Create a `terraform.tfvars` file in your Terraform project directory, if it's no
 
    Replace the placeholders with actual values for your setup.
 
-   Certainly! Based on the image provided, the file tree for the Terraform project structure is as follows:
+The file tree structure is as follows:
 
 ```
 flow
-├── .terraform
-│   └── (terraform generated files)
-├── .terraform.lock.hcl
 ├── database.tf
 ├── main.tf
 ├── network.tf
@@ -84,7 +81,7 @@ flow
 
 Each `.tf` file in the Terraform configuration likely contains a different aspect of the infrastructure as code:
 
-<details><summary>database.tf would define the configuration for the Postgres database.</summary> 
+<details><summary> `database.tf` would define the configuration for the Postgres database.</summary> 
 
 ```yaml
 
@@ -143,7 +140,7 @@ resource "azurerm_postgresql_flexible_server_configuration" "postgres_config" {
 ``` 
 </details> 
 
-<details><summary>main.tf` could be the main configuration file that may include the Azure provider configuration and defines the Azure resource group.</summary>
+<details><summary>`main.tf` could be the main configuration file that may include the Azure provider configuration and defines the Azure resource group.</summary>
 
 ```yaml
 // main.tf
@@ -183,7 +180,7 @@ resource "azurerm_storage_share" "flowise-share" {
 ```
 </details>
 
-<details><summary>network.tf` would include networking resources such as virtual networks, subnets, and network security groups.</summary>
+<details><summary>`network.tf` would include networking resources such as virtual networks, subnets, and network security groups.</summary>
 
 ```yaml
 // network.tf
@@ -240,7 +237,7 @@ resource "azurerm_private_dns_zone_virtual_network_link" "postgres" {
 ```
 </details>
 
-<details><summary>providers.tf` would define the Terraform providers, such as Azure.</summary>
+<details><summary> `providers.tf` would define the Terraform providers, such as Azure.</summary>
 
 ```yaml
 // providers.tf
@@ -266,7 +263,7 @@ provider "azurerm" {
 ```
 </details>
 
-<details><summary>variables.tf` would declare variables used across all `.tf` files.</summary>
+<details><summary> `variables.tf` would declare variables used across all `.tf` files.</summary>
 
 ```yaml
 // variables.tf
@@ -351,7 +348,7 @@ variable "flowise_image" {
 ```
 </details>
 
-<details><summary>webapp.tf` would contain the configuration for the Azure App Service.</summary>
+<details><summary>`webapp.tf` Azure App Services that includes a service plan and linux web app </summary>
 
 ```yaml
 // webapp.tf
@@ -479,23 +476,13 @@ This will initialize Terraform and download the required providers.
    Once Terraform has completed, it will output any defined outputs such as IP addresses or domain names. Verify that the resources are correctly deployed in your Azure Portal.
 
 
-### Maintenance and Updates
-
-1. **Updating the Application**:
-   To update the application, change the `source_image` or `tagged_image` in your `terraform.tfvars` file and rerun `terraform apply`.
-
-2. **Monitoring**:
-   Set up monitoring and alerts within the Azure Portal to keep track of your application's performance and availability.
-
-3. **Backup and Recovery**:
-   Establish a backup and disaster recovery plan for both the Azure App Service and Postgres database.
+___
 
 
 
-<details>
-<summary> Azure Continer Instance</summary>
+## Azure Continer Instance: Using Azure Portal UI or Azure CLI 
 
-## Prerequisites
+### Prerequisites
 
 1. _(Optional)_ [Install Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) if you'd like to follow the cli based commands
 
@@ -594,4 +581,3 @@ Watch video tutorial on deploying to Azure Container Instance:
 
 {% embed url="https://www.youtube.com/watch?v=yDebxDfn2yk" %}
 
-</details>
