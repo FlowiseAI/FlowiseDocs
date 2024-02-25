@@ -7,3 +7,4 @@ Below are some of the chat models available to use in Flowise:
 * [Azure ChatOpenAI](azure-chatopenai-1.md)
 * [ChatLocalAI](chatlocalai.md)
 * [GoogleVertexAI](google-vertexai.md)
+* [ChatMistralAI](mistral-ai.md)
