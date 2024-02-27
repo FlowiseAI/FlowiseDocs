@@ -73,11 +73,11 @@ In this example, we are going to perform QnA on 2 PDFs, which are FORM-10K of AP
 Each vector databse provider has different format of filtering syntax, recommend to read through the respective vector database documentation
 {% endhint %}
 
-5. However, the problem with this is that metadata filtering is sort of "hard-coded". Ideally, we should let the LLM to decide which document to retrieve based on the question.
+5. However, the problem with this is that metadata filtering is sort of _**"hard-coded"**_. Ideally, we should let the LLM to decide which document to retrieve based on the question.
 
 ## Agent
 
-We can solve the "hard-coded" metadata filter problem by using [Function Calling](https://platform.openai.com/docs/guides/function-calling) Agent.
+We can solve the _**"hard-coded"**_ metadata filter problem by using [Function Calling](https://platform.openai.com/docs/guides/function-calling) Agent.
 
 By providing tools to agent, we can let the agent to decide which tool is suitable to be used depending on the question.
 

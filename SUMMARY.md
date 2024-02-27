@@ -90,4 +90,5 @@
 * [Use Cases](use-cases/README.md)
   * [Web Scrape QnA](use-cases/web-scrape-qna.md)
   * [Multiple Documents QnA](use-cases/multiple-documents-qna.md)
+  * [SQL QnA](use-cases/sql-qna.md)
   * [Webhook Tool](use-cases/webhook-tool.md)
