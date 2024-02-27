@@ -1,6 +1,488 @@
 # Azure
 
-## Prerequisites
+## Flowise as Azure App Service with Postgres: Using Terraform
+
+
+### Prerequisites
+
+1. **Azure Account**: Ensure you have an Azure account with an active subscription. If you do not have one, sign up at [Azure Portal](https://portal.azure.com/).
+2. **Terraform**: Install Terraform CLI on your machine. Download it from [Terraform's website](https://www.terraform.io/downloads.html).
+3. **Azure CLI**: Install Azure CLI. Instructions can be found on the [Azure CLI documentation page](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+
+### Setting Up Your Environment
+
+1. **Login to Azure**:
+  Open your terminal or command prompt and login to Azure CLI using:
+
+  ```bash
+az login --tenant <Your Subscription ID> --use-device-code 
+  ```
+
+   Follow the prompts to complete the login process.
+
+2. **Set Subscription**:
+  After logging in, set the Azure subscription using:
+
+  ```bash
+  az account set --subscription <Your Subscription ID>
+  ```
+
+3. **Initialize Terraform**:
+
+Create a `terraform.tfvars` file in your Terraform project directory, if it's not already there, and add the following content:
+
+   ```hcl
+   subscription_name = "subscrpiton_name"
+   subscription_id = "subscription id"
+   project_name = "webapp_name"
+   db_username = "PostgresUserName"
+   db_password = "strongPostgresPassword"
+   flowise_username = "flowiseUserName"
+   flowise_password = "strongFlowisePassword"
+   flowise_secretkey_overwrite = "longandStrongSecretKey"
+   webapp_ip_rules = [
+     {
+       name = "AllowedIP"
+       ip_address = "X.X.X.X/32"
+       headers = null
+       virtual_network_subnet_id = null
+       subnet_id = null
+       service_tag = null
+       priority = 300
+       action = "Allow"
+     }
+   ]
+   postgres_ip_rules = {
+     "ValbyOfficeIP" = "X.X.X.X"
+     // Add more key-value pairs as needed
+   }
+   source_image = "flowiseai/flowise:latest"
+   tagged_image = "flow:v1"
+   ```
+
+   Replace the placeholders with actual values for your setup.
+
+The file tree structure is as follows:
+
+```
+flow
+├── database.tf
+├── main.tf
+├── network.tf
+├── output.tf
+├── providers.tf
+├── terraform.tfvars
+├── terraform.tfvars.example
+├── variables.tf
+├── webapp.tf
+├── .gitignore // ignore your .tfvars and .lock.hcf, .terraform
+
+```
+
+Each `.tf` file in the Terraform configuration likely contains a different aspect of the infrastructure as code:
+
+<details><summary> `database.tf` would define the configuration for the Postgres database.</summary> 
+
+```yaml
+
+// database.tf
+
+// Database instance
+resource "azurerm_postgresql_flexible_server" "postgres" {
+  name                         = "postgresql-${var.project_name}"
+  location                     = azurerm_resource_group.rg.location
+  resource_group_name          = azurerm_resource_group.rg.name
+  sku_name                     = "GP_Standard_D2s_v3"
+  storage_mb                   = 32768
+  version                      = "11"
+  delegated_subnet_id          = azurerm_subnet.dbsubnet.id
+  private_dns_zone_id          = azurerm_private_dns_zone.postgres.id
+  backup_retention_days        = 7
+  geo_redundant_backup_enabled = false
+  auto_grow_enabled            = false
+  administrator_login          = var.db_username
+  administrator_password       = var.db_password
+  zone                         = "2"
+
+  lifecycle {
+    prevent_destroy = false
+  }
+}
+
+// Firewall
+resource "azurerm_postgresql_flexible_server_firewall_rule" "pg_firewall" {
+  for_each         = var.postgres_ip_rules
+  name             = each.key
+  server_id        = azurerm_postgresql_flexible_server.postgres.id
+  start_ip_address = each.value
+  end_ip_address   = each.value
+}
+
+// Database
+resource "azurerm_postgresql_flexible_server_database" "production" {
+  name      = "production"
+  server_id = azurerm_postgresql_flexible_server.postgres.id
+  charset   = "UTF8"
+  collation = "en_US.utf8"
+
+  # prevent the possibility of accidental data loss
+  lifecycle {
+    prevent_destroy = false
+  }
+}
+
+// Transport off
+resource "azurerm_postgresql_flexible_server_configuration" "postgres_config" {
+  name      = "require_secure_transport"
+  server_id = azurerm_postgresql_flexible_server.postgres.id
+  value     = "off"
+}
+``` 
+</details> 
+
+<details><summary>`main.tf` could be the main configuration file that may include the Azure provider configuration and defines the Azure resource group.</summary>
+
+```yaml
+// main.tf
+resource "random_string" "resource_code" {
+  length  = 5
+  special = false
+  upper   = false
+}
+
+// resource group
+resource "azurerm_resource_group" "rg" {
+  location = var.resource_group_location
+  name     = "rg-${var.project_name}"
+}
+
+// Storage Account
+resource "azurerm_storage_account" "sa" {
+  name                     = "${var.subscription_name}${random_string.resource_code.result}"
+  resource_group_name      = azurerm_resource_group.rg.name
+  location                 = azurerm_resource_group.rg.location
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+
+  blob_properties {
+    versioning_enabled = true
+  }
+
+}
+
+// File share
+resource "azurerm_storage_share" "flowise-share" {
+  name                 = "flowise"
+  storage_account_name = azurerm_storage_account.sa.name
+  quota                = 50
+}
+
+```
+</details>
+
+<details><summary>`network.tf` would include networking resources such as virtual networks, subnets, and network security groups.</summary>
+
+```yaml
+// network.tf
+
+// Vnet
+resource "azurerm_virtual_network" "vnet" {
+  name                = "vn-${var.project_name}"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  address_space       = ["10.3.0.0/16"]
+}
+
+resource "azurerm_subnet" "dbsubnet" {
+  name                                      = "db-subnet-${var.project_name}"
+  resource_group_name                       = azurerm_resource_group.rg.name
+  virtual_network_name                      = azurerm_virtual_network.vnet.name
+  address_prefixes                          = ["10.3.1.0/24"]
+  private_endpoint_network_policies_enabled = true
+  delegation {
+    name = "delegation"
+    service_delegation {
+      name = "Microsoft.DBforPostgreSQL/flexibleServers"
+    }
+  }
+}
+
+resource "azurerm_subnet" "webappsubnet" {
+
+  name                 = "web-app-subnet-${var.project_name}"
+  resource_group_name  = azurerm_resource_group.rg.name
+  virtual_network_name = azurerm_virtual_network.vnet.name
+  address_prefixes     = ["10.3.8.0/24"]
+
+  delegation {
+    name = "delegation"
+    service_delegation {
+      name = "Microsoft.Web/serverFarms"
+    }
+  }
+}
+
+resource "azurerm_private_dns_zone" "postgres" {
+  name                = "private.postgres.database.azure.com"
+  resource_group_name = azurerm_resource_group.rg.name
+}
+
+resource "azurerm_private_dns_zone_virtual_network_link" "postgres" {
+  name                  = "private-postgres-vnet-link"
+  resource_group_name   = azurerm_resource_group.rg.name
+  private_dns_zone_name = azurerm_private_dns_zone.postgres.name
+  virtual_network_id    = azurerm_virtual_network.vnet.id
+}
+
+```
+</details>
+
+<details><summary> `providers.tf` would define the Terraform providers, such as Azure.</summary>
+
+```yaml
+// providers.tf
+terraform {
+  required_version = ">=0.12"
+
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "=3.87.0"
+    }
+    random = {
+      source  = "hashicorp/random"
+      version = "~>3.0"
+    }
+  }
+}
+
+provider "azurerm" {
+  subscription_id = var.subscription_id
+  features {}
+}
+```
+</details>
+
+<details><summary> `variables.tf` would declare variables used across all `.tf` files.</summary>
+
+```yaml
+// variables.tf
+variable "resource_group_location" {
+  default     = "westeurope"
+  description = "Location of the resource group."
+}
+
+variable "container_rg_name" {
+  default     = "acrllm"
+  description = "Name of container regrestry."
+}
+
+variable "subscription_id" {
+  type        = string
+  sensitive   = true
+  description = "Service Subscription ID"
+}
+
+variable "subscription_name" {
+  type        = string
+  description = "Service Subscription Name"
+}
+
+
+variable "project_name" {
+  type        = string
+  description = "Project Name"
+}
+
+variable "db_username" {
+  type        = string
+  description = "DB User Name"
+}
+
+variable "db_password" {
+  type        = string
+  sensitive   = true
+  description = "DB Password"
+}
+
+variable "flowise_username" {
+  type        = string
+  description = "Flowise User Name"
+}
+
+variable "flowise_password" {
+  type        = string
+  sensitive   = true
+  description = "Flowise User Password"
+}
+
+variable "flowise_secretkey_overwrite" {
+  type        = string
+  sensitive   = true
+  description = "Flowise secret key"
+}
+
+variable "webapp_ip_rules" {
+  type = list(object({
+    name                      = string
+    ip_address                = string
+    headers                   = string
+    virtual_network_subnet_id = string
+    subnet_id                 = string
+    service_tag               = string
+    priority                  = number
+    action                    = string
+  }))
+}
+
+variable "postgres_ip_rules" {
+  description = "A map of IP addresses and their corresponding names for firewall rules"
+  type        = map(string)
+  default     = {}
+}
+
+variable "flowise_image" {
+  type        = string
+  description = "Flowise image from Docker Hub"
+}
+```
+</details>
+
+<details><summary>`webapp.tf` Azure App Services that includes a service plan and linux web app </summary>
+
+```yaml
+// webapp.tf
+#Create the Linux App Service Plan
+resource "azurerm_service_plan" "webappsp" {
+  name                = "asp${var.project_name}"
+  resource_group_name = azurerm_resource_group.rg.name
+  location            = azurerm_resource_group.rg.location
+  os_type             = "Linux"
+  sku_name            = "P3v3"
+}
+
+resource "azurerm_linux_web_app" "webapp" {
+  name                = var.project_name
+  resource_group_name = azurerm_resource_group.rg.name
+  location            = azurerm_resource_group.rg.location
+  service_plan_id     = azurerm_service_plan.webappsp.id
+
+  app_settings = {
+    DOCKER_ENABLE_CI                    = true
+    WEBSITES_CONTAINER_START_TIME_LIMIT = 1800
+    WEBSITES_ENABLE_APP_SERVICE_STORAGE = false
+    APIKEY_PATH                         = "/root"
+    DATABASE_TYPE                       = "postgres"
+    DATABASE_HOST                       = azurerm_postgresql_flexible_server.postgres.fqdn
+    DATABASE_NAME                       = azurerm_postgresql_flexible_server_database.production.name
+    DATABASE_USER                       = azurerm_postgresql_flexible_server.postgres.administrator_login
+    DATABASE_PASSWORD                   = azurerm_postgresql_flexible_server.postgres.administrator_password
+    DATABASE_PORT                       = 5432
+    FLOWISE_USERNAME                    = var.flowise_username
+    FLOWISE_PASSWORD                    = var.flowise_password
+    FLOWISE_SECRETKEY_OVERWRITE         = var.flowise_secretkey_overwrite
+    PORT                                = 3000
+    SECRETKEY_PATH                      = "/root"
+  }
+
+  storage_account {
+    name         = "${var.project_name}_mount"
+    access_key   = azurerm_storage_account.sa.primary_access_key
+    account_name = azurerm_storage_account.sa.name
+    share_name   = azurerm_storage_share.flowise-share.name
+    type         = "AzureFiles"
+    mount_path   = "/root"
+  }
+
+
+  https_only = true
+
+  site_config {
+    always_on              = true
+    app_command_line       = "flowise start"
+    vnet_route_all_enabled = true
+    dynamic "ip_restriction" {
+      for_each = var.webapp_ip_rules
+      content {
+        name       = ip_restriction.value.name
+        ip_address = ip_restriction.value.ip_address
+      }
+    }
+    application_stack {
+      docker_image_name        = var.tagged_image
+      docker_registry_url      = "https://${azurerm_container_registry.acr.login_server}"
+      docker_registry_username = azurerm_container_registry.acr.admin_username
+      docker_registry_password = azurerm_container_registry.acr.admin_password
+    }
+  }
+
+  logs {
+    http_logs {
+      file_system {
+        retention_in_days = 7
+        retention_in_mb   = 35
+      }
+
+    }
+  }
+
+  identity {
+    type = "SystemAssigned"
+  }
+
+  lifecycle {
+    create_before_destroy = false
+  }
+
+}
+
+resource "azurerm_app_service_virtual_network_swift_connection" "webappvnetintegrationconnection" {
+  app_service_id = azurerm_linux_web_app.webapp.id
+  subnet_id      = azurerm_subnet.webappsubnet.id
+}
+
+```
+</details>
+
+
+Note: The `.terraform` directory is created by Terraform when initializing a project (`terraform init`) and it contains the plugins and binary files needed for Terraform to run. The `.terraform.lock.hcl` file is used to record the exact provider versions that are being used to ensure consistent installs across different machines.
+
+Navigate to your Terraform project directory and run:
+```bash
+terraform init
+```
+This will initialize Terraform and download the required providers.
+
+### Configuring Terraform Variables
+
+
+
+### Deploying with Terraform
+
+1. **Plan the Deployment**:
+   Run the Terraform plan command to see what resources will be created:
+   ```bash
+   terraform plan
+   ```
+
+2. **Apply the Deployment**:
+   If you are satisfied with the plan, apply the changes:
+   ```bash
+   terraform apply
+   ```
+   Confirm the action when prompted, and Terraform will begin creating the resources.
+
+3. **Verify the Deployment**:
+   Once Terraform has completed, it will output any defined outputs such as IP addresses or domain names. Verify that the resources are correctly deployed in your Azure Portal.
+
+
+___
+
+
+
+## Azure Continer Instance: Using Azure Portal UI or Azure CLI 
+
+### Prerequisites
 
 1. _(Optional)_ [Install Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) if you'd like to follow the cli based commands
 
@@ -98,3 +580,4 @@ az container create -g flowise-rg \
 Watch video tutorial on deploying to Azure Container Instance:
 
 {% embed url="https://www.youtube.com/watch?v=yDebxDfn2yk" %}
+
