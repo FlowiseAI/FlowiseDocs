@@ -51,7 +51,7 @@
 
 4. After credential has been created successfully, you can start upserting the data
 
-<figure><img src="../../../.gitbook/assets/Untitled (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Untitled (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/elastic13.png" alt=""><figcaption></figcaption></figure>
 

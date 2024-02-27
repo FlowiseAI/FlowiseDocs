@@ -25,15 +25,15 @@
    * Pinecone Index
    * Pinecone namespace (optional)
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt="" width="279"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1).png" alt="" width="279"><figcaption></figcaption></figure>
 
 3. Create new Pinecone credential -> Fill in **API Key** and **Environment**
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 4. Start the upsert process:
 
-<figure><img src="../../../.gitbook/assets/Untitled.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Untitled (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
 

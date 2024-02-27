@@ -36,7 +36,7 @@ On the top right corner, you will notice a green button:
 
 A dialog will be shown that allow users to upsert data to Pinecone:
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Under the hood, following actions will be executed:
 
@@ -47,7 +47,7 @@ Under the hood, following actions will be executed:
 
 Navigate to Pinecone dashboard, you will be able to see new vectors being added.
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Query
 
@@ -68,7 +68,7 @@ It is recommended to specify a detailed response prompt message. For example, yo
 
 You can also turn on the Return Source Documents option to return a list of document chunks where the AI's response is coming from.
 
-<figure><img src="../.gitbook/assets/Untitled (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Untitled (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 ## Additional Web Scraping
 

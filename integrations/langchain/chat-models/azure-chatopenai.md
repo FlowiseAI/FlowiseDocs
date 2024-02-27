@@ -13,15 +13,15 @@
 
 2. **Connect Credential** > click **Create New**
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt="" width="278"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt="" width="278"><figcaption></figcaption></figure>
 
 3. Fill in the **ChatOpenAI** credential
 
-<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 4. Voila [🎉](https://emojipedia.org/party-popper/), you can now use **ChatOpenAI node** in Flowise
 
-<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Custom base URL and headers
 
@@ -50,3 +50,13 @@ Flowise supports using custom base URL and headers for Chat OpenAI. Users can ea
 For models that are not supported on ChatOpenAI node, you can use ChatOpenAI Custom for that. This allow users to fill in model name such as `mistralai/Mixtral-8x7B-Instruct-v0.1`
 
 <figure><img src="../../../.gitbook/assets/image (84).png" alt=""><figcaption></figcaption></figure>
+
+## Image Upload
+
+You can also allow images to be uploaded and analyzed by LLM. Under the hood, Flowise will use [OpenAI Vison ](https://platform.openai.com/docs/guides/vision)model to process the image.
+
+<figure><img src="../../../.gitbook/assets/image.png" alt="" width="332"><figcaption></figcaption></figure>
+
+From the chat interface, you will now see a new image upload button:
+
+<figure><img src="../../../.gitbook/assets/Untitled.png" alt=""><figcaption></figcaption></figure>
