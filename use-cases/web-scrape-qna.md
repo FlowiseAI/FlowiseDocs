@@ -10,14 +10,25 @@ We are going to use **Cheerio Web Scraper** node to scrape links from a given UR
 
 **HtmlToMarkdown Text Splitter** to split the scraped content into smaller pieces.
 
-<figure><img src="../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (86).png" alt=""><figcaption></figcaption></figure>
 
-If you do not specify anything, by default only the given URL page will be scraped. If you want to crawl the rest of relative links, click **Additional Parameters.**
+If you do not specify anything, by default only the given URL page will be scraped. If you want to crawl the rest of relative links, click **Additional Parameters** of Cheerio Web Scraper**.**
 
-* **Get Relative Links Method** - how to crawl all relative links, Web Crawl or Sitemap
-* **Get Relative Links Limit** - how many links to crawl, set 0 to crawl all
+#### Crawl Multiple Pages
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+1. Select `Web Crawl` or `Scrape XML Sitemap` in **Get Relative Links Method**.
+2. Input `0` in **Get Relative Links Limit** to retrieve all links available from the provided URL.
+
+<figure><img src="../.gitbook/assets/image (87).png" alt="" width="563"><figcaption></figcaption></figure>
+
+#### Manage Links (Optional)
+
+1. Input desired URL to be crawled.
+2. Click **Fetch Links** to retrieve links based on the inputs of the **Get Relative Links Method** and **Get Relative Links Limit** in **Additional Parameters**.
+3. In **Crawled Links** section, remove unwanted links by clicking **Red Trash Bin Icon**.
+4. Lastly, click **Save**.
+
+<figure><img src="../.gitbook/assets/image (88).png" alt="" width="563"><figcaption></figcaption></figure>
 
 On the top right corner, you will notice a green button:
 
@@ -44,20 +55,35 @@ Querying is relatively straight-forward. After you have verified that data is up
 
 <figure><img src="../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-It is recommended to specify a system message for the **Conversational Retrieval QA Chain**. For example, you can specify the name of AI, the language to answer, the response when answer its not found (to prevent hallucination).
+In the Additional Parameters of Conversational Retrieval QA Chain, you can specify 2 prompts:
 
-{% code overflow="wrap" %}
-```
-I want you to act as a document that I am having a conversation with. Your name is "AI Assistant". You will provide me with answers from the given info. If the answer is not included, say exactly "Hmm, I am not sure." and stop after that. Refuse to answer any question not about the info. Only answer in English. Never break character.
-```
-{% endcode %}
+* **Rephrase Prompt:** Used to rephrase the question given the past conversation history
+* **Response Prompt:** Using the rephrased question, retrieve the context from vector database, and return a final response
 
-<figure><img src="../.gitbook/assets/Untitled (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (91).png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="info" %}
+It is recommended to specify a detailed response prompt message. For example, you can specify the name of AI, the language to answer, the response when answer its not found (to prevent hallucination).
+{% endhint %}
 
 You can also turn on the Return Source Documents option to return a list of document chunks where the AI's response is coming from.
 
 <figure><img src="../.gitbook/assets/Untitled (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
-The same logic can be applied to any document use cases, not just limited to web scraping.
+
+
+### Additional Web Scraping
+
+Apart from Cheerio Web Scraper, there are other nodes that can perform web scraping as well:
+
+* **Puppeteer:** Puppeteer is a Node.js library that provides a high-level API for controlling headless Chrome or Chromium. You can use Puppeteer to automate web page interactions, including extracting data from dynamic web pages that require JavaScript to render.
+* **Playwright:** Playwright is a Node.js library that provides a high-level API for controlling multiple browser engines, including Chromium, Firefox, and WebKit. You can use Playwright to automate web page interactions, including extracting data from dynamic web pages that require JavaScript to render.
+* **Apify:** [Apify](https://apify.com/) is a cloud platform for web scraping and data extraction, which provides an [ecosystem](https://apify.com/store) of more than a thousand ready-made apps called _Actors_ for various web scraping, crawling, and data extraction use cases.
+
+<figure><img src="../.gitbook/assets/image (92).png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="info" %}
+The same logic can be applied to any document use cases, not just limited to web scraping!
+{% endhint %}
 
 If you have any suggestion on how to improve the performance, we'd love your contribution!
