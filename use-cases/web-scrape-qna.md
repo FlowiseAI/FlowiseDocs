@@ -4,7 +4,7 @@ Let's say you have a website (could be a store, an ecommerce site, a blog), and 
 
 You can find the example flow called - **WebPage QnA** from the marketplace templates.
 
-### Upsert
+## Upsert
 
 We are going to use **Cheerio Web Scraper** node to scrape links from a given URL.
 
@@ -14,14 +14,14 @@ We are going to use **Cheerio Web Scraper** node to scrape links from a given UR
 
 If you do not specify anything, by default only the given URL page will be scraped. If you want to crawl the rest of relative links, click **Additional Parameters** of Cheerio Web Scraper**.**
 
-#### Crawl Multiple Pages
+### Crawl Multiple Pages
 
 1. Select `Web Crawl` or `Scrape XML Sitemap` in **Get Relative Links Method**.
 2. Input `0` in **Get Relative Links Limit** to retrieve all links available from the provided URL.
 
 <figure><img src="../.gitbook/assets/image (87).png" alt="" width="563"><figcaption></figcaption></figure>
 
-#### Manage Links (Optional)
+### Manage Links (Optional)
 
 1. Input desired URL to be crawled.
 2. Click **Fetch Links** to retrieve links based on the inputs of the **Get Relative Links Method** and **Get Relative Links Limit** in **Additional Parameters**.
@@ -49,7 +49,7 @@ Navigate to Pinecone dashboard, you will be able to see new vectors being added.
 
 <figure><img src="../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-### Query
+## Query
 
 Querying is relatively straight-forward. After you have verified that data is upserted to vector database, you can start asking question in the chat:
 
@@ -70,9 +70,7 @@ You can also turn on the Return Source Documents option to return a list of docu
 
 <figure><img src="../.gitbook/assets/Untitled (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
-
-
-### Additional Web Scraping
+## Additional Web Scraping
 
 Apart from Cheerio Web Scraper, there are other nodes that can perform web scraping as well:
 

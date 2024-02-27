@@ -1,0 +1,143 @@
+# Multiple Documents QnA
+
+From the last [Web Scrape QnA](web-scrape-qna.md) example, we are only upserting and querying 1 website. What if we have multiple websites, or multiple documents? Let's take a look and see how we can achieve that.
+
+In this example, we are going to perform QnA on 2 PDFs, which are FORM-10K of APPLE and TESLA.
+
+<div align="left" data-full-width="false">
+
+<figure><img src="../.gitbook/assets/image (93).png" alt="" width="375"><figcaption></figcaption></figure>
+
+ 
+
+<figure><img src="../.gitbook/assets/image (94).png" alt="" width="375"><figcaption></figcaption></figure>
+
+</div>
+
+## Upsert
+
+1. Fnd the example flow called - **Conversational Retrieval QA Chain** from the marketplace templates.
+2. We are going to use [PDF File Loader](../integrations/langchain/document-loaders/pdf-file.md), and upload the respective files:
+
+<figure><img src="../.gitbook/assets/image (95).png" alt=""><figcaption></figcaption></figure>
+
+3. Click the **Additional Parameters** of PDF File Loader, and specify metadata object. For instance, PDF File with Apple FORM-10K uploaded can have a metadata object `{source: apple}`, whereas PDF File with Tesla FORM-10K uploaded can have `{source: tesla}` . This is done to seggregate the documents during retrieval time.
+
+<div align="left">
+
+<figure><img src="../.gitbook/assets/image (96).png" alt="" width="563"><figcaption></figcaption></figure>
+
+ 
+
+<figure><img src="../.gitbook/assets/image (97).png" alt="" width="563"><figcaption></figcaption></figure>
+
+</div>
+
+4. After filling in the credentials for Pinecone, click Upsert:
+
+<figure><img src="../.gitbook/assets/Untitled (6).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (98).png" alt=""><figcaption></figcaption></figure>
+
+5. Navigate to Pinecone dashboard, you will be able to see new vectors being added.
+
+<figure><img src="../.gitbook/assets/image (99).png" alt=""><figcaption></figcaption></figure>
+
+## Query
+
+1. After verifying data has been upserted to Pinecone, we can now start asking question in the chat!
+
+<figure><img src="../.gitbook/assets/image (100).png" alt=""><figcaption></figcaption></figure>
+
+2. However, the context retrieved used to return the answer is a mix of both APPLE and TESLA documents. As you can see from the Source Documents:
+
+<div align="left">
+
+<figure><img src="../.gitbook/assets/Untitled (7).png" alt="" width="563"><figcaption></figcaption></figure>
+
+ 
+
+<figure><img src="../.gitbook/assets/Untitled (8).png" alt="" width="563"><figcaption></figcaption></figure>
+
+</div>
+
+3. We can fix this by specifying a metadata filter from the Pinecone node. For example, if we only want to retrieve context from APPLE FORM-10K, we can look back at the metadata we have specified earlier in the [#upsert](multiple-documents-qna.md#upsert "mention") step, then use the same in the Metadata Filter below:
+
+<figure><img src="../.gitbook/assets/image (102).png" alt=""><figcaption></figcaption></figure>
+
+4. Let's ask the same question again, we should now see all context retrieved are indeed from APPLE FORM-10K:
+
+<figure><img src="../.gitbook/assets/image (103).png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="info" %}
+Each vector databse provider has different format of filtering syntax, recommend to read through the respective vector database documentation
+{% endhint %}
+
+5. However, the problem with this is that metadata filtering is sort of "hard-coded". Ideally, we should let the LLM to decide which document to retrieve based on the question.
+
+## Agent
+
+We can solve the "hard-coded" metadata filter problem by using [Function Calling](https://platform.openai.com/docs/guides/function-calling) Agent.
+
+By providing tools to agent, we can let the agent to decide which tool is suitable to be used depending on the question.
+
+1. Create a Retriever Tool with following name and description:
+
+* **Name**: search\_apple
+* **Description**: Use this function to answer user questions about Apple Inc (APPL). It contains a SEC Form 10K filing describing the financials of Apple Inc (APPL) for the 2022 time period.
+
+2. Connect to Pinecone node with metadata filter `{source: apple}`
+
+<figure><img src="../.gitbook/assets/image (104).png" alt="" width="563"><figcaption></figcaption></figure>
+
+3. Repeat the same for tesla.
+
+* **Name**: search\_tsla
+* **Description**: Use this function to answer user questions about Tesla Inc (TSLA). It contains a SEC Form 10K filing describing the financials of Tesla Inc (TSLA) for the 2022 time period.
+* **Pinecone Metadata Filter**: `{source: tesla}`
+
+<figure><img src="../.gitbook/assets/image (105).png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="info" %}
+It is important to specify a clear and concise description. This allows LLM to better decide when to use which tool
+{% endhint %}
+
+4. Now, we need to create a general instruction to OpenAI Function Agent. Click Additional Parameters of the node, and specify the System Message. For example:
+
+```
+You are an expert financial analyst that always answers questions with the most relevant information using the tools at your disposal.
+These tools have information regarding companies that the user has expressed interest in.
+Here are some guidelines that you must follow:
+* For financial questions, you must use the tools to find the answer and then write a response.
+* Even if it seems like your tools won't be able to answer the question, you must still use them to find the most relevant information and insights. Not using them will appear as if you are not doing your job.
+* You may assume that the users financial questions are related to the documents they've selected.
+* For any user message that isn't related to financial analysis, respectfully decline to respond and suggest that the user ask a relevant question.
+* If your tools are unable to find an answer, you should say that you haven't found an answer but still relay any useful information the tools found.
+* Dont ask clarifying questions, just return answer.
+
+The tools at your disposal have access to the following SEC documents that the user has selected to discuss with you:
+- Apple Inc (APPL) FORM 10K 2022
+- Tesla Inc (TSLA) FORM 10K 2022
+
+The current date is: 2024-01-28
+```
+
+5. Save the Chatflow, and start asking question!
+
+<figure><img src="../.gitbook/assets/image (110).png" alt=""><figcaption></figcaption></figure>
+
+<div align="left">
+
+<figure><img src="../.gitbook/assets/Untitled (9).png" alt="" width="375"><figcaption></figcaption></figure>
+
+ 
+
+<figure><img src="../.gitbook/assets/Untitled (10).png" alt="" width="375"><figcaption></figcaption></figure>
+
+</div>
+
+6. Follow up with Tesla:
+
+<figure><img src="../.gitbook/assets/image (111).png" alt=""><figcaption></figcaption></figure>
+
+7. We are now able to ask question about any documents that we've previously upserted to vector database without "hard-coding" the metadata filtering by using tools + agent.
