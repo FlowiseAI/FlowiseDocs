@@ -45,6 +45,7 @@
       * [Azure ChatOpenAI](integrations/langchain/chat-models/azure-chatopenai-1.md)
       * [ChatLocalAI](integrations/langchain/chat-models/chatlocalai.md)
       * [Google VertexAI](integrations/langchain/chat-models/google-vertexai.md)
+      * [ChatMistralAI](integrations/langchain/chat-models/mistral-ai.md)
     * [Embeddings](integrations/langchain/embeddings/README.md)
       * [Azure OpenAI Embeddings](integrations/langchain/embeddings/azure-openai-embeddings.md)
       * [LocalAI Embeddings](integrations/langchain/embeddings/localai-embeddings.md)
