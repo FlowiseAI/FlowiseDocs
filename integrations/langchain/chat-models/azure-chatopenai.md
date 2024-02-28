@@ -60,3 +60,5 @@ You can also allow images to be uploaded and analyzed by LLM. Under the hood, Fl
 From the chat interface, you will now see a new image upload button:
 
 <figure><img src="../../../.gitbook/assets/Untitled.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/image (121).png" alt=""><figcaption></figcaption></figure>
