@@ -16,6 +16,12 @@ In this example, we are going to create a QnA chatbot that can interact with a S
 
 <figure><img src="../.gitbook/assets/image (116).png" alt=""><figcaption></figcaption></figure>
 
+## TL;DR
+
+You can find the chatflow template:
+
+{% file src="../.gitbook/assets/SQL Chatflow.json" %}
+
 ## 1) SQL Database Schema + Example Rows
 
 Use a Custom JS Function node to connect to SingleStore, retrieve database schema and top 3 rows.
@@ -272,35 +278,46 @@ Based on the provided SQL table schema and question below, return a SQL SELECT A
 
 After executing the SQL query, the result is passed to the 2nd LLMChain:
 
-**Input**:
-
-```json
-{
-  "question": "what is the address of John",
-  "sqlResponse": "[{\"userAddress\":\"120 jefferson st.\"}]"
-}
-```
+**Input**
 
 {% code overflow="wrap" %}
 ```
-"Based on the question, and SQL response, write a natural language response, be details as possible:\n------------\nQUESTION: what is the address of John\n------------\nSQL RESPONSE: [{\"userAddress\":\"120 jefferson st.\"}]\n------------\nNATURAL LANGUAGE RESPONSE:
+Based on the question, and SQL response, write a natural language response, be details as possible:\n------------\nQUESTION: what is the address of John\n------------\nSQL RESPONSE: [{\"userAddress\":\"120 jefferson st.\"}]\n------------\nNATURAL LANGUAGE RESPONSE:
 ```
 {% endcode %}
 
-And finally, the output from 2nd LLMChain is what we see from the chatbox:
+**Output**
+
+```
+The address of John is 120 Jefferson St.
+```
 
 Now, we if ask something that is irrelevant to the SQL database, the Else route is taken.
 
 <figure><img src="../.gitbook/assets/image (132).png" alt="" width="428"><figcaption></figcaption></figure>
 
-LLM was able to generate a SQL query as below:
+For first LLMChain, a SQL query is generated as below:
 
 ```sql
 SELECT * FROM samples LIMIT 3
 ```
 
-However, it fails the If Else check, hence entering the Else route that has a prompt that says:
+However, it fails the If Else check because it doesn't contains both `SELECT` and `WHERE`, hence entering the Else route that has a prompt that says:
 
 ```
 Politely say "I'm not able to answer query"
 ```
+
+And the final output is:
+
+```
+I apologize, but I'm not able to answer your query at the moment.
+```
+
+## Conclusion
+
+In this example, we have successfully created a SQL chatbot which can interact with your database, and also able to handle question that is irrelevant to database. Futher improvement includes adding memory to provide conversation history.
+
+You can find the chatflow below:
+
+{% file src="../.gitbook/assets/SQL Chatflow.json" %}

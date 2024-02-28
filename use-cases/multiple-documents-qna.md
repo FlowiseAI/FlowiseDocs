@@ -141,3 +141,9 @@ The current date is: 2024-01-28
 <figure><img src="../.gitbook/assets/image (111).png" alt=""><figcaption></figcaption></figure>
 
 7. We are now able to ask question about any documents that we've previously upserted to vector database without "hard-coding" the metadata filtering by using tools + agent.
+
+## Conclusion
+
+We've covered using Conversational Retrieval QA Chain and its limitation when querying multiple documents. And we were able to overcome the issue by using OpenAI Function Agent + Tools. You can find the template below:
+
+{% file src="../.gitbook/assets/Agent Chatflow.json" %}
