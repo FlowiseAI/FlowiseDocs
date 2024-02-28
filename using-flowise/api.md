@@ -166,7 +166,7 @@ query({
 
 ## Speech to Text
 
-When Speech to Text is enabled, users can speak directly into microphone and speech will be transcribed into text.
+When **Speech to Text** is enabled, users can speak directly into microphone and speech will be transcribed into text.
 
 <div align="left">
 
