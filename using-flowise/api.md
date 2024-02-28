@@ -1,6 +1,6 @@
 # API
 
-### Prediction API
+## Prediction API
 
 * POST `/api/v1/prediction/{your-chatflowid}`
 
@@ -92,7 +92,151 @@ query({
 {% endtab %}
 {% endtabs %}
 
-### Vector Upsert API
+### Image Uploads
+
+When **Allow Image Upload** is enabled, images can be uploaded from chat interface.
+
+<div align="center">
+
+<figure><img src="../.gitbook/assets/image.png" alt="" width="255"><figcaption></figcaption></figure>
+
+ 
+
+<figure><img src="../.gitbook/assets/Screenshot 2024-02-29 011714.png" alt="" width="290"><figcaption></figcaption></figure>
+
+</div>
+
+{% tabs %}
+{% tab title="Python" %}
+<pre class="language-python"><code class="lang-python"><strong>import requests
+</strong>
+API_URL = "http://localhost:3000/api/v1/prediction/&#x3C;chatlfowid>"
+
+def query(payload):
+    response = requests.post(API_URL, json=payload)
+    return response.json()
+    
+output = query({
+    "question": "Hey, how are you?",
+    "uploads": [
+        {
+            "data": 'data:image/png;base64,iVBORw0KGgdM2uN0', #base64 string
+            "type": 'file',
+            "name": 'Flowise.png',
+            "mime": 'image/png'
+        }
+    ]
+})
+</code></pre>
+{% endtab %}
+
+{% tab title="Javascript" %}
+```javascript
+async function query(data) {
+    const response = await fetch(
+        "http://localhost:3000/api/v1/prediction/<chatlfowid>",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        }
+    );
+    const result = await response.json();
+    return result;
+}
+
+query({
+    "question": "Hey, how are you?",
+    "uploads": [
+        {
+            "data": 'data:image/png;base64,iVBORw0KGgdM2uN0', //base64 string
+            "type": 'file',
+            "name": 'Flowise.png',
+            "mime": 'image/png'
+        }
+    ]
+}).then((response) => {
+    console.log(response);
+});
+```
+{% endtab %}
+{% endtabs %}
+
+## Speech to Text
+
+When Speech to Text is enabled, users can speak directly into microphone and speech will be transcribed into text.
+
+<div align="left">
+
+<figure><img src="../.gitbook/assets/image (2).png" alt="" width="563"><figcaption></figcaption></figure>
+
+ 
+
+<figure><img src="../.gitbook/assets/Screenshot 2024-02-29 012538.png" alt="" width="431"><figcaption></figcaption></figure>
+
+</div>
+
+{% tabs %}
+{% tab title="Python" %}
+<pre class="language-python"><code class="lang-python"><strong>import requests
+</strong>
+API_URL = "http://localhost:3000/api/v1/prediction/&#x3C;chatlfowid>"
+
+def query(payload):
+    response = requests.post(API_URL, json=payload)
+    return response.json()
+    
+output = query({
+    "question": "Hey, how are you?",
+    "uploads": [
+        {
+            "data": 'data:audio/webm;codecs=opus;base64,GkXf', #base64 string
+            "type": 'audio',
+            "name": 'audio.wav',
+            "mime": 'audio/webm'
+        }
+    ]
+})
+</code></pre>
+{% endtab %}
+
+{% tab title="Javascript" %}
+```javascript
+async function query(data) {
+    const response = await fetch(
+        "http://localhost:3000/api/v1/prediction/<chatlfowid>",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        }
+    );
+    const result = await response.json();
+    return result;
+}
+
+query({
+    "question": "Hey, how are you?",
+    "uploads": [
+        {
+            "data": 'data:audio/webm;codecs=opus;base64,GkXf', //base64 string
+            "type": 'audio',
+            "name": 'audio.wav',
+            "mime": 'audio/webm'
+        }
+    ]
+}).then((response) => {
+    console.log(response);
+});
+```
+{% endtab %}
+{% endtabs %}
+
+## Vector Upsert API
 
 * POST `/api/v1/vector/upsert/{your-chatflowid}`
 
@@ -100,11 +244,11 @@ Request Body
 
 <table><thead><tr><th width="192">Key</th><th width="559">Description</th><th>Type</th><th>Required</th></tr></thead><tbody><tr><td>overrideConfig</td><td>Override existing flow configuration</td><td>object</td><td>No</td></tr><tr><td>stopNodeId</td><td>Node ID of the vector store. When you have multiple vector stores in a flow, you might not want to upsert all of them. Specifying <code>stopNodeId</code> will ensure only that specific vector store node is upserted.</td><td>array</td><td>No</td></tr></tbody></table>
 
-#### Document Loaders with Upload
+### Document Loaders with Upload
 
 Some document loaders in Flowise allow user to upload files:
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 If the flow contains [Document Loaders](../integrations/langchain/document-loaders/) with Upload File functionality, the API looks slightly different. Instead of passing body as **JSON**, **form-data** is being used. This allows you to upload any files to the API.
 
@@ -164,7 +308,7 @@ query(formData).then((response) => {
 {% endtab %}
 {% endtabs %}
 
-#### Document Loaders without Upload
+### Document Loaders without Upload
 
 For other [Document Loaders](../integrations/langchain/document-loaders/) nodes without Upload File functionality, the API body is in **JSON** format similar to [Prediction API](api.md#prediction-api).
 
@@ -217,7 +361,7 @@ query({
 {% endtab %}
 {% endtabs %}
 
-### Message API
+## Message API
 
 * GET `/api/v1/chatmessage/{your-chatflowid}`
 * DELETE `/api/v1/chatmessage/{your-chatflowid}`
