@@ -1,9 +1,9 @@
-﻿# Hugging Face
+# Hugging Face
 
 ### Create a new space
 
 1. Sign in to [Hugging Face](https://huggingface.co/login)
-2. Start creating a [new Space](https://huggingface.co/new-space) with your preferred name.&#x20;
+2. Start creating a [new Space](https://huggingface.co/new-space) with your preferred name.
 3. Select **Docker** as **Space SDK** and choose **Blank** as the Docker template.
 4. Select **CPU basic ∙ 2 vCPU ∙ 16GB ∙ FREE** as **Space hardware**.
 5. Click **Create Space**.
@@ -32,6 +32,7 @@ ARG DATABASE_PATH=$BASE_PATH
 ARG APIKEY_PATH=$BASE_PATH
 ARG SECRETKEY_PATH=$BASE_PATH
 ARG LOG_PATH=$BASE_PATH/logs
+ARG BLOB_STORAGE_PATH=$BASE_PATH/storage
 
 # Install dependencies
 RUN apk add --no-cache git python3 py3-pip make g++ build-base cairo-dev pango-dev chromium

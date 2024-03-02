@@ -59,6 +59,7 @@ The default filesystem for services running on Render is ephemeral. Flowise data
 * APIKEY\_PATH - `/opt/render/.flowise`
 * LOG\_PATH - `/opt/render/.flowise/logs`
 * SECRETKEY\_PATH - `/opt/render/.flowise`
+* BLOB\_STORAGE\_PATH - `/opt/render/.flowise/storage`
 
 <figure><img src="../../.gitbook/assets/image (1) (5).png" alt=""><figcaption></figcaption></figure>
 
