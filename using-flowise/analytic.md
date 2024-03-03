@@ -4,7 +4,7 @@ There are several analytic providers Flowise integrates with:
 
 * [Langsmith](https://smith.langchain.com/)
 * [Langfuse](https://langfuse.com/)
-* [LLMonitor](https://lunary.ai/)
+* [LunaryAI](https://lunary.ai/)
 
 ## UI
 
@@ -29,7 +29,7 @@ Once the analytic has been turned ON from the UI, you can override or provide ad
     "question": "hi there",
     "overrideConfig": {
         "analytics": {
-            "langFuse": { // langSmith, langFuse, llmonitor
+            "langFuse": { // langSmith, langFuse, lunary
                 "userId": "user1"
             }
         }
