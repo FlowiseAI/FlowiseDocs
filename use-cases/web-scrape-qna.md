@@ -68,7 +68,7 @@ It is recommended to specify a detailed response prompt message. For example, yo
 
 You can also turn on the Return Source Documents option to return a list of document chunks where the AI's response is coming from.
 
-<figure><img src="../.gitbook/assets/Untitled (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Untitled (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 ## Additional Web Scraping
 

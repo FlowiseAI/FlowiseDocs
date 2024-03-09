@@ -91,7 +91,30 @@ $$;
 4. **Document** can be connected with any node under [**Document Loader**](../document-loaders/) category
 5. **Embeddings** can be connected with any node under [**Embeddings** ](../embeddings/)category
 
+## Filtering
+
+Let's say you have different documents upserted, each specified with a unique value under the metadata key `{source}`
+
+<figure><img src="../../../.gitbook/assets/Untitled.png" alt=""><figcaption></figcaption></figure>
+
+You can use metadata filtering to query specific metadata:
+
+**UI**
+
+<figure><img src="../../../.gitbook/assets/image.png" alt="" width="232"><figcaption></figcaption></figure>
+
+**API**
+
+```json
+"overrideConfig": {
+    "supabaseMetadataFilter": {
+        "source": "henry"
+    }
+}
+```
+
 ## Resources
 
 * [LangChain JS Supabase](https://js.langchain.com/docs/modules/indexes/vector\_stores/integrations/supabase)
 * [Supabase Blog Post](https://supabase.com/blog/openai-embeddings-postgres-vector)
+* [Metadata Filtering](https://js.langchain.com/docs/integrations/vectorstores/supabase#metadata-filtering)

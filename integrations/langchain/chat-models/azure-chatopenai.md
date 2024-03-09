@@ -13,7 +13,7 @@
 
 2. **Connect Credential** > click **Create New**
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt="" width="278"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt="" width="278"><figcaption></figcaption></figure>
 
 3. Fill in the **ChatOpenAI** credential
 
@@ -59,6 +59,6 @@ You can also allow images to be uploaded and analyzed by LLM. Under the hood, Fl
 
 From the chat interface, you will now see a new image upload button:
 
-<figure><img src="../../../.gitbook/assets/Untitled.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Untitled (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/image (121).png" alt=""><figcaption></figcaption></figure>

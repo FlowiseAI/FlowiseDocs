@@ -22,6 +22,6 @@ After assigning an API key, one can only access the chatflow API when the Author
 
 An example of calling the API using POSTMAN
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 You can specify the location where the api keys are stored by specifying `APIKEY_PATH` env variables. Read more [environment-variables.md](../environment-variables.md "mention")
