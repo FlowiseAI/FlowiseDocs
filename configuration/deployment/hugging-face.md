@@ -23,16 +23,25 @@
 
 ```Dockerfile
 FROM node:18-alpine
+# Create the /data directory with appropriate permissions
+RUN mkdir -p /data && chmod -R 777 /data
 USER root
 
 # Arguments that can be passed at build time
 ARG FLOWISE_PATH=/usr/local/lib/node_modules/flowise
-ARG BASE_PATH=/root/.flowise
+ARG BASE_PATH=/data/.flowise
 ARG DATABASE_PATH=$BASE_PATH
 ARG APIKEY_PATH=$BASE_PATH
 ARG SECRETKEY_PATH=$BASE_PATH
 ARG LOG_PATH=$BASE_PATH/logs
-ARG BLOB_STORAGE_PATH=$BASE_PATH/storage
+
+# Set the ARGs as ENV
+ENV FLOWISE_PATH=$FLOWISE_PATH
+ENV BASE_PATH=$BASE_PATH
+ENV DATABASE_PATH=$DATABASE_PATH
+ENV APIKEY_PATH=$APIKEY_PATH
+ENV SECRETKEY_PATH=$SECRETKEY_PATH
+ENV LOG_PATH=$LOG_PATH
 
 # Install dependencies
 RUN apk add --no-cache git python3 py3-pip make g++ build-base cairo-dev pango-dev chromium
@@ -43,12 +52,9 @@ ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 # Install Flowise globally
 RUN npm install -g flowise
 
-# Configure Flowise directories using the ARG
-RUN mkdir -p $LOG_PATH $FLOWISE_PATH/uploads && chmod -R 777 $LOG_PATH $FLOWISE_PATH
-
-WORKDIR /data
-
-CMD ["npx", "flowise", "start"]
+# # Configure Flowise directories using the ARG
+RUN mkdir -p $FLOWISE_PATH/uploads && chmod -R 777 $FLOWISE_PATH
+CMD ["sh", "-c", "mkdir -p $LOG_PATH && chmod -R 777 $LOG_PATH && npx flowise start"]
 ```
 
 3. Click on **Commit file to `main`** and it will start to build your app.
