@@ -59,10 +59,10 @@ Flowise has 3 different modules in a single mono repository.
 
 #### Prerequisite
 
-Install Yarn
+Install [PNPM](https://pnpm.io/installation)
 
 ```bash
-npm i -g yarn
+npm i -g pnpm
 ```
 
 #### Setup
@@ -81,19 +81,19 @@ git clone https://github.com/FlowiseAI/Flowise.git
 3. Install all dependencies of all modules:
 
 ```bash
-yarn install
+pnpm install
 ```
 
 4. Build all the code:
 
 ```bash
-yarn build
+pnpm build
 ```
 
 5. Start the app:
 
 ```bash
-yarn start
+pnpm start
 ```
 
 You can now access the app on [http://localhost:3000](http://localhost:3000)
@@ -104,7 +104,7 @@ You can now access the app on [http://localhost:3000](http://localhost:3000)
 * Create `.env` file and specify the `PORT` (refer to `.env.example`) in `packages/server`
 
 ```bash
-yarn dev
+pnpm dev
 ```
 
 Any code changes will reload the app automatically on [http://localhost:8080](http://localhost:8080)
@@ -112,4 +112,3 @@ Any code changes will reload the app automatically on [http://localhost:8080](ht
 Watch an introduction & setup tutorial on Flowise, shoutout to Leon!
 
 {% embed url="https://youtu.be/nqAK_L66sIQ" %}
-
