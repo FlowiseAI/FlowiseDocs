@@ -45,8 +45,8 @@ git clone https://github.com/FlowiseAI/Flowise.git
 
 ```
 cd Flowise
-yarn install
-yarn build
+pnpm install
+pnpm build
 ```
 
 3. Update the `Dockerfile` file a little.

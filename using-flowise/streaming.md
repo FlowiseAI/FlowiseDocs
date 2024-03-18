@@ -8,15 +8,25 @@ Flowise supports streaming back to your front end application when the final nod
 
 1. Install socket.io-client to your front-end application
 
+{% tabs %}
+{% tab title="Yarn" %}
 ```bash
 yarn add socket.io-client
 ```
+{% endtab %}
 
-or using npm
-
+{% tab title="Npm" %}
 ```bash
 npm install socket.io-client
 ```
+{% endtab %}
+
+{% tab title="Pnpm" %}
+```bash
+pnpm add socket.io-client
+```
+{% endtab %}
+{% endtabs %}
 
 Refer [official docs](https://socket.io/docs/v4/client-api/) for more installation options.
 

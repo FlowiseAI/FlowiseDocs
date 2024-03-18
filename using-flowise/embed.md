@@ -14,7 +14,7 @@ To modify the full source code of embedded chat widget, follow these steps:
 
 1. Fork the [Flowise Chat Embed](https://github.com/FlowiseAI/FlowiseChatEmbed) repository
 2. Then you can make any code changes. One of the popular ask is to remove Flowise [branding](https://github.com/HenryHengZJ/FlowiseChatEmbed-Test/blob/main/src/components/Bot.tsx#L337).
-3. Run `yarn build`
+3. Run `pnpm build`
 4. Push changes to the forked repo
 5. You can then use it as embedded chat like so:
 

@@ -414,17 +414,17 @@ You can import any built-in NodeJS [modules](https://www.w3schools.com/nodejs/re
 
 ```bash
 cd Flowise && cd packages && cd components
-yarn add <your-library>
+pnpm add <your-library>
 cd .. && cd ..
-yarn install
-yarn build
+pnpm install
+pnpm build
 ```
 
 2. Then, add the imported libraries to `TOOL_FUNCTION_EXTERNAL_DEP` environment variable. Refer [#builtin-and-external-dependencies](../../../configuration/environment-variables.md#builtin-and-external-dependencies "mention") for more details.
 3. Start the app
 
-```
-yarn start
+```bash
+pnpm start
 ```
 
 4. You can then use the newly added library in the **JavaScript Function** like so:
