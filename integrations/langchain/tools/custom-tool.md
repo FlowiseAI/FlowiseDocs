@@ -256,9 +256,9 @@ _<mark style="color:orange;">Stock Ticker: OSTK Price Move: 17.47% News Summary:
 
 [🎉](https://emojipedia.org/party-popper/)[🎉](https://emojipedia.org/party-popper/)**Voila!** That's how you can create your own custom tool and use it with the OpenAI Function Agent!
 
-### Additional
+## Additional
 
-#### Pass Session ID to Function
+### Pass Session ID to Function
 
 By default, Function in custom tool has access to the following flow configurations:
 
@@ -305,7 +305,7 @@ try {
 {% endtab %}
 {% endtabs %}
 
-#### Pass variables to Function
+### Pass variables to Function
 
 In some cases, you would like to pass variables to custom tool function.
 
@@ -406,7 +406,51 @@ try {
 {% endtab %}
 {% endtabs %}
 
-#### Import External Dependencies
+### Override Custom Tool
+
+Parameters below can be overriden
+
+| Parameter        | Description      |
+| ---------------- | ---------------- |
+| customToolName   | tool name        |
+| customToolDesc   | tool description |
+| customToolSchema | tool schema      |
+| customToolFunc   | tool function    |
+
+Example of an API call to override custom tool parameters:
+
+{% tabs %}
+{% tab title="Javascript API" %}
+```javascript
+async function query(data) {
+    const response = await fetch(
+        "http://localhost:3000/api/v1/prediction/<chatflow-id>",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        }
+    );
+    const result = await response.json();
+    return result;
+}
+
+query({
+    "question": "Hey, how are you?",
+    "overrideConfig": {
+        "customToolName": "example_tool",
+        "customToolSchema": "z.object({title: z.string()})"
+    }
+}).then((response) => {
+    console.log(response);
+});
+```
+{% endtab %}
+{% endtabs %}
+
+### Import External Dependencies
 
 You can import any built-in NodeJS [modules](https://www.w3schools.com/nodejs/ref\_modules.asp) and supported [external libraries](https://github.com/FlowiseAI/Flowise/blob/main/packages/components/src/utils.ts#L289) into Function.
 
