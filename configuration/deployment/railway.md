@@ -36,7 +36,7 @@ Just click Deploy and fill in the Env Variables like below:
 * APIKEY\_PATH - `/opt/railway/.flowise`
 * LOG\_PATH - `/opt/railway/.flowise/logs`
 * SECRETKEY\_PATH - `/opt/railway/.flowise`
-* BLOB\_STORAGE\_PATH - `/opt/render/.flowise/storage`
+* BLOB\_STORAGE\_PATH - `/opt/railway/.flowise/storage`
 
 <figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="420"><figcaption></figcaption></figure>
 
