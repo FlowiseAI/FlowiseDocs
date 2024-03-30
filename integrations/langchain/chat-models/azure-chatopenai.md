@@ -13,15 +13,15 @@
 
 2. **Connect Credential** > click **Create New**
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt="" width="278"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt="" width="278"><figcaption></figcaption></figure>
 
 3. Fill in the **ChatOpenAI** credential
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 4. Voila [🎉](https://emojipedia.org/party-popper/), you can now use **ChatOpenAI node** in Flowise
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Custom base URL and headers
 
@@ -34,7 +34,7 @@ Flowise supports using custom base URL and headers for Chat OpenAI. Users can ea
 3. Click **Additional Parameters** on ChatOpenAI node.
 4. Change the Base Path:
 
-<figure><img src="../../../.gitbook/assets/image (4) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 ### Open Router
 
@@ -43,7 +43,7 @@ Flowise supports using custom base URL and headers for Chat OpenAI. Users can ea
 3. Click Additional Parameters on ChatOpenAI node
 4. Change the Base Path and Base Options:
 
-<figure><img src="../../../.gitbook/assets/image (5) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 ## Custom Model
 
@@ -55,7 +55,7 @@ For models that are not supported on ChatOpenAI node, you can use ChatOpenAI Cus
 
 You can also allow images to be uploaded and analyzed by LLM. Under the hood, Flowise will use [OpenAI Vison ](https://platform.openai.com/docs/guides/vision)model to process the image.
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt="" width="332"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt="" width="332"><figcaption></figcaption></figure>
 
 From the chat interface, you will now see a new image upload button:
 

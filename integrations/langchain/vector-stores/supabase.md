@@ -101,7 +101,7 @@ You can use metadata filtering to query specific metadata:
 
 **UI**
 
-<figure><img src="../../../.gitbook/assets/image.png" alt="" width="232"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9).png" alt="" width="232"><figcaption></figcaption></figure>
 
 **API**
 

@@ -65,6 +65,7 @@
       * [Elastic](integrations/langchain/vector-stores/elastic.md)
       * [Qdrant](integrations/langchain/vector-stores/qdrant.md)
       * [SingleStore](integrations/langchain/vector-stores/singlestore.md)
+      * [AstraDB](integrations/langchain/vector-stores/singlestore-1.md)
       * [Supabase](integrations/langchain/vector-stores/supabase.md)
       * [Vectara](integrations/langchain/vector-stores/vectara.md)
   * [LlamaIndex](integrations/llamaindex/README.md)
