@@ -5,10 +5,9 @@ A vector store or vector database refers to a type of database system that speci
 * [Chroma](chroma.md)
 * [Pinecone](pinecone.md)
 * [Qdrant](qdrant.md)
-* [SingleStore](singlestore.md)
+* [SingleStore](singlestore-1.md)
 * [Supabase](supabase.md)
 * [Vectara](vectara.md)
-
 
 Watch an intro on Vector Stores and how you can use that on Flowise
 
