@@ -25,7 +25,7 @@
    * Pinecone Index
    * Pinecone namespace (optional)
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="279"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="279"><figcaption></figcaption></figure>
 
 3. Create new Pinecone credential -> Fill in **API Key** and **Environment**
 

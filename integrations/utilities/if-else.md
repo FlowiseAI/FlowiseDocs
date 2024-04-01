@@ -6,7 +6,7 @@ Flowise allows you to split your chatflow into different branches depending on I
 
 ### Input Variables
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 As noticed from the image above, it takes in any nodes that has `json` output. Some examples are: Custom Function, LLM Chain Output Prediction, Get/Set Variables.
 

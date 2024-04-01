@@ -5,11 +5,11 @@
 1. Register an account on [AstraDB](https://astra.datastax.com/)
 2. Login to portal. Create a Database
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 3. Choose Serverless (Vector), fill in the Database name, Provider, and Region
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 4. After database has been setup, grab the API Endpoint, and generate Application Token
 
