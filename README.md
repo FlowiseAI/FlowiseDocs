@@ -4,13 +4,14 @@
 
 ## [🤔](https://emojipedia.org/thinking-face/) What is Flowise?
 
-Flowise is a low-code/no-code drag & drop tool with the aim to make it easy for people to visualize and build LLM apps.
+Flowise is an open source low-code tool for developers to build customized LLM orchestration flow & AI agents.
 
 Watch a quickstart demo (2mins)
 
 {% embed url="https://youtu.be/d7vfUodP0c4" %}
 
 Watch a full demo (10 mins)
+
 {% embed url="https://youtu.be/kAyKOsm8L5Y" %}
 
 ## 🙌 Contributing
