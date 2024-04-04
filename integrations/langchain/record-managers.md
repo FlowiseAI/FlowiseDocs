@@ -131,7 +131,7 @@ When you are upserting multiple documents, and you want to prevent deletion of t
 
 <div align="left">
 
-<figure><img src="../../.gitbook/assets/image (2) (1).png" alt="" width="154"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt="" width="231"><figcaption></figcaption></figure>
 
  
 
@@ -147,11 +147,11 @@ When you are upserting multiple documents, and you want to prevent deletion of t
 
 <figure><img src="../../.gitbook/assets/image (13).png" alt="" width="425"><figcaption></figcaption></figure>
 
-&#x20;       [✅](https://emojipedia.org/check-mark-button)The original **Cat** document is deleted
+* The original **Cat** document is deleted
+* A new document with **Cats** is added
+* **Dog** document is left untouched
 
-&#x20;       [✅](https://emojipedia.org/check-mark-button)A new document with **Cats** is added
 
-&#x20;       [✅](https://emojipedia.org/check-mark-button)**Dog** document is left untouched
 
 5. The remaining vector embeddings in Vector Store are **Cats** and **Dog**
 
@@ -173,7 +173,7 @@ When you are upserting multiple documents, **Full** Cleanup mode will automatica
 
 </div>
 
-1. And have the following 2 documents:
+2. And have the following 2 documents:
 
 | Text | Metadata         |
 | ---- | ---------------- |
@@ -182,21 +182,21 @@ When you are upserting multiple documents, **Full** Cleanup mode will automatica
 
 <div align="left">
 
-<figure><img src="../../.gitbook/assets/image (11).png" alt="" width="302"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11).png" alt="" width="202"><figcaption></figcaption></figure>
 
  
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image.png" alt="" width="563"><figcaption></figcaption></figure>
 
 </div>
 
 <div align="left">
 
-<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt="" width="231"><figcaption></figcaption></figure>
 
  
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 </div>
 
@@ -208,11 +208,11 @@ When you are upserting multiple documents, **Full** Cleanup mode will automatica
 
 <figure><img src="../../.gitbook/assets/image (18).png" alt="" width="430"><figcaption></figcaption></figure>
 
-&#x20;       [✅](https://emojipedia.org/check-mark-button)The original **Cat** document is deleted
+* The original **Cat** document is deleted
+* A new document with **Cats** is added
+* **Dog** document is deleted
 
-&#x20;       [✅](https://emojipedia.org/check-mark-button)A new document with **Cats** is added
 
-&#x20;       [✅](https://emojipedia.org/check-mark-button)**Dog** document is deleted
 
 5. The remaining vector embeddings in Vector Store is just **Cats**
 
