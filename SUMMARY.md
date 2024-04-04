@@ -29,6 +29,7 @@
   * [Rate Limit](configuration/rate-limit.md)
 * [Integrations](integrations/README.md)
   * [Langchain](integrations/langchain/README.md)
+    * [Record Managers](integrations/langchain/record-managers.md)
     * [Cache](integrations/langchain/cache/README.md)
       * [InMemory Cache](integrations/langchain/cache/in-memory-cache.md)
     * [Chains](integrations/langchain/chains/README.md)

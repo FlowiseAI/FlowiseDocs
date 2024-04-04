@@ -6,7 +6,7 @@ When provided with text chunks and a query, recursively build a tree structure a
 
 **Cons**: Accuracy of answer might be lost during traversal of tree structure
 
-<figure><img src="../../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **Prompt**
 

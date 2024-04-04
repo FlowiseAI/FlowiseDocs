@@ -10,7 +10,7 @@ Request Body
 
 You can use the chatflow as API and connect to frontend applications.
 
-<figure><img src="../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (16) (1).png" alt=""><figcaption></figcaption></figure>
 
 You also have the flexibility to override input configuration with **overrideConfig** property.
 
@@ -98,7 +98,7 @@ When **Allow Image Upload** is enabled, images can be uploaded from chat interfa
 
 <div align="center">
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt="" width="255"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt="" width="255"><figcaption></figcaption></figure>
 
  
 
@@ -170,7 +170,7 @@ When **Speech to Text** is enabled, users can speak directly into microphone and
 
 <div align="left">
 
-<figure><img src="../.gitbook/assets/image (2) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
  
 
@@ -248,7 +248,7 @@ Request Body
 
 Some document loaders in Flowise allow user to upload files:
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 If the flow contains [Document Loaders](../integrations/langchain/document-loaders/) with Upload File functionality, the API looks slightly different. Instead of passing body as **JSON**, **form-data** is being used. This allows you to upload any files to the API.
 

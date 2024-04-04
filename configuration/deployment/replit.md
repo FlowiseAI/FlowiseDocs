@@ -3,7 +3,7 @@
 1. Sign in to [Replit](https://replit.com/\~)
 2. Create a new **Repl**. Select **Node.js** as Template and fill in your preferred **Title**.
 
-<figure><img src="../../.gitbook/assets/image (18) (1).png" alt="" width="551"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (18) (1) (2).png" alt="" width="551"><figcaption></figcaption></figure>
 
 3. After a new Repl is created, on the left hand side bar, click Secret:
 
@@ -21,11 +21,11 @@
 
 6. Type in `npm install -g flowise` into the Shell terminal window. If you are having error about incompatible node version, use the following command `yarn global add flowise --ignore-engines`
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="530"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="530"><figcaption></figcaption></figure>
 
 7. Then followed by `npx flowise start`
 
-<figure><img src="../../.gitbook/assets/image (17) (1).png" alt="" width="533"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (17) (1) (2).png" alt="" width="533"><figcaption></figcaption></figure>
 
 8. You should now be able to see Flowise on Replit!
 

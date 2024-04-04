@@ -34,7 +34,7 @@ docker-compose up -d --build
 | Collection Name | Chroma collection name. Refer to [here](https://docs.trychroma.com/usage-guide#creating-inspecting-and-deleting-collections) for naming convention |                       |
 | Chroma URL      | Specify the URL of your chroma instance                                                                                                            | http://localhost:8000 |
 
-<figure><img src="../../../.gitbook/assets/image (6) (1) (1).png" alt="" width="238"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (1) (1) (1).png" alt="" width="238"><figcaption></figcaption></figure>
 
 ### Additional
 

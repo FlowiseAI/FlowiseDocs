@@ -227,7 +227,7 @@ You can use the template **OpenAI Function** **Agent** from marketplace, and rep
 
 Note: OpenAI Function Agent only supports 0613 models currently.
 
-<figure><img src="../../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (15) (1).png" alt=""><figcaption></figcaption></figure>
 
 Save the chatflow and start testing it. For starter, you can try asking:
 

@@ -72,7 +72,7 @@ $$;
 
 ```
 
-<figure><img src="../../../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (19) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Setup
 
@@ -101,7 +101,7 @@ You can use metadata filtering to query specific metadata:
 
 **UI**
 
-<figure><img src="../../../.gitbook/assets/image (9).png" alt="" width="232"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (1).png" alt="" width="232"><figcaption></figcaption></figure>
 
 **API**
 
