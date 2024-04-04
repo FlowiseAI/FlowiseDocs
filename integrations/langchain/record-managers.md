@@ -10,13 +10,15 @@ In some cases, you might want to delete existing documents that are derived from
 
 <summary>None</summary>
 
-Does not do any automatic clean up
+No cleanup will be performed
 
 </details>
 
 <details>
 
 <summary>Incremental</summary>
+
+When you are upserting multiple documents, and you want to prevent deletion of the existing documents that are not part of the current upserting process, use **Incremental** Cleanup mode.
 
 1. Let's have a Record Manager with `Incremental` Cleanup and `source` as SourceId Key
 
@@ -50,13 +52,13 @@ Does not do any automatic clean up
 
 ![](<../../.gitbook/assets/image (15).png>)
 
-In other words, when you are upserting multiple documents, and you want to prevent deletion of the existing documents that are not part of the current upserting process, use **Incremental** Cleanup mode.
-
 </details>
 
 <details>
 
 <summary>Full</summary>
+
+When you are upserting multiple documents, **Full** Cleanup mode will automatically delete any vector embeddings that are not part of the current upserting process.
 
 1. Let's have a Record Manager with `Full`Cleanup. We don't need to have a SourceId Key for Full or None Cleanup mode.
 
@@ -89,8 +91,6 @@ In other words, when you are upserting multiple documents, and you want to preve
 5. The remaining vector embeddings in Vector Store is only **Cats:**
 
 ![](<../../.gitbook/assets/image (19).png>)
-
-In other words, when you are upserting multiple documents, **Full** Cleanup mode will automatically delete any vector embeddings that are not part of the current upserting process.
 
 </details>
 
