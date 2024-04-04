@@ -121,21 +121,21 @@ When you are upserting multiple documents, and you want to prevent deletion of t
 
 <div align="left">
 
-<figure><img src="../../.gitbook/assets/image (11).png" alt="" width="302"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11).png" alt="" width="202"><figcaption></figcaption></figure>
 
  
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image.png" alt="" width="563"><figcaption></figcaption></figure>
 
 </div>
 
 <div align="left">
 
-<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt="" width="154"><figcaption></figcaption></figure>
 
  
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 </div>
 
