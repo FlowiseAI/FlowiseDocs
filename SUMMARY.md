@@ -94,4 +94,5 @@
   * [Web Scrape QnA](use-cases/web-scrape-qna.md)
   * [Multiple Documents QnA](use-cases/multiple-documents-qna.md)
   * [SQL QnA](use-cases/sql-qna.md)
-  * [Webhook Tool](use-cases/webhook-tool.md)
+  * [Calling Webhook](use-cases/webhook-tool.md)
+  * [Interacting with API](use-cases/webhook-tool-1.md)

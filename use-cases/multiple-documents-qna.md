@@ -178,7 +178,7 @@ Question: {input}
 
 ## Conclusion
 
-We've covered using Conversational Retrieval QA Chain and its limitation when querying multiple documents. And we were able to overcome the issue by using OpenAI Function Agent/XML Agent + Tools. You can find the template below:
+We've covered using Conversational Retrieval QA Chain and its limitation when querying multiple documents. And we were able to overcome the issue by using OpenAI Function Agent/XML Agent + Tools. You can find the templates below:
 
 {% file src="../.gitbook/assets/Agent Chatflow.json" %}
 
