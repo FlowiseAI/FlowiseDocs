@@ -53,6 +53,10 @@ Fill in the fields:
 * **Base Path**: The base url from LocalAI such as [http://localhost:8080/v1](http://localhost:8080/v1)
 * **Model Name**: The model you want to use. Note that it must be inside `/models` folder of LocalAI directory. For instance: `ggml-gpt4all-j.bin`
 
+{% hint style="info" %}
+If you are running both Flowise and LocalAI on Docker, you might need to change the base path to [http://host.docker.internal:8080/v1](http://host.docker.internal:8080/v1). For Linux based systems the default docker gateway should be used since host.docker.internal is not available: [http://172.17.0.1:8080/v1](http://172.17.0.1:8080/v1)
+{% endhint %}
+
 That's it! For more information, refer to LocalAI [docs](https://localai.io/basics/getting\_started/index.html).
 
 Watch how you can use LocalAI on Flowise
