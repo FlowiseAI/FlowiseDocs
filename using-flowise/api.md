@@ -6,7 +6,7 @@
 
 Request Body
 
-<table><thead><tr><th width="192">Key</th><th width="559">Description</th><th>Type</th><th>Required</th></tr></thead><tbody><tr><td>question</td><td>User's question</td><td>string</td><td>Yes</td></tr><tr><td>overrideConfig</td><td>Override existing flow configuration</td><td>object</td><td>No</td></tr><tr><td>history</td><td>Provide list of history messages to the flow. Only works when using <a href="../integrations/langchain/memory/short-term-memory.md">Short Term Memory</a></td><td>array</td><td>No</td></tr></tbody></table>
+<table><thead><tr><th width="192">Key</th><th width="559">Description</th><th>Type</th><th>Required</th></tr></thead><tbody><tr><td>question</td><td>User's question</td><td>string</td><td>Yes</td></tr><tr><td>overrideConfig</td><td>Override existing flow configuration</td><td>object</td><td>No</td></tr></tbody></table>
 
 You can use the chatflow as API and connect to frontend applications.
 
@@ -29,22 +29,9 @@ def query(payload):
 output = query({
     "question": "Hey, how are you?",
     "overrideConfig": {
+        "sessionId": "123",
         "returnSourceDocuments": true
-    },
-    "history": [
-        {
-            "message": "Hello, how can I assist you?",
-            "type": "apiMessage"
-        },
-        {
-            "type": "userMessage",
-            "message": "Hello I am Bob"
-        },
-        {
-            "type": "apiMessage",
-            "message": "Hello Bob! how can I assist you?"
-        }
-    ]
+    }
 })
 </code></pre>
 {% endtab %}
@@ -69,22 +56,9 @@ async function query(data) {
 query({
     "question": "Hey, how are you?",
     "overrideConfig": {
+        "sessionId": "123",
         "returnSourceDocuments": true
-    },
-    "history": [
-        {
-            "message": "Hello, how can I assist you?",
-            "type": "apiMessage"
-        },
-        {
-            "type": "userMessage",
-            "message": "Hello I am Bob"
-        },
-        {
-            "type": "apiMessage",
-            "message": "Hello Bob! how can I assist you?"
-        }
-    ]
+    }
 }).then((response) => {
     console.log(response);
 });
@@ -117,7 +91,7 @@ def query(payload):
     return response.json()
     
 output = query({
-    "question": "Hey, how are you?",
+    "question": "Can you describe the image?",
     "uploads": [
         {
             "data": 'data:image/png;base64,iVBORw0KGgdM2uN0', #base64 string
@@ -148,7 +122,7 @@ async function query(data) {
 }
 
 query({
-    "question": "Hey, how are you?",
+    "question": "Can you describe the image?",
     "uploads": [
         {
             "data": 'data:image/png;base64,iVBORw0KGgdM2uN0', //base64 string
@@ -189,7 +163,6 @@ def query(payload):
     return response.json()
     
 output = query({
-    "question": "Hey, how are you?",
     "uploads": [
         {
             "data": 'data:audio/webm;codecs=opus;base64,GkXf', #base64 string
@@ -220,7 +193,6 @@ async function query(data) {
 }
 
 query({
-    "question": "Hey, how are you?",
     "uploads": [
         {
             "data": 'data:audio/webm;codecs=opus;base64,GkXf', //base64 string
@@ -377,12 +349,8 @@ Query Parameters
 
 ### Tutorials
 
-* How to use Flowise API
-
 {% embed url="https://youtu.be/9R5zo3IVkqU?si=y1v_aCQLE_70WBnA" %}
 
 {% embed url="https://youtu.be/LhN560DhlzU" %}
-
-* How to use Flowise API and connect to [Bubble](https://bubble.io/)
 
 {% embed url="https://youtu.be/kOwmPe8aLAA" %}
