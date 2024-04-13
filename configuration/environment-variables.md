@@ -4,7 +4,7 @@ Flowise support different environment variables to configure your instance. You 
 
 <table><thead><tr><th width="222">Variable</th><th>Description</th><th width="151">Type</th><th>Default</th></tr></thead><tbody><tr><td>PORT</td><td>The HTTP port Flowise runs on</td><td>Number</td><td>3000</td></tr><tr><td>FLOWISE_USERNAME</td><td>Username to login</td><td>String</td><td></td></tr><tr><td>FLOWISE_PASSWORD</td><td>Password to login</td><td>String</td><td></td></tr><tr><td>DEBUG</td><td>Print logs onto terminal/console</td><td>Boolean</td><td></td></tr><tr><td>BLOB_STORAGE_PATH</td><td>Location where uploaded files are stored</td><td>String</td><td><code>your-home-dir/.flowise/storage</code></td></tr><tr><td>APIKEY_PATH</td><td>Location where API keys are saved</td><td>String</td><td><code>Flowise/packages/server</code></td></tr><tr><td>SECRETKEY_PATH</td><td>Location where encryption key (used to encrypt/decrypt credentials) is saved</td><td>String</td><td><code>Flowise/packages/server</code></td></tr><tr><td>FLOWISE_SECRETKEY_OVERWRITE</td><td>Encryption key to be used instead of the key stored in SECRETKEY_PATH</td><td>String</td><td></td></tr><tr><td>LOG_PATH</td><td>Location where log files are stored</td><td>String</td><td><code>Flowise/packages/server/logs</code></td></tr><tr><td>LOG_LEVEL</td><td>Different log levels for loggers to be saved</td><td>Enum String: <code>info</code>, <code>verbose</code>, <code>debug</code></td><td><code>info</code></td></tr><tr><td>TOOL_FUNCTION_BUILTIN_DEP</td><td>NodeJS built-in modules to be used for Tool Function</td><td>String</td><td></td></tr><tr><td>TOOL_FUNCTION_EXTERNAL_DEP</td><td>External modules to be used for Tool Function</td><td>String</td><td></td></tr><tr><td>NUMBER_OF_PROXIES</td><td>Rate Limit Proxy</td><td>Number</td><td></td></tr><tr><td>CORS_ORIGINS</td><td>The allowed origins for all cross-origin HTTP calls </td><td>String</td><td></td></tr><tr><td>IFRAME_ORIGINS</td><td>The allowed origins for iframe src embedding</td><td>String</td><td></td></tr><tr><td>MODEL_LIST_CONFIG_JSON</td><td>File path to load list of models from your local config file</td><td>String</td><td></td></tr></tbody></table>
 
-## Database Env Variables
+## Database
 
 <table><thead><tr><th width="222">Variable</th><th>Description</th><th width="151">Type</th><th>Default</th></tr></thead><tbody><tr><td>DATABASE_TYPE</td><td>Type of database to store the flowise data</td><td>Enum String: <code>sqlite</code>, <code>mysql</code>, <code>postgres</code></td><td><code>sqlite</code></td></tr><tr><td>DATABASE_PATH</td><td>Location where database is saved (When DATABASE_TYPE is sqlite)</td><td>String</td><td><code>your-home-dir/.flowise</code></td></tr><tr><td>DATABASE_HOST</td><td>Host URL or IP address (When DATABASE_TYPE is not sqlite)</td><td>String</td><td></td></tr><tr><td>DATABASE_PORT</td><td>Database port (When DATABASE_TYPE is not sqlite)</td><td>String</td><td></td></tr><tr><td>DATABASE_USER</td><td>Database username (When DATABASE_TYPE is not sqlite)</td><td>String</td><td></td></tr><tr><td>DATABASE_PASSWORD</td><td>Database password (When DATABASE_TYPE is not sqlite)</td><td>String</td><td></td></tr><tr><td>DATABASE_NAME</td><td>Database name (When DATABASE_TYPE is not sqlite)</td><td>String</td><td></td></tr></tbody></table>
 
@@ -90,11 +90,11 @@ In some cases, you might want to use custom model on the existing Chat Model and
 
 By default, Flowise pulls the model list from [here](https://github.com/FlowiseAI/Flowise/blob/main/packages/components/models.json). However user can create their own `models.json` file and specify the file path:
 
-| Variable                  | Description                                                  | Type   |
-| ------------------------- | ------------------------------------------------------------ | ------ |
-| MODEL\_LIST\_CONFIG\_JSON | File path to load list of models from your local config file | String |
+<table><thead><tr><th width="283">Variable</th><th width="292">Description</th><th>Type</th></tr></thead><tbody><tr><td>MODEL_LIST_CONFIG_JSON</td><td>File path to load list of models from your local config file</td><td>String</td></tr></tbody></table>
 
-## NPM
+## How to set environment variables
+
+### NPM
 
 You can set all these variables when running Flowise using npx. For example:
 
@@ -102,14 +102,14 @@ You can set all these variables when running Flowise using npx. For example:
 npx flowise start --PORT=3000 --DEBUG=true
 ```
 
-## Docker
+### Docker
 
 You can set all these variables in the `.env` file inside `docker` folder. Refer to [.env.example](https://github.com/FlowiseAI/Flowise/blob/main/docker/.env.example) file.
 
-## Render
+### Render
 
 <figure><img src="../.gitbook/assets/image (37).png" alt=""><figcaption></figcaption></figure>
 
-## Railway
+### Railway
 
 <figure><img src="../.gitbook/assets/image (9) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
