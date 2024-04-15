@@ -59,6 +59,7 @@
     * [Tools](integrations/langchain/tools/README.md)
       * [Custom Tool](integrations/langchain/tools/custom-tool.md)
     * [Vector Stores](integrations/langchain/vector-stores/README.md)
+      * [Redis](integrations/langchain/vector-stores/redis.md)
       * [AstraDB](integrations/langchain/vector-stores/singlestore.md)
       * [Chroma](integrations/langchain/vector-stores/chroma.md)
       * [Elastic](integrations/langchain/vector-stores/elastic.md)

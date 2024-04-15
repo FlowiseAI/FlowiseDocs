@@ -8,7 +8,7 @@ Compact the prompt during each LLM call by stuffing as many text chunks that can
 
 **Cons**: Due to the multiple LLM calls , can be expensive
 
-<figure><img src="../../../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **Refine Prompt**
 
