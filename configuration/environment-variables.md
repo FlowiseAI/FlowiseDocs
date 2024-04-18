@@ -90,7 +90,7 @@ In some cases, you might want to use custom model on the existing Chat Model and
 
 By default, Flowise pulls the model list from [here](https://github.com/FlowiseAI/Flowise/blob/main/packages/components/models.json). However user can create their own `models.json` file and specify the file path:
 
-<table><thead><tr><th width="283">Variable</th><th width="292">Description</th><th>Type</th></tr></thead><tbody><tr><td>MODEL_LIST_CONFIG_JSON</td><td>File path to load list of models from your local config file</td><td>String</td></tr></tbody></table>
+<table><thead><tr><th width="164">Variable</th><th width="196">Description</th><th width="78">Type</th><th>Default</th></tr></thead><tbody><tr><td>MODEL_LIST_CONFIG_JSON</td><td>Link to load list of models from your <code>models.json</code> config file</td><td>String</td><td><a href="https://raw.githubusercontent.com/FlowiseAI/Flowise/main/packages/components/models.json">https://raw.githubusercontent.com/FlowiseAI/Flowise/main/packages/components/models.json</a></td></tr></tbody></table>
 
 ## How to set environment variables
 
