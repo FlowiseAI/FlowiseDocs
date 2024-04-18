@@ -140,7 +140,7 @@ query({
 {% endtab %}
 {% endtabs %}
 
-## Speech to Text
+### Speech to Text
 
 When **Speech to Text** is enabled, users can speak directly into microphone and speech will be transcribed into text.
 
@@ -349,7 +349,7 @@ Query Parameters
 | startDate | string |             |
 | endDate   | string |             |
 
-### Tutorials
+## Tutorials
 
 {% embed url="https://youtu.be/9R5zo3IVkqU?si=y1v_aCQLE_70WBnA" %}
 
