@@ -12,6 +12,8 @@ You can use the chatflow as API and connect to frontend applications.
 
 <figure><img src="../.gitbook/assets/image (16) (1).png" alt=""><figcaption></figcaption></figure>
 
+### Override Config
+
 You also have the flexibility to override input configuration with **overrideConfig** property.
 
 <figure><img src="../.gitbook/assets/image (45).png" alt=""><figcaption></figcaption></figure>

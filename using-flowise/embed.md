@@ -8,7 +8,108 @@ Watch how to do that:
 
 {% embed url="https://github.com/FlowiseAI/Flowise/assets/26460777/c128829a-2d08-4d60-b821-1e41a9e677d0" %}
 
-You can also customize your own embedded chat widget UI and pass **chatflowConfig** JSON object to override existing config. See [configuration list](https://github.com/FlowiseAI/FlowiseChatEmbed#configuration).
+You can also customize your own embedded chat widget UI. See full [configuration list](https://github.com/FlowiseAI/FlowiseChatEmbed#configuration).
+
+### Chatflow Config
+
+You can pass `chatflowConfig` JSON object to override existing configuration. This is the same as  [#override-config](api.md#override-config "mention") in API.
+
+```html
+<script type="module">
+  import Chatbot from 'https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js';
+  Chatbot.init({
+    chatflowid: 'abc',
+    apiHost: 'http://localhost:3000',
+    chatflowConfig: {
+      "sessionId": "123",
+      "returnSourceDocuments": true
+    }
+  })
+</script>
+```
+
+### Observer Config
+
+This allows you to execute code in parent based upon signal observations within the chatbot.
+
+```html
+<script type="module">
+  import Chatbot from 'https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js';
+  Chatbot.init({
+    chatflowid: 'abc',
+    apiHost: 'http://localhost:3000',
+    observersConfig: {
+      // User input has changed
+      observeUserInput: (userInput) => {
+        console.log({ userInput });
+      },
+      // The bot message stack has changed
+      observeMessages: (messages) => {
+        console.log({ messages });
+      },
+      // The bot loading signal changed
+      observeLoading: (loading) => {
+        console.log({ loading });
+      },
+    },
+  })
+</script>
+```
+
+### Theme
+
+You can change the pop up button properties, as well as the chat window:
+
+```html
+<script type="module">
+  import Chatbot from 'https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js';
+  Chatbot.init({
+    chatflowid: 'abc',
+    apiHost: 'http://localhost:3000',
+    theme: {
+      button: {
+        backgroundColor: '#3B81F6',
+        right: 20,
+        bottom: 20,
+        size: 'medium',
+        iconColor: 'white',
+        customIconSrc: 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg',
+      },
+      chatWindow: {
+        showTitle: true, // show/hide the title bar
+        title: 'Flowise Bot',
+        titleAvatarSrc: 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg',
+        welcomeMessage: 'Hello! This is custom welcome message',
+        backgroundColor: '#ffffff',
+        height: 700,
+        width: 400,
+        fontSize: 16,
+        poweredByTextColor: '#303235',
+        botMessage: {
+          backgroundColor: '#f7f8ff',
+          textColor: '#303235',
+          showAvatar: true,
+          avatarSrc: 'https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/parroticon.png',
+        },
+        userMessage: {
+          backgroundColor: '#3B81F6',
+          textColor: '#ffffff',
+          showAvatar: true,
+          avatarSrc: 'https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/usericon.png',
+        },
+        textInput: {
+          placeholder: 'Type your question',
+          backgroundColor: '#ffffff',
+          textColor: '#303235',
+          sendButtonColor: '#3B81F6',
+        },
+      },
+    },
+  })
+</script>
+```
+
+### Custom Modificaton
 
 To modify the full source code of embedded chat widget, follow these steps:
 
