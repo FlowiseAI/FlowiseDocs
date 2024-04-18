@@ -80,6 +80,7 @@ You can change the pop up button properties, as well as the chat window:
         title: 'Flowise Bot',
         titleAvatarSrc: 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg',
         welcomeMessage: 'Hello! This is custom welcome message',
+        errorMessage: 'This is custom error message',
         backgroundColor: '#ffffff',
         height: 700,
         width: 400,
