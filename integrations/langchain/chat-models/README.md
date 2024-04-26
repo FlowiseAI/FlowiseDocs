@@ -4,9 +4,9 @@ Chat models take a list of messages as input and return a model-generated messag
 
 Below are some of the chat models available to use in Flowise:
 
-* [Azure ChatOpenAI](azure-chatopenai.md)
+* [Azure ChatOpenAI](azure-chatopenai-1.md)
 * [ChatGoogleGenerativeAI](google-ai.md)
 * [ChatLocalAI](chatlocalai.md)
-* [ChatOpenAI](azure-chatopenai-1.md)
+* [ChatOpenAI](azure-chatopenai.md)
 * [GoogleVertexAI](google-vertexai.md)
 * [ChatMistralAI](mistral-ai.md)

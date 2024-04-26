@@ -23,10 +23,10 @@ Current conversation:
 
 Available memory nodes in Flowise are:
 
-* Buffer Memory
-* Buffer Window Memory
-* Conversation Summary Memory
-* Conversation Summary Buffer Memory
+* [Buffer Memory](buffer-memory.md)
+* [Buffer Window Memory](buffer-window-memory.md)
+* [Conversation Summary Memory](conversation-summary-memory.md)
+* [Conversation Summary Buffer Memory](conversation-summary-buffer-memory.md)
 * DynamoDB
 * MongoDB
 * Redis Chat Memory

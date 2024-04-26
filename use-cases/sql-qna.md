@@ -114,7 +114,7 @@ return sqlSchemaPrompt;
 
 </details>
 
-You can find more on how to get the `HOST`, `USER`, `PASSWORD` from this [guide](../integrations/langchain/vector-stores/singlestore.md). Once finished, click Execute:
+You can find more on how to get the `HOST`, `USER`, `PASSWORD` from this [guide](../integrations/langchain/vector-stores/singlestore-1.md). Once finished, click Execute:
 
 <figure><img src="../.gitbook/assets/image (117).png" alt=""><figcaption></figcaption></figure>
 
