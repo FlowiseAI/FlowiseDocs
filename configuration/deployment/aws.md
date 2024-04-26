@@ -6,8 +6,8 @@ This requires some basic understanding of how AWS works.
 
 Two options are available to deploy Flowise on AWS:
 
-- [Deploy on ECS using CloudFormation](#deploy-on-ecs-using-cloudformation)
-- [Manually configure an EC2 Instance](#launch-ec2-instance)
+* [Deploy on ECS using CloudFormation](aws.md#deploy-on-ecs-using-cloudformation)
+* [Manually configure an EC2 Instance](aws.md#launch-ec2-instance)
 
 ## Deploy on ECS using CloudFormation
 
@@ -35,7 +35,7 @@ After deployment, the URL of your Flowise application is available in the CloudF
 
 2. Scroll down and **Create new key pair** if you don't have one
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 3. Fill in your preferred key pair name. For Windows, we will use `.ppk` and PuTTY to connect to the instance. For Mac and Linux, we will use `.pem` and OpenSSH
 
@@ -75,7 +75,7 @@ After deployment, the URL of your Flowise application is available in the CloudF
 
 5. Then login as `ec2-user`
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 6. Now you are connected to the EC2 instance
 
@@ -188,7 +188,7 @@ LOG_PATH=/root/.flowise/logs
 BLOB_STORAGE_PATH=/root/.flowise/storage
 ```
 
-5. _(Optional)_ You can also specify `FLOWISE_USERNAME` and `FLOWISE_PASSWORD` for app level authorization. See more [Broken link](broken-reference "mention")
+5. _(Optional)_ You can also specify `FLOWISE_USERNAME` and `FLOWISE_PASSWORD` for app level authorization. See more [broken-reference](broken-reference/ "mention")
 6. Then press `Ctrl + X` to Exit, and `Y` to save the file
 7. Run docker compose
 

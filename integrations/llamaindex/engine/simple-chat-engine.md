@@ -2,7 +2,7 @@
 
 A simple chat engine functions as a complete pipeline for engaging in a dialogue between AI and user, without context retrieval. However it does equipped with [Memory](../../langchain/memory/), allowing to remember conversations.
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Inputs
 

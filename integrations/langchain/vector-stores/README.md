@@ -5,7 +5,7 @@ A vector store or vector database refers to a type of database system that speci
 * [Chroma](chroma.md)
 * [Pinecone](pinecone.md)
 * [Qdrant](qdrant.md)
-* [SingleStore](singlestore-1.md)
+* [SingleStore](singlestore.md)
 * [Supabase](supabase.md)
 * [Vectara](vectara.md)
 

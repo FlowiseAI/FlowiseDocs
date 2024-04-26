@@ -36,7 +36,7 @@ On the top right corner, you will notice a green button:
 
 A dialog will be shown that allow users to upsert data to Pinecone:
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Under the hood, following actions will be executed:
 
@@ -47,13 +47,13 @@ Under the hood, following actions will be executed:
 
 Navigate to Pinecone dashboard, you will be able to see new vectors being added.
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Query
 
 Querying is relatively straight-forward. After you have verified that data is upserted to vector database, you can start asking question in the chat:
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 In the Additional Parameters of Conversational Retrieval QA Chain, you can specify 2 prompts:
 

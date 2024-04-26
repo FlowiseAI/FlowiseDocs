@@ -1,64 +1,61 @@
-# ChatOpenAI
+# Azure ChatOpenAI
 
 ## Prerequisite
 
-1. An [OpenAI](https://openai.com/) account
-2. Create an [API key](https://platform.openai.com/api-keys)
+1. [Log in](https://portal.azure.com/) or [sign up](https://azure.microsoft.com/en-us/free/) to Azure
+2. [Create](https://portal.azure.com/#create/Microsoft.CognitiveServicesOpenAI) your Azure OpenAI and wait for approval approximately 10 business days
+3. Your API key will be available at **Azure OpenAI** > click **name\_azure\_openai** > click **Click here to manage keys**
+
+<figure><img src="../../../.gitbook/assets/azure/azure-general/1.png" alt=""><figcaption></figcaption></figure>
 
 ## Setup
 
-1. **Chat Models** > drag **ChatOpenAI** node
+### Azure ChatOpenAI
 
-<figure><img src="../../../.gitbook/assets/image (10) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+1. Click **Go to Azure OpenaAI Studio**
+
+<figure><img src="../../../.gitbook/assets/azure/azure-general/2.png" alt=""><figcaption></figcaption></figure>
+
+2. Click **Deployments**
+
+<figure><img src="../../../.gitbook/assets/azure/azure-general/3.png" alt=""><figcaption></figcaption></figure>
+
+3. Click **Create new deployment**
+
+<figure><img src="../../../.gitbook/assets/azure/azure-general/4.png" alt=""><figcaption></figcaption></figure>
+
+4. Select as shown below and click **Create**
+
+<figure><img src="../../../.gitbook/assets/azure/azure-chatopenai/1.png" alt="" width="558"><figcaption></figcaption></figure>
+
+5. Successfully created **Azure ChatOpenAI**
+
+* Deployment name: `gpt-35-turbo`
+* Instance name: `top right conner`
+
+<figure><img src="../../../.gitbook/assets/azure/azure-chatopenai/2.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/azure/azure-general/2.png" alt=""><figcaption></figcaption></figure>
+
+### Flowise
+
+1. **Chat Models** > drag **Azure ChatOpenAI** node
+
+<figure><img src="../../../.gitbook/assets/azure/azure-chatopenai/3.png" alt="" width="563"><figcaption></figcaption></figure>
 
 2. **Connect Credential** > click **Create New**
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="278"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/azure/azure-chatopenai/4.png" alt="" width="421"><figcaption></figcaption></figure>
 
-3. Fill in the **ChatOpenAI** credential
+3. Copy & Paste each details (API Key, Instance & Deployment name, [API Version](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference#chat-completions)) into **Azure ChatOpenAI** credential
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/azure/azure-chatopenai/5.png" alt="" width="563"><figcaption></figcaption></figure>
 
-4. Voila [🎉](https://emojipedia.org/party-popper/), you can now use **ChatOpenAI node** in Flowise
+4. Voila [🎉](https://emojipedia.org/party-popper/), you have created **Azure ChatOpenAI node** in Flowise
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/azure/azure-general/5.png" alt=""><figcaption></figcaption></figure>
 
-## Custom base URL and headers
+## Resources
 
-Flowise supports using custom base URL and headers for Chat OpenAI. Users can easily use integrations like OpenRouter, TogetherAI and others that support OpenAI API compatibility.
-
-### TogetherAI
-
-1. Refer to official [docs](https://docs.together.ai/docs/openai-api-compatibility#nodejs) from TogetherAI
-2. Create a new credential with TogetherAI API key
-3. Click **Additional Parameters** on ChatOpenAI node.
-4. Change the Base Path:
-
-<figure><img src="../../../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
-
-### Open Router
-
-1. Refer to official [docs](https://openrouter.ai/docs#quick-start) from OpenRouter
-2. Create a new credential with OpenRouter API key
-3. Click Additional Parameters on ChatOpenAI node
-4. Change the Base Path and Base Options:
-
-<figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
-
-## Custom Model
-
-For models that are not supported on ChatOpenAI node, you can use ChatOpenAI Custom for that. This allow users to fill in model name such as `mistralai/Mixtral-8x7B-Instruct-v0.1`
-
-<figure><img src="../../../.gitbook/assets/image (84).png" alt=""><figcaption></figcaption></figure>
-
-## Image Upload
-
-You can also allow images to be uploaded and analyzed by LLM. Under the hood, Flowise will use [OpenAI Vison ](https://platform.openai.com/docs/guides/vision)model to process the image.
-
-<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1).png" alt="" width="332"><figcaption></figcaption></figure>
-
-From the chat interface, you will now see a new image upload button:
-
-<figure><img src="../../../.gitbook/assets/Untitled (1).png" alt=""><figcaption></figcaption></figure>
-
-<figure><img src="../../../.gitbook/assets/image (121).png" alt=""><figcaption></figcaption></figure>
+* [LangChain JS Azure ChatOpenAI](https://js.langchain.com/docs/modules/model\_io/models/chat/integrations/azure)
+* [Azure OpenAI Service REST API reference](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference)
