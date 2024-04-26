@@ -2,7 +2,30 @@
 
 ## Prerequisite
 
-This setup requires some basic understanding of how AWS works.
+This requires some basic understanding of how AWS works.
+
+Two options are available to deploy Flowise on AWS:
+
+- [Deploy on ECS using CloudFormation](#deploy-on-ecs-using-cloudformation)
+- [Manually configure an EC2 Instance](#launch-ec2-instance)
+
+## Deploy on ECS using CloudFormation
+
+CloudFormation template is available here: https://gist.github.com/MrHertal/549b31a18e350b69c7200ae8d26ed691
+
+It deploys Flowise on an ECS cluster exposed through ELB.
+
+It was inspired by this reference architecture: https://github.com/aws-samples/ecs-refarch-cloudformation
+
+Feel free to edit this template to adapt things like Flowise image version, environment variables etc.
+
+Example of command to deploy Flowise using the [AWS CLI](https://aws.amazon.com/fr/cli/):
+
+```bash
+aws cloudformation create-stack --stack-name flowise --template-body file://flowise-cloudformation.yml --capabilities CAPABILITY_IAM
+```
+
+After deployment, the URL of your Flowise application is available in the CloudFormation stack outputs.
 
 ## Launch EC2 Instance
 
