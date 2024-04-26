@@ -3,6 +3,12 @@
 ## Prerequisite
 
 1. Download [Ollama](https://github.com/ollama/ollama) or run it on [Docker.](https://hub.docker.com/r/ollama/ollama)&#x20;
+2.  For example, you can use the following command to spin up a Docker instance with llama3
+
+    ```bash
+    docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
+    docker exec -it ollama ollama run llama3
+    ```
 
 ## Setup
 
