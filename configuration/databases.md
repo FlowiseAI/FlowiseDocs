@@ -37,6 +37,7 @@ DATABASE_HOST=localhost
 DATABASE_NAME=flowise
 DATABASE_USER=user
 DATABASE_PASSWORD=123
+PGSSLMODE=require
 ```
 
 If none of the env variables is specified, SQLite will be the fallback database choice.
