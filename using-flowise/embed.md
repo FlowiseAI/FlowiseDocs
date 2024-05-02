@@ -143,6 +143,13 @@ Replace `username` to your Github username, and `forked-repo` to your forked rep
 </script>
 ```
 
+{% hint style="info" %}
+An alternative to jsdelivr is unpkg. For example:&#x20;
+
+<pre><code><strong>https://unpkg.com/flowise-embed/dist/web.js
+</strong></code></pre>
+{% endhint %}
+
 ### Tutorials
 
 * Watch how to embed Flowise in a Bootstrap 5 website
