@@ -6,16 +6,16 @@ This requires some basic understanding of how AWS works.
 
 Two options are available to deploy Flowise on AWS:
 
-* [Deploy on ECS using CloudFormation](aws.md#deploy-on-ecs-using-cloudformation)
-* [Manually configure an EC2 Instance](aws.md#launch-ec2-instance)
+- [Deploy on ECS using CloudFormation](aws.md#deploy-on-ecs-using-cloudformation)
+- [Manually configure an EC2 Instance](aws.md#launch-ec2-instance)
 
 ## Deploy on ECS using CloudFormation
 
-CloudFormation template is available here: https://gist.github.com/MrHertal/549b31a18e350b69c7200ae8d26ed691
+CloudFormation template is available here: [https://gist.github.com/MrHertal/549b31a18e350b69c7200ae8d26ed691](https://gist.github.com/MrHertal/549b31a18e350b69c7200ae8d26ed691)
 
 It deploys Flowise on an ECS cluster exposed through ELB.
 
-It was inspired by this reference architecture: https://github.com/aws-samples/ecs-refarch-cloudformation
+It was inspired by this reference architecture: [https://github.com/aws-samples/ecs-refarch-cloudformation](https://github.com/aws-samples/ecs-refarch-cloudformation)
 
 Feel free to edit this template to adapt things like Flowise image version, environment variables etc.
 
