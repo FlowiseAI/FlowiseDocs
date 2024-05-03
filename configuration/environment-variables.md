@@ -6,7 +6,16 @@ Flowise support different environment variables to configure your instance. You 
 
 ## Database
 
-<table><thead><tr><th width="222">Variable</th><th>Description</th><th width="151">Type</th><th>Default</th></tr></thead><tbody><tr><td>DATABASE_TYPE</td><td>Type of database to store the flowise data</td><td>Enum String: <code>sqlite</code>, <code>mysql</code>, <code>postgres</code></td><td><code>sqlite</code></td></tr><tr><td>DATABASE_PATH</td><td>Location where database is saved (When DATABASE_TYPE is sqlite)</td><td>String</td><td><code>your-home-dir/.flowise</code></td></tr><tr><td>DATABASE_HOST</td><td>Host URL or IP address (When DATABASE_TYPE is not sqlite)</td><td>String</td><td></td></tr><tr><td>DATABASE_PORT</td><td>Database port (When DATABASE_TYPE is not sqlite)</td><td>String</td><td></td></tr><tr><td>DATABASE_USER</td><td>Database username (When DATABASE_TYPE is not sqlite)</td><td>String</td><td></td></tr><tr><td>DATABASE_PASSWORD</td><td>Database password (When DATABASE_TYPE is not sqlite)</td><td>String</td><td></td></tr><tr><td>DATABASE_NAME</td><td>Database name (When DATABASE_TYPE is not sqlite)</td><td>String</td><td></td></tr></tbody></table>
+| Variable | Description | Type | Default |
+| --- | --- | --- | --- |
+| DATABASE_TYPE | Type of database to store the flowise data | Enum String: `sqlite`, `mysql`, `postgres` | `sqlite` |
+| DATABASE_PATH | Location where database is saved (When DATABASE_TYPE is sqlite) | String | `your-home-dir/.flowise` |
+| DATABASE_HOST | Host URL or IP address (When DATABASE_TYPE is not sqlite) | String |  |
+| DATABASE_PORT | Database port (When DATABASE_TYPE is not sqlite) | String |  |
+| DATABASE_USER | Database username (When DATABASE_TYPE is not sqlite) | String |  |
+| DATABASE_PASSWORD | Database password (When DATABASE_TYPE is not sqlite) | String |  |
+| DATABASE_NAME | Database name (When DATABASE_TYPE is not sqlite) | String |  |
+| DATABASE_SSL | Database SSL is required (When DATABASE_TYPE is not sqlite) | Boolean: `true` or `false` | `false` |
 
 ## LangSmith Tracing
 
