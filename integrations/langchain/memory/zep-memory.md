@@ -54,7 +54,7 @@ If using Digital ocean separate firewall from dashboard, make sure port 8000 is 
 
 ## Use in Flowise UI
 
-1. Back to Flowise application, simply create a new canvas or use one of the template from marketplace. In this example, we are going to use **Simple Conversational Chain**
+1. Back to Flowise application, simply create a new canvas or use one of the templates from the marketplace. In this example, we are going to use **Simple Conversational Chain**
 
 <figure><img src="../../../.gitbook/assets/Untitled (3) (1).png" alt=""><figcaption></figcaption></figure>
 

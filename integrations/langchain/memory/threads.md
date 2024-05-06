@@ -8,7 +8,7 @@
 
 ### UI & Embedded Chat
 
-By default, UI and Embedded Chat will automatically separate threads for multiple users conversations. This is done by generating a unique **`chatId`** for each new interaction. That logic is handled under the hood by Flowise.
+By default, the UI and Embedded Chat will automatically separate threads for multiple user conversations. This is done by generating a unique **`chatId`** for each new interaction. That logic is handled under the hood by Flowise.
 
 ### Prediction API
 

@@ -14,7 +14,7 @@ App level authorization protects your Flowise instance by username and password.
 npm install -g flowise
 ```
 
-2. Start Flowise with username & password
+2. Start Flowise with a username & password
 
 ```bash
 npx flowise start --FLOWISE_USERNAME=user --FLOWISE_PASSWORD=1234
@@ -24,13 +24,13 @@ npx flowise start --FLOWISE_USERNAME=user --FLOWISE_PASSWORD=1234
 
 ### Docker
 
-1. Navigate to `docker` folder
+1. Navigate to the `docker` folder
 
 ```
 cd docker
 ```
 
-2. Create `.env` file and specify the `PORT`, `FLOWISE_USERNAME`, and `FLOWISE_PASSWORD`
+2. Create an `.env` file and specify the `PORT`, `FLOWISE_USERNAME`, and `FLOWISE_PASSWORD`
 
 ```sh
 PORT=3000

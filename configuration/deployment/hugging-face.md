@@ -4,13 +4,13 @@
 
 1. Sign in to [Hugging Face](https://huggingface.co/login)
 2. Start creating a [new Space](https://huggingface.co/new-space) with your preferred name.
-3. Select **Docker** as **Space SDK** and choose **Blank** as the Docker template.
-4. Select **CPU basic ∙ 2 vCPU ∙ 16GB ∙ FREE** as **Space hardware**.
+3. Select **Docker** as the **Space SDK** and choose **Blank** as the Docker template.
+4. Select **CPU basic ∙ 2 vCPU ∙ 16GB ∙ FREE** as the **Space hardware**.
 5. Click **Create Space**.
 
 ### Set the environment variables
 
-1. Go to **Settings** of your new space and find the **Variables and Secrets** section
+1. Go to the **Settings** of your new Space and find the **Variables and Secrets** section
 2. Click on **New variable** and add the name as `PORT` with value `7860`
 3. Click on **Save**
 4. _(Optional)_ Click on **New secret**

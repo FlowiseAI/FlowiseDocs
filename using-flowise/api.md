@@ -8,13 +8,13 @@ Request Body
 
 <table><thead><tr><th width="192">Key</th><th width="559">Description</th><th>Type</th><th>Required</th></tr></thead><tbody><tr><td>question</td><td>User's question</td><td>string</td><td>Yes</td></tr><tr><td>overrideConfig</td><td>Override existing flow configuration</td><td>object</td><td>No</td></tr></tbody></table>
 
-You can use the chatflow as API and connect to frontend applications.
+You can use the chatflow as an API and connect to frontend applications.
 
 <figure><img src="../.gitbook/assets/image (16) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Override Config
 
-You also have the flexibility to override input configuration with **overrideConfig** property.
+You also have the flexibility to override input configuration with the **overrideConfig** property.
 
 <figure><img src="../.gitbook/assets/image (45).png" alt=""><figcaption></figcaption></figure>
 
@@ -70,7 +70,7 @@ query({
 
 ### Image Uploads
 
-When **Allow Image Upload** is enabled, images can be uploaded from chat interface.
+When **Allow Image Upload** is enabled, images can be uploaded from the chat interface.
 
 <div align="center">
 
@@ -142,7 +142,7 @@ query({
 
 ### Speech to Text
 
-When **Speech to Text** is enabled, users can speak directly into microphone and speech will be transcribed into text.
+When **Speech to Text** is enabled, users can speak directly into a microphone and the speech will be transcribed into text.
 
 <div align="left">
 
@@ -212,9 +212,9 @@ query({
 
 ### Authentication
 
-You can assign an API key to the prediction API from the UI. Refer [chatflow-level.md](../configuration/authorization/chatflow-level.md "mention") for more details.
+You can assign an API key to the prediction API from the UI. Refer to [chatflow-level.md](../configuration/authorization/chatflow-level.md "mention") for more details.
 
-The Authorization header must be provided with the correct API key specified during a HTTP call.
+The Authorization header must be provided with the correct API key specified during an HTTP call.
 
 ```json
 "Authorization": "Bearer <your-api-key>"
@@ -230,14 +230,14 @@ Request Body
 
 ### Document Loaders with Upload
 
-Some document loaders in Flowise allow user to upload files:
+Some document loaders in Flowise allow users to upload files:
 
 <figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 If the flow contains [Document Loaders](../integrations/langchain/document-loaders/) with Upload File functionality, the API looks slightly different. Instead of passing body as **JSON**, **form-data** is being used. This allows you to upload any files to the API.
 
 {% hint style="info" %}
-It is user's responsibility to make sure the file type is compatible with the expected file type from document loader. For example, if a Text File Loader is being used, you should only upload file with `.txt` extension.
+It is user's responsibility to make sure the file type is compatible with the expected file type by the document loader. For example, if a Text File Loader is being used, you should only upload files with a `.txt` extension.
 {% endhint %}
 
 {% tabs %}
@@ -347,9 +347,9 @@ query({
 
 ### Authentication
 
-You can assign an API key to the prediction API from the UI. Refer [chatflow-level.md](../configuration/authorization/chatflow-level.md "mention") for more details.
+You can assign an API key to the Prediction API from the UI. Refer to [chatflow-level.md](../configuration/authorization/chatflow-level.md "mention") for more details.
 
-The Authorization header must be provided with the correct API key specified during a HTTP call.
+The Authorization header must be provided with the correct API key specified during an HTTP call.
 
 ```json
 "Authorization": "Bearer <your-api-key>"
@@ -371,7 +371,7 @@ Query Parameters
 
 ### Authentication
 
-Message API is restricted to only Flowise admin user. Basic authentication must be provided in the headers if Flowise instance has been configured with `FLOWISE_USERNAME` and `FLOWISE_PASSWORD`. Refer [app-level.md](../configuration/authorization/app-level.md "mention") for more details.
+Message API is restricted to only Flowise admin users. Basic authentication must be provided in the headers if a Flowise instance has been configured with `FLOWISE_USERNAME` and `FLOWISE_PASSWORD`. Refer to [app-level.md](../configuration/authorization/app-level.md "mention") for more details.
 
 {% tabs %}
 {% tab title="Node" %}

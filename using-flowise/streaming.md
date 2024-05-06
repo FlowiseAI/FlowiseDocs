@@ -28,7 +28,7 @@ pnpm add socket.io-client
 {% endtab %}
 {% endtabs %}
 
-Refer [official docs](https://socket.io/docs/v4/client-api/) for more installation options.
+Refer to [official docs](https://socket.io/docs/v4/client-api/) for more installation options.
 
 2. Import it
 

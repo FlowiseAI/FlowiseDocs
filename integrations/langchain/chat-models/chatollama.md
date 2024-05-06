@@ -26,9 +26,9 @@
 
 ### Additional
 
-If you are running both Flowise and Ollama on docker. You'll have to change the Base URL for ChatOllama.
+If you are running both Flowise and Ollama on Docker. You'll have to change the Base URL for ChatOllama.
 
-For Windows and MacOS Operating Systems specify [http://host.docker.internal:8000](http://host.docker.internal:8000/). For Linux based systems the default docker gateway should be used since host.docker.internal is not available: [http://172.17.0.1:8000](http://172.17.0.1:8000/)
+For Windows and MacOS Operating Systems specify [http://host.docker.internal:8000](http://host.docker.internal:8000/). For Linux based systems the default Docker gateway should be used since host.docker.internal is not available: [http://172.17.0.1:8000](http://172.17.0.1:8000/)
 
 <figure><img src="../../../.gitbook/assets/image (142).png" alt="" width="292"><figcaption></figcaption></figure>
 

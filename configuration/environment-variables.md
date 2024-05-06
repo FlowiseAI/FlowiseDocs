@@ -1,6 +1,6 @@
 # Environment Variables
 
-Flowise support different environment variables to configure your instance. You can specify the following variables in the `.env` file inside `packages/server` folder. Refer to [.env.example](https://github.com/FlowiseAI/Flowise/blob/main/packages/server/.env.example) file.
+Flowise supports different environment variables to configure your instance. You can specify the following variables in the `.env` file inside the `packages/server` folder. Refer to the [.env.example](https://github.com/FlowiseAI/Flowise/blob/main/packages/server/.env.example) file.
 
 <table><thead><tr><th width="222">Variable</th><th>Description</th><th width="151">Type</th><th>Default</th></tr></thead><tbody><tr><td>PORT</td><td>The HTTP port Flowise runs on</td><td>Number</td><td>3000</td></tr><tr><td>FLOWISE_USERNAME</td><td>Username to login</td><td>String</td><td></td></tr><tr><td>FLOWISE_PASSWORD</td><td>Password to login</td><td>String</td><td></td></tr><tr><td>APIKEY_PATH</td><td>Location where API keys are saved</td><td>String</td><td><code>Flowise/packages/server</code></td></tr><tr><td>NUMBER_OF_PROXIES</td><td>Rate Limit Proxy</td><td>Number</td><td></td></tr><tr><td>CORS_ORIGINS</td><td>The allowed origins for all cross-origin HTTP calls </td><td>String</td><td></td></tr><tr><td>IFRAME_ORIGINS</td><td>The allowed origins for iframe src embedding</td><td>String</td><td></td></tr></tbody></table>
 
@@ -29,7 +29,7 @@ Watch how connect Flowise and LangSmith
 
 ## Built-In and External Dependencies
 
-For security reasons, by default Tool Function only allow certain dependencies. It's possible to lift that restriction for built-in and external modules by setting the following environment variables:
+For security reasons, by default Tool Function only allows certain dependencies. It's possible to lift that restriction for built-in and external modules by setting the following environment variables:
 
 | Variable                      | Description                                          |        |
 | ----------------------------- | ---------------------------------------------------- | ------ |
@@ -74,30 +74,30 @@ TOOL_FUNCTION_EXTERNAL_DEP=axios,moment
 
 ## Credential
 
-Flowise store your third party API keys as encrypted credentials using an encryption key.
+Flowise stores your third party API keys as encrypted credentials using an encryption key.
 
-By default, a random encryption key will be generated when starting up the application and stored under a file path. This encryption key is then retrieved everytime to decrypt the credentials used within a chatflow. For example, your OpenAI API key, Pinecone API key, etc.
+By default, a random encryption key will be generated when starting up the application and stored under a file path. This encryption key is then retrieved every time to decrypt the credentials used within a chatflow. For example, your OpenAI API key, Pinecone API key, etc.
 
 | Variable                      | Description                                                                  | Type   |                           |
 | ----------------------------- | ---------------------------------------------------------------------------- | ------ | ------------------------- |
 | SECRETKEY\_PATH               | Location where encryption key (used to encrypt/decrypt credentials) is saved | String | `Flowise/packages/server` |
 | FLOWISE\_SECRETKEY\_OVERWRITE | Encryption key to be used instead of the key stored in SECRETKEY\_PATH       | String |                           |
 
-For some reasons, sometimes encryption key might be re-generated or the stored path was changed, this will cause errors like - <mark style="color:red;">Credentials could not be decrypted.</mark>&#x20;
+For some reasons, sometimes an encryption key might be re-generated or the stored path is changed, this will cause errors like - <mark style="color:red;">Credentials could not be decrypted.</mark>&#x20;
 
-To avoid this, you can set your own encryption key as `FLOWISE_SECRETKEY_OVERWRITE`, so that the same encryption key will be used everytime. There is no restriction on the format, you can set it as any text that you want, or the same as your `FLOWISE_PASSWORD`.
+To avoid this, you can set your own encryption key as `FLOWISE_SECRETKEY_OVERWRITE`, so that the same encryption key will be used every time. There is no restriction on the format, you can set it as any text that you want, or the same as your `FLOWISE_PASSWORD`.
 
 <figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-Credential API Key returned from the UI is not the same length as your original Api Key that you have set. This is a fake prefix string that prevents network spoofing, that's why we are not returning the Api Key back to UI. However, the correct Api Key will be retrieved and used during your interaction with the chatflow.
+Credential API Key returned from the UI is not the same length as your original API Key that you have set. This is a fake prefix string that prevents network spoofing, that's why we are not returning the API Key back to the UI. However, the correct API Key will be retrieved and used during your interaction with the chatflow.
 {% endhint %}
 
 ## Models
 
-In some cases, you might want to use custom model on the existing Chat Model and LLM nodes, or restrict access to only certain models.
+In some cases, you might want to use custom models on the existing Chat Model and LLM nodes, or restrict access to only certain models.
 
-By default, Flowise pulls the model list from [here](https://github.com/FlowiseAI/Flowise/blob/main/packages/components/models.json). However user can create their own `models.json` file and specify the file path:
+By default, Flowise pulls the model list from [here](https://github.com/FlowiseAI/Flowise/blob/main/packages/components/models.json). However, users can create their own `models.json` file and specify the file path:
 
 <table><thead><tr><th width="164">Variable</th><th width="196">Description</th><th width="78">Type</th><th>Default</th></tr></thead><tbody><tr><td>MODEL_LIST_CONFIG_JSON</td><td>Link to load list of models from your <code>models.json</code> config file</td><td>String</td><td><a href="https://raw.githubusercontent.com/FlowiseAI/Flowise/main/packages/components/models.json">https://raw.githubusercontent.com/FlowiseAI/Flowise/main/packages/components/models.json</a></td></tr></tbody></table>
 
@@ -125,7 +125,7 @@ npx flowise start --PORT=3000 --DEBUG=true
 
 ### Docker
 
-You can set all these variables in the `.env` file inside `docker` folder. Refer to [.env.example](https://github.com/FlowiseAI/Flowise/blob/main/docker/.env.example) file.
+You can set all these variables in the `.env` file inside the `docker` folder. Refer to the [.env.example](https://github.com/FlowiseAI/Flowise/blob/main/docker/.env.example) file.
 
 ### Render
 

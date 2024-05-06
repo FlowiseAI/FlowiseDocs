@@ -1,3 +1,3 @@
 # InMemory Cache
 
-Caches LLM response in local memory, will be cleared when app is restarted 
+Caches LLM responses in local memory. Will be cleared when the app is restarted.

@@ -54,13 +54,13 @@ After deployment, the URL of your Flowise application is available in the CloudF
 
 <figure><img src="../../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
-8. Click **Launch instance**. Navigate back to EC2 Dashboard, after few mins we should be able to see a new instance up and running [🎉](https://emojipedia.org/party-popper/)
+8. Click **Launch instance**. Navigate back to the EC2 Dashboard, after a few minutes we should be able to see a new instance up and running [🎉](https://emojipedia.org/party-popper/)
 
 <figure><img src="../../.gitbook/assets/image (17) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## How to Connect to your instance (Windows)
 
-1. For Windows, we are going to use PuTTY. You can download one from [here](https://www.chiark.greenend.org.uk/\~sgtatham/putty/latest.html).
+1. For Windows, we are going to use PuTTY. You can download it from [here](https://www.chiark.greenend.org.uk/\~sgtatham/putty/latest.html).
 2. Open PuTTY and fill in the **HostName** with your instance's Public IPv4 DNS name
 
 <figure><img src="../../.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
@@ -104,7 +104,7 @@ ssh -i /Users/username/Documents/mykey.pem ec2-user@ec2-123-45-678-910.compute-1
 sudo yum update
 ```
 
-2. Search for Docker package:
+2. Search for the Docker package:
 
 ```bash
 sudo yum search docker
@@ -116,13 +116,13 @@ sudo yum search docker
 sudo yum info docker
 ```
 
-4. Install docker, run:
+4. Install Docker, run:
 
 ```bash
 sudo yum install docker
 ```
 
-5. Add group membership for the default ec2-user so you can run all docker commands without using the sudo command:
+5. Add a group membership for the default ec2-user so you can run all Docker commands without using the sudo command:
 
 ```bash
 sudo usermod -a -G docker ec2-user
@@ -137,7 +137,7 @@ sudo yum install python3-pip
 pip3 install docker-compose
 ```
 
-7. Enable docker service at AMI boot time:
+7. Enable the Docker service at AMI boot time:
 
 ```bash
 sudo systemctl enable docker.service
@@ -163,13 +163,13 @@ sudo yum install git -y
 git clone https://github.com/FlowiseAI/Flowise.git
 ```
 
-2. Cd into docker folder
+2. Cd into the Docker folder
 
 ```bash
 cd Flowise && cd docker
 ```
 
-3. Create a `.env` file. You can use your favourite editor. I'll use `nano`
+3. Create an `.env` file. You can use your favourite editor. I'll use `nano`
 
 ```bash
 nano .env
@@ -208,7 +208,7 @@ http://ec2-123-456-789.compute-1.amazonaws.com:3000
 docker-compose stop
 ```
 
-9. You can pull from latest image by:
+9. You can pull from the latest image by:
 
 ```bash
 docker pull flowiseai/flowise
@@ -216,7 +216,7 @@ docker pull flowiseai/flowise
 
 ## Using NGINX
 
-If you want to get rid of the :3000 on the url and have a custom domain, you can use NGINX to reverse proxy port 80 to 3000 So user will be able to open the app using your domain. Example: `http://yourdomain.com`.
+If you want to get rid of the :3000 on the url and have a custom domain, you can use NGINX to reverse proxy port 80 to 3000 so users will be able to open the app using your domain. Example: `http://yourdomain.com`.
 
 1. ```bash
    sudo yum install nginx
