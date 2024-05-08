@@ -29,12 +29,12 @@ In the `/models` folder, you should be able to see the downloaded model in there
 
 <figure><img src="../../../.gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
 
-Refer [here](https://localai.io/model-compatibility/index.html) for list of supported models.
+Refer [here](https://localai.io/model-compatibility/index.html) for a list of supported models.
 
 4. ```bash
    docker-compose up -d --pull always
    ```
-5. Now API is accessible at localhost:8080
+5. Now the API is accessible at localhost:8080
 
 ```bash
 # Test API

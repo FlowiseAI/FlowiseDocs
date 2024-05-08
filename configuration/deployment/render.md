@@ -11,7 +11,7 @@
 
 <figure><img src="../../.gitbook/assets/render/2.png" alt=""><figcaption></figcaption></figure>
 
-6. Connect Your GitHub Account
+6. Connect your GitHub Account
 7. Select your forked Flowise repo and click **Connect**
 
 <figure><img src="../../.gitbook/assets/render/3.png" alt="" width="563"><figcaption></figcaption></figure>
@@ -34,7 +34,7 @@
 
 Add `NODE_VERSION` with value `18.18.1` as the node version to run the instance.
 
-There are list of env variables you can configure. Refer to [environment-variables.md](../environment-variables.md "mention")
+There is a list of env variables you can configure. Refer to [environment-variables.md](../environment-variables.md "mention")
 
 11. Click **Create Web Service**
 
@@ -46,7 +46,7 @@ There are list of env variables you can configure. Refer to [environment-variabl
 
 ## Persistent Disk
 
-The default filesystem for services running on Render is ephemeral. Flowise data isn’t persisted across deploys and restarts. To solve this issue, we can use [Render Disk](https://render.com/docs/disks).
+The default file system for services running on Render is ephemeral. Flowise data isn’t persisted across deploys and restarts. To solve this issue, we can use [Render Disk](https://render.com/docs/disks).
 
 1. On the left hand side bar, click **Disks**
 2. Name your disk, and specify the **Mount Path** to `/opt/render/.flowise`
@@ -67,7 +67,7 @@ The default filesystem for services running on Render is ephemeral. Flowise data
 
 <figure><img src="../../.gitbook/assets/render/11.png" alt=""><figcaption></figcaption></figure>
 
-5. Now try creating a flow and save it in Flowise. Then try restarting service or redeploy, you should still be able to see the flow you have saved previously.
+5. Now try creating a flow and save it in Flowise. Then try restarting the service or redeploy. You should still be able to see the flow you have saved previously.
 
 Watch how to deploy to Render
 

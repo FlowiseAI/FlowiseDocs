@@ -2,7 +2,7 @@
 
 Record Managers keep track of your indexed documents, preventing duplicated vector embeddings in [Vector Store](vector-stores/).
 
-When document chunks are upserting, each chunk will be hashed using [SHA-1](https://github.com/emn178/js-sha1) algorithm. These hashes will get stored in Record Manager. If there is an existing hash, the embedding and upserting process will be skipped.
+When document chunks are upserting, each chunk will be hashed using the [SHA-1](https://github.com/emn178/js-sha1) algorithm. These hashes will get stored in Record Manager. If there is an existing hash, the embedding and upserting process will be skipped.
 
 In some cases, you might want to delete existing documents that are derived from the same sources as the new documents being indexed. For that, there are 3 cleanup modes for Record Manager:
 

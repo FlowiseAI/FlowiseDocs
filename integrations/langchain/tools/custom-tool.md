@@ -6,7 +6,7 @@ Watch how to use custom tools
 
 ## Problem
 
-Function usually takes in structured input data. Let's say you want the LLM to be able to call Airtable Create Record [API](https://airtable.com/developers/web/api/create-records), the body parameters has to be structured in a specific way. For example:
+Function usually takes in structured input data. Let's say you want the LLM to be able to call the Airtable Create Record [API](https://airtable.com/developers/web/api/create-records), the body parameters has to be structured in a specific way. For example:
 
 ```json
 "records": [
@@ -20,7 +20,7 @@ Function usually takes in structured input data. Let's say you want the LLM to b
 ]
 ```
 
-Ideally, we want LLM to return a proper structured data like this:
+Ideally, we want the LLM to return a properly structured data like this:
 
 ```json
 {
@@ -30,7 +30,7 @@ Ideally, we want LLM to return a proper structured data like this:
 }
 ```
 
-So we can extract the value and parse it into the body needed for API. However, instructing LLM to output the exact pattern is difficult.
+So we can extract the value and parse it into the body needed for an API. However, instructing the LLM to output the exact pattern is difficult.
 
 With the new [OpenAI Function Calling](https://openai.com/blog/function-calling-and-other-api-updates) models, it is now possible. `gpt-4-0613` and `gpt-3.5-turbo-0613` are specifically trained to return structured data. The model will intelligently choose to output a JSON object containing arguments to call those functions.
 
@@ -53,13 +53,13 @@ We need 3 tools to achieve the goal:
 Create a new Tool with the following details (you can change as you want):
 
 * Name: get\_stock\_movers
-* Description: Get the stocks that has biggest price/volume moves, e.g. actives, gainers, losers, etc.
+* Description: Get the stocks that have the biggest price/volume moves, e.g. actives, gainers, losers, etc.
 
-Description is an important piece as ChatGPT is relying on this to decide when to use this tool.
+Description is an important piece, as ChatGPT is relying on this to decide when to use this tool.
 
 <figure><img src="../../../.gitbook/assets/image (6) (3).png" alt=""><figcaption></figcaption></figure>
 
-* JavaScript Function: We are going to use [Morning Star](https://rapidapi.com/apidojo/api/morning-star) `/market/v2/get-movers` API to get data. First you have to click Subscribe to Test if you haven't already, then copy the code and paste it into JavaScript Function.
+* JavaScript Function: We are going to use the [Morning Star](https://rapidapi.com/apidojo/api/morning-star) `/market/v2/get-movers` API to get the data. First you have to click Subscribe to Test if you haven't already, then copy the code and paste it into a JavaScript Function.
   * Add `const fetch = require('node-fetch');` at the top to import the library. You can import any built-in NodeJS [modules](https://www.w3schools.com/nodejs/ref\_modules.asp) and [external libraries](https://github.com/FlowiseAI/Flowise/blob/main/packages/components/src/utils.ts#L289).
   * Return the `result` at the end.
 
@@ -100,7 +100,7 @@ Create a new Tool with the following details (you can change as you want):
 * Output Schema:
   * Property: performanceId
   * Type: string
-  * Description: id of the stock, which is referred as performanceID in the API
+  * Description: ID of the stock, which is referred as performanceID in the API
   * Required: true
 
 Output Schema tells ChatGPT what to return as a JSON object. In this case, we are expecting a JSON object like below:
@@ -110,7 +110,7 @@ Output Schema tells ChatGPT what to return as a JSON object. In this case, we ar
 
 <figure><img src="../../../.gitbook/assets/image (4) (2).png" alt=""><figcaption></figcaption></figure>
 
-* JavaScript Function: We are going to use [Morning Star](https://rapidapi.com/apidojo/api/morning-star) `/news/list` API to get the data. First you have to click Subscribe to Test if you haven't already, then copy the code and paste it into JavaScript Function.
+* JavaScript Function: We are going to use the [Morning Star](https://rapidapi.com/apidojo/api/morning-star) `/news/list` API to get the data. First you have to click Subscribe to Test if you haven't already, then copy the code and paste it into a JavaScript Function.
   * Add `const fetch = require('node-fetch');` at the top to import the library. You can import any built-in NodeJS [modules](https://www.w3schools.com/nodejs/ref\_modules.asp) and [external libraries](https://github.com/FlowiseAI/Flowise/blob/main/packages/components/src/utils.ts#L289).
   * Return the `result` at the end.
 * Next, replace the hard-coded url query parameter performanceId: `0P0000OQN8` to the property variable specified in Output Schema: `$performanceId`
@@ -172,9 +172,9 @@ ChatGPT will returns a JSON object like this:
 
 <figure><img src="../../../.gitbook/assets/image (36).png" alt=""><figcaption></figcaption></figure>
 
-* JavaScript Function: We are going to use [Airtable Create Record API](https://airtable.com/developers/web/api/create-records) to create a new record to an existing table. You can find the tableId and baseId from [here](https://www.highviewapps.com/kb/where-can-i-find-the-airtable-base-id-and-table-id/). You'll also need to create a personal access token, find how to do it [here](https://www.highviewapps.com/kb/how-do-i-create-an-airtable-personal-access-token/).
+* JavaScript Function: We are going to use the [Airtable Create Record API](https://airtable.com/developers/web/api/create-records) to create a new record to an existing table. You can find the tableId and baseId from [here](https://www.highviewapps.com/kb/where-can-i-find-the-airtable-base-id-and-table-id/). You'll also need to create a personal access token, find how to do it [here](https://www.highviewapps.com/kb/how-do-i-create-an-airtable-personal-access-token/).
 
-Final code should looks like below. Note how we pass in `$stock`, `$move` and `$news_summary` as variables:
+Final code should look like below. Note how we pass in `$stock`, `$move` and `$news_summary` as variables:
 
 ```javascript
 const fetch = require('node-fetch');
@@ -269,7 +269,7 @@ $flow.chatflowId
 $flow.input
 ```
 
-Below is an example of sending the sessionId to Discord webhook:
+Below is an example of sending the sessionId to a Discord webhook:
 
 {% tabs %}
 {% tab title="Javascript" %}
@@ -307,11 +307,11 @@ try {
 
 ### Pass variables to Function
 
-In some cases, you would like to pass variables to custom tool function.
+In some cases, you would like to pass variables to a custom tool function.
 
-For example, you are creating a chatbot that uses a custom tool. The custom tool is executing a HTTP POST call and API key is needed for successful authenticated request. You can pass it as a variable.
+For example, you are creating a chatbot that uses a custom tool. The custom tool is executing a HTTP POST call and an API key is needed for a successful authenticated request. You can pass it as a variable.
 
-By default, Function in custom tool has access to variables:
+By default, a Function in custom tool has access to variables:
 
 ```
 $vars.<variable-name>
@@ -368,7 +368,7 @@ query({
 {% endtab %}
 {% endtabs %}
 
-Example of how to receive the variables in custom tool:
+Example of how to receive the variables in a custom tool:
 
 {% tabs %}
 {% tab title="Javascript" %}
@@ -452,9 +452,9 @@ query({
 
 ### Import External Dependencies
 
-You can import any built-in NodeJS [modules](https://www.w3schools.com/nodejs/ref\_modules.asp) and supported [external libraries](https://github.com/FlowiseAI/Flowise/blob/main/packages/components/src/utils.ts#L289) into Function.
+You can import any built-in NodeJS [modules](https://www.w3schools.com/nodejs/ref\_modules.asp) and supported [external libraries](https://github.com/FlowiseAI/Flowise/blob/main/packages/components/src/utils.ts#L289) into a Function.
 
-1. To import any non-supported libraries, you can easily add the new npm package to `package.json` in `packages/components` folder.
+1. To import any non-supported libraries, you can easily add the new npm package to `package.json` in the `packages/components` folder.
 
 ```bash
 cd Flowise && cd packages && cd components
@@ -464,7 +464,7 @@ pnpm install
 pnpm build
 ```
 
-2. Then, add the imported libraries to `TOOL_FUNCTION_EXTERNAL_DEP` environment variable. Refer [#builtin-and-external-dependencies](../../../configuration/environment-variables.md#builtin-and-external-dependencies "mention") for more details.
+2. Then, add the imported libraries to the `TOOL_FUNCTION_EXTERNAL_DEP` environment variable. Refer to [#builtin-and-external-dependencies](../../../configuration/environment-variables.md#builtin-and-external-dependencies "mention") for more details.
 3. Start the app
 
 ```bash

@@ -12,17 +12,17 @@ There are several analytic providers Flowise integrates with:
 
 <figure><img src="../.gitbook/assets/image (80).png" alt="" width="224"><figcaption></figcaption></figure>
 
-2. You will see the list of providers along with configuration:
+2. You will see the list of providers along with configurations:
 
 <figure><img src="../.gitbook/assets/image (82).png" alt="" width="563"><figcaption></figcaption></figure>
 
-3. Simply fill in the credential and other configuration, then turn it ON:
+3. Simply fill in the credential and other configurations, then turn it ON:
 
 <figure><img src="../.gitbook/assets/image (83).png" alt="" width="563"><figcaption></figcaption></figure>
 
 ## API
 
-Once the analytic has been turned ON from the UI, you can override or provide additional configuration  in the body of the [Prediction API](api.md#prediction-api):
+Once the analytic has been turned ON from the UI, you can override or provide additional configurations in the body of the [Prediction API](api.md#prediction-api):
 
 ```json
 {

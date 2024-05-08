@@ -525,7 +525,7 @@ Without persistent storage your data is kept in memory. This means that on a con
 
 <figure><img src="../../.gitbook/assets/azure/deployment/6.png" alt=""><figcaption><p>Resource creation result page in Azure.</p></figcaption></figure>
 
-7. Visit your Flowise instance by copying IP address and adding :3000 as a port:
+7. Visit your Flowise instance by copying the IP address and adding :3000 as a port:
 
 <figure><img src="../../.gitbook/assets/azure/deployment/7.png" alt=""><figcaption><p>Container Instance overview page</p></figcaption></figure>
 
@@ -565,7 +565,7 @@ az group create --name flowise-rg --location "West US"
 ```
 
 2. Create the Storage Account resource (or use existing one) inside above resource group. You can check how to do it [here](https://learn.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-portal?tabs=azure-portal).
-3. Inside Azure Storage create new File share. You can check how to do it [here](https://learn.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-portal?tabs=azure-portal).
+3. Inside Azure Storage create a new File share. You can check how to do it [here](https://learn.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-portal?tabs=azure-portal).
 4. Create a Container Instance
 
 ```bash
@@ -586,6 +586,6 @@ az container create -g flowise-rg \
 5. Visit the IP address (including port :3000) printed from the output of the above command.
 6. From now on your data will be stored in an SQLite database which you can find in your File share.
 
-Watch video tutorial on deploying to Azure Container Instance:
+Watch a video tutorial on deploying to Azure Container Instance:
 
 {% embed url="https://www.youtube.com/watch?v=yDebxDfn2yk" %}

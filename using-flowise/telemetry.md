@@ -62,4 +62,4 @@ You can verify these claims by finding all locations `telemetry.sendTelemetry` i
 
 ## Disable Telemetry
 
-Users can disable telemetry by setting `DISABLE_FLOWISE_TELEMETRY` to `true` in `.env` file.
+Users can disable telemetry by setting `DISABLE_FLOWISE_TELEMETRY` to `true` in the `.env` file.

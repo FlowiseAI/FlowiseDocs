@@ -1,12 +1,12 @@
 # Databases
 
-Flowise supports 3 database types:
+Flowise supports three database types:
 
 * SQLite
 * MySQL
 * PostgreSQL
 
-SQLite will be the default database. These databases can be configured with following env variables:
+SQLite will be the default database. These databases can be configured with the following env variables:
 
 ### SQLite
 
@@ -40,11 +40,11 @@ DATABASE_PASSWORD=123
 PGSSLMODE=require
 ```
 
-If none of the env variables is specified, SQLite will be the fallback database choice.
+If none of the env variables are specified, SQLite will be the fallback database choice.
 
 ### Synchronize in Production
 
-Flowise uses [Typeorm](https://typeorm.io/data-source-options#common-data-source-options) to configure database connection. By default, synchronize is set to true. This indicates if database schema should be auto created on every application launch.
+Flowise uses [Typeorm](https://typeorm.io/data-source-options#common-data-source-options) to configure database connections. By default, synchronize is set to true. This indicates if a database schema should be auto created on every application launch.
 
 However, we have to be careful with this option and don't use this in production - otherwise you can <mark style="color:red;">**lose**</mark> production data. This option is useful during debug and development.
 
