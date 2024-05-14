@@ -2,7 +2,7 @@
 
 Use Flowise database table `chat_message` as the storage mechanism for storing/retrieving conversations.
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt="" width="299"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt="" width="299"><figcaption></figcaption></figure>
 
 ## Input
 
