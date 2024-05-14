@@ -60,10 +60,7 @@ When you are upserting multiple documents, and you want to prevent deletion of t
 * The original **Cat** document is deleted
 * A new document with **Cats** is added
 * **Dog** document is left untouched
-
-
-
-5. The remaining vector embeddings in Vector Store are **Cats** and **Dog**
+* The remaining vector embeddings in Vector Store are **Cats** and **Dog**
 
 <figure><img src="../../.gitbook/assets/image (15).png" alt="" width="448"><figcaption></figcaption></figure>
 {% endtab %}
@@ -121,10 +118,7 @@ When you are upserting multiple documents, **Full** Cleanup mode will automatica
 * The original **Cat** document is deleted
 * A new document with **Cats** is added
 * **Dog** document is deleted
-
-
-
-5. The remaining vector embeddings in Vector Store is just **Cats**
+* The remaining vector embeddings in Vector Store is just **Cats**
 
 <figure><img src="../../.gitbook/assets/image (19).png" alt="" width="527"><figcaption></figcaption></figure>
 {% endtab %}

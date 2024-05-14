@@ -40,7 +40,7 @@
       * [Ollama](integrations/langchain/record-managers/ollama.md)
       * [OpenAI](integrations/langchain/record-managers/openai.md)
       * [Replicate](integrations/langchain/record-managers/replicate.md)
-    * [Record Managers](integrations/langchain/record-managers-1.md)
+    * [Record Managers](integrations/langchain/record-managers.md)
     * [Cache](integrations/langchain/cache/README.md)
       * [InMemory Cache](integrations/langchain/cache/in-memory-cache.md)
     * [Chains](integrations/langchain/chains/README.md)
