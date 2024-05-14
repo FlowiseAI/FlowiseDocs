@@ -9,7 +9,7 @@
 
 1. **Chat Models** > drag **ChatOpenAI** node
 
-<figure><img src="../../../.gitbook/assets/image (10) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (10) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 2. **Connect Credential** > click **Create New**
 

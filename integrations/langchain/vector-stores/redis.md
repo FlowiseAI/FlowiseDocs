@@ -17,15 +17,15 @@ docker run -d --name redis-stack-server -p 6379:6379 redis/redis-stack-server:la
 
 3. Select type of Redis Credential. Choose Redis API if you have username and password, otherwise Redis URL:
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (2).png" alt="" width="563"><figcaption></figcaption></figure>
 
 4. Fill in the url:
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (1).png" alt="" width="542"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1).png" alt="" width="542"><figcaption></figcaption></figure>
 
 5. Now you can start upserting data with Redis:
 
-<figure><img src="../../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/image (9) (2).png" alt=""><figcaption></figcaption></figure>
 

@@ -1,3 +1,7 @@
+---
+description: Custom function for loading documents.
+---
+
 # Custom Document Loader
 
-Custom function for loading documents
+<figure><img src="../../../.gitbook/assets/image (5).png" alt="" width="269"><figcaption><p>Custom Document Loader Node</p></figcaption></figure>

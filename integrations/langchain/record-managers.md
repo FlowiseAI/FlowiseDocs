@@ -35,7 +35,7 @@ When you are upserting multiple documents, and you want to prevent deletion of t
 
  
 
-<figure><img src="../../.gitbook/assets/image (10) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 </div>
 
@@ -45,13 +45,13 @@ When you are upserting multiple documents, and you want to prevent deletion of t
 
  
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 </div>
 
 3. After an upsert, we will see 2 documents that are upserted:
 
-<figure><img src="../../.gitbook/assets/image (9) (1).png" alt="" width="433"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1) (1).png" alt="" width="433"><figcaption></figcaption></figure>
 
 4. Now, if we delete the **Dog** document, and update **Cat** to **Cats**, we will now see the following:
 
@@ -93,7 +93,7 @@ When you are upserting multiple documents, **Full** Cleanup mode will automatica
 
  
 
-<figure><img src="../../.gitbook/assets/image (10) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 </div>
 
@@ -103,13 +103,13 @@ When you are upserting multiple documents, **Full** Cleanup mode will automatica
 
  
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 </div>
 
 3. After an upsert, we will see 2 documents that are upserted:
 
-<figure><img src="../../.gitbook/assets/image (9) (1).png" alt="" width="433"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1) (1).png" alt="" width="433"><figcaption></figcaption></figure>
 
 4. Now, if we delete the **Dog** document, and update **Cat** to **Cats**, we will now see the following:
 

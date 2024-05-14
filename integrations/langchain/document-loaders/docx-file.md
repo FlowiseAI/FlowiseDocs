@@ -1,3 +1,7 @@
+---
+description: Load data from DOCX files.
+---
+
 # Docx File
 
-Load data from DOCX files
+<figure><img src="../../../.gitbook/assets/image (7).png" alt="" width="269"><figcaption><p>Docx File Node</p></figcaption></figure>

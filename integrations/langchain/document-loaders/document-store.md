@@ -1,3 +1,7 @@
+---
+description: Load data from pre-configured document stores.
+---
+
 # Document Store
 
-Load data from pre-configured document stores
+<figure><img src="../../../.gitbook/assets/image (6).png" alt="" width="278"><figcaption><p>Document Store Node</p></figcaption></figure>

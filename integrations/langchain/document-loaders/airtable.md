@@ -1,3 +1,7 @@
+---
+description: Load data from Airtable table.
+---
+
 # Airtable
 
-Load data from Airtable table
+<figure><img src="../../../.gitbook/assets/image (1).png" alt="" width="265"><figcaption></figcaption></figure>

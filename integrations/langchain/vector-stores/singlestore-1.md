@@ -41,7 +41,7 @@
 
 11. Back to Flowise canvas, drag and drop SingleStore nodes. Click **Create New** from the Credentials dropdown:
 
-<figure><img src="../../../.gitbook/assets/image (4) (1) (2).png" alt="" width="271"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1) (2) (1).png" alt="" width="271"><figcaption></figcaption></figure>
 
 11. Put in the Username and Password from above:
 
@@ -49,13 +49,13 @@
 
 13. Then specify the Host and Database Name:
 
-<figure><img src="../../../.gitbook/assets/image (5) (1).png" alt="" width="272"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1) (2).png" alt="" width="272"><figcaption></figcaption></figure>
 
 13. Now you can start upserting data with SingleStore:
 
-<figure><img src="../../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 14. Navigate back to SingleStore portal, and to your database, you will be able to see all the data that has been upserted:
 
