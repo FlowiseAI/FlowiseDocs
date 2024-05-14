@@ -30,7 +30,7 @@
 * [Integrations](integrations/README.md)
   * [Langchain Nodes](integrations/langchain/README.md)
     * [LLMs](integrations/langchain/record-managers/README.md)
-      * [AWSBedrock](integrations/langchain/record-managers/awsbedrock.md)
+      * [AWS Bedrock](integrations/langchain/record-managers/aws-bedrock.md)
       * [Azure OpenAI](integrations/langchain/record-managers/azure-openai.md)
       * [Bittensor](integrations/langchain/record-managers/bittensor.md)
       * [Cohere](integrations/langchain/record-managers/cohere.md)
