@@ -46,6 +46,7 @@
       * [XML Agent](integrations/langchain/agents/xml-agent.md)
     * [Cache](integrations/langchain/cache/README.md)
       * [InMemory Cache](integrations/langchain/cache/in-memory-cache.md)
+      * [InMemory Embedding Cache](integrations/langchain/cache/inmemory-embedding-cache.md)
       * [Momento Cache](integrations/langchain/cache/momento-cache.md)
       * [Redis Cache](integrations/langchain/cache/redis-cache.md)
       * [Upstash Redis Cache](integrations/langchain/cache/upstash-redis-cache.md)

@@ -35,7 +35,7 @@ When you are upserting multiple documents, and you want to prevent deletion of t
 
  
 
-<figure><img src="../../.gitbook/assets/image (10).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 </div>
 
@@ -93,7 +93,7 @@ When you are upserting multiple documents, **Full** Cleanup mode will automatica
 
  
 
-<figure><img src="../../.gitbook/assets/image (10).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 </div>
 

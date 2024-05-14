@@ -25,9 +25,9 @@ docker run -d --name redis-stack-server -p 6379:6379 redis/redis-stack-server:la
 
 5. Now you can start upserting data with Redis:
 
-<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (2).png" alt=""><figcaption></figcaption></figure>
 
 6. Navigate to Redis Insight portal, and to your database, you will be able to see all the data that has been upserted:
 
