@@ -9,7 +9,5 @@ description: Wrapper around AWS Bedrock large language models.
 
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section.\
-\
-Please check our [Contribution Guide](../../../CONTRIBUTING.md)
+This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../CONTRIBUTING.md) for more information.
 {% endhint %}
