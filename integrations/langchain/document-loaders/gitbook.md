@@ -1,3 +1,7 @@
+---
+description: Load data from GitBook.
+---
+
 # GitBook
 
-Load data from GitBook
+<figure><img src="../../../.gitbook/assets/image (74).png" alt="" width="270"><figcaption><p>GitBook Node</p></figcaption></figure>

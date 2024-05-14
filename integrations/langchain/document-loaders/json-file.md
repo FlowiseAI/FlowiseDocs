@@ -1,3 +1,7 @@
+---
+description: Load data from JSON files.
+---
+
 # Json File
 
-Load data from JSON files
+<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
