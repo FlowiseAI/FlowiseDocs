@@ -13,7 +13,7 @@ docker run -d --name redis-stack-server -p 6379:6379 redis/redis-stack-server:la
 1. Add a new **Redis** node on canvas.
 2. Create new Redis credential.
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt="" width="257"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (3).png" alt="" width="257"><figcaption></figcaption></figure>
 
 3. Select type of Redis Credential. Choose Redis API if you have username and password, otherwise Redis URL:
 
