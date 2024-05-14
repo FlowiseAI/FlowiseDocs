@@ -1,3 +1,6 @@
+---
+description: Load data from text files.
+---
+
 # Text File
 
-Load data from text files
