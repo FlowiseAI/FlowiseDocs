@@ -53,4 +53,4 @@ Otherwise, the returned value from [Else Function](if-else.md#else-function) wil
 
 User can also take a look at the If Else template in the marketplace:
 
-<figure><img src="../../../.gitbook/assets/image (9) (1) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (1) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
