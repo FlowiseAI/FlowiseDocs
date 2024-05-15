@@ -1,3 +1,9 @@
+---
+description: >-
+  Upsert embedded data and perform similarity search upon query using
+  OpenSearch, an open-source, all-in-one vector database.
+---
+
 # OpenSearch
 
-Upsert embedded data and perform similarity search upon query using OpenSearch, an open-source, all-in-one vector database
+<figure><img src="../../../.gitbook/assets/image (162).png" alt="" width="284"><figcaption><p>OpenSearch Node</p></figcaption></figure>

@@ -1,3 +1,9 @@
+---
+description: >-
+  Upsert embedded data and perform similarity search upon query using Milvus,
+  world's most advanced open-source vector database.
+---
+
 # Milvus
 
-Upsert embedded data and perform similarity search upon query using Milvus, world's most advanced open-source vector database
+<figure><img src="../../../.gitbook/assets/image (160).png" alt="" width="308"><figcaption><p>Milvus Node</p></figcaption></figure>
