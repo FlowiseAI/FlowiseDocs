@@ -17,7 +17,7 @@
 
 3. Fill in the **ChatOpenAI** credential
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 4. Voila [🎉](https://emojipedia.org/party-popper/), you can now use **ChatOpenAI node** in Flowise
 
@@ -55,7 +55,7 @@ For models that are not supported on ChatOpenAI node, you can use ChatOpenAI Cus
 
 You can also allow images to be uploaded and analyzed by LLM. Under the hood, Flowise will use [OpenAI Vison ](https://platform.openai.com/docs/guides/vision)model to process the image.
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1).png" alt="" width="332"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (2).png" alt="" width="332"><figcaption></figcaption></figure>
 
 From the chat interface, you will now see a new image upload button:
 
