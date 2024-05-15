@@ -24,9 +24,13 @@ In Flowise, nodes are referred to as integrations. Similar to LEGO, you can buil
 
 ### LlamaIndex Nodes
 
-* [Response Synthesizer](https://toi500.gitbook.io/flowise-docs/integrations/llamaindex/response-synthesizer)
+* [Agents](https://toi500.gitbook.io/flowise-docs/integrations/llamaindex/agents)
+* [Chat Models](https://toi500.gitbook.io/flowise-docs/integrations/llamaindex/chat-models)
+* [Embeddings](https://toi500.gitbook.io/flowise-docs/integrations/llamaindex/embeddings)
 * [Engine](https://toi500.gitbook.io/flowise-docs/integrations/llamaindex/engine)
+* [Response Synthesizer](https://toi500.gitbook.io/flowise-docs/integrations/llamaindex/response-synthesizer)
 * [Tools](https://toi500.gitbook.io/flowise-docs/integrations/llamaindex/tools)
+* [Vector Stores](https://toi500.gitbook.io/flowise-docs/integrations/llamaindex/vector-stores)
 
 ### External Integrations
 
