@@ -1,3 +1,7 @@
+---
+description: Write file to disk.
+---
+
 # Write File
 
-Write file to disk
+<figure><img src="../../../.gitbook/assets/image (13).png" alt="" width="308"><figcaption><p>Write File Node</p></figcaption></figure>

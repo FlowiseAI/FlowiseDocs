@@ -1,3 +1,7 @@
+---
+description: Read file from disk.
+---
+
 # Read File
 
-Read file from disk
+<figure><img src="../../../.gitbook/assets/image (5).png" alt="" width="303"><figcaption><p>Read File Node</p></figcaption></figure>

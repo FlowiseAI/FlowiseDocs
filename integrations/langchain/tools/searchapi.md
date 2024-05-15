@@ -1,3 +1,7 @@
+---
+description: Real-time API for accessing Google Search data.
+---
+
 # SearchApi
 
-Real-time API for accessing Google Search data
+<figure><img src="../../../.gitbook/assets/image (9).png" alt="" width="304"><figcaption><p>SearchApi Node</p></figcaption></figure>

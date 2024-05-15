@@ -1,3 +1,7 @@
+---
+description: Execute HTTP POST requests.
+---
+
 # Requests Post
 
-Execute HTTP POST requests
+<figure><img src="../../../.gitbook/assets/image (7).png" alt="" width="307"><figcaption><p>Requests Post Node</p></figcaption></figure>

@@ -1,3 +1,7 @@
+---
+description: Execute HTTP GET requests.
+---
+
 # Requests Get
 
-Execute HTTP GET requests
+<figure><img src="../../../.gitbook/assets/image (6).png" alt="" width="303"><figcaption><p>Requests Get Node</p></figcaption></figure>
