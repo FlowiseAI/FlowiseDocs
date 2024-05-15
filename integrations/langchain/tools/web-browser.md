@@ -5,3 +5,7 @@ description: Gives agent the ability to visit a website and extract information.
 # Web Browser
 
 <figure><img src="../../../.gitbook/assets/image (12).png" alt="" width="309"><figcaption><p>Web Browser Node</p></figcaption></figure>
+
+{% hint style="info" %}
+This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](https://toi500.gitbook.io/flowise-docs/\~/changes/8jXR0fgKTRRTOfbueBkZ/contributing) to get started.
+{% endhint %}
