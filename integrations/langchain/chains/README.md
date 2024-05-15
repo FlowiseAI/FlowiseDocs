@@ -11,6 +11,3 @@ Here's how chains work:
 5. **Continuation of Conversation**: In a real-time chatbot or language model interaction, the input chain is continually updated with the user's new messages, and the output chain is updated with the model's responses. This allows the model to keep track of the ongoing conversation and respond appropriately.
 
 Chains are a fundamental concept in building and maintaining chatbot and language model conversations. They ensure that the model has access to the context it needs to generate meaningful and context-aware responses, making the interaction more engaging and useful for users.
-
-* [Conversational Retrieval QA Chain](conversational-retrieval-qa-chain.md)
-* [Vectara QA Chain](vectara-chain.md)
