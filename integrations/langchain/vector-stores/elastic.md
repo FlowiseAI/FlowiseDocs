@@ -31,7 +31,7 @@
 
 <figure><img src="../../../.gitbook/assets/elastic8.png" alt=""><figcaption></figcaption></figure>
 
-9. After the index has been created, generate a new API key, take note of both generated API key and  the URL
+9. After the index has been created, generate a new API key, take note of both generated API key and the URL
 
 <figure><img src="../../../.gitbook/assets/elastic9.png" alt=""><figcaption></figcaption></figure>
 
@@ -57,7 +57,7 @@
 
 5. After data has been upserted successfully, you can verify it from Elastic dashboard:
 
-<figure><img src="../../../.gitbook/assets/image (7) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 6. Voila! You can now start asking question in the chat
 
@@ -66,4 +66,4 @@
 ## Resources
 
 * [LangChain JS Elastic](https://js.langchain.com/docs/integrations/vectorstores/elasticsearch)
-* [Vector Search (kNN) Implementation Guide -  API Edition](https://www.elastic.co/search-labs/blog/articles/vector-search-implementation-guide-api-edition)
+* [Vector Search (kNN) Implementation Guide - API Edition](https://www.elastic.co/search-labs/blog/articles/vector-search-implementation-guide-api-edition)

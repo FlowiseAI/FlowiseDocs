@@ -1,3 +1,6 @@
+---
+description: OpenAI API to generate embeddings for a given text.
+---
+
 # OpenAI Embeddings
 
-OpenAI API to generate embeddings for a given text

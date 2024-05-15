@@ -6,7 +6,7 @@ Create and refine an answer by sequentially going through each retrieved text ch
 
 **Cons**: Separate LLM call per Node (can be expensive)
 
-<figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 **Refine Prompt**
 

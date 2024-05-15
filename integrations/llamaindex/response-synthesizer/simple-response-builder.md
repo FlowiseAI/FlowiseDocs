@@ -6,4 +6,4 @@ Using a collection of text segments and a query, execute the query on each segme
 
 **Cons**: Not suitable for complex and detailed answer
 
-<figure><img src="../../../.gitbook/assets/image (8) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>

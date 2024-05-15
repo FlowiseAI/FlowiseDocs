@@ -14,11 +14,11 @@ When you are upserting multiple documents, and you want to prevent deletion of t
 
 <div align="left">
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1).png" alt="" width="264"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt="" width="264"><figcaption></figcaption></figure>
 
  
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1).png" alt="" width="410"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1).png" alt="" width="410"><figcaption></figcaption></figure>
 
 </div>
 
@@ -41,11 +41,11 @@ When you are upserting multiple documents, and you want to prevent deletion of t
 
 <div align="left">
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt="" width="231"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (2).png" alt="" width="231"><figcaption></figcaption></figure>
 
  
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 </div>
 
@@ -72,7 +72,7 @@ When you are upserting multiple documents, **Full** Cleanup mode will automatica
 
 <div align="left">
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1).png" alt="" width="264"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt="" width="264"><figcaption></figcaption></figure>
 
  
 
@@ -99,11 +99,11 @@ When you are upserting multiple documents, **Full** Cleanup mode will automatica
 
 <div align="left">
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt="" width="231"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (2).png" alt="" width="231"><figcaption></figcaption></figure>
 
  
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 </div>
 

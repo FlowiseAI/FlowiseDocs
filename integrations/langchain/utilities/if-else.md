@@ -45,7 +45,7 @@ Similar to If Function, it must returns a value. This function will only be ran 
 
 ### Output
 
-<figure><img src="../../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 When the [If Function](if-else.md#if-function) successfully returns a value, it will be passed to the **True** output dot as shown above. This allow users to pass the value to the next node.
 
