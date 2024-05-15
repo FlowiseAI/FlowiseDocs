@@ -2,20 +2,20 @@
 
 Flowise support different environment variables to configure your instance. You can specify the following variables in the `.env` file inside `packages/server` folder. Refer to [.env.example](https://github.com/FlowiseAI/Flowise/blob/main/packages/server/.env.example) file.
 
-<table><thead><tr><th width="222">Variable</th><th>Description</th><th width="151">Type</th><th>Default</th></tr></thead><tbody><tr><td>PORT</td><td>The HTTP port Flowise runs on</td><td>Number</td><td>3000</td></tr><tr><td>FLOWISE_USERNAME</td><td>Username to login</td><td>String</td><td></td></tr><tr><td>FLOWISE_PASSWORD</td><td>Password to login</td><td>String</td><td></td></tr><tr><td>APIKEY_PATH</td><td>Location where API keys are saved</td><td>String</td><td><code>Flowise/packages/server</code></td></tr><tr><td>NUMBER_OF_PROXIES</td><td>Rate Limit Proxy</td><td>Number</td><td></td></tr><tr><td>CORS_ORIGINS</td><td>The allowed origins for all cross-origin HTTP calls </td><td>String</td><td></td></tr><tr><td>IFRAME_ORIGINS</td><td>The allowed origins for iframe src embedding</td><td>String</td><td></td></tr></tbody></table>
+<table><thead><tr><th width="222">Variable</th><th>Description</th><th width="151">Type</th><th>Default</th></tr></thead><tbody><tr><td>PORT</td><td>The HTTP port Flowise runs on</td><td>Number</td><td>3000</td></tr><tr><td>FLOWISE_USERNAME</td><td>Username to login</td><td>String</td><td></td></tr><tr><td>FLOWISE_PASSWORD</td><td>Password to login</td><td>String</td><td></td></tr><tr><td>APIKEY_PATH</td><td>Location where API keys are saved</td><td>String</td><td><code>Flowise/packages/server</code></td></tr><tr><td>NUMBER_OF_PROXIES</td><td>Rate Limit Proxy</td><td>Number</td><td></td></tr><tr><td>CORS_ORIGINS</td><td>The allowed origins for all cross-origin HTTP calls</td><td>String</td><td></td></tr><tr><td>IFRAME_ORIGINS</td><td>The allowed origins for iframe src embedding</td><td>String</td><td></td></tr></tbody></table>
 
 ## Database
 
-| Variable | Description | Type | Default |
-| --- | --- | --- | --- |
-| DATABASE_TYPE | Type of database to store the flowise data | Enum String: `sqlite`, `mysql`, `postgres` | `sqlite` |
-| DATABASE_PATH | Location where database is saved (When DATABASE_TYPE is sqlite) | String | `your-home-dir/.flowise` |
-| DATABASE_HOST | Host URL or IP address (When DATABASE_TYPE is not sqlite) | String |  |
-| DATABASE_PORT | Database port (When DATABASE_TYPE is not sqlite) | String |  |
-| DATABASE_USER | Database username (When DATABASE_TYPE is not sqlite) | String |  |
-| DATABASE_PASSWORD | Database password (When DATABASE_TYPE is not sqlite) | String |  |
-| DATABASE_NAME | Database name (When DATABASE_TYPE is not sqlite) | String |  |
-| DATABASE_SSL | Database SSL is required (When DATABASE_TYPE is not sqlite) | Boolean: `true` or `false` | `false` |
+| Variable           | Description                                                      | Type                                       | Default                  |
+| ------------------ | ---------------------------------------------------------------- | ------------------------------------------ | ------------------------ |
+| DATABASE\_TYPE     | Type of database to store the flowise data                       | Enum String: `sqlite`, `mysql`, `postgres` | `sqlite`                 |
+| DATABASE\_PATH     | Location where database is saved (When DATABASE\_TYPE is sqlite) | String                                     | `your-home-dir/.flowise` |
+| DATABASE\_HOST     | Host URL or IP address (When DATABASE\_TYPE is not sqlite)       | String                                     |                          |
+| DATABASE\_PORT     | Database port (When DATABASE\_TYPE is not sqlite)                | String                                     |                          |
+| DATABASE\_USER     | Database username (When DATABASE\_TYPE is not sqlite)            | String                                     |                          |
+| DATABASE\_PASSWORD | Database password (When DATABASE\_TYPE is not sqlite)            | String                                     |                          |
+| DATABASE\_NAME     | Database name (When DATABASE\_TYPE is not sqlite)                | String                                     |                          |
+| DATABASE\_SSL      | Database SSL is required (When DATABASE\_TYPE is not sqlite)     | Boolean: `true` or `false`                 | `false`                  |
 
 ## LangSmith Tracing
 
@@ -83,7 +83,7 @@ By default, a random encryption key will be generated when starting up the appli
 | SECRETKEY\_PATH               | Location where encryption key (used to encrypt/decrypt credentials) is saved | String | `Flowise/packages/server` |
 | FLOWISE\_SECRETKEY\_OVERWRITE | Encryption key to be used instead of the key stored in SECRETKEY\_PATH       | String |                           |
 
-For some reasons, sometimes encryption key might be re-generated or the stored path was changed, this will cause errors like - <mark style="color:red;">Credentials could not be decrypted.</mark>&#x20;
+For some reasons, sometimes encryption key might be re-generated or the stored path was changed, this will cause errors like - <mark style="color:red;">Credentials could not be decrypted.</mark>
 
 To avoid this, you can set your own encryption key as `FLOWISE_SECRETKEY_OVERWRITE`, so that the same encryption key will be used everytime. There is no restriction on the format, you can set it as any text that you want, or the same as your `FLOWISE_PASSWORD`.
 
@@ -133,4 +133,4 @@ You can set all these variables in the `.env` file inside `docker` folder. Refer
 
 ### Railway
 
-<figure><img src="../.gitbook/assets/image (9) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>

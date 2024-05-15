@@ -53,7 +53,7 @@ Navigate to Pinecone dashboard, you will be able to see new vectors being added.
 
 Querying is relatively straight-forward. After you have verified that data is upserted to vector database, you can start asking question in the chat:
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 In the Additional Parameters of Conversational Retrieval QA Chain, you can specify 2 prompts:
 
