@@ -2,7 +2,7 @@
 
 Flowise allows you to split your chatflow into different branches depending on If/Else condition.
 
-<figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Input Variables
 
@@ -33,7 +33,7 @@ This is a piece of JS code that is ran on Node sandbox. It must:
 * Contains the `if` statement
 * Returns a value within `if` statement
 
-<figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="312"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="312"><figcaption></figcaption></figure>
 
 This gives much more flexibility for users to do complex comparison like regex, date comparsion and many more.
 
