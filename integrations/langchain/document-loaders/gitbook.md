@@ -7,5 +7,5 @@ description: Load data from GitBook.
 <figure><img src="../../../.gitbook/assets/image (74).png" alt="" width="270"><figcaption><p>GitBook Node</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](https://toi500.gitbook.io/flowise-docs/contributing) to get started.
+This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../CONTRIBUTING.md) to get started.
 {% endhint %}
