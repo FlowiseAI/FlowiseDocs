@@ -7,5 +7,5 @@ description: Return results based on the minimum similarity percentage.
 <figure><img src="../../../.gitbook/assets/image (147).png" alt="" width="301"><figcaption><p>Similarity Score Threshold Retriever Node</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](https://toi500.gitbook.io/flowise-docs/\~/changes/8jXR0fgKTRRTOfbueBkZ/contributing) to get started.
+This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../CONTRIBUTING.md) to get started.
 {% endhint %}

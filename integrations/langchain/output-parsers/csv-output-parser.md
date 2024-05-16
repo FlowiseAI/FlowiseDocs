@@ -7,5 +7,5 @@ description: Parse the output of an LLM call as a comma-separated list of values
 <figure><img src="../../../.gitbook/assets/image (115).png" alt="" width="304"><figcaption><p>CSV Output Parser Node</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](https://toi500.gitbook.io/flowise-docs/\~/changes/8jXR0fgKTRRTOfbueBkZ/contributing) to get started.
+This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../CONTRIBUTING.md) to get started.
 {% endhint %}
