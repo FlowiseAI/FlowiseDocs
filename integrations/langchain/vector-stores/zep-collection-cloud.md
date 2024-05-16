@@ -6,7 +6,7 @@ description: >-
 
 # Zep Collection - Cloud
 
-<figure><img src="../../../.gitbook/assets/image (8).png" alt="" width="286"><figcaption><p>Zep Collection - Cloud Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (1).png" alt="" width="286"><figcaption><p>Zep Collection - Cloud Node</p></figcaption></figure>
 
 {% hint style="info" %}
 This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../CONTRIBUTING.md) to get started.

@@ -68,7 +68,7 @@ If using Digital ocean separate firewall from dashboard, make sure port 8000 is 
 
 4. Now try clearing the chat history, you should see that it is now unable to remember the previous conversations.
 
-<figure><img src="../../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Zep Authentication
 

@@ -47,7 +47,7 @@ Under the hood, following actions will be executed:
 
 Navigate to Pinecone dashboard, you will be able to see new vectors being added.
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 ## Query
 
