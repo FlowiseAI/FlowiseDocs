@@ -33,9 +33,9 @@
 
 4. Start the upsert process:
 
-<figure><img src="../../../.gitbook/assets/Untitled (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/pinecone_6.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/pinecone_7.png" alt=""><figcaption></figcaption></figure>
 
 5. Verify from Pinecone dashboard to see if data has been successfully upserted:
 
