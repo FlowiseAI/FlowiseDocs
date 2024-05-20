@@ -8,10 +8,10 @@
 <figure><img src="../../../.gitbook/assets/pinecone_1.png" alt=""><figcaption></figcaption></figure>
 
 3. Fill in required fields:
-   * **Index Name**, name of the index to be created. (e.g. elon-musk)
+   * **Index Name**, name of the index to be created. (e.g. "flowise-demo")
    * **Dimensions**, size of the vectors to be inserted in the index. (e.g. 1536)
 
-<figure><img src="../../../.gitbook/assets/image (33).png" alt="" width="527"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/pinecone_2.png" alt="" width="527"><figcaption></figcaption></figure>
 
 4. Click **Create Index**
 
