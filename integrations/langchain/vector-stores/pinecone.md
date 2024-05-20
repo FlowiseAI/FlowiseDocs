@@ -8,8 +8,8 @@
 <figure><img src="../../../.gitbook/assets/pinecone_1.png" alt=""><figcaption></figcaption></figure>
 
 3. Fill in required fields:
-   * **Index Name**, name of the index to be created. (e.g. "flowise-demo")
-   * **Dimensions**, size of the vectors to be inserted in the index. (e.g. 1536)
+   - **Index Name**, name of the index to be created. (e.g. "flowise-demo")
+   - **Dimensions**, size of the vectors to be inserted in the index. (e.g. 1536)
 
 <figure><img src="../../../.gitbook/assets/pinecone_2.png" alt="" width="527"><figcaption></figcaption></figure>
 
@@ -17,13 +17,13 @@
 
 ## Setup
 
-1.  Get/Create your **API Key** and **Environment**\
+1.  Get/Create your **API Key**
 
+<figure><img src="../../../.gitbook/assets/pinecone_3.png" alt=""><figcaption></figcaption></figure>
 
-    <figure><img src="../../../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>
-2. Add a new Pinecone node to canvas and fill in the parameters:
-   * Pinecone Index
-   * Pinecone namespace (optional)
+2.  Add a new Pinecone node to canvas and fill in the parameters:
+    - Pinecone Index
+    - Pinecone namespace (optional)
 
 <figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="279"><figcaption></figcaption></figure>
 
@@ -46,5 +46,5 @@
 
 ## Resources
 
-* [LangChain JS Pinecone](https://js.langchain.com/docs/modules/indexes/vector\_stores/integrations/pinecone)
-* [Pinecone Node.JS](https://docs.pinecone.io/docs/node-client)
+- [LangChain JS Pinecone](https://js.langchain.com/docs/modules/indexes/vector_stores/integrations/pinecone)
+- [Pinecone Node.JS](https://docs.pinecone.io/docs/node-client)
