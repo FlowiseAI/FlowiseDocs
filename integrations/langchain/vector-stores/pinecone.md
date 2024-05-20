@@ -3,9 +3,9 @@
 ## Prerequisite
 
 1. Register an account for [Pinecone](https://www.pinecone.io/)
-2. Click **Create your first index**
+2. Click **Create index**
 
-<figure><img src="../../../.gitbook/assets/image (26).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/pinecone_1.png" alt=""><figcaption></figcaption></figure>
 
 3. Fill in required fields:
    * **Index Name**, name of the index to be created. (e.g. elon-musk)
