@@ -27,9 +27,9 @@
 
 <figure><img src="../../../.gitbook/assets/pinecone_4.png" alt="" width="279"><figcaption></figcaption></figure>
 
-3. Create new Pinecone credential -> Fill in **API Key** and **Environment**
+3. Create new Pinecone credential -> Fill in **API Key**
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/pinecone_5.png" alt="" width="563"><figcaption></figcaption></figure>
 
 4. Start the upsert process:
 
