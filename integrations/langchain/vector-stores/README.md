@@ -3,6 +3,7 @@
 A vector store or vector database refers to a type of database system that specializes in storing and retrieving high-dimensional numerical vectors. Vector stores are designed to efficiently manage and index these vectors, allowing for fast similarity searches.
 
 * [Chroma](chroma.md)
+* [Couchbase](couchbase.md)
 * [Pinecone](pinecone.md)
 * [Qdrant](qdrant.md)
 * [SingleStore](singlestore-1.md)
