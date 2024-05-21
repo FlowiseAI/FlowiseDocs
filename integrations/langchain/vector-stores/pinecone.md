@@ -46,5 +46,9 @@
 
 ## Resources
 
-- [LangChain JS Pinecone](https://js.langchain.com/docs/modules/indexes/vector_stores/integrations/pinecone)
-- [Pinecone Node.JS](https://docs.pinecone.io/docs/node-client)
+- LangChain Pinecone vectorstore integrations
+  - [Python](https://python.langchain.com/v0.2/docs/integrations/providers/pinecone/)
+  - [NodeJS](https://js.langchain.com/v0.2/docs/integrations/vectorstores/pinecone)
+- [Pinecone LangChain integration](https://docs.pinecone.io/integrations/langchain)
+- [Pinecone Flowise integration](https://docs.pinecone.io/integrations/flowise)
+- [Pinecone official clients](https://docs.pinecone.io/reference/pinecone-clients)
