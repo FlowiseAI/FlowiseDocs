@@ -3,7 +3,7 @@
 1. Sign in to [Replit](https://replit.com/\~)
 2. Create a new **Repl**. Select **Node.js** as Template and fill in your preferred **Title**.
 
-<figure><img src="../../.gitbook/assets/image (18) (1) (2).png" alt="" width="551"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (18) (1) (2) (1).png" alt="" width="551"><figcaption></figcaption></figure>
 
 3. After a new Repl is created, on the left hand side bar, click Secret:
 

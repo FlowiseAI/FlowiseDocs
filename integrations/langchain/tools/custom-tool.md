@@ -97,13 +97,13 @@ Create a new Tool with the following details (you can change as you want):
 
 * Name: get\_stock\_news
 * Description: Get latest news for a stock
-* Output Schema:
+* Input Schema:
   * Property: performanceId
   * Type: string
   * Description: id of the stock, which is referred as performanceID in the API
   * Required: true
 
-Output Schema tells ChatGPT what to return as a JSON object. In this case, we are expecting a JSON object like below:
+Input Schema tells LLM what to return as a JSON object. In this case, we are expecting a JSON object like below:
 
 <pre class="language-json"><code class="lang-json"><strong>{ "performanceId": "SOME TICKER" }
 </strong></code></pre>
@@ -113,8 +113,8 @@ Output Schema tells ChatGPT what to return as a JSON object. In this case, we ar
 * JavaScript Function: We are going to use [Morning Star](https://rapidapi.com/apidojo/api/morning-star) `/news/list` API to get the data. First you have to click Subscribe to Test if you haven't already, then copy the code and paste it into JavaScript Function.
   * Add `const fetch = require('node-fetch');` at the top to import the library. You can import any built-in NodeJS [modules](https://www.w3schools.com/nodejs/ref\_modules.asp) and [external libraries](https://github.com/FlowiseAI/Flowise/blob/main/packages/components/src/utils.ts#L289).
   * Return the `result` at the end.
-* Next, replace the hard-coded url query parameter performanceId: `0P0000OQN8` to the property variable specified in Output Schema: `$performanceId`
-* You can use any properties specified in Output Schema as variables in the JavaScript Function by appending a prefix `$` at the front of the variable name.
+* Next, replace the hard-coded url query parameter performanceId: `0P0000OQN8` to the property variable specified in Input Schema: `$performanceId`
+* You can use any properties specified in Input Schema as variables in the JavaScript Function by appending a prefix `$` at the front of the variable name.
 
 <figure><img src="../../../.gitbook/assets/Untitled (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -150,7 +150,7 @@ Create a new Tool with the following details (you can change as you want):
 
 * Name: add\_airtable
 * Description: Add the stock, news summary & price move to Airtable
-* Output Schema:
+* Input Schema:
   * Property: stock
   * Type: string
   * Description: stock ticker
@@ -276,7 +276,7 @@ Below is an example of sending the sessionId to Discord webhook:
 ```javascript
 const fetch = require('node-fetch');
 const webhookUrl = "https://discord.com/api/webhooks/1124783587267";
-const content = $content; // captured from output schema
+const content = $content; // captured from input schema
 const sessionId = $flow.sessionId;
 
 const body = {
@@ -375,7 +375,7 @@ Example of how to receive the variables in custom tool:
 ```javascript
 const fetch = require('node-fetch');
 const webhookUrl = "https://discord.com/api/webhooks/1124783587267";
-const content = $content; // captured from output schema
+const content = $content; // captured from input schema
 const sessionId = $flow.sessionId;
 const apiKey = $vars.apiKey;
 
