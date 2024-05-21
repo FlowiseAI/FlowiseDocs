@@ -21,7 +21,7 @@
 
 <figure><img src="../../../.gitbook/assets/pinecone_3.png" alt=""><figcaption></figcaption></figure>
 
-2.  Add a new Pinecone node to canvas and fill in the parameters:
+2.  Add a new **Pinecone** node to canvas and fill in the parameters:
     - Pinecone Index
     - Pinecone namespace (optional)
 
@@ -31,7 +31,9 @@
 
 <figure><img src="../../../.gitbook/assets/pinecone_5.png" alt="" width="563"><figcaption></figcaption></figure>
 
-4. Start the upsert process:
+4. Add additional nodes to canvas and start the upsert process
+   - **Document** can be connected with any node under [**Document Loader**](../document-loaders/) category
+   - **Embeddings** can be connected with any node under [**Embeddings** ](../embeddings/)category
 
 <figure><img src="../../../.gitbook/assets/pinecone_6.png" alt=""><figcaption></figcaption></figure>
 
@@ -41,8 +43,7 @@
 
 <figure><img src="../../../.gitbook/assets/pinecone_8.png" alt=""><figcaption></figcaption></figure>
 
-6. **Document** can be connected with any node under [**Document Loader**](../document-loaders/) category
-7. **Embeddings** can be connected with any node under [**Embeddings** ](../embeddings/)category
+6.
 
 ## Resources
 
