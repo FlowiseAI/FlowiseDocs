@@ -13,9 +13,9 @@
 
 2. **Connect Credential** > click **Create New**
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="278"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image_openAI.png" alt="" width="278"><figcaption></figcaption></figure>
 
-3. Fill in the **ChatOpenAI** credential
+2. Fill in the **ChatOpenAI** credential
 
 <figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
