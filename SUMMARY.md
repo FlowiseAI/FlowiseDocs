@@ -256,4 +256,3 @@
   * [SQL QnA](use-cases/sql-qna.md)
   * [Calling Webhook](use-cases/webhook-tool.md)
   * [Interacting with API](use-cases/webhook-tool-1.md)
-* [Table of contents](table-of-contents.md)
