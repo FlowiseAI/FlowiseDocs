@@ -12,7 +12,7 @@ We are going to use **Cheerio Web Scraper** node to scrape links from a given UR
 
 <figure><img src="../.gitbook/assets/image (86).png" alt=""><figcaption></figcaption></figure>
 
-If you do not specify anything, by default only the given URL page will be scraped. If you want to crawl the rest of relative links, click **Additional Parameters** of Cheerio Web Scraper\*\*.\*\*
+If you do not specify anything, by default only the given URL page will be scraped. If you want to crawl the rest of relative links, click **Additional Parameters** of Cheerio Web Scraper.
 
 ### Crawl Multiple Pages
 
