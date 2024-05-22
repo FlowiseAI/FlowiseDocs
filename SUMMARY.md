@@ -243,6 +243,7 @@
     * [Tools](integrations/llamaindex/tools/README.md)
       * [Query Engine Tool](integrations/llamaindex/tools/query-engine-tool.md)
     * [Vector Stores](integrations/llamaindex/vector-stores/README.md)
+      * [Pinecone](integrations/llamaindex/vector-stores/pinecone.md)
       * [QueryEngine Tool](integrations/llamaindex/vector-stores/queryengine-tool.md)
   * [External Integrations](integrations/3rd-party-platform-integration/README.md)
     * [Zapier Zaps](integrations/3rd-party-platform-integration/zapier-zaps.md)
