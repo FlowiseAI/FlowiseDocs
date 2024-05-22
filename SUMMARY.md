@@ -209,6 +209,7 @@
       * [Milvus](integrations/langchain/vector-stores/milvus.md)
       * [MongoDB Atlas](integrations/langchain/vector-stores/mongodb-atlas.md)
       * [OpenSearch](integrations/langchain/vector-stores/opensearch.md)
+      * [Pinecone](integrations/langchain/vector-stores/pinecone.md)
       * [Postgres](integrations/langchain/vector-stores/postgres.md)
       * [Qdrant](integrations/langchain/vector-stores/qdrant.md)
       * [Redis](integrations/langchain/vector-stores/redis.md)

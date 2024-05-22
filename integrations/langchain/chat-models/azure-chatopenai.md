@@ -13,7 +13,7 @@
 
 2. **Connect Credential** > click **Create New**
 
-<figure><img src="../../../.gitbook/assets/image_openAI.png" alt="" width="278"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image_openAI (1).png" alt="" width="278"><figcaption></figcaption></figure>
 
 2. Fill in the **ChatOpenAI** credential
 
