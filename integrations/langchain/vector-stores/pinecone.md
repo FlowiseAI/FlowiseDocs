@@ -1,7 +1,5 @@
 # Pinecone
 
-<<<<<<< main
-=======
 ## Prerequisite
 
 1. Register an account for [Pinecone](https://app.pinecone.io/)
@@ -55,4 +53,3 @@
 - [Pinecone LangChain integration](https://docs.pinecone.io/integrations/langchain)
 - [Pinecone Flowise integration](https://docs.pinecone.io/integrations/flowise)
 - [Pinecone official clients](https://docs.pinecone.io/reference/pinecone-clients)
->>>>>>> main
