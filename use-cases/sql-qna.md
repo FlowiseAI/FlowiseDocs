@@ -3,10 +3,10 @@
 Unlike previous examples like [Web Scrape QnA](web-scrape-qna.md) and [Multiple Documents QnA](multiple-documents-qna.md), querying structured data does not require vector database. On the high-level, this can be achieved with following steps:
 
 1. Providing LLM:
-   * overview of SQL database schema&#x20;
+   * overview of SQL database schema
    * example rows data
 2. Return a SQL query with few shot prompting
-3. Validate the SQL query using [If Else](../integrations/utilities/if-else.md) node
+3. Validate the SQL query using [If Else](../integrations/langchain/utilities/if-else.md) node
 4. Custom function to execute the SQL query, and get the response
 5. Return a natural response from the executed SQL response
 
@@ -114,7 +114,7 @@ return sqlSchemaPrompt;
 
 </details>
 
-You can find more on how to get the `HOST`, `USER`, `PASSWORD` from this [guide](../integrations/langchain/vector-stores/singlestore-1.md). Once finished, click Execute:
+You can find more on how to get the `HOST`, `USER`, `PASSWORD` from this [guide](broken-reference). Once finished, click Execute:
 
 <figure><img src="../.gitbook/assets/image (117).png" alt=""><figcaption></figcaption></figure>
 
@@ -146,7 +146,7 @@ Since we are using 2 variables: {schema} and {question}, specify their values in
 You can provide more examples to the prompt (i.e few-shot prompting) to let the LLM learns better. Or take reference from [dialect-specific prompting](https://js.langchain.com/docs/use\_cases/sql/prompting#dialect-specific-prompting)
 {% endhint %}
 
-## 3) Validate the SQL query using [If Else](../integrations/utilities/if-else.md) node
+## 3) Validate the SQL query using [If Else](../integrations/langchain/utilities/if-else.md) node
 
 Sometimes the SQL query is invalid, and we do not want to waste resources the execute invalid SQL query. For example, if user is asking general question that is irrelevant to the SQL database. We can use If Else node to route to different path.
 

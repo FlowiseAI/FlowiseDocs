@@ -4,7 +4,7 @@ Use Flowise database table `chat_message` as the storage mechanism for storing/r
 
 This memory keeps a buffer of recent interactions and compiles old ones into a summary, using both in its storage. Instead of flushing old interactions based solely on their number, it now considers the total length of tokens to decide when to clear them out.
 
-<figure><img src="../../../.gitbook/assets/image (4).png" alt="" width="297"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1) (2).png" alt="" width="297"><figcaption></figcaption></figure>
 
 ## Input
 

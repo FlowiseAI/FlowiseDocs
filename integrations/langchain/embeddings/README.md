@@ -12,8 +12,3 @@ They are commonly used for:
 * Anomaly detection (where outliers with little relatedness are identified)
 * Diversity measurement (where similarity distributions are analyzed)
 * Classification (where text strings are classified by their most similar label)
-
-Below are some of the embedding models available to use in Flowise:
-
-* [Azure OpenAI Embeddings](azure-openai-embeddings.md)
-* [LocalAI Embeddings](localai-embeddings.md)
