@@ -1,6 +1,6 @@
 # Compact And Refine
 
-This is the default when no Response Synthesizer is explicilty defined.&#x20;
+This is the default when no Response Synthesizer is explicilty defined.
 
 Compact the prompt during each LLM call by stuffing as many text chunks that can fit within the maximum prompt size. If there are too many chunks to stuff in one prompt, "create and refine" an answer by going through multiple compact prompts.
 
@@ -8,7 +8,7 @@ Compact the prompt during each LLM call by stuffing as many text chunks that can
 
 **Cons**: Due to the multiple LLM calls , can be expensive
 
-<figure><img src="../../../.gitbook/assets/image (6) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 **Refine Prompt**
 

@@ -6,8 +6,8 @@ This requires some basic understanding of how AWS works.
 
 Two options are available to deploy Flowise on AWS:
 
-- [Deploy on ECS using CloudFormation](aws.md#deploy-on-ecs-using-cloudformation)
-- [Manually configure an EC2 Instance](aws.md#launch-ec2-instance)
+* [Deploy on ECS using CloudFormation](aws.md#deploy-on-ecs-using-cloudformation)
+* [Manually configure an EC2 Instance](aws.md#launch-ec2-instance)
 
 ## Deploy on ECS using CloudFormation
 
@@ -52,7 +52,7 @@ After deployment, the URL of your Flowise application is available in the CloudF
 
 7. Back to the first tab (EC2 Launch an instance) and scroll down to **Network settings**. Select the security group you've just created
 
-<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 8. Click **Launch instance**. Navigate back to EC2 Dashboard, after few mins we should be able to see a new instance up and running [🎉](https://emojipedia.org/party-popper/)
 

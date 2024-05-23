@@ -6,7 +6,7 @@
 
 Request Body
 
-<table><thead><tr><th width="192">Key</th><th width="559">Description</th><th>Type</th><th>Required</th></tr></thead><tbody><tr><td>question</td><td>User's question</td><td>string</td><td>Yes</td></tr><tr><td>overrideConfig</td><td>Override existing flow configuration</td><td>object</td><td>No</td></tr></tbody></table>
+<table><thead><tr><th width="192">Key</th><th width="347">Description</th><th>Type</th><th>Required</th></tr></thead><tbody><tr><td>question</td><td>User's question</td><td>string</td><td>Yes</td></tr><tr><td>overrideConfig</td><td>Override existing flow configuration</td><td>object</td><td>No</td></tr><tr><td>history</td><td>Prepend history messages at the start of conversation</td><td>array</td><td>No</td></tr></tbody></table>
 
 You can use the chatflow as API and connect to frontend applications.
 
@@ -68,13 +68,87 @@ query({
 {% endtab %}
 {% endtabs %}
 
+### History
+
+You can prepend history messages to give some context to LLM. For example, if you want the LLM to remember user's name:
+
+{% tabs %}
+{% tab title="Python" %}
+<pre class="language-python"><code class="lang-python"><strong>import requests
+</strong>
+API_URL = "http://localhost:3000/api/v1/prediction/&#x3C;chatlfowid>"
+
+def query(payload):
+    response = requests.post(API_URL, json=payload)
+    return response.json()
+    
+output = query({
+    "question": "Hey, how are you?",
+    "history": [
+        {
+            "role": "apiMessage",
+            "context": "Hello how can I help?"
+        },
+        {
+            "role": "userMessage",
+            "context": "Hi my name is Brian"
+        },
+        {
+            "role": "apiMessage",
+            "context": "Hi Brian, how can I help?"
+        },
+    ]
+})
+</code></pre>
+{% endtab %}
+
+{% tab title="Javascript" %}
+```javascript
+async function query(data) {
+    const response = await fetch(
+        "http://localhost:3000/api/v1/prediction/<chatlfowid>",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        }
+    );
+    const result = await response.json();
+    return result;
+}
+
+query({
+    "question": "Hey, how are you?",
+    "history": [
+        {
+            "role": "apiMessage",
+            "context": "Hello how can I help?"
+        },
+        {
+            "role": "userMessage",
+            "context": "Hi my name is Brian"
+        },
+        {
+            "role": "apiMessage",
+            "context": "Hi Brian, how can I help?"
+        },
+    ]
+}).then((response) => {
+    console.log(response);
+});
+```
+{% endtab %}
+{% endtabs %}
+
 ### Image Uploads
 
 When **Allow Image Upload** is enabled, images can be uploaded from chat interface.
 
 <div align="center">
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="255"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="255"><figcaption></figcaption></figure>
 
  
 
@@ -146,7 +220,7 @@ When **Speech to Text** is enabled, users can speak directly into microphone and
 
 <div align="left">
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
  
 

@@ -13,5 +13,3 @@ As simple as this sounds, there is a lot of potential complexity here. Ideally, 
 
 1. How the text is split
 2. How the chunk size is measured
-
-* [Character Text Splitter](character-text-splitter.md)

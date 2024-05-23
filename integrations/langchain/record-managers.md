@@ -14,11 +14,11 @@ When you are upserting multiple documents, and you want to prevent deletion of t
 
 <div align="left">
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1).png" alt="" width="264"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="264"><figcaption></figcaption></figure>
 
  
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1).png" alt="" width="410"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="410"><figcaption></figcaption></figure>
 
 </div>
 
@@ -31,39 +31,36 @@ When you are upserting multiple documents, and you want to prevent deletion of t
 
 <div align="left">
 
-<figure><img src="../../.gitbook/assets/image (11).png" alt="" width="202"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11) (1) (1).png" alt="" width="202"><figcaption></figcaption></figure>
 
  
 
-<figure><img src="../../.gitbook/assets/image (10).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 </div>
 
 <div align="left">
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt="" width="231"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (2).png" alt="" width="231"><figcaption></figcaption></figure>
 
  
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (2).png" alt="" width="563"><figcaption></figcaption></figure>
 
 </div>
 
 3. After an upsert, we will see 2 documents that are upserted:
 
-<figure><img src="../../.gitbook/assets/image (9) (1).png" alt="" width="433"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1) (1) (2).png" alt="" width="433"><figcaption></figcaption></figure>
 
 4. Now, if we delete the **Dog** document, and update **Cat** to **Cats**, we will now see the following:
 
-<figure><img src="../../.gitbook/assets/image (13).png" alt="" width="425"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (13) (2).png" alt="" width="425"><figcaption></figcaption></figure>
 
 * The original **Cat** document is deleted
 * A new document with **Cats** is added
 * **Dog** document is left untouched
-
-
-
-5. The remaining vector embeddings in Vector Store are **Cats** and **Dog**
+* The remaining vector embeddings in Vector Store are **Cats** and **Dog**
 
 <figure><img src="../../.gitbook/assets/image (15).png" alt="" width="448"><figcaption></figcaption></figure>
 {% endtab %}
@@ -75,7 +72,7 @@ When you are upserting multiple documents, **Full** Cleanup mode will automatica
 
 <div align="left">
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1).png" alt="" width="264"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="264"><figcaption></figcaption></figure>
 
  
 
@@ -92,27 +89,27 @@ When you are upserting multiple documents, **Full** Cleanup mode will automatica
 
 <div align="left">
 
-<figure><img src="../../.gitbook/assets/image (11).png" alt="" width="202"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11) (1) (1).png" alt="" width="202"><figcaption></figcaption></figure>
 
  
 
-<figure><img src="../../.gitbook/assets/image (10).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 </div>
 
 <div align="left">
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt="" width="231"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (2).png" alt="" width="231"><figcaption></figcaption></figure>
 
  
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (2).png" alt="" width="563"><figcaption></figcaption></figure>
 
 </div>
 
 3. After an upsert, we will see 2 documents that are upserted:
 
-<figure><img src="../../.gitbook/assets/image (9) (1).png" alt="" width="433"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1) (1) (2).png" alt="" width="433"><figcaption></figcaption></figure>
 
 4. Now, if we delete the **Dog** document, and update **Cat** to **Cats**, we will now see the following:
 
@@ -121,10 +118,7 @@ When you are upserting multiple documents, **Full** Cleanup mode will automatica
 * The original **Cat** document is deleted
 * A new document with **Cats** is added
 * **Dog** document is deleted
-
-
-
-5. The remaining vector embeddings in Vector Store is just **Cats**
+* The remaining vector embeddings in Vector Store is just **Cats**
 
 <figure><img src="../../.gitbook/assets/image (19).png" alt="" width="527"><figcaption></figcaption></figure>
 {% endtab %}
