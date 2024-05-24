@@ -80,20 +80,46 @@ query({
 5. Listen to token stream
 
 ```javascript
+// When LLM start streaming
 socket.on('start', () => {
   console.log('start');
 });
 
+// The delta token/word when streaming
 socket.on('token', (token) => {
   console.log('token:', token);
 });
 
+// Source documents returned from the chatflow
 socket.on('sourceDocuments', (sourceDocuments) => {
   console.log('sourceDocuments:', sourceDocuments);
 });
 
+// Tools used during execution
+socket.on('usedTools', (usedTools) => {
+  console.log('usedTools:', usedTools);
+});
+
+// When LLM finished streaming
 socket.on('end', () => {
   console.log('end');
+});
+
+//------------------- For Multi Agents ----------------------
+
+// The next agent in line
+socket.on('nextAgent', (nextAgent) => {
+  console.log('nextAgent:', nextAgent);
+});
+
+// The whole multi agents thoughts, reasoning and output
+socket.on('agentReasoning', (agentReasoning) => {
+  console.log('agentReasoning:', agentReasoning);
+});
+
+// When execution is aborted/interrupted
+socket.on('abort', () => {
+  console.log('abort');
 });
 ```
 
