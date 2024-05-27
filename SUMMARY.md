@@ -28,7 +28,7 @@
   * [Databases](configuration/databases.md)
   * [Rate Limit](configuration/rate-limit.md)
 * [Integrations](integrations/README.md)
-  * [Langchain](integrations/langchain/README.md)
+  * [LangChain](integrations/langchain/README.md)
     * [Agents](integrations/langchain/agents/README.md)
       * [Airtable Agent](integrations/langchain/agents/airtable-agent.md)
       * [AutoGPT](integrations/langchain/agents/autogpt.md)
