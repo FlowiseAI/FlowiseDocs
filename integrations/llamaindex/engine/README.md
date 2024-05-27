@@ -1,6 +1,6 @@
 # Engine
 
-In LlamaIndex, an engine node refers to two key components that handle information processing and user interaction:
+In LlamaIndex, an engine node refers to two key components that handle information processing and user interaction.
 
 ### Available Engine:
 

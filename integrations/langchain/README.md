@@ -2,9 +2,9 @@
 
 [**LangChain**](https://www.langchain.com/) is a framework for developing applications powered by language models. It simplifies the process of creating generative AI application, connecting data sources, vectors, memories with LLMs.
 
-Flowise complements LangChain by offering a visual interface. Here, all the necessary nodes are organized into distinct sections, making it easier to build workflows.
+Flowise complements LangChain by offering a visual interface. Here, nodes are organized into distinct sections, making it easier to build workflows.
 
-### Sections:
+### LangChain Sections:
 
 * [Agents](agents/)
 * [Cache](cache/)

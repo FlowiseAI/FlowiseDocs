@@ -1,6 +1,6 @@
 # Response Synthesizer
 
-ResponseSynthesizer is responsible for sending the query, nodes, and prompt templates to the LLM to generate a response. There are 4 modes for generating a response:
+Response Synthesizer nodes are responsible for sending the query, nodes, and prompt templates to the LLM to generate a response. There are 4 modes for generating a response:
 
 ### Available Synthesizer:
 
