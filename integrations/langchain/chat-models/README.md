@@ -1,3 +1,22 @@
 # Chat Models
 
 Chat models take a list of messages as input and return a model-generated message as output. These models such as **gpt-3.5-turbo** or **gpt4** are powerful and cheaper than its predecessor Completions models such as **text-davincii-003**.
+
+### Available Chat Models:
+
+* [AWS ChatBedrock](aws-chatbedrock.md)
+* [Azure ChatOpenAI](../../llamaindex/chat-models/azurechatopenai.md)
+* [NIBittensorChat](nibittensorchat.md)
+* [ChatAnthropic](chatanthropic.md)
+* [ChatCohere](chatcohere.md)
+* [ChatGoogleGenerativeAI](google-ai.md)
+* [ChatGooglePaLM](chatgooglepalm.md)
+* [Google VertexAI](google-vertexai.md)
+* [ChatHuggingFace](chathuggingface.md)
+* [ChatLocalAI](chatanthropic.md)
+* [ChatMistralAI](mistral-ai.md)
+* [ChatOllama](chatollama.md)
+* [ChatOpenAI](azure-chatopenai.md)
+* [ChatOpenAI Custom](chatopenai-custom.md)
+* [ChatTogetherAI](chattogetherai.md)
+* [GroqChat](groqchat.md)
