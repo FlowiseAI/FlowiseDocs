@@ -4,12 +4,12 @@ Retriever nodes return documents given an unstructured query. It is more general
 
 ### Available Retrievers:
 
-* [Cohere Rerank Retriever](https://docs.flowiseai.com/integrations/langchain/retrievers/cohere-rerank-retriever)
-* [Embeddings Filter Retriever](https://docs.flowiseai.com/integrations/langchain/retrievers/embeddings-filter-retriever)
-* [HyDE Retriever](https://docs.flowiseai.com/integrations/langchain/retrievers/hyde-retriever)
-* [LLM Filter Retriever](https://docs.flowiseai.com/integrations/langchain/retrievers/llm-filter-retriever)
-* [Prompt Retriever](https://docs.flowiseai.com/integrations/langchain/retrievers/prompt-retriever)
-* [Reciprocal Rank Fusion Retriever](https://docs.flowiseai.com/integrations/langchain/retrievers/reciprocal-rank-fusion-retriever)
-* [Similarity Score Threshold Retriever](https://docs.flowiseai.com/integrations/langchain/retrievers/similarity-score-threshold-retriever)
-* [Vector Store Retriever](https://docs.flowiseai.com/integrations/langchain/retrievers/vector-store-retriever)
-* [Voyage AI Rerank Retriever](https://docs.flowiseai.com/integrations/langchain/retrievers/page)
+* [Cohere Rerank Retriever](cohere-rerank-retriever.md)
+* [Embeddings Filter Retriever](embeddings-filter-retriever.md)
+* [HyDE Retriever](hyde-retriever.md)
+* [LLM Filter Retriever](llm-filter-retriever.md)
+* [Prompt Retriever](prompt-retriever.md)
+* [Reciprocal Rank Fusion Retriever](reciprocal-rank-fusion-retriever.md)
+* [Similarity Score Threshold Retriever](similarity-score-threshold-retriever.md)
+* [Vector Store Retriever](vector-store-retriever.md)
+* [Voyage AI Rerank Retriever](page.md)
