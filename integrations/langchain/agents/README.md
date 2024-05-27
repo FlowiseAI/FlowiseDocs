@@ -1,6 +1,8 @@
 # Agents
 
-Agents use Chat Models to understand your natural language instructions. They then automate a sequence of actions with available tools to achieve your desired outcome.
+By themselves, language models can't take actions - they just output text.
+
+Agents are systems that use an LLM as a reasoning enginer to determine which actions to take and what the inputs to those actions should be. The results of those actions can then be fed back into the agent and it determine whether more actions are needed, or whether it is okay to finish.
 
 ### Available Agents:
 
@@ -17,5 +19,4 @@ Agents use Chat Models to understand your natural language instructions. They th
 * [ReAct Agent Chat](react-agent-chat.md)
 * [ReAct Agent LLM](react-agent-llm.md)
 * [Tool Agent](tool-agent.md)
-* [XML Agent](xml-agent.md)\
-
+* [XML Agent](xml-agent.md)\\
