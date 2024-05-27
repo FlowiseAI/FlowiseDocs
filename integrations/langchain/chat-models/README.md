@@ -13,7 +13,7 @@ Chat models take a list of messages as input and return a model-generated messag
 * [ChatGooglePaLM](chatgooglepalm.md)
 * [Google VertexAI](google-vertexai.md)
 * [ChatHuggingFace](chathuggingface.md)
-* [ChatLocalAI](chatanthropic.md)
+* [ChatLocalAI](chatlocalai.md)
 * [ChatMistralAI](mistral-ai.md)
 * [ChatOllama](chatollama.md)
 * [ChatOpenAI](azure-chatopenai.md)

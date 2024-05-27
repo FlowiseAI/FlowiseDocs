@@ -19,4 +19,4 @@ Agents are systems that use an LLM as a reasoning enginer to determine which act
 * [ReAct Agent Chat](react-agent-chat.md)
 * [ReAct Agent LLM](react-agent-llm.md)
 * [Tool Agent](tool-agent.md)
-* [XML Agent](xml-agent.md)\\
+* [XML Agent](xml-agent.md)
