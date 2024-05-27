@@ -4,7 +4,7 @@ Utility nodes are development tools that help you implement custom JS, logic and
 
 ### Available Utilities:
 
-* [Custom JS Function](https://docs.flowiseai.com/integrations/langchain/utilities/custom-js-function)
-* [Set/Get Variable](https://docs.flowiseai.com/integrations/langchain/utilities/set-get-variable)
-* [If Else](https://docs.flowiseai.com/integrations/langchain/utilities/if-else)
-* [Sticky Note](https://docs.flowiseai.com/integrations/langchain/utilities/sticky-note)
+* [Custom JS Function](custom-js-function.md)
+* [Set/Get Variable](set-get-variable.md)
+* [If Else](if-else.md)
+* [Sticky Note](sticky-note.md)
