@@ -5,3 +5,6 @@ A vector store or vector database refers to a type of database system that speci
 #### Watch an intro on Vector Stores and how you can use that on Flowise
 
 {% embed url="https://youtu.be/m0nr1_pnAxc" %}
+
+### Available Vector Stores:
+
