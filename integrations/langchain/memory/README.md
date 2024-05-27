@@ -72,3 +72,16 @@ All conversations can be visualized and managed from UI as well:
 <figure><img src="../../../.gitbook/assets/image (78).png" alt=""><figcaption></figcaption></figure>
 
 For OpenAI Assistant, [Threads](threads.md) will be used to store conversations.
+
+### Available Memories:
+
+* [Buffer Memory](buffer-memory.md)
+* [Buffer Window Memory](buffer-window-memory.md)
+* [Conversation Summary Memory](conversation-summary-memory.md)
+* [Conversation Summary Buffer Memory](conversation-summary-buffer-memory.md)
+* [DynamoDB Chat Memory](dynamodb-chat-memory.md)
+* [MongoDB Atlas Chat Memory](mongodb-atlas-chat-memory.md)
+* [Redis-Backed Chat Memory](redis-backed-chat-memory.md)
+* [Upstash Redis-Backed Chat Memory](upstash-redis-backed-chat-memory.md)
+* [Zep Memory](zep-memory.md)
+* [Threads](threads.md)
