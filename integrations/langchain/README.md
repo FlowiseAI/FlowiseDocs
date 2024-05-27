@@ -4,7 +4,7 @@
 
 Flowise complements LangChain by offering a visual interface. Here, all the necessary nodes are organized into distinct sections, making it easier to build workflows.
 
-### LangChain Sections:
+### Sections:
 
 * [Agents](agents/)
 * [Cache](cache/)
@@ -23,4 +23,3 @@ Flowise complements LangChain by offering a visual interface. Here, all the nece
 * [Tools](tools/)
 * [Utilities](utilities/)
 * [Vector Stores](vector-stores/)
-

@@ -4,7 +4,7 @@
 
 Flowise complements LangIndex by offering a visual interface. Here, all the necessary nodes are organized into distinct sections, making it easier to build workflows.
 
-### LlamaIndex Sections:
+### Sections:
 
 * [Agents](agents/)
 * [Chat Models](chat-models/)
