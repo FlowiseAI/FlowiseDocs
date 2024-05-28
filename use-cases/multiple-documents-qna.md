@@ -31,7 +31,7 @@ In this example, we are going to perform QnA on 2 PDFs, which are FORM-10K of AP
 
 4. After filling in the credentials for Pinecone, click Upsert:
 
-<figure><img src="../.gitbook/assets/Untitled (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/multi-docs-upsert.png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/image (98).png" alt=""><figcaption></figcaption></figure>
 
