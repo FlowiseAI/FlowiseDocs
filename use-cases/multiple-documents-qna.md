@@ -23,9 +23,9 @@ In this example, we are going to perform QnA on 2 PDFs, which are FORM-10K of AP
 
 <div align="left">
 
-<figure><img src="../.gitbook/assets/image (96).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/multi-docs-apple.png" alt="" width="563"><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (97).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/multi-docs-tesla.png" alt="" width="563"><figcaption></figcaption></figure>
 
 </div>
 
