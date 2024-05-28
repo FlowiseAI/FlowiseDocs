@@ -45,9 +45,9 @@ Under the hood, following actions will be executed:
 3. Splitted data will be looped over, and converted to vector embeddings using OpenAI Embeddings
 4. Vector embeddings will be upserted to Pinecone
 
-Navigate to Pinecone dashboard, you will be able to see new vectors being added.
+On the [Pinecone console](https://app.pinecone.io) you will be able to see the new vectors that were added.
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/web-scrape-pinecone.png" alt=""><figcaption></figcaption></figure>
 
 ## Query
 
