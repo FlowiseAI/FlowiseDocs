@@ -21,6 +21,16 @@ description: >-
 
 4. Click **Create Index**
 
+## Setup
+
+1.  Get/Create your **API Key**
+
+<figure><img src="../../../.gitbook/assets/pinecone_3.png" alt=""><figcaption></figcaption></figure>
+
+2.  Add a new **Pinecone** node to canvas and fill in the parameters:
+    - Pinecone Index
+    - Pinecone namespace (optional)
+
 <figure><img src="../../../.gitbook/assets/pinecone_llamaindex.png" alt="" width="301"><figcaption><p>Pinecone Node</p></figcaption></figure>
 
 {% hint style="info" %}
