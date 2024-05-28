@@ -35,9 +35,9 @@ In this example, we are going to perform QnA on 2 PDFs, which are FORM-10K of AP
 
 <figure><img src="../.gitbook/assets/image (98).png" alt=""><figcaption></figcaption></figure>
 
-5. Navigate to Pinecone dashboard, you will be able to see new vectors being added.
+5. On the [Pinecone console](https://app.pinecone.io) you will be able to see the new vectors that were added.
 
-<figure><img src="../.gitbook/assets/image (99).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/multi-docs-console.png" alt=""><figcaption></figcaption></figure>
 
 ## Query
 
