@@ -1,3 +1,9 @@
+---
+description: >-
+  Upsert embedded data and perform similarity search upon query using Pinecone,
+  a leading fully managed hosted vector database.
+---
+
 # Pinecone
 
 ## Prerequisite
