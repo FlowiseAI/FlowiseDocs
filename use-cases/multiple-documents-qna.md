@@ -8,8 +8,6 @@ In this example, we are going to perform QnA on 2 PDFs, which are FORM-10K of AP
 
 <figure><img src="../.gitbook/assets/image (93).png" alt="" width="375"><figcaption></figcaption></figure>
 
- 
-
 <figure><img src="../.gitbook/assets/image (94).png" alt="" width="375"><figcaption></figcaption></figure>
 
 </div>
@@ -19,29 +17,27 @@ In this example, we are going to perform QnA on 2 PDFs, which are FORM-10K of AP
 1. Fnd the example flow called - **Conversational Retrieval QA Chain** from the marketplace templates.
 2. We are going to use [PDF File Loader](../integrations/langchain/document-loaders/pdf-file.md), and upload the respective files:
 
-<figure><img src="../.gitbook/assets/image (95).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/multi-docs-upload.png" alt=""><figcaption></figcaption></figure>
 
 3. Click the **Additional Parameters** of PDF File Loader, and specify metadata object. For instance, PDF File with Apple FORM-10K uploaded can have a metadata object `{source: apple}`, whereas PDF File with Tesla FORM-10K uploaded can have `{source: tesla}` . This is done to seggregate the documents during retrieval time.
 
 <div align="left">
 
-<figure><img src="../.gitbook/assets/image (96).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/multi-docs-apple.png" alt="" width="563"><figcaption></figcaption></figure>
 
- 
-
-<figure><img src="../.gitbook/assets/image (97).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/multi-docs-tesla.png" alt="" width="563"><figcaption></figcaption></figure>
 
 </div>
 
 4. After filling in the credentials for Pinecone, click Upsert:
 
-<figure><img src="../.gitbook/assets/Untitled (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/multi-docs-upsert.png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/image (98).png" alt=""><figcaption></figcaption></figure>
 
-5. Navigate to Pinecone dashboard, you will be able to see new vectors being added.
+5. On the [Pinecone console](https://app.pinecone.io) you will be able to see the new vectors that were added.
 
-<figure><img src="../.gitbook/assets/image (99).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/multi-docs-console.png" alt=""><figcaption></figcaption></figure>
 
 ## Query
 
@@ -54,8 +50,6 @@ In this example, we are going to perform QnA on 2 PDFs, which are FORM-10K of AP
 <div align="left">
 
 <figure><img src="../.gitbook/assets/Untitled (7).png" alt="" width="563"><figcaption></figcaption></figure>
-
- 
 
 <figure><img src="../.gitbook/assets/Untitled (8).png" alt="" width="563"><figcaption></figcaption></figure>
 
@@ -83,8 +77,8 @@ By providing tools to agent, we can let the agent to decide which tool is suitab
 
 1. Create a Retriever Tool with following name and description:
 
-* **Name**: search\_apple
-* **Description**: Use this function to answer user questions about Apple Inc (APPL). It contains a SEC Form 10K filing describing the financials of Apple Inc (APPL) for the 2022 time period.
+- **Name**: search_apple
+- **Description**: Use this function to answer user questions about Apple Inc (APPL). It contains a SEC Form 10K filing describing the financials of Apple Inc (APPL) for the 2022 time period.
 
 2. Connect to Pinecone node with metadata filter `{source: apple}`
 
@@ -92,9 +86,9 @@ By providing tools to agent, we can let the agent to decide which tool is suitab
 
 3. Repeat the same for tesla.
 
-* **Name**: search\_tsla
-* **Description**: Use this function to answer user questions about Tesla Inc (TSLA). It contains a SEC Form 10K filing describing the financials of Tesla Inc (TSLA) for the 2022 time period.
-* **Pinecone Metadata Filter**: `{source: tesla}`
+- **Name**: search_tsla
+- **Description**: Use this function to answer user questions about Tesla Inc (TSLA). It contains a SEC Form 10K filing describing the financials of Tesla Inc (TSLA) for the 2022 time period.
+- **Pinecone Metadata Filter**: `{source: tesla}`
 
 <figure><img src="../.gitbook/assets/image (105).png" alt=""><figcaption></figcaption></figure>
 
@@ -129,8 +123,6 @@ The current date is: 2024-01-28
 <div align="left">
 
 <figure><img src="../.gitbook/assets/Untitled (9).png" alt="" width="375"><figcaption></figcaption></figure>
-
- 
 
 <figure><img src="../.gitbook/assets/Untitled (10).png" alt="" width="375"><figcaption></figcaption></figure>
 
