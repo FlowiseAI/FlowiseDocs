@@ -12,3 +12,20 @@ They are commonly used for:
 * Anomaly detection (where outliers with little relatedness are identified)
 * Diversity measurement (where similarity distributions are analyzed)
 * Classification (where text strings are classified by their most similar label)
+
+### Available Embeddings:
+
+* [AWS Bedrock Embeddings](aws-bedrock-embeddings.md)
+* [Azure OpenAI Embeddings](azure-openai-embeddings.md)
+* [Cohere Embeddings](cohere-embeddings.md)
+* [Google GenerativeAI Embeddings](googlegenerativeai-embeddings.md)
+* [Google PaLM Embeddings](google-palm-embeddings.md)
+* [Google VertexAI Embeddings](googlevertexai-embeddings.md)
+* [HuggingFace Inference Embeddings](huggingface-inference-embeddings.md)
+* [LocalAI Embeddings](localai-embeddings.md)
+* [MistralAI Embeddings](mistralai-embeddings.md)
+* [Ollama Embeddings](ollama-embeddings.md)
+* [OpenAI Embeddings](openai-embeddings.md)
+* [OpenAI Embeddings Custom](openai-embeddings-custom.md)
+* [TogetherAI Embedding](togetherai-embedding.md)
+* [VoyageAI Embeddings](voyageai-embeddings.md)

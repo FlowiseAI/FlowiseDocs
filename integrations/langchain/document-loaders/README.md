@@ -5,3 +5,35 @@ Document loaders allow you to load documents from different sources like PDF, TX
 ### Watch an intro on Document Loaders
 
 {% embed url="https://youtu.be/kMtf9sNIcao" %}
+
+### Available Document Loaders:
+
+* [API Loader](api-loader.md)
+* [Airtable](airtable.md)
+* [Apify Website Content Crawler](apify-website-content-crawler.md)
+* [Cheerio Web Scraper](cheerio-web-scraper.md)
+* [Confluence](confluence.md)
+* [Csv File](csv-file.md)
+* [Custom Document Loader](custom-document-loader.md)
+* [Document Store](document-store.md)
+* [Docx File](docx-file.md)
+* [Figma](figma.md)
+* [Folder with Files](folder-with-files.md)
+* [GitBook](gitbook.md)
+* [Github](github.md)
+* [Json File](json-file.md)
+* [Json Lines File](json-lines-file.md)
+* [Notion Database](notion-database.md)
+* [Notion Folder](notion-folder.md)
+* [Notion Page](notion-page.md)
+* [PDF Files](pdf-file.md)
+* [Plain Text](plain-text.md)
+* [Playwright Web Scraper](playwright-web-scraper.md)
+* [Puppeteer Web Scraper](puppeteer-web-scraper.md)
+* [S3 File Loader](s3-file-loader.md)
+* [SearchApi For Web Search](searchapi-for-web-search.md)
+* [SerpApi For Web Search](serpapi-for-web-search.md)
+* [Text File](text-file.md)
+* [Unstructured File Loader](unstructured-file-loader.md)
+* [Unstructured Folder Loader](unstructured-folder-loader.md)
+* [VectorStore To Document](vectorstore-to-document.md)

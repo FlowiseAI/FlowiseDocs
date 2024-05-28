@@ -21,17 +21,18 @@ Current conversation:
 {history}
 ```
 
-Available memory nodes in Flowise are:
+### Available Memories:
 
 * [Buffer Memory](buffer-memory.md)
 * [Buffer Window Memory](buffer-window-memory.md)
 * [Conversation Summary Memory](conversation-summary-memory.md)
 * [Conversation Summary Buffer Memory](conversation-summary-buffer-memory.md)
-* DynamoDB
-* MongoDB
-* Redis Chat Memory
-* Upstash Chat Memory
+* [DynamoDB Chat Memory](dynamodb-chat-memory.md)
+* [MongoDB Atlas Chat Memory](mongodb-atlas-chat-memory.md)
+* [Redis-Backed Chat Memory](redis-backed-chat-memory.md)
+* [Upstash Redis-Backed Chat Memory](upstash-redis-backed-chat-memory.md)
 * [Zep Memory](zep-memory.md)
+* [Threads](threads.md)
 
 ## Separate conversations for multiple users
 
