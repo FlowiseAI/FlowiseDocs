@@ -6,6 +6,21 @@ description: >-
 
 # Pinecone
 
+## Prerequisite
+
+1. Register an account for [Pinecone](https://app.pinecone.io/)
+2. Click **Create index**
+
+<figure><img src="../../../.gitbook/assets/pinecone_1.png" alt=""><figcaption></figcaption></figure>
+
+3. Fill in required fields:
+   - **Index Name**, name of the index to be created. (e.g. "flowise-demo")
+   - **Dimensions**, size of the vectors to be inserted in the index. (e.g. 1536)
+
+<figure><img src="../../../.gitbook/assets/pinecone_2.png" alt="" width="527"><figcaption></figcaption></figure>
+
+4. Click **Create Index**
+
 <figure><img src="../../../.gitbook/assets/pinecone_llamaindex.png" alt="" width="301"><figcaption><p>Pinecone Node</p></figcaption></figure>
 
 {% hint style="info" %}
