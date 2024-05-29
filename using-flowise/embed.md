@@ -150,6 +150,35 @@ An alternative to jsdelivr is unpkg. For example:&#x20;
 </strong></code></pre>
 {% endhint %}
 
+### CORS
+
+When using embedded chat widget, there's chance that you might face CORS issue like:
+
+{% hint style="danger" %}
+{% code overflow="wrap" %}
+```
+Access to fetch at 'https://<your-flowise.com>/api/v1/prediction/<chatlflowid>' from origin 'https://<your-flowise.com>' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+```
+{% endcode %}
+{% endhint %}
+
+To fix it, specify the following environment variables:
+
+```
+CORS_ORIGINS=*
+IFRAME_ORIGINS=*
+```
+
+For example, if you are using `npx flowise start`
+
+```
+npx flowise start --CORS_ORIGINS=* --IFRAME_ORIGINS=*
+```
+
+If using Docker, place the env variables inside `Flowise/docker/.env`
+
+If using local Git clone, place the env variables inside `Flowise/packages/server/.env`
+
 ### Tutorials
 
 * Watch how to embed Flowise in a Bootstrap 5 website
