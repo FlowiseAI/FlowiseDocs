@@ -253,4 +253,4 @@
   * [Multiple Documents QnA](use-cases/multiple-documents-qna.md)
   * [SQL QnA](use-cases/sql-qna.md)
   * [Calling Webhook](use-cases/webhook-tool.md)
-  * [Interacting with API](use-cases/webhook-tool-1.md)
+  * [Interacting with API](use-cases/interacting-with-api.md)
