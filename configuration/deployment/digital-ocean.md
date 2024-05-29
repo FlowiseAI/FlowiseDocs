@@ -84,7 +84,7 @@ BLOB_STORAGE_PATH=/root/.flowise/storage
 6. Run docker compose
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 7. You can then view the app: "Your Public IPv4 DNS":3000. Example: `176.63.19.226:3000`
