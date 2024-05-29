@@ -155,11 +155,7 @@ An alternative to jsdelivr is unpkg. For example:&#x20;
 When using embedded chat widget, there's chance that you might face CORS issue like:
 
 {% hint style="danger" %}
-{% code overflow="wrap" %}
-```
-Access to fetch at 'https://<your-flowise.com>/api/v1/prediction/<chatlflowid>' from origin 'https://<your-flowise.com>' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
-```
-{% endcode %}
+Access to fetch at 'https://\<your-flowise.com>/api/v1/prediction/' from origin 'https://\<your-flowise.com>' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
 {% endhint %}
 
 To fix it, specify the following environment variables:
