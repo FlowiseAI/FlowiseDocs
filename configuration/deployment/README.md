@@ -16,7 +16,7 @@ To deploy Flowise locally, follow our [Getting Started](../../getting-started/) 
 
 ### **Modern Cloud Providers**
 
-Modern cloud platforms prioritize automation and a focus on developer workflows, simplifying cloud management and ongoing maintenance. This reduces the technical expertise needed, but may limit the level of customization you have over the underlying infrastructure.
+Modern cloud platforms prioritize automation and focus on developer workflows, simplifying cloud management and ongoing maintenance. This reduces the technical expertise needed, but may limit the level of customization you have over the underlying infrastructure.
 
 * [Elestio](https://elest.io/open-source/flowiseai)
 * [Hugging Face](hugging-face.md)
