@@ -4,9 +4,9 @@ description: Flowise can be run anywhere.
 
 # Deployment
 
-***
-
 Flowise is built to be flexible, so you can deploy it wherever you're comfortable. We're platform-agnostic, meaning it works on a variety of systems:
+
+***
 
 ### Local Machine
 
