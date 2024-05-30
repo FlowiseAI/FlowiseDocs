@@ -37,6 +37,17 @@ description: >-
 
 <figure><img src="../../../.gitbook/assets/pinecone_5.png" alt="" width="563"><figcaption></figcaption></figure>
 
+4. Add additional nodes to canvas and start the upsert process
+   - **Document** can be connected with any node under [**Document Loader**](../../langchain/document-loaders/) category
+     {% hint style="info" %}
+     Document loaders and text splitters for LlamaIndex are not yet available, but using one of the ones available under LangChain will still allow querying with LlamaIndex as normal.
+     {% endhint %}
+   - **Embeddings** can be connected with any node under [**Embeddings** ](../embeddings/)category
+
+<figure><img src="../../../.gitbook/assets/pinecone_llama_chatflow.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/pinecone_llama_upsert.png" alt=""><figcaption></figcaption></figure>
+
 {% hint style="info" %}
 This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../CONTRIBUTING.md) to get started.
 {% endhint %}
