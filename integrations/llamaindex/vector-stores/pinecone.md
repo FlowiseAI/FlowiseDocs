@@ -48,6 +48,10 @@ description: >-
 
 <figure><img src="../../../.gitbook/assets/pinecone_llama_upsert.png" alt=""><figcaption></figcaption></figure>
 
+5. Verify on [Pinecone dashboard](https://app.pinecone.io) that data has been successfully upserted:
+
+<figure><img src="../../../.gitbook/assets/pinecone_8.png" alt=""><figcaption></figcaption></figure>
+
 {% hint style="info" %}
 This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../CONTRIBUTING.md) to get started.
 {% endhint %}
