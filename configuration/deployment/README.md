@@ -4,11 +4,15 @@ description: Flowise can be run anywhere.
 
 # Deployment
 
+***
+
 Flowise is built to be flexible, so you can deploy it wherever you're comfortable. We're platform-agnostic, meaning it works on a variety of systems:
 
 ### Local Machine
 
 To deploy Flowise locally, follow our [Getting Started](../../getting-started/) guide.
+
+***
 
 ### **Modern Cloud Providers**
 
@@ -22,6 +26,8 @@ Modern cloud platforms prioritize automation and a focus on developer workflows,
 * [Replit](replit.md)
 * [Sealos](sealos.md)
 * [Zeabur](zeabur.md)
+
+***
 
 ### Established Cloud Providers
 
