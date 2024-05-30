@@ -25,7 +25,7 @@ Modern cloud platforms prioritize automation and focus on developer workflows, s
 * [RepoCloud](https://repocloud.io/details/?app\_id=29)
 * [Replit](replit.md)
 * [Sealos](sealos.md)
-* [Zeabur](zeabur.md)
+* Zeabur
 
 ***
 
