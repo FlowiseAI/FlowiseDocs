@@ -22,10 +22,10 @@ Modern cloud platforms prioritize automation and focus on developer workflows, s
 * [Hugging Face](hugging-face.md)
 * [Railway](railway.md)
 * [Render](render.md)
-* [RepoCloud](https://repocloud.io/details/?app\_id=29)
 * [Replit](replit.md)
+* [RepoCloud](https://repocloud.io/details/?app\_id=29)
 * [Sealos](sealos.md)
-* Zeabur
+* [Zeabur](zeabur.md)
 
 ***
 
