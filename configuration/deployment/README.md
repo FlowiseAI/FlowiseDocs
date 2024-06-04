@@ -1,15 +1,37 @@
+---
+description: Flowise can be run anywhere.
+---
+
 # Deployment
 
-Flowise can be deployed to any cloud services. Here's few commonly used cloud providers:
+Flowise is built to be flexible, so you can deploy it wherever you're comfortable. We're platform-agnostic, meaning it works on a variety of systems:
 
-* [Render](render.md)
-* [Railway](railway.md)
-* [Sealos](sealos.md)
-* [Replit](replit.md)
+***
+
+### Local Machine
+
+To deploy Flowise locally, follow our [Getting Started](../../getting-started/) guide.
+
+***
+
+### **Modern Cloud Providers**
+
+Modern cloud platforms prioritize automation and focus on developer workflows, simplifying cloud management and ongoing maintenance. This reduces the technical expertise needed, but may limit the level of customization you have over the underlying infrastructure.
+
+* [Elestio](https://elest.io/open-source/flowiseai)
 * [Hugging Face](hugging-face.md)
+* [Railway](railway.md)
+* [Render](render.md)
+* [Replit](replit.md)
+* [RepoCloud](https://repocloud.io/details/?app\_id=29)
+* [Sealos](sealos.md)
 * [Zeabur](zeabur.md)
 
-Cloud providers like AWS, Azure, GCP, DigitalOcean are slightly more technical to set it up:
+***
+
+### Established Cloud Providers
+
+Established cloud providers, on the other hand, require a higher level of technical expertise to manage and optimize for your specific needs. This complexity, however, also grants greater flexibility and control over your cloud environment.
 
 * [AWS](aws.md)
 * [Azure](azure.md)

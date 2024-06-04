@@ -30,3 +30,4 @@ That's it! You now have a deployed Flowise on Zeabur [🎉](https://emojipedia.o
 ## Persistent Volume
 
 Zeabur will automatically create a persistent volume for you so you don't have to worry about it.
+
