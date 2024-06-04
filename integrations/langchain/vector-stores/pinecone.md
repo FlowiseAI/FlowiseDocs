@@ -1,3 +1,9 @@
+---
+description: >-
+  Upsert embedded data and perform similarity search upon query using Pinecone,
+  a leading fully managed hosted vector database.
+---
+
 # Pinecone
 
 ## Prerequisite
@@ -8,7 +14,7 @@
 <figure><img src="../../../.gitbook/assets/pinecone_1.png" alt=""><figcaption></figcaption></figure>
 
 3. Fill in required fields:
-   - **Index Name**, name of the index to be created. (e.g. "flowise-demo")
+   - **Index Name**, name of the index to be created. (e.g. "flowise-test")
    - **Dimensions**, size of the vectors to be inserted in the index. (e.g. 1536)
 
 <figure><img src="../../../.gitbook/assets/pinecone_2.png" alt="" width="527"><figcaption></figcaption></figure>
