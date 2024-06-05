@@ -1,10 +1,8 @@
----
-description: >-
-  Agent that uses the ReAct logic to decide what action to take, optimized to be
-  used with Chat Models.
----
-
 # ReAct Agent Chat
+
+Agent that uses the [ReAct](https://react-lm.github.io/) (Reasoning and Acting) logic to decide what action to take, optimized to be used with Chat Models.
+
+<figure><img src="../../../.gitbook/assets/image (173).png" alt="" width="325"><figcaption></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1).png" alt="" width="336"><figcaption><p>ReAct Agent Chat Node</p></figcaption></figure>
 
