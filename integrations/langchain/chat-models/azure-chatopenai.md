@@ -53,7 +53,7 @@ For models that are not supported on ChatOpenAI node, you can use ChatOpenAI Cus
 
 ## Image Upload
 
-You can also allow images to be uploaded and analyzed by LLM. Under the hood, Flowise will use [OpenAI Vison ](https://platform.openai.com/docs/guides/vision)model to process the image.
+You can also allow images to be uploaded and analyzed by LLM. Under the hood, Flowise will use [OpenAI Vison ](https://platform.openai.com/docs/guides/vision)model to process the image. Only works with LLMChain, Conversation Chain, ReAct Agent, and Conversational Agent.
 
 <figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (2).png" alt="" width="332"><figcaption></figcaption></figure>
 
