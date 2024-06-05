@@ -257,4 +257,5 @@
   * [Multiple Documents QnA](use-cases/multiple-documents-qna.md)
   * [SQL QnA](use-cases/sql-qna.md)
   * [Calling Webhook](use-cases/webhook-tool.md)
+  * [Calling Children Flows](use-cases/calling-children-flows.md)
   * [Interacting with API](use-cases/interacting-with-api.md)

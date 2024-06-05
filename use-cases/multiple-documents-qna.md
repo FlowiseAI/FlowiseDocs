@@ -8,6 +8,8 @@ In this example, we are going to perform QnA on 2 PDFs, which are FORM-10K of AP
 
 <figure><img src="../.gitbook/assets/image (93).png" alt="" width="375"><figcaption></figcaption></figure>
 
+ 
+
 <figure><img src="../.gitbook/assets/image (94).png" alt="" width="375"><figcaption></figcaption></figure>
 
 </div>
@@ -24,6 +26,8 @@ In this example, we are going to perform QnA on 2 PDFs, which are FORM-10K of AP
 <div align="left">
 
 <figure><img src="../.gitbook/assets/multi-docs-apple.png" alt="" width="563"><figcaption></figcaption></figure>
+
+ 
 
 <figure><img src="../.gitbook/assets/multi-docs-tesla.png" alt="" width="563"><figcaption></figcaption></figure>
 
@@ -51,6 +55,8 @@ In this example, we are going to perform QnA on 2 PDFs, which are FORM-10K of AP
 
 <figure><img src="../.gitbook/assets/Untitled (7).png" alt="" width="563"><figcaption></figcaption></figure>
 
+ 
+
 <figure><img src="../.gitbook/assets/Untitled (8).png" alt="" width="563"><figcaption></figcaption></figure>
 
 </div>
@@ -69,34 +75,33 @@ Each vector databse provider has different format of filtering syntax, recommend
 
 5. However, the problem with this is that metadata filtering is sort of _**"hard-coded"**_. Ideally, we should let the LLM to decide which document to retrieve based on the question.
 
-## Agent
+## Tool Agent
 
-We can solve the _**"hard-coded"**_ metadata filter problem by using [Function Calling](https://platform.openai.com/docs/guides/function-calling) Agent.
+We can solve the _**"hard-coded"**_ metadata filter problem by using [Tool Agent](../integrations/langchain/agents/tool-agent.md).
 
 By providing tools to agent, we can let the agent to decide which tool is suitable to be used depending on the question.
 
-1. Create a Retriever Tool with following name and description:
+1. Create a [Retriever Tool](../integrations/langchain/tools/retriever-tool.md) with following name and description:
 
-- **Name**: search_apple
-- **Description**: Use this function to answer user questions about Apple Inc (APPL). It contains a SEC Form 10K filing describing the financials of Apple Inc (APPL) for the 2022 time period.
+<table><thead><tr><th width="178">Name</th><th>Description</th></tr></thead><tbody><tr><td>search_apple</td><td>Use this function to answer user questions about Apple Inc (APPL). It contains a SEC Form 10K filing describing the financials of Apple Inc (APPL) for the 2022 time period.</td></tr></tbody></table>
 
 2. Connect to Pinecone node with metadata filter `{source: apple}`
 
 <figure><img src="../.gitbook/assets/image (104).png" alt="" width="563"><figcaption></figcaption></figure>
 
-3. Repeat the same for tesla.
+3. Repeat the same for Tesla:
 
-- **Name**: search_tsla
-- **Description**: Use this function to answer user questions about Tesla Inc (TSLA). It contains a SEC Form 10K filing describing the financials of Tesla Inc (TSLA) for the 2022 time period.
-- **Pinecone Metadata Filter**: `{source: tesla}`
-
-<figure><img src="../.gitbook/assets/image (105).png" alt=""><figcaption></figcaption></figure>
+<table><thead><tr><th width="175">Name</th><th width="322">Description</th><th>Pinecone Metadata Filter</th></tr></thead><tbody><tr><td>search_tsla</td><td>Use this function to answer user questions about Tesla Inc (TSLA). It contains a SEC Form 10K filing describing the financials of Tesla Inc (TSLA) for the 2022 time period.</td><td><code>{source: tesla}</code></td></tr></tbody></table>
 
 {% hint style="info" %}
 It is important to specify a clear and concise description. This allows LLM to better decide when to use which tool
 {% endhint %}
 
-4. Now, we need to create a general instruction to OpenAI Function Agent. Click Additional Parameters of the node, and specify the System Message. For example:
+Your flow should looks like below:
+
+<figure><img src="../.gitbook/assets/image (154).png" alt=""><figcaption></figcaption></figure>
+
+4. Now, we need to create a general instruction to Tool Agent. Click **Additional Parameters** of the node, and specify the **System Message**. For example:
 
 ```
 You are an expert financial analyst that always answers questions with the most relevant information using the tools at your disposal.
@@ -124,6 +129,8 @@ The current date is: 2024-01-28
 
 <figure><img src="../.gitbook/assets/Untitled (9).png" alt="" width="375"><figcaption></figcaption></figure>
 
+ 
+
 <figure><img src="../.gitbook/assets/Untitled (10).png" alt="" width="375"><figcaption></figcaption></figure>
 
 </div>
@@ -136,7 +143,7 @@ The current date is: 2024-01-28
 
 ## XML Agent
 
-If you are using Anthropic's Claude models, function callings capabilities are not available yet. In the meantime, we can use XML Agent because Claude models are particularly good at reasoning/writing XML syntax.
+For some LLMs, function callings capabilities are not supported. In this case, we can use XML Agent to prompt the LLM in a more structured format/syntax, with the goal of using the provided tools.
 
 It has the underlying prompt:
 
@@ -172,6 +179,6 @@ Question: {input}
 
 We've covered using Conversational Retrieval QA Chain and its limitation when querying multiple documents. And we were able to overcome the issue by using OpenAI Function Agent/XML Agent + Tools. You can find the templates below:
 
-{% file src="../.gitbook/assets/Agent Chatflow.json" %}
+{% file src="../.gitbook/assets/ToolAgent Chatflow.json" %}
 
 {% file src="../.gitbook/assets/XMLAgent Chatflow.json" %}

@@ -1,4 +1,4 @@
-# Webhook Tool
+# Calling Webhook
 
 In this use case tutorial, we are going to create a custom tool that will be able to call a webhook endpoint, and pass in the necessary parameters into the webhook body. We'll be using [Make.com](https://www.make.com/en) to create the webhook workflow.
 
@@ -45,9 +45,9 @@ We can then fill in the following fields (feel free to change this according to 
 * **Tool Name**: make\_webhook (must be in snake\_case)
 * **Tool Description**: Useful when you need to send message to Discord
 * **Tool Icon Src**: [https://github.com/FlowiseAI/Flowise/assets/26460777/517fdab2-8a6e-4781-b3c8-fb92cc78aa0b](https://github.com/FlowiseAI/Flowise/assets/26460777/517fdab2-8a6e-4781-b3c8-fb92cc78aa0b)
-* **Output Schema**:
+* **Input Schema**:
 
-<figure><img src="../.gitbook/assets/image (50).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (167).png" alt=""><figcaption></figcaption></figure>
 
 * **JavaScript Function**:
 
