@@ -19,7 +19,7 @@ In Flowise, nodes are referred to as integrations. Similar to LEGO, you can buil
 * [Retrievers](langchain/retrievers/)
 * [Text Splitters](langchain/text-splitters/)
 * [Tools](langchain/tools/)
-* [Utilities](langchain/utilities/)
+* [Utilities](utilities/)
 * [Vector Stores](langchain/vector-stores/)
 
 ### LlamaIndex Nodes
@@ -35,4 +35,3 @@ In Flowise, nodes are referred to as integrations. Similar to LEGO, you can buil
 ### External Integrations
 
 * [Zapier Zaps](3rd-party-platform-integration/zapier-zaps.md)
-

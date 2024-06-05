@@ -1,10 +1,15 @@
 # Variables
 
-Flowise allow users to create variables that can be used in Custom Tool Function.&#x20;
+Flowise allow users to create variables that can be used in:
+
+* [Custom Tool](../integrations/langchain/tools/custom-tool.md)
+* [Custom Function](../integrations/utilities/custom-js-function.md)
+* [Custom Loader](../integrations/langchain/document-loaders/custom-document-loader.md)
+* [If Else](../integrations/utilities/if-else.md)
 
 For example, you have a database URL that you do not want it to be exposed on the function, but you still want the function to be able to read the URL from your environment variable.
 
-User can create a variable and get the variable in Custom Tool Function:
+User can create a variable and get the variable like so:
 
 `$vars.<variable-name>`
 
