@@ -4,6 +4,10 @@ description: Flowise can be run anywhere.
 
 # Deployment
 
+{% hint style="info" %}
+Get ready! We're launching our own Flowise cloud service in just a few weeks. Join our [Discord](https://discord.com/invite/jbaHfsRVBW) community and be part of the launch excitement.
+{% endhint %}
+
 Flowise is built to be flexible, so you can deploy it wherever you're comfortable. We're platform-agnostic, meaning it works on a variety of systems:
 
 ***
