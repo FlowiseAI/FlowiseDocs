@@ -6,13 +6,13 @@ description: Welcome to the official Flowise documentation
 
 <figure><img src=".gitbook/assets/flowise.gif" alt=""><figcaption><p>Flowise User Interface</p></figcaption></figure>
 
-{% hint style="success" %}
-Developing LLM apps often involves countless iterations. Our low-code approach and graphical interface enable rapid iteration, allowing you to seamlessly transition from testing to production.
-{% endhint %}
-
 ## What is Flowise?
 
 Flowise is an open source low-code tool for developers to build customized LLM orchestration flows & AI agents.
+
+{% hint style="success" %}
+Developing LLM apps often involves countless iterations. Our low-code approach and graphical interface enable rapid iteration, allowing you to seamlessly transition from testing to production.
+{% endhint %}
 
 ### See Flowise in action
 
