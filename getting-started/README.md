@@ -14,7 +14,7 @@ npm install -g flowise
 
 2. Start Flowise
 
-<pre class="language-bash"><code class="lang-bash"><strong>npx flowise start
+<pre><code><strong>npx flowise start
 </strong></code></pre>
 
 3. Open [http://localhost:3000](http://localhost:3000)
