@@ -4,15 +4,13 @@ description: Welcome to the official Flowise documentation
 
 # Introduction
 
-<figure><img src=".gitbook/assets/flowise.gif" alt=""><figcaption></figcaption></figure>
-
-***
+<figure><img src=".gitbook/assets/flowise.gif" alt=""><figcaption><p>Flowise User Interface</p></figcaption></figure>
 
 ## What is Flowise?
 
 Flowise is an open source low-code tool for developers to build customized LLM orchestration flow & AI agents.
 
-### See Flowise in Action
+#### See Flowise in Action
 
 In this 2-minute quickstart demo, you'll learn the basic fundamentals of how Flowise works.
 
@@ -20,7 +18,7 @@ In this 2-minute quickstart demo, you'll learn the basic fundamentals of how Flo
 Building a PDF QnA app
 {% endembed %}
 
-### Building your first AI app
+#### Building your first AI app
 
 This 10-minute video will teach you how to build your first AI app using Flowise.
 
@@ -28,13 +26,9 @@ This 10-minute video will teach you how to build your first AI app using Flowise
 Build your first AI app from scratch with Flowise
 {% endembed %}
 
-***
-
 ## Contributing
 
 If you want to help this project, please consider reviewing the [contributing guide](CONTRIBUTING.md).
-
-***
 
 ## Need Help?
 
