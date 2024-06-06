@@ -24,10 +24,10 @@ Building a PDF QnA app
 
 ### Building your first AI app
 
-This 10-minute video will teach you how to build your first AI app using Flowise.
+This 10-minute video will teach you how to build your first LLM app using Flowise.
 
 {% embed url="https://youtu.be/kAyKOsm8L5Y" %}
-Build your first AI app from scratch with Flowise
+Build your first LLM app from scratch with Flowise
 {% endembed %}
 
 ## Contributing
