@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Welcome to Flowise](README.md)
+* [Introduction](README.md)
 * [Getting Started](getting-started/README.md)
 * [Contributing](CONTRIBUTING.md)
 * [Using Flowise](using-flowise/README.md)
