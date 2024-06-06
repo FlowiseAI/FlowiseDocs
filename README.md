@@ -34,6 +34,8 @@ Build your first AI app from scratch with Flowise
 
 If you want to help this project, please consider reviewing the [contributing guide](CONTRIBUTING.md).
 
+***
+
 ## Need Help?
 
 For support and discussion, head over to our [Discord](https://discord.gg/jbaHfsRVBW) server.
