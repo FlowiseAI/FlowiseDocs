@@ -18,7 +18,7 @@ In this 2-minute quickstart demo, you'll learn the basic fundamentals of how Flo
 Building a PDF QnA app
 {% endembed %}
 
-### Building your first AI app
+### Building your first LLM app
 
 This 10-minute video will teach you how to build your first LLM app using Flowise.
 
