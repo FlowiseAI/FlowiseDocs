@@ -8,9 +8,9 @@ description: Welcome to the official Flowise documentation
 
 ## What is Flowise?
 
-Flowise is an open source low-code tool for developers to build customized LLM orchestration flow & AI agents.
+Flowise is an open source low-code tool for developers to build customized LLM orchestration flows & AI agents.
 
-### See Flowise in Action
+### See Flowise in action
 
 In this 2-minute quickstart demo, you'll learn the basic fundamentals of how Flowise works.
 
