@@ -71,9 +71,9 @@ docker stop flowise
 
 Flowise has 3 different modules in a single mono repository:
 
-* **Server**: Node backend to serve API logics.
-* **UI**: React frontend.
-* **Components**: Integrations components.
+* **Server**: Node backend to serve API logics
+* **UI**: React frontend
+* **Components**: Integrations components
 
 ### Prerequisite
 
@@ -129,7 +129,7 @@ pnpm dev
 #### **Important:**
 
 * Any changes made in `packages/ui` or `packages/server` will be reflected on [http://localhost:8080](http://localhost:8080/)
-* For changes made in `packages/components`, you will need to build again to pickup the changes.
+* For changes made in `packages/components`, you will need to build again to pickup the changes
 *   After making all the changes, run:
 
     ```bash
@@ -142,8 +142,10 @@ pnpm dev
     pnpm start
     ```
 
+    to make sure everything works fine in production.
+
 ## Learn More
 
-Watch an introduction & setup tutorial on Flowise, shoutout to Leon!
+In this video tutorial, Leon provides a first introduction to Flowise and explains some ways to set up Flowise on your local machine.
 
 {% embed url="https://youtu.be/nqAK_L66sIQ" %}
