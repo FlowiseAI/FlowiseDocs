@@ -1,10 +1,10 @@
 ---
-description: We appreciate any form of contributions
+description: Learn how to contribute to this project
 ---
 
 # Contributing
 
-No matter your level or technical background, there are many ways you can help this project grow. Here are some ways you can contribute:
+We appreciate any form of contributions. No matter your level or technical background, there are many ways you can help this project grow. Here are some ways you can contribute:
 
 ## ⭐ Star
 

@@ -1,5 +1,5 @@
 ---
-description: Flowise is platform agnostic, meaning it is compatible with several frameworks
+description: Learn how Flowise is integrated with different frameworks.
 ---
 
 # Integrations
