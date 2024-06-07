@@ -1,3 +1,7 @@
+---
+description: Learn how to analyze and troubleshoot your chatflows
+---
+
 # Analytic
 
 There are several analytic providers Flowise integrates with:
@@ -22,7 +26,7 @@ There are several analytic providers Flowise integrates with:
 
 ## API
 
-Once the analytic has been turned ON from the UI, you can override or provide additional configuration  in the body of the [Prediction API](api.md#prediction-api):
+Once the analytic has been turned ON from the UI, you can override or provide additional configuration in the body of the [Prediction API](api.md#prediction-api):
 
 ```json
 {

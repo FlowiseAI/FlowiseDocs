@@ -1,3 +1,7 @@
+---
+description: Learn how to use the Flowise API
+---
+
 # API
 
 ## Prediction API

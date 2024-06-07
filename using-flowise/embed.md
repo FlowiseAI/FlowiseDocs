@@ -1,3 +1,7 @@
+---
+description: Learn how to embed our in-house widget chatbot
+---
+
 # Embed
 
 You can embed a chat widget to your website. Simply copy paste the embedded code provided to anywhere in the `<body>` tag of your html file.
@@ -12,7 +16,7 @@ You can also customize your own embedded chat widget UI. See full [configuration
 
 ### Chatflow Config
 
-You can pass `chatflowConfig` JSON object to override existing configuration. This is the same as  [#override-config](api.md#override-config "mention") in API.
+You can pass `chatflowConfig` JSON object to override existing configuration. This is the same as [#override-config](api.md#override-config "mention") in API.
 
 ```html
 <script type="module">
@@ -155,7 +159,7 @@ Replace `username` to your Github username, and `forked-repo` to your forked rep
 ```
 
 {% hint style="info" %}
-An alternative to jsdelivr is unpkg. For example:&#x20;
+An alternative to jsdelivr is unpkg. For example:
 
 <pre><code><strong>https://unpkg.com/flowise-embed/dist/web.js
 </strong></code></pre>

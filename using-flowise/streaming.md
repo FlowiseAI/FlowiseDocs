@@ -1,3 +1,7 @@
+---
+description: Learn when you can stream back to your front end
+---
+
 # Streaming
 
 Flowise supports streaming back to your front end application when the final node is a **Chain** or **OpenAI Function Agent.**
