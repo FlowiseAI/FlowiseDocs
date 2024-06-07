@@ -10,6 +10,8 @@ Flowise supports streaming back to your front end application when the final nod
 
 <figure><img src="../.gitbook/assets/screely-1687030924019.png" alt=""><figcaption></figcaption></figure>
 
+## Setup
+
 1. Install socket.io-client to your front-end application
 
 {% tabs %}

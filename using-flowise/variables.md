@@ -19,18 +19,18 @@ User can create a variable and get the variable like so:
 
 Variables can be Static or Runtime.
 
-### Static
+## Static
 
 Static variable will be saved with the value specified, and retrieved as it is.
 
 <figure><img src="../.gitbook/assets/image (13) (1).png" alt="" width="542"><figcaption></figcaption></figure>
 
-### Runtime
+## Runtime
 
 Value of the variable will be fetched from **.env** file using `process.env`
 
 <figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="537"><figcaption></figcaption></figure>
 
-### Resources
+## Resources
 
 * [Pass Variables to Function](../integrations/langchain/tools/custom-tool.md#pass-variables-to-function)
