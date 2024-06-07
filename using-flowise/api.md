@@ -474,7 +474,9 @@ res = requests.get('http://localhost:3000/api/v1/chatmessage/{your-chatflowid}',
 {% endtab %}
 {% endtabs %}
 
-## Tutorials
+## Video Tutorials
+
+Those video tutorials cover the main use cases for implementing the Flowise API.
 
 {% embed url="https://youtu.be/9R5zo3IVkqU?si=y1v_aCQLE_70WBnA" %}
 
