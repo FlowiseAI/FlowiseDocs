@@ -1,33 +1,51 @@
+---
+description: Learn how to install Flowise locally
+---
+
 # Getting Started
 
-## Prerequisite
+{% hint style="info" %}
+**Important:** Before you can get started, you'll need to ensure that you have the latest version of  [NodeJS](https://nodejs.org/en/download) installed on your computer. NodeJS is a fundamental requirement for this project, providing the runtime environment for our code.
+{% endhint %}
 
-Latest [NodeJS](https://nodejs.org/en/download) installed
+## Quick Start
 
-## ⚡Quick Start
+Install Flowise locally using npm.
 
-1. Install Flowise
+1. Install Flowise:
 
 ```bash
 npm install -g flowise
 ```
 
-2. Start Flowise
+2. Start Flowise:
 
-<pre><code><strong>npx flowise start
-</strong></code></pre>
+```bash
+npx flowise start
+```
 
-3. Open [http://localhost:3000](http://localhost:3000)
+3. Open: [http://localhost:3000](http://localhost:3000)
 
-## 🐳 Docker
+## Docker
+
+There are two ways to install Flowise in Docker: using Docker Compose or a Docker image.
 
 ### Docker Compose
 
-1. Go to `docker` folder at the root of the project
+1. Go to `docker folder` at the root of the project
 2. Copy the `.env.example` file and paste it as another file named `.env`
-3. `docker-compose up -d`
-4. Open [http://localhost:3000](http://localhost:3000)
-5. You can bring the containers down by `docker-compose stop`
+3. Run:
+
+```bash
+docker-compose up -d
+```
+
+4. Open: [http://localhost:3000](http://localhost:3000)
+5. You can bring the containers down by running:
+
+```bash
+docker-compose stop
+```
 
 ### Docker Image
 
@@ -49,15 +67,15 @@ docker run -d --name flowise -p 3000:3000 flowise
 docker stop flowise
 ```
 
-## 👨‍💻 Developers
+## For Developers
 
-Flowise has 3 different modules in a single mono repository.
+Flowise has 3 different modules in a single mono repository:
 
-* `server`: Node backend to serve API logics
-* `ui`: React frontend
-* `components`: Integrations components
+* **Server**: Node backend to serve API logics.
+* **UI**: React frontend.
+* **Components**: Integrations components.
 
-#### Prerequisite
+### Prerequisite
 
 Install [PNPM](https://pnpm.io/installation)
 
@@ -65,18 +83,19 @@ Install [PNPM](https://pnpm.io/installation)
 npm i -g pnpm
 ```
 
-#### Setup
+### Setup
 
-1. Clone the repository
+1. Clone the repository:
 
 ```bash
 git clone https://github.com/FlowiseAI/Flowise.git
 ```
 
-2. Go into repository folder
+2. Go into repository folder:&#x20;
 
-<pre class="language-bash"><code class="lang-bash"><strong>cd Flowise
-</strong></code></pre>
+```bash
+cd Flowise
+```
 
 3. Install all dependencies of all modules:
 
@@ -107,7 +126,23 @@ You can now access the app on [http://localhost:3000](http://localhost:3000)
 pnpm dev
 ```
 
-Any code changes will reload the app automatically on [http://localhost:8080](http://localhost:8080)
+#### **Important:**
+
+* Any changes made in `packages/ui` or `packages/server` will be reflected on [http://localhost:8080](http://localhost:8080/)
+* For changes made in `packages/components`, you will need to build again to pickup the changes.
+*   After making all the changes, run:
+
+    ```bash
+    pnpm build
+    ```
+
+    and
+
+    ```bash
+    pnpm start
+    ```
+
+## Learn More
 
 Watch an introduction & setup tutorial on Flowise, shoutout to Leon!
 
