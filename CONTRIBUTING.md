@@ -50,4 +50,6 @@ A member of the FlowiseAI team will automatically be notified/assigned when you 
 
 ## 📜 Code of Conduct
 
-This project and everyone participating in it are governed by the Code of Conduct which can be found in the [file](CODE\_OF\_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to hello@flowiseai.com.
+This project and everyone participating in it are governed by the Code of Conduct which can be found in the [file](CODE\_OF\_CONDUCT.md).&#x20;
+
+By participating, you are expected to uphold this code. Please report unacceptable behavior to hello@flowiseai.com.
