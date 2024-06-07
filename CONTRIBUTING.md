@@ -40,7 +40,9 @@ Found an issue? [Report it](https://github.com/FlowiseAI/Flowise/issues/new/choo
 6. Make changes
 7. Commit changes and submit Pull Request from forked branch pointing to [Flowise Docs main](https://github.com/FlowiseAI/FlowiseDocs).
 
-## &#x20;📖Contribute to Docs
+## &#x20;👨‍💻Contribute to Code
+
+Go to [For Developers](getting-started/#for-developers) section an follow the instructions.
 
 ## 🏷️ Pull Request process
 
