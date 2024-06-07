@@ -85,6 +85,42 @@ npm i -g pnpm
 
 ### Setup
 
+For a simple set up:
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/FlowiseAI/Flowise.git
+```
+
+2. Go into repository folder
+
+```bash
+cd Flowise
+```
+
+3. Install all dependencies of all modules:
+
+```bash
+pnpm install
+```
+
+4. Build all the code:
+
+```bash
+pnpm build
+```
+
+Start the app on [http://localhost:3000](http://localhost:3000)
+
+```bash
+pnpm start
+```
+
+### **Step by step**
+
+For contrubutting to the project:
+
 1. Fork the official [Flowise Github Repository](https://github.com/FlowiseAI/Flowise)
 2. Clone your forked repository
 3. Create a new branch, see [guide](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository). Naming conventions:
