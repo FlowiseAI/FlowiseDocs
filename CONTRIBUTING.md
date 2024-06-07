@@ -1,14 +1,14 @@
+---
+description: We appreciate any form of contributions
+---
+
 # Contributing
 
-We appreciate any form of contributions.
+No matter your level or technical background, there are many ways you can help this project grow. Here are some ways you can contribute:
 
 ## ⭐ Star
 
 Star and share the [Github Repo](https://github.com/FlowiseAI/Flowise).
-
-## 🙋 Q\&A
-
-Search up for any questions in [Q\&A section](https://github.com/FlowiseAI/Flowise/discussions/categories/q-a), if you can't find one, don't hesitate to create one. It might helps others that have similar question.
 
 ## 🙌 Share Chatflow
 
@@ -16,7 +16,11 @@ Yes! Sharing how you use Flowise is a way of contribution. Export your chatflow 
 
 ## 💡 Ideas
 
-Ideas are welcome such as new feature, apps integration, and blockchain networks. Submit in [Ideas section](https://github.com/FlowiseAI/Flowise/discussions/categories/ideas).
+Ideas are always welcome, such as new features, app integrations, and blockchain networks. Submit them in [Ideas section](https://github.com/FlowiseAI/Flowise/discussions/categories/ideas).
+
+## 🙋 Q\&A
+
+Want to learn more? Search for answers to any questions in the [Q\&A section](https://github.com/FlowiseAI/Flowise/discussions/categories/q-a). If you can't find one, don't hesitate to create a new question. It might help others who have similar questions.
 
 ## 🐞 Report Bugs
 
@@ -35,6 +39,8 @@ Found an issue? [Report it](https://github.com/FlowiseAI/Flowise/issues/new/choo
     ```
 6. Make changes
 7. Commit changes and submit Pull Request from forked branch pointing to [Flowise Docs main](https://github.com/FlowiseAI/FlowiseDocs).
+
+## &#x20;📖Contribute to Docs
 
 ## 🏷️ Pull Request process
 
