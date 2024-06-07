@@ -125,7 +125,7 @@ You can change the pop up button properties, as well as the chat window:
 </script>
 ```
 
-**Note:** You can also customize your own embedded chat widget UI. See full [configuration list](https://github.com/FlowiseAI/FlowiseChatEmbed#configuration).
+**Note:** See full [configuration list](https://github.com/FlowiseAI/FlowiseChatEmbed#configuration).
 
 ## Custom Modificaton
 
