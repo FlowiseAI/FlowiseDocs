@@ -85,31 +85,31 @@ npm i -g pnpm
 
 ### Setup
 
-1. Clone the repository:
-
-```bash
-git clone https://github.com/FlowiseAI/Flowise.git
-```
-
-2. Go into repository folder:&#x20;
+1. Fork the official [Flowise Github Repository](https://github.com/FlowiseAI/Flowise)
+2. Clone your forked repository
+3. Create a new branch, see [guide](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository). Naming conventions:
+   * For feature branch: `feature/<Your New Feature>`
+   * For bug fix branch: `bugfix/<Your New Bugfix>`.
+4. Switch to the newly created branch
+5. Go into repository folder:&#x20;
 
 ```bash
 cd Flowise
 ```
 
-3. Install all dependencies of all modules:
+6. Install all dependencies of all modules:
 
 ```bash
 pnpm install
 ```
 
-4. Build all the code:
+7. Build all the code:
 
 ```bash
 pnpm build
 ```
 
-5. Start the app:
+8. Start the app:
 
 ```bash
 pnpm start
@@ -117,7 +117,7 @@ pnpm start
 
 You can now access the app on [http://localhost:3000](http://localhost:3000)
 
-6. For development build:
+9. For development build:
 
 * Create `.env` file and specify the `PORT` (refer to `.env.example`) in `packages/ui`
 * Create `.env` file and specify the `PORT` (refer to `.env.example`) in `packages/server`
