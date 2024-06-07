@@ -83,7 +83,7 @@ Install [PNPM](https://pnpm.io/installation)
 npm i -g pnpm
 ```
 
-### Setup
+### Setup 1
 
 For a simple set up:
 
@@ -117,9 +117,9 @@ Start the app on [http://localhost:3000](http://localhost:3000)
 pnpm start
 ```
 
-### **Step by step**
+### **Setup 2**
 
-For contrubutting to the project:
+Here is a step-by-step setup for developers contributing to the project:
 
 1. Fork the official [Flowise Github Repository](https://github.com/FlowiseAI/Flowise)
 2. Clone your forked repository
@@ -145,13 +145,11 @@ pnpm install
 pnpm build
 ```
 
-8. Start the app:
+8. Start the app on [http://localhost:3000](http://localhost:3000)
 
 ```bash
 pnpm start
 ```
-
-You can now access the app on [http://localhost:3000](http://localhost:3000)
 
 9. For development build:
 
