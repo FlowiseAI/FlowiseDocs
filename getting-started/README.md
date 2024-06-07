@@ -164,7 +164,7 @@ pnpm start
 pnpm dev
 ```
 
-#### **Important:**
+#### **Note:**
 
 * Any changes made in `packages/ui` or `packages/server` will be reflected on [http://localhost:8080](http://localhost:8080/)
 * For changes made in `packages/components`, you will need to build again to pickup the changes

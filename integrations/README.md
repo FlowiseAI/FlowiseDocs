@@ -1,3 +1,7 @@
+---
+description: Flowise is platform agnostic, meaning it is compatible with several frameworks
+---
+
 # Integrations
 
 In Flowise, nodes are referred to as integrations. Similar to LEGO, you can build a customized LLM ochestration flow, a chatbot, an agent with all the integrations available in Flowise.
@@ -19,7 +23,6 @@ In Flowise, nodes are referred to as integrations. Similar to LEGO, you can buil
 * [Retrievers](langchain/retrievers/)
 * [Text Splitters](langchain/text-splitters/)
 * [Tools](langchain/tools/)
-* [Utilities](utilities/)
 * [Vector Stores](langchain/vector-stores/)
 
 ### LlamaIndex Nodes
@@ -31,6 +34,13 @@ In Flowise, nodes are referred to as integrations. Similar to LEGO, you can buil
 * [Response Synthesizer](llamaindex/response-synthesizer/)
 * [Tools](llamaindex/tools/)
 * [Vector Stores](llamaindex/vector-stores/)
+
+### Utilities
+
+* [Custom JS Function](utilities/custom-js-function.md)
+* [Set/Get Variable](utilities/set-get-variable.md)
+* [If Else](utilities/if-else.md)
+* [Sticky Note](utilities/sticky-note.md)
 
 ### External Integrations
 
