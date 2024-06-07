@@ -1,12 +1,12 @@
 ---
-description: Learn how Flowise is integrated with different frameworks.
+description: Learn what integrations are abailable in Flowiseeee.
 ---
 
 # Integrations
 
 In Flowise, nodes are referred to as integrations. Similar to LEGO, you can build a customized LLM ochestration flow, a chatbot, an agent with all the integrations available in Flowise.
 
-### LangChain Nodes
+### LangChain
 
 * [Agents](langchain/agents/)
 * [Cache](langchain/cache/)
@@ -25,7 +25,7 @@ In Flowise, nodes are referred to as integrations. Similar to LEGO, you can buil
 * [Tools](langchain/tools/)
 * [Vector Stores](langchain/vector-stores/)
 
-### LlamaIndex Nodes
+### LlamaIndex
 
 * [Agents](llamaindex/agents/)
 * [Chat Models](llamaindex/chat-models/)
