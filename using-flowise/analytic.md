@@ -1,5 +1,5 @@
 ---
-description: Learn how to analyze and troubleshoot your chatflows
+description: Learn how to analyze and troubleshoot your chatflows and agentflows
 ---
 
 # Analytic
@@ -10,13 +10,17 @@ There are several analytic providers Flowise integrates with:
 * [Langfuse](https://langfuse.com/)
 * [LunaryAI](https://lunary.ai/)
 
-## UI
+## Chatflows & Agentflows
 
-1. At the top right corner, click Analyse Chatflow:
+1. At the top right corner, click Analyse **Settings** > **Configuration**
 
-<figure><img src="../.gitbook/assets/image (80).png" alt="" width="224"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (105).png" alt="" width="375"><figcaption></figcaption></figure>
 
-2. You will see the list of providers along with configuration:
+2. Then go to **Analyse Chatflow**
+
+<figure><img src="../.gitbook/assets/image (157).png" alt=""><figcaption></figcaption></figure>
+
+3. You will see the list of providers along with configuration:
 
 <figure><img src="../.gitbook/assets/image (82).png" alt="" width="563"><figcaption></figcaption></figure>
 
