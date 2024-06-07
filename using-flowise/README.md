@@ -6,7 +6,7 @@ description: Learn to use some of the core functionalities built into Flowise
 
 This section provides in-depth guides on core Flowise functionalities, including API usage, Variables and Telemetry collection practices.
 
-## User Guides
+## Functionality Guides
 
 * [API](https://toi500.gitbook.io/pr-1/\~/changes/t8RzJWO0ev7EcC7SKiqo/using-flowise/api)
 * [Streaming](https://toi500.gitbook.io/pr-1/\~/changes/t8RzJWO0ev7EcC7SKiqo/using-flowise/streaming)
