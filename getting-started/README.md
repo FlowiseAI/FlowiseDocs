@@ -26,6 +26,8 @@ npx flowise start
 
 3. Open: [http://localhost:3000](http://localhost:3000)
 
+***
+
 ## Docker
 
 There are two ways to install Flowise in Docker: using Docker Compose or a Docker image.
@@ -67,6 +69,8 @@ docker run -d --name flowise -p 3000:3000 flowise
 docker stop flowise
 ```
 
+***
+
 ## For Developers
 
 Flowise has 3 different modules in a single mono repository:
@@ -85,7 +89,7 @@ npm i -g pnpm
 
 ### Setup 1
 
-For a simple set up:
+For a simple setup:
 
 1. Clone the repository
 
@@ -117,7 +121,7 @@ Start the app on [http://localhost:3000](http://localhost:3000)
 pnpm start
 ```
 
-### **Setup 2**
+### Setup 2
 
 Here is a step-by-step setup for developers contributing to the project:
 
@@ -177,6 +181,8 @@ pnpm dev
     ```
 
     to make sure everything works fine in production.
+
+***
 
 ## Learn More
 
