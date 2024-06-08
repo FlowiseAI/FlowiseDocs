@@ -4,7 +4,7 @@ description: Learn how to use Flowise Utility nodes
 
 # Utilities
 
-Utility nodes are development tools that help you implement custom JS, logic and clarifications in your charts.
+Utility nodes are development tools that help you implement custom JS, logic and clarifications in your flows.
 
 ### Available Utilities:
 

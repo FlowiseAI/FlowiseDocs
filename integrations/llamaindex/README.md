@@ -17,5 +17,3 @@ Flowise complements LangIndex by offering a visual interface. Here, nodes are or
 * [Response Synthesizer](response-synthesizer/)
 * [Tools](tools/)
 * [Vector Stores](vector-stores/)
-
-\\
