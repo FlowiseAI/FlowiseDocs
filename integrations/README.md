@@ -1,5 +1,5 @@
 ---
-description: Learn what integrations are abailable in Flowiseeee.
+description: Learn about all available integrations / nnodes in Flowise
 ---
 
 # Integrations
