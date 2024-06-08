@@ -1,5 +1,5 @@
 ---
-description: Learn how to use Flowise Utility nodes
+description: Learn how to use Flowise utility nodes
 ---
 
 # Utilities

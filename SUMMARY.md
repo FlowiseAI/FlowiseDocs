@@ -1,8 +1,8 @@
 # Table of contents
 
 * [Introduction](README.md)
-* [Getting Started](getting-started/README.md)
-* [Contributing](CONTRIBUTING.md)
+* [Get Started](getting-started/README.md)
+* [Contribution Guide](CONTRIBUTING.md)
 * [Using Flowise](using-flowise/README.md)
   * [API](using-flowise/api.md)
   * [Analytic](using-flowise/analytic.md)
