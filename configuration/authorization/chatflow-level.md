@@ -1,14 +1,18 @@
+---
+description: Learn how to set up chatflow-level access control for your Flowise instances
+---
+
 # Chatflow Level
 
 After you have a chatflow constructed, you might want to allow certain people to be able to access and interact with it. You can achieve that by assigning an API key for that specific chatflow.
 
-### API Key
+## API Key
 
 In dashboard, navigate to API Keys section, and you should be able to see a DefaultKey created. You can also add or delete any keys.
 
 <figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-### Chatflow
+## Chatflow
 
 Navigate to the chatflow, and now you can select the API Key you want to use to protect the chatflow.
 

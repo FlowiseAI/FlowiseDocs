@@ -1,3 +1,7 @@
+---
+description: Learn how to managing API requests in Flowise
+---
+
 # Rate Limit
 
 When you share your chatflow to public with no API authorization through API or embedded chat, anybody can access the flow. To prevent spamming, you can set the rate limit on your chatflow.

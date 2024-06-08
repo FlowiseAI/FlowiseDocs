@@ -1,5 +1,5 @@
 ---
-description: Flowise can be run anywhere.
+description: Learn how to deploy Flowise
 ---
 
 # Deployment

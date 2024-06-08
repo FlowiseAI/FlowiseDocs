@@ -6,7 +6,9 @@ description: >-
 
 # Configuration
 
-This section will guide you through various configuration options to customize your Flowise instances, enabling you to tailor it to your specific needs. We'll also provide in-depth guides on deploying Flowise in different environments and platforms, ensuring a smooth and successful setup.
+This section will guide you through various configuration options to customize your Flowise instances, enabling you to tailor it to your specific needs.&#x20;
+
+We'll also provide in-depth guides on deploying Flowise in different environments and platforms, ensuring a smooth and successful setup.
 
 ## Guides
 
