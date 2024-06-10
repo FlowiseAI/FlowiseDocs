@@ -1,3 +1,7 @@
+---
+description: Learn how to deploy Flowise on GCP
+---
+
 # GCP
 
 ## Prerequisites

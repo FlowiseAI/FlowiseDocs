@@ -1,3 +1,7 @@
+---
+description: Learn how to deploy Flowise on Hugging Face
+---
+
 # Hugging Face
 
 ### Create a new space
