@@ -1,3 +1,7 @@
+---
+description: Learn how to query multiple documents correctly
+---
+
 # Multiple Documents QnA
 
 From the last [Web Scrape QnA](web-scrape-qna.md) example, we are only upserting and querying 1 website. What if we have multiple websites, or multiple documents? Let's take a look and see how we can achieve that.

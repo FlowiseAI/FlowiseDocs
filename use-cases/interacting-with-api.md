@@ -1,3 +1,7 @@
+---
+description: Learn how to use external API integrations
+---
+
 # Interacting with API
 
 The OpenAPI Specification (OAS) defines a standard, language-agnostic interface to HTTP APIs. The goal of this use case is to have the LLM automatically figure out which API to call, while still having a stateful conversation with user.
