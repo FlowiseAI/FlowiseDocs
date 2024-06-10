@@ -130,7 +130,7 @@ Step-by-step setup for project contributors:
 3. Create a new branch, see [guide](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository). Naming conventions:
    * For feature branch: `feature/<Your New Feature>`
    * For bug fix branch: `bugfix/<Your New Bugfix>`.
-4. Switch to the created branch
+4. Switch to the branch you just created
 5. Go into repository folder:&#x20;
 
 ```bash
