@@ -1,10 +1,10 @@
 ---
-description: Learn how to embed our in-house widget chat
+description: Learn how to embed our in-house chat widget
 ---
 
 # Embed
 
-You can embed our chat widget to your website. Simply copy-paste the embedded code provided to anywhere in the `<body>` tag of your html file.
+You can embed the chat widget on your website. Simply copy the provided code and paste it anywhere within the tag of your HTML file.
 
 <figure><img src="../.gitbook/assets/image (8) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -132,8 +132,8 @@ You can change the pop up button properties, as well as the chat window:
 To modify the full source code of embedded chat widget, follow these steps:
 
 1. Fork the [Flowise Chat Embed](https://github.com/FlowiseAI/FlowiseChatEmbed) repository
-2. Then you can make any code changes. One of the popular ask is to remove Flowise [branding](https://github.com/HenryHengZJ/FlowiseChatEmbed-Test/blob/main/src/components/Bot.tsx#L337).
-3. Run `pnpm build`
+2. Then you can make any code changes
+3. Run `pnpm build` to pick up the changes
 4. Push changes to the forked repo
 5. You can then use it as embedded chat like so:
 
@@ -161,7 +161,7 @@ Replace `username` to your Github username, and `forked-repo` to your forked rep
 ```
 
 {% hint style="info" %}
-An alternative to jsdelivr is unpkg. For example:
+An alternative to jsdelivr is unpkg. Here is an example:
 
 <pre><code><strong>https://unpkg.com/flowise-embed/dist/web.js
 </strong></code></pre>
@@ -194,7 +194,7 @@ If using local Git clone, place the env variables inside `Flowise/packages/serve
 
 ## Video Tutorials
 
-In these two videos, you will learn how to embed the Flowise widget into a website.
+These two videos will teach you how to embed the Flowise widget into a website.
 
 {% embed url="https://youtu.be/4paQ2wObDQ4" %}
 
