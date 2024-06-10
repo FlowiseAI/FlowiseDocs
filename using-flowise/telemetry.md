@@ -7,7 +7,7 @@ description: Learn how Flowise collects anonymous app usage information
 Flowise open source repository has a built-in telemetry that collects anonymous usage information. This helps us to better understand usage of Flowise, enabling us to prioritize our efforts towards developing new features and resolving issues, and enhancing the performance and stability of Flowise.
 
 {% hint style="warning" %}
-<mark style="color:red;">**!! Important**</mark> - we never collect any confidential information about the node input/output, messages, or any sort of credentials and variables. Only events are being sent.
+<mark style="color:red;">**Important**</mark> - We never collect any confidential information about the node input/output, messages, or any sort of credentials and variables. Only events are being sent.
 {% endhint %}
 
 You can verify these claims by finding all locations `telemetry.sendTelemetry` is called from the source code.

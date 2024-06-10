@@ -1,12 +1,12 @@
 ---
-description: Learn how to setup and run your Flowise instances
+description: Learn how to set up and run Flowise instances
 ---
 
 # Configuration
 
 This section will guide you through various configuration options to customize your Flowise instances for development, testing, and production environments.
 
-We'll also provide in-depth guides on deploying Flowise in different PaaS (Platform as a Service), ensuring a smooth and successful deployment.
+We'll also provide in-depth guides for deploying Flowise on different Platform as a Service (PaaS) options, ensuring a smooth and successful deployment.
 
 ## Guides
 
