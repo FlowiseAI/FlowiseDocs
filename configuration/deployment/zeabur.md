@@ -5,7 +5,7 @@ description: Learn how to deploy Flowise on Zeabur
 # Zeabur
 
 {% hint style="warning" %}
-Please note that the following template provided from Zeabur is outdated (from 2024-01-24).
+Please note that the following template made by Zeabur is outdated (from 2024-01-24).
 {% endhint %}
 
 1. Click the following prebuilt [template](https://zeabur.com/templates/2JYZTR) or the button below.

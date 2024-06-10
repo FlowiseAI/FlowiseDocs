@@ -8,7 +8,7 @@ Flowise support different environment variables to configure your instance. You 
 
 <table><thead><tr><th width="222">Variable</th><th>Description</th><th width="151">Type</th><th>Default</th></tr></thead><tbody><tr><td>PORT</td><td>The HTTP port Flowise runs on</td><td>Number</td><td>3000</td></tr><tr><td>FLOWISE_USERNAME</td><td>Username to login</td><td>String</td><td></td></tr><tr><td>FLOWISE_PASSWORD</td><td>Password to login</td><td>String</td><td></td></tr><tr><td>FLOWISE_FILE_SIZE_LIMIT</td><td>Maximum file size when uploading</td><td>String</td><td><code>50mb</code></td></tr><tr><td>APIKEY_PATH</td><td>Location where API keys are saved</td><td>String</td><td><code>Flowise/packages/server</code></td></tr><tr><td>NUMBER_OF_PROXIES</td><td>Rate Limit Proxy</td><td>Number</td><td></td></tr><tr><td>CORS_ORIGINS</td><td>The allowed origins for all cross-origin HTTP calls</td><td>String</td><td></td></tr><tr><td>IFRAME_ORIGINS</td><td>The allowed origins for iframe src embedding</td><td>String</td><td></td></tr></tbody></table>
 
-## Database
+## For Database
 
 | Variable           | Description                                                      | Type                                       | Default                  |
 | ------------------ | ---------------------------------------------------------------- | ------------------------------------------ | ------------------------ |
@@ -21,17 +21,17 @@ Flowise support different environment variables to configure your instance. You 
 | DATABASE\_NAME     | Database name (When DATABASE\_TYPE is not sqlite)                | String                                     |                          |
 | DATABASE\_SSL      | Database SSL is required (When DATABASE\_TYPE is not sqlite)     | Boolean: `true` or `false`                 | `false`                  |
 
-## LangSmith Tracing
+## For LangSmith Tracing
 
 Flowise supports [LangSmith](https://docs.smith.langchain.com/) tracing with the following env variables:
 
 <table><thead><tr><th width="247">Variable</th><th>Description</th><th width="151">Type</th></tr></thead><tbody><tr><td>LANGCHAIN_TRACING_V2</td><td>Turn LangSmith tracing ON or OFF</td><td>Enum String: <code>true</code>, <code>false</code></td></tr><tr><td>LANGCHAIN_ENDPOINT</td><td>LangSmith endpoint</td><td>String</td></tr><tr><td>LANGCHAIN_API_KEY</td><td>LangSmith API Key</td><td>String</td></tr><tr><td>LANGCHAIN_PROJECT</td><td>Project to trace on LangSmith</td><td>String</td></tr></tbody></table>
 
-Watch how connect Flowise and LangSmith
+### Watch how connect Flowise and LangSmith
 
 {% embed url="https://youtu.be/BGGhRxS3AVQ" %}
 
-## Built-In and External Dependencies
+## For Built-In and External Dependencies
 
 For security reasons, by default Tool Function only allow certain dependencies. It's possible to lift that restriction for built-in and external modules by setting the following environment variables:
 
@@ -56,7 +56,7 @@ TOOL_FUNCTION_EXTERNAL_DEP=axios,moment
 ```
 {% endcode %}
 
-## Debug and Logs
+## For Debugging and Logs
 
 | Variable   | Description                         | Type                                             |                                |
 | ---------- | ----------------------------------- | ------------------------------------------------ | ------------------------------ |
@@ -76,7 +76,7 @@ TOOL_FUNCTION_EXTERNAL_DEP=axios,moment
 
 <figure><img src="../.gitbook/assets/image (5) (4).png" alt=""><figcaption><p><strong>server-error.log - logs error with stack trace</strong></p></figcaption></figure>
 
-## Credential
+## For Credential
 
 Flowise store your third party API keys as encrypted credentials using an encryption key.
 
@@ -97,7 +97,7 @@ To avoid this, you can set your own encryption key as `FLOWISE_SECRETKEY_OVERWRI
 Credential API Key returned from the UI is not the same length as your original Api Key that you have set. This is a fake prefix string that prevents network spoofing, that's why we are not returning the Api Key back to UI. However, the correct Api Key will be retrieved and used during your interaction with the chatflow.
 {% endhint %}
 
-## Models
+## For Models
 
 In some cases, you might want to use custom model on the existing Chat Model and LLM nodes, or restrict access to only certain models.
 
@@ -105,7 +105,7 @@ By default, Flowise pulls the model list from [here](https://github.com/FlowiseA
 
 <table><thead><tr><th width="164">Variable</th><th width="196">Description</th><th width="78">Type</th><th>Default</th></tr></thead><tbody><tr><td>MODEL_LIST_CONFIG_JSON</td><td>Link to load list of models from your <code>models.json</code> config file</td><td>String</td><td><a href="https://raw.githubusercontent.com/FlowiseAI/Flowise/main/packages/components/models.json">https://raw.githubusercontent.com/FlowiseAI/Flowise/main/packages/components/models.json</a></td></tr></tbody></table>
 
-## Storage
+## For Storage
 
 Flowise store the following files under a local path folder by default.
 
@@ -118,7 +118,7 @@ User can specify `STORAGE_TYPE` to use AWS S3 or local path
 
 <table><thead><tr><th width="227">Variable</th><th width="196">Description</th><th width="131">Type</th><th>Default</th></tr></thead><tbody><tr><td>STORAGE_TYPE</td><td>Type of storage for uploaded files. default is <code>local</code></td><td>Enum String: <code>s3</code>, <code>local</code></td><td><code>local</code></td></tr><tr><td>BLOB_STORAGE_PATH</td><td>Local folder path where uploaded files are stored when <code>STORAGE_TYPE</code> is <code>local</code></td><td>String</td><td><code>your-home-dir/.flowise/storage</code></td></tr><tr><td>S3_STORAGE_BUCKET_NAME</td><td>Bucket name to hold the uploaded files when <code>STORAGE_TYPE</code> is <code>s3</code></td><td>String</td><td></td></tr><tr><td>S3_STORAGE_ACCESS_KEY_ID</td><td>AWS Access Key</td><td>String</td><td></td></tr><tr><td>S3_STORAGE_SECRET_ACCESS_KEY</td><td>AWS Secret Key</td><td>String</td><td></td></tr><tr><td>S3_STORAGE_REGION</td><td>Region for S3 bucket</td><td>String</td><td></td></tr></tbody></table>
 
-## How to set environment variables
+## Examples of how to set environment variables:
 
 ### NPM
 
@@ -131,11 +131,3 @@ npx flowise start --PORT=3000 --DEBUG=true
 ### Docker
 
 You can set all these variables in the `.env` file inside `docker` folder. Refer to [.env.example](https://github.com/FlowiseAI/Flowise/blob/main/docker/.env.example) file.
-
-### Render
-
-<figure><img src="../.gitbook/assets/image (37).png" alt=""><figcaption></figcaption></figure>
-
-### Railway
-
-<figure><img src="../.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
