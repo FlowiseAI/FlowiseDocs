@@ -21,7 +21,7 @@ If you do not specify anything, by default only the given URL page will be scrap
 
 <figure><img src="../.gitbook/assets/image (87).png" alt="" width="563"><figcaption></figcaption></figure>
 
-### Manage Links (Optional)
+## Manage Links (Optional)
 
 1. Input desired URL to be crawled.
 2. Click **Fetch Links** to retrieve links based on the inputs of the **Get Relative Links Method** and **Get Relative Links Limit** in **Additional Parameters**.
