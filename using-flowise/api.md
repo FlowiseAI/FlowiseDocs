@@ -1,10 +1,10 @@
 ---
-description: Learn how to use the Flowise API
+description: Learn how to use the Flowise Prediction, Vector Upsert and Message API
 ---
 
 # API
 
-## Prediction API
+## 1. Prediction API
 
 * POST `/api/v1/prediction/{your-chatflowid}`
 
@@ -298,7 +298,7 @@ The Authorization header must be provided with the correct API key specified dur
 "Authorization": "Bearer <your-api-key>"
 ```
 
-## Vector Upsert API
+## 2. Vector Upsert API
 
 * POST `/api/v1/vector/upsert/{your-chatflowid}`
 
@@ -433,7 +433,7 @@ The Authorization header must be provided with the correct API key specified dur
 "Authorization": "Bearer <your-api-key>"
 ```
 
-## Message API
+## 3. Message API
 
 * GET `/api/v1/chatmessage/{your-chatflowid}`
 * DELETE `/api/v1/chatmessage/{your-chatflowid}`
