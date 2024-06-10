@@ -1,16 +1,16 @@
 ---
-description: Learn how to install Flowise locally
+description: Learn how to deploy Flowise locally
 ---
 
-# Getting Started
+# Get Started
 
 {% hint style="info" %}
-**Important:** Before you can get started, you'll need to ensure that you have the latest version of  [NodeJS](https://nodejs.org/en/download) installed on your computer. NodeJS is a fundamental requirement for this project, providing the runtime environment for our code.
+Before you can get started, you'll need to **ensure that you have the latest version of**  [**NodeJS**](https://nodejs.org/en/download) **installed on your computer**. NodeJS is a fundamental requirement for this project, providing the runtime environment for our code.
 {% endhint %}
 
 ## Quick Start
 
-Install Flowise locally using npm.
+Install Flowise locally using NPM.
 
 1. Install Flowise:
 
@@ -30,7 +30,7 @@ npx flowise start
 
 ## Docker
 
-There are two ways to install Flowise in Docker: using Docker Compose or a Docker image.
+There are two ways to deploy Flowise with Docker:
 
 ### Docker Compose
 
@@ -51,7 +51,7 @@ docker-compose stop
 
 ### Docker Image
 
-1. Build the image locally:
+1. Build the image:
 
 ```bash
 docker build --no-cache -t flowise .
@@ -81,7 +81,7 @@ Flowise has 3 different modules in a single mono repository:
 
 ### Prerequisite
 
-Install [PNPM](https://pnpm.io/installation)
+Install [PNPM](https://pnpm.io/installation).
 
 ```bash
 npm i -g pnpm
@@ -89,7 +89,7 @@ npm i -g pnpm
 
 ### Setup 1
 
-For a simple setup:
+Simple setup using PNPM:
 
 1. Clone the repository
 
@@ -109,13 +109,13 @@ cd Flowise
 pnpm install
 ```
 
-4. Build all the code:
+4. Build the code:
 
 ```bash
 pnpm build
 ```
 
-Start the app on [http://localhost:3000](http://localhost:3000)
+Start the app at [http://localhost:3000](http://localhost:3000)
 
 ```bash
 pnpm start
@@ -123,14 +123,14 @@ pnpm start
 
 ### Setup 2
 
-Here is a step-by-step setup for developers contributing to the project:
+Step-by-step setup for project contributors:
 
 1. Fork the official [Flowise Github Repository](https://github.com/FlowiseAI/Flowise)
 2. Clone your forked repository
 3. Create a new branch, see [guide](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository). Naming conventions:
    * For feature branch: `feature/<Your New Feature>`
    * For bug fix branch: `bugfix/<Your New Bugfix>`.
-4. Switch to the newly created branch
+4. Switch to the created branch
 5. Go into repository folder:&#x20;
 
 ```bash
@@ -143,13 +143,13 @@ cd Flowise
 pnpm install
 ```
 
-7. Build all the code:
+7. Build the code:
 
 ```bash
 pnpm build
 ```
 
-8. Start the app on [http://localhost:3000](http://localhost:3000)
+8. Start the app at [http://localhost:3000](http://localhost:3000)
 
 ```bash
 pnpm start
@@ -164,9 +164,7 @@ pnpm start
 pnpm dev
 ```
 
-#### **Note:**
-
-* Any changes made in `packages/ui` or `packages/server` will be reflected on [http://localhost:8080](http://localhost:8080/)
+* Any changes made in `packages/ui` or `packages/server` will be reflected at [http://localhost:8080](http://localhost:8080/)
 * For changes made in `packages/components`, you will need to build again to pickup the changes
 *   After making all the changes, run:
 
@@ -186,6 +184,6 @@ pnpm dev
 
 ## Learn More
 
-In this video tutorial, Leon provides a first introduction to Flowise and explains some ways to set up Flowise on your local machine.
+In this video tutorial, Leon provides an introduction to Flowise and explains how to set it up on your local machine.
 
 {% embed url="https://youtu.be/nqAK_L66sIQ" %}
