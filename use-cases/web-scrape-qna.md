@@ -18,7 +18,7 @@ We are going to use **Cheerio Web Scraper** node to scrape links from a given UR
 
 If you do not specify anything, by default only the given URL page will be scraped. If you want to crawl the rest of relative links, click **Additional Parameters** of Cheerio Web Scraper.
 
-### Crawl Multiple Pages
+## Crawl Multiple Pages
 
 1. Select `Web Crawl` or `Scrape XML Sitemap` in **Get Relative Links Method**.
 2. Input `0` in **Get Relative Links Limit** to retrieve all links available from the provided URL.
