@@ -1,3 +1,7 @@
+---
+description: Learn how to integrate Flowise and Zapier
+---
+
 # Zapier Zaps
 
 ## Prerequisite

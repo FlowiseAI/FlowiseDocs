@@ -1,5 +1,5 @@
 ---
-description: Learn to how to call webhook on Make
+description: Learn how to call a webhook on Make
 ---
 
 # Calling Webhook

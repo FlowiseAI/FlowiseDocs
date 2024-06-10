@@ -1,5 +1,5 @@
 ---
-description: Learn how to use external API integrations
+description: Learn how to use external API integrations with Flowise
 ---
 
 # Interacting with API

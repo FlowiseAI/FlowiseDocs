@@ -8,24 +8,22 @@ Let's say you have a website (could be a store, an ecommerce site, a blog), and 
 
 You can find the example flow called - **WebPage QnA** from the marketplace templates.
 
-## Upsert
+## Setup
 
-We are going to use **Cheerio Web Scraper** node to scrape links from a given URL.
-
-**HtmlToMarkdown Text Splitter** to split the scraped content into smaller pieces.
+We are going to use **Cheerio Web Scraper** node to scrape links from a given URL and the **HtmlToMarkdown Text Splitter** to split the scraped content into smaller pieces.
 
 <figure><img src="../.gitbook/assets/image (86).png" alt=""><figcaption></figcaption></figure>
 
 If you do not specify anything, by default only the given URL page will be scraped. If you want to crawl the rest of relative links, click **Additional Parameters** of Cheerio Web Scraper.
 
-## Crawl Multiple Pages
+## 1. Crawl Multiple Pages
 
 1. Select `Web Crawl` or `Scrape XML Sitemap` in **Get Relative Links Method**.
 2. Input `0` in **Get Relative Links Limit** to retrieve all links available from the provided URL.
 
 <figure><img src="../.gitbook/assets/image (87).png" alt="" width="563"><figcaption></figcaption></figure>
 
-## Manage Links (Optional)
+### Manage Links (Optional)
 
 1. Input desired URL to be crawled.
 2. Click **Fetch Links** to retrieve links based on the inputs of the **Get Relative Links Method** and **Get Relative Links Limit** in **Additional Parameters**.
@@ -34,26 +32,28 @@ If you do not specify anything, by default only the given URL page will be scrap
 
 <figure><img src="../.gitbook/assets/image (88).png" alt="" width="563"><figcaption></figcaption></figure>
 
-On the top right corner, you will notice a green button:
+## 2. Upsert
+
+1. On the top right corner, you will notice a green button:
 
 <figure><img src="../.gitbook/assets/Untitled (2).png" alt=""><figcaption></figcaption></figure>
 
-A dialog will be shown that allow users to upsert data to Pinecone:
+2. A dialog will be shown that allow users to upsert data to Pinecone:
 
 <figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
-Under the hood, following actions will be executed:
+**Note:**  Under the hood, following actions will be executed:
 
-1. Scraped all HTML data using Cheerio Web Scraper
-2. Convert all scraped data from HTML to Markdown, then split it
-3. Splitted data will be looped over, and converted to vector embeddings using OpenAI Embeddings
-4. Vector embeddings will be upserted to Pinecone
+* Scraped all HTML data using Cheerio Web Scraper
+* Convert all scraped data from HTML to Markdown, then split it
+* Splitted data will be looped over, and converted to vector embeddings using OpenAI Embeddings
+* Vector embeddings will be upserted to Pinecone
 
-On the [Pinecone console](https://app.pinecone.io) you will be able to see the new vectors that were added.
+3. On the [Pinecone console](https://app.pinecone.io) you will be able to see the new vectors that were added.
 
 <figure><img src="../.gitbook/assets/web-scrape-pinecone.png" alt=""><figcaption></figcaption></figure>
 
-## Query
+## 3. Query
 
 Querying is relatively straight-forward. After you have verified that data is upserted to vector database, you can start asking question in the chat:
 
@@ -88,4 +88,4 @@ Apart from Cheerio Web Scraper, there are other nodes that can perform web scrap
 The same logic can be applied to any document use cases, not just limited to web scraping!
 {% endhint %}
 
-If you have any suggestion on how to improve the performance, we'd love your contribution!
+If you have any suggestion on how to improve the performance, we'd love your [contribution](../CONTRIBUTING.md)!

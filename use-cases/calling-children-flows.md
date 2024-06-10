@@ -1,5 +1,5 @@
 ---
-description: Learn to use the Chatflow Tool
+description: Learn how to effectively use the Chatflow Tool and the Custom Tool
 ---
 
 # Calling Children Flows
