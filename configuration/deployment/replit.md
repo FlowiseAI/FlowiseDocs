@@ -4,6 +4,8 @@ description: Learn how to deploy Flowise on Replit
 
 # Replit
 
+***
+
 1. Sign in to [Replit](https://replit.com/\~)
 2. Create a new **Repl**. Select **Node.js** as Template and fill in your preferred **Title**.
 

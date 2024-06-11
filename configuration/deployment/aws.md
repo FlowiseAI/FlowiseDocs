@@ -4,6 +4,8 @@ description: Learn how to deploy Flowise on AWS
 
 # AWS
 
+***
+
 ## Prerequisite
 
 This requires some basic understanding of how AWS works.

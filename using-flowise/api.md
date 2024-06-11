@@ -4,6 +4,8 @@ description: Learn how to use the Flowise Prediction, Vector Upsert and Message 
 
 # API
 
+***
+
 ## 1. Prediction API
 
 * POST `/api/v1/prediction/{your-chatflowid}`

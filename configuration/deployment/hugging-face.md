@@ -4,6 +4,8 @@ description: Learn how to deploy Flowise on Hugging Face
 
 # Hugging Face
 
+***
+
 ### Create a new space
 
 1. Sign in to [Hugging Face](https://huggingface.co/login)

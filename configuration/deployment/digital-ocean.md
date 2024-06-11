@@ -4,6 +4,8 @@ description: Learn how to deploy Flowise on Digital Ocean
 
 # Digital Ocean
 
+***
+
 ## Create Droplet
 
 In this section, we are going to create a Droplet. For more information, refer to [official guide](https://docs.digitalocean.com/products/droplets/quickstart/).

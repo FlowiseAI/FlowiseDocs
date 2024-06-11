@@ -4,6 +4,8 @@ description: Learn how to use variables in Flowise
 
 # Variables
 
+***
+
 Flowise allow users to create variables that can be used in:
 
 * [Custom Tool](../integrations/langchain/tools/custom-tool.md)

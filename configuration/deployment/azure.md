@@ -4,6 +4,8 @@ description: Learn how to deploy Flowise on Azure
 
 # Azure
 
+***
+
 ## Flowise as Azure App Service with Postgres: Using Terraform
 
 ### Prerequisites

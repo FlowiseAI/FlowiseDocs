@@ -4,6 +4,8 @@ description: Learn how to connect your Flowise instance to a database
 
 # Databases
 
+***
+
 Flowise supports 4 database types:
 
 * SQLite

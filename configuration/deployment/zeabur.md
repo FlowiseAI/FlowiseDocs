@@ -4,6 +4,8 @@ description: Learn how to deploy Flowise on Zeabur
 
 # Zeabur
 
+***
+
 {% hint style="warning" %}
 Please note that the following template made by Zeabur is outdated (from 2024-01-24).
 {% endhint %}

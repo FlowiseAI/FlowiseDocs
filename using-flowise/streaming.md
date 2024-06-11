@@ -4,6 +4,8 @@ description: Learn when you can stream back to your front end
 
 # Streaming
 
+***
+
 Flowise supports streaming back to your front end application when the final node is a **Chain** or **Tool Agent.**
 
 <figure><img src="../.gitbook/assets/image (171).png" alt=""><figcaption></figcaption></figure>

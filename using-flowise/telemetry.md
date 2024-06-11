@@ -4,6 +4,8 @@ description: Learn how Flowise collects anonymous app usage information
 
 # Telemetry
 
+***
+
 Flowise open source repository has a built-in telemetry that collects anonymous usage information. This helps us to better understand usage of Flowise, enabling us to prioritize our efforts towards developing new features and resolving issues, and enhancing the performance and stability of Flowise.
 
 {% hint style="warning" %}

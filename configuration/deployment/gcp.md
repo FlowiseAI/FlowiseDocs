@@ -4,6 +4,8 @@ description: Learn how to deploy Flowise on GCP
 
 # GCP
 
+***
+
 ## Prerequisites
 
 1. Notedown your Google Cloud \[ProjectId]

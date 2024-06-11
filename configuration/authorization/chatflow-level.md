@@ -4,6 +4,8 @@ description: Learn how to set up chatflow-level access control for your Flowise 
 
 # Chatflow Level
 
+***
+
 After you have a chatflow / agentflow constructed, you might want to allow certain people to be able to access and interact with it. You can achieve that by assigning an API key for that specific chatflow.
 
 ## API Key

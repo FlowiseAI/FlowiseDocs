@@ -4,6 +4,8 @@ description: Learn how to deploy Flowise locally
 
 # Get Started
 
+***
+
 {% hint style="info" %}
 Before you can get started, you'll need to **ensure that you have the latest version of**  [**NodeJS**](https://nodejs.org/en/download) **installed on your computer**. NodeJS is a fundamental requirement for this project, providing the runtime environment for our code.
 {% endhint %}

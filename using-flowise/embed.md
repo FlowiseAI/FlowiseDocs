@@ -4,6 +4,8 @@ description: Learn how to embed our in-house chat widget
 
 # Embed
 
+***
+
 You can embed the chat widget on your website. Simply copy the provided code and paste it anywhere within the tag of your HTML file.
 
 <figure><img src="../.gitbook/assets/image (8) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
