@@ -4,6 +4,8 @@ description: Learn how to integrate Flowise and Zapier
 
 # Zapier Zaps
 
+***
+
 ## Prerequisite
 
 1. [Log in](https://zapier.com/app/login) or [sign up](https://zapier.com/sign-up) to Zapier
