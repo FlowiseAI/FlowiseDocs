@@ -14,19 +14,19 @@ There are several analytic providers Flowise integrates with:
 
 ## Setup
 
-1. At the top right corner of your Chatflow or Agentflow, click **Settings** > **Configuration.**
+1. At the top right corner of your Chatflow or Agentflow, click **Settings** > **Configuration**
 
-<figure><img src="../.gitbook/assets/image (105).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/analytic-1.webp" alt="" width="375"><figcaption></figcaption></figure>
 
-2. Then go to the Analyze Chatflow section.
+2. Then go to the Analyse Chatflow section
 
-<figure><img src="../.gitbook/assets/image (157).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/analytic-2 (1).webp" alt=""><figcaption></figcaption></figure>
 
-3. You will see a list of providers, along with their configuration fields:
+3. You will see a list of providers, along with their configuration fields
 
 <figure><img src="../.gitbook/assets/image (82).png" alt="" width="563"><figcaption></figcaption></figure>
 
-3. Fill in the credentials and other configuration details, then turn the provider **ON**.
+3. Fill in the credentials and other configuration details, then turn the provider **ON**
 
 <figure><img src="../.gitbook/assets/image (83).png" alt="" width="563"><figcaption></figcaption></figure>
 
