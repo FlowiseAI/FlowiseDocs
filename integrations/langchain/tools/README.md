@@ -1,8 +1,14 @@
+---
+description: LangChain Tool Nodes
+---
+
 # Tools
+
+***
 
 Tools are functions that agents can use to interact with the world. These tools can be generic utilities (e.g. search), other chains, or even other agents.
 
-### Available Tools:
+### Tool Nodes:
 
 * [BraveSearch API](bravesearch-api.md)
 * [Calculator](calculator.md)
@@ -18,4 +24,3 @@ Tools are functions that agents can use to interact with the world. These tools 
 * [Serper](serper.md)
 * [Web Browser](web-browser.md)
 * [Write File](write-file.md)
-

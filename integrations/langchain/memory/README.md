@@ -1,4 +1,10 @@
+---
+description: LangChain Memory Nodes
+---
+
 # Memory
+
+***
 
 Memory allow you to chat with AI as if AI has the memory of previous conversations.
 
@@ -21,7 +27,7 @@ Current conversation:
 {history}
 ```
 
-### Available Memories:
+### Memory Nodes:
 
 * [Buffer Memory](buffer-memory.md)
 * [Buffer Window Memory](buffer-window-memory.md)

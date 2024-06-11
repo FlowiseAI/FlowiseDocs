@@ -4,6 +4,8 @@ description: Learn how to scrape, upsert, and query a website
 
 # Web Scrape QnA
 
+***
+
 Let's say you have a website (could be a store, an ecommerce site, a blog), and you want to scrap all the relative links of that website and have LLM answer any question on your website. In this tutorial, we are going to go through how to achieve that.
 
 You can find the example flow called - **WebPage QnA** from the marketplace templates.

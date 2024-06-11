@@ -1,4 +1,10 @@
+---
+description: LangChain Document Loader Nodes
+---
+
 # Document Loaders
+
+***
 
 Document loaders allow you to load documents from different sources like PDF, TXT, CSV, Notion, Confluence etc. They are often used together with [Vector Stores](../vector-stores/) to be upserted as embeddings, which can then retrieved upon query.
 
@@ -6,7 +12,7 @@ Document loaders allow you to load documents from different sources like PDF, TX
 
 {% embed url="https://youtu.be/kMtf9sNIcao" %}
 
-### Available Document Loaders:
+### Document Loader Nodes:
 
 * [API Loader](api-loader.md)
 * [Airtable](airtable.md)

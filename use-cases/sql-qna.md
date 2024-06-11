@@ -4,6 +4,8 @@ description: Learn how to query structured data
 
 # SQL QnA
 
+***
+
 Unlike previous examples like [Web Scrape QnA](web-scrape-qna.md) and [Multiple Documents QnA](multiple-documents-qna.md), querying structured data does not require vector database. On the high-level, this can be achieved with following steps:
 
 1. Providing LLM:
