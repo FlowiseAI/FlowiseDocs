@@ -27,5 +27,4 @@ Flowise complements LangChain by offering a visual interface. Here, nodes are or
 * [Retrievers](retrievers/)
 * [Text Splitters](text-splitters/)
 * [Tools](tools/)
-* [Utilities](../utilities/)
 * [Vector Stores](vector-stores/)
