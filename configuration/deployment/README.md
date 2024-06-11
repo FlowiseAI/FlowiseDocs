@@ -6,10 +6,6 @@ description: Learn how to deploy Flowise to the cloud
 
 ***
 
-{% hint style="info" %}
-Get ready! We're launching our own Flowise cloud service in just a few weeks. Join our [Discord](https://discord.com/invite/jbaHfsRVBW) community and be part of the launch excitement.
-{% endhint %}
-
 Flowise is designed with a platform-agnostic architecture, ensuring compatibility with a wide range of deployment environments to suit your infrastructure needs.
 
 ***
