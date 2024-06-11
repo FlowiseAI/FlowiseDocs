@@ -4,6 +4,8 @@ description: Learn how to contribute to this project
 
 # Contribution Guide
 
+***
+
 We appreciate all contributions! No matter your skill level or technical background, you can help this project grow. Here are a few ways to contribute:
 
 ## ⭐ Star
