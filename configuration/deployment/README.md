@@ -8,15 +8,11 @@ description: Learn how to deploy Flowise to the cloud
 
 Flowise is designed with a platform-agnostic architecture, ensuring compatibility with a wide range of deployment environments to suit your infrastructure needs.
 
-***
-
-### Local Machine
+## Local Machine
 
 To deploy Flowise locally, follow our [Get Started](../../getting-started/) guide.
 
-***
-
-### **Modern Cloud Providers**
+## Modern Cloud Providers
 
 Modern cloud platforms prioritize automation and focus on developer workflows, simplifying cloud management and ongoing maintenance.&#x20;
 
@@ -31,9 +27,7 @@ This reduces the technical expertise needed, but may limit the level of customiz
 * [Sealos](sealos.md)
 * [Zeabur](zeabur.md)
 
-***
-
-### Established Cloud Providers
+## Established Cloud Providers
 
 Established cloud providers, on the other hand, require a higher level of technical expertise to manage and optimize for your specific needs.&#x20;
 
