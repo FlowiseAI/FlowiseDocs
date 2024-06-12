@@ -18,7 +18,7 @@ Yes! Sharing how you use Flowise is a way of contribution. Export your chatflow 
 
 ## 💡 Ideas
 
-We welcome ideas for new features, app integrations, and blockchain networks. Submit your suggestions to the [Ideas section](https://github.com/FlowiseAI/Flowise/discussions/categories/ideas).
+We welcome ideas for new features, apps integrations. Submit your suggestions to the [Ideas section](https://github.com/FlowiseAI/Flowise/discussions/categories/ideas).
 
 ## 🙋 Q\&A
 
