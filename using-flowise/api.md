@@ -26,8 +26,8 @@ You also have the flexibility to override input configuration with **overrideCon
 
 {% tabs %}
 {% tab title="Python" %}
-<pre class="language-python"><code class="lang-python"><strong>import requests
-</strong>
+```python
+import requests
 API_URL = "http://localhost:3000/api/v1/prediction/&#x3C;chatlfowid>"
 
 def query(payload):
@@ -80,8 +80,8 @@ You can prepend history messages to give some context to LLM. For example, if yo
 
 {% tabs %}
 {% tab title="Python" %}
-<pre class="language-python"><code class="lang-python"><strong>import requests
-</strong>
+```python
+import requests
 API_URL = "http://localhost:3000/api/v1/prediction/&#x3C;chatlfowid>"
 
 def query(payload):
@@ -164,8 +164,8 @@ When **Allow Image Upload** is enabled, images can be uploaded from chat interfa
 
 {% tabs %}
 {% tab title="Python" %}
-<pre class="language-python"><code class="lang-python"><strong>import requests
-</strong>
+```python
+import requests
 API_URL = "http://localhost:3000/api/v1/prediction/&#x3C;chatlfowid>"
 
 def query(payload):
@@ -236,8 +236,8 @@ When **Speech to Text** is enabled, users can speak directly into microphone and
 
 {% tabs %}
 {% tab title="Python" %}
-<pre class="language-python"><code class="lang-python"><strong>import requests
-</strong>
+```python
+import requests
 API_URL = "http://localhost:3000/api/v1/prediction/&#x3C;chatlfowid>"
 
 def query(payload):
