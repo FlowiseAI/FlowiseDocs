@@ -8,7 +8,7 @@ Puppeteer is a Node.js library, controls Chrome/Chromium through the DevTools Pr
 2. Input desired URL to be scraped.
 
 ## Crawl & Scrape Multiple URLs
-Visit **[Web Crawl](../../use-cases/web-crawl.md)** guide to allow scaping of multiple pages.
+Visit **[Web Crawl](../../use-cases/web-crawl.md)** guide to allow scraping of multiple pages.
 
 ## Output
 
