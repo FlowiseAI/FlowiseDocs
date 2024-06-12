@@ -6,9 +6,9 @@ description: Learn about legacy versions of Flowise
 
 ***
 
-Flowise typically offers backward compatibility, meaning its updates follow a continuous development path. However, to advance, it sometimes requires conceptual changes.
+Flowise typically offers backward compatibility, meaning its updates follow a continuous development path. However, sometimes there can be breaking changes.
 
-This section will show what versions required these changes.
+This section provides guidance when migrating to different breaking versions.
 
 ## Versions
 
