@@ -1,5 +1,5 @@
 ---
-description: Agent used to to answer queries on CSV data.
+description: Agent used to answer queries on CSV data.
 ---
 
 # CSV Agent
