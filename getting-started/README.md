@@ -7,7 +7,7 @@ description: Learn how to deploy Flowise locally
 ***
 
 {% hint style="info" %}
-Before you can get started, you'll need to **ensure that you have the**  [**NodeJS**](https://nodejs.org/en/download) **installed on your computer**. Node v18.15.0 or v20 and above is supported.
+Before you can get started, you'll need to **ensure that you have the**  [**NodeJS**](https://nodejs.org/en/download) **installed on your computer**. Node `v18.15.0` or `v20` and above is supported.
 {% endhint %}
 
 ## Quick Start
