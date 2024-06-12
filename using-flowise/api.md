@@ -41,7 +41,7 @@ output = query({
         "returnSourceDocuments": true
     }
 })
-</code></pre>
+```
 {% endtab %}
 
 {% tab title="Javascript" %}
@@ -105,7 +105,7 @@ output = query({
         },
     ]
 })
-</code></pre>
+```
 {% endtab %}
 
 {% tab title="Javascript" %}
@@ -183,7 +183,7 @@ output = query({
         }
     ]
 })
-</code></pre>
+```
 {% endtab %}
 
 {% tab title="Javascript" %}
@@ -254,7 +254,7 @@ output = query({
         }
     ]
 })
-</code></pre>
+```
 {% endtab %}
 
 {% tab title="Javascript" %}
