@@ -1,4 +1,10 @@
+---
+description: Learn how to query structured data
+---
+
 # SQL QnA
+
+***
 
 Unlike previous examples like [Web Scrape QnA](web-scrape-qna.md) and [Multiple Documents QnA](multiple-documents-qna.md), querying structured data does not require vector database. On the high-level, this can be achieved with following steps:
 
@@ -22,7 +28,7 @@ You can find the chatflow template:
 
 {% file src="../.gitbook/assets/SQL Chatflow.json" %}
 
-## 1) SQL Database Schema + Example Rows
+## 1. SQL Database Schema + Example Rows
 
 Use a Custom JS Function node to connect to SingleStore, retrieve database schema and top 3 rows.
 
@@ -120,7 +126,7 @@ You can find more on how to get the `HOST`, `USER`, `PASSWORD` from this [guide]
 
 We can now see the correct format has been generated. Next step is to bring this into Prompt Template.
 
-## 2) Return a SQL query with few shot prompting
+## 2. Return a SQL query with few shot prompting
 
 Create a new Chat Model + Prompt Template + LLMChain
 
@@ -146,7 +152,7 @@ Since we are using 2 variables: {schema} and {question}, specify their values in
 You can provide more examples to the prompt (i.e few-shot prompting) to let the LLM learns better. Or take reference from [dialect-specific prompting](https://js.langchain.com/docs/use\_cases/sql/prompting#dialect-specific-prompting)
 {% endhint %}
 
-## 3) Validate the SQL query using [If Else](../integrations/utilities/if-else.md) node
+## 3. Validate the SQL query using [If Else](../integrations/utilities/if-else.md) node
 
 Sometimes the SQL query is invalid, and we do not want to waste resources the execute invalid SQL query. For example, if user is asking general question that is irrelevant to the SQL database. We can use If Else node to route to different path.
 
@@ -176,7 +182,7 @@ In the Else Function, we will route to a Prompt Template + LLMChain that basical
 
 <figure><img src="../.gitbook/assets/image (120).png" alt=""><figcaption></figcaption></figure>
 
-## 4) Custom function to execute SQL query, and get the response
+## 4. Custom function to execute SQL query, and get the response
 
 If it is a valid SQL query, we need to execute the query. Connect the _**True**_ output from **If Else** node to a **Custom JS Function** node:
 
@@ -231,7 +237,7 @@ return result;
 
 </details>
 
-## 5) Return a natural response from the executed SQL response
+## 5. Return a natural response from the executed SQL response
 
 Create a new Chat Model + Prompt Template + LLMChain
 

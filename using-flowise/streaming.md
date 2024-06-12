@@ -1,10 +1,18 @@
+---
+description: Learn when you can stream back to your front end
+---
+
 # Streaming
 
-Flowise supports streaming back to your front end application when the final node is a **Chain** or **OpenAI Function Agent.**
+***
 
-<figure><img src="../.gitbook/assets/screely-1687030897806.png" alt=""><figcaption></figcaption></figure>
+Flowise supports streaming back to your front end application when the final node is a **Chain** or **Tool Agent.**
+
+<figure><img src="../.gitbook/assets/streaming-1.webp" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/screely-1687030924019.png" alt=""><figcaption></figcaption></figure>
+
+## Setup
 
 1. Install socket.io-client to your front-end application
 

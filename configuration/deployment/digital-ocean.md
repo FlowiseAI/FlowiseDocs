@@ -1,4 +1,10 @@
+---
+description: Learn how to deploy Flowise on Digital Ocean
+---
+
 # Digital Ocean
+
+***
 
 ## Create Droplet
 
@@ -79,7 +85,7 @@ LOG_PATH=/root/.flowise/logs
 BLOB_STORAGE_PATH=/root/.flowise/storage
 ```
 
-4. _(Optional)_ You can also specify `FLOWISE_USERNAME` and `FLOWISE_PASSWORD` for app level authorization. See more [Broken link](broken-reference "mention")
+4. _(Optional)_ You can also specify `FLOWISE_USERNAME` and `FLOWISE_PASSWORD` for app level authorization. See more [broken-reference](broken-reference/ "mention")
 5. Then press `Ctrl + X` to Exit, and `Y` to save the file
 6. Run docker compose
 

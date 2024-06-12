@@ -1,4 +1,10 @@
+---
+description: Learn how to deploy Flowise on Replit
+---
+
 # Replit
+
+***
 
 1. Sign in to [Replit](https://replit.com/\~)
 2. Create a new **Repl**. Select **Node.js** as Template and fill in your preferred **Title**.
@@ -31,7 +37,7 @@
 
 <figure><img src="../../.gitbook/assets/image (15) (3).png" alt="" width="545"><figcaption></figcaption></figure>
 
-9. If you would like to turn on [app level authorization](broken-reference), change the command to:
+9. If you would like to turn on [app level authorization](broken-reference/), change the command to:
 
 ```bash
 npx flowise start --FLOWISE_USERNAME=user --FLOWISE_PASSWORD=1234

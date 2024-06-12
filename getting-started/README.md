@@ -1,37 +1,59 @@
-# Getting Started
+---
+description: Learn how to deploy Flowise locally
+---
 
-## Prerequisite
+# Get Started
 
-Latest [NodeJS](https://nodejs.org/en/download) installed
+***
 
-## ⚡Quick Start
+{% hint style="info" %}
+Before you can get started, you'll need to **ensure that you have the**  [**NodeJS**](https://nodejs.org/en/download) **installed on your computer**. Node `v18.15.0` or `v20` and above is supported.
+{% endhint %}
 
-1. Install Flowise
+## Quick Start
+
+Install Flowise locally using NPM.
+
+1. Install Flowise:
 
 ```bash
 npm install -g flowise
 ```
 
-2. Start Flowise
+2. Start Flowise:
 
-<pre class="language-bash"><code class="lang-bash"><strong>npx flowise start
-</strong></code></pre>
+```bash
+npx flowise start
+```
 
-3. Open [http://localhost:3000](http://localhost:3000)
+3. Open: [http://localhost:3000](http://localhost:3000)
 
-## 🐳 Docker
+***
+
+## Docker
+
+There are two ways to deploy Flowise with Docker:
 
 ### Docker Compose
 
-1. Go to `docker` folder at the root of the project
+1. Go to `docker folder` at the root of the project
 2. Copy the `.env.example` file and paste it as another file named `.env`
-3. `docker-compose up -d`
-4. Open [http://localhost:3000](http://localhost:3000)
-5. You can bring the containers down by `docker-compose stop`
+3. Run:
+
+```bash
+docker-compose up -d
+```
+
+4. Open: [http://localhost:3000](http://localhost:3000)
+5. You can bring the containers down by running:
+
+```bash
+docker-compose stop
+```
 
 ### Docker Image
 
-1. Build the image locally:
+1. Build the image:
 
 ```bash
 docker build --no-cache -t flowise .
@@ -49,23 +71,27 @@ docker run -d --name flowise -p 3000:3000 flowise
 docker stop flowise
 ```
 
-## 👨‍💻 Developers
+***
 
-Flowise has 3 different modules in a single mono repository.
+## For Developers
 
-* `server`: Node backend to serve API logics
-* `ui`: React frontend
-* `components`: Integrations components
+Flowise has 3 different modules in a single mono repository:
 
-#### Prerequisite
+* **Server**: Node backend to serve API logics
+* **UI**: React frontend
+* **Components**: Integration components
 
-Install [PNPM](https://pnpm.io/installation)
+### Prerequisite
+
+Install [PNPM](https://pnpm.io/installation).
 
 ```bash
 npm i -g pnpm
 ```
 
-#### Setup
+### Setup 1
+
+Simple setup using PNPM:
 
 1. Clone the repository
 
@@ -75,8 +101,9 @@ git clone https://github.com/FlowiseAI/Flowise.git
 
 2. Go into repository folder
 
-<pre class="language-bash"><code class="lang-bash"><strong>cd Flowise
-</strong></code></pre>
+```bash
+cd Flowise
+```
 
 3. Install all dependencies of all modules:
 
@@ -84,21 +111,53 @@ git clone https://github.com/FlowiseAI/Flowise.git
 pnpm install
 ```
 
-4. Build all the code:
+4. Build the code:
 
 ```bash
 pnpm build
 ```
 
-5. Start the app:
+Start the app at [http://localhost:3000](http://localhost:3000)
 
 ```bash
 pnpm start
 ```
 
-You can now access the app on [http://localhost:3000](http://localhost:3000)
+### Setup 2
 
-6. For development build:
+Step-by-step setup for project contributors:
+
+1. Fork the official [Flowise Github Repository](https://github.com/FlowiseAI/Flowise)
+2. Clone your forked repository
+3. Create a new branch, see [guide](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository). Naming conventions:
+   * For feature branch: `feature/<Your New Feature>`
+   * For bug fix branch: `bugfix/<Your New Bugfix>`.
+4. Switch to the branch you just created
+5. Go into repository folder:&#x20;
+
+```bash
+cd Flowise
+```
+
+6. Install all dependencies of all modules:
+
+```bash
+pnpm install
+```
+
+7. Build the code:
+
+```bash
+pnpm build
+```
+
+8. Start the app at [http://localhost:3000](http://localhost:3000)
+
+```bash
+pnpm start
+```
+
+9. For development build:
 
 * Create `.env` file and specify the `PORT` (refer to `.env.example`) in `packages/ui`
 * Create `.env` file and specify the `PORT` (refer to `.env.example`) in `packages/server`
@@ -107,8 +166,26 @@ You can now access the app on [http://localhost:3000](http://localhost:3000)
 pnpm dev
 ```
 
-Any code changes will reload the app automatically on [http://localhost:8080](http://localhost:8080)
+* Any changes made in `packages/ui` or `packages/server` will be reflected at [http://localhost:8080](http://localhost:8080/)
+* For changes made in `packages/components`, you will need to build again to pickup the changes
+*   After making all the changes, run:
 
-Watch an introduction & setup tutorial on Flowise, shoutout to Leon!
+    ```bash
+    pnpm build
+    ```
+
+    and
+
+    ```bash
+    pnpm start
+    ```
+
+    to make sure everything works fine in production.
+
+***
+
+## Learn More
+
+In this video tutorial, Leon provides an introduction to Flowise and explains how to set it up on your local machine.
 
 {% embed url="https://youtu.be/nqAK_L66sIQ" %}

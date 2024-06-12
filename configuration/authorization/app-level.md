@@ -1,4 +1,10 @@
+---
+description: Learn how to set up app-level access control for your Flowise instances
+---
+
 # App Level
+
+***
 
 App level authorization protects your Flowise instance by username and password. This protects your apps from being accessible by anyone when deployed online.
 

@@ -1,4 +1,14 @@
+---
+description: Learn how to deploy Flowise on Zeabur
+---
+
 # Zeabur
+
+***
+
+{% hint style="warning" %}
+Please note that the following template made by Zeabur is outdated (from 2024-01-24).
+{% endhint %}
 
 1. Click the following prebuilt [template](https://zeabur.com/templates/2JYZTR) or the button below.
 
@@ -30,4 +40,3 @@ That's it! You now have a deployed Flowise on Zeabur [🎉](https://emojipedia.o
 ## Persistent Volume
 
 Zeabur will automatically create a persistent volume for you so you don't have to worry about it.
-

@@ -1,4 +1,10 @@
+---
+description: LlamaIndex Embeddings Nodes
+---
+
 # Embeddings
+
+***
 
 An embedding is a vector (list) of floating point numbers. The distance between two vectors measures their relatedness. Small distances suggest high relatedness and large distances suggest low relatedness.
 
@@ -13,7 +19,7 @@ They are commonly used for:
 * Diversity measurement (where similarity distributions are analyzed)
 * Classification (where text strings are classified by their most similar label)
 
-### Available Embeddings:
+### Embedding Nodes:
 
 * [Azure OpenAI Embeddings](azure-openai-embeddings.md)
 * [OpenAI Embedding](openai-embedding.md)

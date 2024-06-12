@@ -1,8 +1,14 @@
+---
+description: LangChain Retriever Nodes
+---
+
 # Retrievers
+
+***
 
 Retriever nodes return documents given an unstructured query. It is more general than a vector store. A retriever does not need to be able to store documents, only to return (or retrieve) them.
 
-### Available Retrievers:
+### Retriever Nodes:
 
 * [Cohere Rerank Retriever](cohere-rerank-retriever.md)
 * [Embeddings Filter Retriever](embeddings-filter-retriever.md)

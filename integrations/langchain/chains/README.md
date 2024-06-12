@@ -1,4 +1,10 @@
+---
+description: LangChain Chain Nodes
+---
+
 # Chains
+
+***
 
 In the context of chatbots and large language models, "chains" typically refer to sequences of text or conversation turns. These chains are used to store and manage the conversation history and context for the chatbot or language model. Chains help the model understand the ongoing conversation and provide coherent and contextually relevant responses.
 
@@ -12,7 +18,7 @@ Here's how chains work:
 
 Chains are a fundamental concept in building and maintaining chatbot and language model conversations. They ensure that the model has access to the context it needs to generate meaningful and context-aware responses, making the interaction more engaging and useful for users.
 
-### Available Chains:
+### Chain Nodes:
 
 * [GET API Chain](get-api-chain.md)
 * [OpenAPI Chain](openapi-chain.md)

@@ -1,6 +1,12 @@
+---
+description: Learn how to use the Flowise Prediction, Vector Upsert and Message API
+---
+
 # API
 
-## Prediction API
+***
+
+## 1. Prediction API
 
 * POST `/api/v1/prediction/{your-chatflowid}`
 
@@ -20,8 +26,8 @@ You also have the flexibility to override input configuration with **overrideCon
 
 {% tabs %}
 {% tab title="Python" %}
-<pre class="language-python"><code class="lang-python"><strong>import requests
-</strong>
+```python
+import requests
 API_URL = "http://localhost:3000/api/v1/prediction/&#x3C;chatlfowid>"
 
 def query(payload):
@@ -35,7 +41,7 @@ output = query({
         "returnSourceDocuments": true
     }
 })
-</code></pre>
+```
 {% endtab %}
 
 {% tab title="Javascript" %}
@@ -74,8 +80,8 @@ You can prepend history messages to give some context to LLM. For example, if yo
 
 {% tabs %}
 {% tab title="Python" %}
-<pre class="language-python"><code class="lang-python"><strong>import requests
-</strong>
+```python
+import requests
 API_URL = "http://localhost:3000/api/v1/prediction/&#x3C;chatlfowid>"
 
 def query(payload):
@@ -99,7 +105,7 @@ output = query({
         },
     ]
 })
-</code></pre>
+```
 {% endtab %}
 
 {% tab title="Javascript" %}
@@ -158,8 +164,8 @@ When **Allow Image Upload** is enabled, images can be uploaded from chat interfa
 
 {% tabs %}
 {% tab title="Python" %}
-<pre class="language-python"><code class="lang-python"><strong>import requests
-</strong>
+```python
+import requests
 API_URL = "http://localhost:3000/api/v1/prediction/&#x3C;chatlfowid>"
 
 def query(payload):
@@ -177,7 +183,7 @@ output = query({
         }
     ]
 })
-</code></pre>
+```
 {% endtab %}
 
 {% tab title="Javascript" %}
@@ -230,8 +236,8 @@ When **Speech to Text** is enabled, users can speak directly into microphone and
 
 {% tabs %}
 {% tab title="Python" %}
-<pre class="language-python"><code class="lang-python"><strong>import requests
-</strong>
+```python
+import requests
 API_URL = "http://localhost:3000/api/v1/prediction/&#x3C;chatlfowid>"
 
 def query(payload):
@@ -248,7 +254,7 @@ output = query({
         }
     ]
 })
-</code></pre>
+```
 {% endtab %}
 
 {% tab title="Javascript" %}
@@ -294,7 +300,7 @@ The Authorization header must be provided with the correct API key specified dur
 "Authorization": "Bearer <your-api-key>"
 ```
 
-## Vector Upsert API
+## 2. Vector Upsert API
 
 * POST `/api/v1/vector/upsert/{your-chatflowid}`
 
@@ -429,7 +435,7 @@ The Authorization header must be provided with the correct API key specified dur
 "Authorization": "Bearer <your-api-key>"
 ```
 
-## Message API
+## 3. Message API
 
 * GET `/api/v1/chatmessage/{your-chatflowid}`
 * DELETE `/api/v1/chatmessage/{your-chatflowid}`
@@ -470,7 +476,9 @@ res = requests.get('http://localhost:3000/api/v1/chatmessage/{your-chatflowid}',
 {% endtab %}
 {% endtabs %}
 
-## Tutorials
+## Video Tutorials
+
+Those video tutorials cover the main use cases for implementing the Flowise API.
 
 {% embed url="https://youtu.be/9R5zo3IVkqU?si=y1v_aCQLE_70WBnA" %}
 

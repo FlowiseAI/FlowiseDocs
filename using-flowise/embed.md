@@ -1,18 +1,24 @@
+---
+description: Learn how to embed our in-house chat widget
+---
+
 # Embed
 
-You can embed a chat widget to your website. Simply copy paste the embedded code provided to anywhere in the `<body>` tag of your html file.
+***
+
+You can embed the chat widget on your website. Simply copy the provided code and paste it anywhere within the tag of your HTML file.
 
 <figure><img src="../.gitbook/assets/image (8) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-Watch how to do that:
+## Widget Setup
+
+The following video shows how to inject the widget script into any webpage.
 
 {% embed url="https://github.com/FlowiseAI/Flowise/assets/26460777/c128829a-2d08-4d60-b821-1e41a9e677d0" %}
 
-You can also customize your own embedded chat widget UI. See full [configuration list](https://github.com/FlowiseAI/FlowiseChatEmbed#configuration).
+## Chatflow Config
 
-### Chatflow Config
-
-You can pass `chatflowConfig` JSON object to override existing configuration. This is the same as  [#override-config](api.md#override-config "mention") in API.
+You can pass `chatflowConfig` JSON object to override existing configuration. This is the same as [#override-config](api.md#override-config "mention") in API.
 
 ```html
 <script type="module">
@@ -28,7 +34,7 @@ You can pass `chatflowConfig` JSON object to override existing configuration. Th
 </script>
 ```
 
-### Observer Config
+## Observer Config
 
 This allows you to execute code in parent based upon signal observations within the chatbot.
 
@@ -56,7 +62,7 @@ This allows you to execute code in parent based upon signal observations within 
 </script>
 ```
 
-### Theme
+## Theme
 
 You can change the pop up button properties, as well as the chat window:
 
@@ -105,6 +111,7 @@ You can change the pop up button properties, as well as the chat window:
           sendButtonColor: '#3B81F6',
           maxChars: 50,
           maxCharsWarningMessage: 'You exceeded the characters limit. Please input less than 50 characters.',
+          autoFocus: true
         },
         feedback: {
           color: '#303235',
@@ -121,13 +128,15 @@ You can change the pop up button properties, as well as the chat window:
 </script>
 ```
 
-### Custom Modificaton
+**Note:** See full [configuration list](https://github.com/FlowiseAI/FlowiseChatEmbed#configuration).
+
+## Custom Modificaton
 
 To modify the full source code of embedded chat widget, follow these steps:
 
 1. Fork the [Flowise Chat Embed](https://github.com/FlowiseAI/FlowiseChatEmbed) repository
-2. Then you can make any code changes. One of the popular ask is to remove Flowise [branding](https://github.com/HenryHengZJ/FlowiseChatEmbed-Test/blob/main/src/components/Bot.tsx#L337).
-3. Run `pnpm build`
+2. Then you can make any code changes
+3. Run `pnpm build` to pick up the changes
 4. Push changes to the forked repo
 5. You can then use it as embedded chat like so:
 
@@ -155,13 +164,13 @@ Replace `username` to your Github username, and `forked-repo` to your forked rep
 ```
 
 {% hint style="info" %}
-An alternative to jsdelivr is unpkg. For example:&#x20;
+An alternative to jsdelivr is unpkg. Here is an example:
 
 <pre><code><strong>https://unpkg.com/flowise-embed/dist/web.js
 </strong></code></pre>
 {% endhint %}
 
-### CORS
+## CORS
 
 When using embedded chat widget, there's chance that you might face CORS issue like:
 
@@ -186,12 +195,10 @@ If using Docker, place the env variables inside `Flowise/docker/.env`
 
 If using local Git clone, place the env variables inside `Flowise/packages/server/.env`
 
-### Tutorials
+## Video Tutorials
 
-* Watch how to embed Flowise in a Bootstrap 5 website
+These two videos will teach you how to embed the Flowise widget into a website.
 
 {% embed url="https://youtu.be/4paQ2wObDQ4" %}
-
-* Watch how to add chatbot to website
 
 {% embed url="https://youtu.be/XOeCV1xyN48" %}

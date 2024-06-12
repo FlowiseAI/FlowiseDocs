@@ -1,4 +1,10 @@
+---
+description: LangChain Record Manager Nodes
+---
+
 # Record Managers
+
+***
 
 Record Managers keep track of your indexed documents, preventing duplicated vector embeddings in [Vector Store](vector-stores/).
 
@@ -128,7 +134,7 @@ No cleanup will be performed
 {% endtab %}
 {% endtabs %}
 
-Current available Record Managers are:
+Current available Record Manager nodes are:
 
 * SQLite
 * MySQL
@@ -136,4 +142,4 @@ Current available Record Managers are:
 
 ## Resources
 
-* [Langchain Indexing](https://js.langchain.com/docs/modules/data\_connection/indexing/)
+* [LangChain Indexing](https://js.langchain.com/docs/modules/data\_connection/indexing/)
