@@ -4,8 +4,6 @@ description: Learn how to configure environment variables for Flowise
 
 # Environment Variables
 
-***
-
 Flowise support different environment variables to configure your instance. You can specify the following variables in the `.env` file inside `packages/server` folder. Refer to [.env.example](https://github.com/FlowiseAI/Flowise/blob/main/packages/server/.env.example) file.
 
 | Variable                 | Description                                                                                            | Type                                       | Default                    |
