@@ -6,6 +6,7 @@
 * [Using Flowise](using-flowise/README.md)
   * [API](using-flowise/api.md)
   * [Analytic](using-flowise/analytic.md)
+  * [Document Stores](using-flowise/document-stores.md)
   * [Embed](using-flowise/embed.md)
   * [Streaming](using-flowise/streaming.md)
   * [Telemetry](using-flowise/telemetry.md)
