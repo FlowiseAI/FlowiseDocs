@@ -11,11 +11,11 @@ This Markdown can then be stored in a vector database for semantic search or Ret
 
 <figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="266"><figcaption><p>Apify Website Content Crawler Node</p></figcaption></figure>
 
-## Scrape One URL
+## Crawl Entire Website
 
 1.  _(Optional)_ Connect **[Text Splitter](../text-splitters/)**.
 2. Connect Apify API (create a new credential with your [Apify API token](https://my.apify.com/account#/integrations)).
-3. Input one or more URLs (separated by commas) where the crawler will start.
+3. Input one or more URLs (separated by commas) where the crawler will start, e.g `https://docs.flowiseai.com/`.
 4. Select the crawler type. Refer to [Website Content Crawler documentation for more information](https://apify.com/apify/website-content-crawler/input-schema#crawlerType).
 5. _(Optional)_ Specify additional parameters such as maximum crawling depth and the maximum number of pages to crawl.
 
