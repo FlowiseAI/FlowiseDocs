@@ -176,8 +176,8 @@ output = query({
     "question": "Can you describe the image?",
     "uploads": [
         {
-            "data": 'data:image/png;base64,iVBORw0KGgdM2uN0', #base64 string
-            "type": 'file',
+            "data": 'data:image/png;base64,iVBORw0KGgdM2uN0', # base64 string or url
+            "type": 'file', # file | url
             "name": 'Flowise.png',
             "mime": 'image/png'
         }
@@ -207,8 +207,8 @@ query({
     "question": "Can you describe the image?",
     "uploads": [
         {
-            "data": 'data:image/png;base64,iVBORw0KGgdM2uN0', //base64 string
-            "type": 'file',
+            "data": 'data:image/png;base64,iVBORw0KGgdM2uN0', //base64 string or url
+            "type": 'file', //file | url
             "name": 'Flowise.png',
             "mime": 'image/png'
         }
