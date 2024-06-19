@@ -8,7 +8,7 @@ description: Learn how to use the Flowise Document Stores
 
 Flowise's Document Stores offer a versatile approach to data management, enabling you to upload, split, and prepare your data for upserting your datasets in a single location.
 
-This centralized approach simplifies data handling and allows for efficient management of various data formats, making it easier to organize and access your information within the Flowise app.
+This centralized approach simplifies data handling and allows for efficient management of various data formats, making it easier to organize and access your data within the Flowise app.
 
 ## Setup
 
@@ -22,7 +22,7 @@ Using the **Flowise Document Stores**, we'll prepare and upsert data about Liber
 
 <figure><img src="../.gitbook/assets/ds01.png" alt=""><figcaption></figcaption></figure>
 
-## 2. Add a Document Loader
+## 2. Select a Document Loader
 
 * Enter the Document Store we just created and select the [Document Loader](../integrations/langchain/document-loaders/) you want to use. In our case, since our dataset is in PDF format, we'll use the [PDF Loader](../integrations/langchain/document-loaders/pdf-file.md).
 
@@ -37,17 +37,17 @@ Using the **Flowise Document Stores**, we'll prepare and upsert data about Liber
 
 <figure><img src="../.gitbook/assets/ds04.png" alt=""><figcaption></figcaption></figure>
 
-* Finally, select the [Text Splitter](../integrations/langchain/text-splitters/) you want to use to chunk your data. In our particular case, we will use the [Recursive Character Text Splitter](../integrations/langchain/text-splitters/recursive-character-text-splitter.md).&#x20;
+* Finally, select the [Text Splitter](../integrations/langchain/text-splitters/) you want to use to chunk your data. In our particular case, we will use the [Recursive Character Text Splitter](../integrations/langchain/text-splitters/recursive-character-text-splitter.md).
 
 {% hint style="info" %}
 In this guide, we've added a generous **Chunk Overlap** size to ensure no relevant data gets missed between chunks. However, the optimal overlap size is dependent on the complexity of your data. You may need to adjust this value based on your specific dataset and the nature of the information you want to extract.
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/ds05.png" alt=""><figcaption><p>Setting up the Text Splitter</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/ds05.png" alt=""><figcaption></figcaption></figure>
 
 ## 4. Preview your data
 
-* We can now preview how our data will be chunked using our current [Text Splitter](../integrations/langchain/text-splitters/) configuration; `chunk size=1500`and chunk `overlap=750.`
+* We can now preview how our data will be chunked using our current [Text Splitter](../integrations/langchain/text-splitters/) configuration; `chunk_size=1500`and `chunk_overlap=750`.
 
 <figure><img src="../.gitbook/assets/ds06.png" alt=""><figcaption></figcaption></figure>
 
@@ -65,35 +65,39 @@ Note that our custom metadata `company: "liberty"` has been inserted into each c
 
 <figure><img src="../.gitbook/assets/ds08.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/ds09 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ds09%20(1).png" alt=""><figcaption></figcaption></figure>
 
 Note that once you have processed your data, you will be able to **edit your chunks** by deleting or adding data to them. This is beneficial if:
 
-* **You discover inaccuracies or inconsistencies in the original data.** Editing chunks allows you to correct errors and ensure the information is accurate.
-* **You want to refine the content for better relevance.** You can adjust chunks to emphasize specific information or remove irrelevant sections.
-* **You need to tailor chunks for specific queries.** By editing chunks, you can make them more targeted to the types of questions you expect to receive.
+* **You discover inaccuracies or inconsistencies in the original data:** Editing chunks allows you to correct errors and ensure the information is accurate.
+* **You want to refine the content for better relevance:** You can adjust chunks to emphasize specific information or remove irrelevant sections.
+* **You need to tailor chunks for specific queries:** By editing chunks, you can make them more targeted to the types of questions you expect to receive.
 
 <figure><img src="../.gitbook/assets/ds10.png" alt=""><figcaption></figcaption></figure>
 
-## 6. Add your Document Store node to your Chatflow / Agentflow
+## 6. Add your Document Store node to your flow
 
-* Now that our dataset is ready to be upserted, it's time to go to your RAG chatflow / agentflow and add the [Document Store node](../integrations/langchain/document-loaders/document-store.md) under the **LangChain > Document Loader** section
+* Now that our dataset is ready to be upserted, it's time to go to your RAG chatflow / agentflow and add the [Document Store node](../integrations/langchain/document-loaders/document-store.md) under the **LangChain > Document Loader** section.
 
 <figure><img src="../.gitbook/assets/ds11.png" alt=""><figcaption></figcaption></figure>
 
 ## 7. Upsert your data to a Vector Store
 
-* Upsert your data to a [Vector Store](../integrations/langchain/vector-stores/). In our case, we used the [Upstash Vector Store](../integrations/langchain/vector-stores/upstash-vector.md).
-
-
+* Upsert your dataset to your [Vector Store](../integrations/langchain/vector-stores/) by clicking the green button in the right corner of your flow. We used the [Upstash Vector Store](../integrations/langchain/vector-stores/upstash-vector.md) in our implementation.
 
 <figure><img src="../.gitbook/assets/ds12.png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/ds13.png" alt=""><figcaption></figcaption></figure>
 
-## 8. Summary
+## 8. Test your RAG
 
-We started by creating a Document Store to organize the LibertyGuard Deluxe Homeowners Policy data. This data was then prepared by uploading, chunking, processing, and upserting it, making it ready for our RAG system
+* Finally, our Retrieval-Augmented Generation (RAG) system is operational. It's noteworthy how the LLM effectively interprets the query and successfully leverages relevant information from the chunked data to construct a comprehensive response.
+
+<figure><img src="../.gitbook/assets/ds15.png" alt=""><figcaption></figcaption></figure>
+
+## 9. Summary
+
+We started by creating a Document Store to organize the LibertyGuard Deluxe Homeowners Policy data. This data was then prepared by uploading, chunking, processing, and upserting it, making it ready for our RAG system.
 
 ### Key benefits of using the Document Stores
 
