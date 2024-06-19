@@ -93,15 +93,15 @@ output = query({
     "history": [
         {
             "role": "apiMessage",
-            "context": "Hello how can I help?"
+            "content": "Hello how can I help?"
         },
         {
             "role": "userMessage",
-            "context": "Hi my name is Brian"
+            "content": "Hi my name is Brian"
         },
         {
             "role": "apiMessage",
-            "context": "Hi Brian, how can I help?"
+            "content": "Hi Brian, how can I help?"
         },
     ]
 })
@@ -130,15 +130,15 @@ query({
     "history": [
         {
             "role": "apiMessage",
-            "context": "Hello how can I help?"
+            "content": "Hello how can I help?"
         },
         {
             "role": "userMessage",
-            "context": "Hi my name is Brian"
+            "content": "Hi my name is Brian"
         },
         {
             "role": "apiMessage",
-            "context": "Hi Brian, how can I help?"
+            "content": "Hi Brian, how can I help?"
         },
     ]
 }).then((response) => {

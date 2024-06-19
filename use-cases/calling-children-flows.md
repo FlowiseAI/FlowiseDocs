@@ -48,7 +48,7 @@ Input Schema:
 
 <table><thead><tr><th>Property</th><th>Type</th><th>Description</th><th data-type="checkbox">Required</th></tr></thead><tbody><tr><td>input</td><td>string</td><td>input question</td><td>true</td></tr></tbody></table>
 
-<figure><img src="../.gitbook/assets/image (95).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (95) (1).png" alt=""><figcaption></figcaption></figure>
 
 Javascript Function of the tool:
 
