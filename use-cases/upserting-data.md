@@ -16,7 +16,7 @@ The first thing we need to understand is that the upserting data process to a [V
 
 In other words, in Flowise you can upsert data without a full RAG setup, and you can run your RAG without the specific nodes used in the upsert process, meaning that although a well-populated vector store is crucial for RAG to function, the actual retrieval and generation processes don't require continuous upserting.
 
-<figure><img src=".gitbook/assets/UD_01.png" alt=""><figcaption><p>Upsert vs. RAG</p></figcaption></figure>
+<figure><img src=".gitbook/assets/ud_01.png" alt=""><figcaption><p>Upsert vs. RAG</p></figcaption></figure>
 
 ## Setup
 
@@ -24,7 +24,7 @@ Let's say you have a long dataset in PDF format that you need to upsert to your 
 
 In order to do that, and for illustrating this tutorial, we would need to create an **upserting flow** with 5 different nodes**:**
 
-<figure><img src=".gitbook/assets/UD_02.png" alt=""><figcaption><p>Upserting Flow</p></figcaption></figure>
+<figure><img src=".gitbook/assets/ud_02.png" alt=""><figcaption><p>Upserting Flow</p></figcaption></figure>
 
 ## 1. Document Loader
 
@@ -32,7 +32,7 @@ The first step is to **upload your PDF data into the Flowise instance** using a 
 
 It is important to mention that every Document Loader comes with two important **additional parameters** that allow us to add and omit metadata from our dataset at will.
 
-<figure><img src=".gitbook/assets/UD_03.png" alt="" width="375"><figcaption><p>Additional Parameters</p></figcaption></figure>
+<figure><img src=".gitbook/assets/ud_03.png" alt="" width="375"><figcaption><p>Additional Parameters</p></figcaption></figure>
 
 {% hint style="info" %}
 **Tip**: Those add/omit parameters are very useful for targeting your dataset once it is upserted in a Vector Store or for removing unnecessary metadata from it.
@@ -121,7 +121,7 @@ The [Vector Store](integrations/langchain/vector-stores/) node is the **end node
 
 It is in this node where we can set parameters like "**top K**", which, as we said previously, is the parameter that determines the maximum number of most similar chunks that are retrieved from the Vector Store in response to a query.
 
-<figure><img src=".gitbook/assets/UD_04.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/ud_04.png" alt="" width="375"><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 **Tip:** A lower top K value will yield fewer but potentially more relevant results, while a higher value will return a broader range of results, potentially capturing more information.
@@ -133,11 +133,11 @@ The [Record Manager](integrations/langchain/record-managers.md) nodes is an opti
 
 For a more in-depth guide, please refer to [this guide](integrations/langchain/record-managers.md).
 
-<figure><img src=".gitbook/assets/UD_05.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/ud_05.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ## 6. Full Overview
 
-<figure><img src=".gitbook/assets/UD_06 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/ud_06.png" alt=""><figcaption></figcaption></figure>
 
 1. **Document Ingestion**
    * We begin by feeding our raw data into Flowise using the appropriate **Document Loader node**.
