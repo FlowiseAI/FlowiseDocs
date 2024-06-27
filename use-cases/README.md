@@ -17,7 +17,9 @@ Each use case will guide you through the process of designing, building, and dep
 * [Interacting with API](interacting-with-api.md)
 * [Multiple Documents QnA](multiple-documents-qna.md)
 * [SQL QnA](sql-qna.md)
+* [Upserting Data](upserting-data.md)
 * [Web Scrape QnA](web-scrape-qna.md)
+* [Webhook Tool](webhook-tool.md)
 
 
 
