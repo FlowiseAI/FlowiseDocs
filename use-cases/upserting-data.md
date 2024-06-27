@@ -20,7 +20,7 @@ In other words, in Flowise you can upsert data without a full RAG setup, and you
 
 ## Setup
 
-Let's say you have a long dataset in PDF format that you need to upsert to your [Upstash Vector Store](../integrations/langchain/vector-stores/upstash-vector.md) so you could instruct an LLM to retrieve specific information from that document.
+Let's say we have a long dataset in PDF format that we need to upsert to your [Upstash Vector Store](../integrations/langchain/vector-stores/upstash-vector.md) so we could instruct an LLM to retrieve specific information from that document.
 
 In order to do that, and for illustrating this tutorial, we would need to create an **upserting flow** with 5 different nodes:
 
@@ -86,11 +86,11 @@ Therefore, by introducing chunk overlap during the text splitting phase, we enha
 
 So, to further optimize the trade-off between retrieval accuracy and cost, two primary strategies can be used:
 
-1. **Increase/Decrease Chunk Overlap:** Adjusting the overlap percentage during text splitting allows for fine-grained control over the amount of shared context between chunks. Higher overlap percentages generally lead to improved context preservation but may also increase costs since you would need to use more chunks to encompass the entire document. Conversely, lower overlap percentages can reduce costs but risk losing crucial contextual information between chunks, potentially leading to less accurate or incomplete answers from the LLM.
+1. **Increase/Decrease Chunk Overlap:** Adjusting the overlap percentage during text splitting allows for fine-grained control over the amount of shared context between chunks. Higher overlap percentages generally lead to improved context preservation but may also increase costs since you would need to use more chunks to encompass the entire document. Conversely, lower overlap percentages can reduce costs but risk losing key contextual information between chunks, potentially leading to less accurate or incomplete answers from the LLM.
 2. **Increase/Decrease Top K:** Raising the top K value expands the number of chunks considered for response generation. While this can enhance accuracy, it also increases cost.
 
 {% hint style="info" %}
-**Tip:** The choice of optimal **overlap** and **top K** values depends on factors such as document complexity, embedding model characteristics, and the desired balance between accuracy and cost. Experimentation and empirical evaluation are crucial for finding the ideal configuration for a specific application.
+**Tip:** The choice of optimal **overlap** and **top K** values depends on factors such as document complexity, embedding model characteristics, and the desired balance between accuracy and cost. Experimentation with those values is impoortant for finding the ideal configuration for a specific application..
 {% endhint %}
 
 ## 3. Embedding
@@ -109,7 +109,7 @@ The more dimensions we use to embed our data, the greater the potential for capt
 
 In general, a larger number of dimensions needs more resources to store, process, and compare the resulting embedding vectors. Therefore, embeddings models like the Google `embedding-001`, which uses 768 dimensions, are, in therory, cheaper than others like the OpenAI `text-embedding-3-large`, with 3072 dimensions.
 
-It's important to note that the relationship between dimensions and meaning capture isn't strictly linear; there's a point of diminishing returns where adding more dimensions provides negligible benefit for the added innecesary cost.
+It's important to note that the **relationship between dimensions and meaning capture isn't strictly linear**; there's a point of diminishing returns where adding more dimensions provides negligible benefit for the added innecesary cost.
 
 {% hint style="info" %}
 **Tip:** To ensure compatibility between an embedding model and a Vector Store index, dimensional alignment is essential. Both **the model and the index must utilize the same number of dimensions for vector representation**. Dimensionality mismatch will result in upsertion errors, as the Vector Store is designed to handle vectors of a specific size determined by the chosen embedding model.
@@ -117,7 +117,7 @@ It's important to note that the relationship between dimensions and meaning capt
 
 ## 4. Vector Store
 
-The [Vector Store](../integrations/langchain/vector-stores/) node is the **end node of our upserting flow**. It acts as the bridge between our Flowise instance and our vector database, enabling us to send the generated embeddings along with their associated metadata to our target Vector Store index for persistent storage and subsequent retrieval.
+The [Vector Store node](../integrations/langchain/vector-stores/) is the **end node of our upserting flow**. It acts as the bridge between our Flowise instance and our vector database, enabling us to send the generated embeddings, along with any associated metadata, to our target Vector Store index for persistent storage and subsequent retrieval.
 
 It is in this node where we can set parameters like "**top K**", which, as we said previously, is the parameter that determines the maximum number of most similar chunks that are retrieved from the Vector Store in response to a query.
 
@@ -129,9 +129,9 @@ It is in this node where we can set parameters like "**top K**", which, as we sa
 
 ## 5. Record Manager
 
-The [Record Manager](../integrations/langchain/record-managers.md) nodes is an optional but incredibly useful addition to our upserting flow. It allows us to maintain a comprehensive record of all the chunks that have been upserted to our Vector Store, enabling us to efficiently add or delete chunks as needed.
+The [Record Manager node](../integrations/langchain/record-managers.md) is an optional but incredibly useful addition to our upserting flow. It allows us to maintain records of all the chunks that have been upserted to our Vector Store, enabling us to efficiently add or delete chunks as needed.
 
-For a more in-depth guide, please refer to [this guide](../integrations/langchain/record-managers.md).
+For a more in-depth guide, please we refer to [this guide](../integrations/langchain/record-managers.md).
 
 <figure><img src="../.gitbook/assets/UD_05.png" alt="" width="375"><figcaption></figcaption></figure>
 
