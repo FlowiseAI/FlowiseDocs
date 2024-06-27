@@ -28,14 +28,14 @@ In order to do that, and for illustrating this tutorial, we would need to create
 
 ## 1. Document Loader
 
-The first step is to **upload your PDF data into the Flowise instance** using a [Document Loader](../integrations/langchain/document-loaders/). Document Loaders are specialized nodes that handle the ingestion of various document formats, including **PDFs**, **TXT**, **CSV**, Notion pages, and more.
+The first step is to **upload your PDF data into the Flowise instance** using a [Document Loader node](../integrations/langchain/document-loaders/). Document Loaders are specialized nodes that handle the ingestion of various document formats, including **PDFs**, **TXT**, **CSV**, Notion pages, and more.
 
 It is important to mention that every Document Loader comes with two important **additional parameters** that allow us to add and omit metadata from our dataset at will.
 
 <figure><img src="../.gitbook/assets/UD_03.png" alt="" width="375"><figcaption><p>Additional Parameters</p></figcaption></figure>
 
 {% hint style="info" %}
-**Tip**: Those add/omit parameters are very useful for targeting your dataset once it is upserted in a Vector Store or for removing unnecessary metadata from it.
+**Tip**: The add/omit parameters, although they are optional, are very useful for targeting your dataset once it is upserted in a Vector Store or for removing unnecessary metadata from it.
 {% endhint %}
 
 ## 2. Text Splitter
@@ -136,6 +136,8 @@ For a more in-depth guide, please refer to [this guide](../integrations/langchai
 <figure><img src="../.gitbook/assets/UD_05.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ## 6. Full Overview
+
+Finally, let's examine each stage, from initial document loading to the final vector representation, highlighting the key components and their roles in the upserting process.
 
 <figure><img src="../.gitbook/assets/UD_06.png" alt=""><figcaption></figcaption></figure>
 
