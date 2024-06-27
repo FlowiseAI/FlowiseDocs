@@ -12,7 +12,7 @@ In this guide, even though it is highly recommended that you prepare your data u
 
 ## Understading the upserting proccess
 
-The first thing we need to understand is that the upserting data process to a [Vector Store](../integrations/langchain/vector-stores/) is a fundamental piece for the formation of a [Retrieval Augmented Generation (RAG)](use-cases/multiple-documents-qna.md) system. However, once this process is finished, the RAG can be executed independently.
+The first thing we need to understand is that the upserting data process to a [Vector Store](../integrations/langchain/vector-stores/) is a fundamental piece for the formation of a [Retrieval Augmented Generation (RAG)](multiple-documents-qna.md) system. However, once this process is finished, the RAG can be executed independently.
 
 In other words, in Flowise you can upsert data without a full RAG setup, and you can run your RAG without the specific nodes used in the upsert process, meaning that although a well-populated vector store is crucial for RAG to function, the actual retrieval and generation processes don't require continuous upserting.
 
