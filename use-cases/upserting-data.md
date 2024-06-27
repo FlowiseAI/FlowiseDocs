@@ -131,7 +131,7 @@ It is in this node where we can set parameters like "**top K**", which, as we sa
 
 The [Record Manager node](../integrations/langchain/record-managers.md) is an optional but incredibly useful addition to our upserting flow. It allows us to maintain records of all the chunks that have been upserted to our Vector Store, enabling us to efficiently add or delete chunks as needed.
 
-For a more in-depth guide, please we refer to [this guide](../integrations/langchain/record-managers.md).
+For a more in-depth guide, we refer you to [this guide](../integrations/langchain/record-managers.md).
 
 <figure><img src="../.gitbook/assets/UD_05.png" alt="" width="375"><figcaption></figcaption></figure>
 
@@ -142,17 +142,17 @@ Finally, let's examine each stage, from initial document loading to the final ve
 <figure><img src="../.gitbook/assets/UD_06.png" alt=""><figcaption></figcaption></figure>
 
 1. **Document Ingestion**
-   * We begin by feeding our raw data into Flowise using the appropriate **Document Loader node**.
+   * We begin by feeding our raw data into Flowise using the appropriate **Document Loader node** for your data format.
 2. **Strategic Splitting**
    * Next, the **Text Splitter node** divides our document into smaller, more manageable chunks. This is crucial for efficient retrieval and cost control.
-   * We have flexibility in how this splitting happens by selecting the appropriate text splitter node and, importantly, by fine-tuning chunk size and chunk overlap to balance context preservation with resource usage.
+   * We have flexibility in how this splitting happens by selecting the appropriate text splitter node and, importantly, by fine-tuning chunk size and chunk overlap to balance context preservation with efficiency.
 3. **Meaningful Embeddings**
-   * Now, just before our data is going to be stored in the Vector Store, the **Embedding node** steps in. It transforms each text chunk and its meaning into a numerical representation.
+   * Now, just before our data is going to be stored in the Vector Store, the **Embedding node** steps in. It transforms each text chunk and its meaning into a numerical representation that our LLM can understand.
 4. **Vector Store Destination**
-   * Finally, the **Vector Store node** acts as the bridge between Flowise and our Vector Store. It sends our embeddings, along with any associated metadata, to the designated vector database.
-   * Here, you can control the retrieval behavior by setting the **top K** parameter, which influences how many chunks are considered when answering a query.
+   * Finally, the **Vector Store node** acts as the bridge between Flowise and our database. It sends our embeddings, along with any associated metadata, to the designated vector database.
+   * Here, in this node, you can control the retrieval behavior by setting the **top K** parameter, which influences how many chunks are considered when answering a query.
 5. **Data Stored and Ready**
-   * Our data is now represented as vectors within the Vector Store, ready for similarity search and retrieval by your LLM.
+   * Once it upserted, our data is now represented as vectors within the Vector Store, ready for similarity search and retrieval.
 6. **Record Keeping (Optional)**
    * For enhanced control and management, the **Record Manager** node keeps track of all upserted chunks. This facilitates easy updates or removals as your data or needs evolve.
 
