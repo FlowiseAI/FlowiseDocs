@@ -8,7 +8,7 @@ description: Learn how to upsert data to Vector Stores with Flowise
 
 There are two fundamental ways to upsert your data into a [Vector Store](../integrations/langchain/vector-stores/) using Flowise, either via [API calls](../using-flowise/api.md#id-2.-vector-upsert-api) or by using a set of dedicated nodes we have ready for this purpose.
 
-In this guide, even though it is highly recommended that you prepare your data using the [Document Stores](../using-flowise/document-stores.md) before upserting to a Vector Store, we will go through the entire process by using the specific nodes required for this end, outlining the steps, advantages of this approach, and optimization strategies for efficient data handling.&#x20;
+In this guide, even though it is **highly recommended** that you prepare your data using the [Document Stores](../using-flowise/document-stores.md) before upserting to a Vector Store, we will go through the entire process by using the specific nodes required for this end, outlining the steps, advantages of this approach, and optimization strategies for efficient data handling.&#x20;
 
 ## Understading the upserting proccess
 
@@ -22,7 +22,7 @@ In other words, in Flowise you can upsert data without a full RAG setup, and you
 
 Let's say you have a long dataset in PDF format that you need to upsert to your [Upstash Vector Store](../integrations/langchain/vector-stores/upstash-vector.md) so you could instruct an LLM to retrieve specific information from that document.
 
-In order to do that, and for illustrating this tutorial, we would need to create an **upserting flow** with 5 different nodes**:**
+In order to do that, and for illustrating this tutorial, we would need to create an **upserting flow** with 5 different nodes:
 
 <figure><img src="../.gitbook/assets/UD_02.png" alt=""><figcaption><p>Upserting Flow</p></figcaption></figure>
 
