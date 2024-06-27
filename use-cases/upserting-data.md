@@ -10,7 +10,7 @@ There are two fundamental ways to upsert your data into a [Vector Store](../inte
 
 In this guide, even though it is **highly recommended** that you prepare your data using the [Document Stores](../using-flowise/document-stores.md) before upserting to a Vector Store, we will go through the entire process by using the specific nodes required for this end, outlining the steps, advantages of this approach, and optimization strategies for efficient data handling.&#x20;
 
-## Understading the upserting proccess
+## Understading the upserting process
 
 The first thing we need to understand is that the upserting data process to a [Vector Store](../integrations/langchain/vector-stores/) is a fundamental piece for the formation of a [Retrieval Augmented Generation (RAG)](multiple-documents-qna.md) system. However, once this process is finished, the RAG can be executed independently.
 
