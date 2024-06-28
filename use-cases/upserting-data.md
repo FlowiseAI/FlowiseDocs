@@ -141,19 +141,19 @@ Finally, let's examine each stage, from initial document loading to the final ve
 
 <figure><img src="../.gitbook/assets/UD_06.png" alt=""><figcaption></figcaption></figure>
 
-1. **Document Ingestion**
+1. **Document Ingestion**:
    * We begin by feeding our raw data into Flowise using the appropriate **Document Loader node** for your data format.
 2. **Strategic Splitting**
    * Next, the **Text Splitter node** divides our document into smaller, more manageable chunks. This is crucial for efficient retrieval and cost control.
    * We have flexibility in how this splitting happens by selecting the appropriate text splitter node and, importantly, by fine-tuning chunk size and chunk overlap to balance context preservation with efficiency.
 3. **Meaningful Embeddings**
-   * Now, just before our data is going to be stored in the Vector Store, the **Embedding node** steps in. It transforms each text chunk and its meaning into a numerical representation that our LLM can understand.
-4. **Vector Store Destination**
-   * Finally, the **Vector Store node** acts as the bridge between Flowise and our database. It sends our embeddings, along with any associated metadata, to the designated vector database.
+   * Now, just before our data is going to be recorded in the Vector Store, the **Embedding node** steps in. It transforms each text chunk and its meaning into a numerical representation that our LLM can understand.
+4. **Vector Store Index**
+   * Finally, the **Vector Store node** acts as the bridge between Flowise and our database. It sends our embeddings, along with any associated metadata, to the designated Vector Store index.
    * Here, in this node, you can control the retrieval behavior by setting the **top K** parameter, which influences how many chunks are considered when answering a query.
-5. **Data Stored and Ready**
-   * Once it upserted, our data is now represented as vectors within the Vector Store, ready for similarity search and retrieval.
+5. **Data Ready**
+   * Once upserted, our data is now represented as vectors within the Vector Store, ready for similarity search and retrieval.
 6. **Record Keeping (Optional)**
-   * For enhanced control and management, the **Record Manager** node keeps track of all upserted chunks. This facilitates easy updates or removals as your data or needs evolve.
+   * For enhanced control and management data, the **Record Manager** node keeps track of all upserted chunks. This facilitates easy updates or removals as your data or needs evolve.
 
 In essence, the upserting process transforms our raw data into an LLM-ready format, optimized for fast and cost-effective retrieval.
