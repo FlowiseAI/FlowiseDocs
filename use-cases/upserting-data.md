@@ -20,7 +20,7 @@ In other words, in Flowise you can upsert data without a full RAG setup, and you
 
 ## Setup
 
-Let's say we have a long dataset in PDF format that we need to upsert to your [Upstash Vector Store](../integrations/langchain/vector-stores/upstash-vector.md) so we could instruct an LLM to retrieve specific information from that document.
+Let's say we have a long dataset in PDF format that we need to upsert to our [Upstash Vector Store](../integrations/langchain/vector-stores/upstash-vector.md) so we could instruct an LLM to retrieve specific information from that document.
 
 In order to do that, and for illustrating this tutorial, we would need to create an **upserting flow** with 5 different nodes:
 
@@ -28,14 +28,14 @@ In order to do that, and for illustrating this tutorial, we would need to create
 
 ## 1. Document Loader
 
-The first step is to **upload your PDF data into the Flowise instance** using a [Document Loader node](../integrations/langchain/document-loaders/). Document Loaders are specialized nodes that handle the ingestion of various document formats, including **PDFs**, **TXT**, **CSV**, Notion pages, and more.
+The first step is to **upload our PDF data into the Flowise instance** using a [Document Loader node](../integrations/langchain/document-loaders/). Document Loaders are specialized nodes that handle the ingestion of various document formats, including **PDFs**, **TXT**, **CSV**, Notion pages, and more.
 
 It is important to mention that every Document Loader comes with two important **additional parameters** that allow us to add and omit metadata from our dataset at will.
 
 <figure><img src="../.gitbook/assets/UD_03.png" alt="" width="375"><figcaption><p>Additional Parameters</p></figcaption></figure>
 
 {% hint style="info" %}
-**Tip**: The add/omit parameters, although they are optional, are very useful for targeting your dataset once it is upserted in a Vector Store or for removing unnecessary metadata from it.
+**Tip**: The add/omit metadata parameters, although they are optional, are very useful for targeting our dataset once it is upserted in a Vector Store or for removing unnecessary metadata from it.
 {% endhint %}
 
 ## 2. Text Splitter
@@ -43,7 +43,7 @@ It is important to mention that every Document Loader comes with two important *
 Once we have uploaded our PDF or datset, we need to **split it into smaller pieces, documents, or chunks**. This is a crucial preprocessing step for 2 main reasons:
 
 * **Retrieval speed and relevance:** Storing and querying large documents as single entities in a vector database can lead to slower retrieval times and potentially less relevant results. Splitting the document into smaller chunks allows for more targeted retrieval. By querying against smaller, more focused units of information, we can achieve faster response times and improve the precision of the retrieved results.
-* **Cost-effective:** Since we only retrieve relevant chunks rather than the entire document, the number of tokens processed by the LLM is significantly reduced. This targeted retrieval approach directly translates to lower usage costs for your LLM, as billing is typically based on token consumption. By minimizing the amount of irrelevant information sent to the LLM, we optimize for both performance and cost.
+* **Cost-effective:** Since we only retrieve relevant chunks rather than the entire document, the number of tokens processed by the LLM is significantly reduced. This targeted retrieval approach directly translates to lower usage costs for our LLM, as billing is typically based on token consumption. By minimizing the amount of irrelevant information sent to the LLM, we also optimize for cost.
 
 ### Nodes
 
@@ -56,13 +56,13 @@ In Flowise, this splitting process is accomplished using the [Text Splitter node
 * **Code Text Splitter:** Tailored for splitting code files, this strategy considers code structure, function definitions, and other programming language-specific elements to create meaningful chunks that are suitable for tasks like code search and documentation.
 * **HTML-to-Markdown Text Splitter:** This specialized splitter first converts HTML content to Markdown and then applies the Markdown Text Splitter, allowing for structured segmentation of web pages and other HTML documents.
 
-The Text Splitter nodes allow for fine-grained control over the splitting process, enabling you to define parameters such as:
+The Text Splitter nodes provide granular control over text segmentation, allowing for customization of parameters such as:
 
 * **Chunk Size:** The desired maximum size of each chunk, usually defined in characters or tokens.
 * **Chunk Overlap:** The number of characters or tokens to overlap between consecutive chunks, useful for maintaining contextual flow across chunks.
 
 {% hint style="info" %}
-**Tip:** Note that Chunk Size and Chunk Overlap values are not additive. Selecting `chunk_size=1200` and `chunk_overlap=400` does not result in a total chunk size of 1600. The overlap value determines the number of tokens from the preceding chunk that are included in the current chunk to maintain context, not to increase the overall chunk size.
+**Tip:** Note that Chunk Size and Chunk Overlap values are not additive. Selecting `chunk_size=1200` and `chunk_overlap=400` does not result in a total chunk size of 1600. The overlap value determines the number of tokens from the preceding chunk included in the current chunk to maintain context. It does not increase the overall chunk size.
 {% endhint %}
 
 ### Undertanding Chunk Overlap
@@ -73,9 +73,9 @@ During query processing, the LLM executes a similarity search against the Vector
 
 This scenario presents us with a problem, since relying solely on a limited number of chunks without overlap can lead to incomplete or inaccurate answers, particularly when dealing with queries that require information spanning multiple chunks.&#x20;
 
-Chunk overlap help with this issue by ensuring that a portion of the textual context is shared across consecutive chunks, **increasing the likelihood that all relevant information for a given query is contained within the retrieved chunks**.
+Chunk overlap helps with this issue by ensuring that a portion of the textual context is shared across consecutive chunks, **increasing the likelihood that all relevant information for a given query is contained within the retrieved chunks**.
 
-In other words, this overlap serves as a bridge between chunks, enabling the LLM to access a wider contextual window even when limited to a small set of retrieved chunks (top K). If a query relates to a concept or piece of information that extends beyond a single chunk, the overlapping regions increase the likelihood of capturing all the necessary context within the retrieved set.
+In other words, this overlap serves as a bridge between chunks, enabling the LLM to access a wider contextual window even when limited to a small set of retrieved chunks (top K). If a query relates to a concept or piece of information that extends beyond a single chunk, the overlapping regions increase the likelihood of capturing all the necessary context.
 
 Therefore, by introducing chunk overlap during the text splitting phase, we enhance the LLM's ability to:
 
@@ -87,10 +87,10 @@ Therefore, by introducing chunk overlap during the text splitting phase, we enha
 So, to further optimize the trade-off between retrieval accuracy and cost, two primary strategies can be used:
 
 1. **Increase/Decrease Chunk Overlap:** Adjusting the overlap percentage during text splitting allows for fine-grained control over the amount of shared context between chunks. Higher overlap percentages generally lead to improved context preservation but may also increase costs since you would need to use more chunks to encompass the entire document. Conversely, lower overlap percentages can reduce costs but risk losing key contextual information between chunks, potentially leading to less accurate or incomplete answers from the LLM.
-2. **Increase/Decrease Top K:** Raising the top K value expands the number of chunks considered for response generation. While this can enhance accuracy, it also increases cost.
+2. **Increase/Decrease Top K:** Raising the default top K value (4) expands the number of chunks considered for response generation. While this can improve accuracy, it also increases cost.
 
 {% hint style="info" %}
-**Tip:** The choice of optimal **overlap** and **top K** values depends on factors such as document complexity, embedding model characteristics, and the desired balance between accuracy and cost. Experimentation with those values is impoortant for finding the ideal configuration for a specific application..
+**Tip:** The choice of optimal **overlap** and **top K** values depends on factors such as document complexity, embedding model characteristics, and the desired balance between accuracy and cost. Experimentation with these values is important for finding the ideal configuration for a specific need.
 {% endhint %}
 
 ## 3. Embedding
