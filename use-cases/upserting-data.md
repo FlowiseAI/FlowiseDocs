@@ -150,7 +150,7 @@ Finally, let's examine each stage, from initial document loading to the final ve
    * Now, just before our data is going to be recorded in the Vector Store, the **Embedding node** steps in. It transforms each text chunk and its meaning into a numerical representation that our LLM can understand.
 4. **Vector Store Index**
    * Finally, the **Vector Store node** acts as the bridge between Flowise and our database. It sends our embeddings, along with any associated metadata, to the designated Vector Store index.
-   * Here, in this node, you can control the retrieval behavior by setting the **top K** parameter, which influences how many chunks are considered when answering a query.
+   * Here, in this node, we can control the retrieval behavior by setting the **top K** parameter, which influences how many chunks are considered when answering a query.
 5. **Data Ready**
    * Once upserted, our data is now represented as vectors within the Vector Store, ready for similarity search and retrieval.
 6. **Record Keeping (Optional)**
