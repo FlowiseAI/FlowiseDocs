@@ -174,6 +174,7 @@
       * [Embeddings Filter Retriever](integrations/langchain/retrievers/embeddings-filter-retriever.md)
       * [HyDE Retriever](integrations/langchain/retrievers/hyde-retriever.md)
       * [LLM Filter Retriever](integrations/langchain/retrievers/llm-filter-retriever.md)
+      * [Multi Query Retriever](integrations/langchain/retrievers/multi-query-retriever.md)
       * [Prompt Retriever](integrations/langchain/retrievers/prompt-retriever.md)
       * [Reciprocal Rank Fusion Retriever](integrations/langchain/retrievers/reciprocal-rank-fusion-retriever.md)
       * [Similarity Score Threshold Retriever](integrations/langchain/retrievers/similarity-score-threshold-retriever.md)
