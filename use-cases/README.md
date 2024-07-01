@@ -6,7 +6,7 @@ description: Learn to build your own Flowise solutions through practical example
 
 ***
 
-This section provides a collection of practical examples to demonstrate how Flowise can be used to build a variety of solutions.&#x20;
+This section provides a collection of practical examples to demonstrate how Flowise can be used to build a variety of solutions.
 
 Each use case will guide you through the process of designing, building, and deploying real-world applications using Flowise.
 
@@ -19,7 +19,3 @@ Each use case will guide you through the process of designing, building, and dep
 * [SQL QnA](sql-qna.md)
 * [Upserting Data](upserting-data.md)
 * [Web Scrape QnA](web-scrape-qna.md)
-* [Webhook Tool](webhook-tool.md)
-
-
-
