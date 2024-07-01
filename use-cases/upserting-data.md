@@ -8,9 +8,9 @@ description: Learn how to upsert data to Vector Stores with Flowise
 
 There are two fundamental ways to upsert your data into a [Vector Store](../integrations/langchain/vector-stores/) using Flowise, either via [API calls](../using-flowise/api.md#id-2.-vector-upsert-api) or by using a set of dedicated nodes we have ready for this purpose.
 
-In this guide, even though it is **highly recommended** that you prepare your data using the [Document Stores](../using-flowise/document-stores.md) before upserting to a Vector Store, we will go through the entire process by using the specific nodes required for this end, outlining the steps, advantages of this approach, and optimization strategies for efficient data handling.&#x20;
+In this guide, even though it is **highly recommended** that you prepare your data using the [Document Stores](../using-flowise/document-stores.md) before upserting to a Vector Store, we will go through the entire process by using the specific nodes required for this end, outlining the steps, advantages of this approach, and optimization strategies for efficient data handling.
 
-## Understading the upserting process
+## Understanding the upserting process
 
 The first thing we need to understand is that the upserting data process to a [Vector Store](../integrations/langchain/vector-stores/) is a fundamental piece for the formation of a [Retrieval Augmented Generation (RAG)](multiple-documents-qna.md) system. However, once this process is finished, the RAG can be executed independently.
 
@@ -52,7 +52,7 @@ In Flowise, this splitting process is accomplished using the [Text Splitter node
 * **Character Text Splitting:** Dividing the text into chunks of a fixed number of characters. This method is straightforward but may split words or phrases across chunks, potentially disrupting context.
 * **Token Text Splitting:** Segmenting the text based on word boundaries or tokenization schemes specific to the chosen embedding model. This approach often leads to more semantically coherent chunks, as it preserves word boundaries and considers the underlying linguistic structure of the text.
 * **Recursive Character Text Splitting:** This strategy aims to divide text into chunks that maintain semantic coherence while staying within a specified size limit. It's particularly well-suited for hierarchical documents with nested sections or headings. Instead of blindly splitting at the character limit, it recursively analyzes the text to find logical breakpoints, such as sentence endings or section breaks. This approach ensures that each chunk represents a meaningful unit of information, even if it slightly exceeds the target size.
-* **Markdown Text Splitter:** Designed specifically for markdown-formatted documents, this splitter logically  segments the text based on markdown headings and structural elements, creating chunks that correspond to logical sections within the document.
+* **Markdown Text Splitter:** Designed specifically for markdown-formatted documents, this splitter logically segments the text based on markdown headings and structural elements, creating chunks that correspond to logical sections within the document.
 * **Code Text Splitter:** Tailored for splitting code files, this strategy considers code structure, function definitions, and other programming language-specific elements to create meaningful chunks that are suitable for tasks like code search and documentation.
 * **HTML-to-Markdown Text Splitter:** This specialized splitter first converts HTML content to Markdown and then applies the Markdown Text Splitter, allowing for structured segmentation of web pages and other HTML documents.
 
@@ -67,11 +67,11 @@ The Text Splitter nodes provide granular control over text segmentation, allowin
 
 ### Undertanding Chunk Overlap
 
-In the context of vector-based retrieval and LLM querying, chunk overlap plays an **important role in maintaining contextual continuity** and **improving response accuracy**, especially when dealing with limited retrieval depth or **top K**, which is the parameter that determines the maximum number of most similar chunks that are retrieved from the [Vector Store](../integrations/langchain/vector-stores/) in response to a query.&#x20;
+In the context of vector-based retrieval and LLM querying, chunk overlap plays an **important role in maintaining contextual continuity** and **improving response accuracy**, especially when dealing with limited retrieval depth or **top K**, which is the parameter that determines the maximum number of most similar chunks that are retrieved from the [Vector Store](../integrations/langchain/vector-stores/) in response to a query.
 
 During query processing, the LLM executes a similarity search against the Vector Store to retrieve the most semantically relevant chunks to the given query. If the retrieval depth, represented by the top K parameter, is set to a small value, 4 for default, the LLM initially uses information only from these 4 chunks to generate its response.
 
-This scenario presents us with a problem, since relying solely on a limited number of chunks without overlap can lead to incomplete or inaccurate answers, particularly when dealing with queries that require information spanning multiple chunks.&#x20;
+This scenario presents us with a problem, since relying solely on a limited number of chunks without overlap can lead to incomplete or inaccurate answers, particularly when dealing with queries that require information spanning multiple chunks.
 
 Chunk overlap helps with this issue by ensuring that a portion of the textual context is shared across consecutive chunks, **increasing the likelihood that all relevant information for a given query is contained within the retrieved chunks**.
 
@@ -103,9 +103,9 @@ These vectors allow LLMs to compare and search for similar pieces of text within
 
 ### Understanding Embeddings/Vector Store dimensions
 
-The number of dimensions in a Vector Store index is determined by the embedding model used when we upsert our data, and vice versa. Each dimension represents a specific feature or concept within the data. For example, a **dimension** might **represent a particular topic, sentiment, or other aspect of the text**.&#x20;
+The number of dimensions in a Vector Store index is determined by the embedding model used when we upsert our data, and vice versa. Each dimension represents a specific feature or concept within the data. For example, a **dimension** might **represent a particular topic, sentiment, or other aspect of the text**.
 
-The more dimensions we use to embed our data, the greater the potential for capturing nuanced meaning from our text. However, this increased comes at the cost of higher computational requirements per query.&#x20;
+The more dimensions we use to embed our data, the greater the potential for capturing nuanced meaning from our text. However, this increased comes at the cost of higher computational requirements per query.
 
 In general, a larger number of dimensions needs more resources to store, process, and compare the resulting embedding vectors. Therefore, embeddings models like the Google `embedding-001`, which uses 768 dimensions, are, in therory, cheaper than others like the OpenAI `text-embedding-3-large`, with 3072 dimensions.
 
