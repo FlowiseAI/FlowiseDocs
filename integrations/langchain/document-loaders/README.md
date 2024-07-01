@@ -24,6 +24,7 @@ Document loaders allow you to load documents from different sources like PDF, TX
 * [Document Store](document-store.md)
 * [Docx File](docx-file.md)
 * [Figma](figma.md)
+* [FireCrawl](firecrawl.md)
 * [Folder with Files](folder-with-files.md)
 * [GitBook](gitbook.md)
 * [Github](github.md)

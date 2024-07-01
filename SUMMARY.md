@@ -137,7 +137,7 @@
     * [LLMs](integrations/langchain/llms/README.md)
       * [AWS Bedrock](integrations/langchain/llms/aws-bedrock.md)
       * [Azure OpenAI](integrations/langchain/llms/azure-openai.md)
-      * [Bittensor](integrations/langchain/llms/bittensor.md)
+      * [NIBittensorLLM](integrations/langchain/llms/nibittensorllm.md)
       * [Cohere](integrations/langchain/llms/cohere.md)
       * [GooglePaLM](integrations/langchain/llms/googlepalm.md)
       * [GoogleVertex AI](integrations/langchain/llms/googlevertex-ai.md)
