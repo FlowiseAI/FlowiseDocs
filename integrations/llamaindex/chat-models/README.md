@@ -12,4 +12,9 @@ Chat models take a list of messages as input and return a model-generated messag
 
 * [AzureChatOpenAI](azurechatopenai.md)
 * [ChatAnthropic](chatanthropic.md)
+* ChatMistral
+* ChatOllama
 * [ChatOpenAI](chatopenai.md)
+* ChatTogetherAI
+* ChatTogetherAI
+* ChatGroq
