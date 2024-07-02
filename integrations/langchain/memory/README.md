@@ -38,7 +38,6 @@ Current conversation:
 * [Redis-Backed Chat Memory](redis-backed-chat-memory.md)
 * [Upstash Redis-Backed Chat Memory](upstash-redis-backed-chat-memory.md)
 * [Zep Memory](zep-memory.md)
-* [Threads](../agents/openai-assistant/threads.md)
 
 ## Separate conversations for multiple users
 

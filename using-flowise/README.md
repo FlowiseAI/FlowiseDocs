@@ -15,5 +15,5 @@ This section provides in-depth guides on core Flowise functionalities, including
 * [Document Stores](document-stores.md)
 * [Embed](embed.md)
 * [Streaming](streaming.md)
-* [Variables](variables.md)
 * [Telemetry](telemetry.md)
+* [Variables](variables.md)

@@ -261,6 +261,7 @@
     * [Custom JS Function](integrations/utilities/custom-js-function.md)
     * [Set/Get Variable](integrations/utilities/set-get-variable.md)
     * [If Else](integrations/utilities/if-else.md)
+    * [Set Variable](integrations/utilities/set-variable.md)
     * [Sticky Note](integrations/utilities/sticky-note.md)
   * [External Integrations](integrations/3rd-party-platform-integration/README.md)
     * [Zapier Zaps](integrations/3rd-party-platform-integration/zapier-zaps.md)

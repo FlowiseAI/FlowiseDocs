@@ -23,6 +23,7 @@ Chat models take a list of messages as input and return a model-generated messag
 * [ChatLocalAI](chatlocalai.md)
 * [ChatMistralAI](mistral-ai.md)
 * [ChatOllama](chatollama.md)
+* [ChatOllama Funtion](chatollama-funtion.md)
 * [ChatOpenAI](azure-chatopenai.md)
 * [ChatOpenAI Custom](chatopenai-custom.md)
 * [ChatTogetherAI](chattogetherai.md)
