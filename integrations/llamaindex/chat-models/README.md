@@ -16,5 +16,4 @@ Chat models take a list of messages as input and return a model-generated messag
 * ChatOllama
 * [ChatOpenAI](chatopenai.md)
 * ChatTogetherAI
-* ChatTogetherAI
 * ChatGroq
