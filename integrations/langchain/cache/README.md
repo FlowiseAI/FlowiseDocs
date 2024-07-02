@@ -14,4 +14,5 @@ Caching can save you money by reducing the number of API calls you make to the L
 * [InMemory Embedding Cache](inmemory-embedding-cache.md)
 * [Momento Cache](momento-cache.md)
 * [Redis Cache](redis-cache.md)
+* [Redis Embeddings Cache](redis-embeddings-cache.md)
 * [Upstash Redis Cache](upstash-redis-cache.md)

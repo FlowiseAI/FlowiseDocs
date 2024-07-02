@@ -14,6 +14,7 @@ Retriever nodes return documents given an unstructured query. It is more general
 * [Embeddings Filter Retriever](embeddings-filter-retriever.md)
 * [HyDE Retriever](hyde-retriever.md)
 * [LLM Filter Retriever](llm-filter-retriever.md)
+* [Multi Query Retriever](multi-query-retriever.md)
 * [Prompt Retriever](prompt-retriever.md)
 * [Reciprocal Rank Fusion Retriever](reciprocal-rank-fusion-retriever.md)
 * [Similarity Score Threshold Retriever](similarity-score-threshold-retriever.md)

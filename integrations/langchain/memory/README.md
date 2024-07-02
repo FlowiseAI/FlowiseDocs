@@ -38,7 +38,6 @@ Current conversation:
 * [Redis-Backed Chat Memory](redis-backed-chat-memory.md)
 * [Upstash Redis-Backed Chat Memory](upstash-redis-backed-chat-memory.md)
 * [Zep Memory](zep-memory.md)
-* [Threads](threads.md)
 
 ## Separate conversations for multiple users
 
@@ -78,4 +77,4 @@ All conversations can be visualized and managed from UI as well:
 
 <figure><img src="../../../.gitbook/assets/image (78).png" alt=""><figcaption></figcaption></figure>
 
-For OpenAI Assistant, [Threads](threads.md) will be used to store conversations.
+For OpenAI Assistant, [Threads](../agents/openai-assistant/threads.md) will be used to store conversations.

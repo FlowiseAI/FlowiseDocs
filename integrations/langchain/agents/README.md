@@ -19,7 +19,7 @@ Agents are systems that use an LLM as a reasoning enginer to determine which act
 * [Conversational Agent](conversational-agent.md)
 * [Conversational Retrieval Agent](conversational-retrieval-agent.md)
 * [MistralAI Tool Agent](mistralai-tool-agent.md)
-* [OpenAI Assistant](openai-assistant.md)
+* [OpenAI Assistant](openai-assistant/)
 * [OpenAI Function Agent](openai-function-agent.md)
 * [OpenAI Tool Agent](../../llamaindex/agents/openai-tool-agent.md)
 * [ReAct Agent Chat](react-agent-chat.md)

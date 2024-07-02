@@ -1,10 +1,10 @@
 ---
-description: Wrapper around Azure OpenAI Chat LLM specific for LlamaIndex.
+description: Wrapper around ChatOllama LLM specific for LlamaIndex.
 ---
 
-# AzureChatOpenAI
+# ChatOllama
 
-<figure><img src="../../../.gitbook/assets/up-018.png" alt="" width="375"><figcaption><p>AzureChatOpenAI Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/up-012.png" alt="" width="299"><figcaption><p>ChatOllama Node</p></figcaption></figure>
 
 {% hint style="info" %}
 This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../CONTRIBUTING.md) to get started.
