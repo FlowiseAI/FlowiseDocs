@@ -100,7 +100,7 @@
       * [Document Store](integrations/langchain/document-loaders/document-store.md)
       * [Docx File](integrations/langchain/document-loaders/docx-file.md)
       * [Figma](integrations/langchain/document-loaders/figma.md)
-      * [FireCrawl Scraper/Crawler](integrations/langchain/document-loaders/firecrawl-scraper-crawler.md)
+      * [FireCrawl](integrations/langchain/document-loaders/firecrawl.md)
       * [Folder with Files](integrations/langchain/document-loaders/folder-with-files.md)
       * [GitBook](integrations/langchain/document-loaders/gitbook.md)
       * [Github](integrations/langchain/document-loaders/github.md)
