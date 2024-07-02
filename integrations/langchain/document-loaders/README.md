@@ -24,7 +24,7 @@ Document loaders allow you to load documents from different sources like PDF, TX
 * [Document Store](document-store.md)
 * [Docx File](docx-file.md)
 * [Figma](figma.md)
-* [FireCrawl](firecrawl.md)
+* [FireCrawl](firecrawl-scraper-crawler.md)
 * [Folder with Files](folder-with-files.md)
 * [GitBook](gitbook.md)
 * [Github](github.md)
@@ -39,6 +39,7 @@ Document loaders allow you to load documents from different sources like PDF, TX
 * [Puppeteer Web Scraper](puppeteer-web-scraper.md)
 * [S3 File Loader](s3-file-loader.md)
 * [SearchApi For Web Search](searchapi-for-web-search.md)
+* Spider
 * [SerpApi For Web Search](serpapi-for-web-search.md)
 * [Text File](text-file.md)
 * [Unstructured File Loader](unstructured-file-loader.md)
