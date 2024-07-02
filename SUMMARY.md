@@ -275,4 +275,4 @@
   * [Multiple Documents QnA](use-cases/multiple-documents-qna.md)
   * [SQL QnA](use-cases/sql-qna.md)
   * [Upserting Data](use-cases/upserting-data.md)
-  * [Web Scrape QnA](use-cases/web-scrape-qna.md)
+  * [Web Scrape QnA](use-cases/web-scrape-qna.md) 
