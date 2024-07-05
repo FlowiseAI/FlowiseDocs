@@ -18,7 +18,7 @@ cd chroma
 4. Run docker compose to build up Chroma image and container
 
 ```bash
-docker-compose up -d --build
+docker compose up -d --build
 ```
 
 5. If success, you will be able to see the docker images spun up:
@@ -43,7 +43,7 @@ If you are running both Flowise and Chroma on Docker, there are additional steps
 1. Spin up Chroma docker first
 
 ```bash
-docker-compose up -d --build
+docker compose up -d --build
 ```
 
 2. Open `docker-compose.yml` in Flowise
@@ -89,7 +89,7 @@ networks:
 4. Spin up Flowise docker image
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 5. On the Chroma URL, for Windows and MacOS Operating Systems specify [http://host.docker.internal:8000](http://host.docker.internal:8000/). For Linux based systems the default docker gateway should be used since host.docker.internal is not available: [http://172.17.0.1:8000](http://172.17.0.1:8000/)

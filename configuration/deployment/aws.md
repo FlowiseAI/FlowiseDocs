@@ -139,8 +139,7 @@ newgrp docker
 6. Install docker-compose:
 
 ```bash
-sudo yum install python3-pip
-pip3 install docker-compose
+sudo yum install docker-compose-plugin
 ```
 
 7. Enable docker service at AMI boot time:
@@ -199,7 +198,7 @@ BLOB_STORAGE_PATH=/root/.flowise/storage
 7. Run docker compose
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 7. Your application is now ready at your Public IPv4 DNS on port 3000:
@@ -211,7 +210,7 @@ http://ec2-123-456-789.compute-1.amazonaws.com:3000
 8. You can bring the app down by:
 
 ```bash
-docker-compose stop
+docker compose stop
 ```
 
 9. You can pull from latest image by:

@@ -40,7 +40,7 @@ ZEP_OPENAI_API_KEY=
 ```
 
 ```bash
-docker-compose up -d --build
+docker compose up -d --build
 ```
 
 3. Allow firewall access to port 8000

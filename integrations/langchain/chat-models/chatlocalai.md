@@ -32,7 +32,7 @@ In the `/models` folder, you should be able to see the downloaded model in there
 Refer [here](https://localai.io/model-compatibility/index.html) for list of supported models.
 
 4. ```bash
-   docker-compose up -d --pull always
+   docker compose up -d --pull always
    ```
 5. Now API is accessible at localhost:8080
 

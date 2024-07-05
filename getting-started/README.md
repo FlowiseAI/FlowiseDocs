@@ -41,14 +41,14 @@ There are two ways to deploy Flowise with Docker:
 3. Run:
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 4. Open: [http://localhost:3000](http://localhost:3000)
 5. You can bring the containers down by running:
 
 ```bash
-docker-compose stop
+docker compose stop
 ```
 
 ### Docker Image
