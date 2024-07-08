@@ -42,6 +42,7 @@ In Flowise, nodes are referred to as integrations. Similar to LEGO, you can buil
 * [Custom JS Function](utilities/custom-js-function.md)
 * [Set/Get Variable](utilities/set-get-variable.md)
 * [If Else](utilities/if-else.md)
+* [Set Variable](broken-reference)
 * [Sticky Note](utilities/sticky-note.md)
 
 ### External Integrations
