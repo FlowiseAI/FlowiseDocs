@@ -22,7 +22,7 @@ In this example, we are going to perform QnA on 2 PDFs, which are FORM-10K of AP
 
 ## Upsert
 
-1. Fnd the example flow called - **Conversational Retrieval QA Chain** from the marketplace templates.
+1. Find the example flow called - **Conversational Retrieval QA Chain** from the marketplace templates.
 2. We are going to use [PDF File Loader](../integrations/langchain/document-loaders/pdf-file.md), and upload the respective files:
 
 <figure><img src="../.gitbook/assets/multi-docs-upload.png" alt=""><figcaption></figcaption></figure>
@@ -145,7 +145,7 @@ The current date is: 2024-01-28
 
 <figure><img src="../.gitbook/assets/image (111).png" alt=""><figcaption></figcaption></figure>
 
-7. We are now able to ask question about any documents that we've previously upserted to vector database without "hard-coding" the metadata filtering by using tools + agent.
+7. We are now able to ask questions about any documents that we've previously upserted to vector database without "hard-coding" the metadata filtering by using tools + agent.
 
 ## XML Agent
 
