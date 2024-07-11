@@ -146,7 +146,7 @@ The OpenAPI Specification (OAS) defines a standard, language-agnostic interface 
 ```
 {% endcode %}
 
-2. Save it as a `.yaml` file, and upload to **OpenAPI Chain**, then test by asking some question. **OpenAPI Chain** will parse the OpenAPI spec into JSON Schema, allowing the LLM to automatically use the correct method and parameters for the API call.
+2. Save it as a `.yaml` file, and upload it to **OpenAPI Chain**, then test by asking some questions. **OpenAPI Chain** will parse the OpenAPI spec into JSON Schema, allowing the LLM to automatically use the correct method and parameters for the API call.
 
 <figure><img src="../.gitbook/assets/image (133).png" alt=""><figcaption></figcaption></figure>
 
@@ -176,6 +176,6 @@ useful when you need to search and return answer about tshirts
 
 ## Conclusion
 
-We've successfully created an agent that can interacts with API when necessary, and still be able handle stateful conversations with users. Below is the template:
+We've successfully created an agent that can interact with API when necessary, and still be able handle stateful conversations with users. Below is the template:
 
 {% file src="../.gitbook/assets/OpenAPI Chatflow.json" %}
