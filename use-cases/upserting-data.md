@@ -47,7 +47,7 @@ Once we have uploaded our PDF or datset, we need to **split it into smaller piec
 
 ### Nodes
 
-In Flowise, this splitting process is accomplished using the [Text Splitter nodes](../integrations/langchain/text-splitters/). Those nodes provides a range of text segmentation strategies, including:
+In Flowise, this splitting process is accomplished using the [Text Splitter nodes](../integrations/langchain/text-splitters/). Those nodes provide a range of text segmentation strategies, including:
 
 * **Character Text Splitting:** Dividing the text into chunks of a fixed number of characters. This method is straightforward but may split words or phrases across chunks, potentially disrupting context.
 * **Token Text Splitting:** Segmenting the text based on word boundaries or tokenization schemes specific to the chosen embedding model. This approach often leads to more semantically coherent chunks, as it preserves word boundaries and considers the underlying linguistic structure of the text.
@@ -105,11 +105,11 @@ These vectors allow LLMs to compare and search for similar pieces of text within
 
 The number of dimensions in a Vector Store index is determined by the embedding model used when we upsert our data, and vice versa. Each dimension represents a specific feature or concept within the data. For example, a **dimension** might **represent a particular topic, sentiment, or other aspect of the text**.
 
-The more dimensions we use to embed our data, the greater the potential for capturing nuanced meaning from our text. However, this increased comes at the cost of higher computational requirements per query.
+The more dimensions we use to embed our data, the greater the potential for capturing nuanced meaning from our text. However, this increase comes at the cost of higher computational requirements per query.
 
-In general, a larger number of dimensions needs more resources to store, process, and compare the resulting embedding vectors. Therefore, embeddings models like the Google `embedding-001`, which uses 768 dimensions, are, in therory, cheaper than others like the OpenAI `text-embedding-3-large`, with 3072 dimensions.
+In general, a larger number of dimensions needs more resources to store, process, and compare the resulting embedding vectors. Therefore, embeddings models like the Google `embedding-001`, which uses 768 dimensions, are, in theory, cheaper than others like the OpenAI `text-embedding-3-large`, with 3072 dimensions.
 
-It's important to note that the **relationship between dimensions and meaning capture isn't strictly linear**; there's a point of diminishing returns where adding more dimensions provides negligible benefit for the added innecesary cost.
+It's important to note that the **relationship between dimensions and meaning capture isn't strictly linear**; there's a point of diminishing returns where adding more dimensions provides negligible benefit for the added unnecessary cost.
 
 {% hint style="info" %}
 **Tip:** To ensure compatibility between an embedding model and a Vector Store index, dimensional alignment is essential. Both **the model and the index must utilize the same number of dimensions for vector representation**. Dimensionality mismatch will result in upsertion errors, as the Vector Store is designed to handle vectors of a specific size determined by the chosen embedding model.
