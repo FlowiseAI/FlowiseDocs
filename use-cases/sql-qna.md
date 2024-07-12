@@ -6,14 +6,14 @@ description: Learn how to query structured data
 
 ***
 
-Unlike previous examples like [Web Scrape QnA](web-scrape-qna.md) and [Multiple Documents QnA](multiple-documents-qna.md), querying structured data does not require vector database. On the high-level, this can be achieved with following steps:
+Unlike previous examples like [Web Scrape QnA](web-scrape-qna.md) and [Multiple Documents QnA](multiple-documents-qna.md), querying structured data does not require a vector database. At the high-level, this can be achieved with following steps:
 
-1. Providing LLM:
-   * overview of SQL database schema
+1. Providing the LLM:
+   * overview of the SQL database schema
    * example rows data
 2. Return a SQL query with few shot prompting
-3. Validate the SQL query using [If Else](../integrations/utilities/if-else.md) node
-4. Custom function to execute the SQL query, and get the response
+3. Validate the SQL query using an [If Else](../integrations/utilities/if-else.md) node
+4. Create a custom function to execute the SQL query, and get the response
 5. Return a natural response from the executed SQL response
 
 <figure><img src="../.gitbook/assets/image (113).png" alt=""><figcaption></figcaption></figure>
@@ -154,9 +154,9 @@ You can provide more examples to the prompt (i.e few-shot prompting) to let the 
 
 ## 3. Validate the SQL query using [If Else](../integrations/utilities/if-else.md) node
 
-Sometimes the SQL query is invalid, and we do not want to waste resources the execute invalid SQL query. For example, if user is asking general question that is irrelevant to the SQL database. We can use If Else node to route to different path.
+Sometimes the SQL query is invalid, and we do not want to waste resources the execute an invalid SQL query. For example, if a user is asking a general question that is irrelevant to the SQL database. We can use an `If Else` node to route to different path.
 
-For instance, we can perform a basic check to see if SELECT and WHERE are included in the SQL query given by LLM.
+For instance, we can perform a basic check to see if SELECT and WHERE are included in the SQL query given by the LLM.
 
 {% tabs %}
 {% tab title="If Function" %}
@@ -308,7 +308,7 @@ For first LLMChain, a SQL query is generated as below:
 SELECT * FROM samples LIMIT 3
 ```
 
-However, it fails the If Else check because it doesn't contains both `SELECT` and `WHERE`, hence entering the Else route that has a prompt that says:
+However, it fails the `If Else` check because it doesn't contains both `SELECT` and `WHERE`, hence entering the Else route that has a prompt that says:
 
 ```
 Politely say "I'm not able to answer query"
@@ -322,7 +322,7 @@ I apologize, but I'm not able to answer your query at the moment.
 
 ## Conclusion
 
-In this example, we have successfully created a SQL chatbot which can interact with your database, and also able to handle question that is irrelevant to database. Futher improvement includes adding memory to provide conversation history.
+In this example, we have successfully created a SQL chatbot that can interact with your database, and is also able to handle questions that are irrelevant to database. Further improvement includes adding memory to provide conversation history.
 
 You can find the chatflow below:
 
