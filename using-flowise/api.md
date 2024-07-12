@@ -148,6 +148,58 @@ query({
 {% endtab %}
 {% endtabs %}
 
+### Persists Memory
+
+If the chatflow contains [Memory](../integrations/langchain/memory/#memory-nodes) nodes, you can pass a `sessionId` to persists the state of the conversation, so the every subsequent API calls will have context about previous conversation. Otherwise, a new session will be generated each time.
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+import requests
+API_URL = "http://localhost:3000/api/v1/prediction/&#x3C;chatlfowid>"
+
+def query(payload):
+    response = requests.post(API_URL, json=payload)
+    return response.json()
+    
+output = query({
+    "question": "Hey, how are you?",
+    "overrideConfig": {
+        "sessionId": "123"
+    } 
+})
+```
+{% endtab %}
+
+{% tab title="Javascript" %}
+```javascript
+async function query(data) {
+    const response = await fetch(
+        "http://localhost:3000/api/v1/prediction/<chatlfowid>",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        }
+    );
+    const result = await response.json();
+    return result;
+}
+
+query({
+    "question": "Hey, how are you?",
+    "overrideConfig": {
+        "sessionId": "123"
+    }
+}).then((response) => {
+    console.log(response);
+});
+```
+{% endtab %}
+{% endtabs %}
+
 ### Image Uploads
 
 When **Allow Image Upload** is enabled, images can be uploaded from chat interface.
