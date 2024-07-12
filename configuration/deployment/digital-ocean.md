@@ -97,7 +97,7 @@ docker compose up -d
 8. You can bring the app down by:
 
 ```bash
-docker-compose stop
+docker compose stop
 ```
 
 9. You can pull from latest image by:
@@ -263,8 +263,8 @@ cd Flowise/docker
 Note: This will not delete your flows as the database is stored in a separate folder
 
 ```bash
-sudo docker-compose stop
-sudo docker-compose rm
+sudo docker compose stop
+sudo docker compose rm
 ```
 
 3. Pull the latest Flowise Image
@@ -278,5 +278,5 @@ docker pull flowiseai/flowise
 4. Start the docker
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```

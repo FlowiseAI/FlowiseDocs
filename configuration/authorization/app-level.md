@@ -53,9 +53,9 @@ environment:
     - FLOWISE_PASSWORD=${FLOWISE_PASSWORD}
 ```
 
-4. `docker-compose up -d`
+4. `docker compose up -d`
 5. Open [http://localhost:3000](http://localhost:3000)
-6. You can bring the containers down by `docker-compose stop`
+6. You can bring the containers down by `docker compose stop`
 
 ### Git clone
 
