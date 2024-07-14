@@ -35,6 +35,6 @@
 
 <figure><img src="../../../.gitbook/assets/upstash/flowise-design.jpeg" alt=""><figcaption></figcaption></figure>
 
-1. Verify from [Pinecone dashboard](https://console.upstash.com) to see if data has been successfully updated:
+1. Verify from [Upstash dashboard](https://console.upstash.com) to see if data has been successfully updated:
 
 <figure><img src="../../../.gitbook/assets/upstash/databrowser.jpeg" alt=""><figcaption></figcaption></figure>
