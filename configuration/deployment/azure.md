@@ -216,6 +216,12 @@ resource "azurerm_subnet" "dbsubnet" {
       name = "Microsoft.DBforPostgreSQL/flexibleServers"
     }
   }
+  lifecycle {
+    ignore_changes = [
+      service_endpoints,
+      delegation
+    ]
+  }
 }
 
 resource "azurerm_subnet" "webappsubnet" {
@@ -230,6 +236,11 @@ resource "azurerm_subnet" "webappsubnet" {
     service_delegation {
       name = "Microsoft.Web/serverFarms"
     }
+  }
+  lifecycle {
+    ignore_changes = [
+      delegation
+    ]
   }
 }
 
@@ -362,6 +373,11 @@ variable "flowise_image" {
   type        = string
   description = "Flowise image from Docker Hub"
 }
+
+variable "tagged_image" {
+  type        = string
+  description = "Tag for flowise image version"
+}
 ```
 
 </details>
@@ -403,6 +419,7 @@ resource "azurerm_linux_web_app" "webapp" {
     FLOWISE_SECRETKEY_OVERWRITE         = var.flowise_secretkey_overwrite
     PORT                                = 3000
     SECRETKEY_PATH                      = "/root"
+    DOCKER_IMAGE_TAG                    = var.tagged_image
   }
 
   storage_account {
@@ -419,7 +436,6 @@ resource "azurerm_linux_web_app" "webapp" {
 
   site_config {
     always_on              = true
-    app_command_line       = "flowise start"
     vnet_route_all_enabled = true
     dynamic "ip_restriction" {
       for_each = var.webapp_ip_rules
@@ -429,7 +445,7 @@ resource "azurerm_linux_web_app" "webapp" {
       }
     }
     application_stack {
-      docker_image_name        = var.tagged_image
+      docker_image_name        = var.flowise_image
       docker_registry_url      = "https://${azurerm_container_registry.acr.login_server}"
       docker_registry_username = azurerm_container_registry.acr.admin_username
       docker_registry_password = azurerm_container_registry.acr.admin_password
@@ -452,6 +468,10 @@ resource "azurerm_linux_web_app" "webapp" {
 
   lifecycle {
     create_before_destroy = false
+
+    ignore_changes = [
+      virtual_network_subnet_id
+    ]
   }
 
 }
@@ -459,6 +479,8 @@ resource "azurerm_linux_web_app" "webapp" {
 resource "azurerm_app_service_virtual_network_swift_connection" "webappvnetintegrationconnection" {
   app_service_id = azurerm_linux_web_app.webapp.id
   subnet_id      = azurerm_subnet.webappsubnet.id
+
+  depends_on = [azurerm_linux_web_app.webapp, azurerm_subnet.webappsubnet]
 }
 
 ```
