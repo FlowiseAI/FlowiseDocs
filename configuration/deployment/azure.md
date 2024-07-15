@@ -216,6 +216,12 @@ resource "azurerm_subnet" "dbsubnet" {
       name = "Microsoft.DBforPostgreSQL/flexibleServers"
     }
   }
+  lifecycle {
+    ignore_changes = [
+      service_endpoints,
+      delegation
+    ]
+  }
 }
 
 resource "azurerm_subnet" "webappsubnet" {
@@ -230,6 +236,11 @@ resource "azurerm_subnet" "webappsubnet" {
     service_delegation {
       name = "Microsoft.Web/serverFarms"
     }
+  }
+  lifecycle {
+    ignore_changes = [
+      delegation
+    ]
   }
 }
 
@@ -457,6 +468,10 @@ resource "azurerm_linux_web_app" "webapp" {
 
   lifecycle {
     create_before_destroy = false
+
+    ignore_changes = [
+      virtual_network_subnet_id
+    ]
   }
 
 }
@@ -464,6 +479,8 @@ resource "azurerm_linux_web_app" "webapp" {
 resource "azurerm_app_service_virtual_network_swift_connection" "webappvnetintegrationconnection" {
   app_service_id = azurerm_linux_web_app.webapp.id
   subnet_id      = azurerm_subnet.webappsubnet.id
+
+  depends_on = [azurerm_linux_web_app.webapp, azurerm_subnet.webappsubnet]
 }
 
 ```
