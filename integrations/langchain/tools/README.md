@@ -27,5 +27,6 @@ Tools are functions that agents can use to interact with the world. These tools 
 * [SearXNG](searxng.md)
 * [Serp API](serp-api.md)
 * [Serper](serper.md)
+* [Spider](spider.md)
 * [Web Browser](web-browser.md)
 * [Write File](write-file.md)
