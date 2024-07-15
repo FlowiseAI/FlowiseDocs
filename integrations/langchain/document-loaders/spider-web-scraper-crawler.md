@@ -4,7 +4,7 @@ description: Scrape & Crawl the web with Spider - the fastest open source web sc
 
 # Spider Web Scraper/Crawler
 
-<figure><img src="../../../.gitbook/assets/up-017.png" alt="" width="365"><figcaption><p>Spider Web Scraper/Crawler Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/spider.png" alt="" width="365"><figcaption><p>Spider Web Scraper/Crawler Node</p></figcaption></figure>
 
 [Spider](https://spider.cloud/?ref=flowise) is the fastest open source web scraper & crawler that returns LLM-ready data. To get started using this node you need an API key from [Spider.cloud](https://spider.cloud/?ref=flowise).
 
