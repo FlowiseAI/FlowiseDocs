@@ -15,5 +15,5 @@ Two main architectures are available: **Multi-Agent** and **Sequential Agent**. 
 <figure><img src="../../.gitbook/assets/agentflow.png" alt=""><figcaption><p>Flowise APP</p></figcaption></figure>
 
 {% hint style="success" %}
-This section dives into these architectures to provide a clear understanding of their inner workings and how they manage information flow and decision-making within your AI system.
+This section dives into these architectures to provide a clear understanding of their strengths and weaknesses, helping you choose the best approach for your specific needs.
 {% endhint %}
