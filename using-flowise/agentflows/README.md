@@ -6,7 +6,7 @@ description: >-
 
 # Agentflows
 
-## Introducing Agent AI Systems in Flowise
+## Introducing Agentic AI Systems in Flowise
 
 Flowise's Agentic AI systems allow you to build conversational AI workflows that can interact with external tools and data sources.&#x20;
 
