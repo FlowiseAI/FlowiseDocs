@@ -10,11 +10,11 @@ This guide intends to provide an introduction of the multi-agent AI system archi
 
 Analogous to a team of domain experts collaborating on a complex project, a multi-agent system uses the principle of specialization within artificial intelligence.&#x20;
 
-This multi-agent AI system utilizes a hierarchical, sequential workflow, maximizing efficiency and specialization.
+This multi-agent system utilizes a hierarchical, sequential workflow, maximizing efficiency and specialization.
 
 ### 1. System Architecture
 
-We can define a multi-agent AI architecture as a scalable system capable of handling complex projects by breaking them down into manageable sub-tasks.
+We can define the multi-agent AI architecture as a scalable AI system capable of handling complex projects by breaking them down into manageable sub-tasks.
 
 In Flowise, a multi-agent system comprises two primary nodes or agent types and a user, interacting in a hierarchical graph to process requests and deliver a targeted outcome:
 
@@ -22,7 +22,7 @@ In Flowise, a multi-agent system comprises two primary nodes or agent types and 
 2. **Supervisor AI:** The Supervisor acts as the **system's orchestrator**, overseeing the entire workflow. It analyzes user requests, decomposes them into a sequence of sub-tasks, assigns these sub-tasks to the specialized worker agents, aggregates the results, and ultimately presents the processed output back to the user.
 3. **Worker AI Team:** This team consists of specialized AI agents, or Workers, each instructed - via prompt messages - to handle a specific task within the workflow. These Workers operate independently, receiving instructions and data from the Supervisor, **executing their specialized functions**, using tools as needed, and returning the results to the Supervisor.
 
-<figure><img src="../../.gitbook/assets/mas01.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/mas01.png" alt=""><figcaption><p>Source: <a href="https://github.com/langchain-ai/langgraphjs/blob/main/examples/multi_agent/agent_supervisor.ipynb">https://github.com/langchain-ai/langgraphjs/blob/main/examples/multi_agent/agent_supervisor.ipynb</a></p></figcaption></figure>
 
 ### 2. Operational Constraints
 
@@ -33,8 +33,6 @@ To maintain order and simplicity, this multi-agent system operates under two imp
 
 {% hint style="info" %}
 These two constraints are important when **planning your application's workflow**. If you try to design a workflow where the Supervisor needs to delegate multiple tasks simultaneously, in parallel, the system won't be able to handle it and you'll encounter an error.
-
-**Note:** If your desired system behavior requires parallel processing, consider using the more flexible **Sequential Agent architecture**, which supports this capability.
 {% endhint %}
 
 ## The Supervisor
@@ -46,7 +44,7 @@ The Supervisor, as the agent governing the overall workflow and responsible for 
 
 <figure><img src="../../.gitbook/assets/mas07.png" alt=""><figcaption></figcaption></figure>
 
-### 1. Supervisor Prompt
+### Supervisor Prompt
 
 By default, the Supervisor Prompt is worded in a way that instructs the Supervisor to analyze user requests, decompose them into a sequence of sub-tasks, and assign these sub-tasks to the specialized worker agents.
 
@@ -61,13 +59,13 @@ While the Supervisor Prompt is customizable to fit specific application needs, i
 It's important to understand that the Supervisor plays a very distinct role from Workers. Unlike Workers, which can be tailored with highly specific instructions, the **Supervisor operates most effectively with general directives, which allow it to plan and delegate tasks as it deems appropriate.** If you're new to multi-agent systems, we recommend sticking with the default Supervisor prompt
 {% endhint %}
 
-### 2. Understanding `Recursion Limit` in Supervisor node:
+### Understanding `Recursion Limit` in Supervisor node:
 
 This parameter restricts the maximum depth of nested function calls within our application. In our current context, **it limits how many times the Supervisor can trigger itself within a single workflow execution**. This is important for preventing unbounded recursion and ensuring resources are used efficiently.
 
 <figure><img src="../../.gitbook/assets/mas04.png" alt="" width="375"><figcaption></figcaption></figure>
 
-### 3. How the Supervisor works
+### How the Supervisor works
 
 Upon receiving a user query, the Supervisor initiates the workflow by analyzing the request and discerning the user's intended outcome.&#x20;
 
