@@ -22,7 +22,7 @@ In Flowise, a multi-agent system comprises two primary nodes or agent types and 
 2. **Supervisor AI:** The Supervisor acts as the **system's orchestrator**, overseeing the entire workflow. It analyzes user requests, decomposes them into a sequence of sub-tasks, assigns these sub-tasks to the specialized worker agents, aggregates the results, and ultimately presents the processed output back to the user.
 3. **Worker AI Team:** This team consists of specialized AI agents, or Workers, each instructed - via prompt messages - to handle a specific task within the workflow. These Workers operate independently, receiving instructions and data from the Supervisor, **executing their specialized functions**, using tools as needed, and returning the results to the Supervisor.
 
-<figure><img src="../../.gitbook/assets/mas01.png" alt=""><figcaption><p>Source: <a href="https://github.com/langchain-ai/langgraphjs/blob/main/examples/multi_agent/agent_supervisor.ipynb">https://github.com/langchain-ai/langgraphjs/blob/main/examples/multi_agent/agent_supervisor.ipynb</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/mas01.png" alt=""><figcaption><p><a href="https://github.com/langchain-ai/langgraphjs/blob/main/examples/multi_agent/agent_supervisor.ipynb">LangGraph Imagen Source</a></p></figcaption></figure>
 
 ### 2. Operational Constraints
 
