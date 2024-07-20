@@ -7,7 +7,7 @@ description: Learn how to deploy Flowise locally
 ***
 
 {% hint style="info" %}
-Before you can get started, you'll need to **ensure that you have the**  [**NodeJS**](https://nodejs.org/en/download) **installed on your computer**. Node `v18.15.0` or `v20` and above is supported.
+Before you can get started, you'll need to **ensure that you have the** [**NodeJS**](https://nodejs.org/en/download) **installed on your computer**. Node `v18.15.0` or `v20` and above is supported.
 {% endhint %}
 
 ## Quick Start
@@ -133,7 +133,7 @@ Step-by-step setup for project contributors:
    * For feature branch: `feature/<Your New Feature>`
    * For bug fix branch: `bugfix/<Your New Bugfix>`.
 4. Switch to the branch you just created
-5. Go into repository folder:&#x20;
+5. Go into repository folder:
 
 ```bash
 cd Flowise
@@ -189,3 +189,8 @@ pnpm dev
 In this video tutorial, Leon provides an introduction to Flowise and explains how to set it up on your local machine.
 
 {% embed url="https://youtu.be/nqAK_L66sIQ" %}
+
+## Community Guide
+
+* [Introduction to \[Practical\] Building LLM Applications with Flowise / LangChain](https://volcano-ice-cd6.notion.site/Introduction-to-Practical-Building-LLM-Applications-with-Flowise-LangChain-03d6d75bfd20495d96dfdae964bea5a5)
+* [Flowise / LangChainによるLLMアプリケーション構築\[実践\]入門](https://volcano-ice-cd6.notion.site/Flowise-LangChain-LLM-e106bb0f7e2241379aad8fa428ee064a)
