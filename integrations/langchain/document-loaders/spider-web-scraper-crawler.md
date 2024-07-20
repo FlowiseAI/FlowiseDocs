@@ -4,10 +4,23 @@ description: Scrape & Crawl the web with Spider - the fastest open source web sc
 
 # Spider Web Scraper/Crawler
 
-<figure><img src="../../../.gitbook/assets/spider.png" alt="" width="365"><figcaption><p>Spider Web Scraper/Crawler Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/spider.png" alt="Spider Node" width="365"><figcaption><p>Spider Web Scraper/Crawler Node</p></figcaption></figure>
 
 [Spider](https://spider.cloud/?ref=flowise) is the fastest open source web scraper & crawler that returns LLM-ready data. To get started using this node you need an API key from [Spider.cloud](https://spider.cloud/?ref=flowise).
 
-{% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../CONTRIBUTING.md) to get started.
-{% endhint %}
+## Get Started
+
+1. Go to the [Spider.cloud](https://spider.cloud/?ref=flowise) website and sign up for a free account.
+2. Once you have an account, go to the [Credits](https://spider.cloud/credits/new) tab and click "CUSTOM", then enter "$3" in the field and click "Purchase". This will take you to the stripe checkout page, here you can enter "FLOWISE01" as a coupon code to get the $3 credit for free.
+3. Once you have added the credit to your account, go to the [API Keys](https://spider.cloud/api-keys) and create a new API key.
+4. Copy the API key and paste it into the "Credential" field in the Spider node.
+
+## Scrape & Crawl
+
+1. Choose either "Scrape" or "Crawl" in the mode dropdown.
+2. Enter the URL you want to scrape or crawl in the "Web Page URL" field.
+3. If you chose "Crawl", enter the maximum amount of pages you want to crawl in the "Limit" field. If no value or 0 is entered, the crawler will crawl all pages.
+
+## Example
+
+<figure><img src="../../../.gitbook/assets/spider_example_usage.png" alt="Example on using spider node" width="365"><figcaption><p>Example on using Spider node</p></figcaption></figure>
