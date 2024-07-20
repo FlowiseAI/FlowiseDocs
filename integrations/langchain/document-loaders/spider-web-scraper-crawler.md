@@ -11,9 +11,8 @@ description: Scrape & Crawl the web with Spider - the fastest open source web sc
 ## Get Started
 
 1. Go to the [Spider.cloud](https://spider.cloud/?ref=flowise) website and sign up for a free account.
-2. Once you have an account, go to the [Credits](https://spider.cloud/credits/new) tab and click "CUSTOM", then enter "$3" in the field and click "Purchase". This will take you to the stripe checkout page, here you can enter "FLOWISE01" as a coupon code to get the $3 credit for free.
-3. Once you have added the credit to your account, go to the [API Keys](https://spider.cloud/api-keys) and create a new API key.
-4. Copy the API key and paste it into the "Credential" field in the Spider node.
+2. Then go to the [API Keys](https://spider.cloud/api-keys) and create a new API key.
+3. Copy the API key and paste it into the "Credential" field in the Spider node.
 
 ## Scrape & Crawl
 
