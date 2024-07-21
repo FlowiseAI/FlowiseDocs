@@ -8,7 +8,7 @@ This guide intends to provide an introduction of the multi-agent AI system archi
 
 ## Concept
 
-Analogous to a team of domain experts collaborating on a complex project, a multi-agent system uses the principle of specialization within artificial intelligence.&#x20;
+Analogous to a team of domain experts collaborating on a complex project, a multi-agent system uses the principle of specialization within artificial intelligence.
 
 This multi-agent system utilizes a hierarchical, sequential workflow, maximizing efficiency and specialization.
 
@@ -22,7 +22,7 @@ In Flowise, a multi-agent system comprises two primary nodes or agent types and 
 2. **Supervisor AI:** The Supervisor acts as the **system's orchestrator**, overseeing the entire workflow. It analyzes user requests, decomposes them into a sequence of sub-tasks, assigns these sub-tasks to the specialized worker agents, aggregates the results, and ultimately presents the processed output back to the user.
 3. **Worker AI Team:** This team consists of specialized AI agents, or Workers, each instructed - via prompt messages - to handle a specific task within the workflow. These Workers operate independently, receiving instructions and data from the Supervisor, **executing their specialized functions**, using tools as needed, and returning the results to the Supervisor.
 
-<figure><img src="../../.gitbook/assets/mas01.png" alt=""><figcaption><p><a href="https://github.com/langchain-ai/langgraphjs/blob/main/examples/multi_agent/agent_supervisor.ipynb">LangGraph Source</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Untitled-2024-07-21-0317.png" alt=""><figcaption></figcaption></figure>
 
 ### 2. Operational Constraints
 
@@ -59,7 +59,7 @@ While the Supervisor Prompt is customizable to fit specific application needs, i
 It's important to understand that the Supervisor plays a very distinct role from Workers. Unlike Workers, which can be tailored with highly specific instructions, the **Supervisor operates most effectively with general directives, which allow it to plan and delegate tasks as it deems appropriate.** If you're new to multi-agent systems, we recommend sticking with the default Supervisor prompt
 {% endhint %}
 
-### Understanding `Recursion Limit` in Supervisor node:
+### Understanding Recursion Limit in Supervisor node:
 
 This parameter restricts the maximum depth of nested function calls within our application. In our current context, **it limits how many times the Supervisor can trigger itself within a single workflow execution**. This is important for preventing unbounded recursion and ensuring resources are used efficiently.
 
@@ -67,7 +67,7 @@ This parameter restricts the maximum depth of nested function calls within our a
 
 ### How the Supervisor works
 
-Upon receiving a user query, the Supervisor initiates the workflow by analyzing the request and discerning the user's intended outcome.&#x20;
+Upon receiving a user query, the Supervisor initiates the workflow by analyzing the request and discerning the user's intended outcome.
 
 Then, leveraging the `{team_members}` variable in the Supervisor Prompt, which only provides a list of available Worker AI names, the Supervisor infers each Worker's specialty and strategically selects the most suitable Worker for each task within the workflow.
 
@@ -90,7 +90,7 @@ The Worker, as a specialized agent instructed to handle a specific task within t
 The ability to assign **different Chat Models to each Worker** provides significant flexibility and optimization opportunities for our application. By selecting [Chat Models](../../integrations/langchain/chat-models/) tailored to specific tasks, we can leverage more cost-effective solutions for simpler tasks and reserve specialized, potentially more expensive, models when truly necessary.
 {% endhint %}
 
-### Undertanding the `Max Iteration` paramether in Workers
+### Undertanding Max Iteration parameter in Workers
 
 [LangChain](https://python.langchain.com/v0.1/docs/modules/agents/how\_to/max\_iterations/) refers to `Max Iterations Cap` as a important control mechanism for preventing haywire within an agentic system. In our current this context, it serves us as a guardrail against excessive, potentially infinite, interactions between the Supervisor and Worker.
 
@@ -102,7 +102,7 @@ By capping or limiting the Max Iteration, we ensure that costs remain under cont
 
 ## Example: A practical user case
 
-Now that we've established a foundational understanding of how Multi-Agent systems work within Flowise, let's explore a practical application.&#x20;
+Now that we've established a foundational understanding of how Multi-Agent systems work within Flowise, let's explore a practical application.
 
 Imagine a **Lead Outreach multi-agent system** (available in the Marketplace) designed to automate the process of identifying, qualifying, and engaging with potential leads. This system would utilize a Supervisor to orchestrate the following two Workers:
 
@@ -111,9 +111,9 @@ Imagine a **Lead Outreach multi-agent system** (available in the Marketplace) de
 
 <figure><img src="../../.gitbook/assets/mas08.png" alt=""><figcaption></figcaption></figure>
 
-**Premise:** An user working at Solterra Renewables wants to gather available information about Evergreen Energy Group, a reputable renewable energy company located in the UK, and target its CEO, Amelia Croft, as a potential lead.
+**Background:** A user working at Solterra Renewables wants to gather available information about Evergreen Energy Group, a reputable renewable energy company located in the UK, and target its CEO, Amelia Croft, as a potential lead.
 
-**User Request:** The `Solterra Renewables employee` provides the following query to the multi-agent system: "_I need information about Evergreen Energy Group and Amelia Croft as a potential new customer for our business._"
+**User Request:** The Solterra Renewables employee provides the following query to the multi-agent system: "_I need information about Evergreen Energy Group and Amelia Croft as a potential new customer for our business._"
 
 1. **Supervisor:**
    * The Supervisor receives the user request and delegates the "Lead Research" task to the `Lead Researcher Worker`.
@@ -135,21 +135,15 @@ Imagine a **Lead Outreach multi-agent system** (available in the Marketplace) de
      * Information from the research about Evergreen Energy Group's current focus or projects.
    * The Lead Sales Generator Worker sends the completed email draft back to the `Supervisor`.
 5. **Supervisor:**
-
-* The Supervisor receives the generated email draft and issues the "FINISH" directive.
-* The Supervisor outputs the email draft back to the user, the `Solterra Renewables employee`.
-
+   * The Supervisor receives the generated email draft and issues the "FINISH" directive.
+   * The Supervisor outputs the email draft back to the user, the `Solterra Renewables employee`.
 6. **User Receives Output:** The Solterra Renewables employee receives a personalized email draft ready to be reviewed and sent to Amelia Croft.
 
 ## Video Tutorials
 
 Here, you'll find a list of video tutorials from [Leon's YouTube channel](https://www.youtube.com/@leonvanzyl) showing how to build multi-agent applications in Flowise using no-code.
 
-
-
 {% embed url="https://www.youtube.com/watch?ab_channel=LeonvanZyl&v=284Z8k7yJRE" %}
-
-
 
 {% embed url="https://www.youtube.com/watch?ab_channel=LeonvanZyl&v=MaqcO15y-Vs" %}
 
