@@ -86,7 +86,7 @@ TOOL_FUNCTION_EXTERNAL_DEP=axios,moment
 
 <figure><img src="../.gitbook/assets/image (5) (4).png" alt=""><figcaption><p><strong>server-error.log - logs error with stack trace</strong></p></figcaption></figure>
 
-## For Credential
+## For Credentials
 
 Flowise store your third party API keys as encrypted credentials using an encryption key.
 
