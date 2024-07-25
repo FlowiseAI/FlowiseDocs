@@ -229,6 +229,7 @@
       * [Weaviate](integrations/langchain/vector-stores/weaviate.md)
       * [Zep Collection - Open Source](integrations/langchain/vector-stores/zep-collection-open-source.md)
       * [Zep Collection - Cloud](integrations/langchain/vector-stores/zep-collection-cloud.md)
+  * [LiteLLM Proxy](integrations/litellm/README.md)
   * [LlamaIndex](integrations/llamaindex/README.md)
     * [Agents](integrations/llamaindex/agents/README.md)
       * [OpenAI Tool Agent](integrations/llamaindex/agents/openai-tool-agent.md)
