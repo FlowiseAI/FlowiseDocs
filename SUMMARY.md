@@ -5,6 +5,7 @@
 * [Contribution Guide](CONTRIBUTING.md)
 * [Using Flowise](using-flowise/README.md)
   * [Agentflows](using-flowise/agentflows/README.md)
+    * [Sequential Agents](using-flowise/agentflows/sequential-agents.md)
     * [Multi-Agents](using-flowise/agentflows/multi-agents.md)
   * [API](using-flowise/api.md)
   * [Analytic](using-flowise/analytic.md)
