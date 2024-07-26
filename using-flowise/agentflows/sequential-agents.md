@@ -43,17 +43,13 @@ The Sequential Agent architecture provides an integral solution for **building c
 
 In contrast, a **Sequential Agent** architecture operates like a streamlined assembly line, where data flows sequentially through a chain of agents, making them ideal for tasks demanding a precise order of operations and incremental data refinement. This architecture also **offer the flexibility of parallel node execution** when possible, and are further enhanced by the use of logic nodes, such as Condition Nodes and Condition Agent Nodes, creating a new **branching capability** to dynamically respond to different conditions and input data.
 
-{% hint style="info" %}
-In Flowise's Sequential Agent architecture, **parallel node execution** refers to the ability to **execute multiple nodes concurrently within a workflow** by using a branching mechanism. This means that different branches of the workflow can process information or interact with tools simultaneously, even though the overall flow of execution remains sequential.
-{% endhint %}
-
 ### Introducing State, Loop and Conditional Nodes
 
 Flowise's Sequential Agents enable us to build conversational systems that can adapt to user input, make decisions based on context, and even perform iterative tasks.&#x20;
 
 Three core elements make this possible: the **State Node**, the **Loop Node**, and the **Conditional Nodes**. The combination of these nodes in our workflows provides the needed flexibility to build sophisticated Sequential Agent applications capable of handling a wide range of tasks.
 
-
+<figure><img src="../../.gitbook/assets/seq-01.png" alt=""><figcaption></figcaption></figure>
 
 * **State Node:** We define State as a shared data structure that represents the current snapshot of our application or workflow. The State Node allows us to **add a custom State** to our workflow from the start of the conversation. This custom State is accessible and modifiable by other nodes in the workflow, enabling dynamic behavior and data sharing.
 * **Loop Node:** This node **introduces controlled cycles** within the Sequential Agent workflow, enabling iterative processes where a sequence of nodes can be repeated based on specific conditions. This allows agents to refine outputs, gather additional information from the user, or perform tasks multiple times.
@@ -70,6 +66,10 @@ Here's a table comparing Multi-Agent and Sequential Agent architectures in Flowi
 
 <table><thead><tr><th width="173.33333333333331">Feature</th><th width="281">Multi-Agent</th><th>Sequential Agent</th></tr></thead><tbody><tr><td><strong>Structure</strong></td><td><strong>Hierarchical</strong>; Supervisor delegates to specialized Workers.</td><td><strong>Linear, cyclic and/or</strong> <strong>branching</strong>; nodes connect in a sequence, with conditional logic for branching.</td></tr><tr><td><strong>Workflow</strong></td><td>Flexible; designed for breaking down a complex task into a <strong>sequence of sub-tasks</strong>, completed one after another.</td><td>Highly flexible; <strong>supports parallel node execution</strong>, complex dialogue flows, branching logic, and loops within a single conversation turn.</td></tr><tr><td><strong>Parallel Node Execution</strong></td><td><strong>No</strong>; Supervisor handles one task at a time.</td><td><strong>Yes</strong>; can trigger multiple actions (Agent Nodes, LLM Nodes, Tool Nodes, etc) in parallel within a single run.</td></tr><tr><td><strong>State Management</strong></td><td><strong>Implicit</strong>; State is in place, but is not explicitly managed by the developer.</td><td><strong>Explicit</strong>; State is in place, and developers can define and manage a initial or custom State using the State Node and the "Update State" field in various nodes.</td></tr><tr><td><strong>Tool Usage</strong></td><td><strong>Workers</strong> can access and use tools as needed.</td><td>Tools are accessed and executed through <strong>Agent Nodes</strong> or <strong>Tool Nodes</strong>.</td></tr><tr><td><strong>Human-in-the-Loop (HITL)</strong></td><td>HITL is <strong>not supported</strong>.</td><td><strong>Supported</strong> through the Agent Node and Tool Node's "Require Approval" feature, allowing human review and approval or rejection of tool execution.</td></tr><tr><td><strong>Complexity</strong></td><td><strong>Simpler to design</strong>.</td><td><strong>More complex to design</strong>; requires careful planning of node interactions, State management, and conditional logic.</td></tr><tr><td><strong>Ideal Use Cases</strong></td><td><ul><li>Automating linear processes (e.g., data extraction, lead generation)</li><li>Situations where sub-tasks need to be completed sequentially.</li></ul></td><td><ul><li>Building conversational agents with dynamic flows.</li><li>Complex workflows requiring parallel node execution or branching logic.</li><li>Situations where decision-making is needed at multiple points in the conversation.</li></ul></td></tr></tbody></table>
 
+{% hint style="info" %}
+In Flowise's Sequential Agent architecture, **parallel node execution** refers to the ability to **execute multiple nodes concurrently within a workflow** by using a branching mechanism. This means that different branches of the workflow can process information or interact with tools simultaneously, even though the overall flow of execution remains sequential.
+{% endhint %}
+
 ***
 
 ## Sequential Agents Nodes
@@ -78,11 +78,15 @@ Sequential Agents bring a whole new dimension to Flowise, **introducing 10 speci
 
 The following sections provide details on each node's functionality, inputs, outputs, and best practices, enabling us to build sophisticated conversational workflows for a variety of applications.
 
+<figure><img src="../../.gitbook/assets/seq-00.png" alt=""><figcaption></figcaption></figure>
+
 ***
 
 ## 1. Start Node: Initiating the conversation
 
 As the name suggests, the Start Node serves as the entry point for all flows in the Sequential Agent architecture. It's where the initial user's query is registered for the first time, setting the Stage for the flow and being responsible for initializing the conversation.
+
+<figure><img src="../../.gitbook/assets/seq-02.png" alt="" width="300"><figcaption></figcaption></figure>
 
 ### Understanding the Start Node
 
@@ -152,6 +156,8 @@ Unlike the State Node, which only holds custom State information only for a sing
 
 This long-term memory is crucial for agents to learn from previous interactions, maintain context over extended conversations, and provide more relevant responses.
 
+<figure><img src="../../.gitbook/assets/seq-03.png" alt="" width="299"><figcaption></figcaption></figure>
+
 ### **Where the data is recorded**
 
 By default, Flowise will use the default SQLite system database to store all the needed data, creating a new table called "**checkpoints**" to manage the whole flow's memory.&#x20;
@@ -159,6 +165,8 @@ By default, Flowise will use the default SQLite system database to store all the
 #### Understanding the "checkpoints" table structure and data format
 
 This table **stores snapshots of the system's State at various points during a conversation**, enabling the persistence and retrieval of conversation history and execution details. Each row represents a specific point or "checkpoint" in the **workflow's execution**.
+
+<figure><img src="../../.gitbook/assets/seq-12.png" alt=""><figcaption></figcaption></figure>
 
 #### Table structure
 
@@ -207,6 +215,8 @@ Employ Agent Memory only when necessary. For simple, stateless interactions, it 
 ## 3. State Node: Managing custom state
 
 The State Node, which can only be connected to the Start Node, provides a mechanism to set a user-defined or **custom State** into our workflow from the start of the conversation. This custom State is a **JSON object that is shared and can be updated by nodes in the graph**, passing from one node to another as the workflow progresses.
+
+<figure><img src="../../.gitbook/assets/seq-04.png" alt="" width="299"><figcaption></figcaption></figure>
 
 ### Understanding the State Node
 
@@ -274,6 +284,8 @@ To define a custom State using the table interface in the State Node, follow the
 | -------- | --------- | ------------- |
 | userName | Replace   | null          |
 
+<figure><img src="../../.gitbook/assets/seq-14.png" alt="" width="375"><figcaption></figcaption></figure>
+
 **Explanation:**
 
 * This table defines one key in the custom State: `userName`.
@@ -321,6 +333,8 @@ If you need to preserve State across multiple conversation sessions (e.g., for u
 ## 4. Agent Node: Orchestrating actions and tools
 
 The Agent Node is a **core component of the Sequential Agent architecture.** It acts as a decision-maker and orchestrator within your workflow.
+
+<figure><img src="../../.gitbook/assets/seq-05.png" alt="" width="300"><figcaption></figcaption></figure>
 
 ### Understanding the Agent Node
 
@@ -426,6 +440,8 @@ Update the custom State object strategically to store gathered information or in
 
 As the Agent Node, the **LLM Node is** also **a core component of the Sequential Agent architecture**. While both the LLM Node and Agent Node utilize the same Chat Models (LLMs) by default, providing the same basic language processing capabilities, the LLM Node distinguishes itself in these key areas.
 
+<figure><img src="../../.gitbook/assets/seq-06.png" alt="" width="299"><figcaption></figcaption></figure>
+
 ### Here's a breakdown of the key differences
 
 * **Structured data:** The LLM Node provides a dedicated feature to define a JSON schema for its output. This makes it exceptionally easy to extract structured information from the LLM's responses and pass that data to Tool Nodes in the correct JSON format. The Agent Node does not have this built-in JSON schema feature.
@@ -515,6 +531,8 @@ Update the custom State object strategically to store gathered information or in
 
 The Tool Node is an key component of Flowise's Sequential Agent system, enabling the integration and execution of external tools within conversational workflows. It acts as a bridge between the language-based processing of LLM Nodes and the specialized functionalities of external tools, APIs, or services.
 
+<figure><img src="../../.gitbook/assets/seq-07.png" alt="" width="300"><figcaption></figcaption></figure>
+
 ### Understanding the Tool Node
 
 The Tool Node's primary function is to **execute external tools** based on instructions received from an LLM Node and to **provide flexibility for Human-in-the-Loop (HITL)** intervention in the tool execution process. Here is how it works:
@@ -575,6 +593,8 @@ When using HITL, design clear and informative prompts for human reviewers. Provi
 
 The Conditional Node acts as the **decision-making point within our Sequential Agent workflow**. It evaluates a defined condition and directs the flow to different paths based on the outcome.
 
+<figure><img src="../../.gitbook/assets/seq-08.png" alt="" width="299"><figcaption></figcaption></figure>
+
 ### Understanding the Conditional Node
 
 The Conditional Node is essential for building workflows that adapt to different situations and user inputs. It examines the current state of the conversation, which includes all messages exchanged and any custom state variables previously defined. Then, based on the evaluation of the conditions specified in the node setup, the Conditional Node directs the flow to one of its outputs.
@@ -593,6 +613,8 @@ This enables us to **create branches in our workflow**, where the path taken dep
 ### How to set up conditions
 
 The Conditional Node allows us to define dynamic branching logic in our workflow by choose either a **table-based interface** or a **JavaScript code editor** to define the conditions that will control the conversation flow.
+
+<figure><img src="../../.gitbook/assets/seq-16.png" alt=""><figcaption></figcaption></figure>
 
 <details>
 
@@ -738,6 +760,8 @@ Test your conditions with different inputs and scenarios to ensure they work as 
 
 The Conditional Agent Node provides **dynamic and intelligent routing within Sequential Agent flows**. It combines the capabilities of the **LLM Node** (Chat Model and JSON Structured Output)  and the **Condition Node** (Conditions), allowing us to leverage agent-based reasoning and conditional logic within a single node.
 
+<figure><img src="../../.gitbook/assets/seq-09.png" alt="" width="299"><figcaption></figcaption></figure>
+
 ### Key functionalities
 
 * **Unified agent-based routing:** Combines agent reasoning, structured output, and conditional logic in a single node, simplifying workflow design.
@@ -831,6 +855,8 @@ Test your Conditional Agent Node with various inputs and scenarios to ensure tha
 
 The Loop Node allows us to create loops within our conversational flow, **redirecting the conversation back to a specific point**. This is useful for scenarios where we need to repeat a certain sequence of actions or questions based on user input or specific conditions.
 
+<figure><img src="../../.gitbook/assets/seq-10.png" alt="" width="303"><figcaption></figcaption></figure>
+
 ### Understanding the Loop Node
 
 The Loop Node acts as a connector, redirecting the flow back to a specific point in the graph, allowing us to create loops within our conversational flow. **It passes the current State, which includes the output of the node preceding the Loop Node to our target node.** This data transfer allows our target node to process information from the previous iteration of the loop and adjust its behavior accordingly.
@@ -897,6 +923,8 @@ Define a clear purpose for each loop in your workflow. If possible, document wit
 ## 10. End Node: Concluding the conversation
 
 The End Node marks the definitive termination point of the conversation in a Sequential Agent workflow. It signifies that no further processing, actions, or interactions are required.
+
+<figure><img src="../../.gitbook/assets/seq-11.png" alt="" width="301"><figcaption></figcaption></figure>
 
 ### Understanding the End Node
 
