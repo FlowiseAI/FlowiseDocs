@@ -8,13 +8,13 @@ This guide offers a comprehensive overview of the Sequential Agent AI system arc
 
 ## Concept
 
-Built on top of [LangGraph](https://www.langchain.com/langgraph), Flowise's Sequential Agents architecture facilitates the **development of conversational agentic systems by structuring agents behavior as a directed cyclic graph (DCG)**, allowing for controlled loops and iterative processes.
+Built on top of [LangGraph](https://www.langchain.com/langgraph), Flowise's Sequential Agents architecture facilitates the **development of conversational agentic systems by structuring agents behavior as a directed cyclic graph (DCG)**, allowing controlled loops and iterative processes.
 
-This graph, composed of interconnected nodes, governs the sequential flow of information and actions, enabling the agents to process inputs, execute tasks, and generate responses in a structured manner.
+This graph, composed of interconnected nodes, defines the sequential flow of information and actions, enabling the agents to process inputs, execute tasks, and generate responses in a structured manner.
 
-### Understanding Sequential Agents DCG architecture
+### Understanding Sequential Agents' DCG Architecture
 
-This architecture breaks down complex conversational flows into manageable, interconnected units, providing developers with a clear and visual way to design, build, and debug sophisticated agent interactions.&#x20;
+This architecture breaks down complex conversational flows into manageable, interconnected units, offering developers a clear and visual way to design, build, and debug sophisticated agent interactions.
 
 Let's explore some key elements of this approach:
 
@@ -32,7 +32,7 @@ Let's explore some key elements of this approach:
 {% endtabs %}
 
 {% hint style="info" %}
-The Sequential Agent architecture provides an integral solution for **building conversational agentic systems** capable of engaging in structured, multi-turn dialogues, leveraging external tools, and maintaining context throughout the interaction.
+The Sequential Agent architecture provides a structured approach for **building conversational agentic systems** capable of engaging in structured, multi-turn dialogues, leveraging external tools, and maintaining context throughout the interaction.
 {% endhint %}
 
 ***
@@ -332,7 +332,7 @@ If you need to preserve State across multiple conversation sessions (e.g., for u
 
 ## 4. Agent Node: Orchestrating actions and tools
 
-The Agent Node is a **core component of the Sequential Agent architecture.** It acts as a decision-maker and orchestrator within your workflow.
+The Agent Node is a **core component of the Sequential Agent architecture.** It acts as a decision-maker and orchestrator within our workflow.
 
 <figure><img src="../../.gitbook/assets/seq-05.png" alt="" width="300"><figcaption></figcaption></figure>
 
