@@ -84,13 +84,13 @@ The following sections provide details on each node's functionality, inputs, out
 
 ## 1. Start Node: Initiating the conversation
 
-As the name suggests, the Start Node serves as the entry point for all flows in the Sequential Agent architecture. It's where the initial user query is first registered, setting the Stage for the flow and is responsible for initializing the conversation.
+As the name suggests, the Start Node serves as the entry point for all workflows in the Sequential Agent architecture. It's where the initial user query is first registered, setting the Stage for the flow and is responsible for initializing the conversation.
 
 <figure><img src="../../.gitbook/assets/seq-02.png" alt="" width="300"><figcaption></figcaption></figure>
 
 ### Understanding the Start Node
 
-The Start Node ensures that our conversational flows have the necessary setup and context to function correctly. It's responsible for setting up key functionalities that will be used throughout the rest of the workflow:
+The Start Node ensures that our conversational workflows have the necessary setup and context to function correctly. It's responsible for setting up key functionalities that will be used throughout the rest of the workflow:
 
 * **Defining the default LLM:** The Start Node requires us to specify a Chat Model (LLM) compatible with function calling, enabling agents in the flow to interact with tools and external systems. It will be the default LLM used under the hood in the workflow.
 * **Initializing Memory:** We can optionally include an Agent Memory Node to store and retrieve conversation history, enabling more context-aware responses.
@@ -152,7 +152,7 @@ If your use case demands it, utilize Agent Memory Node to maintain context and p
 
 ## 2. Agent Memory Node: Storing conversation history and custom state
 
-Unlike the State Node, which only holds custom State information for a single flow execution, the Agent Memory Node **provides a mechanism for persistent memory storage**. This allows our Sequential Agents system to retain the conversation history (`state.messages`) and any user-defined State variables across multiple interactions within a flow.
+Unlike the State Node, which only holds custom State information for a single flow execution, the Agent Memory Node **provides a mechanism for persistent memory storage**. This allows Sequential Agent systems to retain the conversation history (`state.messages`) and any user-defined State variables across multiple interactions within a workflow.
 
 This long-term memory is crucial for agents to learn from previous interactions, maintain context over extended conversations, and provide more relevant responses.
 
@@ -170,7 +170,7 @@ This table **stores snapshots of the system's State at various points during a c
 
 #### Table structure
 
-* **thread\_id:** A unique identifier representing a specific conversation session, **our session ID**. It groups together all checkpoints related to a single interaction with the system.
+* **thread\_id:** A unique identifier representing a specific conversation session, **our session ID**. It groups together all checkpoints related to a single workflow execution.
 * **checkpoint\_id:** A unique identifier for each execution step (node execution) within the workflow. It helps track the order of operations and identify the state at each step.
 * **parent\_id:** Indicates the checkpoint\_id of the preceding execution step that led to the current checkpoint. This establishes a hierarchical relationship between checkpoints, allowing for the reconstruction of the workflow's execution flow.
 * **checkpoint:** Contains a JSON string representing the complete state of the workflow at that specific checkpoint. This includes the values of variables, the messages exchanged, and any other relevant data captured at that point in the execution.
@@ -306,7 +306,7 @@ Before building your workflow, design the structure of your custom State. A well
 
 **Use meaningful key names**
 
-Choose descriptive and consistent key names that clearly indicate the purpose of the data they hold. This will improve the readability of your code and make it easier for others (or yourself in the future) to understand how the custom State is being used.
+Choose descriptive and consistent key names that clearly indicate the purpose of the data they hold. This will improve the readability of your code and make it easier for others (or you in the future) to understand how the custom State is being used.
 
 **Keep custom State minimal**
 
@@ -538,7 +538,7 @@ The Tool Node is a key component of Flowise's Sequential Agent system, enabling 
 The Tool Node's primary function is to **execute external tools** based on instructions received from an LLM Node and to **provide flexibility for Human-in-the-Loop (HITL)** intervention in the tool execution process. Here is how it works:
 
 1. **Tool Call Reception:** The Tool Node receives input from an LLM Node. If the LLM's output contains the `tool_calls` property, the Tool Node will proceed with tool execution.
-2. **Execution:** The Tool Node directly passes the LLM's `tool_calls` (which include the tool name and any required parameters) to the specified external tool. Otherwise, the Tool Node essentially becomes inactive in that particular workflow execution. It does not process or interpret the LLM's output in any way.
+2. **Execution:** The Tool Node directly passes the LLM's `tool_calls` (which include the tool name and any required parameters) to the specified external tool. Otherwise, the Tool Node does not execute any tools in that particular workflow execution. It does not process or interpret the LLM's output in any way.
 3. **Human-in-the-Loop (HITL):** The Tool Node allows for optional HITL, enabling human review and approval or rejection of tool execution before it occurs.
 4. **Output passing:** After the tool execution (either automatic or after HITL approval), the Tool Node receives the tool's output and passes it to the next node in the workflow.
 
@@ -548,7 +548,7 @@ The Tool Node's primary function is to **execute external tools** based on instr
 
 ### Node Setup
 
-<table><thead><tr><th width="165">Item</th><th width="112">Required</th><th>Description</th></tr></thead><tbody><tr><td>Name of the Tool Node</td><td><strong>Yes</strong></td><td>Add a descriptive name to the Tool Node to enhance workflow readability.</td></tr><tr><td>Require Approval (HITL)</td><td>No</td><td><strong>Activates the Human-in-the-loop (HITL) feature</strong>. If set to '<strong>True</strong>,' the Agent Node will request human approval before executing any tool. This is particularly valuable for sensitive operations or when human oversight is desired. Defaults to '<strong>False</strong>,' allowing the Agent Node to execute tools autonomously.</td></tr></tbody></table>
+<table><thead><tr><th width="165">Item</th><th width="112">Required</th><th>Description</th></tr></thead><tbody><tr><td>Name of the Tool Node</td><td><strong>Yes</strong></td><td>Add a descriptive name to the Tool Node to enhance workflow readability.</td></tr><tr><td>Require Approval (HITL)</td><td>No</td><td><strong>Activates the Human-in-the-loop (HITL) feature</strong>. If set to '<strong>True</strong>,' the Tool Node will request human approval before executing any tool. This is particularly valuable for sensitive operations or when human oversight is desired. Defaults to '<strong>False</strong>,' allowing the Tool Node to execute tools autonomously.</td></tr></tbody></table>
 
 ### Outputs
 
@@ -715,7 +715,7 @@ Each defined output, including the default "End" output, can be connected to any
 
 * **Agent Node:** To continue the conversation with an agent, potentially taking actions based on the condition's outcome.
 * **LLM Node:** To process the current State and conversation history with an LLM, generating responses or making further decisions.
-* **End Node:** To terminate the conversation flow. If any output, including the default "End" output, is connected to an End Node, the Conditional Node will output the last response from the preceding node and end the conversation.
+* **End Node:** To terminate the conversation flow. If any output, including the default "End" output, is connected to an End Node, the Conditional Node will output the last response from the preceding node and end the workflow.
 * **Loop Node:** To redirect the flow back to a previous sequential node, enabling iterative processes based on the condition's outcome.
 
 ### Node Setup
@@ -775,13 +775,94 @@ The Conditional Agent Node acts as a specialized agent that can both process inf
 1. **Define the agent's persona**
    * In the "System Prompt" field, provide a clear and concise description of the agent's role and the task it needs to perform for conditional routing. This prompt will guide the agent's understanding of the conversation and its decision-making process.
 2. **Structure the Agent's Output (Optional)**
-   * If we want the agent to produce structured output, use the "JSON Structured Output" feature. Define the desired schema for the output, specifying the keys, data types, and any enum values. This structured output will be used by the agent when evaluating conditions.
+   * If you want the agent to produce structured output, use the "JSON Structured Output" feature. Define the desired schema for the output, specifying the keys, data types, and any enum values. This structured output will be used by the agent when evaluating conditions.
 3. **Define conditions**
    * Choose either the table-based interface or the JavaScript code editor to define the conditions that will determine the routing behavior.
      * **Table-Based interface:** Add rows to the table, specifying the variable to check, the comparison operation, the value to compare against, and the output name to follow if the condition is met.
      * **JavaScript code:** Write custom JavaScript snippets to evaluate conditions. Use the `return` statement to specify the name of the output path to follow based on the condition's result.
 4. **Connect outputs**
    * Connect each defined output, including the default "End" output, to the appropriate subsequent node in the workflow. This could be an Agent Node, LLM Node, Loop Node, or an End Node.
+
+### How to set up conditions
+
+The Conditional Agent Node allows us to define dynamic branching logic in our workflow by choose either a **table-based interface** or a **JavaScript code editor** to define the conditions that will control the conversation flow.
+
+<figure><img src="../../.gitbook/assets/seq-16.png" alt=""><figcaption></figcaption></figure>
+
+<details>
+
+<summary>Conditions using CODE</summary>
+
+The Conditional Agent Node, like the Conditional Node, **uses JavaScript code to evaluate specific conditions** within the conversation flow.&#x20;
+
+However, the Conditional Agent Node can evaluate conditions based on a wider range of factors, including keywords, state changes, and the content of its own output (either as free-form text or structured JSON data). This allows for more nuanced and context-aware routing decisions. Here are some examples:
+
+**Keyword condition**
+
+This checks if a specific word or phrase exists in the conversation history.
+
+* **Example:** We want to check if the user said "yes" in their last message.
+*   **JavaScript Code**
+
+    {% code overflow="wrap" %}
+    ```javascript
+    const lastMessage = $flow.state.messages[$flow.state.messages.length - 1].content; 
+    return lastMessage.includes("yes") ? "Output 1" : "Output 2";
+    ```
+    {% endcode %}
+
+    1. This code gets the last message from `state.messages` and checks if it contains "yes".
+    2. If "yes" is found, the flow goes to "Output 1"; otherwise, it goes to "Output 2".
+
+**State change condition**
+
+This checks if a specific value in the custom State has changed to a desired value.
+
+* **Example:** We're tracking an orderStatus variable our custom State, and we want to check if it has become "confirmed".
+*   **JavaScript Code**
+
+    ```javascript
+    return $flow.state.orderStatus === "confirmed" ? "Output 1" : "Output 2";
+    ```
+
+    1. This code directly compares the orderStatus value in our custom State to "confirmed".
+    2. If it matches, the flow goes to "Output 1"; otherwise, it goes to "Output 2".
+
+</details>
+
+<details>
+
+<summary>Conditions using TABLE</summary>
+
+The Conditional Agent Node also provides a **user-friendly table interface for defining conditions**, similar to the Conditional Node. You can set up conditions based on keywords, state changes, or the agent's own output, allowing you to create dynamic workflows without writing JavaScript code.&#x20;
+
+This table-based approach simplifies condition management and makes it easier to visualize the branching logic. Here are some examples:
+
+**Keyword condition**
+
+This checks if a specific word or phrase exists in the conversation history.
+
+* **Example:** We want to check if the user said "yes" in their last message.
+*   **Table Setup:**
+
+    <table data-header-hidden><thead><tr><th width="305"></th><th width="116"></th><th width="99"></th><th></th></tr></thead><tbody><tr><td><strong>Variable</strong></td><td><strong>Operation</strong></td><td><strong>Value</strong></td><td><strong>Output Name</strong></td></tr><tr><td>$flow.state.messages[-1].content</td><td>Is</td><td>Yes</td><td>Output 1</td></tr></tbody></table>
+
+    * This table entry checks if the content (.content) of the last message (\[-1]) in `state.messages` is equal to "Yes".
+    * If the condition is met, the flow goes to "Output 1". Otherwise, the workflow is directed to a default "End" output.
+
+**State change condition**
+
+This checks if a specific value in our custom State has changed to a desired value.
+
+* **Example:** We're tracking an orderStatus variable in our custom State, and we want to check if it has become "confirmed".
+*   **Table Setup:**
+
+    <table data-header-hidden><thead><tr><th width="266"></th><th width="113"></th><th></th><th></th></tr></thead><tbody><tr><td><strong>Variable</strong></td><td><strong>Operation</strong></td><td><strong>Value</strong></td><td><strong>Output Name</strong></td></tr><tr><td>$flow.state.orderStatus</td><td>Is</td><td>Confirmed</td><td>Output 1</td></tr></tbody></table>
+
+    * This table entry checks if the value of orderStatus in the current state is equal to "confirmed".
+    * If the condition is met, the flow goes to "Output 1". Otherwise, the workflow is directed to a default "End" output.
+
+</details>
 
 ### Input
 
@@ -826,7 +907,7 @@ Each defined output, including the default "End" output, can be connected to any
 ### Best Practices
 
 {% tabs %}
-{% tab title="Pro Tip" %}
+{% tab title="Pro Tips" %}
 **Craft a clear and focused system prompt**&#x20;
 
 Provide a well-defined persona and clear instructions to the agent in the System Prompt. This will guide its reasoning and help it generate relevant output for the conditional logic.
@@ -840,7 +921,7 @@ Use the JSON Structured Output feature to define a schema for the Conditional Ag
 Test your Conditional Agent Node with various inputs and scenarios to ensure that the agent's reasoning and the conditional logic work as expected.
 {% endtab %}
 
-{% tab title="Potencial Pitfalls" %}
+{% tab title="Potential Pitfalls" %}
 **Unreliable routing due to unstructured output**
 
 * **Problem:** The Conditional Agent Node is not configured to output structured JSON data, leading to unpredictable output formats that can make it difficult to define reliable conditions.
@@ -1037,8 +1118,8 @@ Same as the Condition Node:
 
 ### Choosing the right node
 
-* **Conditional Node:** Use when your routing logic can be expressed using simple, predefined conditions.
-* **Conditional Agent Node:** Use when you need an agent to analyze the conversation and provide structured output to drive more sophisticated routing decisions.
+* **Conditional Node:** Use this node when your routing logic can be expressed using simple, predefined conditions.
+* **Conditional Agent Node:** Use this node when your routing logic needs an agent to analyze the conversation and provide structured output to drive more sophisticated routing decisions.
 
 ***
 
@@ -1093,5 +1174,5 @@ Similar to the Agent Node, but it provides more flexibility when using tools and
 
 ### Choosing the right node
 
-* **Choose the Agent Node:** When you need an agent-like entity to manage the conversation, make decisions, and orchestrate tasks, especially when involving multiple tools or requiring human oversight.
+* **Choose the Agent Node:** This node is suitable when you need an agent-like entity to manage the conversation, make decisions, and orchestrate tasks, especially when involving multiple tools or requiring human oversight.
 * **Choose the LLM Node:** When your primary focus is on direct language processing, extracting structured data from the LLM, or performing complex operations involving a sequence of LLM and tool interactions.
