@@ -1,5 +1,5 @@
 # Table of contents
-    
+
 * [Introduction](README.md)
 * [Get Started](getting-started/README.md)
 * [Contribution Guide](CONTRIBUTING.md)
@@ -278,3 +278,8 @@
   * [SQL QnA](use-cases/sql-qna.md)
   * [Upserting Data](use-cases/upserting-data.md)
   * [Web Scrape QnA](use-cases/web-scrape-qna.md)
+
+## Flowise
+
+* [Flowise GitHub](https://github.com/FlowiseAI)
+* [Flowise Cloud](https://flowiseai.com/join)
