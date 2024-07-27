@@ -87,7 +87,7 @@ The following sections provide details on each node's functionality, inputs, out
 
 ***
 
-## 1. Start Node: Initiating the conversation
+## 1. Start Node
 
 As the name suggests, the Start Node serves as the entry point for all workflows in the Sequential Agent architecture. It's where the initial user query is first registered, setting the Stage for the flow and is responsible for initializing the conversation.
 
@@ -155,7 +155,7 @@ If your use case demands it, utilize Agent Memory Node to maintain context and p
 {% endtab %}
 {% endtabs %}
 
-## 2. Agent Memory Node: Storing conversation history and custom state
+## 2. Agent Memory Node
 
 Unlike the State Node, which only holds custom State information for a single workflow execution, the Agent Memory Node **provides a mechanism for persistent memory storage**. This allows Sequential Agent systems to retain the conversation history (`state.messages`) and any user-defined State variables across multiple interactions within a workflow.
 
@@ -217,7 +217,7 @@ Employ Agent Memory only when necessary. For simple, stateless interactions, it 
 
 ***
 
-## 3. State Node: Managing custom state
+## 3. State Node
 
 The State Node, which can only be connected to the Start Node, provides a mechanism to set a user-defined or **custom State** into our workflow from the start of the conversation. This custom State is a **JSON object that is shared and can be updated by nodes in the graph**, passing from one node to another as the workflow progresses.
 
@@ -335,7 +335,7 @@ If you need to preserve State across multiple conversation sessions (e.g., for u
 
 ***
 
-## 4. Agent Node: Orchestrating actions and tools
+## 4. Agent Node
 
 The Agent Node is a **core component of the Sequential Agent architecture.** It acts as a decision-maker and orchestrator within our workflow.
 
@@ -364,9 +364,9 @@ The Agent Node can connect to the following nodes as outputs:
 
 * **Agent Node:** Passes control to a subsequent Agent Node, enabling the chaining of multiple agent actions within a workflow. This allows for more complex conversational flows and task orchestration.
 * **LLM Node:** Passes the agent's output to an LLM Node, enabling further language processing, response generation, or decision-making based on the agent's actions and insights.
-* **Condition Agent Node:** Directs the flow to a Condition Agent Node. This node evaluates the Agent Node's output and the defined conditions to determine the appropriate next step in the workflow.
-* **Condition Node:** Similar to the Condition Agent Node, the Condition Node uses predefined conditions to assess the Agent Node's output, guiding the workflow along different branches based on the outcome.
-* **End Node:** Concludes the conversation flow. This typically occurs when the agent has successfully addressed the user's request, reached a defined end State, or determined that no further action is required.
+* **Condition Agent Node:** Directs the flow to a Condition Agent Node. This node evaluates the Agent Node's output and its predefined conditions to determine the appropriate next step in the workflow.
+* **Condition Node:** Similar to the Condition Agent Node, the Condition Node uses predefined conditions to assess the Agent Node's output, directing the flow along different branches based on the outcome.
+* **End Node:** Concludes the conversation flow. This occurs when the agent has successfully addressed the user's request or determined that no further action is required.
 * **Loop Node:** Redirects the flow back to a previous node, enabling iterative or cyclical processes within the workflow. This is useful for tasks that require multiple steps or involve refining results based on previous interactions. For example, you might loop back to an earlier Agent Node or LLM Node to gather additional information or refine the conversation flow based on the current Agent Node's output.
 
 ### Node Setup
@@ -441,7 +441,7 @@ Update the custom State object strategically to store gathered information or in
 
 ***
 
-## 5. LLM Node: Processing information and orchestrating tools
+## 5. LLM Node
 
 As the Agent Node, the **LLM Node is** also **a core component of the Sequential Agent architecture**. While both the LLM Node and Agent Node utilize the same Chat Models (LLMs) by default, providing the same basic language processing capabilities, the LLM Node distinguishes itself in these key areas.
 
@@ -477,9 +477,9 @@ The LLM Node can connect to the following nodes as outputs:
 
 * **Agent Node:** Passes the LLM's output to an Agent Node, which can then use the information to decide on actions, execute tools, or guide the conversation flow.
 * **LLM Node:** Passes the output to a subsequent LLM Node, enabling chaining of multiple LLM operations. This is useful for tasks like refining text generation, performing multiple analyses, or breaking down complex language processing into stages.
-* **Condition Agent Node:** Directs the flow to a Condition Agent Node. This node evaluates the LLM Node's output and the defined conditions to determine the appropriate next step in the workflow.
-* **Condition Node:** Similar to the Condition Agent Node, the Condition Node uses predefined conditions to assess the LLM Node's output, guiding the workflow along different branches based on the outcome.
-* **End Node:** Concludes the conversation flow. This might occur if the LLM Node has generated a final response or determined that no further processing is needed.
+* **Condition Agent Node:** Directs the flow to a Condition Agent Node. This node evaluates the LLM Node's output and its predefined conditions to determine the appropriate next step in the workflow.
+* **Condition Node:** Similar to the Condition Agent Node, the Condition Node uses predefined conditions to assess the LLM Node's output, directing the flow along different branches based on the outcome.
+* **End Node:** Concludes the conversation flow. This occurs when the LLM Node has successfully addressed the user's request or determined that no further action is required.
 * **Loop Node:** Redirects the flow back to a previous node, enabling iterative or cyclical processes within the workflow. This could be used to refine the LLM's output over multiple iterations.
 
 ### Additional Parameters
@@ -532,7 +532,7 @@ Update the custom State object strategically to store gathered information or in
 
 ***
 
-## 6. Tool Node: Interface for external tool execution
+## 6. Tool Node
 
 The Tool Node is a key component of Flowise's Sequential Agent system, enabling the integration and execution of external tools within conversational workflows. It acts as a bridge between the language-based processing of LLM Nodes and the specialized functionalities of external tools, APIs, or services.
 
@@ -561,8 +561,8 @@ The Tool Node can connect to the following nodes as outputs:
 
 * **Agent Node:** Passes the Tool Node's output (the result of the executed tool) to an Agent Node. The Agent Node can then use this information to decide on actions, execute further tools, or guide the conversation flow.
 * **LLM Node:** Passes the output to a subsequent LLM Node. This enables the integration of tool results into the LLM's processing, allowing for further analysis or refinement of the conversation flow based on the tool's output.
-* **Condition Agent Node:** Directs the flow to a Condition Agent Node. This node evaluates the Tool Node's output and the defined conditions to determine the appropriate next step in the workflow.
-* **Condition Node:** Similar to the Condition Agent Node, the Condition Node uses predefined conditions to assess the Tool Node's output, guiding the workflow along different branches based on the outcome.
+* **Condition Agent Node:** Directs the flow to a Condition tool Node. This node evaluates the Tool Node's output and its predefined conditions to determine the appropriate next step in the workflow.
+* **Condition Node:** Similar to the Condition Agent Node, the Condition Node uses predefined conditions to assess the Tool Node's output, directing the flow along different branches based on the outcome.
 * **End Node:** Concludes the conversation flow. This might occur if the Tool Node has successfully executed its task and no further processing or interaction is needed.
 * **Loop Node:** Redirects the flow back to a previous node, enabling iterative or cyclical processes within the workflow. This could be used for tasks that require multiple tool executions or involve refining the conversation based on tool results.
 
@@ -594,9 +594,9 @@ When using HITL, design clear and informative prompts for human reviewers. Provi
 
 ***
 
-## 7. Conditional Node: Guiding the flow based on logic
+## 7. Conditional Node
 
-The Conditional Node acts as the **decision-making point within our Sequential Agent workflow**. It evaluates a defined condition and directs the flow to different paths based on the outcome.
+The Conditional Node acts as a **decision-making point in Sequential Agent workflows**, evaluating a set of predefined conditions to determine the flow's next path.
 
 <figure><img src="../../.gitbook/assets/seq-08.png" alt="" width="299"><figcaption></figcaption></figure>
 
@@ -714,7 +714,7 @@ The Conditional Node **dynamically determines its output path based on the condi
 
 #### Condition evaluation logic
 
-* **Table-Based conditions:** The conditions in the table are evaluated sequentially, from top to bottom. The first condition that evaluates to true triggers its corresponding output. If none of the defined conditions are met, the workflow is directed to the default "End" output.
+* **Table-Based conditions:** The conditions in the table are evaluated sequentially, from top to bottom. The first condition that evaluates to true triggers its corresponding output. If none of the predefined conditions are met, the workflow is directed to the default "End" output.
 * **Code-Based conditions:** When using JavaScript, we must explicitly return the name of the desired output path, including a name for the default "End" output.
 * **Single output path:** Only one output path is activated at a time. Even if multiple conditions could be true, only the first matching condition determines the flow.
 
@@ -765,7 +765,7 @@ Test your conditions with different inputs and scenarios to ensure they work as 
 
 ***
 
-## 8. Conditional Agent Node: All-in-One agent-based routing
+## 8. Conditional Agent Node
 
 The Conditional Agent Node provides **dynamic and intelligent routing within Sequential Agent flows**. It combines the capabilities of the **LLM Node** (Chat Model and JSON Structured Output)  and the **Condition Node** (Conditions), allowing us to leverage agent-based reasoning and conditional logic within a single node.
 
@@ -891,7 +891,7 @@ The Conditional Agent Node, like the Condition Node, **dynamically determines it
 
 #### Condition evaluation logic
 
-* **Table-Based conditions:** The conditions in the table are evaluated sequentially, from top to bottom. The first condition that evaluates to true triggers its corresponding output. If none of the defined conditions are met, the workflow is directed to the default "End" output.
+* **Table-Based conditions:** The conditions in the table are evaluated sequentially, from top to bottom. The first condition that evaluates to true triggers its corresponding output. If none of the predefined conditions are met, the workflow is directed to the default "End" output.
 * **Code-Based conditions:** When using JavaScript, we must explicitly return the name of the desired output path, including a name for the default "End" output.
 * **Single output path:** Only one output path is activated at a time. Even if multiple conditions could be true, only the first matching condition determines the flow.
 
@@ -941,7 +941,7 @@ Test your Conditional Agent Node with various inputs and scenarios to ensure tha
 
 ***
 
-## 9. Loop Node: Managing conversational loops
+## 9. Loop Node
 
 The Loop Node allows us to create loops within our conversational flow, **redirecting the conversation back to a specific point**. This is useful for scenarios where we need to repeat a certain sequence of actions or questions based on user input or specific conditions.
 
@@ -1010,7 +1010,7 @@ Define a clear purpose for each loop in your workflow. If possible, document wit
 
 ***
 
-## 10. End Node: Concluding the conversation
+## 10. End Node
 
 The End Node marks the definitive termination point of the conversation in a Sequential Agent workflow. It signifies that no further processing, actions, or interactions are required.
 
@@ -1121,7 +1121,7 @@ Same as the Condition Node:
 
 </details>
 
-### Summarizing: Conditional Node vs. Conditional Agent Node
+### Summarizing
 
 <table><thead><tr><th width="218">Feature</th><th width="258">Conditional Node</th><th>Conditional Agent Node</th></tr></thead><tbody><tr><td><strong>Decision Logic</strong></td><td>Based on predefined logical conditions</td><td>Based on agent's reasoning and structured output</td></tr><tr><td><strong>Agent Involvement</strong></td><td>No agent involved in condition evaluation</td><td>Uses an agent to process context and generate output for conditions</td></tr><tr><td><strong>Structured Output</strong></td><td>Not possible</td><td>Possible and encouraged for reliable condition evaluation</td></tr><tr><td><strong>Condition Evaluation</strong></td><td>Only define conditions that are checked against the full conversation history</td><td>Can define conditions that are checked against the agent's own output, structured or not</td></tr><tr><td><strong>Complexity</strong></td><td>Suitable for simple branching logic</td><td>Handles more nuanced and context-aware routing</td></tr><tr><td><strong>Example use case</strong></td><td><ul><li>Routing based on user's age or a keyword in the conversation</li></ul></td><td><ul><li>Routing based on user sentiment, intent, or complex contextual factors</li></ul></td></tr></tbody></table>
 
@@ -1132,7 +1132,7 @@ Same as the Condition Node:
 
 ***
 
-## Agent Node vs. LLM Node: Selecting the Optimal Node for Conversational Tasks
+## Agent Node vs. LLM Node
 
 While both nodes can process language and interact with tools, they are designed for different purposes within a workflow. Understanding their unique capabilities is very important for building effective conversational systems.
 
@@ -1177,7 +1177,7 @@ Similar to the Agent Node, but it provides more flexibility when using tools and
 
 </details>
 
-### Summarizing: Agent Node vs. LLM Node
+### Summarizing
 
 <table><thead><tr><th width="206">Feature</th><th width="253">Agent Node</th><th>LLM Node</th></tr></thead><tbody><tr><td><strong>Tool Interaction</strong></td><td>Directly calls and manages multiple tools, built-in HITL</td><td>Triggers tools via the Tool Node, granular HITL control at the tool level</td></tr><tr><td><strong>Human-in-the-Loop (HITL)</strong></td><td>HITL controlled at the Agent Node level (all connected tools affected)</td><td>HITL managed at the individual Tool Node level (more flexibility)</td></tr><tr><td><strong>Structured Output</strong></td><td>Relies on the LLM's natural output format</td><td>If needed, provides JSON schema definition to structure LLM output</td></tr><tr><td><strong>Ideal Use Cases</strong></td><td><ul><li>Multi-step conversations</li><li>Workflows with multiple tools</li><li>Tasks requiring agent-like decision-making</li></ul></td><td><p></p><ul><li>Extracting structured data from LLM output</li><li>Workflows with complex LLM and tool interactions, requiring mixed HITL levels</li></ul></td></tr></tbody></table>
 
