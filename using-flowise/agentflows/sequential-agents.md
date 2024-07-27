@@ -29,6 +29,11 @@ Let's explore some key elements of this approach:
 * **Explicit control flow:** The DCG structure defines a clear and understandable sequence of operations, improving the maintainability of the agentic system logic.
 * **Scalability:** This structure can accommodate increasingly complex conversational flows by adding or modifying nodes within the graph.
 {% endtab %}
+
+{% tab title="Terminology" %}
+* **Flow:** We use this term to describe the movement or direction of data within the workflow. It's the dynamic aspect of how information passes from one node to another during the conversation.&#x20;
+* **Workflow:** This term refers to the overall design and structure of the system. It's the blueprint that defines the sequence of nodes, their connections, and the logic that orchestrates the conversation flow. It's the static representation of the system's behavior.
+{% endtab %}
 {% endtabs %}
 
 {% hint style="info" %}
