@@ -92,14 +92,14 @@ As the name suggests, the Start Node serves as the entry point for all workflows
 
 The Start Node ensures that our conversational workflows have the necessary setup and context to function correctly. It's responsible for setting up key functionalities that will be used throughout the rest of the workflow:
 
-* **Defining the default LLM:** The Start Node requires us to specify a Chat Model (LLM) compatible with function calling, enabling agents in the flow to interact with tools and external systems. It will be the default LLM used under the hood in the workflow.
+* **Defining the default LLM:** The Start Node requires us to specify a Chat Model (LLM) compatible with function calling, enabling agents in the workflow to interact with tools and external systems. It will be the default LLM used under the hood in the workflow.
 * **Initializing Memory:** We can optionally include an Agent Memory Node to store and retrieve conversation history, enabling more context-aware responses.
-* **Setting a custom State:** Setting a custom State: By default, the State contains a `state.messages` array, acting as the transcript or history of the conversation between the user and the agents. The Start Node allows us to set a custom State to the flow by adding a State Node. This enables storing additional information relevant to the specific workflow.
+* **Setting a custom State:** Setting a custom State: By default, the State contains a `state.messages` array, acting as the transcript or history of the conversation between the user and the agents. The Start Node allows us to set a custom State to the workflow by adding a State Node. This enables storing additional information relevant to the specific workflow.
 * **Enabling moderation:** Optionally, we can enable Input Moderation to analyze the user's input and prevent potentially harmful content from being sent to the LLM.
 
 ### Inputs
 
-<table><thead><tr><th width="185"></th><th width="109">Required</th><th>Description</th></tr></thead><tbody><tr><td>Chat Model</td><td><strong>Yes</strong></td><td>The default LLM that will power the conversation. Only compatible with <strong>models that are capable of function calling</strong>.</td></tr><tr><td>Agent Memory Node</td><td>No</td><td>Connect an Agent Memory Node to <strong>enable persistence and context preservation</strong>.</td></tr><tr><td>State Node</td><td>No</td><td>Connect a State Node to <strong>set a custom State</strong>, a shared context that can be accessed and modified by other nodes in the flow.</td></tr><tr><td>Input Moderation</td><td>No</td><td>Connect a Moderation Node to <strong>filter content</strong> by detecting text that could generate harmful output, preventing it from being sent to the language model.</td></tr></tbody></table>
+<table><thead><tr><th width="185"></th><th width="109">Required</th><th>Description</th></tr></thead><tbody><tr><td>Chat Model</td><td><strong>Yes</strong></td><td>The default LLM that will power the conversation. Only compatible with <strong>models that are capable of function calling</strong>.</td></tr><tr><td>Agent Memory Node</td><td>No</td><td>Connect an Agent Memory Node to <strong>enable persistence and context preservation</strong>.</td></tr><tr><td>State Node</td><td>No</td><td>Connect a State Node to <strong>set a custom State</strong>, a shared context that can be accessed and modified by other nodes in the workflow.</td></tr><tr><td>Input Moderation</td><td>No</td><td>Connect a Moderation Node to <strong>filter content</strong> by detecting text that could generate harmful output, preventing it from being sent to the language model.</td></tr></tbody></table>
 
 ### Outputs
 
@@ -152,7 +152,7 @@ If your use case demands it, utilize Agent Memory Node to maintain context and p
 
 ## 2. Agent Memory Node: Storing conversation history and custom state
 
-Unlike the State Node, which only holds custom State information for a single flow execution, the Agent Memory Node **provides a mechanism for persistent memory storage**. This allows Sequential Agent systems to retain the conversation history (`state.messages`) and any user-defined State variables across multiple interactions within a workflow.
+Unlike the State Node, which only holds custom State information for a single workflow execution, the Agent Memory Node **provides a mechanism for persistent memory storage**. This allows Sequential Agent systems to retain the conversation history (`state.messages`) and any user-defined State variables across multiple interactions within a workflow.
 
 This long-term memory is crucial for agents to learn from previous interactions, maintain context over extended conversations, and provide more relevant responses.
 
@@ -190,7 +190,7 @@ As a Sequential Agent workflow executes, the system records a checkpoint in this
 
 ### **Outputs**
 
-The Agent Memory Node interacts solely with the **Start Node**, making the conversation history available from the very beginning of the flow.
+The Agent Memory Node interacts solely with the **Start Node**, making the conversation history available from the very beginning of the workflow.
 
 ### **Best Practices**
 
@@ -220,7 +220,7 @@ The State Node, which can only be connected to the Start Node, provides a mechan
 
 ### Understanding the State Node
 
-By default, the State includes a `state.messages` array, which acts as our conversation history. This array stores all messages exchanged between the user and the agents (or any actors in the flow). It is appended with each message sent and received, preserving the complete conversation history throughout the workflow execution.
+By default, the State includes a `state.messages` array, which acts as our conversation history. This array stores all messages exchanged between the user and the agents (or any actors in the workflow). It is appended with each message sent and received, preserving the complete conversation history throughout the workflow execution.
 
 So, beyond the default conversation history provided by `state.messages`, the State Node allows us to define custom key-value pairs, expanding the state object to hold any additional information relevant to our specific workflow.
 
@@ -234,7 +234,7 @@ The State Node has **no specific input connections**.
 
 ### Outputs
 
-The State Node can only connect to the **Start Node**, allowing the setup of a custom State from the beginning of the flow and allowing other nodes to access and potentially modify this shared custom State.
+The State Node can only connect to the **Start Node**, allowing the setup of a custom State from the beginning of the workflow and allowing other nodes to access and potentially modify this shared custom State.
 
 ### Additional Parameters
 
@@ -638,7 +638,9 @@ This checks if a specific word or phrase exists in the conversation history.
     ```
     {% endcode %}
 
-    1. This code gets the last message from `state.messages` and checks if it contains "yes".
+
+
+    1. This code gets the last message from state.messages and checks if it contains "yes".
     2. If "yes" is found, the flow goes to "Output 1"; otherwise, it goes to "Output 2".
 
 **State change condition**
@@ -651,6 +653,8 @@ This checks if a specific value in the custom State has changed to a desired val
     ```javascript
     return $flow.state.orderStatus === "confirmed" ? "Output 1" : "Output 2";
     ```
+
+
 
     1. This code directly compares the orderStatus value in our custom State to "confirmed".
     2. If it matches, the flow goes to "Output 1"; otherwise, it goes to "Output 2".
@@ -720,7 +724,7 @@ Each defined output, including the default "End" output, can be connected to any
 
 ### Node Setup
 
-<table><thead><tr><th width="178">Parameter</th><th width="110">Required</th><th>Description</th></tr></thead><tbody><tr><td>Name</td><td>No</td><td>An optional, <strong>human-readable name</strong> for the condition being evaluated. This is helpful for understanding the flow at a glance.</td></tr><tr><td>Condition</td><td><strong>Yes</strong></td><td>This is where we <strong>define the logic that will be evaluated to determine the output paths</strong>.</td></tr></tbody></table>
+<table><thead><tr><th width="178">Parameter</th><th width="110">Required</th><th>Description</th></tr></thead><tbody><tr><td>Name</td><td>No</td><td>An optional, <strong>human-readable name</strong> for the condition being evaluated. This is helpful for understanding the workflow at a glance.</td></tr><tr><td>Condition</td><td><strong>Yes</strong></td><td>This is where we <strong>define the logic that will be evaluated to determine the output paths</strong>.</td></tr></tbody></table>
 
 ### Best Practices
 
@@ -1073,7 +1077,7 @@ Uses a table-based interface or JavaScript code editor to define conditions that
 
 * Supports multiple output paths, each associated with a specific condition.
 * Conditions are evaluated in order. The first matching condition determines the output.
-* If no conditions are met, the workflow follows a default "End" output.
+* If no conditions are met, the flow follows a default "End" output.
 
 **Best suited for**
 
@@ -1102,7 +1106,7 @@ Same as the Condition Node:
 
 * Supports multiple output paths, each associated with a specific condition.
 * Conditions are evaluated in order. The first matching condition determines the output.
-* If no conditions are met, the workflow follows the default "End" output.
+* If no conditions are met, the flow follows the default "End" output.
 
 **Best suited for**
 
