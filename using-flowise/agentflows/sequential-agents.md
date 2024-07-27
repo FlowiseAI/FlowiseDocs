@@ -602,7 +602,7 @@ The Conditional Node acts as a **decision-making point in Sequential Agent workf
 
 ### Understanding the Conditional Node
 
-The Conditional Node is essential for building workflows that adapt to different situations and user inputs. It examines the current state of the conversation, which includes all messages exchanged and any custom state variables previously defined. Then, based on the evaluation of the conditions specified in the node setup, the Conditional Node directs the flow to one of its outputs.
+The Conditional Node is essential for building workflows that adapt to different situations and user inputs. It examines the current State of the conversation, which includes all messages exchanged and any custom State variables previously defined. Then, based on the evaluation of the conditions specified in the node setup, the Conditional Node directs the flow to one of its outputs.
 
 For instance, after an Agent or LLM Node provides a response, a Conditional Node could **check if the response contains a specific keyword or if a certain condition is met in the custom State**. If it does, the flow might be directed to an Agent Node for further action. If not, it could lead to a different path, perhaps ending the conversation or prompting the user with additional questions.
 
@@ -613,7 +613,7 @@ This enables us to **create branches in our workflow**, where the path taken dep
 * The Conditional Node receives input from any preceding node: Start Node, Agent Node, LLM Node, or Tool Node.&#x20;
 * It has access to the full conversation history and the custom State (if any), giving it plenty of context to work with.&#x20;
 * We define a condition that the node will evaluate. This could be checking for keywords, comparing values in the state, or any other logic we could implement via JavaScript.&#x20;
-* Based on whether the condition evaluates to **true** or **false**, the Conditional Node sends the flow down one of its defined output paths. This creates a "fork in the road" or branch for our workflow.
+* Based on whether the condition evaluates to **true** or **false**, the Conditional Node sends the flow down one of its predefined output paths. This creates a "fork in the road" or branch for our workflow.
 
 ### How to set up conditions
 
@@ -683,8 +683,10 @@ This checks if a specific word or phrase exists in the conversation history.
 
     <table data-header-hidden><thead><tr><th width="305"></th><th width="116"></th><th width="99"></th><th></th></tr></thead><tbody><tr><td><strong>Variable</strong></td><td><strong>Operation</strong></td><td><strong>Value</strong></td><td><strong>Output Name</strong></td></tr><tr><td>$flow.state.messages[-1].content</td><td>Is</td><td>Yes</td><td>Output 1</td></tr></tbody></table>
 
-    * This table entry checks if the content (.content) of the last message (\[-1]) in `state.messages` is equal to "Yes".
-    * If the condition is met, the flow goes to "Output 1". Otherwise, the workflow is directed to a default "End" output.
+
+
+    1. This table entry checks if the content (.content) of the last message (\[-1]) in `state.messages` is equal to "Yes".
+    2. If the condition is met, the flow goes to "Output 1". Otherwise, the workflow is directed to a default "End" output.
 
 **State change condition**
 
@@ -695,8 +697,10 @@ This checks if a specific value in our custom State has changed to a desired val
 
     <table data-header-hidden><thead><tr><th width="266"></th><th width="113"></th><th></th><th></th></tr></thead><tbody><tr><td><strong>Variable</strong></td><td><strong>Operation</strong></td><td><strong>Value</strong></td><td><strong>Output Name</strong></td></tr><tr><td>$flow.state.orderStatus</td><td>Is</td><td>Confirmed</td><td>Output 1</td></tr></tbody></table>
 
-    * This table entry checks if the value of orderStatus in the current state is equal to "confirmed".
-    * If the condition is met, the flow goes to "Output 1". Otherwise, the workflow is directed to a default "End" output.
+
+
+    1. This table entry checks if the value of orderStatus in the custom State is equal to "confirmed".
+    2. If the condition is met, the flow goes to "Output 1". Otherwise, the workflow is directed to a default "End" output.
 
 </details>
 
@@ -710,7 +714,7 @@ The **Conditional Node requires at least one connection from the following nodes
 
 ### Outputs
 
-The Conditional Node **dynamically determines its output path based on the conditions defined**, using either the table-based interface or JavaScript. This provides flexibility in directing the workflow based on condition evaluations.
+The Conditional Node **dynamically determines its output path based on the predefined conditions**, using either the table-based interface or JavaScript. This provides flexibility in directing the workflow based on condition evaluations.
 
 #### Condition evaluation logic
 
@@ -720,7 +724,7 @@ The Conditional Node **dynamically determines its output path based on the condi
 
 #### Connecting outputs
 
-Each defined output, including the default "End" output, can be connected to any of the following nodes:
+Each predefined output, including the default "End" output, can be connected to any of the following nodes:
 
 * **Agent Node:** To continue the conversation with an agent, potentially taking actions based on the condition's outcome.
 * **LLM Node:** To process the current State and conversation history with an LLM, generating responses or making further decisions.
@@ -790,7 +794,7 @@ The Conditional Agent Node acts as a specialized agent that can both process inf
      * **Table-Based interface:** Add rows to the table, specifying the variable to check, the comparison operation, the value to compare against, and the output name to follow if the condition is met.
      * **JavaScript code:** Write custom JavaScript snippets to evaluate conditions. Use the `return` statement to specify the name of the output path to follow based on the condition's result.
 4. **Connect outputs**
-   * Connect each defined output, including the default "End" output, to the appropriate subsequent node in the workflow. This could be an Agent Node, LLM Node, Loop Node, or an End Node.
+   * Connect each predefined output, including the default "End" output, to the appropriate subsequent node in the workflow. This could be an Agent Node, LLM Node, Loop Node, or an End Node.
 
 ### How to set up conditions
 
@@ -820,6 +824,8 @@ This checks if a specific word or phrase exists in the conversation history.
     ```
     {% endcode %}
 
+
+
     1. This code gets the last message from `state.messages` and checks if it contains "yes".
     2. If "yes" is found, the flow goes to "Output 1"; otherwise, it goes to "Output 2".
 
@@ -833,6 +839,8 @@ This checks if a specific value in the custom State has changed to a desired val
     ```javascript
     return $flow.state.orderStatus === "confirmed" ? "Output 1" : "Output 2";
     ```
+
+
 
     1. This code directly compares the orderStatus value in our custom State to "confirmed".
     2. If it matches, the flow goes to "Output 1"; otherwise, it goes to "Output 2".
@@ -856,8 +864,10 @@ This checks if a specific word or phrase exists in the conversation history.
 
     <table data-header-hidden><thead><tr><th width="305"></th><th width="116"></th><th width="99"></th><th></th></tr></thead><tbody><tr><td><strong>Variable</strong></td><td><strong>Operation</strong></td><td><strong>Value</strong></td><td><strong>Output Name</strong></td></tr><tr><td>$flow.state.messages[-1].content</td><td>Is</td><td>Yes</td><td>Output 1</td></tr></tbody></table>
 
-    * This table entry checks if the content (.content) of the last message (\[-1]) in `state.messages` is equal to "Yes".
-    * If the condition is met, the flow goes to "Output 1". Otherwise, the workflow is directed to a default "End" output.
+
+
+    1. This table entry checks if the content (.content) of the last message (\[-1]) in `state.messages` is equal to "Yes".
+    2. If the condition is met, the flow goes to "Output 1". Otherwise, the workflow is directed to a default "End" output.
 
 **State change condition**
 
@@ -868,8 +878,10 @@ This checks if a specific value in our custom State has changed to a desired val
 
     <table data-header-hidden><thead><tr><th width="266"></th><th width="113"></th><th></th><th></th></tr></thead><tbody><tr><td><strong>Variable</strong></td><td><strong>Operation</strong></td><td><strong>Value</strong></td><td><strong>Output Name</strong></td></tr><tr><td>$flow.state.orderStatus</td><td>Is</td><td>Confirmed</td><td>Output 1</td></tr></tbody></table>
 
-    * This table entry checks if the value of orderStatus in the current state is equal to "confirmed".
-    * If the condition is met, the flow goes to "Output 1". Otherwise, the workflow is directed to a default "End" output.
+
+
+    1. This table entry checks if the value of orderStatus in the custom State is equal to "confirmed".
+    2. If the condition is met, the flow goes to "Output 1". Otherwise, the workflow is directed to a default "End" output.
 
 </details>
 
@@ -897,7 +909,7 @@ The Conditional Agent Node, like the Condition Node, **dynamically determines it
 
 #### Connecting outputs
 
-Each defined output, including the default "End" output, can be connected to any of the following nodes:
+Each predefined output, including the default "End" output, can be connected to any of the following nodes:
 
 * **Agent Node:** To continue the conversation with an agent, potentially taking actions based on the condition's outcome.
 * **LLM Node:** To process the current State and conversation history with an LLM, generating responses or making further decisions.
