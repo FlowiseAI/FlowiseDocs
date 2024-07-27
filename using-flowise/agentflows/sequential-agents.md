@@ -171,9 +171,9 @@ This table **stores snapshots of the system's State at various points during a c
 #### Table structure
 
 * **thread\_id:** A unique identifier representing a specific conversation session, **our session ID**. It groups together all checkpoints related to a single workflow execution.
-* **checkpoint\_id:** A unique identifier for each execution step (node execution) within the workflow. It helps track the order of operations and identify the state at each step.
+* **checkpoint\_id:** A unique identifier for each execution step (node execution) within the workflow. It helps track the order of operations and identify the State at each step.
 * **parent\_id:** Indicates the checkpoint\_id of the preceding execution step that led to the current checkpoint. This establishes a hierarchical relationship between checkpoints, allowing for the reconstruction of the workflow's execution flow.
-* **checkpoint:** Contains a JSON string representing the complete state of the workflow at that specific checkpoint. This includes the values of variables, the messages exchanged, and any other relevant data captured at that point in the execution.
+* **checkpoint:** Contains a JSON string representing the current State of the workflow at that specific checkpoint. This includes the values of variables, the messages exchanged, and any other relevant data captured at that point in the execution.
 * **metadata:** Provides additional context about the checkpoint, specifically related to node operations.
 
 #### How it works
@@ -181,7 +181,7 @@ This table **stores snapshots of the system's State at various points during a c
 As a Sequential Agent workflow executes, the system records a checkpoint in this table for each significant step. This mechanism provides several benefits:
 
 * **Execution tracking:** Checkpoints enable the system to understand the flow of execution and the order of operations within the workflow.
-* **State management:** Checkpoints store the complete State of the workflow at each step, including variable values, conversation history, and any other relevant data. This allows the system to maintain contextual awareness and make informed decisions based on the current State.
+* **State management:** Checkpoints store the State of the workflow at each step, including variable values, conversation history, and any other relevant data. This allows the system to maintain contextual awareness and make informed decisions based on the current State.
 * **Workflow resumption:** If the workflow is paused or interrupted (e.g., due to a system error or user request), the system can use the stored checkpoints to resume execution from the last recorded State. This ensures that the conversation or task continues from where it left off, preserving the user's progress and preventing data loss.
 
 ### **Inputs**
@@ -1118,8 +1118,8 @@ Same as the Condition Node:
 
 ### Choosing the right node
 
-* **Conditional Node:** Use this node when your routing logic can be expressed using simple, predefined conditions.
-* **Conditional Agent Node:** Use this node when your routing logic needs an agent to analyze the conversation and provide structured output to drive more sophisticated routing decisions.
+* **Conditional Node:** Use the Conditional Node when your routing logic involves straightforward decisions based on easily definable conditions. For instance, it's perfect for checking for specific keywords, comparing values in the State, or evaluating other simple logical expressions.
+* **Conditional Agent Node:** However, when your routing demands a deeper understanding of the conversation's nuances, the Conditional Agent Node is the better choice. This node acts as your intelligent routing assistant, leveraging an LLM to analyze the conversation, make judgments based on context, and provide structured output that drives more sophisticated and dynamic routing.
 
 ***
 
@@ -1174,5 +1174,5 @@ Similar to the Agent Node, but it provides more flexibility when using tools and
 
 ### Choosing the right node
 
-* **Choose the Agent Node:** This node is suitable when you need an agent-like entity to manage the conversation, make decisions, and orchestrate tasks, especially when involving multiple tools or requiring human oversight.
-* **Choose the LLM Node:** When your primary focus is on direct language processing, extracting structured data from the LLM, or performing complex operations involving a sequence of LLM and tool interactions.
+* **Choose the Agent Node:** Use the Agent Node when you need to create a conversational system that can manage the execution of multiple tools, all of which share the same HITL setting (enabled or disabled for the entire Agent Node). The Agent Node is also well-suited for handling complex multi-step conversations where consistent agent-like behavior is desired.
+* **Choose the LLM Node:** On the other hand, use the LLM Node when your primary goal is to extract structured data from the LLM's output using the JSON schema feature, a capability not available in the Agent Node. The LLM Node also excels at orchestrating tool execution with fine-grained control over HITL at the individual tool level, allowing you to mix automated and human-reviewed tool executions within the same workflow by using multiple Tool Nodes connected to the LLM Node.
