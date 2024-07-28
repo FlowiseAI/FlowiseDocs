@@ -66,7 +66,7 @@ Choosing the right architecture depends on the specific needs of your applicatio
 
 Here's a table comparing Multi-Agent and Sequential Agent architectures in Flowise, focusing on key differences and considerations for developers:
 
-<table><thead><tr><th width="173.33333333333331"></th><th width="281">Multi-Agent</th><th>Sequential Agent</th></tr></thead><tbody><tr><td>Structure</td><td><strong>Hierarchical</strong>; Supervisor delegates to specialized Workers.</td><td><strong>Linear, cyclic and/or</strong> <strong>branching</strong>; nodes connect in a sequence, with conditional logic for branching.</td></tr><tr><td>Workflow</td><td>Flexible; designed for breaking down a complex task into a <strong>sequence of sub-tasks</strong>, completed one after another.</td><td>Highly flexible; <strong>supports parallel node execution</strong>, complex dialogue flows, branching logic, and loops within a single conversation turn.</td></tr><tr><td>Parallel Node Execution</td><td><strong>No</strong>; Supervisor handles one task at a time.</td><td><strong>Yes</strong>; can trigger multiple actions (Agent Nodes, LLM Nodes, Tool Nodes, etc) in parallel within a single run.</td></tr><tr><td>State Management</td><td><strong>Implicit</strong>; State is in place, but is not explicitly managed by the developer.</td><td><strong>Explicit</strong>; State is in place, and developers can define and manage a initial or custom State using the State Node and the "Update State" field in various nodes.</td></tr><tr><td>Tool Usage</td><td><strong>Workers</strong> can access and use tools as needed.</td><td>Tools are accessed and executed through <strong>Agent Nodes</strong> or <strong>Tool Nodes</strong>.</td></tr><tr><td>Human-in-the-Loop (HITL)</td><td>HITL is <strong>not supported</strong>.</td><td><strong>Supported</strong> through the Agent Node and Tool Node's "Require Approval" feature, allowing human review and approval or rejection of tool execution.</td></tr><tr><td>Complexity</td><td><strong>Simpler to design</strong>.</td><td><strong>More complex to design</strong>; requires careful planning of node interactions, State management, and conditional logic.</td></tr><tr><td>Ideal Use Cases</td><td><ul><li>Automating linear processes (e.g., data extraction, lead generation)</li><li>Situations where sub-tasks need to be completed sequentially.</li></ul></td><td><ul><li>Building conversational agents with dynamic flows.</li><li>Complex workflows requiring parallel node execution or branching logic.</li><li>Situations where decision-making is needed at multiple points in the conversation.</li></ul></td></tr></tbody></table>
+<table><thead><tr><th width="173.33333333333331"></th><th width="281">Multi-Agent</th><th>Sequential Agent</th></tr></thead><tbody><tr><td>Structure</td><td><strong>Hierarchical</strong>; Supervisor delegates to specialized Workers.</td><td><strong>Linear, cyclic and/or</strong> <strong>branching</strong>; nodes connect in a sequence, with conditional logic for branching.</td></tr><tr><td>Workflow</td><td>Flexible; designed for breaking down a complex task into a <strong>sequence of sub-tasks</strong>, completed one after another.</td><td>Highly flexible; <strong>supports parallel node execution</strong>, complex dialogue flows, branching logic, and loops within a single conversation turn.</td></tr><tr><td>Parallel Node Execution</td><td><strong>No</strong>; Supervisor handles one task at a time.</td><td><strong>Yes</strong>; can trigger multiple actions (Agent Nodes, LLM Nodes, Tool Nodes, etc) in parallel within a single run.</td></tr><tr><td>State Management</td><td><strong>Implicit</strong>; State is in place, but is not explicitly managed by the developer.</td><td><strong>Explicit</strong>; State is in place, and developers can define and manage a initial or custom State using the State Node and the "Update State" field in various nodes.</td></tr><tr><td>Tool Usage</td><td><strong>Workers</strong> can access and use tools as needed.</td><td>Tools are accessed and executed through <strong>Agent Nodes</strong> or <strong>Tool Nodes</strong>.</td></tr><tr><td>Human-in-the-Loop (HITL)</td><td>HITL is <strong>not supported</strong>.</td><td><strong>Supported</strong> through the Agent Node and Tool Node's "Require Approval" feature, allowing human review and approval or rejection of tool execution.</td></tr><tr><td>Complexity</td><td><strong>Simpler to design</strong>.</td><td><strong>More complex to design</strong>; requires careful planning of node interactions, State management, and conditional logic.</td></tr><tr><td>Ideal Use Cases</td><td><ul><li>Automating linear processes (e.g., data extraction, lead generation)</li><li>Situations where sub-tasks need to be completed sequentially.</li></ul></td><td><ul><li>Building conversational systems with dynamic flows.</li><li>Complex workflows requiring parallel node execution or branching logic.</li><li>Situations where decision-making is needed at multiple points in the conversation.</li></ul></td></tr></tbody></table>
 
 {% hint style="info" %}
 In Flowise's Sequential Agent architecture, **parallel node execution** refers to the ability to **execute multiple nodes concurrently within a workflow** by using a branching mechanism. This means that different branches of the workflow can process information or interact with tools simultaneously, even though the overall flow of execution remains sequential.
@@ -216,7 +216,7 @@ Employ Agent Memory only when necessary. For simple, stateless interactions, it 
 
 * **The Problem:** Using Agent Memory for every interaction, even when not needed, introduces unnecessary storage and processing overhead. This can slow down response times and increase resource consumption.
 * **Example:** A simple weather chatbot that provides information based on a single user request doesn't need to store conversation history.
-* **Solution:** Analyze the requirements of your agent and only utilize Agent Memory when persistent data storage is essential for functionality or user experience.
+* **Solution:** Analyze the requirements of your system and only utilize Agent Memory when persistent data storage is essential for functionality or user experience.
 {% endtab %}
 {% endtabs %}
 
@@ -1151,7 +1151,9 @@ Same as the Condition Node:
 
 ## Agent Node vs. LLM Node
 
-While both nodes can process language and interact with tools, they are designed for different purposes within a workflow. Understanding their unique capabilities is very important for building effective conversational systems.
+It's important to understand that both the LLM Node and the Agent Node can be considered agentic entities within our system, as they both leverage the capabilities of a large language model (LLM) or Chat Model.
+
+However, while both nodes can process language and interact with tools, they are designed for different purposes within a workflow. Understanding their unique capabilities is very important for building effective conversational systems.
 
 <details>
 
@@ -1159,7 +1161,9 @@ While both nodes can process language and interact with tools, they are designed
 
 **Focus**
 
-Managing the flow of the conversation, orchestrating tasks, and making decisions within a conversational context.
+The primary focus of the Agent Node in Flowise is to simulate the actions and decision-making of a human agent within a conversational context.&#x20;
+
+It acts as a high-level coordinator within the workflow, bringing together language understanding, tool execution, and decision-making to create a more human-like conversational experience.
 
 **Strengths**
 
