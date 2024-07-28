@@ -6,6 +6,7 @@
 * [Using Flowise](using-flowise/README.md)
   * [Agentflows](using-flowise/agentflows/README.md)
     * [Multi-Agents](using-flowise/agentflows/multi-agents.md)
+    * [Sequential Agents](using-flowise/agentflows/sequential-agents.md)
   * [API](using-flowise/api.md)
   * [Analytic](using-flowise/analytic.md)
   * [Document Stores](using-flowise/document-stores.md)
@@ -277,3 +278,8 @@
   * [SQL QnA](use-cases/sql-qna.md)
   * [Upserting Data](use-cases/upserting-data.md)
   * [Web Scrape QnA](use-cases/web-scrape-qna.md)
+
+## Flowise
+
+* [Flowise GitHub](https://github.com/FlowiseAI)
+* [Flowise Cloud](https://flowiseai.com/join)
