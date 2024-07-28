@@ -154,7 +154,7 @@ If your use case demands it, utilize Agent Memory Node to maintain context and p
 
 ## 2. Agent Memory Node
 
-Unlike the State Node, which only holds custom State information for a single workflow execution, the Agent Memory Node **provides a mechanism for persistent memory storage**. This allows Sequential Agent systems to retain the conversation history (`state.messages`) and any user-defined State variables across multiple interactions within a workflow.
+Unlike the State Node, which only holds custom State information for a single workflow execution, the Agent Memory Node **provides a mechanism for persistent memory storage**. This allows the Sequential Agent system to retain the conversation history `state.messages` and any user-defined state variables across multiple interactions within a workflow.
 
 This long-term memory is crucial for agents to learn from previous interactions, maintain context over extended conversations, and provide more relevant responses.
 
@@ -162,7 +162,7 @@ This long-term memory is crucial for agents to learn from previous interactions,
 
 ### Where the data is recorded
 
-By default, Flowise will use the default SQLite system database to store all the needed data, creating a new table called "**checkpoints**" to manage the whole flow's memory.&#x20;
+By default, Flowise utilizes its **built-in SQLite database** to store conversation history and custom state data, creating a "**checkpoints**" table to manage this persistent information.
 
 #### Understanding the "checkpoints" table structure and data format
 
@@ -182,13 +182,21 @@ This table **stores snapshots of the system's State at various points during a c
 
 As a Sequential Agent workflow executes, the system records a checkpoint in this table for each significant step. This mechanism provides several benefits:
 
-* **Execution tracking:** Checkpoints enable the system to understand the flow of execution and the order of operations within the workflow.
+* **Execution tracking:** Checkpoints enable the system to understand the execution path and the order of operations within the workflow.
 * **State management:** Checkpoints store the State of the workflow at each step, including variable values, conversation history, and any other relevant data. This allows the system to maintain contextual awareness and make informed decisions based on the current State.
 * **Workflow resumption:** If the workflow is paused or interrupted (e.g., due to a system error or user request), the system can use the stored checkpoints to resume execution from the last recorded State. This ensures that the conversation or task continues from where it left off, preserving the user's progress and preventing data loss.
 
 ### **Inputs**
 
-<table><thead><tr><th width="189"></th><th width="107">Required</th><th>Description</th></tr></thead><tbody><tr><td>Database</td><td><strong>Yes</strong></td><td>The type of database used for storing conversation history. Currently, <strong>only SQLite is supported</strong>.</td></tr><tr><td>Database File Path</td><td>No</td><td>The file path to the SQLite database file. <strong>If not provided, the system will use a default location</strong>.</td></tr></tbody></table>
+The Agent Memory Node has **no specific input connections**.
+
+### Node Setup
+
+<table><thead><tr><th width="189"></th><th width="107">Required</th><th>Description</th></tr></thead><tbody><tr><td>Database</td><td><strong>Yes</strong></td><td>The type of database used for storing conversation history. Currently, <strong>only SQLite is supported</strong>.</td></tr></tbody></table>
+
+### Additional Parameters
+
+<table><thead><tr><th width="189"></th><th width="107">Required</th><th>Description</th></tr></thead><tbody><tr><td>Database File Path</td><td>No</td><td>The file path to the SQLite database file. <strong>If not provided, the system will use a default location</strong>.</td></tr></tbody></table>
 
 ### **Outputs**
 
