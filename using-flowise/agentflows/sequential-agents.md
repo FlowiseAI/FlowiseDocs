@@ -1151,7 +1151,7 @@ Same as the Condition Node:
 
 ## Agent Node vs. LLM Node
 
-It's important to understand that both the LLM Node and the Agent Node can be considered agentic entities within our system, as they both leverage the capabilities of a large language model (LLM) or Chat Model.
+It's important to understand that both the **LLM Node and the Agent Node can be considered agentic entities within our system**, as they both leverage the capabilities of a large language model (LLM) or Chat Model.
 
 However, while both nodes can process language and interact with tools, they are designed for different purposes within a workflow. Understanding their unique capabilities is very important for building effective conversational systems.
 
@@ -1161,7 +1161,7 @@ However, while both nodes can process language and interact with tools, they are
 
 **Focus**
 
-The primary focus of the Agent Node in Flowise is to simulate the actions and decision-making of a human agent within a conversational context.&#x20;
+The primary focus of the Agent Node to simulate the actions and decision-making of a human agent within a conversational context.&#x20;
 
 It acts as a high-level coordinator within the workflow, bringing together language understanding, tool execution, and decision-making to create a more human-like conversational experience.
 
@@ -1200,9 +1200,9 @@ Similar to the Agent Node, but it provides more flexibility when using tools and
 
 ### Summarizing
 
-<table><thead><tr><th width="206">Feature</th><th width="253">Agent Node</th><th>LLM Node</th></tr></thead><tbody><tr><td><strong>Tool Interaction</strong></td><td>Directly calls and manages multiple tools, built-in HITL</td><td>Triggers tools via the Tool Node, granular HITL control at the tool level</td></tr><tr><td><strong>Human-in-the-Loop (HITL)</strong></td><td>HITL controlled at the Agent Node level (all connected tools affected)</td><td>HITL managed at the individual Tool Node level (more flexibility)</td></tr><tr><td><strong>Structured Output</strong></td><td>Relies on the LLM's natural output format</td><td>If needed, provides JSON schema definition to structure LLM output</td></tr><tr><td><strong>Ideal Use Cases</strong></td><td><ul><li>Multi-step conversations</li><li>Workflows with multiple tools</li><li>Tasks requiring agent-like decision-making</li></ul></td><td><p></p><ul><li>Extracting structured data from LLM output</li><li>Workflows with complex LLM and tool interactions, requiring mixed HITL levels</li></ul></td></tr></tbody></table>
+<table><thead><tr><th width="206">Feature</th><th width="253">Agent Node</th><th>LLM Node</th></tr></thead><tbody><tr><td><strong>Tool Interaction</strong></td><td>Directly calls and manages multiple tools, built-in HITL</td><td>Triggers tools via the Tool Node, granular HITL control at the tool level</td></tr><tr><td><strong>Human-in-the-Loop (HITL)</strong></td><td>HITL controlled at the Agent Node level (all connected tools affected)</td><td>HITL managed at the individual Tool Node level (more flexibility)</td></tr><tr><td><strong>Structured Output</strong></td><td>Relies on the LLM's natural output format</td><td>Relies on the LLM's natural output format, but, if needed, provides JSON schema definition to structure LLM output</td></tr><tr><td><strong>Ideal Use Cases</strong></td><td><ul><li>Multi-step conversations</li><li>Workflows with multiple tools</li><li>Tasks requiring agent-like decision-making</li></ul></td><td><p></p><ul><li>Extracting structured data from LLM output</li><li>Workflows with complex LLM and tool interactions, requiring mixed HITL levels</li></ul></td></tr></tbody></table>
 
 ### Choosing the right node
 
 * **Choose the Agent Node:** Use the Agent Node when you need to create a conversational system that can manage the execution of multiple tools, all of which share the same HITL setting (enabled or disabled for the entire Agent Node). The Agent Node is also well-suited for handling complex multi-step conversations where consistent agent-like behavior is desired.
-* **Choose the LLM Node:** On the other hand, use the LLM Node when your primary goal is to extract structured data from the LLM's output using the JSON schema feature, a capability not available in the Agent Node. The LLM Node also excels at orchestrating tool execution with fine-grained control over HITL at the individual tool level, allowing you to mix automated and human-reviewed tool executions within the same workflow by using multiple Tool Nodes connected to the LLM Node.
+* **Choose the LLM Node:** On the other hand, use the LLM Node when you need to extract structured data from the LLM's output using the JSON schema feature, a capability not available in the Agent Node. The LLM Node also excels at orchestrating tool execution with fine-grained control over HITL at the individual tool level, allowing you to mix automated and human-reviewed tool executions within the same workflow by using multiple Tool Nodes connected to the LLM Node.
