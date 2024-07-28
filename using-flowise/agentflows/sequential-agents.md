@@ -10,7 +10,7 @@ This guide offers a comprehensive overview of the Sequential Agent AI system arc
 
 Built on top of [LangGraph](https://www.langchain.com/langgraph), Flowise's Sequential Agents architecture facilitates the **development of conversational agentic systems by structuring agents behavior as a directed cyclic graph (DCG)**, allowing controlled loops and iterative processes.
 
-This graph, composed by interconnected nodes, defines the sequential flow of information and actions, enabling the agents to process inputs, execute tasks, and generate responses in a structured manner.
+This graph, composed of interconnected nodes, defines the sequential flow of information and actions, enabling the agents to process inputs, execute tasks, and generate responses in a structured manner.
 
 ### Understanding Sequential Agents' DCG Architecture
 
@@ -22,7 +22,7 @@ Let's explore some key elements of this approach:
 
 {% tabs %}
 {% tab title="Core Principles" %}
-* **Node-based processing:** Each node in the graph represents a discrete processing unit, encapsulating it own functionality like language processing, tool execution, or conditional logic.
+* **Node-based processing:** Each node in the graph represents a discrete processing unit, encapsulating its own functionality like language processing, tool execution, or conditional logic.
 * **Data flow as connections:** Edges in the graph represent the flow of data between nodes, where the output of one node becomes the input for the subsequent node, enabling a chain of processing steps.
 * **State management:** State is managed as a shared object, persisting throughout the conversation. This allows nodes to access and update relevant information as the workflow progresses.
 {% endtab %}
@@ -43,7 +43,7 @@ Let's explore some key elements of this approach:
 
 **Multi-Agent** architectures, characterized by a hierarchical structure with a central supervisor agent delegating tasks to specialized worker agents, excel at delegating tasks and handling complex workflows by breaking them down into manageable sub-tasks, though currently **without parallel node execution capabilities**.&#x20;
 
-In contrast, a **Sequential Agent** architecture operates like a streamlined assembly line, where data flows sequentially through a chain of agents, making them ideal for tasks demanding a precise order of operations and incremental data refinement. This architecture also **offers the flexibility of parallel node execution** when possible, and are further enhanced by the use of logic nodes, such as Condition Nodes and Condition Agent Nodes, creating a new **branching capability** to dynamically respond to different conditions and input data.
+In contrast, a **Sequential Agent** architecture operates like a streamlined assembly line, where data flows sequentially through a chain of agents, making them ideal for tasks demanding a precise order of operations and incremental data refinement. This architecture also **offers the flexibility of parallel node execution** when possible, and is further enhanced by the use of logic nodes, such as Condition Nodes and Condition Agent Nodes, creating a new **branching capability** to dynamically respond to different conditions and input data.
 
 ### Introducing State, Loop and Conditional Nodes
 
@@ -66,7 +66,7 @@ Choosing the right architecture depends on the specific needs of your applicatio
 
 Here's a table comparing Multi-Agent and Sequential Agent architectures in Flowise, focusing on key differences and considerations for developers:
 
-<table><thead><tr><th width="173.33333333333331"></th><th width="281">Multi-Agent</th><th>Sequential Agent</th></tr></thead><tbody><tr><td>Structure</td><td><strong>Hierarchical</strong>; Supervisor delegates to specialized Workers.</td><td><strong>Linear, cyclic and/or</strong> <strong>branching</strong>; nodes connect in a sequence, with conditional logic for branching.</td></tr><tr><td>Workflow</td><td>Flexible; designed for breaking down a complex task into a <strong>sequence of sub-tasks</strong>, completed one after another.</td><td>Highly flexible; <strong>supports parallel node execution</strong>, complex dialogue flows, branching logic, and loops within a single conversation turn.</td></tr><tr><td>Parallel Node Execution</td><td><strong>No</strong>; Supervisor handles one task at a time.</td><td><strong>Yes</strong>; can trigger multiple actions (Agent Nodes, LLM Nodes, Tool Nodes, etc) in parallel within a single run.</td></tr><tr><td>State Management</td><td><strong>Implicit</strong>; State is in place, but is not explicitly managed by the developer.</td><td><strong>Explicit</strong>; State is in place, and developers can define and manage a initial or custom State using the State Node and the "Update State" field in various nodes.</td></tr><tr><td>Tool Usage</td><td><strong>Workers</strong> can access and use tools as needed.</td><td>Tools are accessed and executed through <strong>Agent Nodes</strong> or <strong>Tool Nodes</strong>.</td></tr><tr><td>Human-in-the-Loop (HITL)</td><td>HITL is <strong>not supported</strong>.</td><td><strong>Supported</strong> through the Agent Node and Tool Node's "Require Approval" feature, allowing human review and approval or rejection of tool execution.</td></tr><tr><td>Complexity</td><td><strong>Simpler to design</strong>.</td><td><strong>More complex to design</strong>; requires careful planning of node interactions, State management, and conditional logic.</td></tr><tr><td>Ideal Use Cases</td><td><ul><li>Automating linear processes (e.g., data extraction, lead generation)</li><li>Situations where sub-tasks need to be completed sequentially.</li></ul></td><td><ul><li>Building conversational systems with dynamic flows.</li><li>Complex workflows requiring parallel node execution or branching logic.</li><li>Situations where decision-making is needed at multiple points in the conversation.</li></ul></td></tr></tbody></table>
+<table><thead><tr><th width="173.33333333333331"></th><th width="281">Multi-Agent</th><th>Sequential Agent</th></tr></thead><tbody><tr><td>Structure</td><td><strong>Hierarchical</strong>; Supervisor delegates to specialized Workers.</td><td><strong>Linear, cyclic and/or</strong> <strong>branching</strong>; nodes connect in a sequence, with conditional logic for branching.</td></tr><tr><td>Workflow</td><td>Flexible; designed for breaking down a complex task into a <strong>sequence of sub-tasks</strong>, completed one after another.</td><td>Highly flexible; <strong>supports parallel node execution</strong>, complex dialogue flows, branching logic, and loops within a single conversation turn.</td></tr><tr><td>Parallel Node Execution</td><td><strong>No</strong>; Supervisor handles one task at a time.</td><td><strong>Yes</strong>; can trigger multiple actions (Agent Nodes, LLM Nodes, Tool Nodes, etc) in parallel within a single run.</td></tr><tr><td>State Management</td><td><strong>Implicit</strong>; State is in place, but is not explicitly managed by the developer.</td><td><strong>Explicit</strong>; State is in place, and developers can define and manage an initial or custom State using the State Node and the "Update State" field in various nodes.</td></tr><tr><td>Tool Usage</td><td><strong>Workers</strong> can access and use tools as needed.</td><td>Tools are accessed and executed through <strong>Agent Nodes</strong> or <strong>Tool Nodes</strong>.</td></tr><tr><td>Human-in-the-Loop (HITL)</td><td>HITL is <strong>not supported</strong>.</td><td><strong>Supported</strong> through the Agent Node and Tool Node's "Require Approval" feature, allowing human review and approval or rejection of tool execution.</td></tr><tr><td>Complexity</td><td><strong>Simpler to design</strong>.</td><td><strong>More complex to design</strong>; requires careful planning of node interactions, State management, and conditional logic.</td></tr><tr><td>Ideal Use Cases</td><td><ul><li>Automating linear processes (e.g., data extraction, lead generation)</li><li>Situations where sub-tasks need to be completed sequentially.</li></ul></td><td><ul><li>Building conversational systems with dynamic flows.</li><li>Complex workflows requiring parallel node execution or branching logic.</li><li>Situations where decision-making is needed at multiple points in the conversation.</li></ul></td></tr></tbody></table>
 
 {% hint style="info" %}
 In Flowise's Sequential Agent architecture, **parallel node execution** refers to the ability to **execute multiple nodes concurrently within a workflow** by using a branching mechanism. This means that different branches of the workflow can process information or interact with tools simultaneously, even though the overall flow of execution remains sequential.
@@ -259,7 +259,7 @@ Specify the **Key**, **Operation Type**, and **Default Value** for the state obj
   2. If the new value is null, the existing value will be retained.
 * **Append**
   1. Append the new value to the existing value.
-  2. Default value can be empty or an array. Ex: \["a", "b"]
+  2. Default values can be empty or an array. Ex: \["a", "b"]
   3. Final value is an array.
 
 #### Example using JS
@@ -622,7 +622,7 @@ This enables us to **create branches in our workflow**, where the path taken dep
 
 ### How to set up conditions
 
-The Conditional Node allows us to define dynamic branching logic in our workflow by choose either a **table-based interface** or a **JavaScript code editor** to define the conditions that will control the conversation flow.
+The Conditional Node allows us to define dynamic branching logic in our workflow by choosing either a **table-based interface** or a **JavaScript code editor** to define the conditions that will control the conversation flow.
 
 <figure><img src="../../.gitbook/assets/seq-16.png" alt=""><figcaption></figcaption></figure>
 
@@ -776,14 +776,14 @@ Test your conditions with different inputs and scenarios to ensure they work as 
 
 ## 8. Conditional Agent Node
 
-The Conditional Agent Node provides **dynamic and intelligent routing within Sequential Agent flows**. It combines the capabilities of the **LLM Node** (Chat Model and JSON Structured Output)  and the **Condition Node** (Conditions), allowing us to leverage agent-based reasoning and conditional logic within a single node.
+The Conditional Agent Node provides **dynamic and intelligent routing within Sequential Agent flows**. It combines the capabilities of the **LLM Node** (LLM and JSON Structured Output)  and the **Condition Node** (user-defined conditions), allowing us to leverage agent-based reasoning and conditional logic within a single node.
 
 <figure><img src="../../.gitbook/assets/seq-09.png" alt="" width="299"><figcaption></figcaption></figure>
 
 ### Key functionalities
 
 * **Unified agent-based routing:** Combines agent reasoning, structured output, and conditional logic in a single node, simplifying workflow design.
-* **Contextual awareness:** The agent considers the entire conversation history and any custom state when evaluating conditions.
+* **Contextual awareness:** The agent considers the entire conversation history and any custom State when evaluating conditions.
 * **Flexibility:** Provides both table-based and code-based options for defining conditions, when catering to different user preferences and skill levels.
 
 ### Setting up the Conditional Agent Node
@@ -1055,7 +1055,7 @@ The **End Node does not have any output** connections as it signifies the termin
 {% tab title="Pro Tips" %}
 **Provide a final response**
 
-If appropriate, connect the End Node to an dedicate LLM or Agent Node to generate a final message or summary for the user, providing closure to the conversation.
+If appropriate, connect the End Node to an dedicated LLM or Agent Node to generate a final message or summary for the user, providing closure to the conversation.
 {% endtab %}
 
 {% tab title="Potencial Pitfalls" %}
@@ -1200,7 +1200,7 @@ Similar to the Agent Node, but it provides more flexibility when using tools and
 
 ### Summarizing
 
-<table><thead><tr><th width="206">Feature</th><th width="253">Agent Node</th><th>LLM Node</th></tr></thead><tbody><tr><td><strong>Tool Interaction</strong></td><td>Directly calls and manages multiple tools, built-in HITL</td><td>Triggers tools via the Tool Node, granular HITL control at the tool level</td></tr><tr><td><strong>Human-in-the-Loop (HITL)</strong></td><td>HITL controlled at the Agent Node level (all connected tools affected)</td><td>HITL managed at the individual Tool Node level (more flexibility)</td></tr><tr><td><strong>Structured Output</strong></td><td>Relies on the LLM's natural output format</td><td>Relies on the LLM's natural output format, but, if needed, provides JSON schema definition to structure LLM output</td></tr><tr><td><strong>Ideal Use Cases</strong></td><td><ul><li>Multi-step conversations</li><li>Workflows with multiple tools</li><li>Tasks requiring agent-like decision-making</li></ul></td><td><p></p><ul><li>Extracting structured data from LLM output</li><li>Workflows with complex LLM and tool interactions, requiring mixed HITL levels</li></ul></td></tr></tbody></table>
+<table><thead><tr><th width="206">Feature</th><th width="253">Agent Node</th><th>LLM Node</th></tr></thead><tbody><tr><td><strong>Tool Interaction</strong></td><td>Directly calls and manages multiple tools, built-in HITL</td><td>Triggers tools via the Tool Node, granular HITL control at the tool level</td></tr><tr><td><strong>Human-in-the-Loop (HITL)</strong></td><td>HITL controlled at the Agent Node level (all connected tools affected)</td><td>HITL managed at the individual Tool Node level (more flexibility)</td></tr><tr><td><strong>Structured Output</strong></td><td>Relies on the LLM's natural output format</td><td>Relies on the LLM's natural output format, but, if needed, provides JSON schema definition to structure LLM output</td></tr><tr><td><strong>Ideal Use Cases</strong></td><td><p></p><ul><li>Workflows with complex tool orchestration</li><li>Simplified HITL at the Agent Level</li></ul></td><td><p></p><ul><li>Extracting structured data from LLM output</li><li>Workflows with complex LLM and tool interactions, requiring mixed HITL levels</li></ul></td></tr></tbody></table>
 
 ### Choosing the right node
 
