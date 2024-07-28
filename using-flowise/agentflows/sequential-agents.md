@@ -10,35 +10,32 @@ This guide offers a comprehensive overview of the Sequential Agent AI system arc
 
 Built on top of [LangGraph](https://www.langchain.com/langgraph), Flowise's Sequential Agents architecture facilitates the **development of conversational agentic systems by structuring agents behavior as a directed cyclic graph (DCG)**, allowing controlled loops and iterative processes.
 
-This graph, composed of interconnected nodes, defines the sequential flow of information and actions, enabling the agents to process inputs, execute tasks, and generate responses in a structured manner.
+This graph, composed by interconnected nodes, defines the sequential flow of information and actions, enabling the agents to process inputs, execute tasks, and generate responses in a structured manner.
 
 ### Understanding Sequential Agents' DCG Architecture
 
-This architecture breaks down complex conversational flows into manageable, interconnected units, offering developers a clear and visual way to design, build, and debug sophisticated agent interactions.
+This architecture simplifies the management of complex conversational workflows by defining a clear and understandable sequence of operations through its DCG structure.&#x20;
+
+This approach improves maintainability, offers a clear visual representation for design and debugging, and is inherently scalable, allowing the system to adapt and grow as our application needs by adding or modifying nodes within the graph.
 
 Let's explore some key elements of this approach:
 
 {% tabs %}
 {% tab title="Core Principles" %}
-* **Node-Based processing:** Each node in the graph represents a discrete processing unit, encapsulating it own functionality like language processing, tool execution, or conditional logic.
+* **Node-based processing:** Each node in the graph represents a discrete processing unit, encapsulating it own functionality like language processing, tool execution, or conditional logic.
 * **Data flow as connections:** Edges in the graph represent the flow of data between nodes, where the output of one node becomes the input for the subsequent node, enabling a chain of processing steps.
-* **State management:** A shared state object persists throughout the conversation, allowing nodes to access and modify information relevant to the ongoing interaction.
-{% endtab %}
-
-{% tab title="Implications" %}
-* **Explicit control flow:** The DCG structure defines a clear and understandable sequence of operations, improving the maintainability of the agentic system logic.
-* **Scalability:** This structure can accommodate increasingly complex conversational flows by adding or modifying nodes within the graph.
+* **State management:** State is managed as a shared object, persisting throughout the conversation. This allows nodes to access and update relevant information as the workflow progresses.
 {% endtab %}
 
 {% tab title="Terminology" %}
-* **Flow:** We use this term to describe the movement or direction of data within the workflow. It's the dynamic aspect of how information passes from one node to another during the conversation.&#x20;
-* **Workflow:** This term refers to the overall design and structure of the system. It's the blueprint that defines the sequence of nodes, their connections, and the logic that orchestrates the conversation flow. It's the static representation of the system's behavior.
+* **Flow:** The movement or direction of data within the workflow. It describes how information passes between nodes during a conversation.&#x20;
+* **Workflow:** The overall design and structure of the system. It's the blueprint that defines the sequence of nodes, their connections, and the logic that orchestrates the conversation flow.
+* **State:** A shared data structure that represents the current snapshot of the conversation. It includes the conversation history `state.messages` and any custom State variables defined by the user.
+* **Custom State:** User-defined key-value pairs added to the state object to store additional information relevant to the workflow.
+* **Tool:** An external system, API, or service that can be accessed and executed by the workflow to perform specific tasks, such as retrieving information, processing data, or interacting with other applications.
+* **Human-in-the-Loop (HITL):** A feature that allows human intervention in the workflow, primarily during tool execution. It enables a human reviewer to approve or reject a tool call before it's executed.
 {% endtab %}
 {% endtabs %}
-
-{% hint style="info" %}
-The Sequential Agent architecture provides a structured approach for **building conversational agentic systems** capable of engaging in structured, multi-turn dialogues, leveraging external tools, and maintaining context throughout the interaction.
-{% endhint %}
 
 ***
 
