@@ -4,19 +4,23 @@ description: Learn the Fundamentals of Sequential Agents in Flowise
 
 # Sequential Agents
 
-This guide offers a comprehensive overview of the Sequential Agent AI system architecture within Flowise, exploring its core components and workflow design principles.
+This guide offers a complete overview of the Sequential Agent AI system architecture within Flowise, exploring its core components and workflow design principles.
+
+{% hint style="warning" %}
+**Disclaimer**: This documentation is intended to help Flowise users understand and build conversational workflows using the Sequential Agent system architecture. It is not intended to be a comprehensive technical reference for the LangGraph framework and should not be interpreted as defining industry standards or core LangGraph concepts.
+{% endhint %}
 
 ## Concept
 
-Built on top of [LangGraph](https://www.langchain.com/langgraph), Flowise's Sequential Agents architecture facilitates the **development of conversational agentic systems by structuring agents behavior as a directed cyclic graph (DCG)**, allowing controlled loops and iterative processes.
+Built on top of [LangGraph](https://www.langchain.com/langgraph), Flowise's Sequential Agents architecture facilitates the **development of conversational agentic systems by structuring the workflow as a directed cyclic graph (DCG)**, allowing controlled loops and iterative processes.
 
 This graph, composed of interconnected nodes, defines the sequential flow of information and actions, enabling the agents to process inputs, execute tasks, and generate responses in a structured manner.
 
+<figure><img src="../../.gitbook/assets/seq-21.svg" alt=""><figcaption></figcaption></figure>
+
 ### Understanding Sequential Agents' DCG Architecture
 
-This architecture simplifies the management of complex conversational workflows by defining a clear and understandable sequence of operations through its DCG structure.&#x20;
-
-This approach improves maintainability, offers a clear visual representation for design and debugging, and is inherently scalable, allowing the system to adapt and grow as our application needs by adding or modifying nodes within the graph.
+This architecture simplifies the management of complex conversational workflows by defining a clear and understandable sequence of operations through its DCG structure.
 
 Let's explore some key elements of this approach:
 
@@ -28,12 +32,13 @@ Let's explore some key elements of this approach:
 {% endtab %}
 
 {% tab title="Terminology" %}
-* **Flow:** The movement or direction of data within the workflow. It describes how information passes between nodes during a conversation.&#x20;
+* **Flow:** The movement or direction of data within the workflow. It describes how information passes between nodes during a conversation.
 * **Workflow:** The overall design and structure of the system. It's the blueprint that defines the sequence of nodes, their connections, and the logic that orchestrates the conversation flow.
 * **State:** A shared data structure that represents the current snapshot of the conversation. It includes the conversation history `state.messages` and any custom State variables defined by the user.
 * **Custom State:** User-defined key-value pairs added to the state object to store additional information relevant to the workflow.
 * **Tool:** An external system, API, or service that can be accessed and executed by the workflow to perform specific tasks, such as retrieving information, processing data, or interacting with other applications.
 * **Human-in-the-Loop (HITL):** A feature that allows human intervention in the workflow, primarily during tool execution. It enables a human reviewer to approve or reject a tool call before it's executed.
+* **Parallel node execution:** It refers to the ability to execute multiple nodes concurrently within a workflow by using a branching mechanism. This means that different branches of the workflow can process information or interact with tools simultaneously, even though the overall flow of execution remains sequential.
 {% endtab %}
 {% endtabs %}
 
@@ -41,35 +46,37 @@ Let's explore some key elements of this approach:
 
 ## Sequential Agents vs Multi-Agents
 
-**Multi-Agent** architectures, characterized by a hierarchical structure with a central supervisor agent delegating tasks to specialized worker agents, excel at delegating tasks and handling complex workflows by breaking them down into manageable sub-tasks, though currently **without parallel node execution capabilities**.&#x20;
+While both Multi-Agent and Sequential Agent systems in Flowise are built upon the LangGraph framework and share the same fundamental principles, the Sequential Agent architecture provides a [lower level of abstraction](#user-content-fn-1)[^1], offering more granular control over every step of the workflow.&#x20;
 
-In contrast, a **Sequential Agent** architecture operates like a streamlined assembly line, where data flows sequentially through a chain of agents, making them ideal for tasks demanding a precise order of operations and incremental data refinement. This architecture also **offers the flexibility of parallel node execution** when possible, and is further enhanced by the use of logic nodes, such as Condition Nodes and Condition Agent Nodes, creating a new **branching capability** to dynamically respond to different conditions and input data.
+**Multi-Agent systems**, characterized by a hierarchical structure with a central supervisor agent delegating tasks to specialized worker agents, **excel at handling complex workflows by breaking them down into manageable sub-tasks**. This decomposition into sub-tasks is made possible by pre-configuring core system elements under the hood, such as conditional nodes, which would require manual setup in a Sequential Agent system. As a result, users can more easily build and manage teams of agents.
+
+In contrast, **Sequential Agent systems** operate like a streamlined assembly line, where data flows sequentially through a chain of nodes, making them ideal for tasks demanding a precise order of operations and incremental data refinement. Compared to the Multi-Agent system, its lower-level access to the underlying workflow structure makes it fundamentally more **flexible and customizable, offering parallel node execution and full control over the system logic**, incorporating conditions, state, and loop nodes into the workflow, allowing for the creation of new dynamic branching capabilities.
 
 ### Introducing State, Loop and Conditional Nodes
 
-Flowise's Sequential Agents enable us to build conversational systems that can adapt to user input, make decisions based on context, and even perform iterative tasks.&#x20;
+Flowise's Sequential Agents offer new capabilities for creating conversational systems that can adapt to user input, make decisions based on context, and perform iterative tasks.&#x20;
 
-Three core elements make this possible: the **State Node**, the **Loop Node**, and the **Conditional Nodes**. The combination of these nodes in workflows provides the needed flexibility to build sophisticated Sequential Agent applications capable of handling a wide range of tasks.
+These new capabilities are made possible by the introduction of four core nodes; the State Node, the Loop Node, and two Conditional Nodes.
 
-<figure><img src="../../.gitbook/assets/seq-01.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/seq-20.png" alt=""><figcaption></figcaption></figure>
 
 * **State Node:** We define State as a shared data structure that represents the current snapshot of our application or workflow. The State Node allows us to **add a custom State** to our workflow from the start of the conversation. This custom State is accessible and modifiable by other nodes in the workflow, enabling dynamic behavior and data sharing.
 * **Loop Node:** This node **introduces controlled cycles** within the Sequential Agent workflow, enabling iterative processes where a sequence of nodes can be repeated based on specific conditions. This allows agents to refine outputs, gather additional information from the user, or perform tasks multiple times.
-* **Conditional Nodes:** The Conditional Node and Condition Agent Node provide the necessary control to **create complex conversational flows with branching paths**. The Conditional Node evaluates conditions directly, while the Condition Agent Node uses an agent's reasoning to determine the branching logic. This allows us to dynamically guide the flow's behavior based on user input, the current State, or the results of actions taken by other nodes.
+* **Conditional Nodes:** The Conditional and Condition Agent Node provide the necessary control to **create complex conversational flows with branching paths**. The Conditional Node evaluates conditions directly, while the Condition Agent Node uses an agent's reasoning to determine the branching logic. This allows us to dynamically guide the flow's behavior based on user input, the custom State, or results of actions taken by other nodes.
 
-### Choosing the right system architecture
+### Choosing the right system&#x20;
 
-Choosing the right architecture depends on the specific needs of your application workflow, considering factors like task complexity, the need for parallel node execution, and the desired level of control over data flow.
+The choice of the correct system always depends on the specific needs of your application workflow. Consider factors such as task complexity, the need for parallel node execution, and the desired level of control over data flow.
 
-* **Start Simple:** If your workflow is relatively linear and does not require complex State management or Human-in-the-Loop (HITL), the **Multi-Agent** architecture is a good starting point.
-* **Embrace Flexibility:** If you need parallel execution, dynamic conversations, explicit State management, and the ability to incorporate HITL, the **Sequential Agent** architecture provides the necessary flexibility.
+* **For simplicity:** If your workflow is relatively straightforward, where tasks can be completed one after the other and therefore does not require parallel node execution or Human-in-the-Loop (HITL), the Multi-Agent approach offers ease of use and quick setup.
+* **For flexibility:** If your workflow needs parallel execution, dynamic conversations, custom State management, and the ability to incorporate HITL, the **Sequential Agent** approach provides the necessary flexibility and granular control.
 
-Here's a table comparing Multi-Agent and Sequential Agent architectures in Flowise, focusing on key differences and considerations for developers:
+Here's a table comparing Multi-Agent and Sequential Agent implementations in Flowise, highlighting key differences and design considerations:
 
-<table><thead><tr><th width="173.33333333333331"></th><th width="281">Multi-Agent</th><th>Sequential Agent</th></tr></thead><tbody><tr><td>Structure</td><td><strong>Hierarchical</strong>; Supervisor delegates to specialized Workers.</td><td><strong>Linear, cyclic and/or</strong> <strong>branching</strong>; nodes connect in a sequence, with conditional logic for branching.</td></tr><tr><td>Workflow</td><td>Flexible; designed for breaking down a complex task into a <strong>sequence of sub-tasks</strong>, completed one after another.</td><td>Highly flexible; <strong>supports parallel node execution</strong>, complex dialogue flows, branching logic, and loops within a single conversation turn.</td></tr><tr><td>Parallel Node Execution</td><td><strong>No</strong>; Supervisor handles one task at a time.</td><td><strong>Yes</strong>; can trigger multiple actions (Agent Nodes, LLM Nodes, Tool Nodes, etc) in parallel within a single run.</td></tr><tr><td>State Management</td><td><strong>Implicit</strong>; State is in place, but is not explicitly managed by the developer.</td><td><strong>Explicit</strong>; State is in place, and developers can define and manage an initial or custom State using the State Node and the "Update State" field in various nodes.</td></tr><tr><td>Tool Usage</td><td><strong>Workers</strong> can access and use tools as needed.</td><td>Tools are accessed and executed through <strong>Agent Nodes</strong> or <strong>Tool Nodes</strong>.</td></tr><tr><td>Human-in-the-Loop (HITL)</td><td>HITL is <strong>not supported</strong>.</td><td><strong>Supported</strong> through the Agent Node and Tool Node's "Require Approval" feature, allowing human review and approval or rejection of tool execution.</td></tr><tr><td>Complexity</td><td><strong>Simpler to design</strong>.</td><td><strong>More complex to design</strong>; requires careful planning of node interactions, State management, and conditional logic.</td></tr><tr><td>Ideal Use Cases</td><td><ul><li>Automating linear processes (e.g., data extraction, lead generation)</li><li>Situations where sub-tasks need to be completed sequentially.</li></ul></td><td><ul><li>Building conversational systems with dynamic flows.</li><li>Complex workflows requiring parallel node execution or branching logic.</li><li>Situations where decision-making is needed at multiple points in the conversation.</li></ul></td></tr></tbody></table>
+<table><thead><tr><th width="173.33333333333331"></th><th width="281">Multi-Agent</th><th>Sequential Agent</th></tr></thead><tbody><tr><td>Structure</td><td><strong>Hierarchical</strong>; Supervisor delegates to specialized Workers.</td><td><strong>Linear, cyclic and/or</strong> <strong>branching</strong>; nodes connect in a sequence, with conditional logic for branching.</td></tr><tr><td>Workflow</td><td>Flexible; designed for breaking down a complex task into a <strong>sequence of sub-tasks</strong>, completed one after another.</td><td>Highly flexible; <strong>supports parallel node execution</strong>, complex dialogue flows, branching logic, and loops within a single conversation turn.</td></tr><tr><td>Parallel Node Execution</td><td><strong>No</strong>; Supervisor handles one task at a time.</td><td><strong>Yes</strong>; can trigger multiple actions (Agent Nodes, LLM Nodes, Tool Nodes, etc) in parallel within a single run.</td></tr><tr><td>State Management</td><td><strong>Implicit</strong>; State is in place, but is not explicitly managed by the developer.</td><td><strong>Explicit</strong>; State is in place, and developers can define and manage an initial or custom State using the State Node and the "Update State" field in various nodes.</td></tr><tr><td>Tool Usage</td><td><strong>Workers</strong> can access and use tools as needed.</td><td>Tools are accessed and executed through <strong>Agent Nodes</strong> and <strong>Tool Nodes.</strong></td></tr><tr><td>Human-in-the-Loop (HITL)</td><td>HITL is <strong>not supported.</strong></td><td><strong>Supported</strong> through the Agent Node and Tool Node's "Require Approval" feature, allowing human review and approval or rejection of tool execution.</td></tr><tr><td>Complexity</td><td>Higher level of abstraction; <strong>simplifies workflow design.</strong></td><td>Lower level of abstraction; <strong>more complex workflow design</strong>, requiring careful planning of node interactions, state management, and conditional logic.</td></tr><tr><td>Ideal Use Cases</td><td><ul><li>Automating linear processes (e.g., data extraction, lead generation).</li><li>Situations where sub-tasks need to be completed one after the other.</li></ul></td><td><ul><li>Building conversational systems with dynamic flows.</li><li>Complex workflows requiring parallel node execution or branching logic.</li><li>Situations where decision-making is needed at multiple points in the conversation.</li></ul></td></tr></tbody></table>
 
 {% hint style="info" %}
-In Flowise's Sequential Agent architecture, **parallel node execution** refers to the ability to **execute multiple nodes concurrently within a workflow** by using a branching mechanism. This means that different branches of the workflow can process information or interact with tools simultaneously, even though the overall flow of execution remains sequential.
+**Important note**: Even though Multi-Agent systems are technically a higher-level layer built upon the Sequential Agent architecture, they offer a distinct user experience and approach to workflow design. This above section compares them as separate systems to help you choose the best option for your needs.
 {% endhint %}
 
 ***
@@ -357,8 +364,6 @@ When the Agent Node receives input from preceding nodes, it includes the full co
 
 <table><thead><tr><th width="186"></th><th width="103">Required</th><th>Description</th></tr></thead><tbody><tr><td>External Tools</td><td><strong>Yes</strong></td><td>Provides the Agent Node with <strong>access to a suite of external tools</strong>, enabling it to perform actions and retrieve information.</td></tr><tr><td>Chat Model</td><td>No</td><td>Add a new Chat Model to <strong>overwrite the default Chat Model</strong> (LLM) of the workflow. Only compatible with models that are capable of function calling.</td></tr><tr><td>Start Node</td><td>Yes</td><td>Receives the <strong>initial user input</strong>, along with the custom State (if set up) and the rest of the default <code>state.messages</code> array from the Start Node.</td></tr><tr><td>Agent Node</td><td>Yes</td><td>Receives input from a preceding Agent Node, <strong>enabling chained agent actions</strong> and maintaining conversational context</td></tr><tr><td>LLM Node</td><td>Yes</td><td>Receives the output from LLM Node, enabling the Agent Node to <strong>process the LLM's response</strong>.</td></tr><tr><td>Tool Node</td><td>Yes</td><td>Receives the output from a Tool Node, enabling the Agent Node to <strong>process and integrate tool's outputs into its response</strong>.</td></tr></tbody></table>
 
-
-
 {% hint style="info" %}
 The **Agent Node requires at least one connection from the following nodes**: Start Node, Agent Node, LLM Node, or Tool Node.
 {% endhint %}
@@ -431,16 +436,18 @@ Update the custom State object strategically to store gathered information or in
 
 * **Problem:** The System Prompt provided to the Agent Node lacks the necessary specificity and context to guide the agent effectively in carrying out its intended tasks. A vague or overly general prompt can lead to irrelevant responses, difficulty in understanding user intent, and an inability to leverage tools or data appropriately.
 * **Example:** You're building a travel booking agent, and your System Prompt simply states: "You are a helpful AI assistant." This lacks the specific instructions and context needed for the agent to effectively guide users through flight searches, hotel bookings, and itinerary planning.
-*   **Solution:** Craft a detailed and context-aware System Prompt.
+* **Solution:** Craft a detailed and context-aware System Prompt.
 
-    {% code overflow="wrap" %}
-    ```
-    You are a travel booking agent. Your primary goal is to assist users in planning and booking their trips. 
-    - Guide them through searching for flights, finding accommodations, and exploring destinations.
-    - Be polite, patient, and offer travel recommendations based on their preferences.
-    - Utilize available tools to access flight data, hotel availability, and destination information.
-    ```
-    {% endcode %}
+{% code overflow="wrap" %}
+````
+```
+You are a travel booking agent. Your primary goal is to assist users in planning and booking their trips. 
+- Guide them through searching for flights, finding accommodations, and exploring destinations.
+- Be polite, patient, and offer travel recommendations based on their preferences.
+- Utilize available tools to access flight data, hotel availability, and destination information.
+```
+````
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -615,22 +622,22 @@ This enables us to **create branches in our workflow**, where the path taken dep
 
 #### Here's how it works
 
-* The Conditional Node receives input from any preceding node: Start Node, Agent Node, LLM Node, or Tool Node.&#x20;
-* It has access to the full conversation history and the custom State (if any), giving it plenty of context to work with.&#x20;
-* We define a condition that the node will evaluate. This could be checking for keywords, comparing values in the state, or any other logic we could implement via JavaScript.&#x20;
+* The Conditional Node receives input from any preceding node: Start Node, Agent Node, LLM Node, or Tool Node.
+* It has access to the full conversation history and the custom State (if any), giving it plenty of context to work with.
+* We define a condition that the node will evaluate. This could be checking for keywords, comparing values in the state, or any other logic we could implement via JavaScript.
 * Based on whether the condition evaluates to **true** or **false**, the Conditional Node sends the flow down one of its predefined output paths. This creates a "fork in the road" or branch for our workflow.
 
 ### How to set up conditions
 
 The Conditional Node allows us to define dynamic branching logic in our workflow by choosing either a **table-based interface** or a **JavaScript code editor** to define the conditions that will control the conversation flow.
 
-<figure><img src="../../.gitbook/assets/seq-16.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/seq-16 (1).png" alt=""><figcaption></figcaption></figure>
 
 <details>
 
 <summary>Conditions using CODE</summary>
 
-The **Conditional Node uses JavaScript** to evaluate specific conditions within the conversation flow.&#x20;
+The **Conditional Node uses JavaScript** to evaluate specific conditions within the conversation flow.
 
 We can set up conditions based on keywords, State changes, or other factors to dynamically guide the workflow to different branches based on the context of the conversation. Here are some examples:
 
@@ -639,19 +646,21 @@ We can set up conditions based on keywords, State changes, or other factors to d
 This checks if a specific word or phrase exists in the conversation history.
 
 * **Example:** We want to check if the user said "yes" in their last message.
-*   **JavaScript Code**
+* **JavaScript Code**
 
-    {% code overflow="wrap" %}
-    ```javascript
-    const lastMessage = $flow.state.messages[$flow.state.messages.length - 1].content; 
-    return lastMessage.includes("yes") ? "Output 1" : "Output 2";
-    ```
-    {% endcode %}
+{% code overflow="wrap" %}
+````
+```javascript
+const lastMessage = $flow.state.messages[$flow.state.messages.length - 1].content; 
+return lastMessage.includes("yes") ? "Output 1" : "Output 2";
+```
+````
+{% endcode %}
 
-
-
-    1. This code gets the last message from state.messages and checks if it contains "yes".
-    2. If "yes" is found, the flow goes to "Output 1"; otherwise, it goes to "Output 2".
+```
+1. This code gets the last message from state.messages and checks if it contains "yes".
+2. If "yes" is found, the flow goes to "Output 1"; otherwise, it goes to "Output 2".
+```
 
 **State change condition**
 
@@ -664,8 +673,6 @@ This checks if a specific value in the custom State has changed to a desired val
     return $flow.state.orderStatus === "confirmed" ? "Output 1" : "Output 2";
     ```
 
-
-
     1. This code directly compares the orderStatus value in our custom State to "confirmed".
     2. If it matches, the flow goes to "Output 1"; otherwise, it goes to "Output 2".
 
@@ -675,7 +682,7 @@ This checks if a specific value in the custom State has changed to a desired val
 
 <summary>Conditions using TABLE</summary>
 
-The Conditional Node allows us to define conditions using a **user-friendly table interface**, making it easy to create dynamic workflows without writing JavaScript code.&#x20;
+The Conditional Node allows us to define conditions using a **user-friendly table interface**, making it easy to create dynamic workflows without writing JavaScript code.
 
 You can set up conditions based on keywords, State changes, or other factors to guide the conversation flow along different branches. Here are some examples:
 
@@ -688,8 +695,6 @@ This checks if a specific word or phrase exists in the conversation history.
 
     <table data-header-hidden><thead><tr><th width="305"></th><th width="116"></th><th width="99"></th><th></th></tr></thead><tbody><tr><td><strong>Variable</strong></td><td><strong>Operation</strong></td><td><strong>Value</strong></td><td><strong>Output Name</strong></td></tr><tr><td>$flow.state.messages[-1].content</td><td>Is</td><td>Yes</td><td>Output 1</td></tr></tbody></table>
 
-
-
     1. This table entry checks if the content (.content) of the last message (\[-1]) in `state.messages` is equal to "Yes".
     2. If the condition is met, the flow goes to "Output 1". Otherwise, the workflow is directed to a default "End" output.
 
@@ -701,8 +706,6 @@ This checks if a specific value in our custom State has changed to a desired val
 *   **Table Setup:**
 
     <table data-header-hidden><thead><tr><th width="266"></th><th width="113"></th><th></th><th></th></tr></thead><tbody><tr><td><strong>Variable</strong></td><td><strong>Operation</strong></td><td><strong>Value</strong></td><td><strong>Output Name</strong></td></tr><tr><td>$flow.state.orderStatus</td><td>Is</td><td>Confirmed</td><td>Output 1</td></tr></tbody></table>
-
-
 
     1. This table entry checks if the value of orderStatus in the custom State is equal to "confirmed".
     2. If the condition is met, the flow goes to "Output 1". Otherwise, the workflow is directed to a default "End" output.
@@ -750,11 +753,11 @@ Use descriptive names for your conditions (e.g., "If user is under 18, then Poli
 
 **Prioritize simple conditions**
 
-Start with simple conditions and gradually add complexity as needed. This makes your workflow more manageable and reduces the risk of errors.&#x20;
+Start with simple conditions and gradually add complexity as needed. This makes your workflow more manageable and reduces the risk of errors.
 
 **Test thoroughly**
 
-Test your conditions with different inputs and scenarios to ensure they work as expected and cover all potential cases.&#x20;
+Test your conditions with different inputs and scenarios to ensure they work as expected and cover all potential cases.
 {% endtab %}
 
 {% tab title="Potential Pitfalls" %}
@@ -776,7 +779,7 @@ Test your conditions with different inputs and scenarios to ensure they work as 
 
 ## 8. Conditional Agent Node
 
-The Conditional Agent Node provides **dynamic and intelligent routing within Sequential Agent flows**. It combines the capabilities of the **LLM Node** (LLM and JSON Structured Output)  and the **Condition Node** (user-defined conditions), allowing us to leverage agent-based reasoning and conditional logic within a single node.
+The Conditional Agent Node provides **dynamic and intelligent routing within Sequential Agent flows**. It combines the capabilities of the **LLM Node** (LLM and JSON Structured Output) and the **Condition Node** (user-defined conditions), allowing us to leverage agent-based reasoning and conditional logic within a single node.
 
 <figure><img src="../../.gitbook/assets/seq-09.png" alt="" width="299"><figcaption></figcaption></figure>
 
@@ -805,13 +808,13 @@ The Conditional Agent Node acts as a specialized agent that can both process inf
 
 The Conditional Agent Node allows us to define dynamic branching logic in our workflow by choose either a **table-based interface** or a **JavaScript code editor** to define the conditions that will control the conversation flow.
 
-<figure><img src="../../.gitbook/assets/seq-16.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/seq-16 (1).png" alt=""><figcaption></figcaption></figure>
 
 <details>
 
 <summary>Conditions using CODE</summary>
 
-The Conditional Agent Node, like the Conditional Node, **uses JavaScript code to evaluate specific conditions** within the conversation flow.&#x20;
+The Conditional Agent Node, like the Conditional Node, **uses JavaScript code to evaluate specific conditions** within the conversation flow.
 
 However, the Conditional Agent Node can evaluate conditions based on a wider range of factors, including keywords, state changes, and the content of its own output (either as free-form text or structured JSON data). This allows for more nuanced and context-aware routing decisions. Here are some examples:
 
@@ -820,19 +823,21 @@ However, the Conditional Agent Node can evaluate conditions based on a wider ran
 This checks if a specific word or phrase exists in the conversation history.
 
 * **Example:** We want to check if the user said "yes" in their last message.
-*   **JavaScript Code**
+* **JavaScript Code**
 
-    {% code overflow="wrap" %}
-    ```javascript
-    const lastMessage = $flow.state.messages[$flow.state.messages.length - 1].content; 
-    return lastMessage.includes("yes") ? "Output 1" : "Output 2";
-    ```
-    {% endcode %}
+{% code overflow="wrap" %}
+````
+```javascript
+const lastMessage = $flow.state.messages[$flow.state.messages.length - 1].content; 
+return lastMessage.includes("yes") ? "Output 1" : "Output 2";
+```
+````
+{% endcode %}
 
-
-
-    1. This code gets the last message from `state.messages` and checks if it contains "yes".
-    2. If "yes" is found, the flow goes to "Output 1"; otherwise, it goes to "Output 2".
+```
+1. This code gets the last message from `state.messages` and checks if it contains "yes".
+2. If "yes" is found, the flow goes to "Output 1"; otherwise, it goes to "Output 2".
+```
 
 **State change condition**
 
@@ -845,8 +850,6 @@ This checks if a specific value in the custom State has changed to a desired val
     return $flow.state.orderStatus === "confirmed" ? "Output 1" : "Output 2";
     ```
 
-
-
     1. This code directly compares the orderStatus value in our custom State to "confirmed".
     2. If it matches, the flow goes to "Output 1"; otherwise, it goes to "Output 2".
 
@@ -856,7 +859,7 @@ This checks if a specific value in the custom State has changed to a desired val
 
 <summary>Conditions using TABLE</summary>
 
-The Conditional Agent Node also provides a **user-friendly table interface for defining conditions**, similar to the Conditional Node. You can set up conditions based on keywords, state changes, or the agent's own output, allowing you to create dynamic workflows without writing JavaScript code.&#x20;
+The Conditional Agent Node also provides a **user-friendly table interface for defining conditions**, similar to the Conditional Node. You can set up conditions based on keywords, state changes, or the agent's own output, allowing you to create dynamic workflows without writing JavaScript code.
 
 This table-based approach simplifies condition management and makes it easier to visualize the branching logic. Here are some examples:
 
@@ -869,8 +872,6 @@ This checks if a specific word or phrase exists in the conversation history.
 
     <table data-header-hidden><thead><tr><th width="305"></th><th width="116"></th><th width="99"></th><th></th></tr></thead><tbody><tr><td><strong>Variable</strong></td><td><strong>Operation</strong></td><td><strong>Value</strong></td><td><strong>Output Name</strong></td></tr><tr><td>$flow.state.messages[-1].content</td><td>Is</td><td>Yes</td><td>Output 1</td></tr></tbody></table>
 
-
-
     1. This table entry checks if the content (.content) of the last message (\[-1]) in `state.messages` is equal to "Yes".
     2. If the condition is met, the flow goes to "Output 1". Otherwise, the workflow is directed to a default "End" output.
 
@@ -882,8 +883,6 @@ This checks if a specific value in our custom State has changed to a desired val
 *   **Table Setup:**
 
     <table data-header-hidden><thead><tr><th width="266"></th><th width="113"></th><th></th><th></th></tr></thead><tbody><tr><td><strong>Variable</strong></td><td><strong>Operation</strong></td><td><strong>Value</strong></td><td><strong>Output Name</strong></td></tr><tr><td>$flow.state.orderStatus</td><td>Is</td><td>Confirmed</td><td>Output 1</td></tr></tbody></table>
-
-
 
     1. This table entry checks if the value of orderStatus in the custom State is equal to "confirmed".
     2. If the condition is met, the flow goes to "Output 1". Otherwise, the workflow is directed to a default "End" output.
@@ -934,13 +933,13 @@ Each predefined output, including the default "End" output, can be connected to 
 
 {% tabs %}
 {% tab title="Pro Tips" %}
-**Craft a clear and focused system prompt**&#x20;
+**Craft a clear and focused system prompt**
 
 Provide a well-defined persona and clear instructions to the agent in the System Prompt. This will guide its reasoning and help it generate relevant output for the conditional logic.
 
 **Structure output for reliable conditions**
 
-Use the JSON Structured Output feature to define a schema for the Conditional Agent's output. This will ensure that the output is consistent and easily parsable, making it more reliable for use in conditional evaluations.&#x20;
+Use the JSON Structured Output feature to define a schema for the Conditional Agent's output. This will ensure that the output is consistent and easily parsable, making it more reliable for use in conditional evaluations.
 
 **Test conditions thoroughly**
 
@@ -981,7 +980,7 @@ Here's how the Loop Node could be used:
 5. **Loop Node:** The Loop Node redirects the flow back to the initial LLM Node ("Initial Search"). It passes the updated State, which now includes the refined search criteria.
 6. **Iteration:** The initial LLM Node performs a new search using the refined criteria, and the process repeats from step 2.
 
-**In this example, the Loop Node enables an iterative search refinement process.** The system can continue to loop back and refine the search results until the user is satisfied with the options presented.&#x20;
+**In this example, the Loop Node enables an iterative search refinement process.** The system can continue to loop back and refine the search results until the user is satisfied with the options presented.
 
 The Loop Node's ability to pass the updated State back to the target node ensures that each iteration builds upon the previous one, making the search more precise and efficient.
 
@@ -1077,9 +1076,9 @@ If appropriate, connect the End Node to an dedicated LLM or Agent Node to genera
 
 ## Conditional Node vs. Conditional Agent Node
 
-Within Flowise's Sequential Agent AI architecture, both the Conditional Node and the Conditional Agent Node play an important role in creating intelligent and dynamic conversational experiences.&#x20;
+Within Flowise's Sequential Agent AI architecture, both the Conditional Node and the Conditional Agent Node play an important role in creating intelligent and dynamic conversational experiences.
 
-These nodes help us to build workflows that adapt to user input, context, and complex decision-making requirements.&#x20;
+These nodes help us to build workflows that adapt to user input, context, and complex decision-making requirements.
 
 While both nodes offer dynamic branching logic, they differ in their approach to condition evaluation and the level of sophistication they provide.
 
@@ -1161,7 +1160,7 @@ However, while both nodes can process language and interact with tools, they are
 
 **Focus**
 
-The primary focus of the Agent Node to simulate the actions and decision-making of a human agent within a conversational context.&#x20;
+The primary focus of the Agent Node to simulate the actions and decision-making of a human agent within a conversational context.
 
 It acts as a high-level coordinator within the workflow, bringing together language understanding, tool execution, and decision-making to create a more human-like conversational experience.
 
@@ -1200,9 +1199,11 @@ Similar to the Agent Node, but it provides more flexibility when using tools and
 
 ### Summarizing
 
-<table><thead><tr><th width="206">Feature</th><th width="253">Agent Node</th><th>LLM Node</th></tr></thead><tbody><tr><td><strong>Tool Interaction</strong></td><td>Directly calls and manages multiple tools, built-in HITL</td><td>Triggers tools via the Tool Node, granular HITL control at the tool level</td></tr><tr><td><strong>Human-in-the-Loop (HITL)</strong></td><td>HITL controlled at the Agent Node level (all connected tools affected)</td><td>HITL managed at the individual Tool Node level (more flexibility)</td></tr><tr><td><strong>Structured Output</strong></td><td>Relies on the LLM's natural output format</td><td>Relies on the LLM's natural output format, but, if needed, provides JSON schema definition to structure LLM output</td></tr><tr><td><strong>Ideal Use Cases</strong></td><td><p></p><ul><li>Workflows with complex tool orchestration</li><li>Simplified HITL at the Agent Level</li></ul></td><td><p></p><ul><li>Extracting structured data from LLM output</li><li>Workflows with complex LLM and tool interactions, requiring mixed HITL levels</li></ul></td></tr></tbody></table>
+<table><thead><tr><th width="206">Feature</th><th width="253">Agent Node</th><th>LLM Node</th></tr></thead><tbody><tr><td><strong>Tool Interaction</strong></td><td>Directly calls and manages multiple tools, built-in HITL</td><td>Triggers tools via the Tool Node, granular HITL control at the tool level</td></tr><tr><td><strong>Human-in-the-Loop (HITL)</strong></td><td>HITL controlled at the Agent Node level (all connected tools affected)</td><td>HITL managed at the individual Tool Node level (more flexibility)</td></tr><tr><td><strong>Structured Output</strong></td><td>Relies on the LLM's natural output format</td><td>Relies on the LLM's natural output format, but, if needed, provides JSON schema definition to structure LLM output</td></tr><tr><td><strong>Ideal Use Cases</strong></td><td><ul><li>Workflows with complex tool orchestration</li><li>Simplified HITL at the Agent Level</li></ul></td><td><ul><li>Extracting structured data from LLM output</li><li>Workflows with complex LLM and tool interactions, requiring mixed HITL levels</li></ul></td></tr></tbody></table>
 
 ### Choosing the right node
 
 * **Choose the Agent Node:** Use the Agent Node when you need to create a conversational system that can manage the execution of multiple tools, all of which share the same HITL setting (enabled or disabled for the entire Agent Node). The Agent Node is also well-suited for handling complex multi-step conversations where consistent agent-like behavior is desired.
 * **Choose the LLM Node:** On the other hand, use the LLM Node when you need to extract structured data from the LLM's output using the JSON schema feature, a capability not available in the Agent Node. The LLM Node also excels at orchestrating tool execution with fine-grained control over HITL at the individual tool level, allowing you to mix automated and human-reviewed tool executions within the same workflow by using multiple Tool Nodes connected to the LLM Node.
+
+[^1]: In our current context, a lower level of abstraction refers to a system that exposes a greater degree of implementation detail to the developer.
