@@ -47,7 +47,7 @@ Let's explore some key elements of this approach:
 
 ## Sequential Agents vs Multi-Agents
 
-While both Multi-Agent and Sequential Agent systems in Flowise are built upon the LangGraph framework and share the same fundamental principles, the Sequential Agent architecture provides a l[ower level of abstraction](#user-content-fn-1)[^1], offering more granular control over every step of the workflow.&#x20;
+While both Multi-Agent and Sequential Agent systems in Flowise are built upon the LangGraph framework and share the same fundamental principles, the Sequential Agent architecture provides a [lower level of abstraction](#user-content-fn-1)[^1], offering more granular control over every step of the workflow.&#x20;
 
 **Multi-Agent systems**, characterized by a hierarchical structure with a central supervisor agent delegating tasks to specialized worker agents, **excel at handling complex workflows by breaking them down into manageable sub-tasks**. This decomposition into sub-tasks is made possible by pre-configuring core system elements under the hood, such as conditional nodes, which would require manual setup in a Sequential Agent system. As a result, users can more easily build and manage teams of agents.
 
