@@ -7,5 +7,5 @@ description: Chain to run queries against GET API.
 <figure><img src="../../../.gitbook/assets/image (24).png" alt="" width="337"><figcaption><p>GET API Chain Node</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../CONTRIBUTING.md) to get started.
+This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
 {% endhint %}

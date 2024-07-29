@@ -1,9 +1,13 @@
 # Table of contents
-
+ 
 * [Introduction](README.md)
 * [Get Started](getting-started/README.md)
-* [Contribution Guide](CONTRIBUTING.md)
+* [Contribution Guide](contributing/README.md)
+  * [Building Node](contributing/building-node.md)
 * [Using Flowise](using-flowise/README.md)
+  * [Agentflows](using-flowise/agentflows/README.md)
+    * [Multi-Agents](using-flowise/agentflows/multi-agents.md)
+    * [Sequential Agents](using-flowise/agentflows/sequential-agents.md)
   * [API](using-flowise/api.md)
   * [Analytic](using-flowise/analytic.md)
   * [Document Stores](using-flowise/document-stores.md)
@@ -84,9 +88,8 @@
       * [ChatLocalAI](integrations/langchain/chat-models/chatlocalai.md)
       * [ChatMistralAI](integrations/langchain/chat-models/mistral-ai.md)
       * [ChatOllama](integrations/langchain/chat-models/chatollama.md)
-      * [ChatOllama Funtion](integrations/langchain/chat-models/chatollama-funtion.md)
+      * [ChatOllama Function](integrations/langchain/chat-models/chatollama-function.md)
       * [ChatOpenAI](integrations/langchain/chat-models/azure-chatopenai.md)
-      * [ChatOpenAI Custom](integrations/langchain/chat-models/chatopenai-custom.md)
       * [ChatTogetherAI](integrations/langchain/chat-models/chattogetherai.md)
       * [GroqChat](integrations/langchain/chat-models/groqchat.md)
     * [Document Loaders](integrations/langchain/document-loaders/README.md)
@@ -275,4 +278,9 @@
   * [Multiple Documents QnA](use-cases/multiple-documents-qna.md)
   * [SQL QnA](use-cases/sql-qna.md)
   * [Upserting Data](use-cases/upserting-data.md)
-  * [Web Scrape QnA](use-cases/web-scrape-qna.md) 
+  * [Web Scrape QnA](use-cases/web-scrape-qna.md)
+
+## Flowise
+
+* [Flowise GitHub](https://github.com/FlowiseAI)
+* [Flowise Cloud](https://flowiseai.com/join)
