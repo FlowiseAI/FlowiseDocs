@@ -1,5 +1,5 @@
 ---
-description: Learn how to use Multi-Agents in Flowise, written by Fran Moreno
+description: Learn how to use Multi-Agents in Flowise, written by @toi500
 ---
 
 # Multi-Agents
