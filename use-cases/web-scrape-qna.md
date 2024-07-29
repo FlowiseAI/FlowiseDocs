@@ -44,7 +44,7 @@ If you do not specify anything, by default only the given URL page will be scrap
 
 <figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
-**Note:**  Under the hood, following actions will be executed:
+**Note:** Under the hood, following actions will be executed:
 
 * Scraped all HTML data using Cheerio Web Scraper
 * Convert all scraped data from HTML to Markdown, then split it
@@ -90,4 +90,4 @@ Apart from Cheerio Web Scraper, there are other nodes that can perform web scrap
 The same logic can be applied to any document use cases, not just limited to web scraping!
 {% endhint %}
 
-If you have any suggestion on how to improve the performance, we'd love your [contribution](../CONTRIBUTING.md)!
+If you have any suggestion on how to improve the performance, we'd love your [contribution](../contributing/)!

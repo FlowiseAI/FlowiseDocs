@@ -42,9 +42,11 @@ Found an issue? [Report it](https://github.com/FlowiseAI/Flowise/issues/new/choo
 6. Make changes
 7. Commit changes and submit Pull Request from forked branch pointing to [FlowiseDocs main](https://github.com/FlowiseAI/FlowiseDocs)
 
-## &#x20;👨‍💻 Contribute to Code
+## 👨‍💻 Contribute to Code
 
-To learn how to contribute code, go to the [For Developers](getting-started/#setup-2) section and follow the instructions.
+To learn how to contribute code, go to the [For Developers](../getting-started/#setup-2) section and follow the instructions.
+
+If you are contributing to a new node integration, read the [Building Node](building-node.md) guide.
 
 ## 🏷️ Pull Request process
 
@@ -52,6 +54,6 @@ A member of the FlowiseAI team will automatically be notified/assigned when you 
 
 ## 📜 Code of Conduct
 
-This project and everyone participating in it are governed by the Code of Conduct which can be found in the [file](https://github.com/FlowiseAI/Flowise/blob/main/CODE\_OF\_CONDUCT.md). By participating, you are expected to uphold this code.&#x20;
+This project and everyone participating in it are governed by the Code of Conduct which can be found in the [file](https://github.com/FlowiseAI/Flowise/blob/main/CODE\_OF\_CONDUCT.md). By participating, you are expected to uphold this code.
 
 Please report unacceptable behavior to hello@flowiseai.com.

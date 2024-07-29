@@ -6,17 +6,18 @@ description: Learn how to configure environment variables for Flowise
 
 Flowise support different environment variables to configure your instance. You can specify the following variables in the `.env` file inside `packages/server` folder. Refer to [.env.example](https://github.com/FlowiseAI/Flowise/blob/main/packages/server/.env.example) file.
 
-| Variable                 | Description                                                                                            | Type                                       | Default                    |
-| ------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------ | -------------------------- |
-| PORT                     | The HTTP port Flowise runs on                                                                          | Number                                     | 3000                       |
-| FLOWISE_USERNAME         | Username to login                                                                                      | String                                     |                            |
-| FLOWISE_PASSWORD         | Password to login                                                                                      | String                                     |                            |
-| FLOWISE_FILE_SIZE_LIMIT  | Maximum file size when uploading                                                                       | String                                     | `50mb`                     |
-| APIKEY_PATH              | Location where API keys are saved                                                                      | String                                     | `Flowise/packages/server`  |
-| NUMBER_OF_PROXIES        | Rate Limit Proxy                                                                                       | Number                                     |                            |
-| CORS_ORIGINS             | The allowed origins for all cross-origin HTTP calls                                                    | String                                     |                            |
-| IFRAME_ORIGINS           | The allowed origins for iframe src embedding                                                           | String                                     |                            |
-| DISABLE_CHATFLOW_REUSE   | Disable caching the flow, allowing every interaction of the chatflow will be executed from scratch     | Boolean: `true` or `false`                 |                            |
+| Variable                   | Description                                                                                        | Type                       | Default                   |
+| -------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------- | ------------------------- |
+| PORT                       | The HTTP port Flowise runs on                                                                      | Number                     | 3000                      |
+| FLOWISE\_USERNAME          | Username to login                                                                                  | String                     |                           |
+| FLOWISE\_PASSWORD          | Password to login                                                                                  | String                     |                           |
+| FLOWISE\_FILE\_SIZE\_LIMIT | Maximum file size when uploading                                                                   | String                     | `50mb`                    |
+| APIKEY\_PATH               | Location where API keys are saved                                                                  | String                     | `Flowise/packages/server` |
+| NUMBER\_OF\_PROXIES        | Rate Limit Proxy                                                                                   | Number                     |                           |
+| CORS\_ORIGINS              | The allowed origins for all cross-origin HTTP calls                                                | String                     |                           |
+| IFRAME\_ORIGINS            | The allowed origins for iframe src embedding                                                       | String                     |                           |
+| DISABLE\_CHATFLOW\_REUSE   | Disable caching the flow, allowing every interaction of the chatflow will be executed from scratch | Boolean: `true` or `false` |                           |
+| SHOW\_COMMUNITY\_NODES     | Display nodes that are created by community                                                        | Boolean: `true` or `false` |                           |
 
 ## For Database
 
