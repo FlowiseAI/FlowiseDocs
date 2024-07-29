@@ -39,7 +39,6 @@ Let's explore some key elements of this approach:
 * **Tool:** An external system, API, or service that can be accessed and executed by the workflow to perform specific tasks, such as retrieving information, processing data, or interacting with other applications.
 * **Human-in-the-Loop (HITL):** A feature that allows human intervention in the workflow, primarily during tool execution. It enables a human reviewer to approve or reject a tool call before it's executed.
 * **Parallel node execution:** It refers to the ability to execute multiple nodes concurrently within a workflow by using a branching mechanism. This means that different branches of the workflow can process information or interact with tools simultaneously, even though the overall flow of execution remains sequential.
-* **Parallel node execution:** It enables different branches of the workflow to run simultaneously. This allows multiple tasks or actions to be processed concurrently, even though the overall workflow execution follows a defined sequence.&#x20;
 {% endtab %}
 {% endtabs %}
 
