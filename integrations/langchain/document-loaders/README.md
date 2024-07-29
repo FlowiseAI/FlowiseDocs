@@ -41,6 +41,7 @@ Document loaders allow you to load documents from different sources like PDF, TX
 * [SearchApi For Web Search](searchapi-for-web-search.md)
 * Spider
 * [SerpApi For Web Search](serpapi-for-web-search.md)
+* [Spider - web search & crawler](spider-web-scraper-crawler.md)
 * [Text File](text-file.md)
 * [Unstructured File Loader](unstructured-file-loader.md)
 * [Unstructured Folder Loader](unstructured-folder-loader.md)
