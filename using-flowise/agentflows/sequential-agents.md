@@ -1,5 +1,5 @@
 ---
-description: Learn the Fundamentals of Sequential Agents in Flowise
+description: Learn the Fundamentals of Sequential Agents in Flowise, written by Fran Moreno
 ---
 
 # Sequential Agents
@@ -46,7 +46,7 @@ Let's explore some key elements of this approach:
 
 ## Sequential Agents vs Multi-Agents
 
-While both Multi-Agent and Sequential Agent systems in Flowise are built upon the LangGraph framework and share the same fundamental principles, the Sequential Agent architecture provides a [lower level of abstraction](#user-content-fn-1)[^1], offering more granular control over every step of the workflow.&#x20;
+While both Multi-Agent and Sequential Agent systems in Flowise are built upon the LangGraph framework and share the same fundamental principles, the Sequential Agent architecture provides a [lower level of abstraction](#user-content-fn-1)[^1], offering more granular control over every step of the workflow.
 
 **Multi-Agent systems**, characterized by a hierarchical structure with a central supervisor agent delegating tasks to specialized worker agents, **excel at handling complex workflows by breaking them down into manageable sub-tasks**. This decomposition into sub-tasks is made possible by pre-configuring core system elements under the hood, such as conditional nodes, which would require manual setup in a Sequential Agent system. As a result, users can more easily build and manage teams of agents.
 
@@ -54,7 +54,7 @@ In contrast, **Sequential Agent systems** operate like a streamlined assembly li
 
 ### Introducing State, Loop and Conditional Nodes
 
-Flowise's Sequential Agents offer new capabilities for creating conversational systems that can adapt to user input, make decisions based on context, and perform iterative tasks.&#x20;
+Flowise's Sequential Agents offer new capabilities for creating conversational systems that can adapt to user input, make decisions based on context, and perform iterative tasks.
 
 These new capabilities are made possible by the introduction of four core nodes; the State Node, the Loop Node, and two Conditional Nodes.
 
@@ -64,7 +64,7 @@ These new capabilities are made possible by the introduction of four core nodes;
 * **Loop Node:** This node **introduces controlled cycles** within the Sequential Agent workflow, enabling iterative processes where a sequence of nodes can be repeated based on specific conditions. This allows agents to refine outputs, gather additional information from the user, or perform tasks multiple times.
 * **Conditional Nodes:** The Conditional and Condition Agent Node provide the necessary control to **create complex conversational flows with branching paths**. The Conditional Node evaluates conditions directly, while the Condition Agent Node uses an agent's reasoning to determine the branching logic. This allows us to dynamically guide the flow's behavior based on user input, the custom State, or results of actions taken by other nodes.
 
-### Choosing the right system&#x20;
+### Choosing the right system
 
 The choice of the correct system always depends on the specific needs of your application workflow. Consider factors such as task complexity, the need for parallel node execution, and the desired level of control over data flow.
 
