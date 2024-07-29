@@ -1,16 +1,16 @@
----
-description: Learn how to deploy Flowise locally
----
-
 # Get Started
 
 ***
 
-{% hint style="info" %}
-Before you can get started, you'll need to **ensure that you have the** [**NodeJS**](https://nodejs.org/en/download) **installed on your computer**. Node `v18.15.0` or `v20` and above is supported.
-{% endhint %}
+## Cloud
+
+Self-hosting requires more technical skill to setup instance, backing up database and maintaning updates. If you aren't experienced at managing servers and just want to use the webapp, we recommend using [Flowise Cloud](https://flowiseai.com/join).
 
 ## Quick Start
+
+{% hint style="info" %}
+Pre-requisite: ensure [NodeJS](https://nodejs.org/en/download) is installed on machine. Node `v18.15.0` or `v20` and above is supported.
+{% endhint %}
 
 Install Flowise locally using NPM.
 
