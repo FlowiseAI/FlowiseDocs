@@ -16,6 +16,8 @@ Built on top of [LangGraph](https://www.langchain.com/langgraph), Flowise's Sequ
 
 This graph, composed of interconnected nodes, defines the sequential flow of information and actions, enabling the agents to process inputs, execute tasks, and generate responses in a structured manner.
 
+<figure><img src="../../.gitbook/assets/seq-21.svg" alt=""><figcaption></figcaption></figure>
+
 ### Understanding Sequential Agents' DCG Architecture
 
 This architecture simplifies the management of complex conversational workflows by defining a clear and understandable sequence of operations through its DCG structure.
@@ -47,7 +49,7 @@ Let's explore some key elements of this approach:
 
 While both Multi-Agent and Sequential Agent systems in Flowise are built upon the LangGraph framework and share the same fundamental principles, the Sequential Agent architecture provides a l[ower level of abstraction](#user-content-fn-1)[^1], offering more granular control over every step of the workflow.&#x20;
 
-**Multi-Agent systems**, characterized by a hierarchical structure with a central supervisor agent delegating tasks to specialized worker agents, **excel at handling complex workflows by breaking them down into manageable sub-tasks**. This decomposition into sub-tasks is made possible by pre-configuring core system elements under the hood, such as conditional nodes, which would require manual setup in the Sequential Agent architecture. As a result, users can more easily build and manage teams of agents.
+**Multi-Agent systems**, characterized by a hierarchical structure with a central supervisor agent delegating tasks to specialized worker agents, **excel at handling complex workflows by breaking them down into manageable sub-tasks**. This decomposition into sub-tasks is made possible by pre-configuring core system elements under the hood, such as conditional nodes, which would require manual setup in a Sequential Agent system. As a result, users can more easily build and manage teams of agents.
 
 In contrast, **Sequential Agent systems** operate like a streamlined assembly line, where data flows sequentially through a chain of nodes, making them ideal for tasks demanding a precise order of operations and incremental data refinement. Compared to the Multi-Agent system, its lower-level access to the underlying workflow structure makes it fundamentally more **flexible and customizable, offering parallel node execution and full control over the system logic**, incorporating conditions, state, and loop nodes into the workflow, allowing for the creation of new dynamic branching capabilities.
 
@@ -55,27 +57,27 @@ In contrast, **Sequential Agent systems** operate like a streamlined assembly li
 
 Flowise's Sequential Agents offer new capabilities for creating conversational systems that can adapt to user input, make decisions based on context, and perform iterative tasks.&#x20;
 
-These new capabilities are made possible by the introduction of four core nodes: the State Node, the Loop Node, and the two Conditional Nodes.
+These new capabilities are made possible by the introduction of four core nodes; the State Node, the Loop Node, and two Conditional Nodes.
 
-<figure><img src="../../.gitbook/assets/seq-16.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/seq-20.png" alt=""><figcaption></figcaption></figure>
 
 * **State Node:** We define State as a shared data structure that represents the current snapshot of our application or workflow. The State Node allows us to **add a custom State** to our workflow from the start of the conversation. This custom State is accessible and modifiable by other nodes in the workflow, enabling dynamic behavior and data sharing.
 * **Loop Node:** This node **introduces controlled cycles** within the Sequential Agent workflow, enabling iterative processes where a sequence of nodes can be repeated based on specific conditions. This allows agents to refine outputs, gather additional information from the user, or perform tasks multiple times.
 * **Conditional Nodes:** The Conditional and Condition Agent Node provide the necessary control to **create complex conversational flows with branching paths**. The Conditional Node evaluates conditions directly, while the Condition Agent Node uses an agent's reasoning to determine the branching logic. This allows us to dynamically guide the flow's behavior based on user input, the custom State, or results of actions taken by other nodes.
 
-### Choosing the right system architecture&#x20;
+### Choosing the right system&#x20;
 
-The choice of the correct system architecture always depends on the specific needs of your application workflow. Consider factors such as task complexity, the need for parallel node execution, and the desired level of control over data flow.
+The choice of the correct system always depends on the specific needs of your application workflow. Consider factors such as task complexity, the need for parallel node execution, and the desired level of control over data flow.
 
-* **For simplicity:** If your workflow is relatively straightforward, where **tasks** can be completed one after the other and therefore does not require parallel node execution or Human-in-the-Loop (HITL), the Multi-Agent architecture is a good starting point.
-* **For flexibility:** If your workflow needs parallel execution, dynamic conversations, custom State management, and the ability to incorporate HITL, the **Sequential Agent** architecture provides the necessary flexibility.
+* **For simplicity:** If your workflow is relatively straightforward, where tasks can be completed one after the other and therefore does not require parallel node execution or Human-in-the-Loop (HITL), the Multi-Agent approach offers ease of use and quick setup.
+* **For flexibility:** If your workflow needs parallel execution, dynamic conversations, custom State management, and the ability to incorporate HITL, the **Sequential Agent** approach provides the necessary flexibility and granular control.
 
 Here's a table comparing Multi-Agent and Sequential Agent implementations in Flowise, highlighting key differences and design considerations:
 
 <table><thead><tr><th width="173.33333333333331"></th><th width="281">Multi-Agent</th><th>Sequential Agent</th></tr></thead><tbody><tr><td>Structure</td><td><strong>Hierarchical</strong>; Supervisor delegates to specialized Workers.</td><td><strong>Linear, cyclic and/or</strong> <strong>branching</strong>; nodes connect in a sequence, with conditional logic for branching.</td></tr><tr><td>Workflow</td><td>Flexible; designed for breaking down a complex task into a <strong>sequence of sub-tasks</strong>, completed one after another.</td><td>Highly flexible; <strong>supports parallel node execution</strong>, complex dialogue flows, branching logic, and loops within a single conversation turn.</td></tr><tr><td>Parallel Node Execution</td><td><strong>No</strong>; Supervisor handles one task at a time.</td><td><strong>Yes</strong>; can trigger multiple actions (Agent Nodes, LLM Nodes, Tool Nodes, etc) in parallel within a single run.</td></tr><tr><td>State Management</td><td><strong>Implicit</strong>; State is in place, but is not explicitly managed by the developer.</td><td><strong>Explicit</strong>; State is in place, and developers can define and manage an initial or custom State using the State Node and the "Update State" field in various nodes.</td></tr><tr><td>Tool Usage</td><td><strong>Workers</strong> can access and use tools as needed.</td><td>Tools are accessed and executed through <strong>Agent Nodes</strong> and <strong>Tool Nodes.</strong></td></tr><tr><td>Human-in-the-Loop (HITL)</td><td>HITL is <strong>not supported.</strong></td><td><strong>Supported</strong> through the Agent Node and Tool Node's "Require Approval" feature, allowing human review and approval or rejection of tool execution.</td></tr><tr><td>Complexity</td><td>Higher level of abstraction; <strong>simplifies workflow design.</strong></td><td>Lower level of abstraction; <strong>more complex workflow design</strong>, requiring careful planning of node interactions, state management, and conditional logic.</td></tr><tr><td>Ideal Use Cases</td><td><ul><li>Automating linear processes (e.g., data extraction, lead generation).</li><li>Situations where sub-tasks need to be completed one after the other.</li></ul></td><td><ul><li>Building conversational systems with dynamic flows.</li><li>Complex workflows requiring parallel node execution or branching logic.</li><li>Situations where decision-making is needed at multiple points in the conversation.</li></ul></td></tr></tbody></table>
 
 {% hint style="info" %}
-**Important note**: While Multi-Agent systems are technically a higher-level layer built upon the Sequential Agent architecture, they offer a distinct user experience and approach to workflow design. This above section compares them as separate systems to help you choose the best option for your needs.
+**Important note**: Even though Multi-Agent systems are technically a higher-level layer built upon the Sequential Agent architecture, they offer a distinct user experience and approach to workflow design. This above section compares them as separate systems to help you choose the best option for your needs.
 {% endhint %}
 
 ***
