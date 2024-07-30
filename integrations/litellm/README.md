@@ -55,3 +55,6 @@ On success, the proxy will start running on `http://localhost:4000/`
 
 In Flowise, specify the **standard OpenAI nodes (not the Azure OpenAI nodes)** -- this goes for **chat models, embeddings, llms -- everything**
 
+- Set `BasePath` to LiteLLM Proxy URL (`http://localhost:4000` when running locally)
+- Set the following headers `Authorization: Bearer <your-litellm-master-key>`
+
