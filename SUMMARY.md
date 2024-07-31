@@ -7,7 +7,7 @@
 * [Using Flowise](using-flowise/README.md)
   * [Agentflows](using-flowise/agentflows/README.md)
     * [Multi-Agents](using-flowise/agentflows/multi-agents.md)
-    * [Sequential Agents](using-flowise/agentflows/sequential-agents/README.md)
+    * [Sequential Agents](using-flowise/agentflows/sequential-agents.md)
       * [Video Tutorials](using-flowise/agentflows/sequential-agents/video-tutorials.md)
   * [API](using-flowise/api.md)
   * [Analytic](using-flowise/analytic.md)
