@@ -1,5 +1,5 @@
 # Table of contents
-  
+ 
 * [Introduction](README.md)
 * [Get Started](getting-started/README.md)
 * [Contribution Guide](contributing/README.md)
@@ -8,6 +8,7 @@
   * [Agentflows](using-flowise/agentflows/README.md)
     * [Multi-Agents](using-flowise/agentflows/multi-agents.md)
     * [Sequential Agents](using-flowise/agentflows/sequential-agents.md)
+      * [Video Tutorials](using-flowise/agentflows/sequential-agents/video-tutorials.md)
   * [API](using-flowise/api.md)
   * [Analytic](using-flowise/analytic.md)
   * [Document Stores](using-flowise/document-stores.md)
