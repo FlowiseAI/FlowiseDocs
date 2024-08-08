@@ -155,9 +155,9 @@ If your use case demands it, utilize Agent Memory Node to maintain context and p
 
 ## 2. Agent Memory Node
 
-Unlike the State Node, which only holds custom State information for a single workflow execution, the Agent Memory Node **provides a mechanism for persistent memory storage**. This allows the Sequential Agent system to retain the conversation history `state.messages` and any user-defined state variables across multiple interactions within a workflow.
+The Agent Memory Node **provides a mechanism for persistent memory storage**, allowing the Sequential Agent workflow to retain the conversation history `state.messages` and any custom State previously defined across multiple interactions
 
-This long-term memory is crucial for agents to learn from previous interactions, maintain context over extended conversations, and provide more relevant responses.
+This long-term memory is essential for agents to learn from previous interactions, maintain context over extended conversations, and provide more relevant responses.
 
 <figure><img src="../../.gitbook/assets/seq-03.png" alt="" width="299"><figcaption></figcaption></figure>
 
@@ -167,7 +167,7 @@ By default, Flowise utilizes its **built-in SQLite database** to store conversat
 
 #### Understanding the "checkpoints" table structure and data format
 
-This table **stores snapshots of the system's State at various points during a conversation**, enabling the persistence and retrieval of conversation history and execution details. Each row represents a specific point or "checkpoint" in the **workflow's execution**.
+This table **stores snapshots of the system's State at various points during a conversation**, enabling the persistence and retrieval of conversation history. Each row represents a specific point or "checkpoint" in the **workflow's execution**.
 
 <figure><img src="../../.gitbook/assets/seq-12.png" alt=""><figcaption></figcaption></figure>
 
