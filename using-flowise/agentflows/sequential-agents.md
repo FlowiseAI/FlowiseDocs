@@ -225,18 +225,18 @@ Employ Agent Memory only when necessary. For simple, stateless interactions, it 
 
 ## 3. State Node
 
-The State Node, which can only be connected to the Start Node, provides a mechanism to set a user-defined or **custom State** into our workflow from the start of the conversation. This custom State is a **JSON object that is shared and can be updated by nodes in the graph**, passing from one node to another as the workflow progresses.
+The State Node, which can only be connected to the Start Node, **provides a mechanism to set a user-defined or custom State** into our workflow from the start of the conversation. This custom State is a JSON object that is shared and can be updated by nodes in the graph, passing from one node to another as the flow progresses.
 
 <figure><img src="../../.gitbook/assets/seq-04.png" alt="" width="299"><figcaption></figcaption></figure>
 
 ### Understanding the State Node
 
-By default, the State includes a `state.messages` array, which acts as our conversation history. This array stores all messages exchanged between the user and the agents (or any actors in the workflow). It is appended with each message sent and received, preserving the complete conversation history throughout the workflow execution.
+By default, the State includes a `state.messages` array, which acts as our conversation history. This array stores all messages exchanged between the user and the agents, or any other actors in the workflow, preserving it throughout the workflow execution.
 
-So, beyond the default conversation history provided by `state.messages`, the State Node allows us to define custom key-value pairs, expanding the state object to hold any additional information relevant to our specific workflow.
+Since by definition this `state.messages` array is immutable and cannot be modified, **the purpose of the State Node is to allow us to define custom key-value pairs**, expanding the state object to hold any additional information relevant to our workflow.
 
 {% hint style="info" %}
-When no **Agent Memory Node** is used, the current State operates in-memory and is not persisted for future use. It is also important to note that the `state.messages` array is immutable and cannot be modified or overwritten by users.
+When no **Agent Memory Node** is used, the State operates in-memory and is not persisted for future use.
 {% endhint %}
 
 ### Inputs
@@ -249,7 +249,7 @@ The State Node can only connect to the **Start Node**, allowing the setup of a c
 
 ### Additional Parameters
 
-<table><thead><tr><th width="157">Parameter</th><th width="113">Required</th><th>Description</th></tr></thead><tbody><tr><td>Custom State</td><td><strong>Yes</strong></td><td>A JSON object representing the <strong>initial custom State of the workflow</strong>. This object can contain any key-value pairs relevant to the application.</td></tr></tbody></table>
+<table><thead><tr><th width="157"></th><th width="113">Required</th><th>Description</th></tr></thead><tbody><tr><td>Custom State</td><td><strong>Yes</strong></td><td>A JSON object representing the <strong>initial custom State of the workflow</strong>. This object can contain any key-value pairs relevant to the application.</td></tr></tbody></table>
 
 ### How to set a custom State <a href="#alert-dialog-title" id="alert-dialog-title"></a>
 
@@ -280,7 +280,7 @@ Specify the **Key**, **Operation Type**, and **Default Value** for the state obj
 
 To define a custom State using the table interface in the State Node, follow these steps:
 
-1. **Add rows:** Click the "+ Add Item" button to add rows to the table. Each row represents a key-value pair in your custom State.
+1. **Add item:** Click the "+ Add Item" button to add rows to the table. Each row represents a key-value pair in your custom State.
 2. **Specify keys:** In the "Key" column, enter the name of each key you want to define in your state object. For example, you might have keys like "userName," "userLocation," or "cartItems."
 3. **Choose operations:** In the "Operation" column, select the desired operation for each key. You have two options:
    * **Replace:** This will replace the existing value of the key with the new value provided by a node. If the new value is null, the existing value will be retained.
@@ -297,14 +297,12 @@ To define a custom State using the table interface in the State Node, follow the
 
 <figure><img src="../../.gitbook/assets/seq-14.png" alt="" width="375"><figcaption></figcaption></figure>
 
-#### Explanation
-
-* This table defines one key in the custom State: `userName`.
-* The `userName` key will use the "Replace" operation, meaning its value will be updated whenever a node provides a new value.
-* The `userName` key has a default value of null, indicating that it has no initial value.
+1. This table defines one key in the custom State: `userName`.
+2. The `userName` key will use the "Replace" operation, meaning its value will be updated whenever a node provides a new value.
+3. The `userName` key has a default value of null, indicating that it has no initial value.
 
 {% hint style="info" %}
-Remember that this table-based approach is an alternative to defining the custom State using JavaScript code. Choose the method that best suits your needs and workflow complexity.
+Remember that this table-based approach is an alternative to defining the custom State using JavaScript.
 {% endhint %}
 
 ### Best Practices
@@ -331,11 +329,11 @@ If you need to preserve State across multiple conversation sessions (e.g., for u
 {% tab title="Potential Pitfalls" %}
 **Inconsistent State Updates**
 
-* **Problem:** Updating the state in multiple nodes without a clear strategy can lead to inconsistencies and unexpected behavior.
+* **Problem:** Updating the custom State in multiple nodes without a clear strategy can lead to inconsistencies and unexpected behavior.
 * **Example**
   1. Agent 1 updates `orderStatus` to "Payment Confirmed".
   2. Agent 2, in a different branch, updates `orderStatus` to "Order Complete" without checking the previous status.
-* **Solution:** Use Conditional Nodes to control the flow of the custom State updates and ensure that custom State transitions happen in a logical and consistent manner.
+* **Solution:** Use Conditions Nodes to control the flow of the custom State updates and ensure that custom State transitions happen in a logical and consistent manner.
 {% endtab %}
 {% endtabs %}
 
