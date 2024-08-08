@@ -83,9 +83,9 @@ Here's a table comparing Multi-Agent and Sequential Agent implementations in Flo
 
 ## Sequential Agents Nodes
 
-Sequential Agents bring a whole new dimension to Flowise, **introducing 10 specialized nodes**, each serving a specific purpose, offering granular control over how our conversational agents interact with users, process information, make decisions, and execute actions.
+Sequential Agents bring a whole new dimension to Flowise, **introducing 10 specialized nodes**, each serving a specific purpose, offering more control over how our conversational agents interact with users, process information, make decisions, and execute actions.
 
-The following sections provide details on each node's functionality, inputs, outputs, and best practices, enabling us to build sophisticated conversational workflows for a variety of applications.
+The following sections aim to provide a comprehensive understanding of each node's functionality, inputs, outputs, and best practices, ultimately enabling you to craft sophisticated conversational workflows for a variety of applications.
 
 <figure><img src="../../.gitbook/assets/seq-00.png" alt=""><figcaption></figcaption></figure>
 
@@ -93,22 +93,22 @@ The following sections provide details on each node's functionality, inputs, out
 
 ## 1. Start Node
 
-As the name suggests, the Start Node serves as the entry point for all workflows in the Sequential Agent architecture. It's where the initial user query is first registered, setting the Stage for the flow and is responsible for initializing the conversation.
+As its name implies, the Start Node is the entry point for all workflows in the Sequential Agent architecture. It receives the initial user query, initializes the conversation State, and sets the flow in motion.
 
 <figure><img src="../../.gitbook/assets/seq-02.png" alt="" width="300"><figcaption></figcaption></figure>
 
 ### Understanding the Start Node
 
-The Start Node ensures that our conversational workflows have the necessary setup and context to function correctly. It's responsible for setting up key functionalities that will be used throughout the rest of the workflow:
+The Start Node ensures that our conversational workflows have the necessary setup and context to function correctly. **It's responsible for setting up key functionalitie**s that will be used throughout the rest of the workflow:
 
 * **Defining the default LLM:** The Start Node requires us to specify a Chat Model (LLM) compatible with function calling, enabling agents in the workflow to interact with tools and external systems. It will be the default LLM used under the hood in the workflow.
-* **Initializing Memory:** We can optionally include an Agent Memory Node to store and retrieve conversation history, enabling more context-aware responses.
-* **Setting a custom State:** Setting a custom State: By default, the State contains a `state.messages` array, acting as the transcript or history of the conversation between the user and the agents. The Start Node allows us to set a custom State to the workflow by adding a State Node. This enables storing additional information relevant to the specific workflow.
-* **Enabling moderation:** Optionally, we can enable Input Moderation to analyze the user's input and prevent potentially harmful content from being sent to the LLM.
+* **Initializing Memory:** We can optionally connect an Agent Memory Node to store and retrieve conversation history, enabling more context-aware responses.
+* **Setting a custom State:** By default, the State contains an immutable `state.messages` array, which acts as the transcript or history of the conversation between the user and the agents. The Start Node allows you to connect a custom State to the workflow adding a State Node, enabling the storage of additional information relevant to your workflow
+* **Enabling moderation:** Optionally, we can connect Input Moderation to analyze the user's input and prevent potentially harmful content from being sent to the LLM.
 
 ### Inputs
 
-<table><thead><tr><th width="185"></th><th width="109">Required</th><th>Description</th></tr></thead><tbody><tr><td>Chat Model</td><td><strong>Yes</strong></td><td>The default LLM that will power the conversation. Only compatible with <strong>models that are capable of function calling</strong>.</td></tr><tr><td>Agent Memory Node</td><td>No</td><td>Connect an Agent Memory Node to <strong>enable persistence and context preservation</strong>.</td></tr><tr><td>State Node</td><td>No</td><td>Connect a State Node to <strong>set a custom State</strong>, a shared context that can be accessed and modified by other nodes in the workflow.</td></tr><tr><td>Input Moderation</td><td>No</td><td>Connect a Moderation Node to <strong>filter content</strong> by detecting text that could generate harmful output, preventing it from being sent to the language model.</td></tr></tbody></table>
+<table><thead><tr><th width="185"></th><th width="109">Required</th><th>Description</th></tr></thead><tbody><tr><td>Chat Model</td><td><strong>Yes</strong></td><td>The default LLM that will power the conversation. Only compatible with <strong>models that are capable of function calling</strong>.</td></tr><tr><td>Agent Memory Node</td><td>No</td><td>Connect an Agent Memory Node to <strong>enable persistence and context preservation</strong>.</td></tr><tr><td>State Node</td><td>No</td><td>Connect a State Node to <strong>set a custom State</strong>, a shared context that can be accessed and modified by other nodes in the workflow.</td></tr><tr><td>Input Moderation</td><td>No</td><td>Connect a Moderation Node to <strong>filter content</strong> by detecting text that could generate harmful output, preventing it from being sent to the LLM.</td></tr></tbody></table>
 
 ### Outputs
 
@@ -116,7 +116,7 @@ The Start Node can connect to the following nodes as outputs:
 
 * **Agent Node:** Routes the conversation flow to an Agent Node, which can then execute actions or access tools based on the conversation's context.
 * **LLM Node:** Routes the conversation flow to an LLM Node for processing and response generation.
-* **Condition Agent Node:** Connects to a Condition Agent Node to introduce conditional logic based on the agent's evaluation of the conversation.
+* **Condition Agent Node:** Connects to a Condition Agent Node to implement branching logic based on the agent's evaluation of the conversation.
 * **Condition Node:** Connects to a Condition Node to implement branching logic based on predefined conditions.
 
 ### Best Practices
@@ -133,12 +133,6 @@ If your use case demands it, utilize Agent Memory Node to maintain context and p
 {% endtab %}
 
 {% tab title="Potential Pitfalls" %}
-**Incomplete or inconsistent custom State initialization**
-
-* **Problem:** The initial State defined in the Start Node is missing crucial variables or contains incorrect or inconsistent data, leading to errors or unexpected behavior in subsequent nodes.
-* **Example:** A workflow requires a "userName" variable to personalize responses, but the Start Node doesn't initialize this variable, causing errors in nodes that try to access it.
-* **Solution:** Plan and define all necessary state variables in the Start Node, ensuring they have appropriate initial values and data types. Review the requirements of all downstream nodes to identify any essential state variables.
-
 **Incorrect Chat Model (LLM) selection**
 
 * **Problem:** The Chat Model selected in the Start Node is not suitable for the intended tasks or capabilities of the workflow, resulting in poor performance or inaccurate responses.
@@ -147,14 +141,14 @@ If your use case demands it, utilize Agent Memory Node to maintain context and p
 
 **Overlooking Agent Memory Node configuration**
 
-* **Problem:** The Agent Memory Node is not properly connected or configured, resulting in the loss of conversation history or state data between sessions.
+* **Problem:** The Agent Memory Node is not properly connected or configured, resulting in the loss of conversation history data between sessions.
 * **Example:** You intend to use persistent memory to store user preferences, but the Agent Memory Node is not connected to the Start Node, causing preferences to be reset on each new conversation.
-* **Solution:** Ensure that the Agent Memory Node is connected to the Start Node and configured with the appropriate database (SQLite).
+* **Solution:** Ensure that the Agent Memory Node is connected to the Start Node and configured with the appropriate database (SQLite). For most use cases, the default SQLite database will be sufficient.
 
 **Inadequate Input Moderation**
 
-* **Problem:** The "Input Moderation" option is not enabled or configured correctly, allowing potentially harmful or inappropriate user input to reach the LLM and generate undesirable responses.
-* **Example:** A user submits offensive language, but the input moderation fails to detect it or is not set up at all, and the LLM incorporates the offensive content into its response.
+* **Problem:** The "Input Moderation" is not enabled or configured correctly, allowing potentially harmful or inappropriate user input to reach the LLM and generate undesirable responses.
+* **Example:** A user submits offensive language, but the input moderation fails to detect it or is not set up at all, allowing the query to reach the LLM.
 * **Solution:** Add and configure an input moderation node in the Start Node to filter out potentially harmful or inappropriate language. Customize the moderation settings to align with your specific requirements and use cases.
 {% endtab %}
 {% endtabs %}
