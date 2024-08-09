@@ -452,15 +452,15 @@ While a detailed comparison between the LLM Node and the Agent Node is available
 
 ### Inputs
 
-<table><thead><tr><th width="184"></th><th width="111">Required</th><th>Description</th></tr></thead><tbody><tr><td>Chat Model</td><td>No</td><td>Add a new Chat Model to <strong>overwrite the default Chat Model</strong> (LLM) of the workflow. Only compatible with models that are capable of function calling.</td></tr><tr><td>Start Node</td><td>Yes</td><td>Receives the <strong>initial user input</strong>, along with the custom State (if set up) and the rest of the default <code>state.messages</code> array from the Start Node.</td></tr><tr><td>Condition Node</td><td></td><td></td></tr><tr><td>Condition Agent Node</td><td></td><td></td></tr><tr><td>Agent Node</td><td>Yes</td><td>Receives output from an Agent Node, which may include tool execution results or agent-generated responses.</td></tr><tr><td>LLM Node</td><td>Yes</td><td>Receives output from another LLM Node, <strong>enabling chained reasoning</strong> or information processing across multiple LLM Nodes.</td></tr><tr><td>Tool Node</td><td>Yes</td><td>Receives output from a Tool Node, <strong>providing the results of tool execution for further processing</strong> or response generation.</td></tr></tbody></table>
+<table><thead><tr><th width="184"></th><th width="111">Required</th><th>Description</th></tr></thead><tbody><tr><td>Chat Model</td><td>No</td><td>Add a new Chat Model to <strong>overwrite the default Chat Model</strong> (LLM) of the workflow. Only compatible with models that are capable of function calling.</td></tr><tr><td>Start Node</td><td>Yes</td><td>Receives the <strong>initial user input</strong>, along with the custom State (if set up) and the rest of the default <code>state.messages</code> array from the Start Node.</td></tr><tr><td>Agent Node</td><td>Yes</td><td>Receives output from an Agent Node, which may include tool execution results or agent-generated responses.</td></tr><tr><td>Condition Node</td><td>Yes</td><td>Receives input from a preceding Condition Node, enabling the LLM Node to <strong>take actions or guide the conversation based on the outcome of the Condition Node's evaluation</strong>.</td></tr><tr><td>Condition Agent Node</td><td>Yes</td><td>Receives input from a preceding Condition Agent Node, enabling the LLM Node to <strong>take actions or guide the conversation based on the outcome of the Condition Agent Node's evaluation</strong>.</td></tr><tr><td>LLM Node</td><td>Yes</td><td>Receives output from another LLM Node, <strong>enabling chained reasoning</strong> or information processing across multiple LLM Nodes.</td></tr><tr><td>Tool Node</td><td>Yes</td><td>Receives output from a Tool Node, <strong>providing the results of tool execution for further processing</strong> or response generation.</td></tr></tbody></table>
 
 {% hint style="info" %}
-The **LLM Node requires at least one connection from the following nodes**: Start Node, Agent Node, LLM Node, or Tool Node.
+The **LLM Node requires at least one connection from the following nodes**: Start Node, Agent Node, Condition Node, Condition Agent Node, LLM Node, or Tool Node.
 {% endhint %}
 
 ### **Node Setup**
 
-<table><thead><tr><th width="240">Item</th><th width="118">Required</th><th>Description</th></tr></thead><tbody><tr><td>LLM Node Name</td><td>Yes</td><td>Add a descriptive name to the LLM Node to enhance workflow readability and easily <strong>target it back when using loops</strong> within the workflow.</td></tr></tbody></table>
+<table><thead><tr><th width="240"></th><th width="118">Required</th><th>Description</th></tr></thead><tbody><tr><td>LLM Node Name</td><td>Yes</td><td>Add a descriptive name to the LLM Node to enhance workflow readability and easily <strong>target it back when using loops</strong> within the workflow.</td></tr></tbody></table>
 
 ### Outputs
 
@@ -468,9 +468,10 @@ The LLM Node can connect to the following nodes as outputs:
 
 * **Agent Node:** Passes the LLM's output to an Agent Node, which can then use the information to decide on actions, execute tools, or guide the conversation flow.
 * **LLM Node:** Passes the output to a subsequent LLM Node, enabling chaining of multiple LLM operations. This is useful for tasks like refining text generation, performing multiple analyses, or breaking down complex language processing into stages.
+* **Tool Node**: Passes the output to a Tool Node, enabling the execution of a specific tool based on the LLM Node's instructions.
 * **Condition Agent Node:** Directs the flow to a Condition Agent Node. This node evaluates the LLM Node's output and its predefined conditions to determine the appropriate next step in the workflow.
 * **Condition Node:** Similar to the Condition Agent Node, the Condition Node uses predefined conditions to assess the LLM Node's output, directing the flow along different branches based on the outcome.
-* **End Node:** Concludes the conversation flow. This occurs when the LLM Node has successfully addressed the user's request or determined that no further action is required.
+* **End Node:** Concludes the conversation flow.
 * **Loop Node:** Redirects the flow back to a previous node, enabling iterative or cyclical processes within the workflow. This could be used to refine the LLM's output over multiple iterations.
 
 ### Additional Parameters
