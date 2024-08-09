@@ -961,7 +961,7 @@ The Loop Node acts as a connector, redirecting the flow back to a specific point
 
 For instance, let's say we're building a chatbot that helps users book flights. We might use a loop to iteratively refine the search criteria based on user feedback.
 
-Here's how the Loop Node could be used:
+#### Here's how the Loop Node could be used
 
 1. **LLM Node (Initial Search):** The LLM Node receives the user's initial flight request (e.g., "Find flights from Madrid to New York in July"). It queries a flight search API and returns a list of possible flights.
 2. **Agent Node (Present Options):** The Agent Node presents the flight options to the user and asks if they would like to refine their search (e.g., "Would you like to filter by price, airline, or departure time?").
@@ -976,7 +976,7 @@ Here's how the Loop Node could be used:
 
 ### Inputs
 
-<table><thead><tr><th width="197"></th><th width="104">Required</th><th>Description</th></tr></thead><tbody><tr><td>Agent Node</td><td>Yes</td><td>Receives the output of a preceding Agent Node. This data is then sent back to the target node specified in the "Loop To" parameter.</td></tr><tr><td>LLM Node</td><td>Yes</td><td>Receives the output of a preceding LLM Node. This data is then sent back to the target node specified in the "Loop To" parameter.</td></tr><tr><td>Tool Node</td><td>Yes</td><td>Receives the output of a preceding Tool Node. This data is then sent back to the target node specified in the "Loop To" parameter.</td></tr><tr><td>Condition Node</td><td>Yes</td><td>Receives the output of a preceding Condition Node. This data is then sent back to the target node specified in the "Loop To" parameter.</td></tr><tr><td>Condition Agent Node</td><td>Yes</td><td>Receives the output of a preceding Condition Agent Node. This data is then sent back to the target node specified in the "Loop To" parameter.</td></tr></tbody></table>
+<table><thead><tr><th width="197"></th><th width="104">Required</th><th>Description</th></tr></thead><tbody><tr><td>Agent Node</td><td><strong>Yes</strong></td><td>Receives the output of a preceding Agent Node. This data is then sent back to the target node specified in the "Loop To" parameter.</td></tr><tr><td>LLM Node</td><td><strong>Yes</strong></td><td>Receives the output of a preceding LLM Node. This data is then sent back to the target node specified in the "Loop To" parameter.</td></tr><tr><td>Tool Node</td><td><strong>Yes</strong></td><td>Receives the output of a preceding Tool Node. This data is then sent back to the target node specified in the "Loop To" parameter.</td></tr><tr><td>Condition Node</td><td><strong>Yes</strong></td><td>Receives the output of a preceding Condition Node. This data is then sent back to the target node specified in the "Loop To" parameter.</td></tr><tr><td>Condition Agent Node</td><td><strong>Yes</strong></td><td>Receives the output of a preceding Condition Agent Node. This data is then sent back to the target node specified in the "Loop To" parameter.</td></tr></tbody></table>
 
 {% hint style="info" %}
 The **Loop Node requires at least one connection from the following nodes**: Agent Node, LLM Node, Tool Node, Condition Node, or Condition Agent Node.
@@ -1018,7 +1018,7 @@ Define a clear purpose for each loop in your workflow. If possible, document wit
 
 ## 10. End Node
 
-The End Node marks the definitive termination point of the conversation in a Sequential Agent workflow. It signifies that no further processing, actions, or interactions are required.
+The End Node marks the definitive **termination point of the conversation** in a Sequential Agent workflow. It signifies that no further processing, actions, or interactions are required.
 
 <figure><img src="../../.gitbook/assets/sa-loop (1).png" alt="" width="335"><figcaption></figcaption></figure>
 
@@ -1028,7 +1028,7 @@ The End Node serves as a signal within Flowise's Sequential Agent architecture, 
 
 ### Inputs
 
-<table><thead><tr><th width="212"></th><th width="103">Required</th><th>Description</th></tr></thead><tbody><tr><td>Agent Node</td><td>Yes</td><td>Receives the final output from a preceding Agent Node, indicating the end of the agent's processing.</td></tr><tr><td>LLM Node</td><td>Yes</td><td>Receives the final output from a preceding LLM Node, indicating the end of the LLM Node's processing.</td></tr><tr><td>Tool Node</td><td>Yes</td><td>Receives the final output from a preceding Tool Node, indicating the completion of the Tool Node's execution.</td></tr><tr><td>Condition Node</td><td>Yes</td><td>Receives the final output from a preceding Condition Node, indicating the end of the Condition Node's execution.</td></tr><tr><td>Condition Agent Node</td><td>Yes</td><td>Receives the final output from a preceding Condition Node, indicating the completion of the Condition Agent Node's processing.</td></tr></tbody></table>
+<table><thead><tr><th width="212"></th><th width="103">Required</th><th>Description</th></tr></thead><tbody><tr><td>Agent Node</td><td><strong>Yes</strong></td><td>Receives the final output from a preceding Agent Node, indicating the end of the agent's processing.</td></tr><tr><td>LLM Node</td><td><strong>Yes</strong></td><td>Receives the final output from a preceding LLM Node, indicating the end of the LLM Node's processing.</td></tr><tr><td>Tool Node</td><td><strong>Yes</strong></td><td>Receives the final output from a preceding Tool Node, indicating the completion of the Tool Node's execution.</td></tr><tr><td>Condition Node</td><td><strong>Yes</strong></td><td>Receives the final output from a preceding Condition Node, indicating the end of the Condition Node's execution.</td></tr><tr><td>Condition Agent Node</td><td><strong>Yes</strong></td><td>Receives the final output from a preceding Condition Node, indicating the completion of the Condition Agent Node's processing.</td></tr></tbody></table>
 
 {% hint style="info" %}
 The **End Node requires at least one connection from the following nodes**: Agent Node, LLM Node, or Tool Node.
@@ -1068,7 +1068,7 @@ If appropriate, connect the End Node to an dedicated LLM or Agent Node to genera
 
 The Condition and Condition Agent Nodes are essential in Flowise's Sequential Agent architecture for creating dynamic conversational experiences.&#x20;
 
-These nodes enable adaptive workflows, responding to user input, context, and complex decisions, but differ in their approach to condition evaluation and sophistication
+These nodes enable adaptive workflows, responding to user input, context, and complex decisions, but differ in their approach to condition evaluation and sophistication.
 
 <details>
 
