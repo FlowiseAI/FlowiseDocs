@@ -688,13 +688,17 @@ This checks if a specific value in our custom State has changed to a desired val
 
 </details>
 
+### Defining conditions using the table interface
+
+This visual approach allows you to easily set up rules that determine the path of your conversational flow, based on factors like user input, the current state of the conversation, or the results of actions taken by other nodes.
+
 <details>
 
-<summary>Variables</summary>
+<summary>Table-Based Conditions</summary>
 
-*   #### Defining conditions using the table interface
+*   #### Updated on 09/08/2024
 
-    <table><thead><tr><th width="154">Column</th><th>Description</th><th>Options/Syntax</th></tr></thead><tbody><tr><td><strong>Variable</strong></td><td>The variable or data element to evaluate in the condition.</td><td>- <code>$flow.state.messages.length</code> (Total Messages)<br>- <code>$flow.state.messages[0].con</code> (First Message Content)<br>- <code>$flow.state.messages[-1].con</code> (Last Message Content)<br>- <code>$vars.&#x3C;variable-name></code> (Global variable)</td></tr><tr><td><strong>Operation</strong></td><td>The comparison or logical operation to perform on the variable.</td><td>- Contains<br>- Not Contains<br>- Start With<br>- End With<br>- Is<br>- Is Not<br>- Is Empty<br>- Is Not Empty<br>- Greater Than<br>- Less Than<br>- Equal To<br>- Not Equal To<br>- Greater Than or Equal To<br>- Less Than or Equal To</td></tr><tr><td><strong>Value</strong></td><td>The value to compare the variable against.</td><td>- Depends on the data type of the variable and the selected operation.<br>- Examples: "yes", 10, "Hello"</td></tr><tr><td><strong>Output Name</strong></td><td>The name of the output path to follow if the condition evaluates to <code>true</code>.</td><td>- User-defined name (e.g., "Agent1", "End", "Loop")</td></tr></tbody></table>
+    <table><thead><tr><th width="154"></th><th>Description</th><th>Options/Syntax</th></tr></thead><tbody><tr><td><strong>Variable</strong></td><td>The variable or data element to evaluate in the condition.</td><td>- <code>$flow.state.messages.length</code> (Total Messages)<br>- <code>$flow.state.messages[0].con</code> (First Message Content)<br>- <code>$flow.state.messages[-1].con</code> (Last Message Content)<br>- <code>$vars.&#x3C;variable-name></code> (Global variable)</td></tr><tr><td><strong>Operation</strong></td><td>The comparison or logical operation to perform on the variable.</td><td>- Contains<br>- Not Contains<br>- Start With<br>- End With<br>- Is<br>- Is Not<br>- Is Empty<br>- Is Not Empty<br>- Greater Than<br>- Less Than<br>- Equal To<br>- Not Equal To<br>- Greater Than or Equal To<br>- Less Than or Equal To</td></tr><tr><td><strong>Value</strong></td><td>The value to compare the variable against.</td><td>- Depends on the data type of the variable and the selected operation.<br>- Examples: "yes", 10, "Hello"</td></tr><tr><td><strong>Output Name</strong></td><td>The name of the output path to follow if the condition evaluates to <code>true</code>.</td><td>- User-defined name (e.g., "Agent1", "End", "Loop")</td></tr></tbody></table>
 
 </details>
 
