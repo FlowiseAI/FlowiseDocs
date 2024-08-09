@@ -526,7 +526,7 @@ Update the custom State object strategically to store gathered information or in
 
 ## 6. Tool Node
 
-The Tool Node is a key component of Flowise's Sequential Agent system, enabling the integration and execution of external tools within conversational workflows. It acts as a bridge between the language-based processing of LLM Nodes and the specialized functionalities of external tools, APIs, or services.
+The Tool Node is a valuable component of Flowise's Sequential Agent system, enabling the integration and execution of external tools within conversational workflows. It acts as a bridge between the language-based processing of LLM Nodes and the specialized functionalities of external tools, APIs, or services.
 
 <figure><img src="../../.gitbook/assets/seq-07.png" alt="" width="300"><figcaption></figcaption></figure>
 
@@ -602,10 +602,10 @@ This enables us to **create branches in our workflow**, where the path taken dep
 
 #### Here's how it works
 
-* The Conditional Node receives input from any preceding node: Start Node, Agent Node, LLM Node, or Tool Node.
-* It has access to the full conversation history and the custom State (if any), giving it plenty of context to work with.
-* We define a condition that the node will evaluate. This could be checking for keywords, comparing values in the state, or any other logic we could implement via JavaScript.
-* Based on whether the condition evaluates to **true** or **false**, the Conditional Node sends the flow down one of its predefined output paths. This creates a "fork in the road" or branch for our workflow.
+1. The Conditional Node receives input from any preceding node: Start Node, Agent Node, LLM Node, or Tool Node.
+2. It has access to the full conversation history and the custom State (if any), giving it plenty of context to work with.
+3. We define a condition that the node will evaluate. This could be checking for keywords, comparing values in the state, or any other logic we could implement via JavaScript.
+4. Based on whether the condition evaluates to **true** or **false**, the Conditional Node sends the flow down one of its predefined output paths. This creates a "fork in the road" or branch for our workflow.
 
 ### How to set up conditions
 
@@ -626,35 +626,31 @@ We can set up conditions based on keywords, State changes, or other factors to d
 This checks if a specific word or phrase exists in the conversation history.
 
 * **Example:** We want to check if the user said "yes" in their last message.
-* **JavaScript Code**
 
 {% code overflow="wrap" %}
-````
 ```javascript
 const lastMessage = $flow.state.messages[$flow.state.messages.length - 1].content; 
 return lastMessage.includes("yes") ? "Output 1" : "Output 2";
 ```
-````
 {% endcode %}
 
-```
-1. This code gets the last message from state.messages and checks if it contains "yes".
+1. This code gets the last message from state.messages and checks if it contains "yes".&#x20;
 2. If "yes" is found, the flow goes to "Output 1"; otherwise, it goes to "Output 2".
-```
 
 **State change condition**
 
 This checks if a specific value in the custom State has changed to a desired value.
 
 * **Example:** We're tracking an orderStatus variable our custom State, and we want to check if it has become "confirmed".
-*   **JavaScript Code**
 
-    ```javascript
-    return $flow.state.orderStatus === "confirmed" ? "Output 1" : "Output 2";
-    ```
+{% code overflow="wrap" %}
+```javascript
+return $flow.state.orderStatus === "confirmed" ? "Output 1" : "Output 2";
+```
+{% endcode %}
 
-    1. This code directly compares the orderStatus value in our custom State to "confirmed".
-    2. If it matches, the flow goes to "Output 1"; otherwise, it goes to "Output 2".
+1. This code directly compares the orderStatus value in our custom State to "confirmed".&#x20;
+2. If it matches, the flow goes to "Output 1"; otherwise, it goes to "Output 2".
 
 </details>
 
@@ -671,9 +667,9 @@ You can set up conditions based on keywords, State changes, or other factors to 
 This checks if a specific word or phrase exists in the conversation history.
 
 * **Example:** We want to check if the user said "yes" in their last message.
-*   **Table Setup:**
+*   **Setup:**
 
-    <table data-header-hidden><thead><tr><th width="305"></th><th width="116"></th><th width="99"></th><th></th></tr></thead><tbody><tr><td><strong>Variable</strong></td><td><strong>Operation</strong></td><td><strong>Value</strong></td><td><strong>Output Name</strong></td></tr><tr><td>$flow.state.messages[-1].content</td><td>Is</td><td>Yes</td><td>Output 1</td></tr></tbody></table>
+    <table data-header-hidden><thead><tr><th width="294"></th><th width="116"></th><th width="99"></th><th></th></tr></thead><tbody><tr><td><strong>Variable</strong></td><td><strong>Operation</strong></td><td><strong>Value</strong></td><td><strong>Output Name</strong></td></tr><tr><td>$flow.state.messages[-1].content</td><td>Is</td><td>Yes</td><td>Output 1</td></tr></tbody></table>
 
     1. This table entry checks if the content (.content) of the last message (\[-1]) in `state.messages` is equal to "Yes".
     2. If the condition is met, the flow goes to "Output 1". Otherwise, the workflow is directed to a default "End" output.
@@ -683,12 +679,20 @@ This checks if a specific word or phrase exists in the conversation history.
 This checks if a specific value in our custom State has changed to a desired value.
 
 * **Example:** We're tracking an orderStatus variable in our custom State, and we want to check if it has become "confirmed".
-*   **Table Setup:**
+*   **Setup:**
 
     <table data-header-hidden><thead><tr><th width="266"></th><th width="113"></th><th></th><th></th></tr></thead><tbody><tr><td><strong>Variable</strong></td><td><strong>Operation</strong></td><td><strong>Value</strong></td><td><strong>Output Name</strong></td></tr><tr><td>$flow.state.orderStatus</td><td>Is</td><td>Confirmed</td><td>Output 1</td></tr></tbody></table>
 
     1. This table entry checks if the value of orderStatus in the custom State is equal to "confirmed".
     2. If the condition is met, the flow goes to "Output 1". Otherwise, the workflow is directed to a default "End" output.
+
+</details>
+
+<details>
+
+<summary>Variables</summary>
+
+
 
 </details>
 
