@@ -93,7 +93,7 @@ The following sections aim to provide a comprehensive understanding of each node
 
 ## 1. Start Node
 
-As its name implies, the Start Node is the entry point for all workflows in the Sequential Agent architecture. It receives the initial user query, initializes the conversation State, and sets the flow in motion.
+As its name implies, the Start Node is the **entry point for all workflows in the Sequential Agent architecture**. It receives the initial user query, initializes the conversation State, and sets the flow in motion.
 
 <figure><img src="../../.gitbook/assets/seq-02.png" alt="" width="300"><figcaption></figcaption></figure>
 
@@ -108,7 +108,7 @@ The Start Node ensures that our conversational workflows have the necessary setu
 
 ### Inputs
 
-<table><thead><tr><th width="185"></th><th width="109">Required</th><th>Description</th></tr></thead><tbody><tr><td>Chat Model</td><td><strong>Yes</strong></td><td>The default LLM that will power the conversation. Only compatible with <strong>models that are capable of function calling</strong>.</td></tr><tr><td>Agent Memory Node</td><td>No</td><td>Connect an Agent Memory Node to <strong>enable persistence and context preservation</strong>.</td></tr><tr><td>State Node</td><td>No</td><td>Connect a State Node to <strong>set a custom State</strong>, a shared context that can be accessed and modified by other nodes in the workflow.</td></tr><tr><td>Input Moderation</td><td>No</td><td>Connect a Moderation Node to <strong>filter content</strong> by detecting text that could generate harmful output, preventing it from being sent to the LLM.</td></tr></tbody></table>
+<table><thead><tr><th width="212"></th><th width="102">Required</th><th>Description</th></tr></thead><tbody><tr><td>Chat Model</td><td><strong>Yes</strong></td><td>The default LLM that will power the conversation. Only compatible with <strong>models that are capable of function calling</strong>.</td></tr><tr><td>Agent Memory Node</td><td>No</td><td>Connect an Agent Memory Node to <strong>enable persistence and context preservation</strong>.</td></tr><tr><td>State Node</td><td>No</td><td>Connect a State Node to <strong>set a custom State</strong>, a shared context that can be accessed and modified by other nodes in the workflow.</td></tr><tr><td>Input Moderation</td><td>No</td><td>Connect a Moderation Node to <strong>filter content</strong> by detecting text that could generate harmful output, preventing it from being sent to the LLM.</td></tr></tbody></table>
 
 ### Outputs
 
@@ -167,7 +167,7 @@ By default, Flowise utilizes its **built-in SQLite database** to store conversat
 
 #### Understanding the "checkpoints" table structure and data format
 
-This table **stores snapshots of the system's State at various points during a conversation**, enabling the persistence and retrieval of conversation history. Each row represents a specific point or "checkpoint" in the **workflow's execution**.
+This table **stores snapshots of the system's State at various points during a conversation**, enabling the persistence and retrieval of conversation history. Each row represents a specific point or "checkpoint" in the workflow's execution.
 
 <figure><img src="../../.gitbook/assets/seq-12.png" alt=""><figcaption></figcaption></figure>
 
@@ -253,7 +253,7 @@ The State Node can only connect to the **Start Node**, allowing the setup of a c
 
 ### How to set a custom State <a href="#alert-dialog-title" id="alert-dialog-title"></a>
 
-Specify the **Key**, **Operation Type**, and **Default Value** for the state object. The Operation Type can be either "Replace" or "Append".
+Specify the **key**, **operation type**, and **default value** for the state object. The operation type can be either "Replace" or "Append".
 
 * **Replace**
   1. Replace the existing value with the new value.
@@ -281,13 +281,11 @@ Specify the **Key**, **Operation Type**, and **Default Value** for the state obj
 To define a custom State using the table interface in the State Node, follow these steps:
 
 1. **Add item:** Click the "+ Add Item" button to add rows to the table. Each row represents a key-value pair in your custom State.
-2. **Specify keys:** In the "Key" column, enter the name of each key you want to define in your state object. For example, you might have keys like "userName," "userLocation," or "cartItems."
+2. **Specify keys:** In the "Key" column, enter the name of each key you want to define in your state object. For example, you might have keys like "userName", "userLocation", etc.
 3. **Choose operations:** In the "Operation" column, select the desired operation for each key. You have two options:
    * **Replace:** This will replace the existing value of the key with the new value provided by a node. If the new value is null, the existing value will be retained.
    * **Append:** This will append the new value to the existing value of the key. The final value will be an array.
-4. **Set default values:** In the "Default Value" column, enter the initial value for each key. This value will be used if no other node provides a value for the key. The default value can be empty or an array. For example:
-   * \[] (an empty array)
-   * \["a", "b"] (an array with initial values)
+4. **Set default values:** In the "Default Value" column, enter the initial value for each key. This value will be used if no other node provides a value for the key. The default value can be empty or an array.
 
 #### Example Table
 
@@ -299,10 +297,10 @@ To define a custom State using the table interface in the State Node, follow the
 
 1. This table defines one key in the custom State: `userName`.
 2. The `userName` key will use the "Replace" operation, meaning its value will be updated whenever a node provides a new value.
-3. The `userName` key has a default value of null, indicating that it has no initial value.
+3. The `userName` key has a default value of _null,_ indicating that it has no initial value.
 
 {% hint style="info" %}
-Remember that this table-based approach is an alternative to defining the custom State using JavaScript.
+Remember that this table-based approach is an alternative to defining the custom State using JavaScript. Both methods achieve the same result.
 {% endhint %}
 
 ### Best Practices
@@ -347,14 +345,14 @@ The Agent Node is a **core component of the Sequential Agent architecture.** It 
 
 ### Understanding the Agent Node
 
-Upon receiving input from preceding nodes, which always includes the full conversation history `state.messages` and any established custom State at this point in the execution, the Agent Node uses its defined "persona", established by the System Prompt, to determine if external tools are necessary to fulfill the user's request.
+Upon receiving input from preceding nodes, which always includes the full conversation history `state.messages` and any custom State at that point in the execution, the Agent Node uses its defined "persona", established by the System Prompt, to determine if external tools are necessary to fulfill the user's request.
 
 * If tools are required, the Agent Node autonomously selects and executes the appropriate tool. This execution can be automatic or, for sensitive tasks, require human approval (HITL) before proceeding. Once the tool completes its operation, the Agent Node receives the results, processes them using the designated Chat Model (LLM), and generates a comprehensive response.
 * In cases where no tools are needed, the Agent Node directly leverages the Chat Model (LLM) to formulate a response based on the current conversation context.
 
 ### Inputs
 
-<table><thead><tr><th width="213"></th><th width="103">Required</th><th>Description</th></tr></thead><tbody><tr><td>External Tools</td><td>No</td><td>Provides the Agent Node with <strong>access to a suite of external tools</strong>, enabling it to perform actions and retrieve information.</td></tr><tr><td>Chat Model</td><td>No</td><td>Add a new Chat Model to <strong>overwrite the default Chat Model</strong> (LLM) of the workflow. Only compatible with models that are capable of function calling.</td></tr><tr><td>Start Node</td><td>Yes</td><td>Receives the <strong>initial user input</strong>, along with the custom State (if set up) and the rest of the default <code>state.messages</code> array from the Start Node.</td></tr><tr><td>Condition Node</td><td>Yes</td><td>Receives input from a preceding Condition Node, enabling the Agent Node to <strong>take actions or guide the conversation based on the outcome of the Condition Node's evaluation</strong>.</td></tr><tr><td>Condition Agent Node</td><td>Yes</td><td>Receives input from a preceding Condition Agent Node, enabling the Agent Node to <strong>take actions or guide the conversation based on the outcome of the Condition Agent Node's evaluation</strong>.</td></tr><tr><td>Agent Node</td><td>Yes</td><td>Receives input from a preceding Agent Node, <strong>enabling chained agent actions</strong> and maintaining conversational context</td></tr><tr><td>LLM Node</td><td>Yes</td><td>Receives the output from LLM Node, enabling the Agent Node to <strong>process the LLM's response</strong>.</td></tr><tr><td>Tool Node</td><td>Yes</td><td>Receives the output from a Tool Node, enabling the Agent Node to <strong>process and integrate tool's outputs into its response</strong>.</td></tr></tbody></table>
+<table><thead><tr><th width="195"></th><th width="107">Required</th><th>Description</th></tr></thead><tbody><tr><td>External Tools</td><td>No</td><td>Provides the Agent Node with <strong>access to a suite of external tools</strong>, enabling it to perform actions and retrieve information.</td></tr><tr><td>Chat Model</td><td>No</td><td>Add a new Chat Model to <strong>overwrite the default Chat Model</strong> (LLM) of the workflow. Only compatible with models that are capable of function calling.</td></tr><tr><td>Start Node</td><td><strong>Yes</strong></td><td>Receives the <strong>initial user input</strong>, along with the custom State (if set up) and the rest of the default <code>state.messages</code> array from the Start Node.</td></tr><tr><td>Condition Node</td><td><strong>Yes</strong></td><td>Receives input from a preceding Condition Node, enabling the Agent Node to <strong>take actions or guide the conversation based on the outcome of the Condition Node's evaluation</strong>.</td></tr><tr><td>Condition Agent Node</td><td><strong>Yes</strong></td><td>Receives input from a preceding Condition Agent Node, enabling the Agent Node to <strong>take actions or guide the conversation based on the outcome of the Condition Agent Node's evaluation</strong>.</td></tr><tr><td>Agent Node</td><td><strong>Yes</strong></td><td>Receives input from a preceding Agent Node, <strong>enabling chained agent actions</strong> and maintaining conversational context</td></tr><tr><td>LLM Node</td><td><strong>Yes</strong></td><td>Receives the output from LLM Node, enabling the Agent Node to <strong>process the LLM's response</strong>.</td></tr><tr><td>Tool Node</td><td><strong>Yes</strong></td><td>Receives the output from a Tool Node, enabling the Agent Node to <strong>process and integrate tool's outputs into its response</strong>.</td></tr></tbody></table>
 
 {% hint style="info" %}
 The **Agent Node requires at least one connection from the following nodes**: Start Node, Agent Node, Condition Node, Condition Agent Node, LLM Node, or Tool Node.
@@ -377,7 +375,7 @@ The Agent Node can connect to the following nodes as outputs:
 
 ### Additional Parameters
 
-<table><thead><tr><th width="200"></th><th width="102">Required</th><th>Description</th></tr></thead><tbody><tr><td>Human Prompt</td><td>No</td><td>This prompt is appended to the <code>state.messages</code> array as a human message. It allows us to <strong>inject a human-like message into the conversation flow</strong> after the Agent Node has processed its input and before the next node receives the Agent Node's output.</td></tr><tr><td>Approval Prompt</td><td>No</td><td><strong>A customizable prompt presented to the human reviewer when the HITL feature is active</strong>. This prompt provides context about the tool execution, including the tool's name and purpose. The variable <code>{tools}</code> within the prompt will be dynamically replaced with the actual list of tools suggested by the agent, ensuring the human reviewer has all necessary information to make an informed decision.</td></tr><tr><td>Approve Button Text</td><td>No</td><td>Customizes <strong>the text displayed on the button for approving tool execution</strong> in the HITL interface. This allows for tailoring the language to the specific context and ensuring clarity for the human reviewer.</td></tr><tr><td>Reject Button Text</td><td>No</td><td>Customizes the <strong>text displayed on the button for rejecting tool execution</strong> in the HITL interface. Like the Approve Button Text, this customization enhances clarity and provides a clear action for the human reviewer to take if they deem the tool execution unnecessary or potentially harmful.</td></tr><tr><td>Update State</td><td>No</td><td>Provides a <strong>mechanism to modify the shared custom State object within the workflow</strong>. This is useful for storing information gathered by the agent or influencing the behavior of subsequent nodes.</td></tr><tr><td>Max Iteration</td><td>No</td><td>Limits the <strong>number of iterations or queries</strong> an Agent Node can make within a single workflow execution.</td></tr></tbody></table>
+<table><thead><tr><th width="200"></th><th width="102">Required</th><th>Description</th></tr></thead><tbody><tr><td>Human Prompt</td><td>No</td><td>This prompt is appended to the <code>state.messages</code> array as a human message. It allows us to <strong>inject a human-like message into the conversation flow</strong> after the Agent Node has processed its input and before the next node receives the Agent Node's output.</td></tr><tr><td>Approval Prompt</td><td>No</td><td><strong>A customizable prompt presented to the human reviewer when the HITL feature is active</strong>. This prompt provides context about the tool execution, including the tool's name and purpose. The variable <code>{tools}</code> within the prompt will be dynamically replaced with the actual list of tools suggested by the agent, ensuring the human reviewer has all necessary information to make an informed decision.</td></tr><tr><td>Approve Button Text</td><td>No</td><td>Customizes <strong>the text displayed on the button for approving tool execution</strong> in the HITL interface. This allows for tailoring the language to the specific context and ensuring clarity for the human reviewer.</td></tr><tr><td>Reject Button Text</td><td>No</td><td>Customizes the <strong>text displayed on the button for rejecting tool execution</strong> in the HITL interface. Like the Approve Button Text, this customization enhances clarity and provides a clear action for the human reviewer to take if they deem the tool execution unnecessary or potentially harmful.</td></tr><tr><td>Update State</td><td>No</td><td>Provides a <strong>mechanism to modify the shared custom State object within the workflow</strong>. This is useful for storing information gathered by the agent or influencing the behavior of subsequent nodes.</td></tr><tr><td>Max Iteration</td><td>No</td><td>Limits the <strong>number of iterations</strong> an Agent Node can make within a single workflow execution.</td></tr></tbody></table>
 
 ### Best Practices
 
@@ -452,7 +450,7 @@ While a detailed comparison between the LLM Node and the Agent Node is available
 
 ### Inputs
 
-<table><thead><tr><th width="184"></th><th width="111">Required</th><th>Description</th></tr></thead><tbody><tr><td>Chat Model</td><td>No</td><td>Add a new Chat Model to <strong>overwrite the default Chat Model</strong> (LLM) of the workflow. Only compatible with models that are capable of function calling.</td></tr><tr><td>Start Node</td><td>Yes</td><td>Receives the <strong>initial user input</strong>, along with the custom State (if set up) and the rest of the default <code>state.messages</code> array from the Start Node.</td></tr><tr><td>Agent Node</td><td>Yes</td><td>Receives output from an Agent Node, which may include tool execution results or agent-generated responses.</td></tr><tr><td>Condition Node</td><td>Yes</td><td>Receives input from a preceding Condition Node, enabling the LLM Node to <strong>take actions or guide the conversation based on the outcome of the Condition Node's evaluation</strong>.</td></tr><tr><td>Condition Agent Node</td><td>Yes</td><td>Receives input from a preceding Condition Agent Node, enabling the LLM Node to <strong>take actions or guide the conversation based on the outcome of the Condition Agent Node's evaluation</strong>.</td></tr><tr><td>LLM Node</td><td>Yes</td><td>Receives output from another LLM Node, <strong>enabling chained reasoning</strong> or information processing across multiple LLM Nodes.</td></tr><tr><td>Tool Node</td><td>Yes</td><td>Receives output from a Tool Node, <strong>providing the results of tool execution for further processing</strong> or response generation.</td></tr></tbody></table>
+<table><thead><tr><th width="184"></th><th width="111">Required</th><th>Description</th></tr></thead><tbody><tr><td>Chat Model</td><td>No</td><td>Add a new Chat Model to <strong>overwrite the default Chat Model</strong> (LLM) of the workflow. Only compatible with models that are capable of function calling.</td></tr><tr><td>Start Node</td><td><strong>Yes</strong></td><td>Receives the <strong>initial user input</strong>, along with the custom State (if set up) and the rest of the default <code>state.messages</code> array from the Start Node.</td></tr><tr><td>Agent Node</td><td><strong>Yes</strong></td><td>Receives output from an Agent Node, which may include tool execution results or agent-generated responses.</td></tr><tr><td>Condition Node</td><td><strong>Yes</strong></td><td>Receives input from a preceding Condition Node, enabling the LLM Node to <strong>take actions or guide the conversation based on the outcome of the Condition Node's evaluation</strong>.</td></tr><tr><td>Condition Agent Node</td><td><strong>Yes</strong></td><td>Receives input from a preceding Condition Agent Node, enabling the LLM Node to <strong>take actions or guide the conversation based on the outcome of the Condition Agent Node's evaluation</strong>.</td></tr><tr><td>LLM Node</td><td><strong>Yes</strong></td><td>Receives output from another LLM Node, <strong>enabling chained reasoning</strong> or information processing across multiple LLM Nodes.</td></tr><tr><td>Tool Node</td><td><strong>Yes</strong></td><td>Receives output from a Tool Node, <strong>providing the results of tool execution for further processing</strong> or response generation.</td></tr></tbody></table>
 
 {% hint style="info" %}
 The **LLM Node requires at least one connection from the following nodes**: Start Node, Agent Node, Condition Node, Condition Agent Node, LLM Node, or Tool Node.
@@ -460,7 +458,7 @@ The **LLM Node requires at least one connection from the following nodes**: Star
 
 ### **Node Setup**
 
-<table><thead><tr><th width="240"></th><th width="118">Required</th><th>Description</th></tr></thead><tbody><tr><td>LLM Node Name</td><td>Yes</td><td>Add a descriptive name to the LLM Node to enhance workflow readability and easily <strong>target it back when using loops</strong> within the workflow.</td></tr></tbody></table>
+<table><thead><tr><th width="240"></th><th width="118">Required</th><th>Description</th></tr></thead><tbody><tr><td>LLM Node Name</td><td><strong>Yes</strong></td><td>Add a descriptive name to the LLM Node to enhance workflow readability and easily <strong>target it back when using loops</strong> within the workflow.</td></tr></tbody></table>
 
 ### Outputs
 
@@ -526,13 +524,15 @@ Update the custom State object strategically to store gathered information or in
 
 ## 6. Tool Node
 
-The Tool Node is a valuable component of Flowise's Sequential Agent system, enabling the integration and execution of external tools within conversational workflows. It acts as a bridge between the language-based processing of LLM Nodes and the specialized functionalities of external tools, APIs, or services.
+The Tool Node is a valuable component of Flowise's Sequential Agent system, **enabling the integration and execution of external tools** within conversational workflows. It acts as a bridge between the language-based processing of LLM Nodes and the specialized functionalities of external tools, APIs, or services.
 
 <figure><img src="../../.gitbook/assets/seq-07.png" alt="" width="300"><figcaption></figcaption></figure>
 
 ### Understanding the Tool Node
 
-The Tool Node's primary function is to **execute external tools** based on instructions received from an LLM Node and to **provide flexibility for Human-in-the-Loop (HITL)** intervention in the tool execution process. Here is how it works:
+The Tool Node's primary function is to **execute external tools** based on instructions received from an LLM Node and to **provide flexibility for Human-in-the-Loop (HITL)** intervention in the tool execution process.&#x20;
+
+#### Here's a step-by-step explanation of how it works
 
 1. **Tool Call Reception:** The Tool Node receives input from an LLM Node. If the LLM's output contains the `tool_calls` property, the Tool Node will proceed with tool execution.
 2. **Execution:** The Tool Node directly passes the LLM's `tool_calls` (which include the tool name and any required parameters) to the specified external tool. Otherwise, the Tool Node does not execute any tools in that particular workflow execution. It does not process or interpret the LLM's output in any way.
@@ -596,11 +596,11 @@ The Condition Node acts as a **decision-making point in Sequential Agent workflo
 
 The Condition Node is essential for building workflows that adapt to different situations and user inputs. It examines the current State of the conversation, which includes all messages exchanged and any custom State variables previously defined. Then, based on the evaluation of the conditions specified in the node setup, the Condition Node directs the flow to one of its outputs.
 
-For instance, after an Agent or LLM Node provides a response, a Condition Node could **check if the response contains a specific keyword or if a certain condition is met in the custom State**. If it does, the flow might be directed to an Agent Node for further action. If not, it could lead to a different path, perhaps ending the conversation or prompting the user with additional questions.
+For instance, after an Agent or LLM Node provides a response, a Condition Node could check if the response contains a specific keyword or if a certain condition is met in the custom State. If it does, the flow might be directed to an Agent Node for further action. If not, it could lead to a different path, perhaps ending the conversation or prompting the user with additional questions.
 
 This enables us to **create branches in our workflow**, where the path taken depends on the data flowing through the system.
 
-#### Here's how it works
+#### Here's a step-by-step explanation of how it works
 
 1. The Condition Node receives input from any preceding node: Start Node, Agent Node, LLM Node, or Tool Node.
 2. It has access to the full conversation history and the custom State (if any), giving it plenty of context to work with.
@@ -694,17 +694,17 @@ This visual approach allows you to easily set up rules that determine the path o
 
 <details>
 
-<summary>Table-Based Conditions</summary>
+<summary>Table-Based: Condition Node</summary>
 
 *   #### Updated on 09/08/2024
 
-    <table><thead><tr><th width="154"></th><th>Description</th><th>Options/Syntax</th></tr></thead><tbody><tr><td><strong>Variable</strong></td><td>The variable or data element to evaluate in the condition.</td><td>- <code>$flow.state.messages.length</code> (Total Messages)<br>- <code>$flow.state.messages[0].con</code> (First Message Content)<br>- <code>$flow.state.messages[-1].con</code> (Last Message Content)<br>- <code>$vars.&#x3C;variable-name></code> (Global variable)</td></tr><tr><td><strong>Operation</strong></td><td>The comparison or logical operation to perform on the variable.</td><td>- Contains<br>- Not Contains<br>- Start With<br>- End With<br>- Is<br>- Is Not<br>- Is Empty<br>- Is Not Empty<br>- Greater Than<br>- Less Than<br>- Equal To<br>- Not Equal To<br>- Greater Than or Equal To<br>- Less Than or Equal To</td></tr><tr><td><strong>Value</strong></td><td>The value to compare the variable against.</td><td>- Depends on the data type of the variable and the selected operation.<br>- Examples: "yes", 10, "Hello"</td></tr><tr><td><strong>Output Name</strong></td><td>The name of the output path to follow if the condition evaluates to <code>true</code>.</td><td>- User-defined name (e.g., "Agent1", "End", "Loop")</td></tr></tbody></table>
+    <table><thead><tr><th width="134"></th><th width="189">Description</th><th>Options/Syntax</th></tr></thead><tbody><tr><td><strong>Variable</strong></td><td>The variable or data element to evaluate in the condition.</td><td>- <code>$flow.state.messages.length</code> (Total Messages)<br>- <code>$flow.state.messages[0].con</code> (First Message Content)<br>- <code>$flow.state.messages[-1].con</code> (Last Message Content)<br>- <code>$vars.&#x3C;variable-name></code> (Global variable)</td></tr><tr><td><strong>Operation</strong></td><td>The comparison or logical operation to perform on the variable.</td><td>- Contains<br>- Not Contains<br>- Start With<br>- End With<br>- Is<br>- Is Not<br>- Is Empty<br>- Is Not Empty<br>- Greater Than<br>- Less Than<br>- Equal To<br>- Not Equal To<br>- Greater Than or Equal To<br>- Less Than or Equal To</td></tr><tr><td><strong>Value</strong></td><td>The value to compare the variable against.</td><td>- Depends on the data type of the variable and the selected operation.<br>- Examples: "yes", 10, "Hello"</td></tr><tr><td><strong>Output Name</strong></td><td>The name of the output path to follow if the condition evaluates to <code>true</code>.</td><td>- User-defined name (e.g., "Agent1", "End", "Loop")</td></tr></tbody></table>
 
 </details>
 
 ### Inputs
 
-<table><thead><tr><th width="167"></th><th width="118">Required</th><th>Description</th></tr></thead><tbody><tr><td>Start Node</td><td>Yes</td><td>Receives the State from the Start Node. This allows the Condition Node to <strong>evaluate conditions based on the initial context of the conversation</strong>, including any custom State.</td></tr><tr><td>Agent Node</td><td>Yes</td><td>Receives the Agent Node's output. This enables the Condition Node to <strong>make decisions based on the agent's actions</strong> and the conversation history, including any custom State.</td></tr><tr><td>LLM Node</td><td>Yes</td><td>Receives the LLM Node's output. This allows the Condition Node to <strong>evaluate conditions based on the LLM's response</strong> and the conversation history, including any custom State.</td></tr><tr><td>Tool Node</td><td>Yes</td><td>Receives the Tool Node's output. This enables the Condition Node to <strong>make decisions based on the results of tool execution</strong> and the conversation history, including any custom State.</td></tr></tbody></table>
+<table><thead><tr><th width="167"></th><th width="118">Required</th><th>Description</th></tr></thead><tbody><tr><td>Start Node</td><td><strong>Yes</strong></td><td>Receives the State from the Start Node. This allows the Condition Node to <strong>evaluate conditions based on the initial context of the conversation</strong>, including any custom State.</td></tr><tr><td>Agent Node</td><td><strong>Yes</strong></td><td>Receives the Agent Node's output. This enables the Condition Node to <strong>make decisions based on the agent's actions</strong> and the conversation history, including any custom State.</td></tr><tr><td>LLM Node</td><td><strong>Yes</strong></td><td>Receives the LLM Node's output. This allows the Condition Node to <strong>evaluate conditions based on the LLM's response</strong> and the conversation history, including any custom State.</td></tr><tr><td>Tool Node</td><td><strong>Yes</strong></td><td>Receives the Tool Node's output. This enables the Condition Node to <strong>make decisions based on the results of tool execution</strong> and the conversation history, including any custom State.</td></tr></tbody></table>
 
 {% hint style="info" %}
 The **Condition Node requires at least one connection from the following nodes**: Start Node, Agent Node, LLM Node, or Tool Node.
@@ -877,9 +877,9 @@ This visual approach allows you to easily set up rules that determine the path o
 
 <details>
 
-<summary>Table-Based Conditions</summary>
+<summary>Table-Based: Condition Agent Node</summary>
 
-*   Updated on 09/08/2024
+*   **Updated on 09/08/2024**
 
     <table><thead><tr><th width="125"></th><th width="186">Description</th><th>Options/Syntax</th></tr></thead><tbody><tr><td><strong>Variable</strong></td><td>The variable or data element to evaluate in the condition. This can include data from the agent's output.</td><td>- <code>$flow.output.content</code> (Agent Output - string)<br>- <code>$flow.output.&#x3C;replace-with-key></code> (Agent's JSON Key Output - string/number)<br>- <code>$flow.state.messages.length</code> (Total Messages)<br>- <code>$flow.state.messages[0].con</code> (First Message Content)<br>- <code>$flow.state.messages[-1].con</code> (Last Message Content)<br>- <code>$vars.&#x3C;variable-name></code> (Global variable)</td></tr><tr><td><strong>Operation</strong></td><td>The comparison or logical operation to perform on the variable.</td><td>- Contains<br>- Not Contains<br>- Start With<br>- End With<br>- Is<br>- Is Not<br>- Is Empty<br>- Is Not Empty<br>- Greater Than<br>- Less Than<br>- Equal To<br>- Not Equal To<br>- Greater Than or Equal To<br>- Less Than or Equal To</td></tr><tr><td><strong>Value</strong></td><td>The value to compare the variable against.</td><td>- Depends on the data type of the variable and the selected operation.<br>- Examples: "yes", 10, "Hello"</td></tr><tr><td><strong>Output Name</strong></td><td>The name of the output path to follow if the condition evaluates to <code>true</code>.</td><td>- User-defined name (e.g., "Agent1", "End", "Loop")</td></tr></tbody></table>
 
