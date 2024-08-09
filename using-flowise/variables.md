@@ -19,19 +19,27 @@ User can create a variable and get the variable like so:
 
 `$vars.<variable-name>`
 
-Besides, user can also use the variable in text input parameter of any node. For example, in Agent System Message:
+Besides, user can also use the variable in text input of any node with the following format:
+
+`{{$vars.<variable-name>}}`
+
+For example, in Agent System Message:
 
 <figure><img src="../.gitbook/assets/image (1).png" alt="" width="508"><figcaption></figcaption></figure>
 
+User can create a variable from the UI as mentioned below, or pass the variable dynamically via [API](api.md#variables). The value will be automatically picked up and used.
+
+## Variable Type
+
 Variables can be Static or Runtime.
 
-## Static
+### Static
 
 Static variable will be saved with the value specified, and retrieved as it is.
 
 <figure><img src="../.gitbook/assets/image (13) (1).png" alt="" width="542"><figcaption></figcaption></figure>
 
-## Runtime
+### Runtime
 
 Value of the variable will be fetched from **.env** file using `process.env`
 
