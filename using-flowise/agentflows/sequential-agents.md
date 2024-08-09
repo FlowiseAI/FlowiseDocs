@@ -953,7 +953,7 @@ Use the JSON Structured Output feature to define a schema for the Conditional Ag
 
 The Loop Node allows us to create loops within our conversational flow, **redirecting the conversation back to a specific point**. This is useful for scenarios where we need to repeat a certain sequence of actions or questions based on user input or specific conditions.
 
-<figure><img src="../../.gitbook/assets/seq-10.png" alt="" width="303"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/sa-loop.png" alt="" width="335"><figcaption></figcaption></figure>
 
 ### Understanding the Loop Node
 
@@ -965,8 +965,8 @@ Here's how the Loop Node could be used:
 
 1. **LLM Node (Initial Search):** The LLM Node receives the user's initial flight request (e.g., "Find flights from Madrid to New York in July"). It queries a flight search API and returns a list of possible flights.
 2. **Agent Node (Present Options):** The Agent Node presents the flight options to the user and asks if they would like to refine their search (e.g., "Would you like to filter by price, airline, or departure time?").
-3. **Conditional Agent Node:** The Conditional Node checks the user's response:
-   * **If the user wants to refine:** The flow goes to an LLM Node ("Refine Search").
+3. **Conditional Agent Node:** The Conditional Agent Node checks the user's response and has two outputs:
+   * **If the user wants to refine:** The flow goes to the "Refine Search" LLM Node.
    * **If the user is happy with the results:** The flow proceeds to the booking process.
 4. **LLM Node (Refine Search):** This LLM Node gathers the user's refinement criteria (e.g., "Show me only flights under $500") and updates the State with the new search parameters.
 5. **Loop Node:** The Loop Node redirects the flow back to the initial LLM Node ("Initial Search"). It passes the updated State, which now includes the refined search criteria.
@@ -974,19 +974,17 @@ Here's how the Loop Node could be used:
 
 **In this example, the Loop Node enables an iterative search refinement process.** The system can continue to loop back and refine the search results until the user is satisfied with the options presented.
 
-The Loop Node's ability to pass the updated State back to the target node ensures that each iteration builds upon the previous one, making the search more precise and efficient.
-
 ### Inputs
 
-<table><thead><tr><th width="197"></th><th width="104">Required</th><th>Description</th></tr></thead><tbody><tr><td>Agent Node</td><td>Yes</td><td>Receives the output of a preceding Agent Node. This data is then sent back to the target node specified in the "Loop To" parameter.</td></tr><tr><td>LLM Node</td><td>Yes</td><td>Receives the output of a preceding LLM Node. This data is then sent back to the target node.</td></tr><tr><td>Tool Node</td><td>Yes</td><td>Receives the output of a preceding Tool Node. This data is then sent back to the target node.</td></tr><tr><td>Conditional Node</td><td>Yes</td><td>Receives the output of a preceding Conditional Node, indicating which branch was taken. This data is then sent back to the target node.</td></tr><tr><td>Conditional Agent Node</td><td>Yes</td><td>Receives the output of a preceding Conditional Agent Node. This data is then sent back to the target node.</td></tr></tbody></table>
+<table><thead><tr><th width="197"></th><th width="104">Required</th><th>Description</th></tr></thead><tbody><tr><td>Agent Node</td><td>Yes</td><td>Receives the output of a preceding Agent Node. This data is then sent back to the target node specified in the "Loop To" parameter.</td></tr><tr><td>LLM Node</td><td>Yes</td><td>Receives the output of a preceding LLM Node. This data is then sent back to the target node specified in the "Loop To" parameter.</td></tr><tr><td>Tool Node</td><td>Yes</td><td>Receives the output of a preceding Tool Node. This data is then sent back to the target node specified in the "Loop To" parameter.</td></tr><tr><td>Conditional Node</td><td>Yes</td><td>Receives the output of a preceding Conditional Node. This data is then sent back to the target node specified in the "Loop To" parameter.</td></tr><tr><td>Conditional Agent Node</td><td>Yes</td><td>Receives the output of a preceding Conditional Agent Node. This data is then sent back to the target node specified in the "Loop To" parameter.</td></tr></tbody></table>
 
 {% hint style="info" %}
-The **Loop Node requires at least one connection from the following nodes**: Agent Node, LLM Node, Conditional Node, Conditional Agent Node or Tool Node.
+The **Loop Node requires at least one connection from the following nodes**: Agent Node, LLM Node, Tool Node, Conditional Node, or Conditional Agent Node.
 {% endhint %}
 
 ### Node Setup
 
-<table><thead><tr><th width="125">Item</th><th width="109">Required</th><th>Description</th></tr></thead><tbody><tr><td>Loop To</td><td><strong>Yes</strong></td><td>The Loop Node requires us to <strong>specify the target node</strong> ("Loop To") where the conversational flow should be redirected. This target node must be an <strong>Agent Node</strong> or <strong>LLM Node</strong>.</td></tr></tbody></table>
+<table><thead><tr><th width="125"></th><th width="109">Required</th><th>Description</th></tr></thead><tbody><tr><td>Loop To</td><td><strong>Yes</strong></td><td>The Loop Node requires us to <strong>specify the target node</strong> ("Loop To") where the conversational flow should be redirected. This target node must be an <strong>Agent Node</strong> or <strong>LLM Node</strong>.</td></tr></tbody></table>
 
 ### Outputs
 
@@ -998,7 +996,7 @@ The **Loop Node does not have any direct output connections**. It redirects the 
 {% tab title="Pro Tips" %}
 **Clear loop purpose**
 
-Define a clear purpose for each loop in your workflow. If possible, document with the sticky note node what you're trying to achieve with the loop.
+Define a clear purpose for each loop in your workflow. If possible, document with a sticky note what you're trying to achieve with the loop.
 {% endtab %}
 
 {% tab title="Potencial Pitfalls" %}
@@ -1006,7 +1004,7 @@ Define a clear purpose for each loop in your workflow. If possible, document wit
 
 * **Problem:** Excessive or poorly designed loops make the workflow difficult to understand and maintain.
 * **Example:** You use multiple nested loops without clear purpose or labels, making it hard to follow the flow of the conversation.
-* **Solution:** Use loops sparingly and only when necessary. Clearly document your Loop Nodes and the nodes they connect to. Consider breaking down complex loops into smaller, more manageable units.
+* **Solution:** Use loops sparingly and only when necessary. Clearly document your Loop Nodes and the nodes they connect to.
 
 **Infinite loops due to missing or incorrect exit conditions**
 
