@@ -439,25 +439,20 @@ You are a travel booking agent. Your primary goal is to assist users in planning
 
 ## 5. LLM Node
 
-As the Agent Node, the **LLM Node is** also **a core component of the Sequential Agent architecture**. While both the LLM Node and Agent Node utilize the same Chat Models (LLMs) by default, providing the same basic language processing capabilities, the LLM Node distinguishes itself in these key areas.
+Like the Agent Node, the LLM Node is a **core component of the Sequential Agent architecture**. Both nodes utilize the same Chat Models (LLMs) by default, providing the same basic language processing capabilities, but the LLM Node distinguishes itself in these key areas.
 
-<figure><img src="../../.gitbook/assets/seq-06.png" alt="" width="299"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/sa-llm.png" alt="" width="341"><figcaption></figcaption></figure>
 
-### Here's a breakdown of the key differences
+### Key advantages of the LLM Node
 
-* **Structured data:** The LLM Node provides a dedicated feature to define a JSON schema for its output. This makes it exceptionally easy to extract structured information from the LLM's responses and pass that data to Tool Nodes in the correct JSON format. The Agent Node does not have this built-in JSON schema feature.
+While a detailed comparison between the LLM Node and the Agent Node is available in [this section](sequential-agents.md#agent-node-vs.-llm-node-selecting-the-optimal-node-for-conversational-tasks), here's a brief overview of the **LLM Node's key advantages**:
+
+* **Structured data:** The LLM Node provides a dedicated feature to define a JSON schema for its output. This makes it exceptionally easy to extract structured information from the LLM's responses and pass that data to consequent nodes in the workflow. The Agent Node does not have this built-in JSON schema feature
 * **HITL:** While both nodes support HITL for tool execution, the LLM Node defers this control to the Tool Node itself, providing more flexibility in workflow design.
-
-### Choosing the Right Node: LLM Node vs. Agent Node
-
-For a full comparison table about this, we refer you to [this section](sequential-agents.md#agent-node-vs.-llm-node-selecting-the-optimal-node-for-conversational-tasks). In the meantime, here's a quick overview:
-
-* **Choose the LLM Node** when you need to extract structured data from LLM responses using the built-in JSON schema feature, or when we require fine-grained control over the LLM's output and its interaction with tools.
-* **Choose the Agent Node** when you're focused on creating a more conversational flow, managing dialogue turns, and orchestrating multiple tools at a higher level.
 
 ### Inputs
 
-<table><thead><tr><th width="161"></th><th width="130">Required</th><th>Description</th></tr></thead><tbody><tr><td>Chat Model</td><td>No</td><td>Add a new Chat Model to <strong>overwrite the default Chat Model</strong> (LLM) of the workflow. Only compatible with models that are capable of function calling.</td></tr><tr><td>Start Node</td><td>Yes</td><td>Receives the <strong>initial user input</strong>, along with the custom State (if set up) and the rest of the default <code>state.messages</code> array from the Start Node.</td></tr><tr><td>Agent Node</td><td>Yes</td><td>Receives output from an Agent Node, which may include tool execution results or agent-generated responses.</td></tr><tr><td>LLM Node</td><td>Yes</td><td>Receives output from another LLM Node, <strong>enabling chained reasoning</strong> or information processing across multiple LLM Nodes.</td></tr><tr><td>Tool Node</td><td>Yes</td><td>Receives output from a Tool Node, <strong>providing the results of tool execution for further processing</strong> or response generation.</td></tr></tbody></table>
+<table><thead><tr><th width="184"></th><th width="111">Required</th><th>Description</th></tr></thead><tbody><tr><td>Chat Model</td><td>No</td><td>Add a new Chat Model to <strong>overwrite the default Chat Model</strong> (LLM) of the workflow. Only compatible with models that are capable of function calling.</td></tr><tr><td>Start Node</td><td>Yes</td><td>Receives the <strong>initial user input</strong>, along with the custom State (if set up) and the rest of the default <code>state.messages</code> array from the Start Node.</td></tr><tr><td>Condition Node</td><td></td><td></td></tr><tr><td>Condition Agent Node</td><td></td><td></td></tr><tr><td>Agent Node</td><td>Yes</td><td>Receives output from an Agent Node, which may include tool execution results or agent-generated responses.</td></tr><tr><td>LLM Node</td><td>Yes</td><td>Receives output from another LLM Node, <strong>enabling chained reasoning</strong> or information processing across multiple LLM Nodes.</td></tr><tr><td>Tool Node</td><td>Yes</td><td>Receives output from a Tool Node, <strong>providing the results of tool execution for further processing</strong> or response generation.</td></tr></tbody></table>
 
 {% hint style="info" %}
 The **LLM Node requires at least one connection from the following nodes**: Start Node, Agent Node, LLM Node, or Tool Node.
