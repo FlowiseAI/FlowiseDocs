@@ -125,7 +125,7 @@ The Start Node can connect to the following nodes as outputs:
 {% tab title="Pro Tips" %}
 **Choose the right Chat Model**
 
-Ensure your selected LLM supports function calling, a key feature for enabling agent-tool interactions. Additionally, choose an LLM that aligns with the complexity and requirements of your application. You can override the default LLM by setting it at the Agent/LLM/Conditional Agent node level when necessary.
+Ensure your selected LLM supports function calling, a key feature for enabling agent-tool interactions. Additionally, choose an LLM that aligns with the complexity and requirements of your application. You can override the default LLM by setting it at the Agent/LLM/Condition Agent node level when necessary.
 
 **Consider context and persistence**
 
@@ -588,28 +588,28 @@ When using HITL, design clear and informative prompts for human reviewers. Provi
 
 ## 7. Condition Node
 
-The Conditional Node acts as a **decision-making point in Sequential Agent workflows**, evaluating a set of predefined conditions to determine the flow's next path.
+The Condition Node acts as a **decision-making point in Sequential Agent workflows**, evaluating a set of predefined conditions to determine the flow's next path.
 
 <figure><img src="../../.gitbook/assets/seq-08.png" alt="" width="299"><figcaption></figcaption></figure>
 
 ### Understanding the Condition Node
 
-The Conditional Node is essential for building workflows that adapt to different situations and user inputs. It examines the current State of the conversation, which includes all messages exchanged and any custom State variables previously defined. Then, based on the evaluation of the conditions specified in the node setup, the Conditional Node directs the flow to one of its outputs.
+The Condition Node is essential for building workflows that adapt to different situations and user inputs. It examines the current State of the conversation, which includes all messages exchanged and any custom State variables previously defined. Then, based on the evaluation of the conditions specified in the node setup, the Condition Node directs the flow to one of its outputs.
 
-For instance, after an Agent or LLM Node provides a response, a Conditional Node could **check if the response contains a specific keyword or if a certain condition is met in the custom State**. If it does, the flow might be directed to an Agent Node for further action. If not, it could lead to a different path, perhaps ending the conversation or prompting the user with additional questions.
+For instance, after an Agent or LLM Node provides a response, a Condition Node could **check if the response contains a specific keyword or if a certain condition is met in the custom State**. If it does, the flow might be directed to an Agent Node for further action. If not, it could lead to a different path, perhaps ending the conversation or prompting the user with additional questions.
 
 This enables us to **create branches in our workflow**, where the path taken depends on the data flowing through the system.
 
 #### Here's how it works
 
-1. The Conditional Node receives input from any preceding node: Start Node, Agent Node, LLM Node, or Tool Node.
+1. The Condition Node receives input from any preceding node: Start Node, Agent Node, LLM Node, or Tool Node.
 2. It has access to the full conversation history and the custom State (if any), giving it plenty of context to work with.
 3. We define a condition that the node will evaluate. This could be checking for keywords, comparing values in the state, or any other logic we could implement via JavaScript.
-4. Based on whether the condition evaluates to **true** or **false**, the Conditional Node sends the flow down one of its predefined output paths. This creates a "fork in the road" or branch for our workflow.
+4. Based on whether the condition evaluates to **true** or **false**, the Condition Node sends the flow down one of its predefined output paths. This creates a "fork in the road" or branch for our workflow.
 
 ### How to set up conditions
 
-The Conditional Node allows us to define dynamic branching logic in our workflow by choosing either a **table-based interface** or a **JavaScript code editor** to define the conditions that will control the conversation flow.
+The Condition Node allows us to define dynamic branching logic in our workflow by choosing either a **table-based interface** or a **JavaScript code editor** to define the conditions that will control the conversation flow.
 
 <figure><img src="../../.gitbook/assets/seq-16 (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -617,7 +617,7 @@ The Conditional Node allows us to define dynamic branching logic in our workflow
 
 <summary>Conditions using CODE</summary>
 
-The **Conditional Node uses JavaScript** to evaluate specific conditions within the conversation flow.
+The **Condition Node uses JavaScript** to evaluate specific conditions within the conversation flow.
 
 We can set up conditions based on keywords, State changes, or other factors to dynamically guide the workflow to different branches based on the context of the conversation. Here are some examples:
 
@@ -658,7 +658,7 @@ return $flow.state.orderStatus === "confirmed" ? "Output 1" : "Output 2";
 
 <summary>Conditions using TABLE</summary>
 
-The Conditional Node allows us to define conditions using a **user-friendly table interface**, making it easy to create dynamic workflows without writing JavaScript code.
+The Condition Node allows us to define conditions using a **user-friendly table interface**, making it easy to create dynamic workflows without writing JavaScript code.
 
 You can set up conditions based on keywords, State changes, or other factors to guide the conversation flow along different branches. Here are some examples:
 
@@ -704,15 +704,15 @@ This visual approach allows you to easily set up rules that determine the path o
 
 ### Inputs
 
-<table><thead><tr><th width="167"></th><th width="118">Required</th><th>Description</th></tr></thead><tbody><tr><td>Start Node</td><td>Yes</td><td>Receives the State from the Start Node. This allows the Conditional Node to <strong>evaluate conditions based on the initial context of the conversation</strong>, including any custom State.</td></tr><tr><td>Agent Node</td><td>Yes</td><td>Receives the Agent Node's output. This enables the Conditional Node to <strong>make decisions based on the agent's actions</strong> and the conversation history, including any custom State.</td></tr><tr><td>LLM Node</td><td>Yes</td><td>Receives the LLM Node's output. This allows the Conditional Node to <strong>evaluate conditions based on the LLM's response</strong> and the conversation history, including any custom State.</td></tr><tr><td>Tool Node</td><td>Yes</td><td>Receives the Tool Node's output. This enables the Conditional Node to <strong>make decisions based on the results of tool execution</strong> and the conversation history, including any custom State.</td></tr></tbody></table>
+<table><thead><tr><th width="167"></th><th width="118">Required</th><th>Description</th></tr></thead><tbody><tr><td>Start Node</td><td>Yes</td><td>Receives the State from the Start Node. This allows the Condition Node to <strong>evaluate conditions based on the initial context of the conversation</strong>, including any custom State.</td></tr><tr><td>Agent Node</td><td>Yes</td><td>Receives the Agent Node's output. This enables the Condition Node to <strong>make decisions based on the agent's actions</strong> and the conversation history, including any custom State.</td></tr><tr><td>LLM Node</td><td>Yes</td><td>Receives the LLM Node's output. This allows the Condition Node to <strong>evaluate conditions based on the LLM's response</strong> and the conversation history, including any custom State.</td></tr><tr><td>Tool Node</td><td>Yes</td><td>Receives the Tool Node's output. This enables the Condition Node to <strong>make decisions based on the results of tool execution</strong> and the conversation history, including any custom State.</td></tr></tbody></table>
 
 {% hint style="info" %}
-The **Conditional Node requires at least one connection from the following nodes**: Start Node, Agent Node, LLM Node, or Tool Node.
+The **Condition Node requires at least one connection from the following nodes**: Start Node, Agent Node, LLM Node, or Tool Node.
 {% endhint %}
 
 ### Outputs
 
-The Conditional Node **dynamically determines its output path based on the predefined conditions**, using either the table-based interface or JavaScript. This provides flexibility in directing the workflow based on condition evaluations.
+The Condition Node **dynamically determines its output path based on the predefined conditions**, using either the table-based interface or JavaScript. This provides flexibility in directing the workflow based on condition evaluations.
 
 #### Condition evaluation logic
 
@@ -726,7 +726,7 @@ Each predefined output, including the default "End" output, can be connected to 
 
 * **Agent Node:** To continue the conversation with an agent, potentially taking actions based on the condition's outcome.
 * **LLM Node:** To process the current State and conversation history with an LLM, generating responses or making further decisions.
-* **End Node:** To terminate the conversation flow. If any output, including the default "End" output, is connected to an End Node, the Conditional Node will output the last response from the preceding node and end the workflow.
+* **End Node:** To terminate the conversation flow. If any output, including the default "End" output, is connected to an End Node, the Condition Node will output the last response from the preceding node and end the workflow.
 * **Loop Node:** To redirect the flow back to a previous sequential node, enabling iterative processes based on the condition's outcome.
 
 ### Node Setup
@@ -749,14 +749,14 @@ Start with simple conditions and gradually add complexity as needed. This makes 
 {% tab title="Potential Pitfalls" %}
 **Mismatched condition logic and workflow design**
 
-* **Problem:** The conditions you define in the Conditional Node do not accurately reflect the intended logic of your workflow, leading to unexpected branching or incorrect execution paths.
+* **Problem:** The conditions you define in the Condition Node do not accurately reflect the intended logic of your workflow, leading to unexpected branching or incorrect execution paths.
 * **Example:** You set up a condition to check if the user's age is greater than 18, but the output path for that condition leads to a section designed for users under 18.
 * **Solution:** Review your conditions and ensure that the output paths associated with each condition match the intended workflow logic. Use clear and descriptive names for your outputs to avoid confusion.
 
 **Insufficient State management**
 
-* **Problem:** The Conditional Node relies on a custom state variable that is not updated correctly, leading to inaccurate condition evaluations and incorrect branching.
-* **Example:** You're tracking a "userLocation" variable in the custom State, but the variable is not updated when the user provides their location. The Conditional Node evaluates the condition based on the outdated value, leading to an incorrect path.
+* **Problem:** The Condition Node relies on a custom state variable that is not updated correctly, leading to inaccurate condition evaluations and incorrect branching.
+* **Example:** You're tracking a "userLocation" variable in the custom State, but the variable is not updated when the user provides their location. The Condition Node evaluates the condition based on the outdated value, leading to an incorrect path.
 * **Solution:** Ensure that any custom state variables used in your conditions are updated correctly throughout the workflow.
 {% endtab %}
 {% endtabs %}
@@ -775,9 +775,9 @@ The Condition Agent Node provides **dynamic and intelligent routing within Seque
 * **Contextual awareness:** The agent considers the entire conversation history and any custom State when evaluating conditions.
 * **Flexibility:** Provides both table-based and code-based options for defining conditions, when catering to different user preferences and skill levels.
 
-### Setting up the Conditional Agent Node
+### Setting up the Condition Agent Node
 
-The Conditional Agent Node acts as a specialized agent that can both **process information and make routing decisions**. Here's how to configure it:
+The Condition Agent Node acts as a specialized agent that can both **process information and make routing decisions**. Here's how to configure it:
 
 1. **Define the agent's persona**
    * In the "System Prompt" field, provide a clear and concise description of the agent's role and the task it needs to perform for conditional routing. This prompt will guide the agent's understanding of the conversation and its decision-making process.
@@ -792,7 +792,7 @@ The Conditional Agent Node acts as a specialized agent that can both **process i
 
 ### How to set up conditions
 
-The Conditional Agent Node allows us to define dynamic branching logic in our workflow by choose either a **table-based interface** or a **JavaScript code editor** to define the conditions that will control the conversation flow.
+The Condition Agent Node allows us to define dynamic branching logic in our workflow by choose either a **table-based interface** or a **JavaScript code editor** to define the conditions that will control the conversation flow.
 
 <figure><img src="../../.gitbook/assets/seq-16 (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -800,9 +800,9 @@ The Conditional Agent Node allows us to define dynamic branching logic in our wo
 
 <summary>Conditions using CODE</summary>
 
-The Conditional Agent Node, like the Conditional Node, **uses JavaScript code to evaluate specific conditions** within the conversation flow.
+The Condition Agent Node, like the Condition Node, **uses JavaScript code to evaluate specific conditions** within the conversation flow.
 
-However, the Conditional Agent Node can evaluate conditions based on a wider range of factors, including keywords, state changes, and the content of its own output (either as free-form text or structured JSON data). This allows for more nuanced and context-aware routing decisions. Here are some examples:
+However, the Condition Agent Node can evaluate conditions based on a wider range of factors, including keywords, state changes, and the content of its own output (either as free-form text or structured JSON data). This allows for more nuanced and context-aware routing decisions. Here are some examples:
 
 **Keyword condition**
 
@@ -841,7 +841,7 @@ return $flow.state.orderStatus === "confirmed" ? "Output 1" : "Output 2";
 
 <summary>Conditions using TABLE</summary>
 
-The Conditional Agent Node also provides a **user-friendly table interface for defining conditions**, similar to the Conditional Node. You can set up conditions based on keywords, state changes, or the agent's own output, allowing you to create dynamic workflows without writing JavaScript code.
+The Condition Agent Node also provides a **user-friendly table interface for defining conditions**, similar to the Condition Node. You can set up conditions based on keywords, state changes, or the agent's own output, allowing you to create dynamic workflows without writing JavaScript code.
 
 This table-based approach simplifies condition management and makes it easier to visualize the branching logic. Here are some examples:
 
@@ -887,19 +887,19 @@ This visual approach allows you to easily set up rules that determine the path o
 
 ### Inputs
 
-<table><thead><tr><th width="167"></th><th width="118">Required</th><th>Description</th></tr></thead><tbody><tr><td>Start Node</td><td>Yes</td><td>Receives the State from the Start Node. This allows the Conditional Agent Node to <strong>evaluate conditions based on the initial context</strong> of the conversation, including any custom State.</td></tr><tr><td>Agent Node</td><td>Yes</td><td>Receives the Agent Node's output. This enables the Conditional Agent Node to <strong>make decisions based on the agent's actions</strong> and the conversation history, including any custom State.</td></tr><tr><td>LLM Node</td><td>Yes</td><td>Receives LLM Node's output. This allows the Conditional Agent Node to <strong>evaluate conditions based on the LLM's response</strong> and the conversation history, including any custom State.</td></tr><tr><td>Tool Node</td><td>Yes</td><td>Receives the Tool Node's output. This enables the Conditional Agent Node to <strong>make decisions based on the results of tool execution</strong> and the conversation history, including any custom State.</td></tr></tbody></table>
+<table><thead><tr><th width="167"></th><th width="118">Required</th><th>Description</th></tr></thead><tbody><tr><td>Start Node</td><td>Yes</td><td>Receives the State from the Start Node. This allows the Condition Agent Node to <strong>evaluate conditions based on the initial context</strong> of the conversation, including any custom State.</td></tr><tr><td>Agent Node</td><td>Yes</td><td>Receives the Agent Node's output. This enables the Condition Agent Node to <strong>make decisions based on the agent's actions</strong> and the conversation history, including any custom State.</td></tr><tr><td>LLM Node</td><td>Yes</td><td>Receives LLM Node's output. This allows the Condition Agent Node to <strong>evaluate conditions based on the LLM's response</strong> and the conversation history, including any custom State.</td></tr><tr><td>Tool Node</td><td>Yes</td><td>Receives the Tool Node's output. This enables the Condition Agent Node to <strong>make decisions based on the results of tool execution</strong> and the conversation history, including any custom State.</td></tr></tbody></table>
 
 {% hint style="info" %}
-The **Conditional Agent Node requires at least one connection from the following nodes**: Start Node, Agent Node, LLM Node, or Tool Node.
+The **Condition Agent Node requires at least one connection from the following nodes**: Start Node, Agent Node, LLM Node, or Tool Node.
 {% endhint %}
 
 ### Node Setup
 
-<table><thead><tr><th width="178">Parameter</th><th width="110">Required</th><th>Description</th></tr></thead><tbody><tr><td>Name</td><td>No</td><td>Add a descriptive name to the Conditional Agent Node to enhance workflow readability and easily.</td></tr><tr><td>Condition</td><td><strong>Yes</strong></td><td>This is where we <strong>define the logic that will be evaluated to determine the output paths</strong>.</td></tr></tbody></table>
+<table><thead><tr><th width="178">Parameter</th><th width="110">Required</th><th>Description</th></tr></thead><tbody><tr><td>Name</td><td>No</td><td>Add a descriptive name to the Condition Agent Node to enhance workflow readability and easily.</td></tr><tr><td>Condition</td><td><strong>Yes</strong></td><td>This is where we <strong>define the logic that will be evaluated to determine the output paths</strong>.</td></tr></tbody></table>
 
 ### Outputs
 
-The Conditional Agent Node, like the Condition Node, **dynamically determines its output path based on the conditions defined**, using either the table-based interface or JavaScript. This provides flexibility in directing the workflow based on condition evaluations.
+The Condition Agent Node, like the Condition Node, **dynamically determines its output path based on the conditions defined**, using either the table-based interface or JavaScript. This provides flexibility in directing the workflow based on condition evaluations.
 
 #### Condition evaluation logic
 
@@ -913,17 +913,17 @@ Each predefined output, including the default "End" output, can be connected to 
 
 * **Agent Node:** To continue the conversation with an agent, potentially taking actions based on the condition's outcome.
 * **LLM Node:** To process the current State and conversation history with an LLM, generating responses or making further decisions.
-* **End Node:** To terminate the conversation flow. If the default "End" output is connected to an End Node, the Conditional Node will output the last response from the preceding node and end the conversation.
+* **End Node:** To terminate the conversation flow. If the default "End" output is connected to an End Node, the Condition Node will output the last response from the preceding node and end the conversation.
 * **Loop Node:** To redirect the flow back to a previous sequential node, enabling iterative processes based on the condition's outcome.
 
 #### Key differences from the Condition Node
 
-* The Conditional **Agent Node incorporates an agent's reasoning** and structured output into the condition evaluation process.
-* It provides a more integrated approach to agent-based conditional routing.
+* The Condition **Agent Node incorporates an agent's reasoning** and structured output into the condition evaluation process.
+* It provides a more integrated approach to agent-based condition routing.
 
 ### Additional Parameters
 
-<table><thead><tr><th width="180"></th><th width="111">Required</th><th>Description</th></tr></thead><tbody><tr><td>System Prompt</td><td>No</td><td><strong>Defines the Conditional Agent's 'persona' and guides its behavior for making routing decisions.</strong> For example: "You are a customer service agent specializing in technical support. Your goal is to help customers with technical issues related to our product. Based on the user's query, identify the specific technical issue (e.g., connectivity problems, software bugs, hardware malfunctions)."</td></tr><tr><td>Human Prompt</td><td>No</td><td>This prompt is appended to the <code>state.messages</code> array as a human message. It allows us to <strong>inject a human-like message into the conversation flow</strong> after the Conditional Agent Node has processed its input and before the next node receives the Conditional Agent Node's output.</td></tr><tr><td>JSON Structured Output</td><td>No</td><td>To instruct the Conditional Agent Node to <strong>provide the output in JSON structure schema</strong> (Key, Type, Enum Values, Description).</td></tr></tbody></table>
+<table><thead><tr><th width="180"></th><th width="111">Required</th><th>Description</th></tr></thead><tbody><tr><td>System Prompt</td><td>No</td><td><strong>Defines the Condition Agent's 'persona' and guides its behavior for making routing decisions.</strong> For example: "You are a customer service agent specializing in technical support. Your goal is to help customers with technical issues related to our product. Based on the user's query, identify the specific technical issue (e.g., connectivity problems, software bugs, hardware malfunctions)."</td></tr><tr><td>Human Prompt</td><td>No</td><td>This prompt is appended to the <code>state.messages</code> array as a human message. It allows us to <strong>inject a human-like message into the conversation flow</strong> after the Condition Agent Node has processed its input and before the next node receives the Condition Agent Node's output.</td></tr><tr><td>JSON Structured Output</td><td>No</td><td>To instruct the Condition Agent Node to <strong>provide the output in JSON structure schema</strong> (Key, Type, Enum Values, Description).</td></tr></tbody></table>
 
 ### Best Practices
 
@@ -935,14 +935,14 @@ Provide a well-defined persona and clear instructions to the agent in the System
 
 **Structure output for reliable conditions**
 
-Use the JSON Structured Output feature to define a schema for the Conditional Agent's output. This will ensure that the output is consistent and easily parsable, making it more reliable for use in conditional evaluations.
+Use the JSON Structured Output feature to define a schema for the Condition Agent's output. This will ensure that the output is consistent and easily parsable, making it more reliable for use in conditional evaluations.
 {% endtab %}
 
 {% tab title="Potential Pitfalls" %}
 **Unreliable routing due to unstructured output**
 
-* **Problem:** The Conditional Agent Node is not configured to output structured JSON data, leading to unpredictable output formats that can make it difficult to define reliable conditions.
-* **Example:** The Conditional Agent Node is asked to determine user sentiment (positive, negative, neutral) but outputs its assessment as a free-form text string. The variability in the agent's language makes it challenging to create accurate conditions in the conditional table or code.
+* **Problem:** The Condition Agent Node is not configured to output structured JSON data, leading to unpredictable output formats that can make it difficult to define reliable conditions.
+* **Example:** The Condition Agent Node is asked to determine user sentiment (positive, negative, neutral) but outputs its assessment as a free-form text string. The variability in the agent's language makes it challenging to create accurate conditions in the conditional table or code.
 * **Solution:** Use the JSON Structured Output feature to define a schema for the agent's output. For example, specify a "sentiment" key with an enum of "positive," "negative," and "neutral." This will ensure that the agent's output is consistently structured, making it much easier to create reliable conditions.
 {% endtab %}
 {% endtabs %}
@@ -965,7 +965,7 @@ Here's how the Loop Node could be used:
 
 1. **LLM Node (Initial Search):** The LLM Node receives the user's initial flight request (e.g., "Find flights from Madrid to New York in July"). It queries a flight search API and returns a list of possible flights.
 2. **Agent Node (Present Options):** The Agent Node presents the flight options to the user and asks if they would like to refine their search (e.g., "Would you like to filter by price, airline, or departure time?").
-3. **Conditional Agent Node:** The Conditional Agent Node checks the user's response and has two outputs:
+3. **Condition Agent Node:** The Condition Agent Node checks the user's response and has two outputs:
    * **If the user wants to refine:** The flow goes to the "Refine Search" LLM Node.
    * **If the user is happy with the results:** The flow proceeds to the booking process.
 4. **LLM Node (Refine Search):** This LLM Node gathers the user's refinement criteria (e.g., "Show me only flights under $500") and updates the State with the new search parameters.
@@ -976,10 +976,10 @@ Here's how the Loop Node could be used:
 
 ### Inputs
 
-<table><thead><tr><th width="197"></th><th width="104">Required</th><th>Description</th></tr></thead><tbody><tr><td>Agent Node</td><td>Yes</td><td>Receives the output of a preceding Agent Node. This data is then sent back to the target node specified in the "Loop To" parameter.</td></tr><tr><td>LLM Node</td><td>Yes</td><td>Receives the output of a preceding LLM Node. This data is then sent back to the target node specified in the "Loop To" parameter.</td></tr><tr><td>Tool Node</td><td>Yes</td><td>Receives the output of a preceding Tool Node. This data is then sent back to the target node specified in the "Loop To" parameter.</td></tr><tr><td>Conditional Node</td><td>Yes</td><td>Receives the output of a preceding Conditional Node. This data is then sent back to the target node specified in the "Loop To" parameter.</td></tr><tr><td>Conditional Agent Node</td><td>Yes</td><td>Receives the output of a preceding Conditional Agent Node. This data is then sent back to the target node specified in the "Loop To" parameter.</td></tr></tbody></table>
+<table><thead><tr><th width="197"></th><th width="104">Required</th><th>Description</th></tr></thead><tbody><tr><td>Agent Node</td><td>Yes</td><td>Receives the output of a preceding Agent Node. This data is then sent back to the target node specified in the "Loop To" parameter.</td></tr><tr><td>LLM Node</td><td>Yes</td><td>Receives the output of a preceding LLM Node. This data is then sent back to the target node specified in the "Loop To" parameter.</td></tr><tr><td>Tool Node</td><td>Yes</td><td>Receives the output of a preceding Tool Node. This data is then sent back to the target node specified in the "Loop To" parameter.</td></tr><tr><td>Condition Node</td><td>Yes</td><td>Receives the output of a preceding Condition Node. This data is then sent back to the target node specified in the "Loop To" parameter.</td></tr><tr><td>Condition Agent Node</td><td>Yes</td><td>Receives the output of a preceding Condition Agent Node. This data is then sent back to the target node specified in the "Loop To" parameter.</td></tr></tbody></table>
 
 {% hint style="info" %}
-The **Loop Node requires at least one connection from the following nodes**: Agent Node, LLM Node, Tool Node, Conditional Node, or Conditional Agent Node.
+The **Loop Node requires at least one connection from the following nodes**: Agent Node, LLM Node, Tool Node, Condition Node, or Condition Agent Node.
 {% endhint %}
 
 ### Node Setup
@@ -1010,7 +1010,7 @@ Define a clear purpose for each loop in your workflow. If possible, document wit
 
 * **Problem:** The loop never terminates because the condition that should trigger the loop's exit is either missing or incorrectly defined.
 * **Example:** A Loop Node is used to iteratively gather user information. However, the workflow lacks a Conditional Agent Node to check if all required information has been collected. As a result, the loop continues indefinitely, repeatedly asking the user for the same information.
-* **Solution:** Always define clear and accurate exit conditions for loops. Use Conditional Nodes to check state variables, user input, or other factors that indicate when the loop should terminate.
+* **Solution:** Always define clear and accurate exit conditions for loops. Use Condition Nodes to check state variables, user input, or other factors that indicate when the loop should terminate.
 {% endtab %}
 {% endtabs %}
 
@@ -1028,7 +1028,7 @@ The End Node serves as a signal within Flowise's Sequential Agent architecture, 
 
 ### Inputs
 
-<table><thead><tr><th width="212"></th><th width="103">Required</th><th>Description</th></tr></thead><tbody><tr><td>Agent Node</td><td>Yes</td><td>Receives the final output from a preceding Agent Node, indicating the end of the agent's processing.</td></tr><tr><td>LLM Node</td><td>Yes</td><td>Receives the final output from a preceding LLM Node, indicating the end of the LLM Node's processing.</td></tr><tr><td>Tool Node</td><td>Yes</td><td>Receives the final output from a preceding Tool Node, indicating the completion of the Tool Node's execution.</td></tr><tr><td>Conditional Node</td><td>Yes</td><td>Receives the final output from a preceding Conditional Node, indicating the end of the Condition Node's execution.</td></tr><tr><td>Conditional Agent Node</td><td>Yes</td><td>Receives the final output from a preceding Conditional Node, indicating the completion of the Condition Agent Node's processing.</td></tr></tbody></table>
+<table><thead><tr><th width="212"></th><th width="103">Required</th><th>Description</th></tr></thead><tbody><tr><td>Agent Node</td><td>Yes</td><td>Receives the final output from a preceding Agent Node, indicating the end of the agent's processing.</td></tr><tr><td>LLM Node</td><td>Yes</td><td>Receives the final output from a preceding LLM Node, indicating the end of the LLM Node's processing.</td></tr><tr><td>Tool Node</td><td>Yes</td><td>Receives the final output from a preceding Tool Node, indicating the completion of the Tool Node's execution.</td></tr><tr><td>Condition Node</td><td>Yes</td><td>Receives the final output from a preceding Condition Node, indicating the end of the Condition Node's execution.</td></tr><tr><td>Condition Agent Node</td><td>Yes</td><td>Receives the final output from a preceding Condition Node, indicating the completion of the Condition Agent Node's processing.</td></tr></tbody></table>
 
 {% hint style="info" %}
 The **End Node requires at least one connection from the following nodes**: Agent Node, LLM Node, or Tool Node.
@@ -1066,7 +1066,7 @@ If appropriate, connect the End Node to an dedicated LLM or Agent Node to genera
 
 ## Condition Node vs. Condition Agent Node
 
-The Condition and Conditional Agent Nodes are essential in Flowise's Sequential Agent architecture for creating dynamic conversational experiences.&#x20;
+The Condition and Condition Agent Nodes are essential in Flowise's Sequential Agent architecture for creating dynamic conversational experiences.&#x20;
 
 These nodes enable adaptive workflows, responding to user input, context, and complex decisions, but differ in their approach to condition evaluation and sophistication
 
@@ -1131,8 +1131,8 @@ Same as the Condition Node:
 
 ### Choosing the right node
 
-* **Conditional Node:** Use the Conditional Node when your routing logic involves straightforward decisions based on easily definable conditions. For instance, it's perfect for checking for specific keywords, comparing values in the State, or evaluating other simple logical expressions.
-* **Conditional Agent Node:** However, when your routing demands a deeper understanding of the conversation's nuances, the Conditional Agent Node is the better choice. This node acts as your intelligent routing assistant, leveraging an LLM to analyze the conversation, make judgments based on context, and provide structured output that drives more sophisticated and dynamic routing.
+* **Condition Node:** Use the Condition Node when your routing logic involves straightforward decisions based on easily definable conditions. For instance, it's perfect for checking for specific keywords, comparing values in the State, or evaluating other simple logical expressions.
+* **Condition Agent Node:** However, when your routing demands a deeper understanding of the conversation's nuances, the Condition Agent Node is the better choice. This node acts as your intelligent routing assistant, leveraging an LLM to analyze the conversation, make judgments based on context, and provide structured output that drives more sophisticated and dynamic routing.
 
 ***
 
