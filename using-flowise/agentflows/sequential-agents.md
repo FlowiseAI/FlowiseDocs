@@ -1064,17 +1064,15 @@ If appropriate, connect the End Node to an dedicated LLM or Agent Node to genera
 
 ***
 
-## Conditional Node vs. Conditional Agent Node
+## Condition Node vs. Condition Agent Node
 
-Within Flowise's Sequential Agent AI architecture, both the Conditional Node and the Conditional Agent Node play an important role in creating intelligent and dynamic conversational experiences.
+The Condition and Conditional Agent Nodes are essential in Flowise's Sequential Agent architecture for creating dynamic conversational experiences.&#x20;
 
-These nodes help us to build workflows that adapt to user input, context, and complex decision-making requirements.
-
-While both nodes offer dynamic branching logic, they differ in their approach to condition evaluation and the level of sophistication they provide.
+These nodes enable adaptive workflows, responding to user input, context, and complex decisions, but differ in their approach to condition evaluation and sophistication
 
 <details>
 
-<summary><strong>Conditional Node</strong></summary>
+<summary><strong>Condition Node</strong></summary>
 
 **Purpose**
 
@@ -1082,7 +1080,7 @@ To create branches based on simple, predefined logical conditions.
 
 **Condition evaluation**
 
-Uses a table-based interface or JavaScript code editor to define conditions that are checked against the custom state and the full conversation history.
+Uses a table-based interface or JavaScript code editor to define conditions that are checked against the custom State and/or the full conversation history.
 
 **Output behavior**
 
@@ -1093,13 +1091,13 @@ Uses a table-based interface or JavaScript code editor to define conditions that
 **Best suited for**
 
 * Straightforward routing decisions based on easily definable conditions.
-* Workflows where the logic can be expressed using simple comparisons, keyword checks, or state variable values.
+* Workflows where the logic can be expressed using simple comparisons, keyword checks, or custom state variable values.
 
 </details>
 
 <details>
 
-<summary><strong>Conditional Agent Node</strong></summary>
+<summary><strong>Condition Agent Node</strong></summary>
 
 **Purpose**
 
@@ -1123,13 +1121,13 @@ Same as the Condition Node:
 
 * More complex routing decisions that require an understanding of conversation context, user intent, or nuanced factors.
 * Scenarios where simple logical conditions are insufficient to capture the desired routing logic.
-* **Example:** A chatbot needs to determine if a user's question is related to a specific product category. A Conditional Agent Node could be used to analyze the user's query and output a JSON object with a "category" field. The Condition Node can then use this structured output to route the user to the appropriate product specialist.
+* **Example:** A chatbot needs to determine if a user's question is related to a specific product category. A Condition Agent Node could be used to analyze the user's query and output a JSON object with a "category" field. The Condition Agent Node can then use this structured output to route the user to the appropriate product specialist.
 
 </details>
 
 ### Summarizing
 
-<table><thead><tr><th width="218">Feature</th><th width="258">Conditional Node</th><th>Conditional Agent Node</th></tr></thead><tbody><tr><td><strong>Decision Logic</strong></td><td>Based on predefined logical conditions</td><td>Based on agent's reasoning and structured output</td></tr><tr><td><strong>Agent Involvement</strong></td><td>No agent involved in condition evaluation</td><td>Uses an agent to process context and generate output for conditions</td></tr><tr><td><strong>Structured Output</strong></td><td>Not possible</td><td>Possible and encouraged for reliable condition evaluation</td></tr><tr><td><strong>Condition Evaluation</strong></td><td>Only define conditions that are checked against the full conversation history</td><td>Can define conditions that are checked against the agent's own output, structured or not</td></tr><tr><td><strong>Complexity</strong></td><td>Suitable for simple branching logic</td><td>Handles more nuanced and context-aware routing</td></tr><tr><td><strong>Example use case</strong></td><td><ul><li>Routing based on user's age or a keyword in the conversation</li></ul></td><td><ul><li>Routing based on user sentiment, intent, or complex contextual factors</li></ul></td></tr></tbody></table>
+<table><thead><tr><th width="218"></th><th width="258">Condition Node</th><th>Condition Agent Node</th></tr></thead><tbody><tr><td><strong>Decision Logic</strong></td><td>Based on predefined logical conditions.</td><td>Based on agent's reasoning and structured output.</td></tr><tr><td><strong>Agent Involvement</strong></td><td>No agent involved in condition evaluation.</td><td>Uses an agent to process context and generate output for conditions.</td></tr><tr><td><strong>Structured Output</strong></td><td>Not possible.</td><td>Possible and encouraged for reliable condition evaluation.</td></tr><tr><td><strong>Condition Evaluation</strong></td><td>Only define conditions that are checked against the full conversation history.</td><td>Can define conditions that are checked against the agent's own output, structured or not.</td></tr><tr><td><strong>Complexity</strong></td><td>Suitable for simple branching logic.</td><td>Handles more nuanced and context-aware routing.</td></tr><tr><td><strong>Ideal Uses Cases</strong></td><td><ul><li>Routing based on user's age or a keyword in the conversation.</li></ul></td><td><ul><li>Routing based on user sentiment, intent, or complex contextual factors.</li></ul></td></tr></tbody></table>
 
 ### Choosing the right node
 
@@ -1142,7 +1140,7 @@ Same as the Condition Node:
 
 It's important to understand that both the **LLM Node and the Agent Node can be considered agentic entities within our system**, as they both leverage the capabilities of a large language model (LLM) or Chat Model.
 
-However, while both nodes can process language and interact with tools, they are designed for different purposes within a workflow. Understanding their unique capabilities is very important for building effective conversational systems.
+However, while both nodes can process language and interact with tools, they are designed for different purposes within a workflow.
 
 <details>
 
@@ -1189,11 +1187,11 @@ Similar to the Agent Node, but it provides more flexibility when using tools and
 
 ### Summarizing
 
-<table><thead><tr><th width="206">Feature</th><th width="253">Agent Node</th><th>LLM Node</th></tr></thead><tbody><tr><td><strong>Tool Interaction</strong></td><td>Directly calls and manages multiple tools, built-in HITL</td><td>Triggers tools via the Tool Node, granular HITL control at the tool level</td></tr><tr><td><strong>Human-in-the-Loop (HITL)</strong></td><td>HITL controlled at the Agent Node level (all connected tools affected)</td><td>HITL managed at the individual Tool Node level (more flexibility)</td></tr><tr><td><strong>Structured Output</strong></td><td>Relies on the LLM's natural output format</td><td>Relies on the LLM's natural output format, but, if needed, provides JSON schema definition to structure LLM output</td></tr><tr><td><strong>Ideal Use Cases</strong></td><td><ul><li>Workflows with complex tool orchestration</li><li>Simplified HITL at the Agent Level</li></ul></td><td><ul><li>Extracting structured data from LLM output</li><li>Workflows with complex LLM and tool interactions, requiring mixed HITL levels</li></ul></td></tr></tbody></table>
+<table><thead><tr><th width="206">Feature</th><th width="253">Agent Node</th><th>LLM Node</th></tr></thead><tbody><tr><td><strong>Tool Interaction</strong></td><td>Directly calls and manages multiple tools, built-in HITL.</td><td>Triggers tools via the Tool Node, granular HITL control at the tool level.</td></tr><tr><td><strong>Human-in-the-Loop (HITL)</strong></td><td>HITL controlled at the Agent Node level (all connected tools affected).</td><td>HITL managed at the individual Tool Node level (more flexibility).</td></tr><tr><td><strong>Structured Output</strong></td><td>Relies on the LLM's natural output format.</td><td>Relies on the LLM's natural output format, but, if needed, provides JSON schema definition to structure LLM output.</td></tr><tr><td><strong>Ideal Use Cases</strong></td><td><ul><li>Workflows with complex tool orchestration.</li><li>Simplified HITL at the Agent Level.</li></ul></td><td><ul><li>Extracting structured data from LLM output</li><li>Workflows with complex LLM and tool interactions, requiring mixed HITL levels.</li></ul></td></tr></tbody></table>
 
 ### Choosing the right node
 
 * **Choose the Agent Node:** Use the Agent Node when you need to create a conversational system that can manage the execution of multiple tools, all of which share the same HITL setting (enabled or disabled for the entire Agent Node). The Agent Node is also well-suited for handling complex multi-step conversations where consistent agent-like behavior is desired.
-* **Choose the LLM Node:** On the other hand, use the LLM Node when you need to extract structured data from the LLM's output using the JSON schema feature, a capability not available in the Agent Node. The LLM Node also excels at orchestrating tool execution with fine-grained control over HITL at the individual tool level, allowing you to mix automated and human-reviewed tool executions within the same workflow by using multiple Tool Nodes connected to the LLM Node.
+* **Choose the LLM Node:** On the other hand, use the LLM Node when you need to extract structured data from the LLM's output using the JSON schema feature, a capability not available in the Agent Node. The LLM Node also excels at orchestrating tool execution with fine-grained control over HITL at the individual tool level, allowing you to mix automated and human-reviewed tool executions by using multiple Tool Nodes connected to the LLM Node.
 
 [^1]: In our current context, a lower level of abstraction refers to a system that exposes a greater degree of implementation detail to the developer.
