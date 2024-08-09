@@ -586,13 +586,13 @@ When using HITL, design clear and informative prompts for human reviewers. Provi
 
 ***
 
-## 7. Conditional Node
+## 7. Condition Node
 
 The Conditional Node acts as a **decision-making point in Sequential Agent workflows**, evaluating a set of predefined conditions to determine the flow's next path.
 
 <figure><img src="../../.gitbook/assets/seq-08.png" alt="" width="299"><figcaption></figcaption></figure>
 
-### Understanding the Conditional Node
+### Understanding the Condition Node
 
 The Conditional Node is essential for building workflows that adapt to different situations and user inputs. It examines the current State of the conversation, which includes all messages exchanged and any custom State variables previously defined. Then, based on the evaluation of the conditions specified in the node setup, the Conditional Node directs the flow to one of its outputs.
 
@@ -667,7 +667,7 @@ You can set up conditions based on keywords, State changes, or other factors to 
 This checks if a specific word or phrase exists in the conversation history.
 
 * **Example:** We want to check if the user said "yes" in their last message.
-*   **Setup:**
+*   **Setup**
 
     <table data-header-hidden><thead><tr><th width="294"></th><th width="116"></th><th width="99"></th><th></th></tr></thead><tbody><tr><td><strong>Variable</strong></td><td><strong>Operation</strong></td><td><strong>Value</strong></td><td><strong>Output Name</strong></td></tr><tr><td>$flow.state.messages[-1].content</td><td>Is</td><td>Yes</td><td>Output 1</td></tr></tbody></table>
 
@@ -679,7 +679,7 @@ This checks if a specific word or phrase exists in the conversation history.
 This checks if a specific value in our custom State has changed to a desired value.
 
 * **Example:** We're tracking an orderStatus variable in our custom State, and we want to check if it has become "confirmed".
-*   **Setup:**
+*   **Setup**
 
     <table data-header-hidden><thead><tr><th width="266"></th><th width="113"></th><th></th><th></th></tr></thead><tbody><tr><td><strong>Variable</strong></td><td><strong>Operation</strong></td><td><strong>Value</strong></td><td><strong>Output Name</strong></td></tr><tr><td>$flow.state.orderStatus</td><td>Is</td><td>Confirmed</td><td>Output 1</td></tr></tbody></table>
 
@@ -763,9 +763,9 @@ Start with simple conditions and gradually add complexity as needed. This makes 
 
 ***
 
-## 8. Conditional Agent Node
+## 8. Condition Agent Node
 
-The Conditional Agent Node provides **dynamic and intelligent routing within Sequential Agent flows**. It combines the capabilities of the **LLM Node** (LLM and JSON Structured Output) and the **Condition Node** (user-defined conditions), allowing us to leverage agent-based reasoning and conditional logic within a single node.
+The Condition Agent Node provides **dynamic and intelligent routing within Sequential Agent flows**. It combines the capabilities of the **LLM Node** (LLM and JSON Structured Output) and the **Condition Node** (user-defined conditions), allowing us to leverage agent-based reasoning and conditional logic within a single node.
 
 <figure><img src="../../.gitbook/assets/seq-09.png" alt="" width="299"><figcaption></figcaption></figure>
 
@@ -777,7 +777,7 @@ The Conditional Agent Node provides **dynamic and intelligent routing within Seq
 
 ### Setting up the Conditional Agent Node
 
-The Conditional Agent Node acts as a specialized agent that can both process information and make routing decisions. Here's how to configure it:
+The Conditional Agent Node acts as a specialized agent that can both **process information and make routing decisions**. Here's how to configure it:
 
 1. **Define the agent's persona**
    * In the "System Prompt" field, provide a clear and concise description of the agent's role and the task it needs to perform for conditional routing. This prompt will guide the agent's understanding of the conversation and its decision-making process.
@@ -809,35 +809,31 @@ However, the Conditional Agent Node can evaluate conditions based on a wider ran
 This checks if a specific word or phrase exists in the conversation history.
 
 * **Example:** We want to check if the user said "yes" in their last message.
-* **JavaScript Code**
 
 {% code overflow="wrap" %}
-````
 ```javascript
 const lastMessage = $flow.state.messages[$flow.state.messages.length - 1].content; 
 return lastMessage.includes("yes") ? "Output 1" : "Output 2";
 ```
-````
 {% endcode %}
 
-```
-1. This code gets the last message from `state.messages` and checks if it contains "yes".
+1. This code gets the last message from state.messages and checks if it contains "yes".&#x20;
 2. If "yes" is found, the flow goes to "Output 1"; otherwise, it goes to "Output 2".
-```
 
 **State change condition**
 
 This checks if a specific value in the custom State has changed to a desired value.
 
 * **Example:** We're tracking an orderStatus variable our custom State, and we want to check if it has become "confirmed".
-*   **JavaScript Code**
 
-    ```javascript
-    return $flow.state.orderStatus === "confirmed" ? "Output 1" : "Output 2";
-    ```
+{% code overflow="wrap" %}
+```javascript
+return $flow.state.orderStatus === "confirmed" ? "Output 1" : "Output 2";
+```
+{% endcode %}
 
-    1. This code directly compares the orderStatus value in our custom State to "confirmed".
-    2. If it matches, the flow goes to "Output 1"; otherwise, it goes to "Output 2".
+1. This code directly compares the orderStatus value in our custom State to "confirmed".&#x20;
+2. If it matches, the flow goes to "Output 1"; otherwise, it goes to "Output 2".
 
 </details>
 
@@ -854,7 +850,7 @@ This table-based approach simplifies condition management and makes it easier to
 This checks if a specific word or phrase exists in the conversation history.
 
 * **Example:** We want to check if the user said "yes" in their last message.
-*   **Table Setup:**
+*   **Setup**
 
     <table data-header-hidden><thead><tr><th width="305"></th><th width="116"></th><th width="99"></th><th></th></tr></thead><tbody><tr><td><strong>Variable</strong></td><td><strong>Operation</strong></td><td><strong>Value</strong></td><td><strong>Output Name</strong></td></tr><tr><td>$flow.state.messages[-1].content</td><td>Is</td><td>Yes</td><td>Output 1</td></tr></tbody></table>
 
@@ -866,7 +862,7 @@ This checks if a specific word or phrase exists in the conversation history.
 This checks if a specific value in our custom State has changed to a desired value.
 
 * **Example:** We're tracking an orderStatus variable in our custom State, and we want to check if it has become "confirmed".
-*   **Table Setup:**
+*   **Setup**
 
     <table data-header-hidden><thead><tr><th width="266"></th><th width="113"></th><th></th><th></th></tr></thead><tbody><tr><td><strong>Variable</strong></td><td><strong>Operation</strong></td><td><strong>Value</strong></td><td><strong>Output Name</strong></td></tr><tr><td>$flow.state.orderStatus</td><td>Is</td><td>Confirmed</td><td>Output 1</td></tr></tbody></table>
 
@@ -875,12 +871,26 @@ This checks if a specific value in our custom State has changed to a desired val
 
 </details>
 
+### Defining conditions using the table interface
+
+This visual approach allows you to easily set up rules that determine the path of your conversational flow, based on factors like user input, the current state of the conversation, or the results of actions taken by other nodes.
+
+<details>
+
+<summary>Table-Based Conditions</summary>
+
+*   Updated on 09/08/2024
+
+    <table><thead><tr><th width="125"></th><th width="186">Description</th><th>Options/Syntax</th></tr></thead><tbody><tr><td><strong>Variable</strong></td><td>The variable or data element to evaluate in the condition. This can include data from the agent's output.</td><td>- <code>$flow.output.content</code> (Agent Output - string)<br>- <code>$flow.output.&#x3C;replace-with-key></code> (Agent's JSON Key Output - string/number)<br>- <code>$flow.state.messages.length</code> (Total Messages)<br>- <code>$flow.state.messages[0].con</code> (First Message Content)<br>- <code>$flow.state.messages[-1].con</code> (Last Message Content)<br>- <code>$vars.&#x3C;variable-name></code> (Global variable)</td></tr><tr><td><strong>Operation</strong></td><td>The comparison or logical operation to perform on the variable.</td><td>- Contains<br>- Not Contains<br>- Start With<br>- End With<br>- Is<br>- Is Not<br>- Is Empty<br>- Is Not Empty<br>- Greater Than<br>- Less Than<br>- Equal To<br>- Not Equal To<br>- Greater Than or Equal To<br>- Less Than or Equal To</td></tr><tr><td><strong>Value</strong></td><td>The value to compare the variable against.</td><td>- Depends on the data type of the variable and the selected operation.<br>- Examples: "yes", 10, "Hello"</td></tr><tr><td><strong>Output Name</strong></td><td>The name of the output path to follow if the condition evaluates to <code>true</code>.</td><td>- User-defined name (e.g., "Agent1", "End", "Loop")</td></tr></tbody></table>
+
+</details>
+
 ### Input
 
 <table><thead><tr><th width="167"></th><th width="118">Required</th><th>Description</th></tr></thead><tbody><tr><td>Start Node</td><td>Yes</td><td>Receives the State from the Start Node. This allows the Conditional Agent Node to <strong>evaluate conditions based on the initial context</strong> of the conversation, including any custom State.</td></tr><tr><td>Agent Node</td><td>Yes</td><td>Receives the Agent Node's output. This enables the Conditional Agent Node to <strong>make decisions based on the agent's actions</strong> and the conversation history, including any custom State.</td></tr><tr><td>LLM Node</td><td>Yes</td><td>Receives LLM Node's output. This allows the Conditional Agent Node to <strong>evaluate conditions based on the LLM's response</strong> and the conversation history, including any custom State.</td></tr><tr><td>Tool Node</td><td>Yes</td><td>Receives the Tool Node's output. This enables the Conditional Agent Node to <strong>make decisions based on the results of tool execution</strong> and the conversation history, including any custom State.</td></tr></tbody></table>
 
 {% hint style="info" %}
-The **Conditional Node requires at least one connection from the following nodes**: Start Node, Agent Node, LLM Node, or Tool Node.
+The **Conditional Agent Node requires at least one connection from the following nodes**: Start Node, Agent Node, LLM Node, or Tool Node.
 {% endhint %}
 
 ### Node Setup
@@ -913,7 +923,7 @@ Each predefined output, including the default "End" output, can be connected to 
 
 ### Additional Parameters
 
-<table><thead><tr><th width="180">Parameter</th><th width="111">Required</th><th>Description</th></tr></thead><tbody><tr><td>System Prompt</td><td>No</td><td><strong>Defines the Conditional Agent's 'persona' and guides its behavior for making routing decisions.</strong> For example: "You are a customer service agent specializing in technical support. Your goal is to help customers with technical issues related to our product. Based on the user's query, identify the specific technical issue (e.g., connectivity problems, software bugs, hardware malfunctions)."</td></tr><tr><td>Human Prompt</td><td>No</td><td>This prompt is appended to the <code>state.messages</code> array as a human message. It allows us to <strong>inject a human-like message into the conversation flow</strong> after the Conditional Agent Node has processed its input and before the next node receives the Conditional Agent Node's output.</td></tr><tr><td>JSON Structured Output</td><td>No</td><td>To instruct the Conditional Agent Node to <strong>provide the output in JSON structure schema</strong> (Key, Type, Enum Values, Description).</td></tr></tbody></table>
+<table><thead><tr><th width="180"></th><th width="111">Required</th><th>Description</th></tr></thead><tbody><tr><td>System Prompt</td><td>No</td><td><strong>Defines the Conditional Agent's 'persona' and guides its behavior for making routing decisions.</strong> For example: "You are a customer service agent specializing in technical support. Your goal is to help customers with technical issues related to our product. Based on the user's query, identify the specific technical issue (e.g., connectivity problems, software bugs, hardware malfunctions)."</td></tr><tr><td>Human Prompt</td><td>No</td><td>This prompt is appended to the <code>state.messages</code> array as a human message. It allows us to <strong>inject a human-like message into the conversation flow</strong> after the Conditional Agent Node has processed its input and before the next node receives the Conditional Agent Node's output.</td></tr><tr><td>JSON Structured Output</td><td>No</td><td>To instruct the Conditional Agent Node to <strong>provide the output in JSON structure schema</strong> (Key, Type, Enum Values, Description).</td></tr></tbody></table>
 
 ### Best Practices
 
@@ -926,10 +936,6 @@ Provide a well-defined persona and clear instructions to the agent in the System
 **Structure output for reliable conditions**
 
 Use the JSON Structured Output feature to define a schema for the Conditional Agent's output. This will ensure that the output is consistent and easily parsable, making it more reliable for use in conditional evaluations.
-
-**Test conditions thoroughly**
-
-Test your Conditional Agent Node with various inputs and scenarios to ensure that the agent's reasoning and the conditional logic work as expected.
 {% endtab %}
 
 {% tab title="Potential Pitfalls" %}
