@@ -537,7 +537,7 @@ The Tool Node's primary function is to **execute external tools** based on instr
 1. **Tool Call Reception:** The Tool Node receives input from an LLM Node. If the LLM's output contains the `tool_calls` property, the Tool Node will proceed with tool execution.
 2. **Execution:** The Tool Node directly passes the LLM's `tool_calls` (which include the tool name and any required parameters) to the specified external tool. Otherwise, the Tool Node does not execute any tools in that particular workflow execution. It does not process or interpret the LLM's output in any way.
 3. **Human-in-the-Loop (HITL):** The Tool Node allows for optional HITL, enabling human review and approval or rejection of tool execution before it occurs.
-4. **Output passing:** After the tool execution (either automatic or after HITL approval), the Tool Node receives the tool's output and passes it to the next node in the workflow.
+4. **Output passing:** After the tool execution (either automatic or after HITL approval), the Tool Node receives the tool's output and passes it to the next node in the workflow. If the Tool Node's output is not connected to a subsequent node, the tool's output is returned to the original LLM Node for further processing.
 
 ### Inputs
 
@@ -545,7 +545,7 @@ The Tool Node's primary function is to **execute external tools** based on instr
 
 ### Node Setup
 
-<table><thead><tr><th width="165">Item</th><th width="112">Required</th><th>Description</th></tr></thead><tbody><tr><td>Name of the Tool Node</td><td><strong>Yes</strong></td><td>Add a descriptive name to the Tool Node to enhance workflow readability.</td></tr><tr><td>Require Approval (HITL)</td><td>No</td><td><strong>Activates the Human-in-the-loop (HITL) feature</strong>. If set to '<strong>True</strong>,' the Tool Node will request human approval before executing any tool. This is particularly valuable for sensitive operations or when human oversight is desired. Defaults to '<strong>False</strong>,' allowing the Tool Node to execute tools autonomously.</td></tr></tbody></table>
+<table><thead><tr><th width="183"></th><th width="101">Required</th><th>Description</th></tr></thead><tbody><tr><td>Tool Node Name</td><td><strong>Yes</strong></td><td>Add a descriptive name to the Tool Node to enhance workflow readability.</td></tr><tr><td>Require Approval (HITL)</td><td>No</td><td><strong>Activates the Human-in-the-loop (HITL) feature</strong>. If set to '<strong>True</strong>,' the Tool Node will request human approval before executing any tool. This is particularly valuable for sensitive operations or when human oversight is desired. Defaults to '<strong>False</strong>,' allowing the Tool Node to execute tools autonomously.</td></tr></tbody></table>
 
 ### Outputs
 
@@ -555,7 +555,7 @@ The Tool Node can connect to the following nodes as outputs:
 * **LLM Node:** Passes the output to a subsequent LLM Node. This enables the integration of tool results into the LLM's processing, allowing for further analysis or refinement of the conversation flow based on the tool's output.
 * **Condition Agent Node:** Directs the flow to a Condition tool Node. This node evaluates the Tool Node's output and its predefined conditions to determine the appropriate next step in the workflow.
 * **Condition Node:** Similar to the Condition Agent Node, the Condition Node uses predefined conditions to assess the Tool Node's output, directing the flow along different branches based on the outcome.
-* **End Node:** Concludes the conversation flow. This might occur if the Tool Node has successfully executed its task and no further processing or interaction is needed.
+* **End Node:** Concludes the conversation flow.
 * **Loop Node:** Redirects the flow back to a previous node, enabling iterative or cyclical processes within the workflow. This could be used for tasks that require multiple tool executions or involve refining the conversation based on tool results.
 
 ### Additional Parameters
@@ -579,8 +579,8 @@ When using HITL, design clear and informative prompts for human reviewers. Provi
 **Unhandled tool output formats**
 
 * **Problem:** The Tool Node outputs data in a format that is not expected or handled by subsequent nodes in the workflow, leading to errors or incorrect processing.
-* **Example:** A Tool Node retrieves data from an API in XML format, but the following LLM Node expects JSON input, causing a parsing error.
-* **Solution:** Ensure that the output format of the external tool is compatible with the input requirements of the nodes connected to the Tool Node's output. Use JavaScript code within the workflow to transform or parse the tool's output as needed.
+* **Example:** A Tool Node retrieves data from an API in JSON format, but the following LLM Node expects text input, causing a parsing error.
+* **Solution:** Ensure that the output format of the external tool is compatible with the input requirements of the nodes connected to the Tool Node's output.
 {% endtab %}
 {% endtabs %}
 
