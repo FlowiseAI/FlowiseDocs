@@ -885,7 +885,7 @@ This visual approach allows you to easily set up rules that determine the path o
 
 </details>
 
-### Input
+### Inputs
 
 <table><thead><tr><th width="167"></th><th width="118">Required</th><th>Description</th></tr></thead><tbody><tr><td>Start Node</td><td>Yes</td><td>Receives the State from the Start Node. This allows the Conditional Agent Node to <strong>evaluate conditions based on the initial context</strong> of the conversation, including any custom State.</td></tr><tr><td>Agent Node</td><td>Yes</td><td>Receives the Agent Node's output. This enables the Conditional Agent Node to <strong>make decisions based on the agent's actions</strong> and the conversation history, including any custom State.</td></tr><tr><td>LLM Node</td><td>Yes</td><td>Receives LLM Node's output. This allows the Conditional Agent Node to <strong>evaluate conditions based on the LLM's response</strong> and the conversation history, including any custom State.</td></tr><tr><td>Tool Node</td><td>Yes</td><td>Receives the Tool Node's output. This enables the Conditional Agent Node to <strong>make decisions based on the results of tool execution</strong> and the conversation history, including any custom State.</td></tr></tbody></table>
 
@@ -1020,15 +1020,15 @@ Define a clear purpose for each loop in your workflow. If possible, document wit
 
 The End Node marks the definitive termination point of the conversation in a Sequential Agent workflow. It signifies that no further processing, actions, or interactions are required.
 
-<figure><img src="../../.gitbook/assets/seq-11.png" alt="" width="301"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/sa-loop (1).png" alt="" width="335"><figcaption></figcaption></figure>
 
 ### Understanding the End Node
 
-The End Node serves as a signal within Flowise's Sequential Agent architecture, indicating that the conversation has reached its intended conclusion. Upon reaching the End Node, the system "understands" that the conversational objective has been met, and no further actions or interactions are required within the flow.
+The End Node serves as a signal within Flowise's Sequential Agent architecture, **indicating that the conversation has reached its intended conclusion**. Upon reaching the End Node, the system "understands" that the conversational objective has been met, and no further actions or interactions are required within the flow.
 
-### Input
+### Inputs
 
-<table><thead><tr><th width="163">Input</th><th width="103">Required</th><th>Description</th></tr></thead><tbody><tr><td>Agent Node</td><td>Yes</td><td>Receives the final output from a preceding Agent Node, indicating the end of the agent's interaction.</td></tr><tr><td>LLM Node</td><td>Yes</td><td>Receives the final output from a preceding LLM Node, marking the end of the LLM's processing.</td></tr><tr><td>Tool Node</td><td>Yes</td><td>Receives the final output from a preceding Tool Node, signaling the completion of the tool's execution.</td></tr></tbody></table>
+<table><thead><tr><th width="212"></th><th width="103">Required</th><th>Description</th></tr></thead><tbody><tr><td>Agent Node</td><td>Yes</td><td>Receives the final output from a preceding Agent Node, indicating the end of the agent's processing.</td></tr><tr><td>LLM Node</td><td>Yes</td><td>Receives the final output from a preceding LLM Node, indicating the end of the LLM Node's processing.</td></tr><tr><td>Tool Node</td><td>Yes</td><td>Receives the final output from a preceding Tool Node, indicating the completion of the Tool Node's execution.</td></tr><tr><td>Conditional Node</td><td>Yes</td><td>Receives the final output from a preceding Conditional Node, indicating the end of the Condition Node's execution.</td></tr><tr><td>Conditional Agent Node</td><td>Yes</td><td>Receives the final output from a preceding Conditional Node, indicating the completion of the Condition Agent Node's processing.</td></tr></tbody></table>
 
 {% hint style="info" %}
 The **End Node requires at least one connection from the following nodes**: Agent Node, LLM Node, or Tool Node.
