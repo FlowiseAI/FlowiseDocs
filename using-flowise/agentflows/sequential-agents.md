@@ -690,9 +690,16 @@ This checks if a specific value in our custom State has changed to a desired val
 
 <details>
 
-<summary>Variables</summary>
+<summary>How to set up conditions in the Condition Node table</summary>
 
+*
 
+    | Column          | Description                                                                 | Options/Syntax                                                                                                                                                                                                                                                                |
+    | --------------- | --------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | **Variable**    | The variable or data element to evaluate in the condition.                  | <p>- <code>$flow.state.messages.length</code> (Total Messages)<br>- <code>$flow.state.messages[0].con</code> (First Message Content)<br>- <code>$flow.state.messages[-1].con</code> (Last Message Content)<br>- <code>$vars.&#x3C;variable-name></code> (Global variable)</p> |
+    | **Operation**   | The comparison or logical operation to perform on the variable.             | <p>- Contains<br>- Not Contains<br>- Start With<br>- End With<br>- Is<br>- Is Not<br>- Is Empty<br>- Is Not Empty<br>- Greater Than<br>- Less Than<br>- Equal To<br>- Not Equal To<br>- Greater Than or Equal To<br>- Less Than or Equal To</p>                               |
+    | **Value**       | The value to compare the variable against.                                  | <p>- Depends on the data type of the variable and the selected operation.<br>- Examples: "yes", 10, "Hello"</p>                                                                                                                                                               |
+    | **Output Name** | The name of the output path to follow if the condition evaluates to `true`. | - User-defined name (e.g., "Agent1", "End", "Loop")                                                                                                                                                                                                                           |
 
 </details>
 
