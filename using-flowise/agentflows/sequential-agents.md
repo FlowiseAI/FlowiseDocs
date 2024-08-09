@@ -406,39 +406,31 @@ Update the custom State object strategically to store gathered information or in
 * **Problem:** When an Agent Node has access to a large number of tools within a single workflow execution, it might struggle to decide which tool is the most appropriate to use, even when a tool is clearly necessary. This can lead to the agent failing to call any tool at all, resulting in incomplete or inaccurate responses.
 * **Example:** Imagine a customer support agent designed to handle a wide range of inquiries. You've equipped it with tools for order tracking, billing information, product returns, technical support, and more. A user asks, "What's the status of my order?" but the agent, overwhelmed by the number of potential tools, responds with a generic answer like, "I can help you with that. What's your order number?" without actually using the order tracking tool.
 * **Solution**
-  1. **Prioritize and categorize tools:** Design your workflow and tool integration in a way that allows you to prioritize or categorize tools based on the context of the conversation. For example, you could:
-     * Use Conditional Nodes earlier in the flow to narrow down the potential tool options based on user intent.
-     * Organize tools into groups within your workflow, making it easier for the agent to select from a smaller, more relevant subset.
-  2. **Refine system prompts:** Provide clearer instructions and examples within the Agent Node's System Prompt to guide it towards the correct tool selection. If needed, emphasize the specific capabilities of each tool and the situations in which they should be used.
-  3. **Limit tool choices per node:** If possible, break down complex workflows into smaller, more manageable segments, each with a more focused set of tools. This can help reduce the cognitive load on the agent and improve its tool-selection accuracy.
+  1. **Refine system prompts:** Provide clearer instructions and examples within the Agent Node's System Prompt to guide it towards the correct tool selection. If needed, emphasize the specific capabilities of each tool and the situations in which they should be used.
+  2. **Limit tool choices per node:** If possible, break down complex workflows into smaller, more manageable segments, each with a more focused set of tools. This can help reduce the cognitive load on the agent and improve its tool-selection accuracy.
 
 **Overlooking HITL for sensitive tasks**
 
 * **Problem:** Failing to utilize the Agent Node's "Require Approval" (HITL) feature for tasks involving sensitive information, critical decisions, or actions with potential real-world consequences can lead to unintended outcomes or damage to user trust.
 * **Example:** Your travel booking agent has access to a user's payment information and can automatically book flights and hotels. Without HITL, a misinterpretation of user intent or an error in the agent's understanding could result in an incorrect booking or unauthorized use of the user's payment details.
 * **Solution**
-  1. **Identify sensitive actions:** Analyze your workflow and identify any actions that:
-     * Involve accessing or processing sensitive data (e.g., payment info, personal details).
-     * Have significant financial implications.
-     * Could have negative real-world consequences if performed incorrectly.
+  1. **Identify sensitive actions:** Analyze your workflow and identify any actions that involve accessing or processing sensitive data (e.g., payment info, personal details).
   2. **Implement "Require Approval":** For these sensitive actions, enable the "Require Approval" option within the Agent Node. This ensures that a human reviews the agent's proposed action and the relevant context before any sensitive data is accessed or any irreversible action is taken.
   3. **Design clear approval prompts:** Provide clear and concise prompts for human reviewers, summarizing the agent's intent, the proposed action, and the relevant information needed for the reviewer to make an informed decision.
 
 **Unclear or incomplete system prompt**
 
 * **Problem:** The System Prompt provided to the Agent Node lacks the necessary specificity and context to guide the agent effectively in carrying out its intended tasks. A vague or overly general prompt can lead to irrelevant responses, difficulty in understanding user intent, and an inability to leverage tools or data appropriately.
-* **Example:** You're building a travel booking agent, and your System Prompt simply states: "You are a helpful AI assistant." This lacks the specific instructions and context needed for the agent to effectively guide users through flight searches, hotel bookings, and itinerary planning.
-* **Solution:** Craft a detailed and context-aware System Prompt.
+* **Example:** You're building a travel booking agent, and your System Prompt simply states "_You are a helpful AI assistant._" This lacks the specific instructions and context needed for the agent to effectively guide users through flight searches, hotel bookings, and itinerary planning.
+* **Solution:** Craft a detailed and context-aware System Prompt:
 
 {% code overflow="wrap" %}
-````
 ```
 You are a travel booking agent. Your primary goal is to assist users in planning and booking their trips. 
 - Guide them through searching for flights, finding accommodations, and exploring destinations.
 - Be polite, patient, and offer travel recommendations based on their preferences.
 - Utilize available tools to access flight data, hotel availability, and destination information.
 ```
-````
 {% endcode %}
 {% endtab %}
 {% endtabs %}
