@@ -19,6 +19,10 @@ User can create a variable and get the variable like so:
 
 `$vars.<variable-name>`
 
+Besides, user can also use the variable in text input parameter of any node. For example, in Agent System Message:
+
+<figure><img src="../.gitbook/assets/image (1).png" alt="" width="508"><figcaption></figcaption></figure>
+
 Variables can be Static or Runtime.
 
 ## Static
