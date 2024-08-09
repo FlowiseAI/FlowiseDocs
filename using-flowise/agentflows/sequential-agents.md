@@ -690,11 +690,11 @@ This checks if a specific value in our custom State has changed to a desired val
 
 <details>
 
-<summary>How to set up conditions in the Condition Node table</summary>
+<summary>Variables</summary>
 
+*   #### Defining conditions using the table interface
 
-
-<table><thead><tr><th width="154">Column</th><th width="244">Description</th><th>Options/Syntax</th></tr></thead><tbody><tr><td><strong>Variable</strong></td><td>The variable or data element to evaluate in the condition.</td><td>- <code>$flow.state.messages.length</code> (Total Messages)<br>- <code>$flow.state.messages[0].con</code> (First Message Content)<br>- <code>$flow.state.messages[-1].con</code> (Last Message Content)<br>- <code>$vars.&#x3C;variable-name></code> (Global variable)</td></tr><tr><td><strong>Operation</strong></td><td>The comparison or logical operation to perform on the variable.</td><td>- Contains<br>- Not Contains<br>- Start With<br>- End With<br>- Is<br>- Is Not<br>- Is Empty<br>- Is Not Empty<br>- Greater Than<br>- Less Than<br>- Equal To<br>- Not Equal To<br>- Greater Than or Equal To<br>- Less Than or Equal To</td></tr><tr><td><strong>Value</strong></td><td>The value to compare the variable against.</td><td>- Depends on the data type of the variable and the selected operation.<br>- Examples: "yes", 10, "Hello"</td></tr><tr><td><strong>Output Name</strong></td><td>The name of the output path to follow if the condition evaluates to <code>true</code>.</td><td>- User-defined name (e.g., "Agent1", "End", "Loop")</td></tr></tbody></table>
+    <table><thead><tr><th width="154">Column</th><th>Description</th><th>Options/Syntax</th></tr></thead><tbody><tr><td><strong>Variable</strong></td><td>The variable or data element to evaluate in the condition.</td><td>- <code>$flow.state.messages.length</code> (Total Messages)<br>- <code>$flow.state.messages[0].con</code> (First Message Content)<br>- <code>$flow.state.messages[-1].con</code> (Last Message Content)<br>- <code>$vars.&#x3C;variable-name></code> (Global variable)</td></tr><tr><td><strong>Operation</strong></td><td>The comparison or logical operation to perform on the variable.</td><td>- Contains<br>- Not Contains<br>- Start With<br>- End With<br>- Is<br>- Is Not<br>- Is Empty<br>- Is Not Empty<br>- Greater Than<br>- Less Than<br>- Equal To<br>- Not Equal To<br>- Greater Than or Equal To<br>- Less Than or Equal To</td></tr><tr><td><strong>Value</strong></td><td>The value to compare the variable against.</td><td>- Depends on the data type of the variable and the selected operation.<br>- Examples: "yes", 10, "Hello"</td></tr><tr><td><strong>Output Name</strong></td><td>The name of the output path to follow if the condition evaluates to <code>true</code>.</td><td>- User-defined name (e.g., "Agent1", "End", "Loop")</td></tr></tbody></table>
 
 </details>
 
@@ -727,7 +727,7 @@ Each predefined output, including the default "End" output, can be connected to 
 
 ### Node Setup
 
-<table><thead><tr><th width="178">Parameter</th><th width="110">Required</th><th>Description</th></tr></thead><tbody><tr><td>Name</td><td>No</td><td>An optional, <strong>human-readable name</strong> for the condition being evaluated. This is helpful for understanding the workflow at a glance.</td></tr><tr><td>Condition</td><td><strong>Yes</strong></td><td>This is where we <strong>define the logic that will be evaluated to determine the output paths</strong>.</td></tr></tbody></table>
+<table><thead><tr><th width="178"></th><th width="110">Required</th><th>Description</th></tr></thead><tbody><tr><td>Condition Node Name</td><td>No</td><td>An optional, <strong>human-readable name</strong> for the condition being evaluated. This is helpful for understanding the workflow at a glance.</td></tr><tr><td>Condition</td><td><strong>Yes</strong></td><td>This is where we <strong>define the logic that will be evaluated to determine the output paths</strong>.</td></tr></tbody></table>
 
 ### Best Practices
 
@@ -740,10 +740,6 @@ Use descriptive names for your conditions (e.g., "If user is under 18, then Poli
 **Prioritize simple conditions**
 
 Start with simple conditions and gradually add complexity as needed. This makes your workflow more manageable and reduces the risk of errors.
-
-**Test thoroughly**
-
-Test your conditions with different inputs and scenarios to ensure they work as expected and cover all potential cases.
 {% endtab %}
 
 {% tab title="Potential Pitfalls" %}
@@ -757,7 +753,7 @@ Test your conditions with different inputs and scenarios to ensure they work as 
 
 * **Problem:** The Conditional Node relies on a custom state variable that is not updated correctly, leading to inaccurate condition evaluations and incorrect branching.
 * **Example:** You're tracking a "userLocation" variable in the custom State, but the variable is not updated when the user provides their location. The Conditional Node evaluates the condition based on the outdated value, leading to an incorrect path.
-* **Solution:** Ensure that any custom state variables used in your conditions are updated correctly throughout the workflow. Use Agent Nodes or other mechanisms to update the customk State based on user input or actions.
+* **Solution:** Ensure that any custom state variables used in your conditions are updated correctly throughout the workflow.
 {% endtab %}
 {% endtabs %}
 
