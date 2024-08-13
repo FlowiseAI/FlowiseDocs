@@ -163,8 +163,14 @@ For instance, we can perform a basic check to see if SELECT and WHERE are includ
 ```javascript
 const sqlQuery = $sqlQuery.trim();
 
-if (sqlQuery.includes("SELECT") && sqlQuery.includes("WHERE")) {
-    return sqlQuery;
+const regex = /SELECT\s.*?(?:\n|$)/gi;
+
+// Extracting the SQL part
+const matches = sqlQuery.match(regex);
+const cleanSql = matches ? matches[0].trim() : "";
+
+if (cleanSql.includes("SELECT") && cleanSql.includes("WHERE")) {
+    return cleanSql;
 }
 ```
 {% endtab %}
@@ -326,4 +332,4 @@ In this example, we have successfully created a SQL chatbot that can interact wi
 
 You can find the chatflow below:
 
-{% file src="../.gitbook/assets/SQL Chatflow.json" %}
+{% file src="../.gitbook/assets/SQL Chatflow (1).json" %}
