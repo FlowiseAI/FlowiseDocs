@@ -15,3 +15,10 @@ In this video, [Leon](https://x.com/leonvz) provides a **comprehensive introduct
 In this video, [Leon](https://x.com/leonvz) looks at two different solutions in Flowise for creating multi-agent projects. He compares the **differences between Sequential Agents and Multi Agents** by recreating the same projects using both techniques.
 
 {% embed url="https://www.youtube.com/watch?v=3ZmBq8_4vCs" %}
+
+### Build Production-Ready Apps in Minutes: Flowise, Sequential Agents, and n8n
+
+In this video, [Wntrmute AI](https://www.youtube.com/@WntrmuteAI) demonstrates how to quickly build a **production-ready application** in less than 30 minutes by combining **Flowise's Sequential Agents** and **n8n**.
+
+{% embed url="https://www.youtube.com/watch?v=DA_0eOTYnmc" %}
+
