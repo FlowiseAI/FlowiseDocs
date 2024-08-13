@@ -16,7 +16,7 @@ In this video, [Leon](https://x.com/leonvz) looks at two different solutions in 
 
 {% embed url="https://www.youtube.com/watch?v=3ZmBq8_4vCs" %}
 
-### Build Production-Ready Apps in Minutes: Flowise, Sequential Agents, and n8n
+### Build Production-Ready Apps in Minutes: **Flowise's Sequential** Agents and n8n
 
 In this video, [Wntrmute AI](https://www.youtube.com/@WntrmuteAI) demonstrates how to quickly build a **production-ready application** in less than 30 minutes by combining **Flowise's Sequential Agents** and **n8n**.
 
