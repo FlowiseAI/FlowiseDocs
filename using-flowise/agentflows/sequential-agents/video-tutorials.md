@@ -22,3 +22,8 @@ In this video, [Wntrmute AI](https://www.youtube.com/@WntrmuteAI) demonstrates h
 
 {% embed url="https://www.youtube.com/watch?v=DA_0eOTYnmc" %}
 
+### How to Build a Self-Improving AI with Agentic RAG and Flowise
+
+In this video, [Leon](https://x.com/leonvz) will show you how to build a self-correcting RAG application using FlowiseAI's Sequential Agents. Agentic RAG is a powerful approach for creating AI solutions that can learn and improve their responses over time.
+
+{% embed url="https://www.youtube.com/watch?v=SL77Ojbgy6U" %}
