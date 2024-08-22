@@ -25,7 +25,7 @@ Besides, user can also use the variable in text input of any node with the follo
 
 For example, in Agent System Message:
 
-<figure><img src="../.gitbook/assets/image (1).png" alt="" width="508"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt="" width="508"><figcaption></figcaption></figure>
 
 User can create a variable from the UI as mentioned below, or pass the variable dynamically via [API](api.md#variables). The value will be automatically picked up and used.
 
