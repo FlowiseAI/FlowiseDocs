@@ -1,10 +1,20 @@
 ---
-description: Learn how to use the Flowise Prediction, Vector Upsert and Message API
+description: >-
+  Learn how to use the some of the most used APIs: prediction, vector-upsert and
+  message API
 ---
 
 # API
 
-***
+Refer to [API Reference](../api-reference.md) for full list of public APIs
+
+## Authentication
+
+The Authorization header must be provided with the correct API key specified during a HTTP call.
+
+```json
+"Authorization": "Bearer <your-api-key>"
+```
 
 ## 1. Prediction API
 
@@ -400,13 +410,7 @@ query({
 
 ### Authentication
 
-You can assign an API key to the prediction API from the UI. Refer [chatflow-level.md](../configuration/authorization/chatflow-level.md "mention") for more details.
-
-The Authorization header must be provided with the correct API key specified during a HTTP call.
-
-```json
-"Authorization": "Bearer <your-api-key>"
-```
+You can assign/unassign an API key to the chatflow from the UI. Refer [chatflow-level.md](../configuration/authorization/chatflow-level.md "mention") for more details.
 
 ## 2. Vector Upsert API
 
@@ -535,13 +539,7 @@ query({
 
 ### Authentication
 
-You can assign an API key to the prediction API from the UI. Refer [chatflow-level.md](../configuration/authorization/chatflow-level.md "mention") for more details.
-
-The Authorization header must be provided with the correct API key specified during a HTTP call.
-
-```json
-"Authorization": "Bearer <your-api-key>"
-```
+You can assign/unassign an API key to the vector upsert API from the UI. Refer [chatflow-level.md](../configuration/authorization/chatflow-level.md "mention") for more details.
 
 ## 3. Message API
 
@@ -556,33 +554,6 @@ Query Parameters
 | sort      | enum   | ASC or DESC |
 | startDate | string |             |
 | endDate   | string |             |
-
-### Authentication
-
-Message API is restricted to only Flowise admin user. Basic authentication must be provided in the headers if Flowise instance has been configured with `FLOWISE_USERNAME` and `FLOWISE_PASSWORD`. Refer [app-level.md](../configuration/authorization/app-level.md "mention") for more details.
-
-{% tabs %}
-{% tab title="Node" %}
-```javascript
-"Authorization": "Basic " + Buffer.from(username + ":" + password).toString('base64')
-```
-{% endtab %}
-
-{% tab title="Browser" %}
-```javascript
-'"Authorization": "Basic " + btoa(username + ":" + password)
-```
-{% endtab %}
-
-{% tab title="Python" %}
-```python
-import requests
-
-from requests.auth import HTTPBasicAuth
-res = requests.get('http://localhost:3000/api/v1/chatmessage/{your-chatflowid}', auth=HTTPBasicAuth(username, password))
-```
-{% endtab %}
-{% endtabs %}
 
 ## Video Tutorials
 

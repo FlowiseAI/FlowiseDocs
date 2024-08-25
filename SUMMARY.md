@@ -1,9 +1,10 @@
 # Table of contents
- 
+
 * [Introduction](README.md)
 * [Get Started](getting-started/README.md)
 * [Contribution Guide](contributing/README.md)
   * [Building Node](contributing/building-node.md)
+* [API Reference](api-reference.md)
 * [Using Flowise](using-flowise/README.md)
   * [Agentflows](using-flowise/agentflows/README.md)
     * [Multi-Agents](using-flowise/agentflows/multi-agents.md)
