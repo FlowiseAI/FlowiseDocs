@@ -1,36 +1,24 @@
 ---
 description: >-
-  Learn how to use the some of the most used APIs: prediction, vector-upsert and
-  message API
+  Learn more about the details of some of the most used APIs: prediction,
+  vector-upsert
 ---
 
 # API
 
 Refer to [API Reference](../api-reference.md) for full list of public APIs
 
-## Authentication
-
-The Authorization header must be provided with the correct API key specified during a HTTP call.
-
-```json
-"Authorization": "Bearer <your-api-key>"
-```
-
-## 1. Prediction API
-
-* POST `/api/v1/prediction/{your-chatflowid}`
-
-Request Body
-
-<table><thead><tr><th width="192">Key</th><th width="347">Description</th><th>Type</th><th>Required</th></tr></thead><tbody><tr><td>question</td><td>User's question</td><td>string</td><td>Yes</td></tr><tr><td>overrideConfig</td><td>Override existing flow configuration</td><td>object</td><td>No</td></tr><tr><td>history</td><td>Prepend history messages at the start of conversation</td><td>array</td><td>No</td></tr></tbody></table>
-
-You can use the chatflow as API and connect to frontend applications.
+## Prediction
 
 <figure><img src="../.gitbook/assets/image (16) (1).png" alt=""><figcaption></figcaption></figure>
 
+{% swagger src="../.gitbook/assets/swagger (1).yml" path="/prediction/{id}" method="post" %}
+[swagger (1).yml](<../.gitbook/assets/swagger (1).yml>)
+{% endswagger %}
+
 ### Override Config
 
-You also have the flexibility to override input configuration with **overrideConfig** property.
+Override existing input configuration of the chatflow with **overrideConfig** property.
 
 <figure><img src="../.gitbook/assets/image (45).png" alt=""><figcaption></figcaption></figure>
 
@@ -160,7 +148,7 @@ query({
 
 ### Persists Memory
 
-If the chatflow contains [Memory](../integrations/langchain/memory/#memory-nodes) nodes, you can pass a `sessionId` to persists the state of the conversation, so the every subsequent API calls will have context about previous conversation. Otherwise, a new session will be generated each time.
+You can pass a `sessionId` to persists the state of the conversation, so the every subsequent API calls will have context about previous conversation. Otherwise, a new session will be generated each time.
 
 {% tabs %}
 {% tab title="Python" %}
@@ -212,7 +200,7 @@ query({
 
 ### Variables
 
-You can pass variable in the API to be used by the nodes in the flow. See more: [Variables](api.md#variables)
+Pass variables in the API to be used by the nodes in the flow. See more: [Variables](api.md#variables)
 
 {% tabs %}
 {% tab title="Python" %}
@@ -408,28 +396,32 @@ query({
 {% endtab %}
 {% endtabs %}
 
-### Authentication
+## Vector Upsert API
 
-You can assign/unassign an API key to the chatflow from the UI. Refer [chatflow-level.md](../configuration/authorization/chatflow-level.md "mention") for more details.
+{% swagger src="../.gitbook/assets/swagger (1).yml" path="/vector/upsert/{id}" method="post" %}
+[swagger (1).yml](<../.gitbook/assets/swagger (1).yml>)
+{% endswagger %}
 
-## 2. Vector Upsert API
-
-* POST `/api/v1/vector/upsert/{your-chatflowid}`
-
-Request Body
-
-<table><thead><tr><th width="192">Key</th><th width="559">Description</th><th>Type</th><th>Required</th></tr></thead><tbody><tr><td>overrideConfig</td><td>Override existing flow configuration</td><td>object</td><td>No</td></tr><tr><td>stopNodeId</td><td>Node ID of the vector store. When you have multiple vector stores in a flow, you might not want to upsert all of them. Specifying <code>stopNodeId</code> will ensure only that specific vector store node is upserted.</td><td>array</td><td>No</td></tr></tbody></table>
-
-### Document Loaders with Upload
+### Document Loaders with File Upload
 
 Some document loaders in Flowise allow user to upload files:
 
+* [CSV File](../integrations/langchain/document-loaders/csv-file.md)
+* [Docx File](../integrations/langchain/document-loaders/docx-file.md)
+* [Json File](../integrations/langchain/document-loaders/json-file.md)
+* [Json Lines File](../integrations/langchain/document-loaders/json-lines-file.md)
+* [PDF File](../integrations/langchain/document-loaders/pdf-file.md)
+* [Text File](../integrations/langchain/document-loaders/text-file.md)
+* [Unstructured File](../integrations/langchain/document-loaders/unstructured-file-loader.md)
+
 <figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-If the flow contains [Document Loaders](../integrations/langchain/document-loaders/) with Upload File functionality, the API looks slightly different. Instead of passing body as **JSON**, **form-data** is being used. This allows you to upload any files to the API.
+If the flow contains [Document Loaders](../integrations/langchain/document-loaders/) with Upload File functionality, the API looks slightly different. Instead of passing body as JSON, **form data** is being used. This allows you to send files to the API.
 
 {% hint style="info" %}
-It is user's responsibility to make sure the file type is compatible with the expected file type from document loader. For example, if a Text File Loader is being used, you should only upload file with `.txt` extension.
+Make sure the sent file type is compatible with the expected file type from document loader. For example, if a PDF File Loader is being used, you should only send **.pdf** files.
+
+To avoid having separate loaders for different file types, we recommend to use [File Loader](../integrations/langchain/document-loaders/file-loader.md)
 {% endhint %}
 
 {% tabs %}
@@ -536,24 +528,6 @@ query({
 ```
 {% endtab %}
 {% endtabs %}
-
-### Authentication
-
-You can assign/unassign an API key to the vector upsert API from the UI. Refer [chatflow-level.md](../configuration/authorization/chatflow-level.md "mention") for more details.
-
-## 3. Message API
-
-* GET `/api/v1/chatmessage/{your-chatflowid}`
-* DELETE `/api/v1/chatmessage/{your-chatflowid}`
-
-Query Parameters
-
-| Param     | Type   | Value       |
-| --------- | ------ | ----------- |
-| sessionId | string |             |
-| sort      | enum   | ASC or DESC |
-| startDate | string |             |
-| endDate   | string |             |
 
 ## Video Tutorials
 

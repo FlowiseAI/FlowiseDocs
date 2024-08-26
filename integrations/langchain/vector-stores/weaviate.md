@@ -14,7 +14,7 @@ Weaviate supports following [syntax](https://weaviate.io/developers/weaviate/sea
 
 **UI**
 
-<figure><img src="../../../.gitbook/assets/image.png" alt="" width="227"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5).png" alt="" width="227"><figcaption></figcaption></figure>
 
 **API**
 

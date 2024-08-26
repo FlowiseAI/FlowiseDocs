@@ -21,7 +21,7 @@
 
 4. Voila [🎉](https://emojipedia.org/party-popper/), you can now use **ChatOpenAI node** in Flowise
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Custom base URL and headers
 
