@@ -2,24 +2,6 @@
 
 Using Flowise public API, you can programmatically execute many of the same tasks as you can in the GUI. This section introduces Flowise REST API.
 
-## API Keys
-
-{% swagger src=".gitbook/assets/swagger.yml" path="/apikey" method="post" %}
-[swagger.yml](.gitbook/assets/swagger.yml)
-{% endswagger %}
-
-{% swagger src=".gitbook/assets/swagger.yml" path="/apikey" method="get" %}
-[swagger.yml](.gitbook/assets/swagger.yml)
-{% endswagger %}
-
-{% swagger src=".gitbook/assets/swagger.yml" path="/apikey/{id}" method="put" %}
-[swagger.yml](.gitbook/assets/swagger.yml)
-{% endswagger %}
-
-{% swagger src=".gitbook/assets/swagger.yml" path="/apikey/{id}" method="delete" %}
-[swagger.yml](.gitbook/assets/swagger.yml)
-{% endswagger %}
-
 ## Assistants
 
 {% swagger src=".gitbook/assets/swagger (1).yml" path="/assistants" method="post" %}
@@ -75,28 +57,6 @@ Using Flowise public API, you can programmatically execute many of the same task
 {% endswagger %}
 
 {% swagger src=".gitbook/assets/swagger (1).yml" path="/chatflows/apikey/{apikey}" method="get" %}
-[swagger (1).yml](<.gitbook/assets/swagger (1).yml>)
-{% endswagger %}
-
-## Credentials
-
-{% swagger src=".gitbook/assets/swagger (1).yml" path="/credentials" method="post" %}
-[swagger (1).yml](<.gitbook/assets/swagger (1).yml>)
-{% endswagger %}
-
-{% swagger src=".gitbook/assets/swagger (1).yml" path="/credentials" method="get" %}
-[swagger (1).yml](<.gitbook/assets/swagger (1).yml>)
-{% endswagger %}
-
-{% swagger src=".gitbook/assets/swagger (1).yml" path="/credentials/{id}" method="get" %}
-[swagger (1).yml](<.gitbook/assets/swagger (1).yml>)
-{% endswagger %}
-
-{% swagger src=".gitbook/assets/swagger (1).yml" path="/credentials/{id}" method="put" %}
-[swagger (1).yml](<.gitbook/assets/swagger (1).yml>)
-{% endswagger %}
-
-{% swagger src=".gitbook/assets/swagger (1).yml" path="/credentials/{id}" method="delete" %}
 [swagger (1).yml](<.gitbook/assets/swagger (1).yml>)
 {% endswagger %}
 
