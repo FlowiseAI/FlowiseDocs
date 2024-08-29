@@ -6,7 +6,7 @@ description: >-
 
 # API
 
-Refer to [API Reference](../api-reference.md) for full list of public APIs
+Refer to [API Reference](../api-reference/) for full list of public APIs
 
 ## Prediction
 
