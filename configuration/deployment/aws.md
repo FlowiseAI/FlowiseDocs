@@ -219,6 +219,13 @@ docker compose stop
 docker pull flowiseai/flowise
 ```
 
+Alternatively:
+
+```bash
+docker-compose pull
+docker-compose up --build -d
+```
+
 ## Using NGINX
 
 If you want to get rid of the :3000 on the url and have a custom domain, you can use NGINX to reverse proxy port 80 to 3000 So user will be able to open the app using your domain. Example: `http://yourdomain.com`.
