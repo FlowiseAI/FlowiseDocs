@@ -1,138 +1,123 @@
 ---
-description: Learn when you can stream back to your front end
+description: Learn how Flowise streaming works
 ---
 
 # Streaming
 
-***
+If streaming is set when making prediction, tokens will be sent as data-only [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent\_events/Using\_server-sent\_events#Event\_stream\_format) as they become available.
 
-Flowise supports streaming back to your front end application when the final node is a **Chain** or **Tool Agent.**
+### Using Python/TS Library
 
-<figure><img src="../.gitbook/assets/streaming-1.webp" alt=""><figcaption></figcaption></figure>
+Flowise provides 2 libraries:
 
-<figure><img src="../.gitbook/assets/screely-1687030924019.png" alt=""><figcaption></figcaption></figure>
-
-## Setup
-
-1. Install socket.io-client to your front-end application
+* [Python](https://pypi.org/project/flowise/): `pip install flowise`
+* [Typescript](https://www.npmjs.com/package/flowise-sdk): `npm install flowise-sdk`
 
 {% tabs %}
-{% tab title="Yarn" %}
-```bash
-yarn add socket.io-client
+{% tab title="Python" %}
+```python
+from flowise import Flowise, PredictionData
+
+def test_non_streaming():
+    client = Flowise()
+
+    # Test non-streaming prediction
+    completion = client.create_prediction(
+        PredictionData(
+            chatflowId="<chatflow-id>",
+            question="What is the capital of France?",
+            streaming=False
+        )
+    )
+
+    # Process and print the response
+    for response in completion:
+        print("Non-streaming response:", response)
+
+def test_streaming():
+    client = Flowise()
+
+    # Test streaming prediction
+    completion = client.create_prediction(
+        PredictionData(
+            chatflowId="<chatflow-id>",
+            question="Tell me a joke!",
+            streaming=True
+        )
+    )
+
+    # Process and print each streamed chunk
+    print("Streaming response:")
+    for chunk in completion:
+        print(chunk)
+
+
+if __name__ == "__main__":
+    # Run non-streaming test
+    test_non_streaming()
+
+    # Run streaming test
+    test_streaming()
 ```
 {% endtab %}
 
-{% tab title="Npm" %}
-```bash
-npm install socket.io-client
+{% tab title="Typescript" %}
+```javascript
+import { FlowiseClient } from 'flowise-sdk'
+
+async function test_streaming() {
+  const client = new FlowiseClient({ baseUrl: 'http://localhost:3000' });
+
+  try {
+    // For streaming prediction
+    const prediction = await client.createPrediction({
+      chatflowId: '<chatflow-id>',
+      question: 'What is the capital of France?',
+      streaming: true,
+    });
+
+    for await (const chunk of prediction) {
+        console.log(chunk);
+    }
+    
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+async function test_non_streaming() {
+    const client = new FlowiseClient({ baseUrl: 'http://localhost:3000' });
+  
+    try {
+      // For streaming prediction
+      const prediction = await client.createPrediction({
+        chatflowId: '<chatflow-id>',
+        question: 'Tell me a joke!',
+      });
+  
+      console.log(prediction);
+      
+    } catch (error) {
+      console.error('Error:', error);
+    }
+}
+
+// Run non-streaming test
+test_non_streaming()
+
+// Run streaming test
+test_streaming()
 ```
 {% endtab %}
 
-{% tab title="Pnpm" %}
+{% tab title="cURL" %}
 ```bash
-pnpm add socket.io-client
+curl https://localhost:3000/api/v1/predictions/{chatflow-id} \
+  -H "Content-Type: application/json" \
+  -d '{
+    "question": "Hello world!",
+    "streaming": true
+  }'
 ```
 {% endtab %}
 {% endtabs %}
-
-Refer [official docs](https://socket.io/docs/v4/client-api/) for more installation options.
-
-2. Import it
-
-```javascript
-import socketIOClient from 'socket.io-client'
-```
-
-3. Establish connection
-
-```javascript
-const socket = socketIOClient("http://localhost:3000") //flowise url
-```
-
-4. Listen to connection
-
-```javascript
-import { useState } from 'react'
-
-const [socketIOClientId, setSocketIOClientId] = useState('');
-
-socket.on('connect', () => {
-  setSocketIOClientId(socket.id)
-});
-```
-
-4. Send query with `socketIOClientId`
-
-```javascript
-async function query(data) {
-    const response = await fetch(
-        "http://localhost:3000/api/v1/prediction/<chatflow-id>",
-        {
-            method: "POST",
-            body: data
-        }
-    );
-    const result = await response.json();
-    return result;
-}
-
-query({
-  "question": "Hey, how are you?",
-  "socketIOClientId": socketIOClientId
-}).then((response) => {
-    console.log(response);
-});
-```
-
-5. Listen to token stream
-
-```javascript
-// When LLM start streaming
-socket.on('start', () => {
-  console.log('start');
-});
-
-// The delta token/word when streaming
-socket.on('token', (token) => {
-  console.log('token:', token);
-});
-
-// Source documents returned from the chatflow
-socket.on('sourceDocuments', (sourceDocuments) => {
-  console.log('sourceDocuments:', sourceDocuments);
-});
-
-// Tools used during execution
-socket.on('usedTools', (usedTools) => {
-  console.log('usedTools:', usedTools);
-});
-
-// When LLM finished streaming
-socket.on('end', () => {
-  console.log('end');
-});
-
-//------------------- For Multi Agents ----------------------
-
-// The next agent in line
-socket.on('nextAgent', (nextAgent) => {
-  console.log('nextAgent:', nextAgent);
-});
-
-// The whole multi agents thoughts, reasoning and output
-socket.on('agentReasoning', (agentReasoning) => {
-  console.log('agentReasoning:', agentReasoning);
-});
-
-// When execution is aborted/interrupted
-socket.on('abort', () => {
-  console.log('abort');
-});
-```
-
-6. Disconnect connection
-
-```javascript
-socket.disconnect();
-```

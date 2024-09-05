@@ -16,6 +16,113 @@ Refer to [API Reference](../api-reference/) for full list of public APIs
 [swagger (1).yml](<../.gitbook/assets/swagger (1).yml>)
 {% endswagger %}
 
+### Using Python/TS Library
+
+Flowise provides 2 libraries:
+
+* [Python](https://pypi.org/project/flowise/): `pip install flowise`
+* [Typescript](https://www.npmjs.com/package/flowise-sdk): `npm install flowise-sdk`
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+from flowise import Flowise, PredictionData
+
+def test_non_streaming():
+    client = Flowise()
+
+    # Test non-streaming prediction
+    completion = client.create_prediction(
+        PredictionData(
+            chatflowId="<chatflow-id>",
+            question="What is the capital of France?",
+            streaming=False
+        )
+    )
+
+    # Process and print the response
+    for response in completion:
+        print("Non-streaming response:", response)
+
+def test_streaming():
+    client = Flowise()
+
+    # Test streaming prediction
+    completion = client.create_prediction(
+        PredictionData(
+            chatflowId="<chatflow-id>",
+            question="Tell me a joke!",
+            streaming=True
+        )
+    )
+
+    # Process and print each streamed chunk
+    print("Streaming response:")
+    for chunk in completion:
+        print(chunk)
+
+
+if __name__ == "__main__":
+    # Run non-streaming test
+    test_non_streaming()
+
+    # Run streaming test
+    test_streaming()
+```
+{% endtab %}
+
+{% tab title="Typescript" %}
+```javascript
+import { FlowiseClient } from 'flowise-sdk'
+
+async function test_streaming() {
+  const client = new FlowiseClient({ baseUrl: 'http://localhost:3000' });
+
+  try {
+    // For streaming prediction
+    const prediction = await client.createPrediction({
+      chatflowId: 'fe1145fa-1b2b-45b7-b2ba-bcc5aaeb5ffd',
+      question: 'What is the revenue of Apple?',
+      streaming: true,
+    });
+
+    for await (const chunk of prediction) {
+        console.log(chunk);
+    }
+    
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+async function test_non_streaming() {
+    const client = new FlowiseClient({ baseUrl: 'http://localhost:3000' });
+  
+    try {
+      // For streaming prediction
+      const prediction = await client.createPrediction({
+        chatflowId: 'fe1145fa-1b2b-45b7-b2ba-bcc5aaeb5ffd',
+        question: 'What is the revenue of Apple?',
+      });
+  
+      console.log(prediction);
+      
+    } catch (error) {
+      console.error('Error:', error);
+    }
+}
+
+// Run non-streaming test
+test_non_streaming()
+
+// Run streaming test
+test_streaming()
+```
+{% endtab %}
+{% endtabs %}
+
+### Persists Memory
+
 ### Override Config
 
 Override existing input configuration of the chatflow with **overrideConfig** property.
