@@ -1,3 +1,8 @@
+**Note**
+
+As of September 2024 Hugging Face Spaces is [experiencing issues](https://discuss.huggingface.co/t/flowise-space-stuck-on-building/103813) with Flowise.
+
+
 ---
 description: Learn how to deploy Flowise on Render
 ---
