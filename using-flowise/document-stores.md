@@ -1,5 +1,5 @@
 ---
-description: Learn how to use the Flowise Document Stores
+description: Learn how to use the Flowise Document Stores, written by @toi500
 ---
 
 # Document Stores
@@ -30,7 +30,7 @@ Using the **Flowise Document Stores**, we'll prepare and upsert data about Liber
 
 <figure><img src="../.gitbook/assets/ds03.png" alt=""><figcaption></figcaption></figure>
 
-## 3. Preparing your data
+## 3. Prepare your data
 
 * First, we start by uploading our PDF file.
 * Then, we add a **unique metadata key**. This is optional, but a good practice as it allows us to target and filter down this same dataset later on if we need to.
@@ -71,19 +71,19 @@ Note that once you have processed your data, you will be able to **edit your chu
 
 * **You discover inaccuracies or inconsistencies in the original data:** Editing chunks allows you to correct errors and ensure the information is accurate.
 * **You want to refine the content for better relevance:** You can adjust chunks to emphasize specific information or remove irrelevant sections.
-* **You need to tailor chunks for specific queries:** By editing chunks, you can make them more targeted to the types of questions you expect to receive.
+* **You need to tailor chunks for specific queries:** You can make them more targeted to the types of questions you expect to receive.
 
-## 6. Upsert your data to a Vector Store
+## 6. Configure the upsert process
 
-* With our data processed, loaded via a document loader, and appropriately chunked, we can now proceed to upsert it into a vector store.
+* With our data processed, loaded via a document loader, and appropriately chunked, we can now proceed to configure the upsert process.
 
 <figure><img src="../.gitbook/assets/dastore002.png" alt=""><figcaption></figcaption></figure>
 
-The upsert process comprises three fundamental steps:
+The upsert process comprises four fundamental steps:
 
 1. **Embedding Model Selection:** We begin by choosing the appropriate embedding model to encode our dataset. This model will transform our data into a numerical vector representation.
 2. **Data Store Selection:** Next, we determine the Vector Store where our dataset will reside.
-3. **Record Manager (Optional):** Finally, we have the option to implement a Record Manager. This component provides the functionalities for managing our dataset once it's stored within the Vector Store.
+3. **Record Manager Selection (Optional):** Finally, we have the option to implement a Record Manager. This component provides the functionalities for managing our dataset once it's stored within the Vector Store.
 
 <figure><img src="../.gitbook/assets/dastore003.png" alt=""><figcaption></figcaption></figure>
 
@@ -105,37 +105,35 @@ The upsert process comprises three fundamental steps:
 
 <figure><img src="../.gitbook/assets/dastore006.png" alt=""><figcaption></figcaption></figure>
 
+## 7. Upsert your data to a Vector Store
+
+* To begin the upsert process and transfer your data to the Vector Store, click the "Upsert" button.
+
+<figure><img src="../.gitbook/assets/dastore013.png" alt=""><figcaption></figcaption></figure>
+
+* The capture below demonstrates the successful upsertion of our data into Upstash, divided into 85 chunks for efficient processing.
+
+<figure><img src="../.gitbook/assets/dastore007.png" alt=""><figcaption></figcaption></figure>
 
 
 
+## 8. Test your dataset
 
+* To quickly test the functionality of your dataset without navigating away from the Document Store, simply utilize the "Retrieval Query" button. This initiates a test query, allowing you to verify the accuracy and effectiveness of your data retrieval process.
 
+<figure><img src="../.gitbook/assets/dastore010.png" alt=""><figcaption></figcaption></figure>
 
+* In our case, we see that when querying for information about kitchen flooring coverage in our insurance policy, we retrieve 4 relevant chunks from Upstash, our designated Vector Store. This retrieval is limited to 4 chunks as per the defined "top k" parameter, ensuring we receive the most pertinent information without unnecessary redundancy.
 
+<figure><img src="../.gitbook/assets/dastore009.png" alt=""><figcaption></figcaption></figure>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## 8. Test your RAG
+## 9. Test your RAG
 
 * Finally, our Retrieval-Augmented Generation (RAG) system is operational. It's noteworthy how the LLM effectively interprets the query and successfully leverages relevant information from the chunked data to construct a comprehensive response.
 
-<figure><img src="../.gitbook/assets/ds15.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/dastore011.png" alt=""><figcaption></figcaption></figure>
 
-## 9. Summary
+## 10. Summary
 
 We started by creating a Document Store to organize the LibertyGuard Deluxe Homeowners Policy data. This data was then prepared by uploading, chunking, processing, and upserting it, making it ready for our RAG system.
 
