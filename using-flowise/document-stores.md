@@ -73,21 +73,61 @@ Note that once you have processed your data, you will be able to **edit your chu
 * **You want to refine the content for better relevance:** You can adjust chunks to emphasize specific information or remove irrelevant sections.
 * **You need to tailor chunks for specific queries:** By editing chunks, you can make them more targeted to the types of questions you expect to receive.
 
-<figure><img src="../.gitbook/assets/ds10.png" alt=""><figcaption></figcaption></figure>
+## 6. Upsert your data to a Vector Store
 
-## 6. Add your Document Store node to your flow
+* With our data processed, loaded via a document loader, and appropriately chunked, we can now proceed to upsert it into a vector store.
 
-* Now that our dataset is ready to be upserted, it's time to go to your RAG chatflow / agentflow and add the [Document Store node](../integrations/langchain/document-loaders/document-store.md) under the **LangChain > Document Loader** section.
+<figure><img src="../.gitbook/assets/dastore002.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/ds11.png" alt=""><figcaption></figcaption></figure>
+The upsert process comprises three fundamental steps:
 
-## 7. Upsert your data to a Vector Store
+1. **Embedding Model Selection:** We begin by choosing the appropriate embedding model to encode our dataset. This model will transform our data into a numerical vector representation.
+2. **Data Store Selection:** Next, we determine the Vector Store where our dataset will reside.
+3. **Record Manager (Optional):** Finally, we have the option to implement a Record Manager. This component provides the functionalities for managing our dataset once it's stored within the Vector Store.
 
-* Upsert your dataset to your [Vector Store](../integrations/langchain/vector-stores/) by clicking the green button in the right corner of your flow. We used the [Upstash Vector Store](../integrations/langchain/vector-stores/upstash-vector.md) in our implementation.
+<figure><img src="../.gitbook/assets/dastore003.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/ds12.png" alt=""><figcaption></figcaption></figure>
+### 1. Select Embeddings
 
-<figure><img src="../.gitbook/assets/ds13.png" alt=""><figcaption></figcaption></figure>
+* Click on the "Select Embeddings" card and choose your preferred embedding model. In our case, we will select OpenAI as the embedding provider and use the "text-embedding-ada-002" model with 1536 dimensions.
+
+<figure><img src="../.gitbook/assets/dastore004.png" alt=""><figcaption></figcaption></figure>
+
+### 2. Select Vector Store
+
+* Click on the "Select Vector Store" card and choose your preferred Vector Store. In our case, as we need a production-ready one, we will select Upstash.
+
+<figure><img src="../.gitbook/assets/dastore005.png" alt=""><figcaption></figcaption></figure>
+
+### 3. Select Record Manager
+
+* For advanced dataset management within the Vector Store, you can optionally select and configure a Record Manager. Detailed instructions on how to set up and utilize this feature can be found in the dedicated [guide](../integrations/langchain/record-managers.md).
+
+<figure><img src="../.gitbook/assets/dastore006.png" alt=""><figcaption></figcaption></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## 8. Test your RAG
 
