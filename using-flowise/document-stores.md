@@ -45,7 +45,7 @@ In this guide, we've added a generous **Chunk Overlap** size to ensure no releva
 
 <figure><img src="../.gitbook/assets/ds05.png" alt=""><figcaption></figcaption></figure>
 
-## 4. Preview your data
+## 4. Preview Your Data
 
 * We can now preview how our data will be chunked using our current [Text Splitter](../integrations/langchain/text-splitters/) configuration; `chunk_size=1500`and `chunk_overlap=750`.
 
@@ -59,7 +59,7 @@ In this guide, we've added a generous **Chunk Overlap** size to ensure no releva
 Note that our custom metadata `company: "liberty"` has been inserted into each chunk. This metadata allows us to easily filter and retrieve information from this specific dataset later on, even if we use the same vector store index for other datasets.
 {% endhint %}
 
-## 5. Process your data
+## 5. Process Your Data
 
 * Once you are satisfied with the chunking process, it's time to process your data.
 
@@ -73,7 +73,7 @@ After processing your data, you retain the ability to refine individual chunks b
 * **Improved Relevance:** Refine chunk content to emphasize key information and remove irrelevant sections, thereby increasing the precision and effectiveness of your retrieval process.
 * **Query Optimization:** Tailor chunks to better align with anticipated user queries, making them more targeted and improving the overall user experience.
 
-## 6. Configure the upsert process
+## 6. Configure the Upsert Process
 
 * With our data properly processed - loaded via a Document Loader and appropriately chunked -, we can now proceed to configure the upsert process.
 
@@ -105,7 +105,7 @@ The upsert process comprises three fundamental steps:
 
 <figure><img src="../.gitbook/assets/dastore006.png" alt=""><figcaption></figcaption></figure>
 
-## 7. Upsert your data to a Vector Store
+## 7. Upsert Your Data to a Vector Store
 
 * To begin the upsert process and transfer your data to the Vector Store, click the "Upsert" button.
 
@@ -117,7 +117,7 @@ The upsert process comprises three fundamental steps:
 
 
 
-## 8. Test your dataset
+## 8. Test Your Dataset
 
 * To quickly test the functionality of your dataset without navigating away from the Document Store, simply utilize the "Retrieval Query" button. This initiates a test query, allowing you to verify the accuracy and effectiveness of your data retrieval process.
 
@@ -127,7 +127,7 @@ The upsert process comprises three fundamental steps:
 
 <figure><img src="../.gitbook/assets/dastore009.png" alt=""><figcaption></figcaption></figure>
 
-## 9. Test your RAG
+## 9. Test Your RAG
 
 * Finally, our Retrieval-Augmented Generation (RAG) system is operational. It's noteworthy how the LLM effectively interprets the query and successfully leverages relevant information from the chunked data to construct a comprehensive response.
 
