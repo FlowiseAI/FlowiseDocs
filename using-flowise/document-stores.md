@@ -113,7 +113,7 @@ The upsert process comprises three fundamental steps:
 
 * As illustrated in the image below, our data has been successfully upserted into the Upstash vector database. The data was divided into 85 chunks to optimize the upsertion process and ensure efficient storage and retrieval.
 
-<figure><img src="../.gitbook/assets/dastore007.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/dastore007.png" alt="" width="375"><figcaption></figcaption></figure>
 
 
 
