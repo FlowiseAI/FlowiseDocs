@@ -4,9 +4,9 @@ description: Learn how to use upload files/images/audio
 
 # Uploads
 
-Flowise allow users to upload files/images/audios from the chat. In this section, we will go through each and see how to enable the feature and using it.
+Flowise allow users to upload images/audios/files from the chat. In this section, we will go through each and see how to enable the feature and using it.
 
-## Image
+## Uploading Images
 
 Certain Chat Models allow user to input images:
 
@@ -88,7 +88,7 @@ query({
 {% endtab %}
 {% endtabs %}
 
-## Audio
+## Uploading Audio
 
 Under Chatflow Configuration, user can select a **Speech to Text** module. Supported integrations are:
 
@@ -166,30 +166,32 @@ query({
 {% endtab %}
 {% endtabs %}
 
-## Files
+## Uploading Files
 
 Users can upload files from the chat as well. Uploaded files will be upserted on the fly to the vector store. However, to enable file uploads feature, there are a few pre-requisites.
 
-* A file-upload supported vector store must be present in the chatflow.
-  * [Pinecone](../integrations/langchain/vector-stores/pinecone.md)
-  * [Milvus](../integrations/langchain/vector-stores/milvus.md)
-  * [Postgres](../integrations/langchain/vector-stores/postgres.md)
-  * [Qdrant](../integrations/langchain/vector-stores/qdrant.md)
-  * [Upstash](../integrations/langchain/vector-stores/upstash-vector.md)
-* If you have multiple vector stores on a chatflow, you can only turn on file upload for one vector store at a time.
-* At least one Document Loader node should be connected to the vector store's Document input.
-* Supported Document Loader:
-  * [CSV File](../integrations/langchain/document-loaders/csv-file.md)
-  * [Docx File](../integrations/langchain/document-loaders/docx-file.md)
-  * [Json File](../integrations/langchain/document-loaders/json-file.md)
-  * [Json Lines File](../integrations/langchain/document-loaders/json-lines-file.md)
-  * [PDF File](../integrations/langchain/document-loaders/pdf-file.md)
-  * [Text File](../integrations/langchain/document-loaders/text-file.md)
-  * [Unstructured File](../integrations/langchain/document-loaders/unstructured-file-loader.md)
+1. A file-upload supported vector store must be present in the chatflow.
+
+* [Pinecone](../integrations/langchain/vector-stores/pinecone.md)
+* [Milvus](../integrations/langchain/vector-stores/milvus.md)
+* [Postgres](../integrations/langchain/vector-stores/postgres.md)
+* [Qdrant](../integrations/langchain/vector-stores/qdrant.md)
+* [Upstash](../integrations/langchain/vector-stores/upstash-vector.md)
+
+2. If you have multiple vector stores on a chatflow, you can only turn on file upload for one vector store at a time.
+3. At least one Document Loader node should be connected to the vector store's Document input. Supported Document Loader:
+
+* [CSV File](../integrations/langchain/document-loaders/csv-file.md)
+* [Docx File](../integrations/langchain/document-loaders/docx-file.md)
+* [Json File](../integrations/langchain/document-loaders/json-file.md)
+* [Json Lines File](../integrations/langchain/document-loaders/json-lines-file.md)
+* [PDF File](../integrations/langchain/document-loaders/pdf-file.md)
+* [Text File](../integrations/langchain/document-loaders/text-file.md)
+* [Unstructured File](../integrations/langchain/document-loaders/unstructured-file-loader.md)
 
 <figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
-One or multiple files can be uploaded on the chat:
+4. One or multiple files can be uploaded on the chat:
 
 <div align="left">
 
@@ -201,7 +203,7 @@ One or multiple files can be uploaded on the chat:
 
 </div>
 
-Here's how it works:
+### Here's how it works:
 
 * Uploaded files will have the metadata updated with the chatId.
 * This will allow the file to be associated with the chatId.
@@ -212,3 +214,25 @@ Here's how it works:
 An example of a vector embeddings upserted on Pinecone:
 
 <figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+### Uploading Files & Tool Agent
+
+**Problem**
+
+When using a [Tool Agent](../integrations/langchain/agents/tool-agent.md) and needing to connect it to a Vector Store, we must utilize a [Retriever Tool](../integrations/langchain/tools/retriever-tool.md) within our chatflow. This Retriever Tool requires pre-configured name and description fields to provide the LLM with sufficient context for proper utilization.
+
+However, since **we cannot hardcode a precise retriever description about the document's content before it's uploaded in the front end**, we must use more general prompts, which may not always be effective. This limitation can lead to inefficiencies, as the LLM may not always recognize when to call the Retriever Tool for answering questions related to the uploaded document.\
+\
+In essence, the problem lies in the inability to dynamically update the Retriever Tool's description to accurately reflect the content of the uploaded document, hindering the LLM's ability to determine when to call the Retriever Tool.
+
+#### Solution
+
+This problem can be solved by using the `Conversational Retrieval Tool Agent`, a community node that merges the ability of using Vector Stores without relying on the Retriever Tool with the ability of calling tools as if it were an Agent tool.
+
+<figure><img src="../.gitbook/assets/upfile001.png" alt=""><figcaption></figcaption></figure>
+
+
+
+{% hint style="info" %}
+**Community Nodes:** In order to start using community nodes in your Flowise instance, you need to set the following environment variable `SHOW_COMMUNITY_NODES=TRUE`
+{% endhint %}
