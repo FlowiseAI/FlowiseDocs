@@ -1,10 +1,10 @@
 ---
-description: Learn how to use upload files/images/audio
+description: Learn how to use upload images/audio/files
 ---
 
 # Uploads
 
-Flowise allow users to upload images/audios/files from the chat. In this section, we will go through each and see how to enable the feature and using it.
+Flowise allow users to upload document (images, audios & files) from the chat. In this section, we will go through each and see how to enable the feature and using it.
 
 ## Uploading Images
 
@@ -168,9 +168,9 @@ query({
 
 ## Uploading Files
 
-Users can upload files from the chat as well. Uploaded files will be upserted on the fly to the vector store. However, to enable file uploads feature, there are a few pre-requisites.
+Users can upload files from the chat as well. Uploaded files will be upserted on the fly to the Vector Store. However, to enable file uploads feature, there are a few pre-requisites.
 
-1. A file-upload supported vector store must be present in the chatflow.
+1. A file-upload supported Vector Store must be present in the chatflow.
 
 * [Pinecone](../integrations/langchain/vector-stores/pinecone.md)
 * [Milvus](../integrations/langchain/vector-stores/milvus.md)
@@ -178,7 +178,7 @@ Users can upload files from the chat as well. Uploaded files will be upserted on
 * [Qdrant](../integrations/langchain/vector-stores/qdrant.md)
 * [Upstash](../integrations/langchain/vector-stores/upstash-vector.md)
 
-2. If you have multiple vector stores on a chatflow, you can only turn on file upload for one vector store at a time.
+2. If you have multiple Vector Stores on a chatflow, you can only turn on file upload for one vector store at a time.
 3. At least one Document Loader node should be connected to the vector store's Document input. Supported Document Loader:
 
 * [CSV File](../integrations/langchain/document-loaders/csv-file.md)
