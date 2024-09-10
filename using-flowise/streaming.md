@@ -18,22 +18,6 @@ Flowise provides 2 libraries:
 ```python
 from flowise import Flowise, PredictionData
 
-def test_non_streaming():
-    client = Flowise()
-
-    # Test non-streaming prediction
-    completion = client.create_prediction(
-        PredictionData(
-            chatflowId="<chatflow-id>",
-            question="What is the capital of France?",
-            streaming=False
-        )
-    )
-
-    # Process and print the response
-    for response in completion:
-        print("Non-streaming response:", response)
-
 def test_streaming():
     client = Flowise()
 
@@ -49,14 +33,11 @@ def test_streaming():
     # Process and print each streamed chunk
     print("Streaming response:")
     for chunk in completion:
+        # {event: "token", data: "hello"}
         print(chunk)
 
 
 if __name__ == "__main__":
-    # Run non-streaming test
-    test_non_streaming()
-
-    # Run streaming test
     test_streaming()
 ```
 {% endtab %}
@@ -77,6 +58,7 @@ async function test_streaming() {
     });
 
     for await (const chunk of prediction) {
+        // {event: "token", data: "hello"}
         console.log(chunk);
     }
     
@@ -84,26 +66,6 @@ async function test_streaming() {
     console.error('Error:', error);
   }
 }
-
-async function test_non_streaming() {
-    const client = new FlowiseClient({ baseUrl: 'http://localhost:3000' });
-  
-    try {
-      // For streaming prediction
-      const prediction = await client.createPrediction({
-        chatflowId: '<chatflow-id>',
-        question: 'Tell me a joke!',
-      });
-  
-      console.log(prediction);
-      
-    } catch (error) {
-      console.error('Error:', error);
-    }
-}
-
-// Run non-streaming test
-test_non_streaming()
 
 // Run streaming test
 test_streaming()
