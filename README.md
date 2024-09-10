@@ -34,4 +34,4 @@ If you want to help this project, please consider reviewing the [Contribution Gu
 
 ## Need Help?
 
-For support and further discussion, head over to our [Discord](https://discord.gg/jbaHfsRVBW) server.
+For support and further discussion, head over to our [Discord](https://discord.gg/jbaHfsRVBW) server.  
