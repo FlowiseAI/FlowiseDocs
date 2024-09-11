@@ -4,7 +4,7 @@ description: Learn how to use upload images/audio/files
 
 # Uploads
 
-Flowise allow users to upload document (images, audios & files) from the chat. In this section, we will go through each and see how to enable the feature and using it.
+Flowise allow users to upload documents (images, audios & files) from the chat. In this section, we will go through each and see how to enable the feature and using it.
 
 ## Uploading Images
 
