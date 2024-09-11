@@ -217,7 +217,7 @@ An example of a vector embeddings upserted on Pinecone:
 
 ### Uploading Files & Tool Agent
 
-**Problem**
+#### Problem
 
 When using a [Tool Agent](../integrations/langchain/agents/tool-agent.md) and needing to connect it to a Vector Store, we must utilize a [Retriever Tool](../integrations/langchain/tools/retriever-tool.md) within our chatflow. This Retriever Tool requires pre-configured name and description fields to provide the LLM with sufficient context for proper utilization.
 
