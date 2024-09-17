@@ -83,3 +83,24 @@ curl https://localhost:3000/api/v1/predictions/{chatflow-id} \
 ```
 {% endtab %}
 {% endtabs %}
+
+```html
+event: token
+data: Once upon a time...
+```
+
+A prediction's event stream consists of the following event types:
+
+| Event           | Description                                                                                                                         |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| start           | The start of streaming                                                                                                              |
+| token           | Emitted when the prediction is streaming new token output                                                                           |
+| error           | Emitted when the prediction returns an error                                                                                        |
+| end             | Emitted when the prediction finishes                                                                                                |
+| metadata        | All metadata such as chatId, messageId, of the related flow. Emitted after all tokens have finished streaming, and before end event |
+| sourceDocuments | Emitted when the flow returns sources from vector store                                                                             |
+| usedTools       | Emitted when the flow used tools                                                                                                    |
+
+### Streamlit App
+
+[https://github.com/HenryHengZJ/flowise-streamlit](https://github.com/HenryHengZJ/flowise-streamlit)
