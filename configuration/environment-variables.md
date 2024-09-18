@@ -6,18 +6,7 @@ description: Learn how to configure environment variables for Flowise
 
 Flowise support different environment variables to configure your instance. You can specify the following variables in the `.env` file inside `packages/server` folder. Refer to [.env.example](https://github.com/FlowiseAI/Flowise/blob/main/packages/server/.env.example) file.
 
-| Variable                   | Description                                                                                        | Type                       | Default                   |
-| -------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------- | ------------------------- |
-| PORT                       | The HTTP port Flowise runs on                                                                      | Number                     | 3000                      |
-| FLOWISE\_USERNAME          | Username to login                                                                                  | String                     |                           |
-| FLOWISE\_PASSWORD          | Password to login                                                                                  | String                     |                           |
-| FLOWISE\_FILE\_SIZE\_LIMIT | Maximum file size when uploading                                                                   | String                     | `50mb`                    |
-| APIKEY\_PATH               | Location where API keys are saved                                                                  | String                     | `Flowise/packages/server` |
-| NUMBER\_OF\_PROXIES        | Rate Limit Proxy                                                                                   | Number                     |                           |
-| CORS\_ORIGINS              | The allowed origins for all cross-origin HTTP calls                                                | String                     |                           |
-| IFRAME\_ORIGINS            | The allowed origins for iframe src embedding                                                       | String                     |                           |
-| DISABLE\_CHATFLOW\_REUSE   | Disable caching the flow, allowing every interaction of the chatflow will be executed from scratch | Boolean: `true` or `false` |                           |
-| SHOW\_COMMUNITY\_NODES     | Display nodes that are created by community                                                        | Boolean: `true` or `false` |                           |
+<table><thead><tr><th width="233">Variable</th><th width="219">Description</th><th width="104">Type</th><th>Default</th></tr></thead><tbody><tr><td>PORT</td><td>The HTTP port Flowise runs on</td><td>Number</td><td>3000</td></tr><tr><td>FLOWISE_USERNAME</td><td>Username to login</td><td>String</td><td></td></tr><tr><td>FLOWISE_PASSWORD</td><td>Password to login</td><td>String</td><td></td></tr><tr><td>FLOWISE_FILE_SIZE_LIMIT</td><td>Maximum file size when uploading</td><td>String</td><td><code>50mb</code></td></tr><tr><td>APIKEY_PATH</td><td>Location where API keys are saved</td><td>String</td><td><code>Flowise/packages/server</code></td></tr><tr><td>NUMBER_OF_PROXIES</td><td>Rate Limit Proxy</td><td>Number</td><td></td></tr><tr><td>CORS_ORIGINS</td><td>The allowed origins for all cross-origin HTTP calls</td><td>String</td><td></td></tr><tr><td>IFRAME_ORIGINS</td><td>The allowed origins for iframe src embedding</td><td>String</td><td></td></tr><tr><td>DISABLE_CHATFLOW_REUSE</td><td>Disable caching the flow, allowing every interaction of the chatflow will be executed from scratch</td><td>Boolean: <code>true</code> or <code>false</code></td><td></td></tr><tr><td>SHOW_COMMUNITY_NODES</td><td>Display nodes that are created by community</td><td>Boolean: <code>true</code> or <code>false</code></td><td></td></tr></tbody></table>
 
 ## For Database
 
@@ -115,6 +104,16 @@ In some cases, you might want to use custom model on the existing Chat Model and
 By default, Flowise pulls the model list from [here](https://github.com/FlowiseAI/Flowise/blob/main/packages/components/models.json). However user can create their own `models.json` file and specify the file path:
 
 <table><thead><tr><th width="164">Variable</th><th width="196">Description</th><th width="78">Type</th><th>Default</th></tr></thead><tbody><tr><td>MODEL_LIST_CONFIG_JSON</td><td>Link to load list of models from your <code>models.json</code> config file</td><td>String</td><td><a href="https://raw.githubusercontent.com/FlowiseAI/Flowise/main/packages/components/models.json">https://raw.githubusercontent.com/FlowiseAI/Flowise/main/packages/components/models.json</a></td></tr></tbody></table>
+
+## For Flowise API Keys
+
+By default, Flowise stores your API keys (not Credentials) that can be used to interact with [API Reference](../api-reference/) to a local file path. User can change the behavior by using the below env variable.
+
+| Variable              | Description              | Type                      | Default |
+| --------------------- | ------------------------ | ------------------------- | ------- |
+| APIKEY\_STORAGE\_TYPE | Method to store API keys | Enum string: `json`, `db` | `json`  |
+
+Using `db` as storage type will store the API keys to database instead of a local JSON file.
 
 ## For Storage
 
