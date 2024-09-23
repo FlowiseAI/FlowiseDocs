@@ -10,7 +10,11 @@ Refer to [API Reference](../api-reference/) for full list of public APIs
 
 ## Prediction
 
+<div data-full-width="true">
+
 <figure><img src="../.gitbook/assets/image (16) (1).png" alt=""><figcaption></figcaption></figure>
+
+</div>
 
 {% swagger src="../.gitbook/assets/swagger (1).yml" path="/prediction/{id}" method="post" %}
 [swagger (1).yml](<../.gitbook/assets/swagger (1).yml>)
@@ -24,7 +28,7 @@ Flowise provides 2 libraries:
 * [Typescript](https://www.npmjs.com/package/flowise-sdk): `npm install flowise-sdk`
 
 {% tabs %}
-{% tab title="Python" %}
+{% tab title="Python SDK" %}
 ```python
 from flowise import Flowise, PredictionData
 
@@ -71,7 +75,7 @@ if __name__ == "__main__":
 ```
 {% endtab %}
 
-{% tab title="Typescript" %}
+{% tab title="Typescript SDK" %}
 ```javascript
 import { FlowiseClient } from 'flowise-sdk'
 
@@ -121,8 +125,6 @@ test_streaming()
 {% endtab %}
 {% endtabs %}
 
-### Persists Memory
-
 ### Override Config
 
 Override existing input configuration of the chatflow with **overrideConfig** property.
@@ -130,7 +132,7 @@ Override existing input configuration of the chatflow with **overrideConfig** pr
 <figure><img src="../.gitbook/assets/image (45).png" alt=""><figcaption></figcaption></figure>
 
 {% tabs %}
-{% tab title="Python" %}
+{% tab title="Python API" %}
 ```python
 import requests
 API_URL = "http://localhost:3000/api/v1/prediction/&#x3C;chatlfowid>"
@@ -149,7 +151,7 @@ output = query({
 ```
 {% endtab %}
 
-{% tab title="Javascript" %}
+{% tab title="Javascript API" %}
 ```javascript
 async function query(data) {
     const response = await fetch(
@@ -184,7 +186,7 @@ query({
 You can prepend history messages to give some context to LLM. For example, if you want the LLM to remember user's name:
 
 {% tabs %}
-{% tab title="Python" %}
+{% tab title="Python API" %}
 ```python
 import requests
 API_URL = "http://localhost:3000/api/v1/prediction/&#x3C;chatlfowid>"
@@ -213,7 +215,7 @@ output = query({
 ```
 {% endtab %}
 
-{% tab title="Javascript" %}
+{% tab title="Javascript API" %}
 ```javascript
 async function query(data) {
     const response = await fetch(
@@ -258,7 +260,7 @@ query({
 You can pass a `sessionId` to persists the state of the conversation, so the every subsequent API calls will have context about previous conversation. Otherwise, a new session will be generated each time.
 
 {% tabs %}
-{% tab title="Python" %}
+{% tab title="Python API" %}
 ```python
 import requests
 API_URL = "http://localhost:3000/api/v1/prediction/&#x3C;chatlfowid>"
@@ -276,7 +278,7 @@ output = query({
 ```
 {% endtab %}
 
-{% tab title="Javascript" %}
+{% tab title="Javascript API" %}
 ```javascript
 async function query(data) {
     const response = await fetch(
@@ -310,7 +312,7 @@ query({
 Pass variables in the API to be used by the nodes in the flow. See more: [Variables](api.md#variables)
 
 {% tabs %}
-{% tab title="Python" %}
+{% tab title="Python API" %}
 ```python
 import requests
 API_URL = "http://localhost:3000/api/v1/prediction/&#x3C;chatlfowid>"
@@ -330,7 +332,7 @@ output = query({
 ```
 {% endtab %}
 
-{% tab title="Javascript" %}
+{% tab title="Javascript API" %}
 ```javascript
 async function query(data) {
     const response = await fetch(
@@ -365,7 +367,7 @@ query({
 
 When **Allow Image Upload** is enabled, images can be uploaded from chat interface.
 
-<div align="center">
+<div align="left" data-full-width="false">
 
 <figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="255"><figcaption></figcaption></figure>
 
@@ -376,7 +378,7 @@ When **Allow Image Upload** is enabled, images can be uploaded from chat interfa
 </div>
 
 {% tabs %}
-{% tab title="Python" %}
+{% tab title="Python API" %}
 ```python
 import requests
 API_URL = "http://localhost:3000/api/v1/prediction/&#x3C;chatlfowid>"
@@ -399,7 +401,7 @@ output = query({
 ```
 {% endtab %}
 
-{% tab title="Javascript" %}
+{% tab title="Javascript API" %}
 ```javascript
 async function query(data) {
     const response = await fetch(
@@ -448,7 +450,7 @@ When **Speech to Text** is enabled, users can speak directly into microphone and
 </div>
 
 {% tabs %}
-{% tab title="Python" %}
+{% tab title="Python API" %}
 ```python
 import requests
 API_URL = "http://localhost:3000/api/v1/prediction/&#x3C;chatlfowid>"
@@ -470,7 +472,7 @@ output = query({
 ```
 {% endtab %}
 
-{% tab title="Javascript" %}
+{% tab title="Javascript API" %}
 ```javascript
 async function query(data) {
     const response = await fetch(
@@ -521,7 +523,11 @@ Some document loaders in Flowise allow user to upload files:
 * [Text File](../integrations/langchain/document-loaders/text-file.md)
 * [Unstructured File](../integrations/langchain/document-loaders/unstructured-file-loader.md)
 
+<div data-full-width="true">
+
 <figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+
+</div>
 
 If the flow contains [Document Loaders](../integrations/langchain/document-loaders/) with Upload File functionality, the API looks slightly different. Instead of passing body as JSON, **form data** is being used. This allows you to send files to the API.
 
@@ -532,7 +538,7 @@ To avoid having separate loaders for different file types, we recommend to use [
 {% endhint %}
 
 {% tabs %}
-{% tab title="Python" %}
+{% tab title="Python API" %}
 ```python
 import requests
 
@@ -557,7 +563,7 @@ print(output)
 ```
 {% endtab %}
 
-{% tab title="Javascript" %}
+{% tab title="Javascript API" %}
 ```javascript
 // use FormData to upload files
 let formData = new FormData();
@@ -588,7 +594,7 @@ query(formData).then((response) => {
 For other [Document Loaders](../integrations/langchain/document-loaders/) nodes without Upload File functionality, the API body is in **JSON** format similar to [Prediction API](api.md#prediction-api).
 
 {% tabs %}
-{% tab title="Python" %}
+{% tab title="Python API" %}
 ```python
 import requests
 
@@ -608,7 +614,7 @@ print(output)
 ```
 {% endtab %}
 
-{% tab title="Javascript" %}
+{% tab title="Javascript API" %}
 ```javascript
 async function query(data) {
     const response = await fetch(
