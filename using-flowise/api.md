@@ -10,7 +10,7 @@ Refer to [API Reference](../api-reference/) for full list of public APIs
 
 ## Prediction
 
-<div data-full-width="true">
+<div data-full-width="false">
 
 <figure><img src="../.gitbook/assets/image (16) (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -523,7 +523,7 @@ Some document loaders in Flowise allow user to upload files:
 * [Text File](../integrations/langchain/document-loaders/text-file.md)
 * [Unstructured File](../integrations/langchain/document-loaders/unstructured-file-loader.md)
 
-<div data-full-width="true">
+<div data-full-width="false">
 
 <figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
