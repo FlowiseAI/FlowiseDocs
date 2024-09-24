@@ -33,6 +33,28 @@ aws cloudformation create-stack --stack-name flowise --template-body file://flow
 
 After deployment, the URL of your Flowise application is available in the CloudFormation stack outputs.
 
+## Deploy on ECS using Terraform
+
+The Terraform files (`variables.tf`, `main.tf`) are available in this GitHub repository: [terraform-flowise-setup](https://github.com/huiseo/terraform-flowise-setup/tree/main).
+
+This setup deploys Flowise on an ECS cluster exposed through an Application Load Balancer (ALB). It is based on AWS best practices for ECS deployments.
+
+You can modify the Terraform template to adjust:
+
+* Flowise image version
+* Environment variables
+* Resource configurations (CPU, memory, etc.)
+
+### Example Commands for Deployment:
+
+1. **Initialize Terraform:**
+
+```bash
+terraform init
+terraform apply
+terraform destroy
+```
+
 ## Launch EC2 Instance
 
 1. In the EC2 dashboard, click **Launch Instance**
