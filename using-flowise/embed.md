@@ -31,10 +31,15 @@ You can specify a specific version of flowise-embed to be used. For full list of
 ```
 
 {% hint style="warning" %}
-In **v2.1.0**, we have modified the way streaming works. If your Flowise version is lower than that, you might find your embedded chatbot not able to receive messages. You can either:
+In **v2.1.0**, we have modified the way streaming works. If your Flowise version is lower than that, you might find your embedded chatbot not able to receive messages.
 
-* Update Flowise app to **v2.1.0** and above
-* If for some reason, you prefer not to update Flowise application, you can specify the latest v1 version of [Flowise-Embed](https://www.npmjs.com/package/flowise-embed?activeTab=versions). Last maintained version is **v1.3.14**: `https://cdn.jsdelivr.net/npm/flowise-embed@1.3.14/dist/web.js`
+You can either update Flowise to **v2.1.0** and above
+
+Or, if for some reason you prefer not to update Flowise, you can specify the latest **v1.x.x** version of [Flowise-Embed](https://www.npmjs.com/package/flowise-embed?activeTab=versions). Last maintained version is **v1.3.14.**
+
+For instance:
+
+`https://cdn.jsdelivr.net/npm/flowise-embed@1.3.14/dist/web.js`
 {% endhint %}
 
 ## Chatflow Config
