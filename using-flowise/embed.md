@@ -16,6 +16,27 @@ The following video shows how to inject the widget script into any webpage.
 
 {% embed url="https://github.com/FlowiseAI/Flowise/assets/26460777/c128829a-2d08-4d60-b821-1e41a9e677d0" %}
 
+## Using Specific Version
+
+You can specify a specific version of flowise-embed to be used. For full list of versions: [https://www.npmjs.com/package/flowise-embed](https://www.npmjs.com/package/flowise-embed)
+
+```html
+<script type="module">
+  import Chatbot from 'https://cdn.jsdelivr.net/npm/flowise-embed@<some-version>/dist/web.js';
+  Chatbot.init({
+    chatflowid: 'abc',
+    apiHost: 'http://localhost:3000',
+  })
+</script>
+```
+
+{% hint style="warning" %}
+In **v2.1.0**, we have modified the way streaming works. If your Flowise version is lower than that, you might find your embedded chatbot not able to receive messages. You can either:
+
+* Update Flowise app to **v2.1.0** and above
+* If for some reason, you prefer not to update Flowise application, you can specify the latest v1 version of [Flowise-Embed](https://www.npmjs.com/package/flowise-embed?activeTab=versions). Last maintained version is **v1.3.14**: `https://cdn.jsdelivr.net/npm/flowise-embed@1.3.14/dist/web.js`
+{% endhint %}
+
 ## Chatflow Config
 
 You can pass `chatflowConfig` JSON object to override existing configuration. This is the same as [#override-config](api.md#override-config "mention") in API.
