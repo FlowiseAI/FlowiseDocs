@@ -100,7 +100,7 @@ When enabled, users can speak directly into microphone and speech will be transc
 
 <div align="left">
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
  
 
@@ -187,7 +187,7 @@ Users can upload files from the chat as well. Uploaded files will be upserted on
   * [Text File](../integrations/langchain/document-loaders/text-file.md)
   * [Unstructured File](../integrations/langchain/document-loaders/unstructured-file-loader.md)
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 One or multiple files can be uploaded on the chat:
 

@@ -17,7 +17,7 @@
 
 2. Fill in the **ChatOpenAI** credential
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 4. Voila [🎉](https://emojipedia.org/party-popper/), you can now use **ChatOpenAI node** in Flowise
 
