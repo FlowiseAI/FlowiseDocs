@@ -38,6 +38,7 @@
   * [Deployment](configuration/deployment/README.md)
     * [AWS](configuration/deployment/aws.md)
     * [Azure](configuration/deployment/azure.md)
+    * [Alibaba Cloud](https://aliyun-computenest.github.io/quickstart-flowise/)
     * [Digital Ocean](configuration/deployment/digital-ocean.md)
     * [Elestio](https://elest.io/open-source/flowiseai)
     * [GCP](configuration/deployment/gcp.md)
