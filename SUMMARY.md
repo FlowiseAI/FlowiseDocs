@@ -191,6 +191,7 @@
       * [Prompt Template](integrations/langchain/prompts/prompt-template.md)
     * [Record Managers](integrations/langchain/record-managers.md)
     * [Retrievers](integrations/langchain/retrievers/README.md)
+      * [Custom Retriever](integrations/langchain/retrievers/custom-retriever.md)
       * [Cohere Rerank Retriever](integrations/langchain/retrievers/cohere-rerank-retriever.md)
       * [Embeddings Filter Retriever](integrations/langchain/retrievers/embeddings-filter-retriever.md)
       * [HyDE Retriever](integrations/langchain/retrievers/hyde-retriever.md)

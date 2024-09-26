@@ -56,7 +56,7 @@ Besides, user can also use the variable in text input of any node with the follo
 
 For example, in Agent System Message:
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (2).png" alt="" width="508"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (2) (1).png" alt="" width="508"><figcaption></figcaption></figure>
 
 In Prompt Template:
 

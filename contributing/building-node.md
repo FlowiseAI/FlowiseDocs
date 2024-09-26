@@ -122,4 +122,4 @@ SHOW_COMMUNITY_NODES=true
 
 Now we can use `pnpm build` and `pnpm start` to bring the component alive!
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
