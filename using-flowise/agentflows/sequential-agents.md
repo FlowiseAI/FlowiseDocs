@@ -1037,7 +1037,7 @@ Define a clear purpose for each loop in your workflow. If possible, document wit
 
 The End Node marks the definitive **termination point of the conversation** in a Sequential Agent workflow. It signifies that no further processing, actions, or interactions are required.
 
-<figure><img src="../../.gitbook/assets/sa-loop (1).png" alt="" width="335"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/seq-end-node.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ### Understanding the End Node
 
