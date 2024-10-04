@@ -178,4 +178,10 @@ useful when you need to search and return answer about tshirts
 
 We've successfully created an agent that can interact with API when necessary, and still be able handle stateful conversations with users. Below is the template:
 
+## Things to Consider
+
+Using the above methods might not work well if you have large OpenAPI spec. This is because we are including all the specifications as part of the message sent to LLM. We then rely on LLM to figure out the correct URL, query parameters, request body, and other necessary parameters needed to answer user query. As you can imagine, if your OpenAPI specs are complicated, there is a higher chance LLM will hallucinates.
+
+From the official cookbook by OpenAI: [Function calling with an OpenAPI specification](https://cookbook.openai.com/examples/function\_calling\_with\_an\_openapi\_spec), it is recommended to convert each API into a tool itself. For that, we can use [Custom Tool](../integrations/langchain/tools/custom-tool.md). The only downside is that it could be daunting to create one custom tool for each API. To improve user experience, we are still working on the OpenAPI Tool, that automatically convert each APIs into tools. More updates coming soon!
+
 {% file src="../.gitbook/assets/OpenAPI Chatflow.json" %}
