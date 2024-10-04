@@ -140,4 +140,16 @@ npx flowise start --PORT=3000 --DEBUG=true
 
 ### Docker
 
+```
+docker run -d -p 5678:5678 flowise \
+ -e DATABASE_TYPE=postgresdb \
+ -e DATABASE_PORT=<POSTGRES_PORT> \
+ -e DATABASE_HOST=<POSTGRES_HOST> \
+ -e DATABASE_NAME=<POSTGRES_DATABASE_NAME> \
+ -e DATABASE_USER=<POSTGRES_USER> \
+ -e DATABASE_PASSWORD=<POSTGRES_PASSWORD> \
+```
+
+### Docker Compose
+
 You can set all these variables in the `.env` file inside `docker` folder. Refer to [.env.example](https://github.com/FlowiseAI/Flowise/blob/main/docker/.env.example) file.
