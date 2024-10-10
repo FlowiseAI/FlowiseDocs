@@ -14,7 +14,7 @@ As noticed from the image above, it takes in any nodes that has `json` output. S
 
 You can then give a variable name:
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 This variable can then be used in the [If Function](if-else.md#if-function) and [Else Function](if-else.md#else-function) with the prefix `$`. For example:
 

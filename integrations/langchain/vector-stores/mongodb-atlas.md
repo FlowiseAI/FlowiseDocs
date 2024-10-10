@@ -56,11 +56,11 @@ This section is a work in progress. We appreciate any help you can provide in co
 
 Drag and drop the MongoDB Atlas Vector Store, and add a new credential. Use the connection string provided from the MongoDB Atlas dashboard:
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Fill in the rest of the fields:
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt="" width="252"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt="" width="252"><figcaption></figcaption></figure>
 
 You may also configure more details from Additional Parameters:
 

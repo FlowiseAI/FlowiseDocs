@@ -8,7 +8,7 @@ description: Learn how to set up app-level access control for your Flowise insta
 
 App level authorization protects your Flowise instance by username and password. This protects your apps from being accessible by anyone when deployed online.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## How to Set Username & Password
 

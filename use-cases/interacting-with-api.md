@@ -146,42 +146,46 @@ The OpenAPI Specification (OAS) defines a standard, language-agnostic interface 
 ```
 {% endcode %}
 
-2. Save it as a `.yaml` file, and upload it to **OpenAPI Chain**, then test by asking some questions. **OpenAPI Chain** will parse the OpenAPI spec into JSON Schema, allowing the LLM to automatically use the correct method and parameters for the API call.
+2. You can use a [JSON to YAML converter](https://jsonformatter.org/json-to-yaml) and save it as a `.yaml` file, and upload it to **OpenAPI Chain**, then test by asking some questions. **OpenAPI Chain** will send the whole specs to LLM, and have the LLM automatically use the correct method and parameters for the API call.
 
 <figure><img src="../.gitbook/assets/image (133).png" alt=""><figcaption></figcaption></figure>
 
-3. However, if you want to have a normal conversation chat, it is not able to do so. You will see the following error:
+3. However, if you want to have a normal conversation chat, it is not able to do so. You will see the following error. This is because OpenAPI Chain has the following prompt:
+
+```
+Use the provided API's to respond to this user query
+```
+
+&#x20;Since we "forced" it to always find the API to answer user query, in the cases of normal conversation that is irrelevant to the OpenAPI, it fails to do so.
 
 <figure><img src="../.gitbook/assets/image (134).png" alt="" width="361"><figcaption></figcaption></figure>
 
-## Tool Agent + OpenAPI Chain
+Using this method might not work well if you have large OpenAPI spec. This is because we are including all the specifications as part of the message sent to LLM. We then rely on LLM to figure out the correct URL, query parameters, request body, and other necessary parameters needed to answer user query. As you can imagine, if your OpenAPI specs are complicated, there is a higher chance LLM will hallucinates.
 
-In order to solve the above error, we can use Agent.
+## Tool Agent + OpenAPI Toolkit
 
-1. Connect **OpenAPI Chain** with a **Chain Tool**. This allow the chain to be used as tool. Under the tool, we give an appropriate description as in when should the LLM uses this tool. For example:
+In order to solve the above error, we can use Agent. From the official cookbook by OpenAI: [Function calling with an OpenAPI specification](https://cookbook.openai.com/examples/function\_calling\_with\_an\_openapi\_spec), it is recommended to convert each API into a tool itself, instead of feeding all the APIs into LLM as single message. An agent is also capable of having human-like interaction, with the ability to decide which tool to use depending on user's query.
 
-```
-useful when you need to search and return answer about tshirts
-```
+OpenAPI Toolkit will converts each of the API from YAML file into a set of tools. This way, users don't have to create a [Custom Tool](../integrations/langchain/tools/custom-tool.md) for each API.
 
-<figure><img src="../.gitbook/assets/image (135).png" alt=""><figcaption></figcaption></figure>
+1. Connect **ToolAgent** with **OpenAPI Toolkit**. Here, we upload the YAML spec for OpenAI API. The spec file can be found at the bottom of the page.
 
-2. Connect the **Chain Tool** with a **Tool Agent**:
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (136).png" alt=""><figcaption></figcaption></figure>
+2. Let's try it!
 
-3. Let's try it!
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (137).png" alt="" width="563"><figcaption></figcaption></figure>
+As you can noticed from the chat, the agent is capable of carrying out normal conversation, and use appropriate tool to answer user query. If you are using Analytic Tool, you can see the list of tools we converted from the YAML file:
+
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 ## Conclusion
 
-We've successfully created an agent that can interact with API when necessary, and still be able handle stateful conversations with users. Below is the template:
-
-## Things to Consider
-
-Using the above methods might not work well if you have large OpenAPI spec. This is because we are including all the specifications as part of the message sent to LLM. We then rely on LLM to figure out the correct URL, query parameters, request body, and other necessary parameters needed to answer user query. As you can imagine, if your OpenAPI specs are complicated, there is a higher chance LLM will hallucinates.
-
-From the official cookbook by OpenAI: [Function calling with an OpenAPI specification](https://cookbook.openai.com/examples/function\_calling\_with\_an\_openapi\_spec), it is recommended to convert each API into a tool itself. For that, we can use [Custom Tool](../integrations/langchain/tools/custom-tool.md). The only downside is that it could be daunting to create one custom tool for each API. To improve user experience, we are still working on the OpenAPI Tool, that automatically convert each APIs into tools. More updates coming soon!
+We've successfully created an agent that can interact with API when necessary, and still be able handle stateful conversations with users. Below are the templates used in this section:
 
 {% file src="../.gitbook/assets/OpenAPI Chatflow.json" %}
+
+{% file src="../.gitbook/assets/OpenAPI Toolkit with ToolAgent Chatflow.json" %}
+
+{% file src="../.gitbook/assets/openai_openapi.yaml" %}

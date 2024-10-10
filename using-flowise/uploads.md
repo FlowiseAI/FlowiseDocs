@@ -20,7 +20,7 @@ When **Allow Image Upload** is enabled, images can be uploaded from chat interfa
 
 <div align="center">
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="255"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="255"><figcaption></figcaption></figure>
 
  
 
@@ -100,7 +100,7 @@ When enabled, users can speak directly into microphone and speech will be transc
 
 <div align="left">
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
  
 
@@ -187,13 +187,13 @@ Users can upload files from the chat as well. Uploaded files will be upserted on
   * [Text File](../integrations/langchain/document-loaders/text-file.md)
   * [Unstructured File](../integrations/langchain/document-loaders/unstructured-file-loader.md)
 
-<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 One or multiple files can be uploaded on the chat:
 
 <div align="left">
 
-<figure><img src="../.gitbook/assets/image (3).png" alt="" width="380"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt="" width="380"><figcaption></figcaption></figure>
 
  
 
