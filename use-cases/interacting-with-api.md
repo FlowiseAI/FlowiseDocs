@@ -10,7 +10,7 @@ The OpenAPI Specification (OAS) defines a standard, language-agnostic interface 
 
 ## OpenAPI Chain
 
-1. In this tutorial, we are going to use [Klarna OpenAPI](https://www.klarna.com/us/shopping/public/openai/v0/api-docs/)
+1. In this tutorial, we are going to use [Klarna OpenAPI](https://gist.github.com/HenryHengZJ/b60f416c42cb9bcd3160fe797421119a)
 
 {% code overflow="wrap" %}
 ```json
