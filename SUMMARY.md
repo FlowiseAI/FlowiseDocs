@@ -30,6 +30,7 @@
   * [Telemetry](using-flowise/telemetry.md)
   * [Uploads](using-flowise/uploads.md)
   * [Variables](using-flowise/variables.md)
+  * [Workspaces](using-flowise/workspaces.md)
 * [Configuration](configuration/README.md)
   * [Auth](configuration/authorization/README.md)
     * [App Level](configuration/authorization/app-level.md)

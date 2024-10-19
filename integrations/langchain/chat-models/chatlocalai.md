@@ -27,7 +27,7 @@ wget https://gpt4all.io/models/ggml-gpt4all-j.bin -O models/ggml-gpt4all-j
 
 In the `/models` folder, you should be able to see the downloaded model in there:
 
-<figure><img src="../../../.gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (22) (1).png" alt=""><figcaption></figcaption></figure>
 
 Refer [here](https://localai.io/model-compatibility/index.html) for list of supported models.
 
@@ -62,8 +62,3 @@ That's it! For more information, refer to LocalAI [docs](https://localai.io/basi
 Watch how you can use LocalAI on Flowise
 
 {% embed url="https://youtu.be/0B0oIs8NS9k" %}
-
-
-
-
-

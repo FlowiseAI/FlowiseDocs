@@ -14,7 +14,7 @@
 | **Name**                  | name of the project to be created. (e.g. Flowise) |
 | **Database** **Password** | password to your postgres database                |
 
-<figure><img src="../../../.gitbook/assets/image (25) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (25) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 4. Click **Create new project** and wait for the project to finish setting up
 5. Click **SQL Editor**
@@ -116,7 +116,7 @@ $$;
 
 ```
 
-<figure><img src="../../../.gitbook/assets/image (19) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (19) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Setup
 
