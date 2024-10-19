@@ -32,7 +32,7 @@ By default, new installation of Flowise will require an admin setup, similar to 
 
 <figure><img src="../.gitbook/assets/image.png" alt="" width="478"><figcaption></figcaption></figure>
 
-After setting up, user will be brough to Flowise dashboard. From the left bar, you will see User & Workspace Management section. A default workspace was automatically created.
+After setting up, user will be brought to Flowise dashboard. From the left side bar, you will see User & Workspace Management section. A default workspace was automatically created.
 
 <figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -42,7 +42,7 @@ To create a new Workspace, click Add New:
 
 <figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
-You will see yourself added as the admin in the workspace you created.
+You will see yourself added as the Organization Admin in the workspace you created.
 
 <figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
