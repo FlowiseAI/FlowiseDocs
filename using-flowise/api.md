@@ -135,7 +135,7 @@ Override existing input configuration of the chatflow with **overrideConfig** pr
 {% tab title="Python API" %}
 ```python
 import requests
-API_URL = "http://localhost:3000/api/v1/prediction/&#x3C;chatlfowid>"
+API_URL = "http://localhost:3000/api/v1/prediction/<chatflowId>"
 
 def query(payload):
     response = requests.post(API_URL, json=payload)
@@ -155,7 +155,7 @@ output = query({
 ```javascript
 async function query(data) {
     const response = await fetch(
-        "http://localhost:3000/api/v1/prediction/<chatlfowid>",
+        "http://localhost:3000/api/v1/prediction/<chatflowId>",
         {
             method: "POST",
             headers: {
@@ -189,7 +189,7 @@ You can prepend history messages to give some context to LLM. For example, if yo
 {% tab title="Python API" %}
 ```python
 import requests
-API_URL = "http://localhost:3000/api/v1/prediction/&#x3C;chatlfowid>"
+API_URL = "http://localhost:3000/api/v1/prediction/<chatflowId>"
 
 def query(payload):
     response = requests.post(API_URL, json=payload)
@@ -219,7 +219,7 @@ output = query({
 ```javascript
 async function query(data) {
     const response = await fetch(
-        "http://localhost:3000/api/v1/prediction/<chatlfowid>",
+        "http://localhost:3000/api/v1/prediction/<chatflowId>",
         {
             method: "POST",
             headers: {
@@ -263,7 +263,7 @@ You can pass a `sessionId` to persists the state of the conversation, so the eve
 {% tab title="Python API" %}
 ```python
 import requests
-API_URL = "http://localhost:3000/api/v1/prediction/&#x3C;chatlfowid>"
+API_URL = "http://localhost:3000/api/v1/prediction/<chatflowId>"
 
 def query(payload):
     response = requests.post(API_URL, json=payload)
@@ -282,7 +282,7 @@ output = query({
 ```javascript
 async function query(data) {
     const response = await fetch(
-        "http://localhost:3000/api/v1/prediction/<chatlfowid>",
+        "http://localhost:3000/api/v1/prediction/<chatflowId>",
         {
             method: "POST",
             headers: {
@@ -315,7 +315,7 @@ Pass variables in the API to be used by the nodes in the flow. See more: [Variab
 {% tab title="Python API" %}
 ```python
 import requests
-API_URL = "http://localhost:3000/api/v1/prediction/&#x3C;chatlfowid>"
+API_URL = "http://localhost:3000/api/v1/prediction/<chatflowId>"
 
 def query(payload):
     response = requests.post(API_URL, json=payload)
@@ -336,7 +336,7 @@ output = query({
 ```javascript
 async function query(data) {
     const response = await fetch(
-        "http://localhost:3000/api/v1/prediction/<chatlfowid>",
+        "http://localhost:3000/api/v1/prediction/<chatflowId>",
         {
             method: "POST",
             headers: {
@@ -381,7 +381,7 @@ When **Allow Image Upload** is enabled, images can be uploaded from chat interfa
 {% tab title="Python API" %}
 ```python
 import requests
-API_URL = "http://localhost:3000/api/v1/prediction/&#x3C;chatlfowid>"
+API_URL = "http://localhost:3000/api/v1/prediction/<chatflowId>"
 
 def query(payload):
     response = requests.post(API_URL, json=payload)
@@ -405,7 +405,7 @@ output = query({
 ```javascript
 async function query(data) {
     const response = await fetch(
-        "http://localhost:3000/api/v1/prediction/<chatlfowid>",
+        "http://localhost:3000/api/v1/prediction/<chatflowId>",
         {
             method: "POST",
             headers: {
@@ -453,7 +453,7 @@ When **Speech to Text** is enabled, users can speak directly into microphone and
 {% tab title="Python API" %}
 ```python
 import requests
-API_URL = "http://localhost:3000/api/v1/prediction/&#x3C;chatlfowid>"
+API_URL = "http://localhost:3000/api/v1/prediction/<chatflowId>"
 
 def query(payload):
     response = requests.post(API_URL, json=payload)
@@ -476,7 +476,7 @@ output = query({
 ```javascript
 async function query(data) {
     const response = await fetch(
-        "http://localhost:3000/api/v1/prediction/<chatlfowid>",
+        "http://localhost:3000/api/v1/prediction/<chatflowId>",
         {
             method: "POST",
             headers: {
@@ -542,7 +542,7 @@ To avoid having separate loaders for different file types, we recommend to use [
 ```python
 import requests
 
-API_URL = "http://localhost:3000/api/v1/vector/upsert/<chatlfowid>"
+API_URL = "http://localhost:3000/api/v1/vector/upsert/<chatflowId>"
 
 # use form data to upload files
 form_data = {
@@ -572,7 +572,7 @@ formData.append("returnSourceDocuments", true);
 
 async function query(formData) {
     const response = await fetch(
-        "http://localhost:3000/api/v1/vector/upsert/<chatlfowid>",
+        "http://localhost:3000/api/v1/vector/upsert/<chatflowId>",
         {
             method: "POST",
             body: formData
@@ -598,7 +598,7 @@ For other [Document Loaders](../integrations/langchain/document-loaders/) nodes 
 ```python
 import requests
 
-API_URL = "http://localhost:3000/api/v1/vector/upsert/<chatlfowid>"
+API_URL = "http://localhost:3000/api/v1/vector/upsert/<chatflowId>"
 
 def query(form_data):
     response = requests.post(API_URL, json=payload)
@@ -618,7 +618,7 @@ print(output)
 ```javascript
 async function query(data) {
     const response = await fetch(
-        "http://localhost:3000/api/v1/vector/upsert/<chatlfowid>",
+        "http://localhost:3000/api/v1/vector/upsert/<chatflowId>",
         {
             method: "POST",
             headers: {
