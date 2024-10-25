@@ -8,7 +8,7 @@ description: Load data from Apify Website Content Crawler.
 
 The [Website Content Crawler](https://apify.com/apify/website-content-crawler) Actor can deeply crawl websites, clean their HTML by removing a cookies modals, footers, or navigation, and then transform the HTML into Markdown. This Markdown can then be stored in a vector database for semantic search or Retrieval-Augmented Generation (RAG).
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="266"><figcaption><p>Apify Website Content Crawler Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="266"><figcaption><p>Apify Website Content Crawler Node</p></figcaption></figure>
 
 ## Crawl Entire Website
 

@@ -6,7 +6,9 @@ description: Learn how to set up chatflow-level access control for your Flowise 
 
 ***
 
-After you have a chatflow / agentflow constructed, you might want to allow certain people to be able to access and interact with it. You can achieve that by assigning an API key for that specific chatflow.
+After you have a chatflow / agentflow constructed, by default, your flow is available to public. Anyone that has access to the Chatflow ID is able to run prediction through Embed or API.
+
+In cases where you might want to allow certain people to be able to access and interact with it, you can do so by assigning an API key for that specific chatflow.
 
 ## API Key
 
@@ -28,6 +30,6 @@ After assigning an API key, one can only access the chatflow API when the Author
 
 An example of calling the API using POSTMAN
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 You can specify the location where the api keys are stored by specifying `APIKEY_PATH` env variables. Read more [environment-variables.md](../environment-variables.md "mention")

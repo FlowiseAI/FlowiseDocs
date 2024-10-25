@@ -16,8 +16,8 @@ Refer to [API Reference](../api-reference/) for full list of public APIs
 
 </div>
 
-{% swagger src="../.gitbook/assets/swagger (1).yml" path="/prediction/{id}" method="post" %}
-[swagger (1).yml](<../.gitbook/assets/swagger (1).yml>)
+{% swagger src="../.gitbook/assets/swagger (1) (1).yml" path="/prediction/{id}" method="post" %}
+[swagger (1) (1).yml](<../.gitbook/assets/swagger (1) (1).yml>)
 {% endswagger %}
 
 ### Using Python/TS Library
@@ -369,7 +369,7 @@ When **Allow Image Upload** is enabled, images can be uploaded from chat interfa
 
 <div align="left" data-full-width="false">
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="255"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="255"><figcaption></figcaption></figure>
 
  
 
@@ -441,7 +441,7 @@ When **Speech to Text** is enabled, users can speak directly into microphone and
 
 <div align="left">
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
  
 
@@ -507,8 +507,8 @@ query({
 
 ## Vector Upsert API
 
-{% swagger src="../.gitbook/assets/swagger (1).yml" path="/vector/upsert/{id}" method="post" %}
-[swagger (1).yml](<../.gitbook/assets/swagger (1).yml>)
+{% swagger src="../.gitbook/assets/swagger (1) (1).yml" path="/vector/upsert/{id}" method="post" %}
+[swagger (1) (1).yml](<../.gitbook/assets/swagger (1) (1).yml>)
 {% endswagger %}
 
 ### Document Loaders with File Upload
@@ -525,7 +525,7 @@ Some document loaders in Flowise allow user to upload files:
 
 <div data-full-width="false">
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 </div>
 

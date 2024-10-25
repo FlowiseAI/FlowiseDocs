@@ -20,7 +20,7 @@ When **Allow Image Upload** is enabled, images can be uploaded from chat interfa
 
 <div align="center">
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="255"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="255"><figcaption></figcaption></figure>
 
  
 
@@ -34,7 +34,7 @@ To perform the same using API:
 {% tab title="Python" %}
 ```python
 import requests
-API_URL = "http://localhost:3000/api/v1/prediction/&#x3C;chatlfowid>"
+API_URL = "http://localhost:3000/api/v1/prediction/<chatlfowid>"
 
 def query(payload):
     response = requests.post(API_URL, json=payload)
@@ -100,7 +100,7 @@ When enabled, users can speak directly into microphone and speech will be transc
 
 <div align="left">
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
  
 
@@ -114,7 +114,7 @@ To perform the same using API:
 {% tab title="Python" %}
 ```python
 import requests
-API_URL = "http://localhost:3000/api/v1/prediction/&#x3C;chatlfowid>"
+API_URL = "http://localhost:3000/api/v1/prediction/<chatlfowid>"
 
 def query(payload):
     response = requests.post(API_URL, json=payload)
@@ -168,7 +168,16 @@ query({
 
 ## Files
 
-Users can upload files from the chat as well. Uploaded files will be upserted on the fly to the vector store. However, to enable file uploads feature, there are a few pre-requisites.
+There are 2 types of file uploads
+
+* RAG File Uploads
+* Full File Uploads
+
+When both options are turned on, Full File Uploads will takes precedence.
+
+### RAG File Uploads
+
+Uploaded files will be upserted on the fly to the vector store. However, to enable file uploads feature, there are a few pre-requisites.
 
 * A file-upload supported vector store must be present in the chatflow.
   * [Pinecone](../integrations/langchain/vector-stores/pinecone.md)
@@ -187,7 +196,7 @@ Users can upload files from the chat as well. Uploaded files will be upserted on
   * [Text File](../integrations/langchain/document-loaders/text-file.md)
   * [Unstructured File](../integrations/langchain/document-loaders/unstructured-file-loader.md)
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 One or multiple files can be uploaded on the chat:
 
@@ -212,3 +221,197 @@ Here's how it works:
 An example of a vector embeddings upserted on Pinecone:
 
 <figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+
+To perform the same using API, it is a 2 steps process.
+
+1. [Vector Upsert API](api.md#vector-upsert-api) with `formData` and `chatId`:
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+import requests
+
+API_URL = "http://localhost:3000/api/v1/vector/upsert/<chatlfowid>"
+
+# use form data to upload files
+form_data = {
+    "files": ('state_of_the_union.txt', open('state_of_the_union.txt', 'rb'))
+}
+
+body_data = {
+    "chatId": "some-session-id"
+}
+
+def query(form_data):
+    response = requests.post(API_URL, files=form_data, data=body_data)
+    print(response)
+    return response.json()
+
+output = query(form_data)
+print(output)
+```
+{% endtab %}
+
+{% tab title="Javascript" %}
+```javascript
+// use FormData to upload files
+let formData = new FormData();
+formData.append("files", input.files[0]);
+formData.append("chatId", "some-session-id");
+
+async function query(formData) {
+    const response = await fetch(
+        "http://localhost:3000/api/v1/vector/upsert/<chatlfowid>",
+        {
+            method: "POST",
+            body: formData
+        }
+    );
+    const result = await response.json();
+    return result;
+}
+
+query(formData).then((response) => {
+    console.log(response);
+});
+```
+{% endtab %}
+{% endtabs %}
+
+2. [Prediction API](api.md#prediction) with `uploads` and same `chatId` as step 1
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+import requests
+API_URL = "http://localhost:3000/api/v1/prediction/<chatlfowid>"
+
+def query(payload):
+    response = requests.post(API_URL, json=payload)
+    return response.json()
+    
+output = query({
+    "question": "What is the speech about?",
+    "chatId": "same-session-id-from-step-1",
+    "uploads": [
+        {
+            "data": "data:text/plain;base64,TWFkYWwcy4=",
+            "type": "file:rag",
+            "name": "state_of_the_union.txt",
+            "mime": "text/plain"
+        }
+    ]
+})
+```
+{% endtab %}
+
+{% tab title="Javascript" %}
+```javascript
+async function query(data) {
+    const response = await fetch(
+        "http://localhost:3000/api/v1/prediction/<chatlfowid>",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        }
+    );
+    const result = await response.json();
+    return result;
+}
+
+query({
+    "question": "What is the speech about?",
+    "chatId": "same-session-id-from-step-1",
+    "uploads": [
+        {
+            "data": "data:text/plain;base64,TWFkYWwcy4=",
+            "type": "file:rag",
+            "name": "state_of_the_union.txt",
+            "mime": "text/plain"
+        }
+    ]
+}).then((response) => {
+    console.log(response);
+});
+```
+{% endtab %}
+{% endtabs %}
+
+### Full File Uploads
+
+The downside of RAG File Uploads is that it is incapable of working with structured data such as speadsheets, tables. It also unable to do full summarization as it doesn't have the full context. In some cases, you might want to stuff all the content of the file directly into the prompt for LLM, especially models with longer context window such as Gemini and Claude. There are many [research papers](https://arxiv.org/html/2407.16833v1) around RAG vs Longer Context.
+
+To enable full file upload, go to Chatflow Configuration, File Upload tab, and enable it:
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+You will be able to see the File Attachment button from the chat where you can upload one or multiple files. Under the hood, each file is being processed by [File Loader](../integrations/langchain/document-loaders/file-loader.md), and converted into text.
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+To perform the same using API:
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+import requests
+API_URL = "http://localhost:3000/api/v1/prediction/<chatlfowid>"
+
+def query(payload):
+    response = requests.post(API_URL, json=payload)
+    return response.json()
+    
+output = query({
+    "question": "What is the data about?",
+    "chatId": "some-session-id",
+    "uploads": [
+        {
+            "data": "data:text/plain;base64,TWFkYWwcy4=",
+            "type": "file:full",
+            "name": "state_of_the_union.txt",
+            "mime": "text/plain"
+        }
+    ]
+})
+```
+{% endtab %}
+
+{% tab title="Javascript" %}
+```javascript
+async function query(data) {
+    const response = await fetch(
+        "http://localhost:3000/api/v1/prediction/<chatlfowid>",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        }
+    );
+    const result = await response.json();
+    return result;
+}
+
+query({
+    "question": "What is the data about?",
+    "chatId": "some-session-id",
+    "uploads": [
+        {
+            "data": "data:text/plain;base64,TWFkYWwcy4=",
+            "type": "file:full",
+            "name": "state_of_the_union.txt",
+            "mime": "text/plain"
+        }
+    ]
+}).then((response) => {
+    console.log(response);
+});
+```
+{% endtab %}
+{% endtabs %}
+
+As seen from the examples, uploads require base64 string. To get base64 string from files, you can use [Create Attachments API](../api-reference/attachments.md).

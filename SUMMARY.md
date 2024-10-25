@@ -6,6 +6,7 @@
   * [Building Node](contributing/building-node.md)
 * [API Reference](api-reference/README.md)
   * [Assistants](api-reference/assistants.md)
+  * [Attachments](api-reference/attachments.md)
   * [Chat Message](api-reference/chat-message.md)
   * [Chatflows](api-reference/chatflows.md)
   * [Document Store](api-reference/document-store.md)
