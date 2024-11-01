@@ -54,6 +54,7 @@
     * [Zeabur](configuration/deployment/zeabur.md)
   * [Environment Variables](configuration/environment-variables.md)
   * [Rate Limit](configuration/rate-limit.md)
+  * [Running Flowise behind company proxy](configuration/running-flowise-behind-company-proxy.md)
 * [Integrations](integrations/README.md)
   * [LangChain](integrations/langchain/README.md)
     * [Agents](integrations/langchain/agents/README.md)
