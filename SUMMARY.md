@@ -221,7 +221,7 @@
       * [Exa Search](integrations/langchain/tools/exa-search.md)
       * [Google Custom Search](integrations/langchain/tools/google-custom-search.md)
       * [OpenAPI Toolkit](integrations/langchain/tools/openapi-toolkit.md)
-      * [Python Interpreter](integrations/langchain/tools/python-interpreter.md)
+      * [Code Interpreter by E2B](integrations/langchain/tools/python-interpreter.md)
       * [Read File](integrations/langchain/tools/read-file.md)
       * [Request Get](integrations/langchain/tools/request-get.md)
       * [Request Post](integrations/langchain/tools/request-post.md)
