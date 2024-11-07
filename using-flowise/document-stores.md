@@ -144,3 +144,11 @@ Document Stores offer several benefits for managing and preparing data for Retri
 * **Organization and Management:** They provide a central location for storing, managing, and preparing your data.
 * **Data Quality:** The chunking process helps structure data for accurate retrieval and analysis.
 * **Flexibility:** Document Stores allow for refining and adjusting data as needed, improving the accuracy and relevance of your RAG system.
+
+## 11. Video Tutorials
+
+### RAG Like a Boss - Flowise Document Store Tutorial
+
+In this video, [Leon](https://youtube.com/@leonvanzyl) provides a step by step tutorial on using Document Stores to easily manage your RAG knowledge bases in FlowiseAI.
+
+{% embed url="https://youtu.be/PLuSfAkOHOA" %}
