@@ -1,6 +1,6 @@
 # Monitoring
 
-Flowise has native support for Prometheus with Grafana and OpenTelemetry. Currently only [Datadog](https://www.datadoghq.com/) is supported on OpenTelemetry, refer to the [Open Telemetry](https://opentelemetry.io/) documentation to configure different APM tools such as Zipkin, Jeager, New Relic, Splunk and others.
+Flowise has native support for Prometheus with Grafana and OpenTelemetry.
 
 ## Prometheus
 
@@ -70,3 +70,29 @@ Now, try to perform some actions on the Flowise, you should be able to see the m
 <figure><img src="../.gitbook/assets/image (186).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/image (187).png" alt=""><figcaption></figcaption></figure>
+
+## OpenTelemetry
+
+[OpenTelemetry](https://opentelemetry.io/) is an open source framework for creating and managing telemetry data. To enable OTel, configure the following env variables in Flowise:
+
+```properties
+ENABLE_METRICS=true
+METRICS_PROVIDER=open_telemetry
+METRICS_INCLUDE_NODE_METRICS=true
+METRICS_OPEN_TELEMETRY_METRIC_ENDPOINT=http://localhost:4318/v1/metrics
+METRICS_OPEN_TELEMETRY_PROTOCOL=http # http | grpc | proto (default is http)
+METRICS_OPEN_TELEMETRY_DEBUG=true
+```
+
+Next, we need OpenTelemetry Collector to receive, process and export telemetry data. Flowise provides a [docker compose file](https://github.com/FlowiseAI/Flowise/blob/main/metrics/otel/compose.yaml) which can be used to start the collector container.
+
+```bash
+cd Flowise
+cd metrics && cd otel
+docker compose up -d
+```
+
+The collector will be using the [otel.config.yml](https://github.com/FlowiseAI/Flowise/blob/main/metrics/otel/otel.config.yml) file under the same directory for configurations. Currently only [Datadog](https://www.datadoghq.com/) and Prometheus are supported, refer to the [Open Telemetry](https://opentelemetry.io/) documentation to configure different APM tools such as Zipkin, Jeager, New Relic, Splunk and others.
+
+Make sure to replace with the necessary API key for the exporters within the yml file.
+
