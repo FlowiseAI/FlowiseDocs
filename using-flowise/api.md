@@ -129,6 +129,10 @@ test_streaming()
 
 Override existing input configuration of the chatflow with **overrideConfig** property.
 
+Due to security reason, override config is disabled by default. User has to enable this by going into Chatflow Configuration Security Tab. Then select the property that can be overriden.
+
+<figure><img src="../.gitbook/assets/image (188).png" alt=""><figcaption></figcaption></figure>
+
 <figure><img src="../.gitbook/assets/image (45).png" alt=""><figcaption></figcaption></figure>
 
 {% tabs %}
