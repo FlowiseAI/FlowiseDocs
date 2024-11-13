@@ -1,14 +1,14 @@
 ---
-description: Learn how to use upload files/images/audio
+description: Learn how to use upload images, audio, and other files
 ---
 
 # Uploads
 
-Flowise allow users to upload files/images/audios from the chat. In this section, we will go through each and see how to enable the feature and using it.
+Flowise lets you upload images, audio, and other files from the chat. In this section, you'll learn how to enable and use these features.
 
 ## Image
 
-Certain Chat Models allow user to input images:
+Certain chat models let you input images:
 
 * [ChatOpenAI](../integrations/llamaindex/chat-models/chatopenai.md)
 * [AzureChatOpenAI](../integrations/llamaindex/chat-models/azurechatopenai.md)
@@ -16,25 +16,23 @@ Certain Chat Models allow user to input images:
 * [AWSChatBedrock](../integrations/langchain/chat-models/aws-chatbedrock.md)
 * [ChatGoogleGenerativeAI](../integrations/langchain/chat-models/google-ai.md)
 
-When **Allow Image Upload** is enabled, images can be uploaded from chat interface.
+If you enable **Allow Image Upload**, you can upload images from the chat interface.
 
 <div align="center">
 
 <figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="255"><figcaption></figcaption></figure>
 
- 
-
 <figure><img src="../.gitbook/assets/Screenshot 2024-02-29 011714.png" alt="" width="290"><figcaption></figcaption></figure>
 
 </div>
 
-To perform the same using API:
+To upload images with the API:
 
 {% tabs %}
 {% tab title="Python" %}
 ```python
 import requests
-API_URL = "http://localhost:3000/api/v1/prediction/<chatlfowid>"
+API_URL = "http://localhost:3000/api/v1/prediction/<chatflowid>"
 
 def query(payload):
     response = requests.post(API_URL, json=payload)
@@ -58,7 +56,7 @@ output = query({
 ```javascript
 async function query(data) {
     const response = await fetch(
-        "http://localhost:3000/api/v1/prediction/<chatlfowid>",
+        "http://localhost:3000/api/v1/prediction/<chatflowid>",
         {
             method: "POST",
             headers: {
@@ -76,7 +74,7 @@ query({
     "uploads": [
         {
             "data": 'data:image/png;base64,iVBORw0KGgdM2uN0', //base64 string or url
-            "type": 'file', //file | url
+            "type": 'file', // file | url
             "name": 'Flowise.png',
             "mime": 'image/png'
         }
@@ -90,31 +88,29 @@ query({
 
 ## Audio
 
-Under Chatflow Configuration, user can select a **Speech to Text** module. Supported integrations are:
+In the Chatflow Configuration, you can select a speech-to-text module. Supported integrations include:
 
 * OpenAI
 * AssemblyAI
 * [LocalAI](../integrations/langchain/chat-models/chatlocalai.md)
 
-When enabled, users can speak directly into microphone and speech will be transcribed into text.
+When this is enabled, users can speak directly into the microphone. Their speech is be transcribed into text.
 
 <div align="left">
 
 <figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
- 
-
 <figure><img src="../.gitbook/assets/Screenshot 2024-02-29 012538.png" alt="" width="431"><figcaption></figcaption></figure>
 
 </div>
 
-To perform the same using API:
+To upload audio with the API:
 
 {% tabs %}
 {% tab title="Python" %}
 ```python
 import requests
-API_URL = "http://localhost:3000/api/v1/prediction/<chatlfowid>"
+API_URL = "http://localhost:3000/api/v1/prediction/<chatflowid>"
 
 def query(payload):
     response = requests.post(API_URL, json=payload)
@@ -123,7 +119,7 @@ def query(payload):
 output = query({
     "uploads": [
         {
-            "data": 'data:audio/webm;codecs=opus;base64,GkXf', #base64 string
+            "data": 'data:audio/webm;codecs=opus;base64,GkXf', # base64 string
             "type": 'audio',
             "name": 'audio.wav',
             "mime": 'audio/webm'
@@ -137,7 +133,7 @@ output = query({
 ```javascript
 async function query(data) {
     const response = await fetch(
-        "http://localhost:3000/api/v1/prediction/<chatlfowid>",
+        "http://localhost:3000/api/v1/prediction/<chatflowid>",
         {
             method: "POST",
             headers: {
@@ -153,7 +149,7 @@ async function query(data) {
 query({
     "uploads": [
         {
-            "data": 'data:audio/webm;codecs=opus;base64,GkXf', //base64 string
+            "data": 'data:audio/webm;codecs=opus;base64,GkXf', // base64 string
             "type": 'audio',
             "name": 'audio.wav',
             "mime": 'audio/webm'
@@ -168,26 +164,26 @@ query({
 
 ## Files
 
-There are 2 types of file uploads
+You can upload files in two ways:
 
-* RAG File Uploads
-* Full File Uploads
+* Retrieval augmented generation (RAG) file uploads
+* Full file uploads
 
-When both options are turned on, Full File Uploads will takes precedence.
+When both options are on, full file uploads take precedence.
 
 ### RAG File Uploads
 
-Uploaded files will be upserted on the fly to the vector store. However, to enable file uploads feature, there are a few pre-requisites.
+You can upsert uploaded files on the fly to the vector store. To enable file uploads, make sure you meet these prerequisites:
 
-* A file-upload supported vector store must be present in the chatflow.
+* You must include a file-upload supported vector store in the chatflow.
   * [Pinecone](../integrations/langchain/vector-stores/pinecone.md)
   * [Milvus](../integrations/langchain/vector-stores/milvus.md)
   * [Postgres](../integrations/langchain/vector-stores/postgres.md)
   * [Qdrant](../integrations/langchain/vector-stores/qdrant.md)
   * [Upstash](../integrations/langchain/vector-stores/upstash-vector.md)
-* If you have multiple vector stores on a chatflow, you can only turn on file upload for one vector store at a time.
-* At least one Document Loader node should be connected to the vector store's Document input.
-* Supported Document Loader:
+* If you have multiple vector stores in a chatflow, you can only turn on file upload for one vector store at a time.
+* You must connect at least one Document Loader node to the vector store's document input.
+* Supported Document Loaders:
   * [CSV File](../integrations/langchain/document-loaders/csv-file.md)
   * [Docx File](../integrations/langchain/document-loaders/docx-file.md)
   * [Json File](../integrations/langchain/document-loaders/json-file.md)
@@ -198,13 +194,11 @@ Uploaded files will be upserted on the fly to the vector store. However, to enab
 
 <figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-One or multiple files can be uploaded on the chat:
+You can upload one or more files in the chat:
 
 <div align="left">
 
 <figure><img src="../.gitbook/assets/image (3) (1) (1).png" alt="" width="380"><figcaption></figcaption></figure>
-
- 
 
 <figure><img src="../.gitbook/assets/Screenshot 2024-08-26 170456.png" alt=""><figcaption></figcaption></figure>
 
@@ -212,28 +206,28 @@ One or multiple files can be uploaded on the chat:
 
 Here's how it works:
 
-* Uploaded files will have the metadata updated with the chatId.
-* This will allow the file to be associated with the chatId.
-* When querying, an **OR** filter is being applied:
-  * Metadata contains `flowise_chatId` and the value equals to the current chat session id
-  * Metadata does not contains `flowise_chatId`
+1. Uploaded files update their metadata with the chatId.
+2. This associates the file with the chatId.
+3. When querying, an **OR** filter applies:
+  * Metadata contains `flowise_chatId`, and the value is the current chat session ID
+  * Metadata does not contain `flowise_chatId`
 
-An example of a vector embeddings upserted on Pinecone:
+An example of a vector embedding upserted on Pinecone:
 
 <figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
-To perform the same using API, it is a 2 steps process.
+To do this with the API, follow these two steps:
 
-1. [Vector Upsert API](api.md#vector-upsert-api) with `formData` and `chatId`:
+1. Use the [Vector Upsert API](api.md#vector-upsert-api) with `formData` and `chatId`:
 
 {% tabs %}
 {% tab title="Python" %}
 ```python
 import requests
 
-API_URL = "http://localhost:3000/api/v1/vector/upsert/<chatlfowid>"
+API_URL = "http://localhost:3000/api/v1/vector/upsert/<chatflowid>"
 
-# use form data to upload files
+# Use form data to upload files
 form_data = {
     "files": ('state_of_the_union.txt', open('state_of_the_union.txt', 'rb'))
 }
@@ -254,14 +248,14 @@ print(output)
 
 {% tab title="Javascript" %}
 ```javascript
-// use FormData to upload files
+// Use FormData to upload files
 let formData = new FormData();
 formData.append("files", input.files[0]);
 formData.append("chatId", "some-session-id");
 
 async function query(formData) {
     const response = await fetch(
-        "http://localhost:3000/api/v1/vector/upsert/<chatlfowid>",
+        "http://localhost:3000/api/v1/vector/upsert/<chatflowid>",
         {
             method: "POST",
             body: formData
@@ -278,13 +272,13 @@ query(formData).then((response) => {
 {% endtab %}
 {% endtabs %}
 
-2. [Prediction API](api.md#prediction) with `uploads` and same `chatId` as step 1
+2. Use the [Prediction API](api.md#prediction) with `uploads` and the `chatId` from step 1:
 
 {% tabs %}
 {% tab title="Python" %}
 ```python
 import requests
-API_URL = "http://localhost:3000/api/v1/prediction/<chatlfowid>"
+API_URL = "http://localhost:3000/api/v1/prediction/<chatflowid>"
 
 def query(payload):
     response = requests.post(API_URL, json=payload)
@@ -309,7 +303,7 @@ output = query({
 ```javascript
 async function query(data) {
     const response = await fetch(
-        "http://localhost:3000/api/v1/prediction/<chatlfowid>",
+        "http://localhost:3000/api/v1/prediction/<chatflowid>",
         {
             method: "POST",
             headers: {
@@ -342,23 +336,23 @@ query({
 
 ### Full File Uploads
 
-The downside of RAG File Uploads is that it is incapable of working with structured data such as speadsheets, tables. It also unable to do full summarization as it doesn't have the full context. In some cases, you might want to stuff all the content of the file directly into the prompt for LLM, especially models with longer context window such as Gemini and Claude. There are many [research papers](https://arxiv.org/html/2407.16833v1) around RAG vs Longer Context.
+With RAG file uploads, you can't work with structured data like spreadsheets or tables, and you can't perform full summarization due to lack of full context. In some cases, you might want to include all the file content directly in the prompt for an LLM, especially with models like Gemini and Claude that have longer context windows. [This research paper](https://arxiv.org/html/2407.16833v1) is one of many that compare RAG with longer context windows.
 
-To enable full file upload, go to Chatflow Configuration, File Upload tab, and enable it:
+To enable full file uploads, go to **Chatflow Configuration**, open the **File Upload** tab, and click the switch:
 
 <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
-You will be able to see the File Attachment button from the chat where you can upload one or multiple files. Under the hood, each file is being processed by [File Loader](../integrations/langchain/document-loaders/file-loader.md), and converted into text.
+You can see the **File Attachment** button in the chat, where you can upload one or more files. Under the hood, the [File Loader](../integrations/langchain/document-loaders/file-loader.md) processes each file and converts it into text.
 
 <figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
-To perform the same using API:
+To upload files with the API:
 
 {% tabs %}
 {% tab title="Python" %}
 ```python
 import requests
-API_URL = "http://localhost:3000/api/v1/prediction/<chatlfowid>"
+API_URL = "http://localhost:3000/api/v1/prediction/<chatflowid>"
 
 def query(payload):
     response = requests.post(API_URL, json=payload)
@@ -383,7 +377,7 @@ output = query({
 ```javascript
 async function query(data) {
     const response = await fetch(
-        "http://localhost:3000/api/v1/prediction/<chatlfowid>",
+        "http://localhost:3000/api/v1/prediction/<chatflowid>",
         {
             method: "POST",
             headers: {
@@ -414,4 +408,4 @@ query({
 {% endtab %}
 {% endtabs %}
 
-As seen from the examples, uploads require base64 string. To get base64 string from files, you can use [Create Attachments API](../api-reference/attachments.md).
+As you can see in the examples, uploads require a base64 string. To get a base64 string a file, use the [Create Attachments API](../api-reference/attachments.md).
