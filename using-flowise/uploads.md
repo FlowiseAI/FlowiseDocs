@@ -408,4 +408,4 @@ query({
 {% endtab %}
 {% endtabs %}
 
-As you can see in the examples, uploads require a base64 string. To get a base64 string a file, use the [Create Attachments API](../api-reference/attachments.md).
+As you can see in the examples, uploads require a base64 string. To get a base64 string for a file, use the [Create Attachments API](../api-reference/attachments.md).
