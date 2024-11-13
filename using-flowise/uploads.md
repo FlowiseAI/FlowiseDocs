@@ -206,7 +206,7 @@ You can upload one or more files in the chat:
 
 Here's how it works:
 
-1. Uploaded files update their metadata with the chatId.
+1. The metadata for uploaded files is updated with the chatId.
 2. This associates the file with the chatId.
 3. When querying, an **OR** filter applies:
   * Metadata contains `flowise_chatId`, and the value is the current chat session ID
