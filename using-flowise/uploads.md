@@ -175,15 +175,15 @@ When both options are on, full file uploads take precedence.
 
 You can upsert uploaded files on the fly to the vector store. To enable file uploads, make sure you meet these prerequisites:
 
-* You must include a file-upload supported vector store in the chatflow.
+* You must include a vector store that supports file uploads in the chatflow.
   * [Pinecone](../integrations/langchain/vector-stores/pinecone.md)
   * [Milvus](../integrations/langchain/vector-stores/milvus.md)
   * [Postgres](../integrations/langchain/vector-stores/postgres.md)
   * [Qdrant](../integrations/langchain/vector-stores/qdrant.md)
   * [Upstash](../integrations/langchain/vector-stores/upstash-vector.md)
 * If you have multiple vector stores in a chatflow, you can only turn on file upload for one vector store at a time.
-* You must connect at least one Document Loader node to the vector store's document input.
-* Supported Document Loaders:
+* You must connect at least one document loader node to the vector store's document input.
+* Supported document loaders:
   * [CSV File](../integrations/langchain/document-loaders/csv-file.md)
   * [Docx File](../integrations/langchain/document-loaders/docx-file.md)
   * [Json File](../integrations/langchain/document-loaders/json-file.md)
