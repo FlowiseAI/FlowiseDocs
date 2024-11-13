@@ -42,10 +42,10 @@ output = query({
     "question": "Can you describe the image?",
     "uploads": [
         {
-            "data": 'data:image/png;base64,iVBORw0KGgdM2uN0', # base64 string or url
-            "type": 'file', # file | url
-            "name": 'Flowise.png',
-            "mime": 'image/png'
+            "data": "data:image/png;base64,iVBORw0KGgdM2uN0", # base64 string or url
+            "type": "file", # file | url
+            "name": "Flowise.png",
+            "mime": "image/png"
         }
     ]
 })
@@ -73,10 +73,10 @@ query({
     "question": "Can you describe the image?",
     "uploads": [
         {
-            "data": 'data:image/png;base64,iVBORw0KGgdM2uN0', //base64 string or url
-            "type": 'file', // file | url
-            "name": 'Flowise.png',
-            "mime": 'image/png'
+            "data": "data:image/png;base64,iVBORw0KGgdM2uN0", //base64 string or url
+            "type": "file", // file | url
+            "name": "Flowise.png",
+            "mime": "image/png"
         }
     ]
 }).then((response) => {
@@ -119,10 +119,10 @@ def query(payload):
 output = query({
     "uploads": [
         {
-            "data": 'data:audio/webm;codecs=opus;base64,GkXf', # base64 string
-            "type": 'audio',
-            "name": 'audio.wav',
-            "mime": 'audio/webm'
+            "data": "data:audio/webm;codecs=opus;base64,GkXf", # base64 string
+            "type": "audio",
+            "name": "audio.wav",
+            "mime": "audio/webm"
         }
     ]
 })
@@ -149,10 +149,10 @@ async function query(data) {
 query({
     "uploads": [
         {
-            "data": 'data:audio/webm;codecs=opus;base64,GkXf', // base64 string
-            "type": 'audio',
-            "name": 'audio.wav',
-            "mime": 'audio/webm'
+            "data": "data:audio/webm;codecs=opus;base64,GkXf", // base64 string
+            "type": "audio",
+            "name": "audio.wav",
+            "mime": "audio/webm"
         }
     ]
 }).then((response) => {
@@ -229,7 +229,7 @@ API_URL = "http://localhost:3000/api/v1/vector/upsert/<chatflowid>"
 
 # Use form data to upload files
 form_data = {
-    "files": ('state_of_the_union.txt', open('state_of_the_union.txt', 'rb'))
+    "files": ("state_of_the_union.txt", open("state_of_the_union.txt", "rb"))
 }
 
 body_data = {
