@@ -1,6 +1,6 @@
 # Running Flowise behind company proxy
 
-If you're running Flowise in an environment that requires a proxy, such as within an organizational network, you can configure Budibase to route all its backend requests through a proxy of your choice. This feature is powered by the `global-agent` package.
+If you're running Flowise in an environment that requires a proxy, such as within an organizational network, you can configure Flowise to route all its backend requests through a proxy of your choice. This feature is powered by the `global-agent` package.
 
 [https://github.com/gajus/global-agent](https://github.com/gajus/global-agent)
 
