@@ -25,7 +25,7 @@ They are commonly used for:
 * [Azure OpenAI Embeddings](azure-openai-embeddings.md)
 * [Cohere Embeddings](cohere-embeddings.md)
 * [Google GenerativeAI Embeddings](googlegenerativeai-embeddings.md)
-* [Google PaLM Embeddings](google-palm-embeddings.md)
+* [Google PaLM Embeddings](broken-reference)
 * [Google VertexAI Embeddings](googlevertexai-embeddings.md)
 * [HuggingFace Inference Embeddings](huggingface-inference-embeddings.md)
 * [LocalAI Embeddings](localai-embeddings.md)

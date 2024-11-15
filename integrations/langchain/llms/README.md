@@ -12,9 +12,9 @@ A large language model, LLM for short, is a AI system trained on massive amounts
 
 * [AWS Bedrock](aws-bedrock.md)
 * [Azure OpenAI](azure-openai.md)
-* [NIBittensorLLM](nibittensorllm.md)
+* [NIBittensorLLM](broken-reference)
 * [Cohere](cohere.md)
-* [GooglePaLM](googlepalm.md)
+* [GooglePaLM](broken-reference)
 * [GoogleVertex AI](googlevertex-ai.md)
 * [HuggingFace Inference](huggingface-inference.md)
 * [Ollama](ollama.md)

@@ -16,6 +16,7 @@ Certain chat models allow you to input images. Always refer to the official docu
 * [AWSChatBedrock](../integrations/langchain/chat-models/aws-chatbedrock.md)
 * [ChatGoogleGenerativeAI](../integrations/langchain/chat-models/google-ai.md)
 * [ChatOllama](../integrations/llamaindex/chat-models/chatollama.md)
+* [Google Vertex AI](../integrations/langchain/llms/googlevertex-ai.md)
 
 {% hint style="warning" %}
 Image processing only works with certain chains/agents in Chatflow.
