@@ -15,12 +15,21 @@ Certain chat models let you input images:
 * [ChatAnthropic](../integrations/langchain/chat-models/chatanthropic.md)
 * [AWSChatBedrock](../integrations/langchain/chat-models/aws-chatbedrock.md)
 * [ChatGoogleGenerativeAI](../integrations/langchain/chat-models/google-ai.md)
+* [ChatOllama](../integrations/llamaindex/chat-models/chatollama.md)
+
+{% hint style="warning" %}
+Image processing only works with certain chains/agents in Chatflow.
+
+[LLMChain](../integrations/langchain/chains/llm-chain.md), [Conversation Chain](../integrations/langchain/chains/conversation-chain.md), [ReAct Agent](../integrations/langchain/agents/react-agent-chat.md), [Conversational Agent](../integrations/langchain/agents/conversational-agent.md), [Tool Agent](../integrations/langchain/agents/tool-agent.md)
+{% endhint %}
 
 If you enable **Allow Image Upload**, you can upload images from the chat interface.
 
 <div align="center">
 
 <figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="255"><figcaption></figcaption></figure>
+
+ 
 
 <figure><img src="../.gitbook/assets/Screenshot 2024-02-29 011714.png" alt="" width="290"><figcaption></figcaption></figure>
 
@@ -99,6 +108,8 @@ When this is enabled, users can speak directly into the microphone. Their speech
 <div align="left">
 
 <figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+
+ 
 
 <figure><img src="../.gitbook/assets/Screenshot 2024-02-29 012538.png" alt="" width="431"><figcaption></figcaption></figure>
 
@@ -200,6 +211,8 @@ You can upload one or more files in the chat:
 
 <figure><img src="../.gitbook/assets/image (3) (1) (1).png" alt="" width="380"><figcaption></figcaption></figure>
 
+ 
+
 <figure><img src="../.gitbook/assets/Screenshot 2024-08-26 170456.png" alt=""><figcaption></figcaption></figure>
 
 </div>
@@ -209,8 +222,9 @@ Here's how it works:
 1. The metadata for uploaded files is updated with the chatId.
 2. This associates the file with the chatId.
 3. When querying, an **OR** filter applies:
-  * Metadata contains `flowise_chatId`, and the value is the current chat session ID
-  * Metadata does not contain `flowise_chatId`
+
+* Metadata contains `flowise_chatId`, and the value is the current chat session ID
+* Metadata does not contain `flowise_chatId`
 
 An example of a vector embedding upserted on Pinecone:
 
