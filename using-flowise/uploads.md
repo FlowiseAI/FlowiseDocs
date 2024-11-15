@@ -8,7 +8,7 @@ Flowise lets you upload images, audio, and other files from the chat. In this se
 
 ## Image
 
-Certain chat models let you input images:
+Certain chat models allow you to input images. Always refer to the official documentation of the LLM to confirm if the model supports image input.
 
 * [ChatOpenAI](../integrations/llamaindex/chat-models/chatopenai.md)
 * [AzureChatOpenAI](../integrations/llamaindex/chat-models/azurechatopenai.md)
