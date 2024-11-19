@@ -56,7 +56,9 @@ Flowise supports [OIDC](https://openid.net/) that allows users to use _single si
 
 <figure><img src="../.gitbook/assets/image (205).png" alt=""><figcaption></figcaption></figure>
 
-13. Before users can sign in using SSO, they have to be invited first. Refer to [Inviting users for SSO sign in](sso.md#inviting-users-for-sso-sign-in) for step by step guide.
+13. Before users can sign in using SSO, they have to be invited first. Refer to [Inviting users for SSO sign in](sso.md#inviting-users-for-sso-sign-in) for step by step guide. Invited users must also be part of the Directory Users in Azure.
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 ## Inviting users for SSO sign in
 
