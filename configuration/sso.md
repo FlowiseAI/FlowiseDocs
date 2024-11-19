@@ -38,7 +38,7 @@ Flowise supports [OIDC](https://openid.net/) that allows users to use _single si
 
 8. Fill in the redirect URIs. This will need to be changed depending on how you are hosting it: `http[s]://[your-flowise-instance.com]/api/v1/azure/redirect`:
 
-<figure><img src="../.gitbook/assets/image (202).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (202).png" alt="" width="529"><figcaption></figcaption></figure>
 
 9. You should be able to see the new Redirect URI created:
 
@@ -82,4 +82,4 @@ Clicking the button will bring the invited user directly to Flowise SSO login sc
 
 Or navigate to Flowise app and Sign in with SSO:
 
-<figure><img src="../.gitbook/assets/image (211).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (211).png" alt="" width="437"><figcaption></figcaption></figure>

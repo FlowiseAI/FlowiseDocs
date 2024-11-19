@@ -4,7 +4,7 @@ If you're running Flowise in an environment that requires a proxy, such as withi
 
 [https://github.com/gajus/global-agent](https://github.com/gajus/global-agent)
 
-#### Configuration
+## Configuration
 
 There are 2 environment variables you will need to run Flowise behind a company proxy:
 
@@ -14,6 +14,6 @@ There are 2 environment variables you will need to run Flowise behind a company 
 | `GLOBAL_AGENT_HTTPS_PROXY` | Where to proxy all server HTTPS requests through                                 | No       |
 | `GLOBAL_AGENT_NO_PROXY`    | A pattern of URLs that should be excluded from proxying. Eg. `*.foo.com,baz.com` | No       |
 
-#### Outbound Allow-list
+## Outbound Allow-list
 
 For enterprise plan, you must allow several outbound connections for license checking. Please contact support@flowiseai.com for more information.
