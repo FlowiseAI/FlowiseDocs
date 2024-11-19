@@ -66,11 +66,10 @@ In order for new user to be able to login using SSO, we have to invite new users
 
 Organization Admin can choose the login type for invited user:
 
-<figure><img src="../.gitbook/assets/image (208).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (213).png" alt=""><figcaption></figcaption></figure>
 
 * SSO: invited user can only login using SSO
 * Email/Password: invited user can only login via email/password
-* SSO & Email/Password: invited user login via email/password and SSO
 
 Invited user will be receiving invitation link to login:
 
