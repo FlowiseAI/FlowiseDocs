@@ -73,7 +73,7 @@ Organization Admin can choose the login type for invited user:
 
 Invited user will be receiving invitation link to login:
 
-<figure><img src="../.gitbook/assets/image (209).png" alt="" width="509"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (214).png" alt="" width="419"><figcaption></figcaption></figure>
 
 Clicking the button will bring the invited user directly to Flowise SSO login screen:
 
