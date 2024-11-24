@@ -1,6 +1,6 @@
 # File Loader
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="282"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="282"><figcaption></figcaption></figure>
 
 File loader enables user to upload any file types and automatically uses the appropriate loader for loading the document.
 

@@ -174,11 +174,11 @@ OpenAPI Toolkit will converts each of the API from YAML file into a set of tools
 
 2. Let's try it!
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 As you can noticed from the chat, the agent is capable of carrying out normal conversation, and use appropriate tool to answer user query. If you are using Analytic Tool, you can see the list of tools we converted from the YAML file:
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Conclusion
 

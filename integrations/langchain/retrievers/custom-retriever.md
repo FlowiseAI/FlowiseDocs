@@ -4,7 +4,7 @@ description: Custom Retriever allows user to specify the format of the context t
 
 # Custom Retriever
 
-<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt="" width="298"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1).png" alt="" width="298"><figcaption></figcaption></figure>
 
 By default, when context is being retrieved from vector store, they are in the following format:
 

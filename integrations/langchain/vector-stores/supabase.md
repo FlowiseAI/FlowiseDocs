@@ -116,7 +116,7 @@ $$;
 
 ```
 
-<figure><img src="../../../.gitbook/assets/image (19) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (19) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Setup
 
@@ -159,6 +159,6 @@ You can use metadata filtering to query specific metadata:
 
 ## Resources
 
-* [LangChain JS Supabase](https://js.langchain.com/docs/modules/indexes/vector\_stores/integrations/supabase)
+* [LangChain JS Supabase](https://js.langchain.com/docs/modules/indexes/vector_stores/integrations/supabase)
 * [Supabase Blog Post](https://supabase.com/blog/openai-embeddings-postgres-vector)
 * [Metadata Filtering](https://js.langchain.com/docs/integrations/vectorstores/supabase#metadata-filtering)

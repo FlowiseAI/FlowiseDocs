@@ -60,7 +60,7 @@ Description is an important piece as ChatGPT is relying on this to decide when t
 <figure><img src="../../../.gitbook/assets/image (6) (3).png" alt=""><figcaption></figcaption></figure>
 
 * JavaScript Function: We are going to use [Morning Star](https://rapidapi.com/apidojo/api/morning-star) `/market/v2/get-movers` API to get data. First you have to click Subscribe to Test if you haven't already, then copy the code and paste it into JavaScript Function.
-  * Add `const fetch = require('node-fetch');` at the top to import the library. You can import any built-in NodeJS [modules](https://www.w3schools.com/nodejs/ref\_modules.asp) and [external libraries](https://github.com/FlowiseAI/Flowise/blob/main/packages/components/src/utils.ts#L289).
+  * Add `const fetch = require('node-fetch');` at the top to import the library. You can import any built-in NodeJS [modules](https://www.w3schools.com/nodejs/ref_modules.asp) and [external libraries](https://github.com/FlowiseAI/Flowise/blob/main/packages/components/src/utils.ts#L289).
   * Return the `result` at the end.
 
 <figure><img src="../../../.gitbook/assets/Untitled (4) (1).png" alt=""><figcaption></figcaption></figure>
@@ -111,7 +111,7 @@ Input Schema tells LLM what to return as a JSON object. In this case, we are exp
 <figure><img src="../../../.gitbook/assets/image (4) (2).png" alt=""><figcaption></figcaption></figure>
 
 * JavaScript Function: We are going to use [Morning Star](https://rapidapi.com/apidojo/api/morning-star) `/news/list` API to get the data. First you have to click Subscribe to Test if you haven't already, then copy the code and paste it into JavaScript Function.
-  * Add `const fetch = require('node-fetch');` at the top to import the library. You can import any built-in NodeJS [modules](https://www.w3schools.com/nodejs/ref\_modules.asp) and [external libraries](https://github.com/FlowiseAI/Flowise/blob/main/packages/components/src/utils.ts#L289).
+  * Add `const fetch = require('node-fetch');` at the top to import the library. You can import any built-in NodeJS [modules](https://www.w3schools.com/nodejs/ref_modules.asp) and [external libraries](https://github.com/FlowiseAI/Flowise/blob/main/packages/components/src/utils.ts#L289).
   * Return the `result` at the end.
 * Next, replace the hard-coded url query parameter performanceId: `0P0000OQN8` to the property variable specified in Input Schema: `$performanceId`
 * You can use any properties specified in Input Schema as variables in the JavaScript Function by appending a prefix `$` at the front of the variable name.
@@ -227,7 +227,7 @@ You can use the template **OpenAI Function** **Agent** from marketplace, and rep
 
 Note: OpenAI Function Agent only supports 0613 models currently.
 
-<figure><img src="../../../.gitbook/assets/image (15) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (15) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Save the chatflow and start testing it. For starter, you can try asking:
 
@@ -452,7 +452,7 @@ query({
 
 ### Import External Dependencies
 
-You can import any built-in NodeJS [modules](https://www.w3schools.com/nodejs/ref\_modules.asp) and supported [external libraries](https://github.com/FlowiseAI/Flowise/blob/main/packages/components/src/utils.ts#L289) into Function.
+You can import any built-in NodeJS [modules](https://www.w3schools.com/nodejs/ref_modules.asp) and supported [external libraries](https://github.com/FlowiseAI/Flowise/blob/main/packages/components/src/utils.ts#L289) into Function.
 
 1. To import any non-supported libraries, you can easily add the new npm package to `package.json` in `packages/components` folder.
 
