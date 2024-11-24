@@ -94,4 +94,4 @@ Current available Record Manager nodes are:
 
 ## Resources
 
-* [LangChain Indexing](https://js.langchain.com/docs/modules/data_connection/indexing/)
+* [LangChain Indexing - How it works](https://js.langchain.com/docs/how_to/indexing/#how-it-works)
