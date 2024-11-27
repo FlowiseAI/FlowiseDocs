@@ -115,8 +115,6 @@ The upsert process comprises three fundamental steps:
 
 <figure><img src="../.gitbook/assets/dastore007.png" alt="" width="375"><figcaption></figcaption></figure>
 
-
-
 ## 8. Test Your Dataset
 
 * To quickly test the functionality of your dataset without navigating away from the Document Store, simply utilize the "Retrieval Query" button. This initiates a test query, allowing you to verify the accuracy and effectiveness of your data retrieval process.
@@ -131,9 +129,292 @@ The upsert process comprises three fundamental steps:
 
 * Finally, our Retrieval-Augmented Generation (RAG) system is operational. It's noteworthy how the LLM effectively interprets the query and successfully leverages relevant information from the chunked data to construct a comprehensive response.
 
+You can use the vector store that was configured earlier:
+
 <figure><img src="../.gitbook/assets/dastore011.png" alt=""><figcaption></figcaption></figure>
 
-## 10. Summary
+Or, use the Document Store (Vector):
+
+<figure><img src="../.gitbook/assets/image (215).png" alt=""><figcaption></figcaption></figure>
+
+## 10. API
+
+There are also APIs support for creating, updating and deleting document store. Refer to [Document Store API](../api-reference/document-store.md) for more details. In this section, we are going to highlight the 2 of the most used APIs: upsert and refresh.
+
+### 1. Upsert
+
+You can upsert a new file using an existing document loader and upsert configuration. For example, you have a PDF loader inside document store, and the goal is to use the existing configuration, but with a new file.
+
+<figure><img src="../.gitbook/assets/image (216).png" alt=""><figcaption></figcaption></figure>
+
+First, take note of the store ID and document ID:
+
+<figure><img src="../.gitbook/assets/Picture1.png" alt="" width="563"><figcaption></figcaption></figure>
+
+Since Pdf File Loader has Upload File functionality, **form data** will be used to allow sending files through API.
+
+{% hint style="info" %}
+Make sure the sent file type is compatible with the expected file type from document loader. For example, if a PDF File Loader is being used, you should only send **.pdf** files.
+
+To avoid having separate loaders for different file types, we recommend to use [File Loader](../integrations/langchain/document-loaders/file-loader.md)
+{% endhint %}
+
+{% tabs %}
+{% tab title="Python API" %}
+<pre class="language-python"><code class="lang-python">import requests
+import json
+
+API_URL = "http://localhost:3000/api/v1/document-store/upsert/&#x3C;storeId>"
+
+# use form data to upload files
+form_data = {
+    "files": ('my-another-file.pdf', open('my-another-file.pdf', 'rb'))
+}
+
+body_data = {
+    "docId": &#x3C;docId>,
+    # override existing configuration
+    # "loader": "",
+    "splitter": json.dumps({"name":"recursiveCharacterTextSplitter","config":{"chunkSize":20000}})
+<strong>    # "vectorStore": "",
+</strong><strong>    # "embedding": "",
+</strong><strong>    # "recordManager": "",
+</strong><strong>}
+</strong>
+def query(form_data):
+    response = requests.post(API_URL, files=form_data, data=body_data)
+    print(response)
+    return response.json()
+
+output = query(form_data)
+print(output)
+</code></pre>
+{% endtab %}
+
+{% tab title="Javascript API" %}
+```javascript
+// use FormData to upload files
+let formData = new FormData();
+formData.append("files", input.files[0]);
+formData.append("docId", <docId>);
+formData.append("splitter", JSON.stringify({"name":"recursiveCharacterTextSplitter","config":{"chunkSize":20000}}));
+// override existing configuration
+// formData.append("loader", "");
+// formData.append("embedding", "");
+// formData.append("vectorStore", "");
+// formData.append("recordManager", "");
+
+async function query(formData) {
+    const response = await fetch(
+        "http://localhost:3000/api/v1/document-store/upsert/<storeId>",
+        {
+            method: "POST",
+            body: formData
+        }
+    );
+    const result = await response.json();
+    return result;
+}
+
+query(formData).then((response) => {
+    console.log(response);
+});
+```
+{% endtab %}
+{% endtabs %}
+
+For other [Document Loaders](https://docs.flowiseai.com/integrations/langchain/document-loaders) nodes without Upload File functionality, the API body is in **JSON** format:
+
+{% tabs %}
+{% tab title="Python API" %}
+```python
+import requests
+
+API_URL = "http://localhost:3000/api/v1/document-store/upsert/<storeId>"
+
+def query(payload):
+    response = requests.post(API_URL, json=payload)
+    return response.json()
+
+output = query({
+    "docId": <docId>,
+    # override existing configuration
+    "loader": {
+        "name": "plainText",
+        "config": {
+            "text": "This is a new text"
+        }
+    },
+    "splitter": {
+        "name": "recursiveCharacterTextSplitter",
+        "config": {
+            "chunkSize": 20000
+        }
+    },
+    # embedding: {},
+    # vectorStore: {},
+    # recordManager: {}
+})
+print(output)
+```
+{% endtab %}
+
+{% tab title="Javascript API" %}
+```javascript
+async function query(data) {
+    const response = await fetch(
+        "http://localhost:3000/api/v1/document-store/upsert/<storeId>",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        }
+    );
+    const result = await response.json();
+    return result;
+}
+
+query({
+    "docId": <docId>,
+    // override existing configuration
+    "loader": {
+        "name": "plainText",
+        "config": {
+            "text": "This is a new text"
+        }
+    },
+    "splitter": {
+        "name": "recursiveCharacterTextSplitter",
+        "config": {
+            "chunkSize": 20000
+        }
+    },
+    // embedding: {},
+    // vectorStore: {},
+    // recordManager: {}
+}).then((response) => {
+    console.log(response);
+});
+```
+{% endtab %}
+{% endtabs %}
+
+### 2. Refresh
+
+Often times you might want to re-process every documents loaders within document store to fetch the latest data, and upsert to vector store, to keep everything in sync. This can be done via Refresh API:
+
+{% tabs %}
+{% tab title="Python API" %}
+```python
+import requests
+
+API_URL = "http://localhost:3000/api/v1/document-store/refresh/<storeId>"
+
+def query():
+    response = requests.post(API_URL)
+    return response.json()
+
+output = query()
+print(output)
+```
+{% endtab %}
+
+{% tab title="Javascript API" %}
+```javascript
+async function query(data) {
+    const response = await fetch(
+        "http://localhost:3000/api/v1/document-store/refresh/<storeId>",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }
+    );
+    const result = await response.json();
+    return result;
+}
+
+query().then((response) => {
+    console.log(response);
+});
+```
+{% endtab %}
+{% endtabs %}
+
+You can also override existing configuration of specific document loader:
+
+{% tabs %}
+{% tab title="Python API" %}
+```python
+import requests
+
+API_URL = "http://localhost:3000/api/v1/document-store/refresh/<storeId>"
+
+def query(payload):
+    response = requests.post(API_URL, json=payload)
+    return response.json()
+
+output = query(
+{
+    "items": [
+        {
+            "docId": <docId>,
+            "splitter": {
+                "name": "recursiveCharacterTextSplitter",
+                "config": {
+                    "chunkSize": 2000,
+                    "chunkOverlap": 100
+                }
+            }
+        }
+    ]
+}
+)
+print(output)
+```
+{% endtab %}
+
+{% tab title="Javascript API" %}
+```javascript
+async function query(data) {
+    const response = await fetch(
+        "http://localhost:3000/api/v1/document-store/refresh/<storeId>",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        }
+    );
+    const result = await response.json();
+    return result;
+}
+
+query({
+    "items": [
+        {
+            "docId": <docId>,
+            "splitter": {
+                "name": "recursiveCharacterTextSplitter",
+                "config": {
+                    "chunkSize": 2000,
+                    "chunkOverlap": 100
+                }
+            }
+        }
+    ]
+}).then((response) => {
+    console.log(response);
+});
+```
+{% endtab %}
+{% endtabs %}
+
+## 11. Summary
 
 We started by creating a Document Store to organize the LibertyGuard Deluxe Homeowners Policy data. This data was then prepared by uploading, chunking, processing, and upserting it, making it ready for our RAG system.
 
@@ -145,7 +426,7 @@ Document Stores offer several benefits for managing and preparing data for Retri
 * **Data Quality:** The chunking process helps structure data for accurate retrieval and analysis.
 * **Flexibility:** Document Stores allow for refining and adjusting data as needed, improving the accuracy and relevance of your RAG system.
 
-## 11. Video Tutorials
+## 12. Video Tutorials
 
 ### RAG Like a Boss - Flowise Document Store Tutorial
 

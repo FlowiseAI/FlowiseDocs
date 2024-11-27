@@ -580,7 +580,7 @@ import requests
 
 API_URL = "http://localhost:3000/api/v1/vector/upsert/<chatflowId>"
 
-def query(form_data):
+def query(payload):
     response = requests.post(API_URL, json=payload)
     print(response)
     return response.json()
@@ -621,6 +621,18 @@ query({
 ```
 {% endtab %}
 {% endtabs %}
+
+## Document Upsert/Refresh API
+
+Refer to [Document Stores](document-stores.md#id-10.-api) section for more information about how to use the API.
+
+{% swagger src="../.gitbook/assets/swagger (2).yml" path="/document-store/upsert/{id}" method="post" %}
+[swagger (2).yml](<../.gitbook/assets/swagger (2).yml>)
+{% endswagger %}
+
+{% swagger src="../.gitbook/assets/swagger (2).yml" path="/document-store/refresh/{id}" method="post" %}
+[swagger (2).yml](<../.gitbook/assets/swagger (2).yml>)
+{% endswagger %}
 
 ## Video Tutorials
 
