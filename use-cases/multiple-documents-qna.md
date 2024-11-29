@@ -115,6 +115,22 @@ The current date is: 2024-01-28
 
 7. We are now able to ask questions about any documents that we've previously upserted to vector database without "hard-coding" the metadata filtering by using tools + agent.
 
+## Metadata Retriever
+
+With the Tool Agent approach, user has to create multiple retriever tools to retrieve documents from different sources. This could be a problem if there is a large number of document sources with different metadata. Using the example above with only Apple and Tesla, we could potentially expand to other companies such as Disney, Amazon, etc. It would be a tedious task to create one retrever tool for each company.
+
+Metadata Retriever comes into play. The idea is to have LLM extract the metadata from user question, then use it as filter when searching through vector databases.
+
+For example, if a user is asking questions related to Apple, a metadata filter `{source: apple}` will be automatically applied on vector database search.
+
+<div align="left"><figure><img src="../.gitbook/assets/image (235).png" alt="" width="297"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2024-11-29 155926.png" alt="" width="526"><figcaption></figcaption></figure></div>
+
+In this scenario, we can have a single retriever tool, and place the **Metadata Retriever** between vector database and retriever tool.
+
+<figure><img src="../.gitbook/assets/image (236).png" alt=""><figcaption></figcaption></figure>
+
+
+
 ## XML Agent
 
 For some LLMs, function callings capabilities are not supported. In this case, we can use XML Agent to prompt the LLM in a more structured format/syntax, with the goal of using the provided tools.
