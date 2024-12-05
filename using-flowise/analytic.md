@@ -4,14 +4,24 @@ description: Learn how to analyze and troubleshoot your chatflows and agentflows
 
 # Analytic
 
-***
+---
 
 There are several analytic providers Flowise integrates with:
 
-* [Langsmith](https://smith.langchain.com/)
-* [Langfuse](https://langfuse.com/)
-* [LunaryAI](https://lunary.ai/)
-* [LangWatch](https://langwatch.ai/)
+- [LunaryAI](https://lunary.ai/)
+- [Langsmith](https://smith.langchain.com/)
+- [Langfuse](https://langfuse.com/)
+- [LangWatch](https://langwatch.ai/)
+
+## Lunary
+
+[Lunary](https://lunary.ai/) is a monitoring and analytics platform for LLM chatbots.
+
+Flowise has partnered with Lunary to provide a complete integration supporting user tracing, feedback tracking, conversation replays and detailed LLM analytics.
+
+Flowise users can get a 30% discount on the Teams Plan using code `FLOWISEFRIENDS` during checkout.
+
+Read more on how to setup Lunary with Flowise [here](https://lunary.ai/docs/integrations/flowise).
 
 ## Setup
 
@@ -37,13 +47,14 @@ Once the analytic has been turned ON from the UI, you can override or provide ad
 
 ```json
 {
-    "question": "hi there",
-    "overrideConfig": {
-        "analytics": {
-            "langFuse": { // langSmith, langFuse, lunary, langWatch
-                "userId": "user1"
-            }
-        }
+  "question": "hi there",
+  "overrideConfig": {
+    "analytics": {
+      "langFuse": {
+        // langSmith, langFuse, lunary, langWatch
+        "userId": "user1"
+      }
     }
+  }
 }
 ```
