@@ -1,4 +1,4 @@
-# Table of contents
+# Table of contents 
 
 * [Introduction](README.md)
 * [Get Started](getting-started/README.md)
@@ -33,6 +33,7 @@
   * [Uploads](using-flowise/uploads.md)
   * [Variables](using-flowise/variables.md)
   * [Workspaces](using-flowise/workspaces.md)
+  * [Evaluations](using-flowise/evaluations.md)
 * [Configuration](configuration/README.md)
   * [Auth](configuration/authorization/README.md)
     * [App Level](configuration/authorization/app-level.md)
@@ -50,7 +51,7 @@
     * [Railway](configuration/deployment/railway.md)
     * [Render](configuration/deployment/render.md)
     * [Replit](configuration/deployment/replit.md)
-    * [RepoCloud](https://repocloud.io/details/?app\_id=29)
+    * [RepoCloud](https://repocloud.io/details/?app_id=29)
     * [Sealos](configuration/deployment/sealos.md)
     * [Zeabur](configuration/deployment/zeabur.md)
   * [Environment Variables](configuration/environment-variables.md)

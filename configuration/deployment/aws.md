@@ -59,11 +59,11 @@ terraform destroy
 
 1. In the EC2 dashboard, click **Launch Instance**
 
-<figure><img src="../../.gitbook/assets/image (19) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (19) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 2. Scroll down and **Create new key pair** if you don't have one
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 3. Fill in your preferred key pair name. For Windows, we will use `.ppk` and PuTTY to connect to the instance. For Mac and Linux, we will use `.pem` and OpenSSH
 
@@ -72,26 +72,26 @@ terraform destroy
 4. Click **Create key pair** and select a location path to save the `.ppk` file
 5. Open the left side bar, and open a new tab from **Security Groups**. Then **Create security group**
 
-<figure><img src="../../.gitbook/assets/image (20) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (20) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 6. Fill in your preferred security group name and description. Next, add the following to Inbound Rules and **Create security group**
 
-<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 7. Back to the first tab (EC2 Launch an instance) and scroll down to **Network settings**. Select the security group you've just created
 
-<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 8. Click **Launch instance**. Navigate back to EC2 Dashboard, after few mins we should be able to see a new instance up and running [🎉](https://emojipedia.org/party-popper/)
 
-<figure><img src="../../.gitbook/assets/image (17) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (17) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## How to Connect to your instance (Windows)
 
-1. For Windows, we are going to use PuTTY. You can download one from [here](https://www.chiark.greenend.org.uk/\~sgtatham/putty/latest.html).
+1. For Windows, we are going to use PuTTY. You can download one from [here](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
 2. Open PuTTY and fill in the **HostName** with your instance's Public IPv4 DNS name
 
-<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 3. From the left hand side bar of PuTTY Configuration, expand **SSH** and click on **Auth**. Click Browse and select the `.ppk` file you downloaded earlier.
 
@@ -99,11 +99,11 @@ terraform destroy
 
 4. Click **Open** and **Accept** the pop up message
 
-<figure><img src="../../.gitbook/assets/image (18) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (18) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 5. Then login as `ec2-user`
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 6. Now you are connected to the EC2 instance
 
@@ -202,7 +202,7 @@ cd Flowise && cd docker
 nano .env
 ```
 
-<figure><img src="../../.gitbook/assets/image (13) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (13) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 4. Specify the env variables:
 

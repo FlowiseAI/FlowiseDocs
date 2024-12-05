@@ -10,15 +10,7 @@ From the last [Web Scrape QnA](web-scrape-qna.md) example, we are only upserting
 
 In this example, we are going to perform QnA on 2 PDFs, which are FORM-10K of APPLE and TESLA.
 
-<div align="left" data-full-width="false">
-
-<figure><img src="../.gitbook/assets/image (93).png" alt="" width="375"><figcaption></figcaption></figure>
-
- 
-
-<figure><img src="../.gitbook/assets/image (94).png" alt="" width="375"><figcaption></figcaption></figure>
-
-</div>
+<div align="left" data-full-width="false"><figure><img src="../.gitbook/assets/image (93).png" alt="" width="375"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/image (94).png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 ## Upsert
 
@@ -29,15 +21,7 @@ In this example, we are going to perform QnA on 2 PDFs, which are FORM-10K of AP
 
 3. Click the **Additional Parameters** of PDF File Loader, and specify metadata object. For instance, PDF File with Apple FORM-10K uploaded can have a metadata object `{source: apple}`, whereas PDF File with Tesla FORM-10K uploaded can have `{source: tesla}` . This is done to seggregate the documents during retrieval time.
 
-<div align="left">
-
-<figure><img src="../.gitbook/assets/multi-docs-apple.png" alt="" width="563"><figcaption></figcaption></figure>
-
- 
-
-<figure><img src="../.gitbook/assets/multi-docs-tesla.png" alt="" width="563"><figcaption></figcaption></figure>
-
-</div>
+<div align="left"><figure><img src="../.gitbook/assets/multi-docs-apple.png" alt="" width="563"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/multi-docs-tesla.png" alt="" width="563"><figcaption></figcaption></figure></div>
 
 4. After filling in the credentials for Pinecone, click Upsert:
 
@@ -57,15 +41,7 @@ In this example, we are going to perform QnA on 2 PDFs, which are FORM-10K of AP
 
 2. However, the context retrieved used to return the answer is a mix of both APPLE and TESLA documents. As you can see from the Source Documents:
 
-<div align="left">
-
-<figure><img src="../.gitbook/assets/Untitled (7).png" alt="" width="563"><figcaption></figcaption></figure>
-
- 
-
-<figure><img src="../.gitbook/assets/Untitled (8).png" alt="" width="563"><figcaption></figcaption></figure>
-
-</div>
+<div align="left"><figure><img src="../.gitbook/assets/Untitled (7).png" alt="" width="563"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Untitled (8).png" alt="" width="563"><figcaption></figcaption></figure></div>
 
 3. We can fix this by specifying a metadata filter from the Pinecone node. For example, if we only want to retrieve context from APPLE FORM-10K, we can look back at the metadata we have specified earlier in the [#upsert](multiple-documents-qna.md#upsert "mention") step, then use the same in the Metadata Filter below:
 
@@ -131,21 +107,29 @@ The current date is: 2024-01-28
 
 <figure><img src="../.gitbook/assets/image (110).png" alt=""><figcaption></figcaption></figure>
 
-<div align="left">
-
-<figure><img src="../.gitbook/assets/Untitled (9).png" alt="" width="375"><figcaption></figcaption></figure>
-
- 
-
-<figure><img src="../.gitbook/assets/Untitled (10).png" alt="" width="375"><figcaption></figcaption></figure>
-
-</div>
+<div align="left"><figure><img src="../.gitbook/assets/Untitled (9).png" alt="" width="375"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Untitled (10).png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 6. Follow up with Tesla:
 
 <figure><img src="../.gitbook/assets/image (111).png" alt=""><figcaption></figcaption></figure>
 
 7. We are now able to ask questions about any documents that we've previously upserted to vector database without "hard-coding" the metadata filtering by using tools + agent.
+
+## Metadata Retriever
+
+With the Tool Agent approach, user has to create multiple retriever tools to retrieve documents from different sources. This could be a problem if there is a large number of document sources with different metadata. Using the example above with only Apple and Tesla, we could potentially expand to other companies such as Disney, Amazon, etc. It would be a tedious task to create one retrever tool for each company.
+
+Metadata Retriever comes into play. The idea is to have LLM extract the metadata from user question, then use it as filter when searching through vector databases.
+
+For example, if a user is asking questions related to Apple, a metadata filter `{source: apple}` will be automatically applied on vector database search.
+
+<div align="left"><figure><img src="../.gitbook/assets/image (235).png" alt="" width="297"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2024-11-29 155926.png" alt="" width="526"><figcaption></figcaption></figure></div>
+
+In this scenario, we can have a single retriever tool, and place the **Metadata Retriever** between vector database and retriever tool.
+
+<figure><img src="../.gitbook/assets/image (236).png" alt=""><figcaption></figcaption></figure>
+
+
 
 ## XML Agent
 
@@ -179,7 +163,7 @@ Question: {input}
 {agent_scratchpad}
 ```
 
-<figure><img src="../.gitbook/assets/image (20) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (20) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Conclusion
 

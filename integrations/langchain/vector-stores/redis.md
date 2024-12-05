@@ -2,7 +2,7 @@
 
 ## Prerequisite
 
-1. Spin up a [Redis-Stack Server](https://redis.io/docs/latest/operate/oss\_and\_stack/install/install-stack/docker/) using Docker
+1. Spin up a [Redis-Stack Server](https://redis.io/docs/latest/operate/oss_and_stack/install/install-stack/docker/) using Docker
 
 ```bash
 docker run -d --name redis-stack-server -p 6379:6379 redis/redis-stack-server:latest
@@ -25,7 +25,7 @@ docker run -d --name redis-stack-server -p 6379:6379 redis/redis-stack-server:la
 
 5. Now you can start upserting data with Redis:
 
-<figure><img src="../../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/image (9) (2).png" alt=""><figcaption></figcaption></figure>
 
