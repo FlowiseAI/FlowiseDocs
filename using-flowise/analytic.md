@@ -4,14 +4,14 @@ description: Learn how to analyze and troubleshoot your chatflows and agentflows
 
 # Analytic
 
----
+***
 
 There are several analytic providers Flowise integrates with:
 
-- [LunaryAI](https://lunary.ai/)
-- [Langsmith](https://smith.langchain.com/)
-- [Langfuse](https://langfuse.com/)
-- [LangWatch](https://langwatch.ai/)
+* [LunaryAI](https://lunary.ai/)
+* [Langsmith](https://smith.langchain.com/)
+* [Langfuse](https://langfuse.com/)
+* [LangWatch](https://langwatch.ai/)
 
 ## Lunary
 
