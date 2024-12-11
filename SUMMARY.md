@@ -1,4 +1,4 @@
-# Table of contents 
+# Table of contents
 
 * [Introduction](README.md)
 * [Get Started](getting-started/README.md)
@@ -107,6 +107,7 @@
       * [ChatHuggingFace](integrations/langchain/chat-models/chathuggingface.md)
       * [ChatLocalAI](integrations/langchain/chat-models/chatlocalai.md)
       * [ChatMistralAI](integrations/langchain/chat-models/mistral-ai.md)
+      * [IBM Watsonx](integrations/langchain/chat-models/ibm-watsonx.md)
       * [ChatOllama](integrations/langchain/chat-models/chatollama.md)
       * [ChatOpenAI](integrations/langchain/chat-models/azure-chatopenai.md)
       * [ChatTogetherAI](integrations/langchain/chat-models/chattogetherai.md)
