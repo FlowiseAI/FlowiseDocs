@@ -12,8 +12,8 @@ Refer to [API Reference](../api-reference/) for full list of public APIs
 
 <div data-full-width="false"><figure><img src="../.gitbook/assets/image (16) (1) (1) (1).png" alt=""><figcaption></figcaption></figure></div>
 
-{% swagger src="../.gitbook/assets/swagger (1) (1).yml" path="/prediction/{id}" method="post" %}
-[swagger (1) (1).yml](<../.gitbook/assets/swagger (1) (1).yml>)
+{% swagger src="../.gitbook/assets/swagger (1) (1) (1).yml" path="/prediction/{id}" method="post" %}
+[swagger (1) (1) (1).yml](<../.gitbook/assets/swagger (1) (1) (1).yml>)
 {% endswagger %}
 
 ### Using Python/TS Library
@@ -491,8 +491,8 @@ query({
 
 ## Vector Upsert API
 
-{% swagger src="../.gitbook/assets/swagger (1) (1).yml" path="/vector/upsert/{id}" method="post" %}
-[swagger (1) (1).yml](<../.gitbook/assets/swagger (1) (1).yml>)
+{% swagger src="../.gitbook/assets/swagger (1) (1) (1).yml" path="/vector/upsert/{id}" method="post" %}
+[swagger (1) (1) (1).yml](<../.gitbook/assets/swagger (1) (1) (1).yml>)
 {% endswagger %}
 
 ### Document Loaders with File Upload

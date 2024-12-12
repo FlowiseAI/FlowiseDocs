@@ -1,5 +1,5 @@
 # Attachments
 
-{% swagger src="../.gitbook/assets/swagger.yml" path="/attachments/{chatflowId}/{chatId}" method="post" %}
-[swagger.yml](../.gitbook/assets/swagger.yml)
+{% swagger src="../.gitbook/assets/swagger (1).yml" path="/attachments/{chatflowId}/{chatId}" method="post" %}
+[swagger (1).yml](<../.gitbook/assets/swagger (1).yml>)
 {% endswagger %}
