@@ -36,7 +36,7 @@ There are two ways to deploy Flowise with Docker:
 
 ### Docker Compose
 
-1. Go to `docker folder` at the root of the project
+1. Go to `docker` folder at the root of the project
 2. Copy the `.env.example` file and paste it as another file named `.env`
 3. Run:
 
