@@ -403,7 +403,7 @@ As you can see in the examples, uploads require a base64 string. To get a base64
 
 ### Difference between Full & RAG Uploads
 
-Both Full and RAG (Retrieval-Augmented Generation) file uploads serve different purposes when interacting with the API:
+Both Full and RAG (Retrieval-Augmented Generation) file uploads serve different purposes.
 
-* **Full File Upload**: This method parses the entire file into a string and sends it to the LLM (Large Language Model). It's beneficial for summarizing the document or extracting key information. However, with very large files, the model might produce inaccurate results or "hallucinations," especially when asked highly specific questions due to token limitations.
+* **Full File Upload**: This method parses the entire file into a string and sends it to the LLM (Large Language Model). It's beneficial for summarizing the document or extracting key information. However, with very large files, the model might produce inaccurate results or "hallucinations" due to token limitations.
 * **RAG File Upload**: Recommended if you aim to reduce token costs by not sending the entire text to the LLM. This approach is suitable for Q\&A tasks on the documents but isn't ideal for summarization since it lacks the full document context.
