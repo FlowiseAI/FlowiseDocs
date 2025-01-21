@@ -1,39 +1,28 @@
 # Parte 2: Chains Avanzadas
 
-En esta parte profundizaremos en el uso avanzado de chains y características relacionadas que te permitirán crear flujos más sofisticados.
-
 ## Tipos de Chains
-
-### Chains Básicas
-- [LLM Chain](../../integraciones/langchain/chains/llm-chain.md): La chain más fundamental
-- [Conversation Chain](../../integraciones/langchain/chains/conversation-chain.md): Para diálogos continuos
-- [Retrieval QA Chain](../../integraciones/langchain/chains/retrieval-qa-chain.md): Para preguntas y respuestas
-
-### Chains Especializadas
-- [GET API Chain](../../integraciones/langchain/chains/get-api-chain.md): Para interactuar con APIs externas
-- [OpenAPI Chain](../../integraciones/langchain/chains/openapi-chain.md): Para APIs que siguen OpenAPI
-- [SQL Database Chain](../../integraciones/langchain/chains/sql-database-chain.md): Para consultas a bases de datos
+[Contenido sobre tipos de chains]
 
 ## Cache
-
-El sistema de cache mejora el rendimiento y reduce costos:
-
-### Tipos de Cache
-- [InMemory Cache](../../integraciones/langchain/cache/in-memory-cache.md)
-- [Redis Cache](../../integraciones/langchain/cache/redis-cache.md)
-- [Momento Cache](../../integraciones/langchain/cache/momento-cache.md)
-
-### Cache de Embeddings
-- [InMemory Embedding Cache](../../integraciones/langchain/cache/inmemory-embedding-cache.md)
-- [Redis Embeddings Cache](../../integraciones/langchain/cache/redis-embeddings-cache.md)
+[Contenido sobre cache]
 
 ## Encadenamiento de Chains
+[Contenido sobre encadenamiento]
 
-Aprenderás a:
-- Conectar múltiples chains
-- Gestionar el flujo de datos entre chains
-- Optimizar el rendimiento del encadenamiento
-- Manejar errores y excepciones
+## Proveedores
+[Contenido sobre proveedores]
+
+## Input de imágenes
+[Contenido sobre input de imágenes]
+
+## Prompts
+[Contenido sobre prompts]
+
+## Output Parsers
+[Contenido sobre output parsers]
+
+## Moderación
+[Contenido sobre moderación]
 
 ## Proveedores
 

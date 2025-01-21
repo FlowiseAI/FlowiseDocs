@@ -5,42 +5,32 @@
 ## Partes
 
 * [Parte 1: Introducción](partes/parte-1/README.md)
-  * [Contenido](partes/parte-1/contenido/index.md)
   * [Recursos](partes/parte-1/recursos/index.md)
 
 * [Parte 2: Chains Avanzadas](partes/parte-2/README.md)
-  * [Contenido](partes/parte-2/contenido/index.md)
   * [Desafíos](partes/parte-2/desafios/index.md)
 
 * [Parte 3: Gestión de Documentos y Memoria](partes/parte-3/README.md)
-  * [Contenido](partes/parte-3/contenido/index.md)
   * [Desafíos](partes/parte-3/desafios/index.md)
 
 * [Parte 4: Despliegue y API](partes/parte-4/README.md)
-  * [Contenido](partes/parte-4/contenido/index.md)
 
 * [Parte 5: Introducción a Agentes](partes/parte-5/README.md)
-  * [Contenido](partes/parte-5/contenido/index.md)
   * [Desafíos](partes/parte-5/desafios/index.md)
 
 * [Parte 6: Agentes Avanzados](partes/parte-6/README.md)
-  * [Contenido](partes/parte-6/contenido/index.md)
   * [Desafíos](partes/parte-6/desafios/index.md)
 
 * [Parte 7: Multi-Agentes](partes/parte-7/README.md)
-  * [Contenido](partes/parte-7/contenido/index.md)
   * [Desafíos](partes/parte-7/desafios/index.md)
 
 * [Parte 8: AgentFlows](partes/parte-8/README.md)
-  * [Contenido](partes/parte-8/contenido/index.md)
   * [Desafíos](partes/parte-8/desafios/index.md)
 
 * [Parte 9: Agentes Secuenciales](partes/parte-9/README.md)
-  * [Contenido](partes/parte-9/contenido/index.md)
   * [Desafíos](partes/parte-9/desafios/index.md)
 
 * [Parte 10: Sequential Agents Avanzados](partes/parte-10/README.md)
-  * [Contenido](partes/parte-10/contenido/index.md)
 
 ## Recursos
 * [Enlaces Útiles](recursos/enlaces.md)

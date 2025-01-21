@@ -148,4 +148,13 @@ Al completar esta parte, estarás preparado para:
 - Implementar protocolos de comunicación
 - Gestionar recursos distribuidos
 - Optimizar el rendimiento del sistema
-- Avanzar a la [Parte 8: Agentes Autónomos](../parte-8/README.md) 
+- Avanzar a la [Parte 8: Agentes Autónomos](../parte-8/README.md)
+
+## Resolución del Desafío 4
+[Análisis y solución del gerente de reclutamiento]
+
+## AutoGPT
+[Contenido sobre AutoGPT]
+
+## BabyAGI
+[Contenido sobre BabyAGI] 

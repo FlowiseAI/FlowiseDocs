@@ -1,18 +1,16 @@
 # Parte 6: Agentes Avanzados
 
 ## Resolución del Desafío 3
+[Análisis y solución del investigador de memes]
 
-### Análisis de la Solución
-- Implementación del agente investigador
-- Integración de herramientas de búsqueda
-- Procesamiento de imágenes
-- Generación de explicaciones
+## Otros Agentes
+[Contenido sobre otros tipos de agentes]
 
-### Mejores Prácticas Identificadas
-- Estrategias de búsqueda efectivas
-- Análisis multimodal
-- Manejo de contexto cultural
-- Optimización de respuestas
+## Herramientas en profundidad
+[Contenido detallado sobre herramientas]
+
+## Utilities
+[Contenido sobre utilities]
 
 ## Agentes Avanzados
 

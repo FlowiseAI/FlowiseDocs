@@ -1,4 +1,4 @@
-# Parte 1: Iniciación
+# Parte 1: Introducción
 
 En esta primera parte del curso, aprenderás los fundamentos esenciales para comenzar con Flowise. Cubriremos desde la instalación básica hasta conceptos fundamentales que necesitarás para crear tus primeros flujos.
 
@@ -34,7 +34,7 @@ docker run -d -p 3000:3000 flowiseai/flowise
 - Área de pruebas
 - Gestión de variables
 
-## Chains (Cadenas)
+## Chains
 
 Las [Chains](../../documentacion-oficial/usar-flowise/chains.md) son componentes fundamentales en Flowise que permiten conectar diferentes operaciones.
 
@@ -53,7 +53,7 @@ Los [Chat Models](../../documentacion-oficial/usar-flowise/chat-models.md) son e
 - [Anthropic Claude](../../integraciones/langchain/chat-models/chatanthropic.md)
 - [Ollama](../../integraciones/langchain/chat-models/chatollama.md)
 
-## Cómo Mantenerse al Día con Flowise
+## Cómo estar al día con Flowise
 
 ### Proceso de Actualización
 ```bash
