@@ -1,48 +1,37 @@
-# Desafío 1: [Nombre del Desafío]
+# Desafío 1: Traductor de Lenguajes Antiguos
 
-## Descripción del Problema
+## Objetivo
+Implementar un sistema que traduzca textos de lenguas muertas o antiguas al español moderno, facilitando el estudio de documentos históricos.
 
-[Descripción detallada del problema a resolver]
+## Requisitos
+- Capacidad de procesar y traducir 3 textos diferentes
+- Manejo de imágenes como input
+- Traducción precisa al español moderno
+- Preservación del contexto histórico
 
-## Objetivos
+## Textos a Traducir
+Se proporcionarán 3 textos históricos en forma de imágenes:
+1. [Texto 1 - Descripción y enlace a la imagen]
+2. [Texto 2 - Descripción y enlace a la imagen]
+3. [Texto 3 - Descripción y enlace a la imagen]
 
-- Objetivo 1
-- Objetivo 2
-- Objetivo 3
-
-## Requisitos Previos
-
-- Conocimiento de [tema específico]
-- Herramientas necesarias
-- Recursos adicionales requeridos
-
-## Instrucciones
-
-1. Paso 1
-2. Paso 2
-3. Paso 3
+## Herramientas Recomendadas
+- [Document Loaders](../../integraciones/langchain/document-loaders/README.md) para procesar las imágenes
+- [Chat Models](../../integraciones/langchain/chat-models/README.md) especializados en traducción
+- [Chains](../../integraciones/langchain/chains/README.md) para estructurar el flujo de traducción
 
 ## Criterios de Evaluación
-
-- [ ] Criterio 1
-- [ ] Criterio 2
-- [ ] Criterio 3
-
-## Recursos de Ayuda
-
-- [Enlaces útiles]()
-- [Documentación relacionada]()
-- [Ejemplos de referencia]()
+1. Precisión de la traducción
+2. Mantenimiento del contexto histórico
+3. Claridad del español moderno
+4. Manejo correcto de las imágenes
+5. Estructura del flujo de trabajo
 
 ## Entrega
-
-Instrucciones para la entrega del desafío:
-1. Formato esperado
-2. Fecha límite
-3. Método de envío
+La solución se revisará en la [Parte 3](../partes/parte-3/README.md) del curso, donde analizaremos diferentes enfoques y mejores prácticas.
 
 ## Consejos
-
-- Consejo 1
-- Consejo 2
-- Consejo 3 
+- Utilizar prompts específicos para traducción histórica
+- Considerar el contexto cultural de cada texto
+- Implementar verificación de calidad en las traducciones
+- Documentar las decisiones de diseño del flujo 

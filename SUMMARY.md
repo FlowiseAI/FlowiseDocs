@@ -1,17 +1,144 @@
-# Table of contents
+# Tabla de Contenidos
 
-* [Introduction](README.md)
-* [Partes](partes/README.md)
-  * [Parte 1: Introducción](partes/parte-1/README.md)
-    * [Recursos](partes/parte-1/recursos.md)
-  * [Parte 2: Fundamentos](partes/parte-2/README.md)
-    * [Recursos](partes/parte-2/recursos.md)
-* [Desafíos](desafios/README.md)
-  * [Desafío 1](desafios/desafio-1.md)
-  * [Desafío 2](desafios/desafio-2.md)
+## Partes
+
+### [Parte 1: Introducción](partes/parte-1/README.md)
+- [Instalación de Flowise](partes/parte-1/instalacion.md)
+- [Interfaz de Usuario](partes/parte-1/interfaz-usuario.md)
+- [Chains](partes/parte-1/chains.md)
+- [Chat Models](partes/parte-1/chat-models.md)
+- [Actualizaciones de Flowise](partes/parte-1/actualizaciones.md)
+- [Memoria](partes/parte-1/memoria.md)
+
+### [Parte 2: Chains Avanzadas](partes/parte-2/README.md)
+- [Tipos de Chains](partes/parte-2/tipos-chains.md)
+- [Cache](partes/parte-2/cache.md)
+- [Encadenamiento](partes/parte-2/encadenamiento.md)
+- [Proveedores](partes/parte-2/proveedores.md)
+- [Input de Imágenes](partes/parte-2/input-imagenes.md)
+- [Prompts](partes/parte-2/prompts.md)
+- [Output Parsers](partes/parte-2/output-parsers.md)
+- [Moderación](partes/parte-2/moderacion.md)
+
+### [Parte 3: Gestión de Documentos y Memoria](partes/parte-3/README.md)
+- [Vector Stores](partes/parte-3/vector-stores.md)
+- [Document Stores](partes/parte-3/document-stores.md)
+- [Document Loaders](partes/parte-3/document-loaders.md)
+- [Record Managers](partes/parte-3/record-managers.md)
+- [Retrievers](partes/parte-3/retrievers.md)
+- [Text Splitters](partes/parte-3/text-splitters.md)
+- [Embeddings](partes/parte-3/embeddings.md)
+- [RAG](partes/parte-3/rag.md)
+
+### [Parte 4: Despliegue y API](partes/parte-4/README.md)
+- [Despliegue Local](partes/parte-4/despliegue-local.md)
+- [Despliegue en la Nube](partes/parte-4/despliegue-nube.md)
+- [Llamadas API](partes/parte-4/llamadas-api.md)
+- [Configuración Avanzada](partes/parte-4/configuracion-avanzada.md)
+- [CURL](partes/parte-4/curl.md)
+- [Share](partes/parte-4/share.md)
+- [Javascript](partes/parte-4/javascript.md)
+- [Python](partes/parte-4/python.md)
+- [Config](partes/parte-4/config.md)
+- [React vs Html](partes/parte-4/react-vs-html.md)
+- [Popup vs Full](partes/parte-4/popup-vs-full.md)
+- [Authorization](partes/parte-4/authorization.md)
+
+### [Parte 5: Introducción a Agentes](partes/parte-5/README.md)
+- [Conceptos Fundamentales](partes/parte-5/conceptos.md)
+- [Tipos de Agentes](partes/parte-5/tipos-agentes.md)
+- [Herramientas](partes/parte-5/herramientas.md)
+- [Chains vs Agentes](partes/parte-5/chains-vs-agentes.md)
+- [Casos de Uso](partes/parte-5/casos-uso.md)
+
+### [Parte 6: Agentes Avanzados](partes/parte-6/README.md)
+- [Planificación y Ejecución](partes/parte-6/planificacion.md)
+- [Gestión de Estado](partes/parte-6/gestion-estado.md)
+- [Manejo de Errores](partes/parte-6/manejo-errores.md)
+- [Herramientas Avanzadas](partes/parte-6/herramientas-avanzadas.md)
+- [Patrones de Diseño](partes/parte-6/patrones-diseno.md)
+
+### [Parte 7: Multi-Agentes](partes/parte-7/README.md)
+- [Componentes del Sistema](partes/parte-7/componentes.md)
+- [Implementación](partes/parte-7/implementacion.md)
+- [Gestión del Sistema](partes/parte-7/gestion-sistema.md)
+- [Casos de Uso](partes/parte-7/casos-uso.md)
+- [Consideraciones Avanzadas](partes/parte-7/consideraciones.md)
+
+### [Parte 8: Agentes Autónomos](partes/parte-8/README.md)
+- [Fundamentos](partes/parte-8/fundamentos.md)
+- [Implementación](partes/parte-8/implementacion.md)
+- [Gestión de Autonomía](partes/parte-8/gestion-autonomia.md)
+- [Casos de Uso](partes/parte-8/casos-uso.md)
+- [Consideraciones Avanzadas](partes/parte-8/consideraciones.md)
+
+### [Parte 9: Sequential Agents](partes/parte-9/README.md)
+- [Fundamentos](partes/parte-9/fundamentos.md)
+- [Implementación](partes/parte-9/implementacion.md)
+- [Patrones de Diseño](partes/parte-9/patrones-diseno.md)
+- [Casos de Uso](partes/parte-9/casos-uso.md)
+- [Consideraciones Avanzadas](partes/parte-9/consideraciones.md)
+
+### [Parte 10: Sequential Agents Avanzados](partes/parte-10/README.md)
+- [Arquitecturas Complejas](partes/parte-10/arquitecturas.md)
+- [Componentes Avanzados](partes/parte-10/componentes.md)
+- [Patrones Avanzados](partes/parte-10/patrones.md)
+- [Optimización y Rendimiento](partes/parte-10/optimizacion.md)
+- [Consideraciones Finales](partes/parte-10/consideraciones.md)
+
+## Desafíos
+
+### [Desafío 1: Traductor de Lenguajes Antiguos](desafios/desafio-1.md)
+- Implementación de un sistema de traducción
+- Gestión de documentos históricos
+- Procesamiento de texto antiguo
+- Generación de traducciones precisas
+
+### [Desafío 2: Chatbot Nikola Tesla](desafios/desafio-2.md)
+- Procesamiento de documentación histórica
+- Implementación de personalidad
+- Gestión de contexto conversacional
+- Validación de respuestas históricas
+
+### [Desafío 3: Investigador de Memes](desafios/desafio-3.md)
+- Análisis de imágenes
+- Búsqueda en tiempo real
+- Comprensión de contexto cultural
+- Generación de explicaciones
+
+### [Desafío 4: Sistema Multi-Agente de Trading](desafios/desafio-4.md)
+- Análisis técnico y fundamental
+- Gestión de riesgos
+- Toma de decisiones
+- Generación de reportes
+
+### [Desafío 5: Asistente Autónomo de Investigación](desafios/desafio-5.md)
+- Búsqueda y análisis de información
+- Síntesis de conocimiento
+- Generación de reportes
+- Aprendizaje continuo
+
+### [Desafío 6: Asistente de Soporte Técnico](desafios/desafio-6.md)
+- Diagnóstico de problemas
+- Guía paso a paso
+- Sistema de escalamiento
+- Aprendizaje de interacciones
+
+### [Desafío Final: Sistema de Atención Médica](desafios/desafio-final.md)
+- Triaje inicial
+- Gestión de historiales
+- Coordinación de especialistas
+- Planes de tratamiento
+
+## Recursos
+- [Enlaces Útiles](recursos/enlaces.md)
+- [Documentación Oficial](recursos/documentacion.md)
+- [Ejemplos de Código](recursos/ejemplos.md)
+- [Mejores Prácticas](recursos/mejores-practicas.md)
 
 ## Documentación Oficial
 
+* [Introduction](README.md)
 * [Primeros Pasos](primeros-pasos/README.md)
 * [Guía de Contribución](contribucion/README.md)
   * [Building Node](contribucion/building-node.md)
