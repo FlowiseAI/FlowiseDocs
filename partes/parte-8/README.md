@@ -1,36 +1,27 @@
 # Parte 8: AgentFlows
 
+## Contenidos
+
+- Introducción a AgentFlows
+- Supervisors
+- Workers
+- Agent Memory
+- Prompting de AgentFlows
+- Gestión de Estado
+- Control de Flujo
+- Patrones de Diseño
+- Casos de Uso
+- Optimización y Monitoreo
+
+## Links Relevantes
+
+- [AgentFlows](../../usar-flowise/agentflows/README.md)
+- [Multi-Agents](../../usar-flowise/agentflows/multi-agents.md)
+- [Sequential Agents](../../usar-flowise/agentflows/sequential-agents.md)
+- [Memory](../../integraciones/langchain/memory/README.md)
+
 ## Resolución del Desafío 5
 [Análisis y solución del desafío 5]
-
-## Introducción a AgentFlows
-[Contenido sobre AgentFlows]
-
-## Supervisors
-[Contenido sobre supervisors]
-
-## Workers
-[Contenido sobre workers]
-
-## Agent Memory
-[Contenido sobre agent memory]
-
-## Prompting de AgentFlows
-[Contenido sobre prompting]
-
-## Resolución del Desafío 4
-
-### Análisis de la Solución
-- Arquitectura implementada
-- Integración de componentes
-- Gestión de datos
-- Resultados obtenidos
-
-### Mejores Prácticas Identificadas
-- Diseño modular
-- Comunicación eficiente
-- Gestión de recursos
-- Monitoreo y control
 
 ## Fundamentos de Agentes Autónomos
 

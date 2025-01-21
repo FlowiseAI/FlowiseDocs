@@ -1,41 +1,24 @@
 # Parte 4: Despliegue y API
 
-## Resolución del Desafío 2
-[Análisis y solución del chatbot de Tesla]
+## Contenidos
 
-## Despliegue de Chatbot
-### Local
-[Contenido sobre despliegue local]
+- Despliegue de Chatbot
+  - Local
+  - En la nube
+- Llamadas API
+- Configuración avanzada de Chatflows
+- CURL
+- Share
+- Javascript Implementation
+- Python Implementation
+- Config
+- React vs Html
+- Popup vs Full
+- Authorization
 
-### En la nube
-[Contenido sobre despliegue en la nube]
+## Links Relevantes
 
-## Llamadas API
-[Contenido sobre integración API]
-
-## Configuración avanzada de Chatflows
-[Contenido sobre configuración]
-
-## CURL
-[Contenido sobre CURL]
-
-## Share
-[Contenido sobre compartir]
-
-## Javascript Implementation
-[Contenido sobre implementación en Javascript]
-
-## Python Implementation
-[Contenido sobre implementación en Python]
-
-## Config
-[Contenido sobre configuración]
-
-## React vs Html
-[Comparativa y ejemplos]
-
-## Popup vs Full
-[Comparativa y ejemplos]
-
-## Authorization
-[Contenido sobre autorización] 
+- [API](../../usar-flowise/api.md)
+- [Embed](../../usar-flowise/embed.md)
+- [Auth](../../configuracion/autorizacion/README.md)
+- [Deployment](../../configuracion/deployment/README.md) 
