@@ -1,44 +1,44 @@
 ---
-description: Learn the Fundamentals of Sequential Agents in Flowise, written by @toi500
+description: Aprende los Fundamentos de Sequential Agents en Flowise, escrito por @toi500
 ---
 
 # Sequential Agents
 
-This guide offers a complete overview of the Sequential Agent AI system architecture within Flowise, exploring its core components and workflow design principles.
+Esta guía ofrece una visión completa de la arquitectura de Sequential Agent AI dentro de Flowise, explorando sus componentes principales y principios de diseño del flujo de trabajo.
 
 {% hint style="warning" %}
-**Disclaimer**: This documentation is intended to help Flowise users understand and build conversational workflows using the Sequential Agent system architecture. It is not intended to be a comprehensive technical reference for the LangGraph framework and should not be interpreted as defining industry standards or core LangGraph concepts.
+**Aviso**: Esta documentación está destinada a ayudar a los usuarios de Flowise a entender y construir flujos de trabajo conversacionales usando la arquitectura Sequential Agent. No pretende ser una referencia técnica exhaustiva del framework LangGraph y no debe interpretarse como una definición de estándares de la industria o conceptos fundamentales de LangGraph.
 {% endhint %}
 
-## Concept
+## Concepto
 
-Built on top of [LangGraph](https://www.langchain.com/langgraph), Flowise's Sequential Agents architecture facilitates the **development of conversational agentic systems by structuring the workflow as a directed cyclic graph (DCG)**, allowing controlled loops and iterative processes.
+Construido sobre [LangGraph](https://www.langchain.com/langgraph), la arquitectura Sequential Agents de Flowise facilita el **desarrollo de sistemas agénticos conversacionales estructurando el flujo de trabajo como un grafo cíclico dirigido (DCG)**, permitiendo bucles controlados y procesos iterativos.
 
-This graph, composed of interconnected nodes, defines the sequential flow of information and actions, enabling the agents to process inputs, execute tasks, and generate responses in a structured manner.
+Este grafo, compuesto de nodos interconectados, define el flujo secuencial de información y acciones, permitiendo que los agentes procesen entradas, ejecuten tareas y generen respuestas de manera estructurada.
 
 <figure><img src="../../.gitbook/assets/seq-21.svg" alt=""><figcaption></figcaption></figure>
 
-### Understanding Sequential Agents' DCG Architecture
+### Entendiendo la Arquitectura DCG de Sequential Agents
 
-This architecture simplifies the management of complex conversational workflows by defining a clear and understandable sequence of operations through its DCG structure.
+Esta arquitectura simplifica la gestión de flujos de trabajo conversacionales complejos definiendo una secuencia clara y comprensible de operaciones a través de su estructura DCG.
 
-Let's explore some key elements of this approach:
+Exploremos algunos elementos clave de este enfoque:
 
 {% tabs %}
-{% tab title="Core Principles" %}
-* **Node-based processing:** Each node in the graph represents a discrete processing unit, encapsulating its own functionality like language processing, tool execution, or conditional logic.
-* **Data flow as connections:** Edges in the graph represent the flow of data between nodes, where the output of one node becomes the input for the subsequent node, enabling a chain of processing steps.
-* **State management:** State is managed as a shared object, persisting throughout the conversation. This allows nodes to access relevant information as the workflow progresses.
+{% tab title="Principios Fundamentales" %}
+* **Procesamiento basado en nodos:** Cada nodo en el grafo representa una unidad discreta de procesamiento, encapsulando su propia funcionalidad como procesamiento de lenguaje, ejecución de herramientas o lógica condicional.
+* **Flujo de datos como conexiones:** Los bordes en el grafo representan el flujo de datos entre nodos, donde la salida de un nodo se convierte en la entrada para el siguiente nodo, permitiendo una cadena de pasos de procesamiento.
+* **Gestión de estado:** El estado se gestiona como un objeto compartido, persistiendo a lo largo de la conversación. Esto permite a los nodos acceder a información relevante a medida que avanza el flujo de trabajo.
 {% endtab %}
 
-{% tab title="Terminology" %}
-* **Flow:** The movement or direction of data within the workflow. It describes how information passes between nodes during a conversation.
-* **Workflow:** The overall design and structure of the system. It's the blueprint that defines the sequence of nodes, their connections, and the logic that orchestrates the conversation flow.
-* **State:** A shared data structure that represents the current snapshot of the conversation. It includes the conversation history `state.messages` and any custom State variables defined by the user.
-* **Custom State:** User-defined key-value pairs added to the state object to store additional information relevant to the workflow.
-* **Tool:** An external system, API, or service that can be accessed and executed by the workflow to perform specific tasks, such as retrieving information, processing data, or interacting with other applications.
-* **Human-in-the-Loop (HITL):** A feature that allows human intervention in the workflow, primarily during tool execution. It enables a human reviewer to approve or reject a tool call before it's executed.
-* **Parallel node execution:** It refers to the ability to execute multiple nodes concurrently within a workflow by using a branching mechanism. This means that different branches of the workflow can process information or interact with tools simultaneously, even though the overall flow of execution remains sequential.
+{% tab title="Terminología" %}
+* **Flow:** El movimiento o dirección de datos dentro del flujo de trabajo. Describe cómo la información pasa entre nodos durante una conversación.
+* **Workflow:** El diseño y estructura general del sistema. Es el plano que define la secuencia de nodos, sus conexiones y la lógica que orquesta el flujo de conversación.
+* **State:** Una estructura de datos compartida que representa la instantánea actual de la conversación. Incluye el historial de conversación `state.messages` y cualquier variable de State personalizada definida por el usuario.
+* **Custom State:** Pares clave-valor definidos por el usuario añadidos al objeto state para almacenar información adicional relevante para el flujo de trabajo.
+* **Tool:** Un sistema externo, API o servicio que puede ser accedido y ejecutado por el flujo de trabajo para realizar tareas específicas, como recuperar información, procesar datos o interactuar con otras aplicaciones.
+* **Human-in-the-Loop (HITL):** Una característica que permite la intervención humana en el flujo de trabajo, principalmente durante la ejecución de herramientas. Permite que un revisor humano apruebe o rechace una llamada a herramienta antes de que se ejecute.
+* **Parallel node execution:** Se refiere a la capacidad de ejecutar múltiples nodos concurrentemente dentro de un flujo de trabajo usando un mecanismo de ramificación. Esto significa que diferentes ramas del flujo de trabajo pueden procesar información o interactuar con herramientas simultáneamente, aunque el flujo general de ejecución permanece secuencial.
 {% endtab %}
 {% endtabs %}
 
@@ -46,37 +46,37 @@ Let's explore some key elements of this approach:
 
 ## Sequential Agents vs Multi-Agents
 
-While both Multi-Agent and Sequential Agent systems in Flowise are built upon the LangGraph framework and share the same fundamental principles, the Sequential Agent architecture provides a [lower level of abstraction](#user-content-fn-1)[^1], offering more granular control over every step of the workflow.
+Si bien tanto los sistemas Multi-Agent como Sequential Agent en Flowise están construidos sobre el framework LangGraph y comparten los mismos principios fundamentales, la arquitectura Sequential Agent proporciona un [nivel más bajo de abstracción](#user-content-fn-1)[^1], ofreciendo un control más granular sobre cada paso del flujo de trabajo.
 
-**Multi-Agent systems**, which are characterized by a hierarchical structure with a central supervisor agent delegating tasks to specialized worker agents, **excel at handling complex workflows by breaking them down into manageable sub-tasks**. This decomposition into sub-tasks is made possible by pre-configuring core system elements under the hood, such as condition nodes, which would require manual setup in a Sequential Agent system. As a result, users can more easily build and manage teams of agents.
+Los **sistemas Multi-Agent**, que se caracterizan por una estructura jerárquica con un agente supervisor central que delega tareas a agentes trabajadores especializados, **sobresalen en el manejo de flujos de trabajo complejos al dividirlos en sub-tareas manejables**. Esta descomposición en sub-tareas es posible gracias a la preconfiguración de elementos centrales del sistema bajo el capó, como los nodos de condición, que requerirían una configuración manual en un sistema Sequential Agent. Como resultado, los usuarios pueden construir y gestionar equipos de agentes más fácilmente.
 
-In contrast, **Sequential Agent systems** operate like a streamlined assembly line, where data flows sequentially through a chain of nodes, making them ideal for tasks demanding a precise order of operations and incremental data refinement. Compared to the Multi-Agent system, its lower-level access to the underlying workflow structure makes it fundamentally more **flexible and customizable, offering parallel node execution and full control over the system logic**, incorporating conditions, state, and loop nodes into the workflow, allowing for the creation of new dynamic branching capabilities.
+En contraste, los **sistemas Sequential Agent** operan como una línea de ensamblaje optimizada, donde los datos fluyen secuencialmente a través de una cadena de nodos, haciéndolos ideales para tareas que demandan un orden preciso de operaciones y refinamiento incremental de datos. Comparado con el sistema Multi-Agent, su acceso de nivel más bajo a la estructura del flujo de trabajo subyacente lo hace fundamentalmente más **flexible y personalizable, ofreciendo ejecución paralela de nodos y control total sobre la lógica del sistema**, incorporando nodos de condición, estado y bucle en el flujo de trabajo, permitiendo la creación de nuevas capacidades de ramificación dinámicas.
 
-### Introducing State, Loop and Condition Nodes
+### Introduciendo State, Loop y Condition Nodes
 
-Flowise's Sequential Agents offer new capabilities for creating conversational systems that can adapt to user input, make decisions based on context, and perform iterative tasks.
+Los Sequential Agents de Flowise ofrecen nuevas capacidades para crear sistemas conversacionales que pueden adaptarse a la entrada del usuario, tomar decisiones basadas en el contexto y realizar tareas iterativas.
 
-These capabilities are made possible by the introduction of four new core nodes; the State Node, the Loop Node, and two Condition Nodes.
+Estas capacidades son posibles gracias a la introducción de cuatro nuevos nodos principales; el State Node, el Loop Node y dos Condition Nodes.
 
 <figure><img src="../../.gitbook/assets/seq-20.png" alt=""><figcaption></figcaption></figure>
 
-* **State Node:** We define State as a shared data structure that represents the current snapshot of our application or workflow. The State Node allows us to **add a custom State** to our workflow from the start of the conversation. This custom State is accessible and modifiable by other nodes in the workflow, enabling dynamic behavior and data sharing.
-* **Loop Node:** This node **introduces controlled cycles** within the Sequential Agent workflow, enabling iterative processes where a sequence of nodes can be repeated based on specific conditions. This allows agents to refine outputs, gather additional information from the user, or perform tasks multiple times.
-* **Condition Nodes:** The Condition and Condition Agent Node provide the necessary control to **create complex conversational flows with branching paths**. The Condition Node evaluates conditions directly, while the Condition Agent Node uses an agent's reasoning to determine the branching logic. This allows us to dynamically guide the flow's behavior based on user input, the custom State, or results of actions taken by other nodes.
+* **State Node:** Definimos State como una estructura de datos compartida que representa la instantánea actual de nuestra aplicación o flujo de trabajo. El State Node nos permite **añadir un State personalizado** a nuestro flujo de trabajo desde el inicio de la conversación. Este State personalizado es accesible y modificable por otros nodos en el flujo de trabajo, permitiendo comportamiento dinámico y compartición de datos.
+* **Loop Node:** Este nodo **introduce ciclos controlados** dentro del flujo de trabajo Sequential Agent, permitiendo procesos iterativos donde una secuencia de nodos puede repetirse basada en condiciones específicas. Esto permite a los agentes refinar salidas, recopilar información adicional del usuario o realizar tareas múltiples veces.
+* **Condition Nodes:** El Condition y Condition Agent Node proporcionan el control necesario para **crear flujos conversacionales complejos con caminos ramificados**. El Condition Node evalúa condiciones directamente, mientras que el Condition Agent Node usa el razonamiento de un agente para determinar la lógica de ramificación. Esto nos permite guiar dinámicamente el comportamiento del flujo basado en la entrada del usuario, el State personalizado o resultados de acciones tomadas por otros nodos.
 
-### Choosing the right system
+### Eligiendo el sistema correcto
 
-Selecting the ideal system for your application depends on understanding your specific workflow needs. Factors like task complexity, the need for parallel processing, and your desired level of control over data flow are all key considerations.
+Seleccionar el sistema ideal para tu aplicación depende de entender tus necesidades específicas de flujo de trabajo. Factores como la complejidad de la tarea, la necesidad de procesamiento paralelo y tu nivel deseado de control sobre el flujo de datos son todas consideraciones clave.
 
-* **For simplicity:** If your workflow is relatively straightforward, where tasks can be completed one after the other and therefore does not require parallel node execution or Human-in-the-Loop (HITL), the Multi-Agent approach offers ease of use and quick setup.
-* **For flexibility:** If your workflow needs parallel execution, dynamic conversations, custom State management, and the ability to incorporate HITL, the **Sequential Agent** approach provides the necessary flexibility and control.
+* **Para simplicidad:** Si tu flujo de trabajo es relativamente directo, donde las tareas pueden completarse una tras otra y por lo tanto no requiere ejecución paralela de nodos o Human-in-the-Loop (HITL), el enfoque Multi-Agent ofrece facilidad de uso y configuración rápida.
+* **Para flexibilidad:** Si tu flujo de trabajo necesita ejecución paralela, conversaciones dinámicas, gestión de State personalizado y la capacidad de incorporar HITL, el enfoque **Sequential Agent** proporciona la flexibilidad y control necesarios.
 
-Here's a table comparing Multi-Agent and Sequential Agent implementations in Flowise, highlighting key differences and design considerations:
+Aquí hay una tabla comparando las implementaciones Multi-Agent y Sequential Agent en Flowise, destacando diferencias clave y consideraciones de diseño:
 
-<table><thead><tr><th width="173.33333333333331"></th><th width="281">Multi-Agent</th><th>Sequential Agent</th></tr></thead><tbody><tr><td>Structure</td><td><strong>Hierarchical</strong>; Supervisor delegates to specialized Workers.</td><td><strong>Linear, cyclic and/or</strong> <strong>branching</strong>; nodes connect in a sequence, with conditional logic for branching.</td></tr><tr><td>Workflow</td><td>Flexible; designed for breaking down a complex task into a <strong>sequence of sub-tasks</strong>, completed one after another.</td><td>Highly flexible; <strong>supports parallel node execution</strong>, complex dialogue flows, branching logic, and loops within a single conversation turn.</td></tr><tr><td>Parallel Node Execution</td><td><strong>No</strong>; Supervisor handles one task at a time.</td><td><strong>Yes</strong>; can trigger multiple actions in parallel within a single run.</td></tr><tr><td>State Management</td><td><strong>Implicit</strong>; State is in place, but is not explicitly managed by the developer.</td><td><strong>Explicit</strong>; State is in place, and developers can define and manage an initial or custom State using the State Node and the "Update State" field in various nodes.</td></tr><tr><td>Tool Usage</td><td><strong>Workers</strong> can access and use tools as needed.</td><td>Tools are accessed and executed through <strong>Agent Nodes</strong> and <strong>Tool Nodes</strong>.</td></tr><tr><td>Human-in-the-Loop (HITL)</td><td>HITL is <strong>not supported.</strong></td><td><strong>Supported</strong> through the Agent Node and Tool Node's "Require Approval" feature, allowing human review and approval or rejection of tool execution.</td></tr><tr><td>Complexity</td><td>Higher level of abstraction; <strong>simplifies workflow design.</strong></td><td>Lower level of abstraction; <strong>more complex workflow design</strong>, requiring careful planning of node interactions, custom State management, and conditional logic.</td></tr><tr><td>Ideal Use Cases</td><td><ul><li>Automating linear processes (e.g., data extraction, lead generation).</li><li>Situations where sub-tasks need to be completed one after the other.</li></ul></td><td><ul><li>Building conversational systems with dynamic flows.</li><li>Complex workflows requiring parallel node execution or branching logic.</li><li>Situations where decision-making is needed at multiple points in the conversation.</li></ul></td></tr></tbody></table>
+<table><thead><tr><th width="173.33333333333331"></th><th width="281">Multi-Agent</th><th>Sequential Agent</th></tr></thead><tbody><tr><td>Estructura</td><td><strong>Jerárquica</strong>; Supervisor delega a Trabajadores especializados.</td><td><strong>Lineal, cíclica y/o</strong> <strong>ramificada</strong>; los nodos se conectan en una secuencia, con lógica condicional para ramificación.</td></tr><tr><td>Workflow</td><td>Flexible; diseñado para dividir una tarea compleja en una <strong>secuencia de sub-tareas</strong>, completadas una tras otra.</td><td>Altamente flexible; <strong>soporta ejecución paralela de nodos</strong>, flujos de diálogo complejos, lógica de ramificación y bucles dentro de un único turno de conversación.</td></tr><tr><td>Parallel Node Execution</td><td><strong>No</strong>; Supervisor maneja una tarea a la vez.</td><td><strong>Sí</strong>; puede activar múltiples acciones en paralelo dentro de una única ejecución.</td></tr><tr><td>State Management</td><td><strong>Implícito</strong>; State está en su lugar, pero no es gestionado explícitamente por el desarrollador.</td><td><strong>Explícito</strong>; State está en su lugar, y los desarrolladores pueden definir y gestionar un State inicial o personalizado usando el State Node y el campo "Update State" en varios nodos.</td></tr><tr><td>Tool Usage</td><td>Los <strong>Workers</strong> pueden acceder y usar herramientas según sea necesario.</td><td>Las herramientas son accedidas y ejecutadas a través de <strong>Agent Nodes</strong> y <strong>Tool Nodes</strong>.</td></tr><tr><td>Human-in-the-Loop (HITL)</td><td>HITL <strong>no está soportado.</strong></td><td><strong>Soportado</strong> a través de la característica "Require Approval" del Agent Node y Tool Node, permitiendo revisión humana y aprobación o rechazo de la ejecución de herramientas.</td></tr><tr><td>Complejidad</td><td>Nivel más alto de abstracción; <strong>simplifica el diseño del flujo de trabajo.</strong></td><td>Nivel más bajo de abstracción; <strong>diseño de flujo de trabajo más complejo</strong>, requiriendo planificación cuidadosa de interacciones entre nodos, gestión de State personalizado y lógica condicional.</td></tr><tr><td>Casos de Uso Ideales</td><td><ul><li>Automatización de procesos lineales (ej., extracción de datos, generación de leads).</li><li>Situaciones donde las sub-tareas necesitan completarse una tras otra.</li></ul></td><td><ul><li>Construcción de sistemas conversacionales con flujos dinámicos.</li><li>Flujos de trabajo complejos que requieren ejecución paralela de nodos o lógica de ramificación.</li><li>Situaciones donde se necesita toma de decisiones en múltiples puntos de la conversación.</li></ul></td></tr></tbody></table>
 
 {% hint style="info" %}
-**Note**: Even though Multi-Agent systems are technically a higher-level layer built upon the Sequential Agent architecture, they offer a distinct user experience and approach to workflow design. The comparison above treats them as separate systems to help you select the best option for your specific needs.
+**Nota**: Aunque los sistemas Multi-Agent son técnicamente una capa de nivel superior construida sobre la arquitectura Sequential Agent, ofrecen una experiencia de usuario y enfoque distintivos para el diseño de flujos de trabajo. La comparación anterior los trata como sistemas separados para ayudarte a seleccionar la mejor opción para tus necesidades específicas.
 {% endhint %}
 
 ***
@@ -108,7 +108,7 @@ El Start Node asegura que nuestros flujos de trabajo conversacionales tengan la 
 
 ### Inputs
 
-<table><thead><tr><th width="212"></th><th width="102">Required</th><th>Description</th></tr></thead><tbody><tr><td>Chat Model</td><td><strong>Sí</strong></td><td>El LLM por defecto que alimentará la conversación. Solo compatible con <strong>modelos que son capaces de function calling</strong>.</td></tr><tr><td>Agent Memory Node</td><td>No</td><td>Conecta un Agent Memory Node para <strong>habilitar persistencia y preservación del contexto</strong>.</td></tr><tr><td>State Node</td><td>No</td><td>Conecta un State Node para <strong>establecer un State personalizado</strong>, un contexto compartido que puede ser accedido y modificado por otros nodos en el flujo de trabajo.</td></tr><tr><td>Input Moderation</td><td>No</td><td>Conecta un Moderation Node para <strong>filtrar contenido</strong> detectando texto que podría generar salida dañina, evitando que sea enviado al LLM.</td></tr></tbody></table>
+<table><thead><tr><th width="212"></th><th width="103">Required</th><th>Description</th></tr></thead><tbody><tr><td>Chat Model</td><td><strong>Sí</strong></td><td>El LLM por defecto que alimentará la conversación. Solo compatible con <strong>modelos que son capaces de function calling</strong>.</td></tr><tr><td>Agent Memory Node</td><td>No</td><td>Conecta un Agent Memory Node para <strong>habilitar persistencia y preservación del contexto</strong>.</td></tr><tr><td>State Node</td><td>No</td><td>Conecta un State Node para <strong>establecer un State personalizado</strong>, un contexto compartido que puede ser accedido y modificado por otros nodos en el flujo de trabajo.</td></tr><tr><td>Input Moderation</td><td>No</td><td>Conecta un Moderation Node para <strong>filtrar contenido</strong> detectando texto que podría generar salida dañina, evitando que sea enviado al LLM.</td></tr></tbody></table>
 
 ### Outputs
 
