@@ -1,26 +1,26 @@
 ---
-description: LangChain Text Splitter Nodes
+description: Nodos Text Splitter de LangChain
 ---
 
 # Text Splitters
 
 ***
 
-**When you want to deal with long pieces of text, it is necessary to split up that text into chunks.**\
-As simple as this sounds, there is a lot of potential complexity here. Ideally, you want to keep the semantically related pieces of text together. What "semantically related" means could depend on the type of text. This notebook showcases several ways to do that.
+**Cuando quieres trabajar con textos largos, es necesario dividir ese texto en fragmentos.**\
+Aunque esto suene simple, hay mucha complejidad potencial aquí. Idealmente, quieres mantener juntas las partes de texto semánticamente relacionadas. Lo que significa "semánticamente relacionado" puede depender del tipo de texto. Esta sección muestra varias formas de hacerlo.
 
-**At a high level, text splitters work as following:**
+**A alto nivel, los text splitters funcionan de la siguiente manera:**
 
-1. Split the text up into small, semantically meaningful chunks (often sentences).
-2. Start combining these small chunks into a larger chunk until you reach a certain size (as measured by some function).
-3. Once you reach that size, make that chunk its own piece of text and then start creating a new chunk of text with some overlap (to keep context between chunks).
+1. Dividen el texto en fragmentos pequeños y semánticamente significativos (a menudo oraciones).
+2. Comienzan a combinar estos pequeños fragmentos en un fragmento más grande hasta alcanzar cierto tamaño (medido por alguna función).
+3. Una vez que alcanzas ese tamaño, ese fragmento se convierte en su propia pieza de texto y luego se comienza a crear un nuevo fragmento de texto con cierto solapamiento (para mantener el contexto entre fragmentos).
 
-**That means there are two different axes along which you can customize your text splitter:**
+**Esto significa que hay dos ejes diferentes en los que puedes personalizar tu text splitter:**
 
-1. How the text is split
-2. How the chunk size is measured
+1. Cómo se divide el texto
+2. Cómo se mide el tamaño del fragmento
 
-### Text Splitter Nodes:
+### Nodos Text Splitter:
 
 * [Character Text Splitter](character-text-splitter.md)
 * [Code Text Splitter](code-text-splitter.md)

@@ -1,13 +1,13 @@
 ---
 description: >-
-  Upsert embedded data and perform similarity search upon query using
-  OpenSearch, an open-source, all-in-one vector database.
+  Realiza upsert de datos embedidos y ejecuta búsquedas de similitud sobre consultas usando
+  OpenSearch, una base de datos vectorial todo en uno de código abierto.
 ---
 
 # OpenSearch
 
-<figure><img src="../../../.gitbook/assets/image (162).png" alt="" width="284"><figcaption><p>OpenSearch Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (162).png" alt="" width="284"><figcaption><p>Nodo OpenSearch</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../contributing/) para comenzar.
 {% endhint %}

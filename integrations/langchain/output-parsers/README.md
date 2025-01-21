@@ -1,14 +1,14 @@
 ---
-description: LangChain Output Parser Nodes
+description: Nodos Output Parser de LangChain
 ---
 
 # Output Parsers
 
 ***
 
-Output Parser nodes are responsible for taking the output of a model and transforming it to a more suitable format for downstream tasks. Useful when you are using LLMs to generate structured data, or to normalize output from chat models and LLMs.
+Los nodos Output Parser son responsables de tomar la salida de un modelo y transformarla en un formato más adecuado para tareas posteriores. Son útiles cuando estás usando LLMs para generar datos estructurados, o para normalizar la salida de modelos de chat y LLMs.
 
-### Output Parser Nodes:
+### Nodos Output Parser:
 
 * [CSV Output Parser](csv-output-parser.md)
 * [Custom List Output Parser](custom-list-output-parser.md)

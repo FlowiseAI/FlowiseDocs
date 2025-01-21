@@ -1,24 +1,24 @@
 # Sub-Question Query Engine
 
-A query engine designed to solve problem of answering a complex query using multiple data sources. It first breaks down the complex query into sub questions for each relevant data source, then gather all the intermediate reponses and synthesizes a final response.
+Un query engine diseñado para resolver el problema de responder a una consulta compleja utilizando múltiples fuentes de datos. Primero divide la consulta compleja en sub-preguntas para cada fuente de datos relevante, luego reúne todas las respuestas intermedias y sintetiza una respuesta final.
 
 <figure><img src="../../../.gitbook/assets/image (4) (1) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
-## Inputs
+## Entradas
 
 * Query Engine Tools
 * Chat Model
 * Embeddings
 * [Response Synthesizer](../response-synthesizer/)
 
-## Parameters
+## Parámetros
 
-| Name                    | Description                                                         |
+| Nombre                  | Descripción                                                          |
 | ----------------------- | ------------------------------------------------------------------- |
-| Return Source Documents | To return citations/sources that were used to build up the response |
+| Return Source Documents | Para devolver citas/fuentes que se usaron para construir la respuesta|
 
-## Outputs
+## Salidas
 
-| Name                   | Description                   |
-| ---------------------- | ----------------------------- |
-| SubQuestionQueryEngine | Final node to return response |
+| Nombre                 | Descripción                            |
+| ---------------------- | -------------------------------------- |
+| SubQuestionQueryEngine | Nodo final para devolver la respuesta  |

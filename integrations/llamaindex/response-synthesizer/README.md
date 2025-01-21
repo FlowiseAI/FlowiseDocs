@@ -1,14 +1,14 @@
 ---
-description: LlamaIndex Response Synthesizer Nodes
+description: Nodos Response Synthesizer de LlamaIndex
 ---
 
 # Response Synthesizer
 
 ***
 
-Response Synthesizer nodes are responsible for sending the query, nodes, and prompt templates to the LLM to generate a response. There are 4 modes for generating a response:
+Los nodos Response Synthesizer son responsables de enviar la consulta, nodos y plantillas de prompt al LLM para generar una respuesta. Hay 4 modos para generar una respuesta:
 
-### Synthesizer Nodes:
+### Nodos Synthesizer:
 
 * [Refine](refine.md)
 * [Compact and Refine](compact-and-refine.md)

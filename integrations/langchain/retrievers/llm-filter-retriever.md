@@ -1,13 +1,13 @@
 ---
 description: >-
-  Iterate over the initially returned documents and extract, from each, only the
-  content that is relevant to the query.
+  Itera sobre los documentos inicialmente devueltos y extrae, de cada uno, solo el
+  contenido que es relevante para la consulta.
 ---
 
 # LLM Filter Retriever
 
-<figure><img src="../../../.gitbook/assets/image (144).png" alt="" width="297"><figcaption><p>LLM Filter Retriever Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (144).png" alt="" width="297"><figcaption><p>Nodo LLM Filter Retriever</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../contributing/) para comenzar.
 {% endhint %}

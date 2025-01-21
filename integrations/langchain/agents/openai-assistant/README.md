@@ -1,11 +1,11 @@
 ---
-description: An agent that uses OpenAI Assistant API to pick the tool and args to call.
+description: Un agente que utiliza la API de OpenAI Assistant para seleccionar la herramienta y los argumentos a llamar.
 ---
 
 # OpenAI Assistant
 
-<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="272"><figcaption><p>OpenAI Assistant</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="272"><figcaption><p>Node de OpenAI Assistant</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../../contributing/) para comenzar.
 {% endhint %}

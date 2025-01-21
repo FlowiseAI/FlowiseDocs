@@ -1,17 +1,17 @@
-# PDF Files
+# Archivos PDF
 
-Portable Document Format (PDF), standardized as ISO 32000, is a file format developed by Adobe in 1992 to present documents, including text formatting and images, in a manner independent of application software, hardware, and operating systems.\
-**The Pdf File module decodes the base64-encoded data from the PDF document and then loads the PDF content.**\
-If a textSplitter is provided, it uses it to split the text content.
+El formato de documento portátil (PDF), estandarizado como ISO 32000, es un formato de archivo desarrollado por Adobe en 1992 para presentar documentos, incluyendo formato de texto e imágenes, de manera independiente del software de aplicación, hardware y sistemas operativos.\
+**El módulo PDF File decodifica los datos codificados en base64 del documento PDF y luego carga el contenido del PDF.**\
+Si se proporciona un textSplitter, lo utiliza para dividir el contenido del texto.
 
-## Inputs
+## Entradas
 
-**Text Splitter** (optional)\
-**PDF File**\
-**Usage**\
-One Document per Page OR One Document per File\
+**Text Splitter** (opcional)\
+**Archivo PDF**\
+**Uso**\
+Un Documento por Página O Un Documento por Archivo\
 
 
-## Output
+## Salida
 
-loads PDF content
+Carga el contenido del PDF

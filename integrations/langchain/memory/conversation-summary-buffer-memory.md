@@ -1,16 +1,16 @@
 # Conversation Summary Buffer Memory
 
-Use Flowise database table `chat_message` as the storage mechanism for storing/retrieving conversations.
+Usa la tabla de base de datos `chat_message` de Flowise como mecanismo de almacenamiento para guardar/recuperar conversaciones.
 
-This memory keeps a buffer of recent interactions and compiles old ones into a summary, using both in its storage. Instead of flushing old interactions based solely on their number, it now considers the total length of tokens to decide when to clear them out.
+Esta memoria mantiene un buffer de interacciones recientes y compila las antiguas en un resumen, usando ambas en su almacenamiento. En lugar de eliminar las interacciones antiguas basándose únicamente en su número, ahora considera la longitud total de tokens para decidir cuándo eliminarlas.
 
 <figure><img src="../../../.gitbook/assets/image (4) (1) (2).png" alt="" width="297"><figcaption></figcaption></figure>
 
-## Input
+## Entrada
 
-| Parameter       | Description                                                                   | Default       |
-| --------------- | ----------------------------------------------------------------------------- | ------------- |
-| Chat Model      | LLM used to perform summarization                                             |               |
-| Max Token Limit | Summarize conversations once token limit is reached                           | 2000          |
-| Session Id      | An ID to retrieve/store messages. If not specified, a random ID will be used. |               |
-| Memory Key      | A key used to format messages in prompt template                              | chat\_history |
+| Parámetro       | Descripción                                                                      | Valor por defecto |
+| --------------- | -------------------------------------------------------------------------------- | ----------------- |
+| Chat Model      | LLM usado para realizar la sumarización                                          |                   |
+| Max Token Limit | Resumir conversaciones una vez que se alcance el límite de tokens                | 2000              |
+| Session Id      | Un ID para recuperar/almacenar mensajes. Si no se especifica, se usará un ID aleatorio. |               |
+| Memory Key      | Una clave usada para formatear mensajes en la plantilla de prompt                | chat_history      |

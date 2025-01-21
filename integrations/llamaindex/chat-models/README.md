@@ -1,14 +1,14 @@
 ---
-description: LlamaIndex Chat Model Nodes
+description: Nodos de Modelos de Chat de LlamaIndex
 ---
 
 # Chat Models
 
 ***
 
-Chat models take a list of messages as input and return a model-generated message as output. These models such as **gpt-3.5-turbo** or **gpt4** are powerful and cheaper than its predecessor Completions models such as **text-davincii-003**.
+Los modelos de chat toman una lista de mensajes como entrada y devuelven un mensaje generado por el modelo como salida. Estos modelos como **gpt-3.5-turbo** o **gpt4** son potentes y más económicos que sus predecesores, los modelos de Completions como **text-davincii-003**.
 
-### Chat Model Nodes:
+### Nodos de Modelos de Chat:
 
 * [AzureChatOpenAI](azurechatopenai.md)
 * [ChatAnthropic](chatanthropic.md)

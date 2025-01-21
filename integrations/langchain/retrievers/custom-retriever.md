@@ -1,12 +1,12 @@
 ---
-description: Custom Retriever allows user to specify the format of the context to LLM
+description: Custom Retriever permite al usuario especificar el formato del contexto para el LLM
 ---
 
 # Custom Retriever
 
 <figure><img src="../../../.gitbook/assets/image (3) (1) (1).png" alt="" width="298"><figcaption></figcaption></figure>
 
-By default, when context is being retrieved from vector store, they are in the following format:
+Por defecto, cuando el contexto se recupera del vector store, tiene el siguiente formato:
 
 ```json
 [ 
@@ -25,18 +25,18 @@ By default, when context is being retrieved from vector store, they are in the f
 ]
 ```
 
-**pageContent** of the array will be joined together as a string, and fed back to LLM for completion.
+El **pageContent** del array se unirá como una cadena de texto y se enviará al LLM para su completado.
 
-However, in some cases, you might want to include information from metadata to give more information to LLM, such as source, link, etc. This is where **Custom Retriever** comes in. We can specify the format to return to LLM.
+Sin embargo, en algunos casos, es posible que desees incluir información de los metadatos para proporcionar más información al LLM, como la fuente, el enlace, etc. Aquí es donde entra el **Custom Retriever**. Podemos especificar el formato que se devolverá al LLM.
 
-For instance, using the following format:
+Por ejemplo, usando el siguiente formato:
 
 ```javascript
 {{context}}
 Source: {{metadata.source}}
 ```
 
-Will results in the combined string as below:
+Resultará en la cadena combinada como se muestra a continuación:
 
 ```
 This is an example
@@ -46,4 +46,4 @@ This is example 2
 Source: example2.txt
 ```
 
-This will be sent back to LLM. Since LLM now has the sources of the answers, we can use prompts to instruct LLM to return answers followed by citations.
+Esto se enviará de vuelta al LLM. Como el LLM ahora tiene las fuentes de las respuestas, podemos usar prompts para instruir al LLM para que devuelva respuestas seguidas de citas.

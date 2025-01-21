@@ -1,42 +1,42 @@
 # ChatGoogleGenerativeAI
 
-## Prerequisite
+## Prerequisitos
 
-1. Register a [Google](https://accounts.google.com/InteractiveLogin) account
-2. Create an [API key](https://aistudio.google.com/app/apikey)
+1. Registra una cuenta de [Google](https://accounts.google.com/InteractiveLogin)
+2. Crea una [API key](https://aistudio.google.com/app/apikey)
 
-## Setup
+## Configuración
 
-1. **Chat Models** > drag **ChatGoogleGenerativeAI** node
+1. **Chat Models** > arrastra el nodo **ChatGoogleGenerativeAI**
 
 <figure><img src="../../../.gitbook/assets/google_ai/1.png" alt="" width="563"><figcaption></figcaption></figure>
 
-2. **Connect Credential** > click **Create New**
+2. **Connect Credential** > haz clic en **Create New**
 
 <figure><img src="../../../.gitbook/assets/google_ai/2.png" alt="" width="278"><figcaption></figcaption></figure>
 
-3. Fill in the **Google AI** credential
+3. Completa la credencial de **Google AI**
 
 <figure><img src="../../../.gitbook/assets/google_ai/3.png" alt="" width="563"><figcaption></figcaption></figure>
 
-4. Voila [🎉](https://emojipedia.org/party-popper/), you can now use **ChatGoogleGenerativeAI node** in Flowise
+4. ¡Voilà [🎉](https://emojipedia.org/party-popper/), ahora puedes usar el **nodo ChatGoogleGenerativeAI** en Flowise
 
 <figure><img src="../../../.gitbook/assets/google_ai/4.png" alt=""><figcaption></figcaption></figure>
 
-## Safety Attributes Configuration
+## Configuración de Atributos de Seguridad
 
-1. Click **Additonal Parameters**
+1. Haz clic en **Additonal Parameters**
 
 <figure><img src="../../../.gitbook/assets/google_ai/5.png" alt="" width="563"><figcaption></figcaption></figure>
 
-* When configuring **Safety Attributes**, the amount of selection in **Harm Category** & **Harm Block Threshold** should be the same amount. If not it will throw an error `Harm Category & Harm Block Threshold are not the same length`
+* Al configurar los **Safety Attributes**, la cantidad de selecciones en **Harm Category** y **Harm Block Threshold** debe ser la misma. Si no lo es, se mostrará el error `Harm Category & Harm Block Threshold are not the same length`
 
-* The combination of **Safety Attributes** below will result in `Dangerous` is set to `Low and Above` and `Harassment` is set to `Medium and Above`
+* La combinación de **Safety Attributes** que se muestra a continuación resultará en que `Dangerous` se configure como `Low and Above` y `Harassment` como `Medium and Above`
 
 <figure><img src="../../../.gitbook/assets/google_ai/6.png" alt="" width="563"><figcaption></figcaption></figure>
 
-## Resources
+## Recursos
 
 * [LangChain JS ChatGoogleGenerativeAI](https://js.langchain.com/docs/integrations/chat/google_generativeai)
 * [Google AI for Developers](https://ai.google.dev/)
-* [Gemini API Docs](https://ai.google.dev/docs)
+* [Documentación de la API de Gemini](https://ai.google.dev/docs)

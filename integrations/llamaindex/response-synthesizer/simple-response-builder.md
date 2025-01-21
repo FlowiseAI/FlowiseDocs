@@ -1,9 +1,9 @@
 # Simple Response Builder
 
-Using a collection of text segments and a query, execute the query on each segment, gathering the responses into an array. Return a combined string containing all responses.
+Usando una colección de segmentos de texto y una consulta, ejecuta la consulta en cada segmento, recopilando las respuestas en un array. Devuelve una cadena combinada que contiene todas las respuestas.
 
-**Pros**: Useful for individually querying each text segment with the same query
+**Pros**: Útil para consultar individualmente cada segmento de texto con la misma consulta
 
-**Cons**: Not suitable for complex and detailed answer
+**Contras**: No es adecuado para respuestas complejas y detalladas
 
 <figure><img src="../../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>

@@ -1,21 +1,20 @@
 ---
-description: Learn how Flowise integrates with the LlamaIndex framework
+description: Aprende sobre las integraciones disponibles de LlamaIndex en Flowise
 ---
 
 # LlamaIndex
 
-***
+LlamaIndex es un framework de datos para aplicaciones LLM que proporciona las siguientes funcionalidades:
+- Estructuración de datos de fuentes externas en representaciones intermedias
+- Conexión de datos con LLMs usando diferentes tipos de índices
+- Motores de consulta que permiten diferentes patrones de interacción con los datos
 
-[LlamaIndex](https://www.llamaindex.ai/) is a data framework for LLM applications to ingest, structure, and access private or domain-specific data. It has advanced retrieval techniques for designing RAG (Retrieval Augmented Generation) apps.
+### Componentes Disponibles
 
-Flowise complements LlamaIndex by offering a visual interface. Here, nodes are organized into distinct sections, making it easier to build workflows.
-
-### LlamaIndex Sections:
-
-* [Agents](agents/)
-* [Chat Models](chat-models/)
-* [Embeddings](embeddings/)
-* [Engine](engine/)
-* [Response Synthesizer](response-synthesizer/)
-* [Tools](tools/)
-* [Vector Stores](vector-stores/)
+* [Agents](agents/) - Agentes que pueden interactuar con datos estructurados
+* [Chat Models](chat-models/) - Modelos de lenguaje optimizados para chat
+* [Embeddings](embeddings/) - Conversión de texto a vectores numéricos
+* [Engine](engine/) - Motores para diferentes tipos de consultas e interacciones
+* [Response Synthesizer](response-synthesizer/) - Generación de respuestas estructuradas
+* [Tools](tools/) - Herramientas para interactuar con datos
+* [Vector Stores](vector-stores/) - Almacenamiento y búsqueda de vectores

@@ -1,22 +1,22 @@
 # Query Engine
 
-A query engine serves as an end-to-end pipeline enabling users to ask questions about their data. It receives a natural language query and furnishes a response, accompanied by relevant context information retrieved and passed to the LLM (Large Language Model).
+Un query engine sirve como un pipeline de extremo a extremo que permite a los usuarios hacer preguntas sobre sus datos. Recibe una consulta en lenguaje natural y proporciona una respuesta, acompañada de información contextual relevante recuperada y enviada al LLM (Large Language Model).
 
 <figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
-## Inputs
+## Entradas
 
 * Vector Store Retriever
 * [Response Synthesizer](../response-synthesizer/)
 
-## Parameters
+## Parámetros
 
-| Name                    | Description                                                         |
+| Nombre                  | Descripción                                                          |
 | ----------------------- | ------------------------------------------------------------------- |
-| Return Source Documents | To return citations/sources that were used to build up the response |
+| Return Source Documents | Para devolver citas/fuentes que se usaron para construir la respuesta|
 
-## Outputs
+## Salidas
 
-| Name        | Description                   |
-| ----------- | ----------------------------- |
-| QueryEngine | Final node to return response |
+| Nombre      | Descripción                            |
+| ----------- | -------------------------------------- |
+| QueryEngine | Nodo final para devolver la respuesta  |

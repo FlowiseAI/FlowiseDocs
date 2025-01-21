@@ -4,35 +4,30 @@ description: Learn how to deploy Flowise on Azure
 
 # Azure
 
-***
+## Deploy using Terraform
 
-## Flowise as Azure App Service with Postgres: Using Terraform
+This setup makes deploy Flowise on Azure App Service with a PostgreSQL Flexible Server. It's based on the best practices of Azure for web application deployments.
 
 ### Prerequisites
 
-1. **Azure Account**: Ensure you have an Azure account with an active subscription. If you do not have one, sign up at [Azure Portal](https://portal.azure.com/).
-2. **Terraform**: Install Terraform CLI on your machine. Download it from [Terraform's website](https://www.terraform.io/downloads.html).
-3. **Azure CLI**: Install Azure CLI. Instructions can be found on the [Azure CLI documentation page](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+1. Install [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
+2. Install [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
 
-### Setting Up Your Environment
+### Steps for Deployment
 
-1. **Login to Azure**: Open your terminal or command prompt and login to Azure CLI using:
-
-```bash
-az login --tenant <Your Subscription ID> --use-device-code 
-```
-
-Follow the prompts to complete the login process.
-
-2. **Set Subscription**: After logging in, set the Azure subscription using:
+1. Clone the Flowise repository:
 
 ```bash
-az account set --subscription <Your Subscription ID>
+git clone https://github.com/FlowiseAI/Flowise.git
 ```
 
-3. **Initialize Terraform**:
+2. Navigate to the terraform directory:
 
-Create a `terraform.tfvars` file in your Terraform project directory, if it's not already there, and add the following content:
+```bash
+cd Flowise/terraform/azure
+```
+
+3. Create a `terraform.tfvars` file based on the example provided:
 
 ```hcl
 subscription_name = "subscrpiton_name"

@@ -1,59 +1,59 @@
 ---
-description: Learn how to contribute to this project
+description: Aprende cómo contribuir a este proyecto
 ---
 
-# Contribution Guide
+# Guía de Contribución
 
 ***
 
-We appreciate all contributions! No matter your skill level or technical background, you can help this project grow. Here are a few ways to contribute:
+¡Apreciamos todas las contribuciones! Sin importar tu nivel de habilidad o experiencia técnica, puedes ayudar a que este proyecto crezca. Aquí hay varias formas de contribuir:
 
-## ⭐ Star
+## ⭐ Estrella
 
-Star and share the [Github Repo](https://github.com/FlowiseAI/Flowise).
+Dale una estrella y comparte el [Repositorio de Github](https://github.com/FlowiseAI/Flowise).
 
-## 🙌 Share Chatflow
+## 🙌 Comparte tu Chatflow
 
-Yes! Sharing how you use Flowise is a way of contribution. Export your chatflow as JSON, attach a screenshot and share it in [Show and Tell section](https://github.com/FlowiseAI/Flowise/discussions/categories/show-and-tell).
+¡Sí! Compartir cómo usas Flowise es una forma de contribución. Exporta tu chatflow como JSON, adjunta una captura de pantalla y compártelo en la [sección Mostrar y Contar](https://github.com/FlowiseAI/Flowise/discussions/categories/show-and-tell).
 
 ## 💡 Ideas
 
-We welcome ideas for new features, apps integrations. Submit your suggestions to the [Ideas section](https://github.com/FlowiseAI/Flowise/discussions/categories/ideas).
+Damos la bienvenida a ideas para nuevas funcionalidades e integraciones de aplicaciones. Envía tus sugerencias a la [sección de Ideas](https://github.com/FlowiseAI/Flowise/discussions/categories/ideas).
 
-## 🙋 Q\&A
+## 🙋 Preguntas y Respuestas
 
-Want to learn more? Search for answers to any questions in the [Q\&A section](https://github.com/FlowiseAI/Flowise/discussions/categories/q-a). If you can't find one, don't hesitate to create a new question. It might help others who have similar questions.
+¿Quieres aprender más? Busca respuestas a cualquier pregunta en la [sección de Preguntas y Respuestas](https://github.com/FlowiseAI/Flowise/discussions/categories/q-a). Si no encuentras lo que buscas, no dudes en crear una nueva pregunta. Podría ayudar a otros que tengan preguntas similares.
 
-## 🐞 Report Bugs
+## 🐞 Reportar Errores
 
-Found an issue? [Report it](https://github.com/FlowiseAI/Flowise/issues/new/choose).
+¿Encontraste un problema? [Repórtalo](https://github.com/FlowiseAI/Flowise/issues/new/choose).
 
-## 📖 Contribute to Docs
+## 📖 Contribuir a la Documentación
 
-1. Fork the official [Flowise Docs Repo](https://github.com/FlowiseAI/FlowiseDocs)
-2. Clone your forked repository
-3. Create a new branch
-4. Switch to the branch you just created
-5.  Go into repository folder
+1. Haz un fork del [Repositorio Oficial de Documentación de Flowise](https://github.com/FlowiseAI/FlowiseDocs)
+2. Clona tu repositorio forkeado
+3. Crea una nueva rama
+4. Cambia a la rama que acabas de crear
+5. Ve a la carpeta del repositorio
 
     ```bash
     cd FlowiseDocs
     ```
-6. Make changes
-7. Commit changes and submit Pull Request from forked branch pointing to [FlowiseDocs main](https://github.com/FlowiseAI/FlowiseDocs)
+6. Realiza los cambios
+7. Haz commit de los cambios y envía un Pull Request desde la rama forkeada apuntando a [FlowiseDocs main](https://github.com/FlowiseAI/FlowiseDocs)
 
-## 👨‍💻 Contribute to Code
+## 👨‍💻 Contribuir al Código
 
-To learn how to contribute code, go to the [For Developers](../getting-started/#setup-2) section and follow the instructions.
+Para aprender cómo contribuir código, ve a la sección [Para Desarrolladores](../getting-started/#setup-2) y sigue las instrucciones.
 
-If you are contributing to a new node integration, read the [Building Node](building-node.md) guide.
+Si estás contribuyendo con una nueva integración de nodo, lee la guía de [Construcción de Nodos](building-node.md).
 
-## 🏷️ Pull Request process
+## 🏷️ Proceso de Pull Request
 
-A member of the FlowiseAI team will automatically be notified/assigned when you open a pull request. You can also reach out to us on [Discord](https://discord.gg/jbaHfsRVBW).
+Un miembro del equipo de FlowiseAI será notificado/asignado automáticamente cuando abras un pull request. También puedes contactarnos en [Discord](https://discord.gg/jbaHfsRVBW).
 
-## 📜 Code of Conduct
+## 📜 Código de Conducta
 
-This project and everyone participating in it are governed by the Code of Conduct which can be found in the [file](https://github.com/FlowiseAI/Flowise/blob/main/CODE\_OF\_CONDUCT.md). By participating, you are expected to uphold this code.
+Este proyecto y todos sus participantes se rigen por el Código de Conducta que se puede encontrar en el [archivo](https://github.com/FlowiseAI/Flowise/blob/main/CODE\_OF\_CONDUCT.md). Al participar, se espera que cumplas con este código.
 
-Please report unacceptable behavior to hello@flowiseai.com.
+Por favor, reporta cualquier comportamiento inaceptable a hello@flowiseai.com.

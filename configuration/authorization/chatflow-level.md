@@ -1,35 +1,35 @@
 ---
-description: Learn how to set up chatflow-level access control for your Flowise instances
+description: Aprende cómo configurar el control de acceso a nivel de chatflow para tus instancias de Flowise
 ---
 
 # Chatflow Level
 
 ***
 
-After you have a chatflow / agentflow constructed, by default, your flow is available to public. Anyone that has access to the Chatflow ID is able to run prediction through Embed or API.
+Después de haber construido un chatflow / agentflow, por defecto, tu flow está disponible al público. Cualquiera que tenga acceso al Chatflow ID puede ejecutar prediction a través de Embed o API.
 
-In cases where you might want to allow certain people to be able to access and interact with it, you can do so by assigning an API key for that specific chatflow.
+En casos donde quieras permitir que solo ciertas personas puedan acceder e interactuar con él, puedes hacerlo asignando una API key para ese chatflow específico.
 
 ## API Key
 
-In dashboard, navigate to API Keys section, and you should be able to see a DefaultKey created. You can also add or delete any keys.
+En el dashboard, navega a la sección API Keys, y deberías poder ver una DefaultKey creada. También puedes add o delete cualquier key.
 
 <figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Chatflow
 
-Navigate to the chatflow, and now you can select the API Key you want to use to protect the chatflow.
+Navigate al chatflow, y ahora puedes seleccionar la API Key que quieres usar para proteger el chatflow.
 
 <figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-After assigning an API key, one can only access the chatflow API when the Authorization header is provided with the correct API key specified during a HTTP call.
+Después de asignar una API key, solo se puede acceder al chatflow API cuando se proporciona el Authorization header con la API key correcta especificada durante una HTTP call.
 
 ```json
 "Authorization": "Bearer <your-api-key>"
 ```
 
-An example of calling the API using POSTMAN
+Un ejemplo de llamar al API usando POSTMAN
 
 <figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-You can specify the location where the api keys are stored by specifying `APIKEY_PATH` env variables. Read more [environment-variables.md](../environment-variables.md "mention")
+Puedes especificar la location donde se almacenan las api keys usando las environment variables `APIKEY_PATH`. Lee más en [environment-variables.md](../environment-variables.md "mention")

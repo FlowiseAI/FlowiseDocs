@@ -1,11 +1,11 @@
 ---
-description: Wrapper around OpenAI Chat LLM specific for LlamaIndex.
+description: Wrapper alrededor del Chat LLM de OpenAI específico para LlamaIndex.
 ---
 
 # ChatOpenAI
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt="" width="286"><figcaption><p>ChatOpenAI Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt="" width="286"><figcaption><p>Nodo ChatOpenAI</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../contributing/) para comenzar.
 {% endhint %}

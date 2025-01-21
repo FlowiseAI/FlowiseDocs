@@ -1,93 +1,93 @@
 ---
-description: Learn how to scrape, upsert, and query a website
+description: Aprende cómo hacer scraping, upsert y consultas a un sitio web
 ---
 
 # Web Scrape QnA
 
 ***
 
-Let's say you have a website (could be a store, an ecommerce site, a blog), and you want to scrap all the relative links of that website and have LLM answer any question on your website. In this tutorial, we are going to go through how to achieve that.
+Digamos que tienes un sitio web (podría ser una tienda, un sitio de comercio electrónico, un blog), y quieres hacer scraping de todos los enlaces relativos de ese sitio web y hacer que el LLM responda cualquier pregunta sobre tu sitio web. En este tutorial, vamos a ver cómo lograr eso.
 
-You can find the example flow called - **WebPage QnA** from the marketplace templates.
+Puedes encontrar el flujo de ejemplo llamado - **WebPage QnA** en las plantillas del marketplace.
 
-## Setup
+## Configuración
 
-We are going to use **Cheerio Web Scraper** node to scrape links from a given URL and the **HtmlToMarkdown Text Splitter** to split the scraped content into smaller pieces.
+Vamos a usar el nodo **Cheerio Web Scraper** para hacer scraping de enlaces desde una URL dada y el **HtmlToMarkdown Text Splitter** para dividir el contenido extraído en piezas más pequeñas.
 
 <figure><img src="../.gitbook/assets/image (86).png" alt=""><figcaption></figcaption></figure>
 
-If you do not specify anything, by default only the given URL page will be scraped. If you want to crawl the rest of relative links, click **Additional Parameters** of Cheerio Web Scraper.
+Si no especificas nada, por defecto solo se hará scraping de la página de la URL proporcionada. Si quieres rastrear el resto de enlaces relativos, haz clic en **Additional Parameters** de Cheerio Web Scraper.
 
-## 1. Crawl Multiple Pages
+## 1. Rastrear Múltiples Páginas
 
-1. Select `Web Crawl` or `Scrape XML Sitemap` in **Get Relative Links Method**.
-2. Input `0` in **Get Relative Links Limit** to retrieve all links available from the provided URL.
+1. Selecciona `Web Crawl` o `Scrape XML Sitemap` en **Get Relative Links Method**.
+2. Ingresa `0` en **Get Relative Links Limit** para recuperar todos los enlaces disponibles desde la URL proporcionada.
 
 <figure><img src="../.gitbook/assets/image (87).png" alt="" width="563"><figcaption></figcaption></figure>
 
-### Manage Links (Optional)
+### Gestionar Enlaces (Opcional)
 
-1. Input desired URL to be crawled.
-2. Click **Fetch Links** to retrieve links based on the inputs of the **Get Relative Links Method** and **Get Relative Links Limit** in **Additional Parameters**.
-3. In **Crawled Links** section, remove unwanted links by clicking **Red Trash Bin Icon**.
-4. Lastly, click **Save**.
+1. Ingresa la URL deseada para rastrear.
+2. Haz clic en **Fetch Links** para recuperar enlaces basados en las entradas de **Get Relative Links Method** y **Get Relative Links Limit** en **Additional Parameters**.
+3. En la sección **Crawled Links**, elimina los enlaces no deseados haciendo clic en el **Icono de Papelera Roja**.
+4. Por último, haz clic en **Save**.
 
 <figure><img src="../.gitbook/assets/image (88).png" alt="" width="563"><figcaption></figcaption></figure>
 
 ## 2. Upsert
 
-1. On the top right corner, you will notice a green button:
+1. En la esquina superior derecha, notarás un botón verde:
 
 <figure><img src="../.gitbook/assets/Untitled (2).png" alt=""><figcaption></figcaption></figure>
 
-2. A dialog will be shown that allow users to upsert data to Pinecone:
+2. Se mostrará un diálogo que permite a los usuarios hacer upsert de datos a Pinecone:
 
 <figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
-**Note:** Under the hood, following actions will be executed:
+**Nota:** Bajo el capó, se ejecutarán las siguientes acciones:
 
-* Scraped all HTML data using Cheerio Web Scraper
-* Convert all scraped data from HTML to Markdown, then split it
-* Splitted data will be looped over, and converted to vector embeddings using OpenAI Embeddings
-* Vector embeddings will be upserted to Pinecone
+* Scraping de todos los datos HTML usando Cheerio Web Scraper
+* Conversión de todos los datos extraídos de HTML a Markdown, luego división
+* Los datos divididos se recorrerán y se convertirán a embeddings vectoriales usando OpenAI Embeddings
+* Los embeddings vectoriales se harán upsert a Pinecone
 
-3. On the [Pinecone console](https://app.pinecone.io) you will be able to see the new vectors that were added.
+3. En la [consola de Pinecone](https://app.pinecone.io) podrás ver los nuevos vectores que se agregaron.
 
 <figure><img src="../.gitbook/assets/web-scrape-pinecone.png" alt=""><figcaption></figcaption></figure>
 
-## 3. Query
+## 3. Consulta
 
-Querying is relatively straight-forward. After you have verified that data is upserted to vector database, you can start asking question in the chat:
+La consulta es relativamente directa. Después de haber verificado que los datos se han hecho upsert a la base de datos vectorial, puedes comenzar a hacer preguntas en el chat:
 
 <figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
-In the Additional Parameters of Conversational Retrieval QA Chain, you can specify 2 prompts:
+En los Additional Parameters de Conversational Retrieval QA Chain, puedes especificar 2 prompts:
 
-* **Rephrase Prompt:** Used to rephrase the question given the past conversation history
-* **Response Prompt:** Using the rephrased question, retrieve the context from vector database, and return a final response
+* **Rephrase Prompt:** Usado para reformular la pregunta dado el historial de conversación pasado
+* **Response Prompt:** Usando la pregunta reformulada, recupera el contexto de la base de datos vectorial y devuelve una respuesta final
 
 <figure><img src="../.gitbook/assets/image (91).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-It is recommended to specify a detailed response prompt message. For example, you can specify the name of AI, the language to answer, the response when answer its not found (to prevent hallucination).
+Se recomienda especificar un mensaje de prompt de respuesta detallado. Por ejemplo, puedes especificar el nombre de la IA, el idioma para responder, la respuesta cuando no se encuentra una respuesta (para prevenir la alucinación).
 {% endhint %}
 
-You can also turn on the Return Source Documents option to return a list of document chunks where the AI's response is coming from.
+También puedes activar la opción Return Source Documents para devolver una lista de chunks de documentos de donde proviene la respuesta de la IA.
 
 <figure><img src="../.gitbook/assets/Untitled (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
-## Additional Web Scraping
+## Web Scraping Adicional
 
-Apart from Cheerio Web Scraper, there are other nodes that can perform web scraping as well:
+Además de Cheerio Web Scraper, hay otros nodos que también pueden realizar web scraping:
 
-* **Puppeteer:** Puppeteer is a Node.js library that provides a high-level API for controlling headless Chrome or Chromium. You can use Puppeteer to automate web page interactions, including extracting data from dynamic web pages that require JavaScript to render.
-* **Playwright:** Playwright is a Node.js library that provides a high-level API for controlling multiple browser engines, including Chromium, Firefox, and WebKit. You can use Playwright to automate web page interactions, including extracting data from dynamic web pages that require JavaScript to render.
-* **Apify:** [Apify](https://apify.com/) is a cloud platform for web scraping and data extraction, which provides an [ecosystem](https://apify.com/store) of more than a thousand ready-made apps called _Actors_ for various web scraping, crawling, and data extraction use cases.
+* **Puppeteer:** Puppeteer es una biblioteca de Node.js que proporciona una API de alto nivel para controlar Chrome o Chromium sin cabeza. Puedes usar Puppeteer para automatizar interacciones con páginas web, incluyendo la extracción de datos de páginas web dinámicas que requieren JavaScript para renderizar.
+* **Playwright:** Playwright es una biblioteca de Node.js que proporciona una API de alto nivel para controlar múltiples motores de navegador, incluyendo Chromium, Firefox y WebKit. Puedes usar Playwright para automatizar interacciones con páginas web, incluyendo la extracción de datos de páginas web dinámicas que requieren JavaScript para renderizar.
+* **Apify:** [Apify](https://apify.com/) es una plataforma en la nube para web scraping y extracción de datos, que proporciona un [ecosistema](https://apify.com/store) de más de mil aplicaciones listas para usar llamadas _Actors_ para varios casos de uso de web scraping, rastreo y extracción de datos.
 
 <figure><img src="../.gitbook/assets/image (92).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-The same logic can be applied to any document use cases, not just limited to web scraping!
+¡La misma lógica se puede aplicar a cualquier caso de uso de documentos, no solo limitado a web scraping!
 {% endhint %}
 
-If you have any suggestion on how to improve the performance, we'd love your [contribution](../contributing/)!
+Si tienes alguna sugerencia sobre cómo mejorar el rendimiento, ¡nos encantaría tu [contribución](../contributing/)!

@@ -1,13 +1,13 @@
 ---
-description: LlamaIndex Agent Nodes
+description: Nodos Agent de LlamaIndex
 ---
 
 # Tools
 
 ***
 
-Tools are functions that agents can use to interact with the world. These tools can be generic utilities (e.g. search), other chains, or even other agents.
+Las Tools son funciones que los agents pueden usar para interactuar con el mundo. Estas tools pueden ser utilidades genéricas (por ejemplo, búsqueda), otros chains, o incluso otros agents.
 
-### Tool Nodes:
+### Nodos Tool:
 
 * [Query Engine Tool](query-engine-tool.md)

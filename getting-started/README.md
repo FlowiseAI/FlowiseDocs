@@ -1,71 +1,71 @@
-# Get Started
+# Primeros Pasos
 
 ***
 
 ## Cloud
 
-Self-hosting requires more technical skill to setup instance, backing up database and maintaning updates. If you aren't experienced at managing servers and just want to use the webapp, we recommend using [Flowise Cloud](https://flowiseai.com/join).
+El alojamiento propio requiere más habilidades técnicas para configurar la instancia, respaldar la base de datos y mantener las actualizaciones. Si no tienes experiencia en la gestión de servidores y solo quieres usar la aplicación web, te recomendamos usar [Flowise Cloud](https://flowiseai.com/join).
 
-## Quick Start
+## Inicio Rápido
 
 {% hint style="info" %}
-Pre-requisite: ensure [NodeJS](https://nodejs.org/en/download) is installed on machine. Node `v18.15.0` or `v20` and above is supported.
+Requisito previo: asegúrate de que [NodeJS](https://nodejs.org/en/download) esté instalado en tu máquina. Se admiten las versiones Node `v18.15.0` o `v20` y superiores.
 {% endhint %}
 
-Install Flowise locally using NPM.
+Instala Flowise localmente usando NPM.
 
-1. Install Flowise:
+1. Instala Flowise:
 
 ```bash
 npm install -g flowise
 ```
 
-2. Start Flowise:
+2. Inicia Flowise:
 
 ```bash
 npx flowise start
 ```
 
-3. Open: [http://localhost:3000](http://localhost:3000)
+3. Abre: [http://localhost:3000](http://localhost:3000)
 
 ***
 
 ## Docker
 
-There are two ways to deploy Flowise with Docker:
+Hay dos formas de desplegar Flowise con Docker:
 
 ### Docker Compose
 
-1. Go to `docker folder` at the root of the project
-2. Copy the `.env.example` file and paste it as another file named `.env`
-3. Run:
+1. Ve a la `carpeta docker` en la raíz del proyecto
+2. Copia el archivo `.env.example` y pégalo como otro archivo llamado `.env`
+3. Ejecuta:
 
 ```bash
 docker compose up -d
 ```
 
-4. Open: [http://localhost:3000](http://localhost:3000)
-5. You can bring the containers down by running:
+4. Abre: [http://localhost:3000](http://localhost:3000)
+5. Puedes detener los contenedores ejecutando:
 
 ```bash
 docker compose stop
 ```
 
-### Docker Image
+### Imagen Docker
 
-1. Build the image:
+1. Construye la imagen:
 
 ```bash
 docker build --no-cache -t flowise .
 ```
 
-2. Run image:
+2. Ejecuta la imagen:
 
 ```bash
 docker run -d --name flowise -p 3000:3000 flowise
 ```
 
-3. Stop image:
+3. Detén la imagen:
 
 ```bash
 docker stop flowise
@@ -73,131 +73,131 @@ docker stop flowise
 
 ***
 
-## For Developers
+## Para Desarrolladores
 
-Flowise has 3 different modules in a single mono repository:
+Flowise tiene 3 módulos diferentes en un único monorepositorío:
 
-* **Server**: Node backend to serve API logics
-* **UI**: React frontend
-* **Components**: Integration components
+* **Server**: Backend en Node para servir la lógica de la API
+* **UI**: Frontend en React
+* **Components**: Componentes de integración
 
-### Prerequisite
+### Requisito Previo
 
-Install [PNPM](https://pnpm.io/installation).
+Instala [PNPM](https://pnpm.io/installation).
 
 ```bash
 npm i -g pnpm
 ```
 
-### Setup 1
+### Configuración 1
 
-Simple setup using PNPM:
+Configuración simple usando PNPM:
 
-1. Clone the repository
+1. Clona el repositorio
 
 ```bash
 git clone https://github.com/FlowiseAI/Flowise.git
 ```
 
-2. Go into repository folder
+2. Ve a la carpeta del repositorio
 
 ```bash
 cd Flowise
 ```
 
-3. Install all dependencies of all modules:
+3. Instala todas las dependencias de todos los módulos:
 
 ```bash
 pnpm install
 ```
 
-4. Build the code:
+4. Construye el código:
 
 ```bash
 pnpm build
 ```
 
-Start the app at [http://localhost:3000](http://localhost:3000)
+Inicia la aplicación en [http://localhost:3000](http://localhost:3000)
 
 ```bash
 pnpm start
 ```
 
-### Setup 2
+### Configuración 2
 
-Step-by-step setup for project contributors:
+Configuración paso a paso para contribuidores del proyecto:
 
-1. Fork the official [Flowise Github Repository](https://github.com/FlowiseAI/Flowise)
-2. Clone your forked repository
-3. Create a new branch, see [guide](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository). Naming conventions:
-   * For feature branch: `feature/<Your New Feature>`
-   * For bug fix branch: `bugfix/<Your New Bugfix>`.
-4. Switch to the branch you just created
-5. Go into repository folder:
+1. Haz un fork del [Repositorio oficial de Flowise en Github](https://github.com/FlowiseAI/Flowise)
+2. Clona tu repositorio forkeado
+3. Crea una nueva rama, consulta la [guía](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository). Convenciones de nombres:
+   * Para rama de funcionalidad: `feature/<Tu Nueva Funcionalidad>`
+   * Para rama de corrección de errores: `bugfix/<Tu Nueva Corrección>`.
+4. Cambia a la rama que acabas de crear
+5. Ve a la carpeta del repositorio:
 
 ```bash
 cd Flowise
 ```
 
-6. Install all dependencies of all modules:
+6. Instala todas las dependencias de todos los módulos:
 
 ```bash
 pnpm install
 ```
 
-7. Build the code:
+7. Construye el código:
 
 ```bash
 pnpm build
 ```
 
-8. Start the app at [http://localhost:3000](http://localhost:3000)
+8. Inicia la aplicación en [http://localhost:3000](http://localhost:3000)
 
 ```bash
 pnpm start
 ```
 
-9. For development build:
+9. Para construcción de desarrollo:
 
-* Create `.env` file and specify the `PORT` (refer to `.env.example`) in `packages/ui`
-* Create `.env` file and specify the `PORT` (refer to `.env.example`) in `packages/server`
+* Crea un archivo `.env` y especifica el `PORT` (consulta `.env.example`) en `packages/ui`
+* Crea un archivo `.env` y especifica el `PORT` (consulta `.env.example`) en `packages/server`
 
 ```bash
 pnpm dev
 ```
 
-* Any changes made in `packages/ui` or `packages/server` will be reflected at [http://localhost:8080](http://localhost:8080/)
-* For changes made in `packages/components`, you will need to build again to pickup the changes
-*   After making all the changes, run:
+* Cualquier cambio realizado en `packages/ui` o `packages/server` se reflejará en [http://localhost:8080](http://localhost:8080/)
+* Para los cambios realizados en `packages/components`, necesitarás construir nuevamente para incorporar los cambios
+* Después de realizar todos los cambios, ejecuta:
 
-    ```bash
-    pnpm build
-    ```
+```bash
+pnpm build
+```
 
-    and
+y
 
-    ```bash
-    pnpm start
-    ```
+```bash
+pnpm start
+```
 
-    to make sure everything works fine in production.
+para asegurarte de que todo funcione bien en producción.
 
 ***
 
-## For Enterprise
+## Para Empresas
 
-Enterprise plans have separate repository and docker image.
+Los planes empresariales tienen un repositorio e imagen de Docker separados.
 
-Once granted access to both, the setup is the same as [#setup-1](./#setup-1 "mention"). Before starting the app, enterprise users are required to fill in the values for Enterprise Parameters in the `.env` file. Refer to `.env.example` for the required changes.
+Una vez concedido el acceso a ambos, la configuración es la misma que en [#configuración-1](./#setup-1 "mention"). Antes de iniciar la aplicación, los usuarios empresariales deben completar los valores de los Parámetros Empresariales en el archivo `.env`. Consulta `.env.example` para los cambios requeridos.
 
-Reach out to support@flowiseai.com for the value of following env variables:
+Contacta a support@flowiseai.com para obtener el valor de las siguientes variables de entorno:
 
 ```
 LICENSE_URL
 FLOWISE_EE_LICENSE_KEY
 ```
 
-For Docker Installation:
+Para Instalación con Docker:
 
 ```bash
 cd docker
@@ -207,13 +207,13 @@ docker compose up -d
 
 ***
 
-## Learn More
+## Aprende Más
 
-In this video tutorial, Leon provides an introduction to Flowise and explains how to set it up on your local machine.
+En este video tutorial, Leon proporciona una introducción a Flowise y explica cómo configurarlo en tu máquina local.
 
 {% embed url="https://youtu.be/nqAK_L66sIQ" %}
 
-## Community Guide
+## Guía de la Comunidad
 
-* [Introduction to \[Practical\] Building LLM Applications with Flowise / LangChain](https://volcano-ice-cd6.notion.site/Introduction-to-Practical-Building-LLM-Applications-with-Flowise-LangChain-03d6d75bfd20495d96dfdae964bea5a5)
+* [Introducción a \[Práctica\] Construcción de Aplicaciones LLM con Flowise / LangChain](https://volcano-ice-cd6.notion.site/Introduction-to-Practical-Building-LLM-Applications-with-Flowise-LangChain-03d6d75bfd20495d96dfdae964bea5a5)
 * [Flowise / LangChainによるLLMアプリケーション構築\[実践\]入門](https://volcano-ice-cd6.notion.site/Flowise-LangChain-LLM-e106bb0f7e2241379aad8fa428ee064a)

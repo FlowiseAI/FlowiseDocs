@@ -1,36 +1,36 @@
 # Compact And Refine
 
-This is the default when no Response Synthesizer is explicilty defined.
+Este es el valor por defecto cuando no se define explícitamente un Response Synthesizer.
 
-Compact the prompt during each LLM call by stuffing as many text chunks that can fit within the maximum prompt size. If there are too many chunks to stuff in one prompt, "create and refine" an answer by going through multiple compact prompts.
+Compacta el prompt durante cada llamada al LLM agrupando tantos fragmentos de texto como puedan caber dentro del tamaño máximo del prompt. Si hay demasiados fragmentos para agrupar en un solo prompt, "crea y refina" una respuesta pasando por múltiples prompts compactos.
 
-**Pros**: The same as [Refine](refine.md), Good for more detailed answers, and should result in less LLM calls
+**Pros**: Los mismos que [Refine](refine.md), bueno para respuestas más detalladas y debería resultar en menos llamadas al LLM
 
-**Cons**: Due to the multiple LLM calls , can be expensive
+**Contras**: Debido a las múltiples llamadas al LLM, puede ser costoso
 
 <figure><img src="../../../.gitbook/assets/image (6) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
-**Refine Prompt**
+**Prompt de Refinamiento**
 
 ```markup
-The original query is as follows: {query}
-We have provided an existing answer: {existingAnswer}
-We have the opportunity to refine the existing answer (only if needed) with some more context below.
+La consulta original es la siguiente: {query}
+Hemos proporcionado una respuesta existente: {existingAnswer}
+Tenemos la oportunidad de refinar la respuesta existente (solo si es necesario) con más contexto a continuación.
 ------------
 {context}
 ------------
-Given the new context, refine the original answer to better answer the query. If the context isn't useful, return the original answer.
-Refined Answer:
+Dado el nuevo contexto, refina la respuesta original para responder mejor a la consulta. Si el contexto no es útil, devuelve la respuesta original.
+Respuesta Refinada:
 ```
 
-**Text QA Prompt**
+**Prompt de Text QA**
 
 ```
-Context information is below.
+La información de contexto está a continuación.
 ---------------------
 {context}
 ---------------------
-Given the context information and not prior knowledge, answer the query.
-Query: {query}
-Answer:
+Dado el contexto y sin conocimiento previo, responde a la consulta.
+Consulta: {query}
+Respuesta:
 ```

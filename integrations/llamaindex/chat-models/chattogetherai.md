@@ -1,11 +1,11 @@
 ---
-description: Wrapper around ChatTogetherAI LLM specific for LlamaIndex.
+description: Wrapper alrededor del LLM ChatTogetherAI específico para LlamaIndex.
 ---
 
 # ChatTogetherAI
 
-<figure><img src="../../../.gitbook/assets/up-014.png" alt="" width="296"><figcaption><p>ChatTogetherAI Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/up-014.png" alt="" width="296"><figcaption><p>Nodo ChatTogetherAI</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../contributing/) para comenzar.
 {% endhint %}

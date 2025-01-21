@@ -1,35 +1,35 @@
 ---
-description: Learn Sequential Agents from the Community
+description: Aprende Sequential Agents de la Comunidad
 ---
 
-# Video Tutorials
+# Tutoriales en Video
 
-### Build a Multi-Stage RAG Agent
+### Construye un Agente RAG Multi-Etapa
 
-In this video, [Leon](https://youtube.com/@leonvanzyl) provides a step by step tutorial on creating an advanced RAG agent that incorporates routing, fallback and self-correction techniques.
+En este video, [Leon](https://youtube.com/@leonvanzyl) proporciona un tutorial paso a paso sobre cómo crear un agente RAG avanzado que incorpora técnicas de routing, fallback y auto-corrección.
 
 {% embed url="https://youtu.be/OejuvdyN_U8" %}
 
-### Master Sequential Agents: Build Complex AI Apps with Flowise
+### Domina Sequential Agents: Construye Apps AI Complejas con Flowise
 
-In this video, [Leon](https://youtube.com/@leonvanzyl) provides a **comprehensive introduction to the Sequential Agent** architecture and demonstrates how to manage custom state to build more dynamic applications.
+En este video, [Leon](https://youtube.com/@leonvanzyl) proporciona una **introducción completa a la arquitectura Sequential Agent** y demuestra cómo gestionar estados personalizados para construir aplicaciones más dinámicas.
 
 {% embed url="https://www.youtube.com/watch?v=6LbvgTbS0BE" %}
 
-### Sequential vs. Multi Agents: Which Flowise feature is right for you?
+### Sequential vs. Multi Agents: ¿Qué característica de Flowise es adecuada para ti?
 
-In this video, [Leon](https://youtube.com/@leonvanzyl) looks at two different solutions in Flowise for creating multi-agent projects. He compares the **differences between Sequential Agents and Multi Agents** by recreating the same projects using both techniques.
+En este video, [Leon](https://youtube.com/@leonvanzyl) examina dos soluciones diferentes en Flowise para crear proyectos multi-agente. Compara las **diferencias entre Sequential Agents y Multi Agents** recreando los mismos proyectos usando ambas técnicas.
 
 {% embed url="https://www.youtube.com/watch?v=3ZmBq8_4vCs" %}
 
-### Build Production-Ready Apps in Minutes: **Flowise's Sequential** Agents and n8n
+### Construye Apps Listas para Producción en Minutos: **Sequential Agents** de Flowise y n8n
 
-In this video, [Wntrmute AI](https://www.youtube.com/@WntrmuteAI) demonstrates how to quickly build a **production-ready application** in less than 30 minutes by combining **Flowise's Sequential Agents** and **n8n**.
+En este video, [Wntrmute AI](https://www.youtube.com/@WntrmuteAI) demuestra cómo construir rápidamente una **aplicación lista para producción** en menos de 30 minutos combinando los **Sequential Agents** de Flowise y **n8n**.
 
 {% embed url="https://www.youtube.com/watch?v=DA_0eOTYnmc" %}
 
-### How to Build a Self-Improving AI with Agentic RAG and Flowise
+### Cómo Construir una IA Auto-Mejorable con Agentic RAG y Flowise
 
-In this video, [Leon](https://youtube.com/@leonvanzyl) will show you how to build a self-correcting RAG application using FlowiseAI's Sequential Agents. Agentic RAG is a powerful approach for creating AI solutions that can learn and improve their responses over time.
+En este video, [Leon](https://youtube.com/@leonvanzyl) te mostrará cómo construir una aplicación RAG auto-correctiva usando los Sequential Agents de FlowiseAI. Agentic RAG es un enfoque poderoso para crear soluciones de IA que pueden aprender y mejorar sus respuestas con el tiempo.
 
 {% embed url="https://www.youtube.com/watch?v=SL77Ojbgy6U" %}

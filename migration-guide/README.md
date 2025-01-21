@@ -1,16 +1,17 @@
 ---
-description: Learn about legacy versions of Flowise
+description: Aprende sobre las versiones anteriores de Flowise
 ---
 
 # Migration Guide
 
 ***
 
-Flowise typically offers backward compatibility, meaning its updates follow a continuous development path. However, sometimes there can be breaking changes.
+Flowise generalmente ofrece compatibilidad hacia atrás, lo que significa que sus actualizaciones siguen una ruta de desarrollo continuo. Sin embargo, a veces puede haber cambios que rompen la compatibilidad.
 
-This section provides guidance when migrating to different breaking versions.
+Esta sección proporciona orientación para migrar entre diferentes versiones con cambios importantes.
 
-## Versions
+## Versiones
 
-* [v1.3.0 Migration Guide](v1.3.0-migration-guide.md)
-* [v1.4.3 Migration Guide](v1.4.3-migration-guide.md)
+* [Guía de Migración v1.3.0](v1.3.0-migration-guide.md)
+* [Guía de Migración v1.4.3](v1.4.3-migration-guide.md)
+* [Guía de Migración v2.1.4](v2.1.4-migration-guide.md)

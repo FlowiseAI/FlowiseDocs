@@ -1,11 +1,11 @@
 ---
-description: Use Replicate to run open source models on cloud.
+description: Usa Replicate para ejecutar modelos de código abierto en la nube.
 ---
 
 # Replicate
 
-<figure><img src="../../../.gitbook/assets/image (8) (1) (1).png" alt="" width="335"><figcaption><p>Replicate Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (1) (1).png" alt="" width="335"><figcaption><p>Nodo Replicate</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../contributing/) para comenzar.
 {% endhint %}

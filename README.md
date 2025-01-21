@@ -1,37 +1,37 @@
 ---
-description: Welcome to the official Flowise documentation
+description: Bienvenido a la documentación oficial de Flowise
 ---
 
-# Introduction
+# Introducción
 
-<figure><img src=".gitbook/assets/flowise.gif" alt=""><figcaption><p>Flowise Drag &#x26; Drop UI</p></figcaption></figure>
+<figure><img src=".gitbook/assets/flowise.gif" alt=""><figcaption><p>Interfaz de arrastrar y soltar de Flowise</p></figcaption></figure>
 
-## What is Flowise?
+## ¿Qué es Flowise?
 
-Flowise is an open source low-code tool for developers to build customized LLM orchestration flows & AI agents.
+Flowise es una herramienta de código abierto y bajo código para desarrolladores que permite construir flujos personalizados de orquestación de LLM y agentes de IA.
 
-Developing LLM apps often involves countless iterations. Our low-code and drag-and-drop UI approach enables quick iterations, helping you go from testing to production faster.
+El desarrollo de aplicaciones LLM a menudo implica innumerables iteraciones. Nuestro enfoque de bajo código y la interfaz de arrastrar y soltar permite iteraciones rápidas, ayudándote a pasar de la fase de pruebas a producción más rápidamente.
 
-### See Flowise in action
+### Ve Flowise en acción
 
-In this 2-minute quickstart demo, you'll learn the basic fundamentals of how Flowise works.
+En esta demo de inicio rápido de 2 minutos, aprenderás los fundamentos básicos de cómo funciona Flowise.
 
 {% embed url="https://youtu.be/d7vfUodP0c4" %}
-Building a PDF QnA app
+Construyendo una aplicación de preguntas y respuestas con PDF
 {% endembed %}
 
-### Building your first LLM app
+### Construyendo tu primera aplicación LLM
 
-This 10-minute video will teach you how to build your first LLM app using Flowise.
+Este video de 10 minutos te enseñará cómo construir tu primera aplicación LLM usando Flowise.
 
 {% embed url="https://youtu.be/kAyKOsm8L5Y" %}
-Build your first LLM app from scratch with Flowise
+Construye tu primera aplicación LLM desde cero con Flowise
 {% endembed %}
 
-## Contributing
+## Contribuir
 
-If you want to help this project, please consider reviewing the [Contribution Guide](contributing/).
+Si quieres ayudar a este proyecto, por favor considera revisar la [Guía de Contribución](contributing/).
 
-## Need Help?
+## ¿Necesitas Ayuda?
 
-For support and further discussion, head over to our [Discord](https://discord.gg/jbaHfsRVBW) server.  
+Para soporte y más discusiones, únete a nuestro servidor de [Discord](https://discord.gg/jbaHfsRVBW).  

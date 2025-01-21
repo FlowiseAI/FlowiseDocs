@@ -1,22 +1,22 @@
 ---
-description: Learn how Flowise integrates with LiteLLM Proxy
+description: Aprende cómo Flowise se integra con LiteLLM Proxy
 ---
 
 # LiteLLM Proxy
 
-Use [LiteLLM Proxy](https://docs.litellm.ai/docs/simple_proxy) with Flowise to:
+Usa [LiteLLM Proxy](https://docs.litellm.ai/docs/simple_proxy) con Flowise para:
 
-- Load balance Azure OpenAI/LLM endpoints
-- Call 100+ LLMs in the OpenAI Format 
-- Use Virtual Keys to set budgets, rate limits and track usage
+- Balancear la carga de endpoints de Azure OpenAI/LLM
+- Llamar a más de 100 LLMs en el formato OpenAI 
+- Usar Claves Virtuales para establecer presupuestos, límites de tasa y rastrear el uso
 
-## How to use LiteLLM Proxy with Flowise
+## Cómo usar LiteLLM Proxy con Flowise
 
-### Step 1: Define your LLM Models in the LiteLLM config.yaml file
+### Paso 1: Define tus modelos LLM en el archivo config.yaml de LiteLLM
 
-LiteLLM Requires a config with all your models defined - we will call this file `litellm_config.yaml`
+LiteLLM requiere una configuración con todos tus modelos definidos - llamaremos a este archivo `litellm_config.yaml`
 
-[Detailed docs on how to setup litellm config - here](https://docs.litellm.ai/docs/proxy/configs)
+[Documentación detallada sobre cómo configurar litellm config - aquí](https://docs.litellm.ai/docs/proxy/configs)
 
 ```yaml
 model_list:
@@ -39,7 +39,7 @@ model_list:
 ```
 
 
-### Step 2. Start litellm proxy
+### Paso 2. Inicia el proxy litellm
 
 ```shell
 docker run \
@@ -49,12 +49,12 @@ docker run \
     --config /app/config.yaml --detailed_debug
 ```
 
-On success, the proxy will start running on `http://localhost:4000/`
+Si tiene éxito, el proxy comenzará a ejecutarse en `http://localhost:4000/`
 
-### Step 3: Use the LiteLLM Proxy in Flowise
+### Paso 3: Usa el LiteLLM Proxy en Flowise
 
-In Flowise, specify the **standard OpenAI nodes (not the Azure OpenAI nodes)** -- this goes for **chat models, embeddings, llms -- everything**
+En Flowise, especifica los **nodos estándar de OpenAI (no los nodos de Azure OpenAI)** -- esto aplica para **modelos de chat, embeddings, llms -- todo**
 
-- Set `BasePath` to LiteLLM Proxy URL (`http://localhost:4000` when running locally)
-- Set the following headers `Authorization: Bearer <your-litellm-master-key>`
+- Establece `BasePath` a la URL del LiteLLM Proxy (`http://localhost:4000` cuando se ejecuta localmente)
+- Establece los siguientes headers `Authorization: Bearer <tu-litellm-master-key>`
 

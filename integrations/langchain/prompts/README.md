@@ -1,14 +1,14 @@
 ---
-description: LangChain Prompt Nodes
+description: Nodos Prompt de LangChain
 ---
 
 # Prompts
 
 ***
 
-Prompt template nodes help to translate user input and parameters into instructions for a language model. This can be used to guide a model's response, helping it understand the context and generate relevant and coherent language-based output.
+Los nodos Prompt Template ayudan a traducir la entrada del usuario y los parámetros en instrucciones para un modelo de lenguaje. Esto se puede usar para guiar la respuesta de un modelo, ayudándolo a entender el contexto y generar una salida basada en lenguaje relevante y coherente.
 
-### Prompt Nodes:
+### Nodos Prompt:
 
 * [Chat Prompt Template](chat-prompt-template.md)
 * [Few Shot Prompt Template](few-shot-prompt-template.md)

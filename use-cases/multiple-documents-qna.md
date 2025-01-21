@@ -1,173 +1,171 @@
 ---
-description: Learn how to query multiple documents correctly
+description: Aprende cómo consultar múltiples documentos correctamente
 ---
 
-# Multiple Documents QnA
+# QnA con Múltiples Documentos
 
 ***
 
-From the last [Web Scrape QnA](web-scrape-qna.md) example, we are only upserting and querying 1 website. What if we have multiple websites, or multiple documents? Let's take a look and see how we can achieve that.
+Del último ejemplo de [QnA con Web Scraping](web-scrape-qna.md), solo estamos haciendo upsert y consultando 1 sitio web. ¿Qué pasa si tenemos múltiples sitios web o múltiples documentos? Veamos cómo podemos lograrlo.
 
-In this example, we are going to perform QnA on 2 PDFs, which are FORM-10K of APPLE and TESLA.
+En este ejemplo, vamos a realizar QnA en 2 PDFs, que son los FORM-10K de APPLE y TESLA.
 
 <div align="left" data-full-width="false"><figure><img src="../.gitbook/assets/image (93).png" alt="" width="375"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/image (94).png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 ## Upsert
 
-1. Find the example flow called - **Conversational Retrieval QA Chain** from the marketplace templates.
-2. We are going to use [PDF File Loader](../integrations/langchain/document-loaders/pdf-file.md), and upload the respective files:
+1. Encuentra el flujo de ejemplo llamado - **Conversational Retrieval QA Chain** en las plantillas del marketplace.
+2. Vamos a usar [PDF File Loader](../integrations/langchain/document-loaders/pdf-file.md), y subir los archivos respectivos:
 
 <figure><img src="../.gitbook/assets/multi-docs-upload.png" alt=""><figcaption></figcaption></figure>
 
-3. Click the **Additional Parameters** of PDF File Loader, and specify metadata object. For instance, PDF File with Apple FORM-10K uploaded can have a metadata object `{source: apple}`, whereas PDF File with Tesla FORM-10K uploaded can have `{source: tesla}` . This is done to seggregate the documents during retrieval time.
+3. Haz clic en **Additional Parameters** del PDF File Loader, y especifica el objeto metadata. Por ejemplo, el archivo PDF con el FORM-10K de Apple puede tener un objeto metadata `{source: apple}`, mientras que el archivo PDF con el FORM-10K de Tesla puede tener `{source: tesla}`. Esto se hace para segregar los documentos durante el tiempo de recuperación.
 
 <div align="left"><figure><img src="../.gitbook/assets/multi-docs-apple.png" alt="" width="563"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/multi-docs-tesla.png" alt="" width="563"><figcaption></figcaption></figure></div>
 
-4. After filling in the credentials for Pinecone, click Upsert:
+4. Después de completar las credenciales para Pinecone, haz clic en Upsert:
 
 <figure><img src="../.gitbook/assets/multi-docs-upsert.png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/image (98).png" alt=""><figcaption></figcaption></figure>
 
-5. On the [Pinecone console](https://app.pinecone.io) you will be able to see the new vectors that were added.
+5. En la [consola de Pinecone](https://app.pinecone.io) podrás ver los nuevos vectores que se agregaron.
 
 <figure><img src="../.gitbook/assets/multi-docs-console.png" alt=""><figcaption></figcaption></figure>
 
-## Query
+## Consulta
 
-1. After verifying data has been upserted to Pinecone, we can now start asking question in the chat!
+1. ¡Después de verificar que los datos se han insertado en Pinecone, ahora podemos empezar a hacer preguntas en el chat!
 
 <figure><img src="../.gitbook/assets/image (100).png" alt=""><figcaption></figcaption></figure>
 
-2. However, the context retrieved used to return the answer is a mix of both APPLE and TESLA documents. As you can see from the Source Documents:
+2. Sin embargo, el contexto recuperado usado para devolver la respuesta es una mezcla de documentos tanto de APPLE como de TESLA. Como puedes ver en los Source Documents:
 
 <div align="left"><figure><img src="../.gitbook/assets/Untitled (7).png" alt="" width="563"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Untitled (8).png" alt="" width="563"><figcaption></figcaption></figure></div>
 
-3. We can fix this by specifying a metadata filter from the Pinecone node. For example, if we only want to retrieve context from APPLE FORM-10K, we can look back at the metadata we have specified earlier in the [#upsert](multiple-documents-qna.md#upsert "mention") step, then use the same in the Metadata Filter below:
+3. Podemos arreglar esto especificando un filtro de metadata desde el nodo Pinecone. Por ejemplo, si solo queremos recuperar contexto del FORM-10K de APPLE, podemos mirar el metadata que especificamos anteriormente en el paso [#upsert](multiple-documents-qna.md#upsert "mention"), y luego usar lo mismo en el Metadata Filter a continuación:
 
 <figure><img src="../.gitbook/assets/image (102).png" alt=""><figcaption></figcaption></figure>
 
-4. Let's ask the same question again, we should now see all context retrieved are indeed from APPLE FORM-10K:
+4. Hagamos la misma pregunta de nuevo, ahora deberíamos ver que todo el contexto recuperado es efectivamente del FORM-10K de APPLE:
 
 <figure><img src="../.gitbook/assets/image (103).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-Each vector databse provider has different format of filtering syntax, recommend to read through the respective vector database documentation
+Cada proveedor de base de datos vectorial tiene diferente formato de sintaxis de filtrado, se recomienda leer la documentación respectiva de la base de datos vectorial
 {% endhint %}
 
-5. However, the problem with this is that metadata filtering is sort of _**"hard-coded"**_. Ideally, we should let the LLM to decide which document to retrieve based on the question.
+5. Sin embargo, el problema con esto es que el filtrado de metadata está de alguna manera _**"hard-coded"**_. Idealmente, deberíamos dejar que el LLM decida qué documento recuperar basado en la pregunta.
 
 ## Tool Agent
 
-We can solve the _**"hard-coded"**_ metadata filter problem by using [Tool Agent](../integrations/langchain/agents/tool-agent.md).
+Podemos resolver el problema del filtro de metadata _**"hard-coded"**_ usando [Tool Agent](../integrations/langchain/agents/tool-agent.md).
 
-By providing tools to agent, we can let the agent to decide which tool is suitable to be used depending on the question.
+Al proporcionar tools al agent, podemos dejar que el agent decida qué tool es adecuada para usar dependiendo de la pregunta.
 
-1. Create a [Retriever Tool](../integrations/langchain/tools/retriever-tool.md) with following name and description:
+1. Crea un [Retriever Tool](../integrations/langchain/tools/retriever-tool.md) con el siguiente nombre y descripción:
 
-<table><thead><tr><th width="178">Name</th><th>Description</th></tr></thead><tbody><tr><td>search_apple</td><td>Use this function to answer user questions about Apple Inc (APPL). It contains a SEC Form 10K filing describing the financials of Apple Inc (APPL) for the 2022 time period.</td></tr></tbody></table>
+<table><thead><tr><th width="178">Name</th><th>Description</th></tr></thead><tbody><tr><td>search_apple</td><td>Usa esta función para responder preguntas del usuario sobre Apple Inc (APPL). Contiene un archivo SEC Form 10K que describe las finanzas de Apple Inc (APPL) para el período 2022.</td></tr></tbody></table>
 
-2. Connect to Pinecone node with metadata filter `{source: apple}`
+2. Conéctalo al nodo Pinecone con el filtro de metadata `{source: apple}`
 
 <figure><img src="../.gitbook/assets/image (104).png" alt="" width="563"><figcaption></figcaption></figure>
 
-3. Repeat the same for Tesla:
+3. Repite lo mismo para Tesla:
 
-<table><thead><tr><th width="175">Name</th><th width="322">Description</th><th>Pinecone Metadata Filter</th></tr></thead><tbody><tr><td>search_tsla</td><td>Use this function to answer user questions about Tesla Inc (TSLA). It contains a SEC Form 10K filing describing the financials of Tesla Inc (TSLA) for the 2022 time period.</td><td><code>{source: tesla}</code></td></tr></tbody></table>
+<table><thead><tr><th width="175">Name</th><th width="322">Description</th><th>Pinecone Metadata Filter</th></tr></thead><tbody><tr><td>search_tsla</td><td>Usa esta función para responder preguntas del usuario sobre Tesla Inc (TSLA). Contiene un archivo SEC Form 10K que describe las finanzas de Tesla Inc (TSLA) para el período 2022.</td><td><code>{source: tesla}</code></td></tr></tbody></table>
 
 {% hint style="info" %}
-It is important to specify a clear and concise description. This allows LLM to better decide when to use which tool
+Es importante especificar una descripción clara y concisa. Esto permite que el LLM decida mejor cuándo usar qué tool
 {% endhint %}
 
-Your flow should looks like below:
+Tu flujo debería verse así:
 
 <figure><img src="../.gitbook/assets/image (154).png" alt=""><figcaption></figcaption></figure>
 
-4. Now, we need to create a general instruction to Tool Agent. Click **Additional Parameters** of the node, and specify the **System Message**. For example:
+4. Ahora, necesitamos crear una instrucción general para el Tool Agent. Haz clic en **Additional Parameters** del nodo y especifica el **System Message**. Por ejemplo:
 
 ```
-You are an expert financial analyst that always answers questions with the most relevant information using the tools at your disposal.
-These tools have information regarding companies that the user has expressed interest in.
-Here are some guidelines that you must follow:
-* For financial questions, you must use the tools to find the answer and then write a response.
-* Even if it seems like your tools won't be able to answer the question, you must still use them to find the most relevant information and insights. Not using them will appear as if you are not doing your job.
-* You may assume that the users financial questions are related to the documents they've selected.
-* For any user message that isn't related to financial analysis, respectfully decline to respond and suggest that the user ask a relevant question.
-* If your tools are unable to find an answer, you should say that you haven't found an answer but still relay any useful information the tools found.
-* Dont ask clarifying questions, just return answer.
+Eres un analista financiero experto que siempre responde preguntas con la información más relevante usando las tools a tu disposición.
+Estas tools tienen información sobre las empresas en las que el usuario ha expresado interés.
+Aquí hay algunas pautas que debes seguir:
+* Para preguntas financieras, debes usar las tools para encontrar la respuesta y luego escribir una respuesta.
+* Incluso si parece que tus tools no podrán responder la pregunta, debes usarlas para encontrar la información e ideas más relevantes. No usarlas parecerá como si no estuvieras haciendo tu trabajo.
+* Puedes asumir que las preguntas financieras de los usuarios están relacionadas con los documentos que han seleccionado.
+* Para cualquier mensaje del usuario que no esté relacionado con el análisis financiero, rechaza respetuosamente responder y sugiere que el usuario haga una pregunta relevante.
+* Si tus tools no pueden encontrar una respuesta, debes decir que no has encontrado una respuesta pero aún así transmitir cualquier información útil que las tools hayan encontrado.
+* No hagas preguntas aclaratorias, simplemente devuelve la respuesta.
 
-The tools at your disposal have access to the following SEC documents that the user has selected to discuss with you:
+Las tools a tu disposición tienen acceso a los siguientes documentos SEC que el usuario ha seleccionado para discutir contigo:
 - Apple Inc (APPL) FORM 10K 2022
 - Tesla Inc (TSLA) FORM 10K 2022
 
-The current date is: 2024-01-28
+La fecha actual es: 2024-01-28
 ```
 
-5. Save the Chatflow, and start asking question!
+5. ¡Guarda el Chatflow y empieza a hacer preguntas!
 
 <figure><img src="../.gitbook/assets/image (110).png" alt=""><figcaption></figcaption></figure>
 
 <div align="left"><figure><img src="../.gitbook/assets/Untitled (9).png" alt="" width="375"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Untitled (10).png" alt="" width="375"><figcaption></figcaption></figure></div>
 
-6. Follow up with Tesla:
+6. Continúa con Tesla:
 
 <figure><img src="../.gitbook/assets/image (111).png" alt=""><figcaption></figcaption></figure>
 
-7. We are now able to ask questions about any documents that we've previously upserted to vector database without "hard-coding" the metadata filtering by using tools + agent.
+7. Ahora podemos hacer preguntas sobre cualquier documento que hayamos insertado previamente en la base de datos vectorial sin "hard-coding" del filtrado de metadata usando tools + agent.
 
 ## Metadata Retriever
 
-With the Tool Agent approach, user has to create multiple retriever tools to retrieve documents from different sources. This could be a problem if there is a large number of document sources with different metadata. Using the example above with only Apple and Tesla, we could potentially expand to other companies such as Disney, Amazon, etc. It would be a tedious task to create one retrever tool for each company.
+Con el enfoque de Tool Agent, el usuario tiene que crear múltiples retriever tools para recuperar documentos de diferentes fuentes. Esto podría ser un problema si hay un gran número de fuentes de documentos con diferentes metadata. Usando el ejemplo anterior con solo Apple y Tesla, potencialmente podríamos expandirnos a otras compañías como Disney, Amazon, etc. Sería una tarea tediosa crear una retriever tool para cada compañía.
 
-Metadata Retriever comes into play. The idea is to have LLM extract the metadata from user question, then use it as filter when searching through vector databases.
+Aquí es donde entra en juego Metadata Retriever. La idea es que el LLM extraiga el metadata de la pregunta del usuario, y luego lo use como filtro al buscar en las bases de datos vectoriales.
 
-For example, if a user is asking questions related to Apple, a metadata filter `{source: apple}` will be automatically applied on vector database search.
+Por ejemplo, si un usuario está haciendo preguntas relacionadas con Apple, un filtro de metadata `{source: apple}` se aplicará automáticamente en la búsqueda de la base de datos vectorial.
 
 <div align="left"><figure><img src="../.gitbook/assets/image (235).png" alt="" width="297"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2024-11-29 155926.png" alt="" width="526"><figcaption></figcaption></figure></div>
 
-In this scenario, we can have a single retriever tool, and place the **Metadata Retriever** between vector database and retriever tool.
+En este escenario, podemos tener una sola retriever tool, y colocar el **Metadata Retriever** entre la base de datos vectorial y la retriever tool.
 
 <figure><img src="../.gitbook/assets/image (236).png" alt=""><figcaption></figcaption></figure>
 
-
-
 ## XML Agent
 
-For some LLMs, function callings capabilities are not supported. In this case, we can use XML Agent to prompt the LLM in a more structured format/syntax, with the goal of using the provided tools.
+Para algunos LLMs, las capacidades de function callings no están soportadas. En este caso, podemos usar XML Agent para indicar al LLM en un formato/sintaxis más estructurado, con el objetivo de usar las tools proporcionadas.
 
-It has the underlying prompt:
+Tiene el prompt subyacente:
 
 ```xml
-You are a helpful assistant. Help the user answer any questions.
+Eres un asistente útil. Ayuda al usuario a responder cualquier pregunta.
 
-You have access to the following tools:
+Tienes acceso a las siguientes tools:
 
 {tools}
 
-In order to use a tool, you can use <tool></tool> and <tool_input></tool_input> tags. You will then get back a response in the form <observation></observation>
-For example, if you have a tool called 'search' that could run a google search, in order to search for the weather in SF you would respond:
+Para usar una tool, puedes usar las etiquetas <tool></tool> y <tool_input></tool_input>. Luego recibirás una respuesta en forma de <observation></observation>
+Por ejemplo, si tienes una tool llamada 'search' que podría ejecutar una búsqueda en Google, para buscar el clima en SF responderías:
 
 <tool>search</tool><tool_input>weather in SF</tool_input>
 <observation>64 degrees</observation>
 
-When you are done, respond with a final answer between <final_answer></final_answer>. For example:
+Cuando hayas terminado, responde con una respuesta final entre <final_answer></final_answer>. Por ejemplo:
 
-<final_answer>The weather in SF is 64 degrees</final_answer>
+<final_answer>El clima en SF es de 64 grados</final_answer>
 
-Begin!
+¡Comienza!
 
-Previous Conversation:
+Conversación Anterior:
 {chat_history}
 
-Question: {input}
+Pregunta: {input}
 {agent_scratchpad}
 ```
 
 <figure><img src="../.gitbook/assets/image (20) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-## Conclusion
+## Conclusión
 
-We've covered using Conversational Retrieval QA Chain and its limitation when querying multiple documents. And we were able to overcome the issue by using OpenAI Function Agent/XML Agent + Tools. You can find the templates below:
+Hemos cubierto el uso de Conversational Retrieval QA Chain y sus limitaciones al consultar múltiples documentos. Y pudimos superar el problema usando OpenAI Function Agent/XML Agent + Tools. Puedes encontrar las plantillas a continuación:
 
 {% file src="../.gitbook/assets/ToolAgent Chatflow.json" %}
 

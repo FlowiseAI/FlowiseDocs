@@ -1,21 +1,21 @@
 # Tree Summarize
 
-When provided with text chunks and a query, recursively build a tree structure and return the root node as the result.
+Cuando se proporcionan fragmentos de texto y una consulta, construye recursivamente una estructura de árbol y devuelve el nodo raíz como resultado.
 
-**Pros**: Beneficial for summarization tasks
+**Pros**: Beneficioso para tareas de summarization
 
-**Cons**: Accuracy of answer might be lost during traversal of tree structure
+**Contras**: La precisión de la respuesta podría perderse durante el recorrido de la estructura del árbol
 
 <figure><img src="../../../.gitbook/assets/image (7) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 **Prompt**
 
 ```
-Context information from multiple sources is below.
+La información de contexto de múltiples fuentes está a continuación.
 ---------------------
 {context}
 ---------------------
-Given the information from multiple sources and not prior knowledge, answer the query.
+Dada la información de múltiples fuentes y sin conocimiento previo, responde la consulta.
 Query: {query}
-Answer:
+Respuesta:
 ```

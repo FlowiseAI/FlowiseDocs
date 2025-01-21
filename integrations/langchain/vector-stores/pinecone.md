@@ -1,61 +1,59 @@
 ---
 description: >-
-  Upsert embedded data and perform similarity search upon query using Pinecone,
-  a leading fully managed hosted vector database.
+  Realiza upsert de datos embedidos y ejecuta búsquedas de similitud sobre consultas usando Pinecone,
+  una base de datos vectorial gestionada líder en el mercado.
 ---
 
 # Pinecone
 
-## Prerequisite
+## Prerequisitos
 
-1. Register an account for [Pinecone](https://app.pinecone.io/)
-2. Click **Create index**
+1. Registra una cuenta en [Pinecone](https://app.pinecone.io/)
+2. Haz clic en **Create index**
 
 <figure><img src="../../../.gitbook/assets/pinecone_1.png" alt=""><figcaption></figcaption></figure>
 
-3. Fill in required fields:
-   - **Index Name**, name of the index to be created. (e.g. "flowise-test")
-   - **Dimensions**, size of the vectors to be inserted in the index. (e.g. 1536)
+3. Completa los campos requeridos:
+   - **Index Name**, nombre del índice a crear. (por ejemplo, "flowise-test")
+   - **Dimensions**, tamaño de los vectores a insertar en el índice. (por ejemplo, 1536)
 
 <figure><img src="../../../.gitbook/assets/pinecone_2.png" alt="" width="527"><figcaption></figcaption></figure>
 
-4. Click **Create Index**
+4. Haz clic en **Create Index**
 
-## Setup
+## Configuración
 
-1.  Get/Create your **API Key**
+1. Obtén/Crea tu **API Key**
 
 <figure><img src="../../../.gitbook/assets/pinecone_3.png" alt=""><figcaption></figcaption></figure>
 
-2.  Add a new **Pinecone** node to canvas and fill in the parameters:
-    - Pinecone Index
-    - Pinecone namespace (optional)
+2. Agrega un nuevo nodo **Pinecone** al canvas y completa los parámetros:
+   - Pinecone Index
+   - Pinecone namespace (opcional)
 
 <figure><img src="../../../.gitbook/assets/pinecone_4.png" alt="" width="279"><figcaption></figcaption></figure>
 
-3. Create new Pinecone credential -> Fill in **API Key**
+3. Crea una nueva credencial de Pinecone -> Completa el **API Key**
 
 <figure><img src="../../../.gitbook/assets/pinecone_5.png" alt="" width="563"><figcaption></figcaption></figure>
 
-4. Add additional nodes to canvas and start the upsert process
-   - **Document** can be connected with any node under [**Document Loader**](../document-loaders/) category
-   - **Embeddings** can be connected with any node under [**Embeddings** ](../embeddings/)category
+4. Agrega nodos adicionales al canvas e inicia el proceso de upsert
+   - **Document** puede conectarse con cualquier nodo bajo la categoría [**Document Loader**](../document-loaders/)
+   - **Embeddings** puede conectarse con cualquier nodo bajo la categoría [**Embeddings**](../embeddings/)
 
 <figure><img src="../../../.gitbook/assets/pinecone_6.png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/pinecone_7.png" alt=""><figcaption></figcaption></figure>
 
-5. Verify from [Pinecone dashboard](https://app.pinecone.io) to see if data has been successfully upserted:
+5. Verifica desde el [dashboard de Pinecone](https://app.pinecone.io) si los datos se han insertado correctamente:
 
 <figure><img src="../../../.gitbook/assets/pinecone_8.png" alt=""><figcaption></figcaption></figure>
 
-6.
+## Recursos
 
-## Resources
-
-- LangChain Pinecone vectorstore integrations
+- Integraciones de vectorstore de LangChain con Pinecone
   - [Python](https://python.langchain.com/v0.2/docs/integrations/providers/pinecone/)
   - [NodeJS](https://js.langchain.com/v0.2/docs/integrations/vectorstores/pinecone)
-- [Pinecone LangChain integration](https://docs.pinecone.io/integrations/langchain)
-- [Pinecone Flowise integration](https://docs.pinecone.io/integrations/flowise)
-- [Pinecone official clients](https://docs.pinecone.io/reference/pinecone-clients)
+- [Integración de Pinecone con LangChain](https://docs.pinecone.io/integrations/langchain)
+- [Integración de Pinecone con Flowise](https://docs.pinecone.io/integrations/flowise)
+- [Clientes oficiales de Pinecone](https://docs.pinecone.io/reference/pinecone-clients)

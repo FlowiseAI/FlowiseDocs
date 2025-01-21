@@ -1,12 +1,12 @@
 ---
-description: Learn how to analyze and troubleshoot your chatflows and agentflows
+description: Aprende cómo analizar y solucionar problemas en tus flujos de chat y flujos de agentes
 ---
 
-# Analytic
+# Analítica
 
 ***
 
-There are several analytic providers Flowise integrates with:
+Hay varios proveedores de analítica con los que Flowise se integra:
 
 * [LunaryAI](https://lunary.ai/)
 * [Langsmith](https://smith.langchain.com/)
@@ -15,44 +15,44 @@ There are several analytic providers Flowise integrates with:
 
 ## Lunary
 
-[Lunary](https://lunary.ai/) is a monitoring and analytics platform for LLM chatbots.
+[Lunary](https://lunary.ai/) es una plataforma de monitoreo y análisis para chatbots LLM.
 
-Flowise has partnered with Lunary to provide a complete integration supporting user tracing, feedback tracking, conversation replays and detailed LLM analytics.
+Flowise se ha asociado con Lunary para proporcionar una integración completa que soporta seguimiento de usuarios, seguimiento de retroalimentación, repetición de conversaciones y análisis detallado de LLM.
 
-Flowise users can get a 30% discount on the Teams Plan using code `FLOWISEFRIENDS` during checkout.
+Los usuarios de Flowise pueden obtener un 30% de descuento en el Plan Teams usando el código `FLOWISEFRIENDS` durante el pago.
 
-Read more on how to setup Lunary with Flowise [here](https://lunary.ai/docs/integrations/flowise).
+Lee más sobre cómo configurar Lunary con Flowise [aquí](https://lunary.ai/docs/integrations/flowise).
 
-## Setup
+## Configuración
 
-1. At the top right corner of your Chatflow or Agentflow, click **Settings** > **Configuration**
+1. En la esquina superior derecha de tu Flujo de Chat o Flujo de Agente, haz clic en **Configuración** > **Configuración**
 
-<figure><img src="../.gitbook/assets/analytic-1.webp" alt="Screenshot of user clicking in the configuration menu" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/analytic-1.webp" alt="Captura de pantalla del usuario haciendo clic en el menú de configuración" width="375"><figcaption></figcaption></figure>
 
-2. Then go to the Analyse Chatflow section
+2. Luego ve a la sección Analizar Flujo de Chat
 
-<figure><img src="../.gitbook/assets/analytic-2.png" alt="Screenshot of the Analyse Chatflow section with the different Analytics providers"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/analytic-2.png" alt="Captura de pantalla de la sección Analizar Flujo de Chat con los diferentes proveedores de Analítica"><figcaption></figcaption></figure>
 
-3. You will see a list of providers, along with their configuration fields
+3. Verás una lista de proveedores, junto con sus campos de configuración
 
-<figure><img src="../.gitbook/assets/image (82).png" alt="Screenshot of an analytics provider with credentials fields expanded"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (82).png" alt="Captura de pantalla de un proveedor de analítica con campos de credenciales expandidos"><figcaption></figcaption></figure>
 
-3. Fill in the credentials and other configuration details, then turn the provider **ON**
+3. Completa las credenciales y otros detalles de configuración, luego activa el proveedor en **ON**
 
-<figure><img src="../.gitbook/assets/image (83).png" alt="Screenshot of analytics providers enabled"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (83).png" alt="Captura de pantalla de proveedores de analítica habilitados"><figcaption></figcaption></figure>
 
 ## API
 
-Once the analytic has been turned ON from the UI, you can override or provide additional configuration in the body of the [Prediction API](api.md#prediction-api):
+Una vez que la analítica ha sido activada desde la interfaz de usuario, puedes sobrescribir o proporcionar configuración adicional en el cuerpo de la [API de Predicción](api.md#prediction-api):
 
 ```json
 {
-  "question": "hi there",
+  "question": "hola",
   "overrideConfig": {
     "analytics": {
       "langFuse": {
         // langSmith, langFuse, lunary, langWatch
-        "userId": "user1"
+        "userId": "usuario1"
       }
     }
   }

@@ -1,55 +1,55 @@
 # Vectara
 
-## Quickstart Tutorial
+## Tutorial de Inicio Rápido
 
 {% embed url="https://www.youtube.com/watch?v=rBqpvFcD5XY" %}
 
-## Prerequisite
+## Prerequisitos
 
-1. Register an account for [Vectara](https://vectara.com/integrations/flowise)
-2. Click **Create Corpus**
+1. Registra una cuenta en [Vectara](https://vectara.com/integrations/flowise)
+2. Haz clic en **Create Corpus**
 
 <figure><img src="../../../.gitbook/assets/vectara/1.png" alt=""><figcaption></figcaption></figure>
 
-Name the corpus to be created and click **Create Corpus** then wait for the corpus to finish setting up.
+Nombra el corpus a crear y haz clic en **Create Corpus**, luego espera a que el corpus termine de configurarse.
 
-## Setup
+## Configuración
 
-1. Click on the **"Access Control"** tab in the corpus view
+1. Haz clic en la pestaña **"Access Control"** en la vista del corpus
 
 <figure><img src="../../../.gitbook/assets/vectara/2.png" alt=""><figcaption></figcaption></figure>
 
-2. Click on the **"Create API Key"** button, choose a name for the API key and pick the **QueryService & IndexService** option
+2. Haz clic en el botón **"Create API Key"**, elige un nombre para la API key y selecciona la opción **QueryService & IndexService**
 
 <figure><img src="../../../.gitbook/assets/vectara/3.png" alt=""><figcaption></figcaption></figure>
 
-3. Click **Create** to create the API key
-4. Get your **Corpus ID, API Key, and Customer ID** by clicking the down-arrow under "copy" for your new API key:
+3. Haz clic en **Create** para crear la API key
+4. Obtén tu **Corpus ID, API Key, y Customer ID** haciendo clic en la flecha hacia abajo bajo "copy" para tu nueva API key:
 
 <figure><img src="../../../.gitbook/assets/vectara/4.png" alt=""><figcaption></figcaption></figure>
 
-5. Back to Flowise canvas, and create your chatflow. Click **Create New** from the Credentials dropdown ane enter your Vectara credentials.
+5. De vuelta al canvas de Flowise, crea tu chatflow. Haz clic en **Create New** desde el menú desplegable de Credentials e ingresa tus credenciales de Vectara.
 
 <figure><img src="../../../.gitbook/assets/vectara/5.png" alt="" width="500"><figcaption></figcaption></figure>
 
-6. Enjoy!
+6. ¡Disfruta!
 
-## Vectara Query Parameters
+## Parámetros de Consulta de Vectara
 
-For finer control over the Vectara query parameters, click on "**Additional Parameters**" and then you can update the following parameters from their default:
+Para un control más preciso sobre los parámetros de consulta de Vectara, haz clic en "**Additional Parameters**" y podrás actualizar los siguientes parámetros desde sus valores por defecto:
 
-* Metadata Filter: Vectara supports meta-data filtering. To use [filtering](https://docs.vectara.com/docs/common-use-cases/filtering-by-metadata/filter-overview), ensure that metadata fields you want to filter by are defined in your Vectara corpus.
-* "Sentences before" and "Sentences after": these control how many sentences before/after the matching text are returned as results from the Vectara retrieval engine
-* Lambda: defines the behavior of [hybrid search](https://docs.vectara.com/docs/learn/hybrid-search) in Vectara
-* Top-K: how many results to return from Vectara for the query
-* MMR-K: number of results to use for [MMR](https://docs.vectara.com/docs/api-reference/search-apis/reranking#maximal-marginal-relevance-mmr-reranker) (max marginal relvance)
+* Metadata Filter: Vectara soporta filtrado de metadata. Para usar el [filtrado](https://docs.vectara.com/docs/common-use-cases/filtering-by-metadata/filter-overview), asegúrate de que los campos de metadata que deseas filtrar estén definidos en tu corpus de Vectara.
+* "Sentences before" y "Sentences after": estos controlan cuántas oraciones antes/después del texto coincidente son devueltas como resultados del motor de recuperación de Vectara
+* Lambda: define el comportamiento de la [búsqueda híbrida](https://docs.vectara.com/docs/learn/hybrid-search) en Vectara
+* Top-K: cuántos resultados devolver de Vectara para la consulta
+* MMR-K: número de resultados a usar para [MMR](https://docs.vectara.com/docs/api-reference/search-apis/reranking#maximal-marginal-relevance-mmr-reranker) (relevancia marginal máxima)
 
 <figure><img src="../../../.gitbook/assets/vectara/6.png" alt="" width="500"><figcaption></figcaption></figure>
 
-## Resources
+## Recursos
 
 * [LangChain JS Vectara Blog Post](https://blog.langchain.dev/langchain-vectara-better-together/)
-* [5 Reasons to Use Vectara's Langchain Integration Blog Post](https://vectara.com/5-reasons-to-use-vectaras-langchain-integration/)
-* [Max Marginal Relevance in Vectara](https://vectara.com/blog/get-diverse-results-and-comprehensive-summaries-with-vectaras-mmr-reranker/)
-* [Vectara Boomerang embedding model Blog Post](https://vectara.com/introducing-boomerang-vectaras-new-and-improved-retrieval-model/)
-* [Detecting Hallucination with Vectara's HHEM](https://vectara.com/blog/cut-the-bull-detecting-hallucinations-in-large-language-models/)
+* [5 Razones para Usar la Integración de Vectara con Langchain Blog Post](https://vectara.com/5-reasons-to-use-vectaras-langchain-integration/)
+* [Relevancia Marginal Máxima en Vectara](https://vectara.com/blog/get-diverse-results-and-comprehensive-summaries-with-vectaras-mmr-reranker/)
+* [Blog Post sobre el modelo de embedding Boomerang de Vectara](https://vectara.com/introducing-boomerang-vectaras-new-and-improved-retrieval-model/)
+* [Detectando Alucinaciones con HHEM de Vectara](https://vectara.com/blog/cut-the-bull-detecting-hallucinations-in-large-language-models/)

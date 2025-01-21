@@ -1,11 +1,11 @@
 ---
-description: Summarizes the conversation and stores the memory in Redis server.
+description: Resume la conversación y almacena la memoria en el servidor Redis.
 ---
 
 # Redis-Backed Chat Memory
 
-<figure><img src="../../../.gitbook/assets/image (109).png" alt="" width="302"><figcaption><p>Redis-Backed Chat Memory Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (109).png" alt="" width="302"><figcaption><p>Nodo Redis-Backed Chat Memory</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../contributing/) para comenzar.
 {% endhint %}

@@ -2,15 +2,15 @@
 
 ### Install Git
 
-First, install Git and clone Flowise repository. You can follow the steps from the [Get Started](../getting-started/#for-developers) guide.
+Primero, instala Git y clona el repositorio de Flowise. Puedes seguir los pasos de la guía [Get Started](../getting-started/#for-developers).
 
 ### Structure
 
-Flowise separate every node integration under the folder `packages/components/nodes`. Let's try to create a simple Tool!
+Flowise separa cada integración de node bajo la carpeta `packages/components/nodes`. ¡Vamos a crear una simple Tool!
 
 ### Create Calculator Tool
 
-Create a new folder named `Calculator` under the `packages/components/nodes/tools` folder. Then create a new file named `Calculator.ts`. Inside the file, we will first write the base class.
+Crea una nueva carpeta llamada `Calculator` bajo la carpeta `packages/components/nodes/tools`. Luego crea un nuevo archivo llamado `Calculator.ts`. Dentro del archivo, primero escribiremos la clase base.
 
 ```javascript
 import { INode } from '../../../src/Interface'
@@ -43,15 +43,15 @@ class Calculator_Tools implements INode {
 module.exports = { nodeClass: Calculator_Tools }
 ```
 
-Every node will implements the `INode` base class. Breakdown of what each property means:
+Cada node implementará la clase base `INode`. Desglose de lo que significa cada propiedad:
 
-<table><thead><tr><th width="271">Property</th><th>Description</th></tr></thead><tbody><tr><td>label</td><td>The name of the node that appears on the UI</td></tr><tr><td>name</td><td>The name that is used by code. Must be <strong>camelCase</strong></td></tr><tr><td>version</td><td>Version of the node</td></tr><tr><td>type</td><td>Usually the same as label. To define which node can be connected to this specific type on UI</td></tr><tr><td>icon</td><td>Icon of the node</td></tr><tr><td>category</td><td>Category of the node</td></tr><tr><td>author</td><td>Creator of the node</td></tr><tr><td>description</td><td>Node description</td></tr><tr><td>baseClasses</td><td>The base classes from the node, since a node can extends from a base component. Used to define which node can be connected to this node on UI</td></tr></tbody></table>
+<table><thead><tr><th width="271">Property</th><th>Description</th></tr></thead><tbody><tr><td>label</td><td>El nombre del node que aparece en la UI</td></tr><tr><td>name</td><td>El nombre que es usado por el código. Debe estar en <strong>camelCase</strong></td></tr><tr><td>version</td><td>Versión del node</td></tr><tr><td>type</td><td>Usualmente igual que label. Para definir qué node puede conectarse a este tipo específico en la UI</td></tr><tr><td>icon</td><td>Icono del node</td></tr><tr><td>category</td><td>Categoría del node</td></tr><tr><td>author</td><td>Creador del node</td></tr><tr><td>description</td><td>Descripción del node</td></tr><tr><td>baseClasses</td><td>Las clases base del node, ya que un node puede extender de un componente base. Usado para definir qué node puede conectarse a este node en la UI</td></tr></tbody></table>
 
 ### Define Class
 
-Now the component class is partially finished, we can go ahead to define the actual Tool class, in this case - `Calculator`.
+Ahora que la clase del componente está parcialmente terminada, podemos proceder a definir la clase actual Tool, en este caso - `Calculator`.
 
-Create a new file under the same `Calculator` folder, and named as `core.ts`
+Crea un nuevo archivo bajo la misma carpeta `Calculator`, y nómbralo como `core.ts`
 
 ```javascript
 import { Parser } from "expr-eval"
@@ -73,7 +73,7 @@ export class Calculator extends Tool {
 
 ### Finishing
 
-Head back to the `Calculator.ts` file, we can finish this up by having the `async init` function. In this function, we will initialize the Calculator class we created above. When the flow is being executed, the `init` function in each node will be called, and the `_call` function will be executed when LLM decides to call this tool.
+Vuelve al archivo `Calculator.ts`, podemos terminarlo teniendo la función `async init`. En esta función, inicializaremos la clase Calculator que creamos arriba. Cuando el flujo se está ejecutando, la función `init` en cada node será llamada, y la función `_call` será ejecutada cuando el LLM decida llamar a esta tool.
 
 ```javascript
 import { INode } from '../../../src/Interface'
@@ -114,12 +114,12 @@ module.exports = { nodeClass: Calculator_Tools }
 
 ### Build and Run
 
-In the `.env` file inside `packages/server`, create a new env variable:
+En el archivo `.env` dentro de `packages/server`, crea una nueva variable de entorno:
 
 ```javascript
 SHOW_COMMUNITY_NODES=true
 ```
 
-Now we can use `pnpm build` and `pnpm start` to bring the component alive!
+¡Ahora podemos usar `pnpm build` y `pnpm start` para dar vida al componente!
 
 <figure><img src="../.gitbook/assets/image (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>

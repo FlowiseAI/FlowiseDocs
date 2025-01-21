@@ -1,11 +1,11 @@
 ---
-description: Chain to run queries against GET API.
+description: Cadena para ejecutar consultas contra una API GET.
 ---
 
-# GET API Chain
+# Cadena API GET
 
-<figure><img src="../../../.gitbook/assets/image (24) (1).png" alt="" width="337"><figcaption><p>GET API Chain Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (24) (1).png" alt="" width="337"><figcaption><p>Nodo de Cadena API GET</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../contributing/) para comenzar.
 {% endhint %}

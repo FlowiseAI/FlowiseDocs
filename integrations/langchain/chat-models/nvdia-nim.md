@@ -1,35 +1,35 @@
 # Nvdia NIM
 
-## Prerequisite
+## Prerequisitos
 
-1. Log in or sign up to [Nvdia](https://build.nvidia.com/).
-2. From the top navigation bar, click NIM:
+1. Inicia sesión o regístrate en [Nvdia](https://build.nvidia.com/).
+2. Desde la barra de navegación superior, haz clic en NIM:
 
 <figure><img src="../../../.gitbook/assets/image (247).png" alt=""><figcaption></figcaption></figure>
 
-3. Search for the model you would like to use. To download it locally, we will be using Docker:
+3. Busca el modelo que te gustaría usar. Para descargarlo localmente, usaremos Docker:
 
 <figure><img src="../../../.gitbook/assets/image (248).png" alt=""><figcaption></figcaption></figure>
 
-4. Follow the instructions from the Docker setup. You must first get an API Key to pull the Docker image:
+4. Sigue las instrucciones de la configuración de Docker. Primero debes obtener una API Key para descargar la imagen de Docker:
 
 <figure><img src="../../../.gitbook/assets/image (249).png" alt="" width="563"><figcaption></figcaption></figure>
 
 ## Flowise
 
-1. **Chat Models** > drag **Chat NvdiaNIM** node
+1. **Chat Models** > arrastra el nodo **Chat NvdiaNIM**
 
 <figure><img src="../../../.gitbook/assets/image (250).png" alt=""><figcaption></figcaption></figure>
 
-2. If you are using Nvdia hosted endpoint, you must have your API key. **Connect Credential** > click **Create New.** However if you are using local setup, this is optional.
+2. Si estás usando un endpoint alojado en Nvdia, debes tener tu API key. **Connect Credential** > haz clic en **Create New**. Sin embargo, si estás usando una configuración local, esto es opcional.
 
 <div align="left"><figure><img src="../../../.gitbook/assets/image (251).png" alt=""><figcaption></figcaption></figure> <figure><img src="../../../.gitbook/assets/Screenshot 2024-12-23 180712.png" alt=""><figcaption></figcaption></figure></div>
 
-3. Put in the model name and voila [🎉](https://emojipedia.org/party-popper/), your **Nvdia NIM node** is now ready to be used in Flowise!
+3. Ingresa el nombre del modelo y ¡voilà [🎉](https://emojipedia.org/party-popper/), tu **nodo Nvdia NIM** está listo para ser usado en Flowise!
 
 <figure><img src="../../../.gitbook/assets/image (252).png" alt=""><figcaption></figcaption></figure>
 
-## Resources
+## Recursos
 
 * [Nvida LLM Getting Started](https://docs.nvidia.com/nim/large-language-models/latest/getting-started.html)
 * [Nvdia NIM](https://build.nvidia.com/microsoft/phi-3-mini-4k?snippet_tab=Docker)

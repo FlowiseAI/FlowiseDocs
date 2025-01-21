@@ -1,13 +1,13 @@
 ---
 description: >-
-  Task Driven Autonomous Agent which creates new task and reprioritizes task
-  list based on objective
+  Agente Autónomo Orientado a Tareas que crea nuevas tareas y reprioriza la lista
+  de tareas basándose en el objetivo
 ---
 
 # BabyAGI
 
-<figure><img src="../../../.gitbook/assets/image (14) (1) (1) (1).png" alt="" width="275"><figcaption><p>BabyAGI Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (14) (1) (1) (1).png" alt="" width="275"><figcaption><p>Node de BabyAGI</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../contributing/) para comenzar.
 {% endhint %}

@@ -1,97 +1,97 @@
 ---
-description: LangChain Record Manager Nodes
+description: Nodos Record Manager de LangChain
 ---
 
 # Record Managers
 
 ***
 
-Record Managers keep track of your indexed documents, preventing duplicated vector embeddings in [Vector Store](vector-stores/).
+Los Record Managers hacen un seguimiento de tus documentos indexados, evitando embeddings vectoriales duplicados en [Vector Store](vector-stores/).
 
-When document chunks are upserting, each chunk will be hashed using [SHA-1](https://github.com/emn178/js-sha1) algorithm. These hashes will get stored in Record Manager. If there is an existing hash, the embedding and upserting process will be skipped.
+Cuando se realizan upserts de fragmentos de documentos, cada fragmento será hasheado usando el algoritmo [SHA-1](https://github.com/emn178/js-sha1). Estos hashes se almacenarán en el Record Manager. Si existe un hash, el proceso de embedding y upsert será omitido.
 
-In some cases, you might want to delete existing documents that are derived from the same sources as the new documents being indexed. For that, there are 3 cleanup modes for Record Manager:
+En algunos casos, podrías querer eliminar documentos existentes que se derivan de las mismas fuentes que los nuevos documentos que se están indexando. Para eso, hay 3 modos de limpieza para Record Manager:
 
 {% tabs %}
 {% tab title="Incremental" %}
-When you are upserting multiple documents, and you want to prevent deletion of the existing documents that are not part of the current upserting process, use **Incremental** Cleanup mode.
+Cuando estás haciendo upsert de múltiples documentos y quieres evitar la eliminación de los documentos existentes que no son parte del proceso actual de upsert, usa el modo de limpieza **Incremental**.
 
-1. Let's have a Record Manager with `Incremental` Cleanup and `source` as SourceId Key
+1. Tengamos un Record Manager con modo de limpieza `Incremental` y `source` como SourceId Key
 
 <div align="left"><figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="264"><figcaption></figcaption></figure> <figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="410"><figcaption></figcaption></figure></div>
 
-2. And have the following 2 documents:
+2. Y tengamos los siguientes 2 documentos:
 
-| Text | Metadata         |
-| ---- | ---------------- |
-| Cat  | `{source:"cat"}` |
-| Dog  | `{source:"dog"}` |
+| Texto | Metadata         |
+| ----- | ---------------- |
+| Cat   | `{source:"cat"}` |
+| Dog   | `{source:"dog"}` |
 
 <div align="left"><figure><img src="../../.gitbook/assets/image (11) (1) (1) (1) (1).png" alt="" width="202"><figcaption></figcaption></figure> <figure><img src="../../.gitbook/assets/image (10) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure></div>
 
 <div align="left"><figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (2).png" alt="" width="231"><figcaption></figcaption></figure> <figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (2).png" alt="" width="563"><figcaption></figcaption></figure></div>
 
-3. After an upsert, we will see 2 documents that are upserted:
+3. Después de un upsert, veremos 2 documentos que se han insertado:
 
 <figure><img src="../../.gitbook/assets/image (9) (1) (1) (1) (1) (2).png" alt="" width="433"><figcaption></figcaption></figure>
 
-4. Now, if we delete the **Dog** document, and update **Cat** to **Cats**, we will now see the following:
+4. Ahora, si eliminamos el documento **Dog** y actualizamos **Cat** a **Cats**, veremos lo siguiente:
 
 <figure><img src="../../.gitbook/assets/image (13) (2).png" alt="" width="425"><figcaption></figcaption></figure>
 
-* The original **Cat** document is deleted
-* A new document with **Cats** is added
-* **Dog** document is left untouched
-* The remaining vector embeddings in Vector Store are **Cats** and **Dog**
+* El documento original **Cat** es eliminado
+* Un nuevo documento con **Cats** es añadido
+* El documento **Dog** no se modifica
+* Los embeddings vectoriales restantes en Vector Store son **Cats** y **Dog**
 
 <figure><img src="../../.gitbook/assets/image (15) (1) (1).png" alt="" width="448"><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Full" %}
-When you are upserting multiple documents, **Full** Cleanup mode will automatically delete any vector embeddings that are not part of the current upserting process.
+Cuando estás haciendo upsert de múltiples documentos, el modo de limpieza **Full** eliminará automáticamente cualquier embedding vectorial que no sea parte del proceso actual de upsert.
 
-1. Let's have a Record Manager with `Full` Cleanup. We don't need to have a SourceId Key for Full Cleanup mode.
+1. Tengamos un Record Manager con limpieza `Full`. No necesitamos tener un SourceId Key para el modo de limpieza Full.
 
 <div align="left"><figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="264"><figcaption></figcaption></figure> <figure><img src="../../.gitbook/assets/image (17) (1) (1).png" alt="" width="407"><figcaption></figcaption></figure></div>
 
-2. And have the following 2 documents:
+2. Y tengamos los siguientes 2 documentos:
 
-| Text | Metadata         |
-| ---- | ---------------- |
-| Cat  | `{source:"cat"}` |
-| Dog  | `{source:"dog"}` |
+| Texto | Metadata         |
+| ----- | ---------------- |
+| Cat   | `{source:"cat"}` |
+| Dog   | `{source:"dog"}` |
 
 <div align="left"><figure><img src="../../.gitbook/assets/image (11) (1) (1) (1) (1).png" alt="" width="202"><figcaption></figcaption></figure> <figure><img src="../../.gitbook/assets/image (10) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure></div>
 
 <div align="left"><figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (2).png" alt="" width="231"><figcaption></figcaption></figure> <figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (2).png" alt="" width="563"><figcaption></figcaption></figure></div>
 
-3. After an upsert, we will see 2 documents that are upserted:
+3. Después de un upsert, veremos 2 documentos que se han insertado:
 
 <figure><img src="../../.gitbook/assets/image (9) (1) (1) (1) (1) (2).png" alt="" width="433"><figcaption></figcaption></figure>
 
-4. Now, if we delete the **Dog** document, and update **Cat** to **Cats**, we will now see the following:
+4. Ahora, si eliminamos el documento **Dog** y actualizamos **Cat** a **Cats**, veremos lo siguiente:
 
 <figure><img src="../../.gitbook/assets/image (18) (1) (1).png" alt="" width="430"><figcaption></figcaption></figure>
 
-* The original **Cat** document is deleted
-* A new document with **Cats** is added
-* **Dog** document is deleted
-* The remaining vector embeddings in Vector Store is just **Cats**
+* El documento original **Cat** es eliminado
+* Un nuevo documento con **Cats** es añadido
+* El documento **Dog** es eliminado
+* El único embedding vectorial restante en Vector Store es **Cats**
 
 <figure><img src="../../.gitbook/assets/image (19) (1) (1).png" alt="" width="527"><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="None" %}
-No cleanup will be performed
+No se realizará ninguna limpieza
 {% endtab %}
 {% endtabs %}
 
-Current available Record Manager nodes are:
+Los nodos Record Manager actualmente disponibles son:
 
 * SQLite
 * MySQL
 * PostgresQL
 
-## Resources
+## Recursos
 
-* [LangChain Indexing - How it works](https://js.langchain.com/docs/how_to/indexing/#how-it-works)
+* [LangChain Indexing - Cómo funciona](https://js.langchain.com/docs/how_to/indexing/#how-it-works)

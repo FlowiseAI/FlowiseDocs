@@ -1,14 +1,14 @@
 ---
-description: LangChain Moderation Nodes
+description: Nodos de Moderation de LangChain
 ---
 
 # Moderation
 
 ***
 
-Moderation nodes are used to check whether the input or output consists of harmful or inappropriate content.
+Los nodos de Moderation se utilizan para verificar si la entrada o salida contiene contenido dañino o inapropiado.
 
-### Moderation Nodes:
+### Nodos de Moderation:
 
 * [OpenAI Moderation](openai-moderation.md)
 * [Simple Prompt Moderation](simple-prompt-moderation.md)

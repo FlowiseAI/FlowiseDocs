@@ -1,11 +1,11 @@
 ---
-description: Load data from JSON files.
+description: Carga datos desde archivos JSON.
 ---
 
 # Json File
 
-<figure><img src="../../../.gitbook/assets/image (12) (1) (1) (1).png" alt="" width="259"><figcaption><p>Json File Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (12) (1) (1) (1).png" alt="" width="259"><figcaption><p>Nodo Json File</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../contributing/) para comenzar.
 {% endhint %}

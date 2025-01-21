@@ -1,12 +1,12 @@
 # Custom Tool
 
-Watch how to use custom tools
+Mira cómo usar custom tools
 
 {% embed url="https://youtu.be/HSp9LkkTVY0" %}
 
-## Problem
+## Problema
 
-Function usually takes in structured input data. Let's say you want the LLM to be able to call Airtable Create Record [API](https://airtable.com/developers/web/api/create-records), the body parameters has to be structured in a specific way. For example:
+Las funciones generalmente toman datos de entrada estructurados. Digamos que quieres que el LLM pueda llamar a la API de Airtable Create Record [API](https://airtable.com/developers/web/api/create-records), los parámetros del body tienen que estar estructurados de una manera específica. Por ejemplo:
 
 ```json
 "records": [
@@ -20,7 +20,7 @@ Function usually takes in structured input data. Let's say you want the LLM to b
 ]
 ```
 
-Ideally, we want LLM to return a proper structured data like this:
+Idealmente, queremos que el LLM devuelva datos estructurados adecuadamente como esto:
 
 ```json
 {
@@ -30,19 +30,19 @@ Ideally, we want LLM to return a proper structured data like this:
 }
 ```
 
-So we can extract the value and parse it into the body needed for API. However, instructing LLM to output the exact pattern is difficult.
+Así podemos extraer el valor y analizarlo en el body necesario para la API. Sin embargo, instruir al LLM para que genere el patrón exacto es difícil.
 
-With the new [OpenAI Function Calling](https://openai.com/blog/function-calling-and-other-api-updates) models, it is now possible. `gpt-4-0613` and `gpt-3.5-turbo-0613` are specifically trained to return structured data. The model will intelligently choose to output a JSON object containing arguments to call those functions.
+Con los nuevos modelos de [OpenAI Function Calling](https://openai.com/blog/function-calling-and-other-api-updates), ahora es posible. `gpt-4-0613` y `gpt-3.5-turbo-0613` están específicamente entrenados para devolver datos estructurados. El modelo elegirá de manera inteligente generar un objeto JSON que contenga los argumentos para llamar a esas funciones.
 
 ## Tutorial
 
-**Goal**: Have the agent automatically get the stock price movement, retrieve related stock news, and add a new record to Airtable.
+**Objetivo**: Hacer que el agent obtenga automáticamente el movimiento del precio de las acciones, recupere noticias relacionadas con las acciones y agregue un nuevo registro a Airtable.
 
-Let's get started[🚀](https://emojipedia.org/rocket/)
+Empecemos[🚀](https://emojipedia.org/rocket/)
 
-### Create Tools
+### Crear Tools
 
-We need 3 tools to achieve the goal:
+Necesitamos 3 tools para lograr el objetivo:
 
 * Get Stock Price Movement
 * Get Stock News
@@ -50,22 +50,22 @@ We need 3 tools to achieve the goal:
 
 #### Get Stock Price Movement
 
-Create a new Tool with the following details (you can change as you want):
+Crea una nueva Tool con los siguientes detalles (puedes cambiarlos como desees):
 
-* Name: get\_stock\_movers
+* Name: get_stock_movers
 * Description: Get the stocks that has biggest price/volume moves, e.g. actives, gainers, losers, etc.
 
-Description is an important piece as ChatGPT is relying on this to decide when to use this tool.
+La descripción es una parte importante ya que ChatGPT se basa en esto para decidir cuándo usar esta tool.
 
 <figure><img src="../../../.gitbook/assets/image (6) (3).png" alt=""><figcaption></figcaption></figure>
 
-* JavaScript Function: We are going to use [Morning Star](https://rapidapi.com/apidojo/api/morning-star) `/market/v2/get-movers` API to get data. First you have to click Subscribe to Test if you haven't already, then copy the code and paste it into JavaScript Function.
-  * Add `const fetch = require('node-fetch');` at the top to import the library. You can import any built-in NodeJS [modules](https://www.w3schools.com/nodejs/ref_modules.asp) and [external libraries](https://github.com/FlowiseAI/Flowise/blob/main/packages/components/src/utils.ts#L289).
-  * Return the `result` at the end.
+* JavaScript Function: Vamos a usar la API [Morning Star](https://rapidapi.com/apidojo/api/morning-star) `/market/v2/get-movers` para obtener datos. Primero debes hacer clic en Subscribe to Test si aún no lo has hecho, luego copia el código y pégalo en JavaScript Function.
+  * Agrega `const fetch = require('node-fetch');` al principio para importar la librería. Puedes importar cualquier [módulo](https://www.w3schools.com/nodejs/ref_modules.asp) integrado de NodeJS y [librerías externas](https://github.com/FlowiseAI/Flowise/blob/main/packages/components/src/utils.ts#L289).
+  * Retorna el `result` al final.
 
 <figure><img src="../../../.gitbook/assets/Untitled (4) (1).png" alt=""><figcaption></figcaption></figure>
 
-The final code should be:
+El código final debería ser:
 
 ```javascript
 const fetch = require('node-fetch');
@@ -89,13 +89,13 @@ try {
 }
 ```
 
-You can now save it.
+Ahora puedes guardarlo.
 
-#### Get Stock news
+#### Get Stock News
 
-Create a new Tool with the following details (you can change as you want):
+Crea una nueva Tool con los siguientes detalles (puedes cambiarlos como desees):
 
-* Name: get\_stock\_news
+* Name: get_stock_news
 * Description: Get latest news for a stock
 * Input Schema:
   * Property: performanceId
@@ -103,22 +103,22 @@ Create a new Tool with the following details (you can change as you want):
   * Description: id of the stock, which is referred as performanceID in the API
   * Required: true
 
-Input Schema tells LLM what to return as a JSON object. In this case, we are expecting a JSON object like below:
+Input Schema le indica al LLM qué debe devolver como objeto JSON. En este caso, esperamos un objeto JSON como el siguiente:
 
 <pre class="language-json"><code class="lang-json"><strong>{ "performanceId": "SOME TICKER" }
 </strong></code></pre>
 
 <figure><img src="../../../.gitbook/assets/image (4) (2).png" alt=""><figcaption></figcaption></figure>
 
-* JavaScript Function: We are going to use [Morning Star](https://rapidapi.com/apidojo/api/morning-star) `/news/list` API to get the data. First you have to click Subscribe to Test if you haven't already, then copy the code and paste it into JavaScript Function.
-  * Add `const fetch = require('node-fetch');` at the top to import the library. You can import any built-in NodeJS [modules](https://www.w3schools.com/nodejs/ref_modules.asp) and [external libraries](https://github.com/FlowiseAI/Flowise/blob/main/packages/components/src/utils.ts#L289).
-  * Return the `result` at the end.
-* Next, replace the hard-coded url query parameter performanceId: `0P0000OQN8` to the property variable specified in Input Schema: `$performanceId`
-* You can use any properties specified in Input Schema as variables in the JavaScript Function by appending a prefix `$` at the front of the variable name.
+* JavaScript Function: Vamos a usar la API [Morning Star](https://rapidapi.com/apidojo/api/morning-star) `/news/list` para obtener los datos. Primero debes hacer clic en Subscribe to Test si aún no lo has hecho, luego copia el código y pégalo en JavaScript Function.
+  * Agrega `const fetch = require('node-fetch');` al principio para importar la librería. Puedes importar cualquier [módulo](https://www.w3schools.com/nodejs/ref_modules.asp) integrado de NodeJS y [librerías externas](https://github.com/FlowiseAI/Flowise/blob/main/packages/components/src/utils.ts#L289).
+  * Retorna el `result` al final.
+* Luego, reemplaza el parámetro performanceId codificado en la URL: `0P0000OQN8` por la variable de propiedad especificada en Input Schema: `$performanceId`
+* Puedes usar cualquier propiedad especificada en Input Schema como variables en la JavaScript Function agregando el prefijo `$` al principio del nombre de la variable.
 
 <figure><img src="../../../.gitbook/assets/Untitled (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-Final code:
+Código final:
 
 ```javascript
 const fetch = require('node-fetch');
@@ -142,13 +142,13 @@ try {
 }
 ```
 
-You can now save it.
+Ahora puedes guardarlo.
 
 #### Add Airtable Record
 
-Create a new Tool with the following details (you can change as you want):
+Crea una nueva Tool con los siguientes detalles (puedes cambiarlos como desees):
 
-* Name: add\_airtable
+* Name: add_airtable
 * Description: Add the stock, news summary & price move to Airtable
 * Input Schema:
   * Property: stock
@@ -159,12 +159,12 @@ Create a new Tool with the following details (you can change as you want):
   * Type: string
   * Description: price move in %
   * Required: true
-  * Property: news\_summary
+  * Property: news_summary
   * Type: string
   * Description: news summary of the stock
   * Required: true
 
-ChatGPT will returns a JSON object like this:
+ChatGPT devolverá un objeto JSON como este:
 
 ```json
 { "stock": "SOME TICKER", "move": "20%", "news_summary": "Some summary" }
@@ -172,9 +172,9 @@ ChatGPT will returns a JSON object like this:
 
 <figure><img src="../../../.gitbook/assets/image (36).png" alt=""><figcaption></figcaption></figure>
 
-* JavaScript Function: We are going to use [Airtable Create Record API](https://airtable.com/developers/web/api/create-records) to create a new record to an existing table. You can find the tableId and baseId from [here](https://www.highviewapps.com/kb/where-can-i-find-the-airtable-base-id-and-table-id/). You'll also need to create a personal access token, find how to do it [here](https://www.highviewapps.com/kb/how-do-i-create-an-airtable-personal-access-token/).
+* JavaScript Function: Vamos a usar [Airtable Create Record API](https://airtable.com/developers/web/api/create-records) para crear un nuevo registro en una tabla existente. Puedes encontrar el tableId y baseId [aquí](https://www.highviewapps.com/kb/where-can-i-find-the-airtable-base-id-and-table-id/). También necesitarás crear un token de acceso personal, encuentra cómo hacerlo [aquí](https://www.highviewapps.com/kb/how-do-i-create-an-airtable-personal-access-token/).
 
-Final code should looks like below. Note how we pass in `$stock`, `$move` and `$news_summary` as variables:
+El código final debería verse como se muestra a continuación. Observa cómo pasamos `$stock`, `$move` y `$news_summary` como variables:
 
 ```javascript
 const fetch = require('node-fetch');
@@ -215,52 +215,52 @@ try {
 }
 ```
 
-You can now save it.
+Ahora puedes guardarlo.
 
-You should see 3 tools created:
+Deberías ver 3 tools creadas:
 
 <figure><img src="../../../.gitbook/assets/image (3) (3) (1).png" alt=""><figcaption></figcaption></figure>
 
-### Create Chatflow
+### Crear Chatflow
 
-You can use the template **OpenAI Function** **Agent** from marketplace, and replace the tools with **Custom Tool**. Select the tool you have created.
+Puedes usar la plantilla **OpenAI Function** **Agent** del marketplace, y reemplazar las tools con **Custom Tool**. Selecciona la tool que has creado.
 
-Note: OpenAI Function Agent only supports 0613 models currently.
+Nota: OpenAI Function Agent solo soporta modelos 0613 actualmente.
 
 <figure><img src="../../../.gitbook/assets/image (15) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-Save the chatflow and start testing it. For starter, you can try asking:
+Guarda el chatflow y comienza a probarlo. Para empezar, puedes intentar preguntar:
 
-_<mark style="color:blue;">What is the stock that has the biggest price movement today?</mark>_
+_<mark style="color:blue;">¿Qué acción tiene el mayor movimiento de precio hoy?</mark>_
 
-_<mark style="color:orange;">The stock that has the biggest price movement today is Overstock.com (OSTK) with a price move of 17.47%.</mark>_
+_<mark style="color:orange;">La acción que tiene el mayor movimiento de precio hoy es Overstock.com (OSTK) con un movimiento de precio del 17.47%.</mark>_
 
-You can then follow up with another question to get the news of that particular stock:
+Luego puedes hacer una pregunta de seguimiento para obtener las noticias de esa acción en particular:
 
-_<mark style="color:blue;">What are the latest news about this stock that might cause the price movement?</mark>_
+_<mark style="color:blue;">¿Cuáles son las últimas noticias sobre esta acción que podrían haber causado el movimiento del precio?</mark>_
 
-_<mark style="color:orange;">Here are the latest news about Overstock.com (OSTK) that might have caused the price movement:</mark>_
+_<mark style="color:orange;">Aquí están las últimas noticias sobre Overstock.com (OSTK) que podrían haber causado el movimiento del precio:</mark>_
 
-1. _<mark style="color:orange;">Title: "Overstock's shares soar on successful 21.5 million bid for Bed Bath & Beyond assets" Source: MarketWatch Published Date: June 22, 2023 Summary: Overstock.com's shares experienced a significant increase after successfully winning a bid for Bed Bath & Beyond assets worth 21.5 million.</mark>_
-2. _<mark style="color:orange;">Title: "Thinking about trading options or stock in Meta Platforms, Overstock.com, Walmart, Home Depot, or United Parcel Service?" Source: PR Newswire Published Date: June 22, 2023 Summary: This news article discusses the potential trading options and stocks, including Overstock.com, that investors may consider.</mark>_
+1. _<mark style="color:orange;">Título: "Las acciones de Overstock se disparan tras la exitosa oferta de 21.5 millones por los activos de Bed Bath & Beyond" Fuente: MarketWatch Fecha de publicación: 22 de junio de 2023 Resumen: Las acciones de Overstock.com experimentaron un aumento significativo después de ganar exitosamente una oferta por los activos de Bed Bath & Beyond valorados en 21.5 millones.</mark>_
+2. _<mark style="color:orange;">Título: "¿Pensando en operar opciones o acciones de Meta Platforms, Overstock.com, Walmart, Home Depot o United Parcel Service?" Fuente: PR Newswire Fecha de publicación: 22 de junio de 2023 Resumen: Este artículo de noticias discute las potenciales opciones de trading y acciones, incluyendo Overstock.com, que los inversores podrían considerar.</mark>_
 
-_<mark style="color:orange;">Please note that these news articles are for informational purposes only and may not be the sole reason for the price movement. It is always recommended to conduct thorough research and analysis before making any investment decisions.</mark>_
+_<mark style="color:orange;">Ten en cuenta que estos artículos de noticias son solo para fines informativos y pueden no ser la única razón del movimiento del precio. Siempre se recomienda realizar una investigación y análisis exhaustivos antes de tomar cualquier decisión de inversión.</mark>_
 
-Lastly, you can ask ChatGPT to add a new record to Airtable:
+Por último, puedes pedirle a ChatGPT que agregue un nuevo registro a Airtable:
 
-_<mark style="color:blue;">Can you add a record to Airtable with the stock ticker, price move and news summary?</mark>_
+_<mark style="color:blue;">¿Puedes agregar un registro a Airtable con el ticker de la acción, el movimiento del precio y el resumen de noticias?</mark>_
 
-_<mark style="color:orange;">I have added a record to Airtable with the following details:</mark>_
+_<mark style="color:orange;">He agregado un registro a Airtable con los siguientes detalles:</mark>_
 
-_<mark style="color:orange;">Stock Ticker: OSTK Price Move: 17.47% News Summary: Overstock.com's shares experienced a significant increase after successfully winning a bid for Bed Bath & Beyond assets worth $21.5 million.</mark>_
+_<mark style="color:orange;">Ticker de la acción: OSTK Movimiento del precio: 17.47% Resumen de noticias: Las acciones de Overstock.com experimentaron un aumento significativo después de ganar exitosamente una oferta por los activos de Bed Bath & Beyond valorados en $21.5 millones.</mark>_
 
-[🎉](https://emojipedia.org/party-popper/)[🎉](https://emojipedia.org/party-popper/)**Voila!** That's how you can create your own custom tool and use it with the OpenAI Function Agent!
+[🎉](https://emojipedia.org/party-popper/)[🎉](https://emojipedia.org/party-popper/)**¡Voilà!** ¡Así es como puedes crear tu propia custom tool y usarla con el OpenAI Function Agent!
 
-## Additional
+## Adicional
 
-### Pass Session ID to Function
+### Pasar Session ID a la Function
 
-By default, Function in custom tool has access to the following flow configurations:
+Por defecto, la Function en custom tool tiene acceso a las siguientes configuraciones de flow:
 
 ```json5
 $flow.sessionId 
@@ -269,14 +269,14 @@ $flow.chatflowId
 $flow.input
 ```
 
-Below is an example of sending the sessionId to Discord webhook:
+A continuación se muestra un ejemplo de envío del sessionId a un webhook de Discord:
 
 {% tabs %}
 {% tab title="Javascript" %}
 ```javascript
 const fetch = require('node-fetch');
 const webhookUrl = "https://discord.com/api/webhooks/1124783587267";
-const content = $content; // captured from input schema
+const content = $content; // capturado desde input schema
 const sessionId = $flow.sessionId;
 
 const body = {
@@ -305,19 +305,19 @@ try {
 {% endtab %}
 {% endtabs %}
 
-### Pass variables to Function
+### Pasar variables a la Function
 
-In some cases, you would like to pass variables to custom tool function.
+En algunos casos, te gustaría pasar variables a la función de custom tool.
 
-For example, you are creating a chatbot that uses a custom tool. The custom tool is executing a HTTP POST call and API key is needed for successful authenticated request. You can pass it as a variable.
+Por ejemplo, estás creando un chatbot que usa una custom tool. La custom tool está ejecutando una llamada HTTP POST y se necesita una API key para una solicitud autenticada exitosa. Puedes pasarla como una variable.
 
-By default, Function in custom tool has access to variables:
+Por defecto, la Function en custom tool tiene acceso a las variables:
 
 ```
 $vars.<variable-name>
 ```
 
-Example of how to pass variables in Flowise using API and Embedded:
+Ejemplo de cómo pasar variables en Flowise usando API y Embedded:
 
 {% tabs %}
 {% tab title="Javascript API" %}
@@ -368,14 +368,14 @@ query({
 {% endtab %}
 {% endtabs %}
 
-Example of how to receive the variables in custom tool:
+Ejemplo de cómo recibir las variables en custom tool:
 
 {% tabs %}
 {% tab title="Javascript" %}
 ```javascript
 const fetch = require('node-fetch');
 const webhookUrl = "https://discord.com/api/webhooks/1124783587267";
-const content = $content; // captured from input schema
+const content = $content; // capturado desde input schema
 const sessionId = $flow.sessionId;
 const apiKey = $vars.apiKey;
 
@@ -406,18 +406,18 @@ try {
 {% endtab %}
 {% endtabs %}
 
-### Override Custom Tool
+### Sobrescribir Custom Tool
 
-Parameters below can be overriden
+Los siguientes parámetros pueden ser sobrescritos
 
-| Parameter        | Description      |
+| Parámetro        | Descripción      |
 | ---------------- | ---------------- |
-| customToolName   | tool name        |
-| customToolDesc   | tool description |
-| customToolSchema | tool schema      |
-| customToolFunc   | tool function    |
+| customToolName   | nombre de la tool |
+| customToolDesc   | descripción de la tool |
+| customToolSchema | schema de la tool |
+| customToolFunc   | función de la tool |
 
-Example of an API call to override custom tool parameters:
+Ejemplo de una llamada API para sobrescribir parámetros de custom tool:
 
 {% tabs %}
 {% tab title="Javascript API" %}
@@ -450,11 +450,11 @@ query({
 {% endtab %}
 {% endtabs %}
 
-### Import External Dependencies
+### Importar Dependencias Externas
 
-You can import any built-in NodeJS [modules](https://www.w3schools.com/nodejs/ref_modules.asp) and supported [external libraries](https://github.com/FlowiseAI/Flowise/blob/main/packages/components/src/utils.ts#L289) into Function.
+Puedes importar cualquier [módulo](https://www.w3schools.com/nodejs/ref_modules.asp) integrado de NodeJS y [librerías externas](https://github.com/FlowiseAI/Flowise/blob/main/packages/components/src/utils.ts#L289) soportadas en la Function.
 
-1. To import any non-supported libraries, you can easily add the new npm package to `package.json` in `packages/components` folder.
+1. Para importar cualquier librería no soportada, puedes agregar fácilmente el nuevo paquete npm al `package.json` en la carpeta `packages/components`.
 
 ```bash
 cd Flowise && cd packages && cd components
@@ -464,19 +464,19 @@ pnpm install
 pnpm build
 ```
 
-2. Then, add the imported libraries to `TOOL_FUNCTION_EXTERNAL_DEP` environment variable. Refer [#builtin-and-external-dependencies](../../../configuration/environment-variables.md#builtin-and-external-dependencies "mention") for more details.
-3. Start the app
+2. Luego, agrega las librerías importadas a la variable de entorno `TOOL_FUNCTION_EXTERNAL_DEP`. Consulta [#builtin-and-external-dependencies](../../../configuration/environment-variables.md#builtin-and-external-dependencies "mention") para más detalles.
+3. Inicia la aplicación
 
 ```bash
 pnpm start
 ```
 
-4. You can then use the newly added library in the **JavaScript Function** like so:
+4. Entonces podrás usar la librería recién agregada en la **JavaScript Function** así:
 
 ```javascript
 const axios = require('axios')
 ```
 
-Watch how to add additional dependencies and import libraries
+Mira cómo agregar dependencias adicionales e importar librerías
 
 {% embed url="https://youtu.be/0H1rrisc0ok" %}

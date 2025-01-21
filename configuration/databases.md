@@ -1,12 +1,12 @@
 ---
-description: Learn how to connect your Flowise instance to a database
+description: Aprende cómo conectar tu instancia de Flowise a una database
 ---
 
 # Databases
 
 ***
 
-Flowise supports 4 database types:
+Flowise soporta 4 tipos de databases:
 
 * SQLite
 * MySQL
@@ -15,16 +15,16 @@ Flowise supports 4 database types:
 
 ## SQLite (Default)
 
-SQLite will be the default database. These databases can be configured with following env variables:
+SQLite será la default database. Estas databases se pueden configurar con las siguientes environment variables:
 
 ```sh
 DATABASE_TYPE=sqlite
-DATABASE_PATH=/root/.flowise #your preferred location
+DATABASE_PATH=/root/.flowise #tu preferred location
 ```
 
-A `database.sqlite` file will be created and saved in the path specified by `DATABASE_PATH`. If not specified, the default store path will be in your home directory -> .flowise
+Un archivo `database.sqlite` será created y saved en el path especificado por `DATABASE_PATH`. Si no se especifica, el default store path será en tu home directory -> .flowise
 
-**Note:** If none of the env variables is specified, SQLite will be the fallback database choice.
+**Note:** Si ninguna de las environment variables está especificada, SQLite será la fallback database choice.
 
 ## MySQL
 
@@ -60,6 +60,6 @@ DATABASE_USER="flowise"
 DATABASE_PASSWORD="mypassword"
 ```
 
-## How to use Flowise databases SQLite and MySQL/MariaDB
+## How to use Flowise databases SQLite y MySQL/MariaDB
 
 {% embed url="https://youtu.be/R-6uV1Cb8I8" %}

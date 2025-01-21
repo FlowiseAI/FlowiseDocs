@@ -1,58 +1,58 @@
 # Chroma
 
-## Prerequisite
+## Prerequisitos
 
-1. Download & Install [Docker ](https://www.docker.com/)and [Git](https://git-scm.com/)
-2. Clone [Chroma's repository](https://github.com/chroma-core/chroma) with your terminal
+1. Descarga e Instala [Docker ](https://www.docker.com/)y [Git](https://git-scm.com/)
+2. Clona el [repositorio de Chroma](https://github.com/chroma-core/chroma) con tu terminal
 
 ```bash
 git clone https://github.com/chroma-core/chroma.git
 ```
 
-3. Change directory path to your cloned Chroma
+3. Cambia el directorio a tu Chroma clonado
 
 ```bash
 cd chroma
 ```
 
-4. Run docker compose to build up Chroma image and container
+4. Ejecuta docker compose para construir la imagen y el contenedor de Chroma
 
 ```bash
 docker compose up -d --build
 ```
 
-5. If success, you will be able to see the docker images spun up:
+5. Si tiene éxito, podrás ver las imágenes de docker iniciadas:
 
 <figure><img src="../../../.gitbook/assets/image (4) (1) (3).png" alt="" width="390"><figcaption></figcaption></figure>
 
-## Setup
+## Configuración
 
-| Input           | Description                                                                                                                                        | Default               |
+| Input           | Descripción                                                                                                                                        | Valor por defecto     |
 | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| Document        | Can be connected with nodes from [Document Loader](../document-loaders/)                                                                           |                       |
-| Embeddings      | Can be connected with nodes from [Embeddings](../embeddings/)                                                                                      |                       |
-| Collection Name | Chroma collection name. Refer to [here](https://docs.trychroma.com/usage-guide#creating-inspecting-and-deleting-collections) for naming convention |                       |
-| Chroma URL      | Specify the URL of your chroma instance                                                                                                            | http://localhost:8000 |
+| Document        | Puede conectarse con nodos de [Document Loader](../document-loaders/)                                                                              |                       |
+| Embeddings      | Puede conectarse con nodos de [Embeddings](../embeddings/)                                                                                         |                       |
+| Collection Name | Nombre de la collection de Chroma. Consulta [aquí](https://docs.trychroma.com/usage-guide#creating-inspecting-and-deleting-collections) las convenciones de nombres |                       |
+| Chroma URL      | Especifica la URL de tu instancia de Chroma                                                                                                        | http://localhost:8000 |
 
 <figure><img src="../../../.gitbook/assets/image (6) (1) (1) (1) (1) (2).png" alt="" width="238"><figcaption></figcaption></figure>
 
-### Additional
+### Adicional
 
-If you are running both Flowise and Chroma on Docker, there are additional steps involved.
+Si estás ejecutando tanto Flowise como Chroma en Docker, hay pasos adicionales involucrados.
 
-1. Spin up Chroma docker first
+1. Inicia primero el docker de Chroma
 
 ```bash
 docker compose up -d --build
 ```
 
-2. Open `docker-compose.yml` in Flowise
+2. Abre `docker-compose.yml` en Flowise
 
 ```bash
 cd Flowise && cd docker
 ```
 
-3. Modify the file to:
+3. Modifica el archivo a:
 
 ```sh
 version: '3.1'
@@ -86,17 +86,17 @@ networks:
         external: true
 ```
 
-4. Spin up Flowise docker image
+4. Inicia la imagen docker de Flowise
 
 ```bash
 docker compose up -d
 ```
 
-5. On the Chroma URL, for Windows and MacOS Operating Systems specify [http://host.docker.internal:8000](http://host.docker.internal:8000/). For Linux based systems the default docker gateway should be used since host.docker.internal is not available: [http://172.17.0.1:8000](http://172.17.0.1:8000/)
+5. En la URL de Chroma, para sistemas operativos Windows y MacOS especifica [http://host.docker.internal:8000](http://host.docker.internal:8000/). Para sistemas basados en Linux, se debe usar el gateway por defecto de docker ya que host.docker.internal no está disponible: [http://172.17.0.1:8000](http://172.17.0.1:8000/)
 
 <figure><img src="../../../.gitbook/assets/image (5) (5).png" alt="" width="256"><figcaption></figcaption></figure>
 
-## Resources
+## Recursos
 
-* [LangChain JS Chroma](https://js.langchain.com/docs/modules/indexes/vector\_stores/integrations/chroma)
+* [LangChain JS Chroma](https://js.langchain.com/docs/modules/indexes/vector_stores/integrations/chroma)
 * [Chroma Getting Started](https://docs.trychroma.com/getting-started)

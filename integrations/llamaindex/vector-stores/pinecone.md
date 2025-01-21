@@ -1,53 +1,53 @@
 ---
 description: >-
-  Upsert embedded data and perform similarity search upon query using Pinecone,
-  a leading fully managed hosted vector database.
+  Realiza upsert de datos embedidos y ejecuta búsquedas de similitud usando Pinecone,
+  una base de datos vectorial gestionada y alojada líder en el mercado.
 ---
 
 # Pinecone
 
-## Prerequisite
+## Prerequisitos
 
-1. Register an account for [Pinecone](https://app.pinecone.io/)
-2. Click **Create index**
+1. Registra una cuenta en [Pinecone](https://app.pinecone.io/)
+2. Haz clic en **Create index**
 
 <figure><img src="../../../.gitbook/assets/pinecone_1.png" alt=""><figcaption></figcaption></figure>
 
-3. Fill in required fields:
-   - **Index Name**, name of the index to be created. (e.g. "flowise-test")
-   - **Dimensions**, size of the vectors to be inserted in the index. (e.g. 1536)
+3. Completa los campos requeridos:
+   - **Index Name**, nombre del índice a crear. (por ejemplo, "flowise-test")
+   - **Dimensions**, tamaño de los vectores a insertar en el índice. (por ejemplo, 1536)
 
 <figure><img src="../../../.gitbook/assets/pinecone_2.png" alt="" width="527"><figcaption></figcaption></figure>
 
-4. Click **Create Index**
+4. Haz clic en **Create Index**
 
-## Setup
+## Configuración
 
-1.  Get/Create your **API Key**
+1.  Obtén/Crea tu **API Key**
 
 <figure><img src="../../../.gitbook/assets/pinecone_3.png" alt=""><figcaption></figcaption></figure>
 
-2.  Add a new **Pinecone** node to canvas and fill in the parameters:
+2.  Añade un nuevo nodo **Pinecone** al canvas y completa los parámetros:
     - Pinecone Index
-    - Pinecone namespace (optional)
+    - Pinecone namespace (opcional)
 
-<figure><img src="../../../.gitbook/assets/pinecone_llamaindex.png" alt="" width="301"><figcaption><p>Pinecone Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/pinecone_llamaindex.png" alt="" width="301"><figcaption><p>Nodo Pinecone</p></figcaption></figure>
 
-3. Create new Pinecone credential -> Fill in **API Key**
+3. Crea una nueva credencial de Pinecone -> Completa el **API Key**
 
 <figure><img src="../../../.gitbook/assets/pinecone_5.png" alt="" width="563"><figcaption></figcaption></figure>
 
-4. Add additional nodes to canvas and start the upsert process
-   - **Document** can be connected with any node under [**Document Loader**](../../langchain/document-loaders/) category
+4. Añade nodos adicionales al canvas e inicia el proceso de upsert
+   - **Document** puede conectarse con cualquier nodo bajo la categoría [**Document Loader**](../../langchain/document-loaders/)
      {% hint style="info" %}
-     Document loaders and text splitters for LlamaIndex are not yet available, but using one of the ones available under LangChain will still allow querying with LlamaIndex as normal.
+     Los document loaders y text splitters para LlamaIndex aún no están disponibles, pero usar uno de los disponibles en LangChain permitirá realizar consultas con LlamaIndex de manera normal.
      {% endhint %}
-   - **Embeddings** can be connected with any node under [**Embeddings** ](../embeddings/)category
+   - **Embeddings** puede conectarse con cualquier nodo bajo la categoría [**Embeddings**](../embeddings/)
 
 <figure><img src="../../../.gitbook/assets/pinecone_llama_chatflow.png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/pinecone_llama_upsert.png" alt=""><figcaption></figcaption></figure>
 
-5. Verify on [Pinecone dashboard](https://app.pinecone.io) that data has been successfully upserted:
+5. Verifica en el [dashboard de Pinecone](https://app.pinecone.io) que los datos se han insertado correctamente:
 
 <figure><img src="../../../.gitbook/assets/pinecone_8.png" alt=""><figcaption></figcaption></figure>

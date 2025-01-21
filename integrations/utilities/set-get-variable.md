@@ -1,17 +1,17 @@
 # Set/Get Variable
 
-If you are running a Custom Function, or LLM Chain, you might want to reuse the result in other nodes without having to recompute/rerun the same thing again. You can save the output result as a variable, and reuse it for other nodes that is further down the flow path.
+Si estás ejecutando una Custom Function o LLM Chain, es posible que desees reutilizar el resultado en otros nodos sin tener que recalcular/reejecutar lo mismo nuevamente. Puedes guardar el resultado de salida como una variable y reutilizarlo en otros nodos que estén más adelante en el flujo.
 
 <figure><img src="../../.gitbook/assets/savereuse.png" alt=""><figcaption></figcaption></figure>
 
 ### Set Variable
 
-Taking inputs from any node that outputs `string, number, boolean, json, array,` we can assign a variable name to it.
+Tomando entradas de cualquier nodo que produzca salidas de tipo `string, number, boolean, json, array,` podemos asignarle un nombre de variable.
 
 <figure><img src="../../.gitbook/assets/image (11) (1) (1) (1) (1) (1).png" alt="" width="270"><figcaption></figcaption></figure>
 
 ### Get Variable
 
-You can get the variable value from the variable name at a later stage:
+Puedes obtener el valor de la variable usando el nombre de la variable en una etapa posterior:
 
 <figure><img src="../../.gitbook/assets/image (12) (1) (2).png" alt="" width="563"><figcaption></figcaption></figure>

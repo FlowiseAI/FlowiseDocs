@@ -1,11 +1,11 @@
 ---
-description: Custom function for loading documents.
+description: Función personalizada para cargar documentos.
 ---
 
 # Custom Document Loader
 
-<figure><img src="../../../.gitbook/assets/image_custom-loader (1).png" alt="" width="269"><figcaption><p>Custom Document Loader Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image_custom-loader (1).png" alt="" width="269"><figcaption><p>Nodo Custom Document Loader</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../contributing/) para comenzar.
 {% endhint %}

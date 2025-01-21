@@ -4,89 +4,80 @@ description: Learn how to deploy Flowise on GCP
 
 # GCP
 
-***
+## Prerrequisitos
 
-## Prerequisites
+1. Instala [Google Cloud CLI](https://cloud.google.com/sdk/docs/install)
+2. Instala [kubectl](https://kubernetes.io/docs/tasks/tools/)
 
-1. Notedown your Google Cloud \[ProjectId]
-2. Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-3. Install the [Google Cloud CLI](https://cloud.google.com/sdk/docs/install-sdk)
-4. Install [Docker Desktop](https://docs.docker.com/desktop/)
+## Configuración de GCP
 
-## Setup Kubernetes Cluster
+1. Crea un nuevo proyecto en GCP
+2. Habilita las siguientes APIs:
+   * Kubernetes Engine API
+   * Container Registry API
+3. Crea un cluster de Kubernetes en GKE
+4. Configura kubectl para usar el cluster de GKE:
 
-1. Create a Kubernetes Cluster if you don't have one.
-
-<figure><img src="../../.gitbook/assets/gcp/1.png" alt=""><figcaption><p>Click `Clusters` to create one.</p></figcaption></figure>
-
-2. Name the Cluster, choose the right resource location, use `Autopilot` mode and keep all other default configs.
-3. Once the Cluster is created, Click the 'Connect' menu from the actions menu
-
-<figure><img src="../../.gitbook/assets/gcp/2.png" alt=""><figcaption></figcaption></figure>
-
-4. Copy the command and paste into your terminal and hit enter to connect your cluster.
-5. Run the below command and select correct context name, which looks like `gke_[ProjectId]_[DataCenter]_[ClusterName]`
-
-```
-kubectl config get-contexts
+```bash
+gcloud container clusters get-credentials [ClusterName] --zone [DataCenter] --project [ProjectId]
 ```
 
-6. Set the current context
+5. Verifica que kubectl esté usando el contexto correcto:
 
-```
+```bash
 kubectl config use-context gke_[ProjectId]_[DataCenter]_[ClusterName]
 ```
 
-## Build and Push the Docker image
+## Build y Push de la Imagen Docker
 
-Run the following commands to build and push the Docker image to GCP Container Registry.
+Ejecuta los siguientes comandos para hacer build y push de la imagen Docker al Container Registry de GCP.
 
-1. Clone the Flowise
+1. Clona Flowise
 
-```
+```bash
 git clone https://github.com/FlowiseAI/Flowise.git
 ```
 
-2. Build the Flowise
+2. Haz build de Flowise
 
-```
+```bash
 cd Flowise
 pnpm install
 pnpm build
 ```
 
-3. Update the `Dockerfile` file a little.
+3. Actualiza el archivo `Dockerfile` un poco.
 
-> Specify the platform of nodejs
+> Especifica la plataforma de nodejs
 >
-> ```
+> ```dockerfile
 > FROM --platform=linux/amd64 node:18-alpine
 > ```
 >
-> Add python3, make and g++ to install
+> Agrega python3, make y g++ a la instalación
 >
-> ```
+> ```dockerfile
 > RUN apk add --no-cache python3 make g++
 > ```
 
-3. Build as Docker image, make sure the Docker desktop app is running
+3. Haz build como imagen Docker, asegúrate de que la app de Docker desktop esté corriendo
 
-```
+```bash
 docker build -t gcr.io/[ProjectId]/flowise:dev .
 ```
 
-4. Push the Docker image to GCP container registry.
+4. Haz push de la imagen Docker al container registry de GCP.
 
-```
+```bash
 docker push gcr.io/[ProjectId]/flowise:dev
 ```
 
-## Deployment to GCP
+## Deployment en GCP
 
-1. Create a `yamls` root folder in the project.
-2. Add the `deployment.yaml` file into that folder.
+1. Crea una carpeta raíz `yamls` en el proyecto.
+2. Agrega el archivo `deployment.yaml` en esa carpeta.
 
-```
+```yaml
 # deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -114,9 +105,9 @@ spec:
             memory: "1Gi"
 ```
 
-3. Add the `service.yaml` file into that folder.
+3. Agrega el archivo `service.yaml` en esa carpeta.
 
-```
+```yaml
 # service.yaml
 apiVersion: "v1"
 kind: "Service"
@@ -133,25 +124,24 @@ spec:
   selector:
     app: "flowise"
   type: "LoadBalancer"
-
 ```
 
-It will be look like below.
+Se verá como abajo.
 
 <figure><img src="../../.gitbook/assets/gcp/3.png" alt=""><figcaption></figcaption></figure>
 
-4. Deploy the yaml files by running following commands.
+4. Haz deploy de los archivos yaml ejecutando los siguientes comandos.
 
-```
+```bash
 kubectl apply -f yamls/deployment.yaml
 kubectl apply -f yamls/service.yaml
 ```
 
-5. Go to `Workloads` in the GCP, you can see your pod is running.
+5. Ve a `Workloads` en GCP, podrás ver que tu pod está corriendo.
 
 <figure><img src="../../.gitbook/assets/gcp/4.png" alt=""><figcaption></figcaption></figure>
 
-6. Go to `Services & Ingress`, you can click the `Endpoint` where the Flowise is hosted.
+6. Ve a `Services & Ingress`, podrás hacer clic en `Endpoint` donde se hospeda Flowise.
 
 <figure><img src="../../.gitbook/assets/gcp/5.png" alt=""><figcaption></figcaption></figure>
 

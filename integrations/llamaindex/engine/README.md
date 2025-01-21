@@ -1,14 +1,14 @@
 ---
-description: LlamaIndex Engine Nodes
+description: Nodos de Engine de LlamaIndex
 ---
 
 # Engine
 
 ***
 
-In LlamaIndex, an engine node refers to two key components that handle information processing and user interaction.
+En LlamaIndex, un nodo engine se refiere a dos componentes clave que manejan el procesamiento de información y la interacción con el usuario.
 
-### Engine Nodes:
+### Nodos de Engine:
 
 * [Query Engine](query-engine.md)
 * [Simple Chat Engine](simple-chat-engine.md)

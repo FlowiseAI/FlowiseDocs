@@ -1,104 +1,104 @@
-# Evaluations
+# Evaluaciones
 
 {% hint style="info" %}
-Evaluations are only available for Cloud and Enterprise plan
+Las Evaluaciones solo están disponibles para los planes Cloud y Enterprise
 {% endhint %}
 
-Evaluations help you monitor and understand the performance of your Chatflow/Agentflow application. On the high level, an evaluation is a process that takes a set of inputs and corresponding outputs from your Chatflow/Agentflow, and generates scores. These scores can be derived by comparing outputs to reference results, such as through string matching, numeric comparison, or even leveraging an LLM as a judge. These evaluations are conducted using Datasets and Evaluators.
+Las evaluaciones te ayudan a monitorear y entender el rendimiento de tu aplicación de Flujo de Chat/Flujo de Agente. A alto nivel, una evaluación es un proceso que toma un conjunto de entradas y salidas correspondientes de tu Flujo de Chat/Flujo de Agente, y genera puntuaciones. Estas puntuaciones pueden derivarse comparando salidas con resultados de referencia, como a través de coincidencia de cadenas, comparación numérica, o incluso aprovechando un LLM como juez. Estas evaluaciones se realizan usando Conjuntos de Datos y Evaluadores.
 
-## Datasets
+## Conjuntos de Datos
 
-Datasets are the inputs that will be used to run your Chatflow/Agentflow, along with the corresponding outputs for comparison. User can add the input and anticipated output manually, or upload a CSV file with 2 columns: Input and Output.
+Los conjuntos de datos son las entradas que se utilizarán para ejecutar tu Flujo de Chat/Flujo de Agente, junto con las salidas correspondientes para comparación. El usuario puede agregar la entrada y la salida anticipada manualmente, o cargar un archivo CSV con 2 columnas: Entrada y Salida.
 
 <figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
-| Input                             | Output                       |
+| Entrada                           | Salida                        |
 | --------------------------------- | ---------------------------- |
-| What is the capital of UK         | Capital of UK is London      |
-| How many days are there in a year | There are 365 days in a year |
+| ¿Cuál es la capital del Reino Unido? | La capital del Reino Unido es Londres |
+| ¿Cuántos días hay en un año?      | Hay 365 días en un año       |
 
-## Evaluators
+## Evaluadores
 
-Evaluators are like unit tests. During an evaluation, the inputs from Datasets are ran on the selected flows and the outputs are evaluated using selected evaluators. There are 3 types of evaluators:
+Los evaluadores son como pruebas unitarias. Durante una evaluación, las entradas de los Conjuntos de Datos se ejecutan en los flujos seleccionados y las salidas se evalúan usando los evaluadores seleccionados. Hay 3 tipos de evaluadores:
 
-* **Text Based**: string based checking:
-  * Contains Any
-  * Contains All
-  * Does Not Contains Any
-  * Does Not Contains All
-  * Starts With
-  * Does Not Starts With
+* **Basado en Texto**: comprobación basada en cadenas:
+  * Contiene Alguno
+  * Contiene Todos
+  * No Contiene Ninguno
+  * No Contiene Todos
+  * Comienza Con
+  * No Comienza Con
 
 <figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
-* **Numeric Based:** numbers type checking:
-  * Total Tokens
-  * Prompt Tokens
-  * Completion Tokens
-  * API Latency
-  * LLM Latency
-  * Chatflow Latency
-  * Agentflow Latency (coming)
-  * Output Characters Length
+* **Basado en Números:** comprobación de tipos numéricos:
+  * Total de Tokens
+  * Tokens de Prompt
+  * Tokens de Completado
+  * Latencia de API
+  * Latencia de LLM
+  * Latencia de Flujo de Chat
+  * Latencia de Flujo de Agente (próximamente)
+  * Longitud de Caracteres de Salida
 
 <figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
-* **LLM Based**: using another LLM to grade the output
-  * Hallucination
-  * Correctness
+* **Basado en LLM**: usando otro LLM para calificar la salida
+  * Alucinación
+  * Corrección
 
 <figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
-## Evaluations
+## Evaluaciones
 
-Now that we have Datasets and Evaluators prepared, we can start running an evaluation.
+Ahora que tenemos los Conjuntos de Datos y Evaluadores preparados, podemos comenzar a ejecutar una evaluación.
 
-1.) Select dataset and chatflow to evaluate. You can select multiple datasets and chatflows. Using the example below, every inputs from Dataset1 will be ran against 2 chatflows. Since Dataset1 has 2 inputs, a total of 4 outputs will be produced and evaluated.
+1.) Selecciona el conjunto de datos y el flujo de chat a evaluar. Puedes seleccionar múltiples conjuntos de datos y flujos de chat. Usando el ejemplo a continuación, cada entrada del Conjunto de Datos 1 se ejecutará contra 2 flujos de chat. Como el Conjunto de Datos 1 tiene 2 entradas, se producirán y evaluarán un total de 4 salidas.
 
 <figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
-2.) Select the evaluators. Only string based and numeric based evaluators are available to be selected at this stage.
+2.) Selecciona los evaluadores. Solo los evaluadores basados en cadenas y números están disponibles para ser seleccionados en esta etapa.
 
 <figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
-3.) (Optional) Select LLM Based evaluator. Start Evaluation:
+3.) (Opcional) Selecciona el evaluador Basado en LLM. Inicia la Evaluación:
 
 <figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 
-4.) Wait for evaluation to be completed:
+4.) Espera a que se complete la evaluación:
 
 <figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 
-5.) After evaluation is completed, click the graph icon at the right side to view the details:
+5.) Después de que se complete la evaluación, haz clic en el icono de gráfico en el lado derecho para ver los detalles:
 
 <figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
 
-The 3 charts above show the summary of the evaluation:
+Los 3 gráficos anteriores muestran el resumen de la evaluación:
 
-* Pass/fail rate
-* Average prompt and completion tokens used
-* Average latency of the request
+* Tasa de aprobación/fallo
+* Promedio de tokens de prompt y completado utilizados
+* Latencia promedio de la solicitud
 
-Table below the charts shows the details of each execution.
+La tabla debajo de los gráficos muestra los detalles de cada ejecución.
 
 <figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/image (16).png" alt="" width="355"><figcaption></figcaption></figure>
 
-### Re-run evaluation
+### Volver a ejecutar evaluación
 
-When the flows used on evaluation have been updated/modified, a warning message will be shown:
+Cuando los flujos utilizados en la evaluación han sido actualizados/modificados, se mostrará un mensaje de advertencia:
 
 <figure><img src="../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
 
-You can re-run the same evaluation using the Re-Run Evaluation button at the top right corner. You will be able to see the different versions:
+Puedes volver a ejecutar la misma evaluación usando el botón Volver a Ejecutar Evaluación en la esquina superior derecha. Podrás ver las diferentes versiones:
 
 <figure><img src="../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
 
-You can also view and compare the results from different versions:
+También puedes ver y comparar los resultados de diferentes versiones:
 
 <figure><img src="../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
 
-## Video Tutorial
+## Tutorial en Video
 
 {% embed url="https://youtu.be/kgUttHMkGFg?si=3rLplEp_0TI0p6UV&t=486" %}

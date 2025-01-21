@@ -1,16 +1,16 @@
 ---
 description: >-
-  Upsert embedded data and perform similarity or mmr search using Weaviate, a
-  scalable open-source vector database.
+  Realiza upsert de datos embedidos y ejecuta búsquedas de similitud o mmr usando Weaviate,
+  una base de datos vectorial escalable de código abierto.
 ---
 
 # Weaviate
 
-<figure><img src="../../../.gitbook/assets/image (165).png" alt="" width="295"><figcaption><p>Weaviate Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (165).png" alt="" width="295"><figcaption><p>Nodo Weaviate</p></figcaption></figure>
 
-## Filtering
+## Filtrado
 
-Weaviate supports following [syntax](https://weaviate.io/developers/weaviate/search/filters) when it comes to filtering:
+Weaviate soporta la siguiente [sintaxis](https://weaviate.io/developers/weaviate/search/filters) cuando se trata de filtrado:
 
 **UI**
 
@@ -32,11 +32,11 @@ Weaviate supports following [syntax](https://weaviate.io/developers/weaviate/sea
 }
 ```
 
-## Resources
+## Recursos
 
 * [LangchainJS Weaviate](https://js.langchain.com/v0.1/docs/integrations/vectorstores/weaviate/#usage-query-documents)
-* [Weaviate Filtering](https://weaviate.io/developers/weaviate/search/filters)
+* [Filtrado en Weaviate](https://weaviate.io/developers/weaviate/search/filters)
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../contributing/) para comenzar.
 {% endhint %}

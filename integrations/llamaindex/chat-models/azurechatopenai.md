@@ -1,11 +1,11 @@
 ---
-description: Wrapper around Azure OpenAI Chat LLM specific for LlamaIndex.
+description: Wrapper alrededor del Chat LLM de Azure OpenAI específico para LlamaIndex.
 ---
 
 # AzureChatOpenAI
 
-<figure><img src="../../../.gitbook/assets/up-018.png" alt="" width="375"><figcaption><p>AzureChatOpenAI Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/up-018.png" alt="" width="375"><figcaption><p>Nodo AzureChatOpenAI</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../contributing/) para comenzar.
 {% endhint %}

@@ -1,11 +1,11 @@
 ---
-description: Split documents based on language-specific syntax.
+description: Divide documentos basándose en la sintaxis específica del lenguaje.
 ---
 
 # Code Text Splitter
 
-<figure><img src="../../../.gitbook/assets/image (151).png" alt="" width="296"><figcaption><p>Code Text Splitter Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (151).png" alt="" width="296"><figcaption><p>Nodo Code Text Splitter</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../contributing/) para comenzar.
 {% endhint %}

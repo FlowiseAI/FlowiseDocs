@@ -1,12 +1,11 @@
----
 description: >-
-  Learn more about the details of some of the most used APIs: prediction,
+  Aprende más sobre los detalles de algunas de las APIs más utilizadas: prediction,
   vector-upsert
 ---
 
 # API
 
-Refer to [API Reference](../api-reference/) for full list of public APIs
+Consulta la [Referencia de API](../api-reference/) para ver la lista completa de APIs públicas
 
 ## Prediction
 
@@ -16,9 +15,9 @@ Refer to [API Reference](../api-reference/) for full list of public APIs
 [swagger (1) (1) (1).yml](<../.gitbook/assets/swagger (1) (1) (1).yml>)
 {% endswagger %}
 
-### Using Python/TS Library
+### Usando Python/TS Library
 
-Flowise provides 2 libraries:
+Flowise proporciona 2 librerías:
 
 * [Python](https://pypi.org/project/flowise/): `pip install flowise`
 * [Typescript](https://www.npmjs.com/package/flowise-sdk): `npm install flowise-sdk`
@@ -31,42 +30,42 @@ from flowise import Flowise, PredictionData
 def test_non_streaming():
     client = Flowise()
 
-    # Test non-streaming prediction
+    # Test de predicción sin streaming
     completion = client.create_prediction(
         PredictionData(
             chatflowId="<chatflow-id>",
-            question="What is the capital of France?",
+            question="¿Cuál es la capital de Francia?",
             streaming=False
         )
     )
 
-    # Process and print the response
+    # Procesar e imprimir la respuesta
     for response in completion:
-        print("Non-streaming response:", response)
+        print("Respuesta sin streaming:", response)
 
 def test_streaming():
     client = Flowise()
 
-    # Test streaming prediction
+    # Test de predicción con streaming
     completion = client.create_prediction(
         PredictionData(
             chatflowId="<chatflow-id>",
-            question="Tell me a joke!",
+            question="¡Cuéntame un chiste!",
             streaming=True
         )
     )
 
-    # Process and print each streamed chunk
-    print("Streaming response:")
+    # Procesar e imprimir cada fragmento del stream
+    print("Respuesta con streaming:")
     for chunk in completion:
         print(chunk)
 
 
 if __name__ == "__main__":
-    # Run non-streaming test
+    # Ejecutar test sin streaming
     test_non_streaming()
 
-    # Run streaming test
+    # Ejecutar test con streaming
     test_streaming()
 ```
 {% endtab %}
@@ -79,10 +78,10 @@ async function test_streaming() {
   const client = new FlowiseClient({ baseUrl: 'http://localhost:3000' });
 
   try {
-    // For streaming prediction
+    // Para predicción con streaming
     const prediction = await client.createPrediction({
       chatflowId: 'fe1145fa-1b2b-45b7-b2ba-bcc5aaeb5ffd',
-      question: 'What is the revenue of Apple?',
+      question: '¿Cuál es el ingreso de Apple?',
       streaming: true,
     });
 
@@ -99,10 +98,10 @@ async function test_non_streaming() {
     const client = new FlowiseClient({ baseUrl: 'http://localhost:3000' });
   
     try {
-      // For streaming prediction
+      // Para predicción sin streaming
       const prediction = await client.createPrediction({
         chatflowId: 'fe1145fa-1b2b-45b7-b2ba-bcc5aaeb5ffd',
-        question: 'What is the revenue of Apple?',
+        question: '¿Cuál es el ingreso de Apple?',
       });
   
       console.log(prediction);
@@ -112,10 +111,10 @@ async function test_non_streaming() {
     }
 }
 
-// Run non-streaming test
+// Ejecutar test sin streaming
 test_non_streaming()
 
-// Run streaming test
+// Ejecutar test con streaming
 test_streaming()
 ```
 {% endtab %}
@@ -123,9 +122,9 @@ test_streaming()
 
 ### Override Config
 
-Override existing input configuration of the chatflow with **overrideConfig** property.
+Sobrescribe la configuración de entrada existente del chatflow con la propiedad **overrideConfig**.
 
-Due to security reason, override config is disabled by default. User has to enable this by going into **Chatflow Configuration** -> **Security** tab. Then select the property that can be overriden.
+Por razones de seguridad, la sobrescritura de configuración está deshabilitada por defecto. El usuario debe habilitarla yendo a **Chatflow Configuration** -> pestaña **Security**. Luego seleccionar la propiedad que puede ser sobrescrita.
 
 <figure><img src="../.gitbook/assets/image (188).png" alt=""><figcaption></figcaption></figure>
 
@@ -142,7 +141,7 @@ def query(payload):
     return response.json()
     
 output = query({
-    "question": "Hey, how are you?",
+    "question": "Hola, ¿cómo estás?",
     "overrideConfig": {
         "sessionId": "123",
         "returnSourceDocuments": true
@@ -169,7 +168,7 @@ async function query(data) {
 }
 
 query({
-    "question": "Hey, how are you?",
+    "question": "Hola, ¿cómo estás?",
     "overrideConfig": {
         "sessionId": "123",
         "returnSourceDocuments": true
@@ -183,7 +182,7 @@ query({
 
 ### History
 
-You can prepend history messages to give some context to LLM. For example, if you want the LLM to remember user's name:
+Puedes anteponer mensajes del historial para dar contexto al LLM. Por ejemplo, si quieres que el LLM recuerde el nombre del usuario:
 
 {% tabs %}
 {% tab title="Python API" %}
@@ -196,19 +195,19 @@ def query(payload):
     return response.json()
     
 output = query({
-    "question": "Hey, how are you?",
+    "question": "Hola, ¿cómo estás?",
     "history": [
         {
             "role": "apiMessage",
-            "content": "Hello how can I help?"
+            "content": "¿Hola, en qué puedo ayudarte?"
         },
         {
             "role": "userMessage",
-            "content": "Hi my name is Brian"
+            "content": "Hola, mi nombre es Brian"
         },
         {
             "role": "apiMessage",
-            "content": "Hi Brian, how can I help?"
+            "content": "Hola Brian, ¿en qué puedo ayudarte?"
         },
     ]
 })
@@ -233,19 +232,19 @@ async function query(data) {
 }
 
 query({
-    "question": "Hey, how are you?",
+    "question": "Hola, ¿cómo estás?",
     "history": [
         {
             "role": "apiMessage",
-            "content": "Hello how can I help?"
+            "content": "¿Hola, en qué puedo ayudarte?"
         },
         {
             "role": "userMessage",
-            "content": "Hi my name is Brian"
+            "content": "Hola, mi nombre es Brian"
         },
         {
             "role": "apiMessage",
-            "content": "Hi Brian, how can I help?"
+            "content": "Hola Brian, ¿en qué puedo ayudarte?"
         },
     ]
 }).then((response) => {
@@ -257,7 +256,7 @@ query({
 
 ### Persists Memory
 
-You can pass a `sessionId` to persists the state of the conversation, so the every subsequent API calls will have context about previous conversation. Otherwise, a new session will be generated each time.
+Puedes pasar un `sessionId` para persistir el estado de la conversación, de modo que cada llamada API posterior tendrá contexto sobre la conversación anterior. De lo contrario, se generará una nueva sesión cada vez.
 
 {% tabs %}
 {% tab title="Python API" %}
@@ -270,7 +269,7 @@ def query(payload):
     return response.json()
     
 output = query({
-    "question": "Hey, how are you?",
+    "question": "Hola, ¿cómo estás?",
     "overrideConfig": {
         "sessionId": "123"
     } 
@@ -296,7 +295,7 @@ async function query(data) {
 }
 
 query({
-    "question": "Hey, how are you?",
+    "question": "Hola, ¿cómo estás?",
     "overrideConfig": {
         "sessionId": "123"
     }
@@ -309,7 +308,7 @@ query({
 
 ### Variables
 
-Pass variables in the API to be used by the nodes in the flow. See more: [Variables](api.md#variables)
+Pasa variables en la API para ser utilizadas por los nodos en el flujo. Ver más: [Variables](api.md#variables)
 
 {% tabs %}
 {% tab title="Python API" %}
@@ -322,7 +321,7 @@ def query(payload):
     return response.json()
     
 output = query({
-    "question": "Hey, how are you?",
+    "question": "Hola, ¿cómo estás?",
     "overrideConfig": {
         "vars": {
             "foo": "bar"
@@ -350,7 +349,7 @@ async function query(data) {
 }
 
 query({
-    "question": "Hey, how are you?",
+    "question": "Hola, ¿cómo estás?",
     "overrideConfig": {
         "vars": {
             "foo": "bar"
@@ -365,7 +364,7 @@ query({
 
 ### Image Uploads
 
-When **Allow Image Upload** is enabled, images can be uploaded from chat interface.
+Cuando **Allow Image Upload** está habilitado, las imágenes pueden ser cargadas desde la interfaz de chat.
 
 <div align="left" data-full-width="false"><figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="255"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2024-02-29 011714.png" alt="" width="290"><figcaption></figcaption></figure></div>
 
@@ -380,7 +379,7 @@ def query(payload):
     return response.json()
     
 output = query({
-    "question": "Can you describe the image?",
+    "question": "¿Puedes describir la imagen?",
     "uploads": [
         {
             "data": 'data:image/png;base64,iVBORw0KGgdM2uN0', # base64 string or url
@@ -411,7 +410,7 @@ async function query(data) {
 }
 
 query({
-    "question": "Can you describe the image?",
+    "question": "¿Puedes describir la imagen?",
     "uploads": [
         {
             "data": 'data:image/png;base64,iVBORw0KGgdM2uN0', //base64 string or url
@@ -429,9 +428,9 @@ query({
 
 ### Speech to Text
 
-When **Speech to Text** is enabled, users can speak directly into microphone and speech will be transcribed into text.
+Cuando **Speech to Text** está habilitado, los usuarios pueden hablar directamente en el micrófono y la voz se transcribirá en texto.
 
-<div align="left"><figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2024-02-29 012538.png" alt="" width="431"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2024-02-29 012538.png" alt="" width="431"><figcaption></figcaption></figure></div>
 
 {% tabs %}
 {% tab title="Python API" %}
@@ -497,7 +496,7 @@ query({
 
 ### Document Loaders with File Upload
 
-Some document loaders in Flowise allow user to upload files:
+Algunos document loaders en Flowise permiten al usuario cargar archivos:
 
 * [CSV File](../integrations/langchain/document-loaders/csv-file.md)
 * [Docx File](../integrations/langchain/document-loaders/docx-file.md)
@@ -509,6 +508,7 @@ Some document loaders in Flowise allow user to upload files:
 
 <div data-full-width="false"><figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure></div>
 
+Si el flujo contiene [Document Loaders](../integrations/langchain/document-loaders/) con la funcionalidad de carga de archivo, la API se ve ligeramente diferente. En lugar de pasar el cuerpo como JSON, **form data** se utiliza. Esto te permite enviar archivos a la API.
 If the flow contains [Document Loaders](../integrations/langchain/document-loaders/) with Upload File functionality, the API looks slightly different. Instead of passing body as JSON, **form data** is being used. This allows you to send files to the API.
 
 {% hint style="info" %}

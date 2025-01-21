@@ -1,30 +1,26 @@
 ---
-description: Learn how Flowise integrates with the LangChain framework
+description: Aprende sobre las integraciones disponibles de LangChain en Flowise
 ---
 
 # LangChain
 
-***
+LangChain es un framework para desarrollar aplicaciones potenciadas por modelos de lenguaje. Proporciona varios componentes que puedes utilizar para crear aplicaciones de LLM personalizadas.
 
-[**LangChain**](https://www.langchain.com/) is a framework for developing applications powered by language models. It simplifies the process of creating generative AI application, connecting data sources, vectors, memories with LLMs.
+### Componentes Disponibles
 
-Flowise complements LangChain by offering a visual interface. Here, nodes are organized into distinct sections, making it easier to build workflows.
-
-### LangChain Sections:
-
-* [Agents](agents/)
-* [Cache](cache/)
-* [Chains](chains/)
-* [Chat Models](chat-models/)
-* [Document Loaders](document-loaders/)
-* [Embeddings](embeddings/)
-* [LLMs](llms/)
-* [Memory](memory/)
-* [Moderation](moderation/)
-* [Output Parsers](output-parsers/)
-* [Prompts](prompts/)
-* [Record Managers](record-managers.md)
-* [Retrievers](retrievers/)
-* [Text Splitters](text-splitters/)
-* [Tools](tools/)
-* [Vector Stores](vector-stores/)
+* [Agents](agents/) - Agentes que pueden usar herramientas para completar tareas
+* [Cache](cache/) - Almacenamiento en caché para respuestas de LLM y embeddings
+* [Chains](chains/) - Secuencias de llamadas combinadas para tareas específicas
+* [Chat Models](chat-models/) - Modelos de lenguaje optimizados para chat
+* [Document Loaders](document-loaders/) - Cargadores para diferentes tipos de documentos
+* [Embeddings](embeddings/) - Conversión de texto a vectores numéricos
+* [LLMs](llms/) - Modelos de lenguaje de gran escala
+* [Memory](memory/) - Almacenamiento de historial de conversaciones
+* [Moderation](moderation/) - Filtrado de contenido inapropiado
+* [Output Parsers](output-parsers/) - Parseo de respuestas de LLM a formatos estructurados
+* [Prompts](prompts/) - Plantillas para instrucciones a LLMs
+* [Record Managers](record-managers.md) - Gestión de registros y datos
+* [Retrievers](retrievers/) - Recuperación de documentos relevantes
+* [Text Splitters](text-splitters/) - División de texto en segmentos manejables
+* [Tools](tools/) - Herramientas que los agentes pueden utilizar
+* [Vector Stores](vector-stores/) - Almacenamiento y búsqueda de vectores

@@ -1,11 +1,11 @@
 ---
-description: Google vertexAI API to generate embeddings for a given text.
+description: API de Google VertexAI para generar embeddings para un texto dado.
 ---
 
 # Google VertexAI Embeddings
 
-<figure><img src="../../../.gitbook/assets/image (8) (1) (1) (1) (1) (1).png" alt="" width="301"><figcaption><p>Google VertexAI Embeddings Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (1) (1) (1) (1) (1).png" alt="" width="301"><figcaption><p>Nodo Google VertexAI Embeddings</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../contributing/) para comenzar.
 {% endhint %}

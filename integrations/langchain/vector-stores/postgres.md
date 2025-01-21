@@ -1,19 +1,19 @@
 ---
 description: >-
-  Upsert embedded data and perform similarity search upon query using pgvector
-  on Postgres.
+  Realiza upsert de datos embedidos y ejecuta búsquedas de similitud sobre consultas usando pgvector
+  en Postgres.
 ---
 
 # Postgres
 
-<figure><img src="../../../.gitbook/assets/image (163).png" alt="" width="292"><figcaption><p>Postgres Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (163).png" alt="" width="292"><figcaption><p>Nodo Postgres</p></figcaption></figure>
 
-There are multiple methods to connect to Postgres based on how your instance is set up. Below is an example of a local configuration using a prebuilt Docker image provided by the pgvector team.
+Hay múltiples métodos para conectarse a Postgres según cómo esté configurada tu instancia. A continuación se muestra un ejemplo de una configuración local usando una imagen Docker precompilada proporcionada por el equipo de pgvector.
 
-Create a file named `docker-compose.yml` with the content below:
+Crea un archivo llamado `docker-compose.yml` con el siguiente contenido:
 
 ```yaml
-# Run this command to start the database:
+# Ejecuta este comando para iniciar la base de datos:
 # docker-compose up --build
 version: "3"
 services:
@@ -31,16 +31,16 @@ services:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 ```
 
-`docker compose up` to start the Postgres container.
+Usa `docker compose up` para iniciar el contenedor de Postgres.
 
-Create new credential with the configured user and password:
+Crea una nueva credencial con el usuario y contraseña configurados:
 
 <figure><img src="../../../.gitbook/assets/image (50).png" alt="" width="526"><figcaption></figcaption></figure>
 
-Fill in the node's field with values configured in `docker-compose.yml`. For example:
+Completa los campos del nodo con los valores configurados en `docker-compose.yml`. Por ejemplo:
 
 * Host: **localhost**
 * Database: **api**
 * Port: **5432**
 
-Voila! You have now successfully setup Postgres Vector ready to be used.
+¡Voilà! Ahora has configurado exitosamente Postgres Vector listo para ser usado.

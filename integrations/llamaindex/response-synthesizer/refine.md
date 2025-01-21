@@ -1,34 +1,34 @@
 # Refine
 
-Create and refine an answer by sequentially going through each retrieved text chunk.
+Crea y refina una respuesta pasando secuencialmente por cada fragmento de texto recuperado.
 
-**Pros**: Good for more detailed answers
+**Pros**: Bueno para respuestas más detalladas
 
-**Cons**: Separate LLM call per Node (can be expensive)
+**Contras**: Llamada separada al LLM por cada Nodo (puede ser costoso)
 
 <figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
-**Refine Prompt**
+**Prompt de Refinamiento**
 
 ```markup
-The original query is as follows: {query}
-We have provided an existing answer: {existingAnswer}
-We have the opportunity to refine the existing answer (only if needed) with some more context below.
+La consulta original es la siguiente: {query}
+Hemos proporcionado una respuesta existente: {existingAnswer}
+Tenemos la oportunidad de refinar la respuesta existente (solo si es necesario) con más contexto a continuación.
 ------------
 {context}
 ------------
-Given the new context, refine the original answer to better answer the query. If the context isn't useful, return the original answer.
-Refined Answer:
+Dado el nuevo contexto, refina la respuesta original para responder mejor a la consulta. Si el contexto no es útil, devuelve la respuesta original.
+Respuesta Refinada:
 ```
 
-**Text QA Prompt**
+**Prompt de Text QA**
 
 ```
-Context information is below.
+La información de contexto está a continuación.
 ---------------------
 {context}
 ---------------------
-Given the context information and not prior knowledge, answer the query.
-Query: {query}
-Answer:
+Dado el contexto y sin conocimiento previo, responde a la consulta.
+Consulta: {query}
+Respuesta:
 ```

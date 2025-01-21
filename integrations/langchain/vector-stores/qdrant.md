@@ -1,39 +1,39 @@
 # Qdrant
 
-## Prerequisites
+## Prerequisitos
 
-A [locally running instance of Qdrant](https://qdrant.tech/documentation/quick-start/) or a Qdrant cloud instance.
+Una [instancia local de Qdrant](https://qdrant.tech/documentation/quick-start/) o una instancia de Qdrant cloud.
 
-To get a Qdrant cloud instance:
+Para obtener una instancia de Qdrant cloud:
 
-1. Head to the Clusters section of the [Cloud Dashboard](https://cloud.qdrant.io/overview).
-2. Select **Clusters** and then click **+ Create**.
+1. Dirígete a la sección Clusters del [Cloud Dashboard](https://cloud.qdrant.io/overview).
+2. Selecciona **Clusters** y luego haz clic en **+ Create**.
 
 <figure><img src="../../../.gitbook/assets/qdrant/2.png" alt=""><figcaption></figcaption></figure>
 
-3. Choose your cluster configurations and region.
-4. Hit **Create** to provision your cluster.
+3. Elige las configuraciones de tu cluster y la región.
+4. Presiona **Create** para aprovisionar tu cluster.
 
-## Setup
+## Configuración
 
-1. Get/Create your **API Key** from the **Data Access Control** section of the [Cloud Dashboard](https://cloud.qdrant.io/overview).
-2. Add a new **Qdrant** node on canvas.
-3. Create new Qdrant credential using the API Key
+1. Obtén/Crea tu **API Key** desde la sección **Data Access Control** del [Cloud Dashboard](https://cloud.qdrant.io/overview).
+2. Añade un nuevo nodo **Qdrant** en el canvas.
+3. Crea una nueva credencial de Qdrant usando el API Key
 
 <figure><img src="../../../.gitbook/assets/qdrant/1.png" alt="" width="563"><figcaption></figcaption></figure>
 
-4. Enter the required info into the **Qdrant** node:
-   * Qdrant server URL
-   * Collection name
+4. Ingresa la información requerida en el nodo **Qdrant**:
+   * URL del servidor Qdrant
+   * Nombre de la colección
 
 <figure><img src="../../../.gitbook/assets/qdrant/3.png" alt="" width="239"><figcaption></figcaption></figure>
 
-5. **Document** input can be connected with any node under [**Document Loader**](../document-loaders/) category.
-6. **Embeddings** input can be connected with any node under [**Embeddings**](../embeddings/) category.
+5. La entrada **Document** puede conectarse con cualquier nodo de la categoría [**Document Loader**](../document-loaders/).
+6. La entrada **Embeddings** puede conectarse con cualquier nodo de la categoría [**Embeddings**](../embeddings/).
 
-## Filtering
+## Filtrado
 
-Let's say you have different documents upserted, each specified with a unique value under the metadata key `{source}`
+Supongamos que tienes diferentes documentos insertados, cada uno especificado con un valor único bajo la clave de metadata `{source}`
 
 <div align="left">
 
@@ -45,7 +45,7 @@ Let's say you have different documents upserted, each specified with a unique va
 
 </div>
 
-Then, you want to filter by it. Qdrant supports following [syntax](https://qdrant.tech/documentation/concepts/filtering/#nested-key) when it comes to filtering:
+Entonces, quieres filtrar por este valor. Qdrant soporta la siguiente [sintaxis](https://qdrant.tech/documentation/concepts/filtering/#nested-key) cuando se trata de filtrado:
 
 **UI**
 
@@ -68,8 +68,8 @@ Then, you want to filter by it. Qdrant supports following [syntax](https://qdran
 }
 ```
 
-## Resources
+## Recursos
 
-* [Qdrant documentation](https://qdrant.tech/documentation/)
+* [Documentación de Qdrant](https://qdrant.tech/documentation/)
 * [LangChain JS Qdrant](https://js.langchain.com/docs/integrations/vectorstores/qdrant)
-* [Qdrant Filter](https://qdrant.tech/documentation/concepts/filtering/#nested-key)
+* [Filtros de Qdrant](https://qdrant.tech/documentation/concepts/filtering/#nested-key)

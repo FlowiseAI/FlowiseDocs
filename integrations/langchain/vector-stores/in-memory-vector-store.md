@@ -1,13 +1,13 @@
 ---
 description: >-
-  In-memory vectorstore that stores embeddings and does an exact, linear search
-  for the most similar embeddings.
+  Vector store en memoria que almacena embeddings y realiza una búsqueda lineal exacta
+  para encontrar los embeddings más similares.
 ---
 
 # In-Memory Vector Store
 
-<figure><img src="../../../.gitbook/assets/image (159).png" alt="" width="301"><figcaption><p>In-Memory Vector Store Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (159).png" alt="" width="301"><figcaption><p>Nodo In-Memory Vector Store</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../contributing/) para comenzar.
 {% endhint %}

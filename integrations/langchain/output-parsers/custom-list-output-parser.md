@@ -1,11 +1,11 @@
 ---
-description: Parse the output of an LLM call as a list of values.
+description: Analiza la salida de una llamada LLM como una lista de valores.
 ---
 
 # Custom List Output Parser
 
-<figure><img src="../../../.gitbook/assets/image (126).png" alt="" width="301"><figcaption><p>Custom List Output Parser Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (126).png" alt="" width="301"><figcaption><p>Nodo Custom List Output Parser</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../contributing/) para comenzar.
 {% endhint %}

@@ -1,27 +1,27 @@
-# Vectara QA Chain
+# Cadena Vectara QA
 
-A chain for performing question-answering tasks with Vectara.
+Una cadena para realizar tareas de preguntas y respuestas con Vectara.
 
 <figure><img src="../../../.gitbook/assets/screely-1700662138252.png" alt=""><figcaption></figcaption></figure>
 
-## Definitions
+## Definiciones
 
-**A retrieval-based question-answering chain**, which integrates with a Vectara retrieval component and allows you to configure input parameters and perform question-answering tasks.
+**Una cadena de preguntas y respuestas basada en recuperación**, que se integra con un componente de recuperación Vectara y te permite configurar parámetros de entrada y realizar tareas de preguntas y respuestas.
 
-## Inputs
+## Entradas
 
 * [Vectara Store](../vector-stores/vectara.md)
 
-## Parameters
+## Parámetros
 
-| Name                   | Description                                                   |
-| ---------------------- | ------------------------------------------------------------- |
-| Summarizer Prompt Name | model to be used in generating the summary                    |
-| Response Language      | desired language for the response                             |
-| Max Summarized Results | number of top results to use in summarization (defaults to 7) |
+| Nombre                   | Descripción                                                            |
+| ----------------------- | ---------------------------------------------------------------------- |
+| Summarizer Prompt Name  | modelo a utilizar en la generación del resumen                         |
+| Response Language       | idioma deseado para la respuesta                                       |
+| Max Summarized Results  | número de resultados principales a usar en el resumen (por defecto 7)  |
 
-## Outputs
+## Salidas
 
-| Name           | Description                   |
-| -------------- | ----------------------------- |
-| VectaraQAChain | Final node to return response |
+| Nombre         | Descripción                            |
+| -------------- | -------------------------------------- |
+| VectaraQAChain | Nodo final para devolver la respuesta |

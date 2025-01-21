@@ -1,159 +1,159 @@
 ---
-description: Learn how to upsert data to Vector Stores with Flowise
+description: Aprende cómo hacer upsert de datos a Vector Stores con Flowise
 ---
 
 # Upserting Data
 
 ***
 
-There are two fundamental ways to upsert your data into a [Vector Store](../integrations/langchain/vector-stores/) using Flowise, either via [API calls](../using-flowise/api.md#id-2.-vector-upsert-api) or by using a set of dedicated nodes we have ready for this purpose.
+Hay dos formas fundamentales de hacer upsert de tus datos en un [Vector Store](../integrations/langchain/vector-stores/) usando Flowise, ya sea mediante [llamadas API](../using-flowise/api.md#id-2.-vector-upsert-api) o usando un conjunto de nodos dedicados que tenemos listos para este propósito.
 
-In this guide, even though it is **highly recommended** that you prepare your data using the [Document Stores](../using-flowise/document-stores.md) before upserting to a Vector Store, we will go through the entire process by using the specific nodes required for this end, outlining the steps, advantages of this approach, and optimization strategies for efficient data handling.
+En esta guía, aunque es **altamente recomendado** que prepares tus datos usando los [Document Stores](../using-flowise/document-stores.md) antes de hacer upsert a un Vector Store, recorreremos todo el proceso usando los nodos específicos requeridos para este fin, describiendo los pasos, ventajas de este enfoque y estrategias de optimización para un manejo eficiente de datos.
 
-## Understanding the upserting process
+## Entendiendo el proceso de upsert
 
-The first thing we need to understand is that the upserting data process to a [Vector Store](../integrations/langchain/vector-stores/) is a fundamental piece for the formation of a [Retrieval Augmented Generation (RAG)](multiple-documents-qna.md) system. However, once this process is finished, the RAG can be executed independently.
+Lo primero que necesitamos entender es que el proceso de upsert de datos a un [Vector Store](../integrations/langchain/vector-stores/) es una pieza fundamental para la formación de un sistema de [Retrieval Augmented Generation (RAG)](multiple-documents-qna.md). Sin embargo, una vez que este proceso finaliza, el RAG puede ejecutarse independientemente.
 
-In other words, in Flowise you can upsert data without a full RAG setup, and you can run your RAG without the specific nodes used in the upsert process, meaning that although a well-populated vector store is crucial for RAG to function, the actual retrieval and generation processes don't require continuous upserting.
+En otras palabras, en Flowise puedes hacer upsert de datos sin una configuración RAG completa, y puedes ejecutar tu RAG sin los nodos específicos usados en el proceso de upsert, lo que significa que aunque un vector store bien poblado es crucial para que RAG funcione, los procesos reales de recuperación y generación no requieren upsert continuo.
 
 <figure><img src="../.gitbook/assets/ud_01.png" alt=""><figcaption><p>Upsert vs. RAG</p></figcaption></figure>
 
-## Setup
+## Configuración
 
-Let's say we have a long dataset in PDF format that we need to upsert to our [Upstash Vector Store](../integrations/langchain/vector-stores/upstash-vector.md) so we could instruct an LLM to retrieve specific information from that document.
+Digamos que tenemos un conjunto de datos extenso en formato PDF que necesitamos hacer upsert a nuestro [Upstash Vector Store](../integrations/langchain/vector-stores/upstash-vector.md) para poder instruir a un LLM que recupere información específica de ese documento.
 
-In order to do that, and for illustrating this tutorial, we would need to create an **upserting flow** with 5 different nodes:
+Para hacer esto, y para ilustrar este tutorial, necesitaríamos crear un **flujo de upsert** con 5 nodos diferentes:
 
-<figure><img src="../.gitbook/assets/UD_02.png" alt=""><figcaption><p>Upserting Flow</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/UD_02.png" alt=""><figcaption><p>Flujo de Upsert</p></figcaption></figure>
 
 ## 1. Document Loader
 
-The first step is to **upload our PDF data into the Flowise instance** using a [Document Loader node](../integrations/langchain/document-loaders/). Document Loaders are specialized nodes that handle the ingestion of various document formats, including **PDFs**, **TXT**, **CSV**, Notion pages, and more.
+El primer paso es **cargar nuestros datos PDF en la instancia de Flowise** usando un nodo [Document Loader](../integrations/langchain/document-loaders/). Los Document Loaders son nodos especializados que manejan la ingesta de varios formatos de documentos, incluyendo **PDFs**, **TXT**, **CSV**, páginas de Notion y más.
 
-It is important to mention that every Document Loader comes with two important **additional parameters** that allow us to add and omit metadata from our dataset at will.
+Es importante mencionar que cada Document Loader viene con dos **parámetros adicionales** importantes que nos permiten agregar y omitir metadatos de nuestro conjunto de datos a voluntad.
 
-<figure><img src="../.gitbook/assets/UD_03.png" alt="" width="375"><figcaption><p>Additional Parameters</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/UD_03.png" alt="" width="375"><figcaption><p>Parámetros Adicionales</p></figcaption></figure>
 
 {% hint style="info" %}
-**Tip**: The add/omit metadata parameters, although they are optional, are very useful for targeting our dataset once it is upserted in a Vector Store or for removing unnecessary metadata from it.
+**Consejo**: Los parámetros de agregar/omitir metadatos, aunque son opcionales, son muy útiles para identificar nuestro conjunto de datos una vez que se ha hecho upsert en un Vector Store o para eliminar metadatos innecesarios del mismo.
 {% endhint %}
 
 ## 2. Text Splitter
 
-Once we have uploaded our PDF or datset, we need to **split it into smaller pieces, documents, or chunks**. This is a crucial preprocessing step for 2 main reasons:
+Una vez que hemos cargado nuestro PDF o conjunto de datos, necesitamos **dividirlo en piezas más pequeñas, documentos o chunks**. Este es un paso de preprocesamiento crucial por 2 razones principales:
 
-* **Retrieval speed and relevance:** Storing and querying large documents as single entities in a vector database can lead to slower retrieval times and potentially less relevant results. Splitting the document into smaller chunks allows for more targeted retrieval. By querying against smaller, more focused units of information, we can achieve faster response times and improve the precision of the retrieved results.
-* **Cost-effective:** Since we only retrieve relevant chunks rather than the entire document, the number of tokens processed by the LLM is significantly reduced. This targeted retrieval approach directly translates to lower usage costs for our LLM, as billing is typically based on token consumption. By minimizing the amount of irrelevant information sent to the LLM, we also optimize for cost.
+* **Velocidad y relevancia de recuperación:** Almacenar y consultar documentos grandes como entidades únicas en una base de datos vectorial puede llevar a tiempos de recuperación más lentos y resultados potencialmente menos relevantes. Dividir el documento en chunks más pequeños permite una recuperación más dirigida. Al consultar contra unidades de información más pequeñas y enfocadas, podemos lograr tiempos de respuesta más rápidos y mejorar la precisión de los resultados recuperados.
+* **Costo-efectivo:** Ya que solo recuperamos chunks relevantes en lugar del documento completo, el número de tokens procesados por el LLM se reduce significativamente. Este enfoque de recuperación dirigida se traduce directamente en menores costos de uso para nuestro LLM, ya que la facturación típicamente se basa en el consumo de tokens. Al minimizar la cantidad de información irrelevante enviada al LLM, también optimizamos el costo.
 
-### Nodes
+### Nodos
 
-In Flowise, this splitting process is accomplished using the [Text Splitter nodes](../integrations/langchain/text-splitters/). Those nodes provide a range of text segmentation strategies, including:
+En Flowise, este proceso de división se logra usando los nodos [Text Splitter](../integrations/langchain/text-splitters/). Estos nodos proporcionan una variedad de estrategias de segmentación de texto, incluyendo:
 
-* **Character Text Splitting:** Dividing the text into chunks of a fixed number of characters. This method is straightforward but may split words or phrases across chunks, potentially disrupting context.
-* **Token Text Splitting:** Segmenting the text based on word boundaries or tokenization schemes specific to the chosen embedding model. This approach often leads to more semantically coherent chunks, as it preserves word boundaries and considers the underlying linguistic structure of the text.
-* **Recursive Character Text Splitting:** This strategy aims to divide text into chunks that maintain semantic coherence while staying within a specified size limit. It's particularly well-suited for hierarchical documents with nested sections or headings. Instead of blindly splitting at the character limit, it recursively analyzes the text to find logical breakpoints, such as sentence endings or section breaks. This approach ensures that each chunk represents a meaningful unit of information, even if it slightly exceeds the target size.
-* **Markdown Text Splitter:** Designed specifically for markdown-formatted documents, this splitter logically segments the text based on markdown headings and structural elements, creating chunks that correspond to logical sections within the document.
-* **Code Text Splitter:** Tailored for splitting code files, this strategy considers code structure, function definitions, and other programming language-specific elements to create meaningful chunks that are suitable for tasks like code search and documentation.
-* **HTML-to-Markdown Text Splitter:** This specialized splitter first converts HTML content to Markdown and then applies the Markdown Text Splitter, allowing for structured segmentation of web pages and other HTML documents.
+* **Character Text Splitting:** Dividiendo el texto en chunks de un número fijo de caracteres. Este método es directo pero puede dividir palabras o frases entre chunks, potencialmente interrumpiendo el contexto.
+* **Token Text Splitting:** Segmentando el texto basado en límites de palabras o esquemas de tokenización específicos del modelo de embedding elegido. Este enfoque a menudo lleva a chunks más coherentes semánticamente, ya que preserva los límites de las palabras y considera la estructura lingüística subyacente del texto.
+* **Recursive Character Text Splitting:** Esta estrategia busca dividir el texto en chunks que mantengan la coherencia semántica mientras permanecen dentro de un límite de tamaño especificado. Es particularmente adecuada para documentos jerárquicos con secciones o encabezados anidados. En lugar de dividir ciegamente en el límite de caracteres, analiza recursivamente el texto para encontrar puntos de ruptura lógicos, como finales de oraciones o saltos de sección. Este enfoque asegura que cada chunk represente una unidad significativa de información, incluso si excede ligeramente el tamaño objetivo.
+* **Markdown Text Splitter:** Diseñado específicamente para documentos con formato markdown, este divisor segmenta lógicamente el texto basado en encabezados markdown y elementos estructurales, creando chunks que corresponden a secciones lógicas dentro del documento.
+* **Code Text Splitter:** Adaptado para dividir archivos de código, esta estrategia considera la estructura del código, definiciones de funciones y otros elementos específicos del lenguaje de programación para crear chunks significativos que son adecuados para tareas como búsqueda de código y documentación.
+* **HTML-to-Markdown Text Splitter:** Este divisor especializado primero convierte el contenido HTML a Markdown y luego aplica el Markdown Text Splitter, permitiendo la segmentación estructurada de páginas web y otros documentos HTML.
 
-The Text Splitter nodes provide granular control over text segmentation, allowing for customization of parameters such as:
+Los nodos Text Splitter proporcionan control granular sobre la segmentación de texto, permitiendo la personalización de parámetros como:
 
-* **Chunk Size:** The desired maximum size of each chunk, usually defined in characters or tokens.
-* **Chunk Overlap:** The number of characters or tokens to overlap between consecutive chunks, useful for maintaining contextual flow across chunks.
+* **Chunk Size:** El tamaño máximo deseado de cada chunk, usualmente definido en caracteres o tokens.
+* **Chunk Overlap:** El número de caracteres o tokens a superponer entre chunks consecutivos, útil para mantener el flujo contextual entre chunks.
 
 {% hint style="info" %}
-**Tip:** Note that Chunk Size and Chunk Overlap values are not additive. Selecting `chunk_size=1200` and `chunk_overlap=400` does not result in a total chunk size of 1600. The overlap value determines the number of tokens from the preceding chunk included in the current chunk to maintain context. It does not increase the overall chunk size.
+**Consejo:** Ten en cuenta que los valores de Chunk Size y Chunk Overlap no son aditivos. Seleccionar `chunk_size=1200` y `chunk_overlap=400` no resulta en un tamaño total de chunk de 1600. El valor de overlap determina el número de tokens del chunk anterior incluidos en el chunk actual para mantener el contexto. No aumenta el tamaño general del chunk.
 {% endhint %}
 
-### Undertanding Chunk Overlap
+### Entendiendo Chunk Overlap
 
-In the context of vector-based retrieval and LLM querying, chunk overlap plays an **important role in maintaining contextual continuity** and **improving response accuracy**, especially when dealing with limited retrieval depth or **top K**, which is the parameter that determines the maximum number of most similar chunks that are retrieved from the [Vector Store](../integrations/langchain/vector-stores/) in response to a query.
+En el contexto de recuperación basada en vectores y consultas LLM, el chunk overlap juega un **papel importante en mantener la continuidad contextual** y **mejorar la precisión de respuesta**, especialmente cuando se trata de profundidad de recuperación limitada o **top K**, que es el parámetro que determina el número máximo de chunks más similares que se recuperan del [Vector Store](../integrations/langchain/vector-stores/) en respuesta a una consulta.
 
-During query processing, the LLM executes a similarity search against the Vector Store to retrieve the most semantically relevant chunks to the given query. If the retrieval depth, represented by the top K parameter, is set to a small value, 4 for default, the LLM initially uses information only from these 4 chunks to generate its response.
+Durante el procesamiento de consultas, el LLM ejecuta una búsqueda de similitud contra el Vector Store para recuperar los chunks semánticamente más relevantes para la consulta dada. Si la profundidad de recuperación, representada por el parámetro top K, está establecida en un valor pequeño, 4 por defecto, el LLM inicialmente usa información solo de estos 4 chunks para generar su respuesta.
 
-This scenario presents us with a problem, since relying solely on a limited number of chunks without overlap can lead to incomplete or inaccurate answers, particularly when dealing with queries that require information spanning multiple chunks.
+Este escenario nos presenta un problema, ya que confiar únicamente en un número limitado de chunks sin superposición puede llevar a respuestas incompletas o inexactas, particularmente cuando se trata de consultas que requieren información que abarca múltiples chunks.
 
-Chunk overlap helps with this issue by ensuring that a portion of the textual context is shared across consecutive chunks, **increasing the likelihood that all relevant information for a given query is contained within the retrieved chunks**.
+El chunk overlap ayuda con este problema asegurando que una porción del contexto textual se comparta entre chunks consecutivos, **aumentando la probabilidad de que toda la información relevante para una consulta dada esté contenida dentro de los chunks recuperados**.
 
-In other words, this overlap serves as a bridge between chunks, enabling the LLM to access a wider contextual window even when limited to a small set of retrieved chunks (top K). If a query relates to a concept or piece of information that extends beyond a single chunk, the overlapping regions increase the likelihood of capturing all the necessary context.
+En otras palabras, esta superposición sirve como un puente entre chunks, permitiendo al LLM acceder a una ventana contextual más amplia incluso cuando está limitado a un pequeño conjunto de chunks recuperados (top K). Si una consulta se relaciona con un concepto o pieza de información que se extiende más allá de un solo chunk, las regiones superpuestas aumentan la probabilidad de capturar todo el contexto necesario.
 
-Therefore, by introducing chunk overlap during the text splitting phase, we enhance the LLM's ability to:
+Por lo tanto, al introducir chunk overlap durante la fase de división de texto, mejoramos la capacidad del LLM para:
 
-1. **Preserve contextual continuity:** Overlapping chunks provide a smoother transition of information between consecutive segments, allowing the model to maintain a more coherent understanding of the text.
-2. **Improve retrieval accuracy:** By increasing the probability of capturing all relevant information within the target top K retrieved chunks, overlap contributes to more accurate and contextually appropriate responses.
+1. **Preservar la continuidad contextual:** Los chunks superpuestos proporcionan una transición más suave de información entre segmentos consecutivos, permitiendo al modelo mantener una comprensión más coherente del texto.
+2. **Mejorar la precisión de recuperación:** Al aumentar la probabilidad de capturar toda la información relevante dentro de los chunks top K recuperados objetivo, el overlap contribuye a respuestas más precisas y contextualmente apropiadas.
 
-### Accuracy vs. Cost
+### Precisión vs. Costo
 
-So, to further optimize the trade-off between retrieval accuracy and cost, two primary strategies can be used:
+Entonces, para optimizar aún más el equilibrio entre precisión de recuperación y costo, se pueden usar dos estrategias principales:
 
-1. **Increase/Decrease Chunk Overlap:** Adjusting the overlap percentage during text splitting allows for fine-grained control over the amount of shared context between chunks. Higher overlap percentages generally lead to improved context preservation but may also increase costs since you would need to use more chunks to encompass the entire document. Conversely, lower overlap percentages can reduce costs but risk losing key contextual information between chunks, potentially leading to less accurate or incomplete answers from the LLM.
-2. **Increase/Decrease Top K:** Raising the default top K value (4) expands the number of chunks considered for response generation. While this can improve accuracy, it also increases cost.
+1. **Aumentar/Disminuir Chunk Overlap:** Ajustar el porcentaje de overlap durante la división de texto permite un control fino sobre la cantidad de contexto compartido entre chunks. Porcentajes de overlap más altos generalmente llevan a una mejor preservación del contexto pero también pueden aumentar los costos ya que necesitarías usar más chunks para abarcar todo el documento. Por el contrario, porcentajes de overlap más bajos pueden reducir costos pero arriesgan perder información contextual clave entre chunks, potencialmente llevando a respuestas menos precisas o incompletas del LLM.
+2. **Aumentar/Disminuir Top K:** Elevar el valor top K por defecto (4) expande el número de chunks considerados para la generación de respuestas. Si bien esto puede mejorar la precisión, también aumenta el costo.
 
 {% hint style="info" %}
-**Tip:** The choice of optimal **overlap** and **top K** values depends on factors such as document complexity, embedding model characteristics, and the desired balance between accuracy and cost. Experimentation with these values is important for finding the ideal configuration for a specific need.
+**Consejo:** La elección de valores óptimos de **overlap** y **top K** depende de factores como la complejidad del documento, características del modelo de embedding y el balance deseado entre precisión y costo. La experimentación con estos valores es importante para encontrar la configuración ideal para una necesidad específica.
 {% endhint %}
 
 ## 3. Embedding
 
-We have now uploaded our dataset and configured how our data is going to be split before it gets upserted to our [Vector Store](../integrations/langchain/vector-stores/). At this point, [the embedding nodes](../integrations/langchain/embeddings/) come into play, **converting all those chunks into a "language" that an LLM can easily understand**.
+Ahora hemos cargado nuestro conjunto de datos y configurado cómo se van a dividir nuestros datos antes de hacer upsert a nuestro [Vector Store](../integrations/langchain/vector-stores/). En este punto, [los nodos de embedding](../integrations/langchain/embeddings/) entran en juego, **convirtiendo todos esos chunks en un "lenguaje" que un LLM puede entender fácilmente**.
 
-In this current context, embedding is the process of converting text into a numerical representation that captures its meaning. This numerical representation, also called the embedding vector, is a multi-dimensional array of numbers, where each dimension represents a specific aspect of the text's meaning.
+En este contexto actual, embedding es el proceso de convertir texto en una representación numérica que captura su significado. Esta representación numérica, también llamada vector de embedding, es un array multidimensional de números, donde cada dimensión representa un aspecto específico del significado del texto.
 
-These vectors allow LLMs to compare and search for similar pieces of text within the vector store by measuring the distance or similarity between them in this multi-dimensional space.
+Estos vectores permiten a los LLMs comparar y buscar piezas similares de texto dentro del vector store midiendo la distancia o similitud entre ellos en este espacio multidimensional.
 
-### Understanding Embeddings/Vector Store dimensions
+### Entendiendo las dimensiones de Embeddings/Vector Store
 
-The number of dimensions in a Vector Store index is determined by the embedding model used when we upsert our data, and vice versa. Each dimension represents a specific feature or concept within the data. For example, a **dimension** might **represent a particular topic, sentiment, or other aspect of the text**.
+El número de dimensiones en un índice de Vector Store está determinado por el modelo de embedding usado cuando hacemos upsert de nuestros datos, y viceversa. Cada dimensión representa una característica o concepto específico dentro de los datos. Por ejemplo, una **dimensión** podría **representar un tema particular, sentimiento u otro aspecto del texto**.
 
-The more dimensions we use to embed our data, the greater the potential for capturing nuanced meaning from our text. However, this increase comes at the cost of higher computational requirements per query.
+Cuantas más dimensiones usemos para embeber nuestros datos, mayor será el potencial para capturar significado matizado de nuestro texto. Sin embargo, este aumento viene al costo de mayores requisitos computacionales por consulta.
 
-In general, a larger number of dimensions needs more resources to store, process, and compare the resulting embedding vectors. Therefore, embeddings models like the Google `embedding-001`, which uses 768 dimensions, are, in theory, cheaper than others like the OpenAI `text-embedding-3-large`, with 3072 dimensions.
+En general, un mayor número de dimensiones necesita más recursos para almacenar, procesar y comparar los vectores de embedding resultantes. Por lo tanto, modelos de embeddings como el Google `embedding-001`, que usa 768 dimensiones, son, en teoría, más baratos que otros como el OpenAI `text-embedding-3-large`, con 3072 dimensiones.
 
-It's important to note that the **relationship between dimensions and meaning capture isn't strictly linear**; there's a point of diminishing returns where adding more dimensions provides negligible benefit for the added unnecessary cost.
+Es importante notar que la **relación entre dimensiones y captura de significado no es estrictamente lineal**; hay un punto de rendimientos decrecientes donde agregar más dimensiones proporciona beneficios insignificantes para el costo innecesario añadido.
 
 {% hint style="info" %}
-**Tip:** To ensure compatibility between an embedding model and a Vector Store index, dimensional alignment is essential. Both **the model and the index must utilize the same number of dimensions for vector representation**. Dimensionality mismatch will result in upsertion errors, as the Vector Store is designed to handle vectors of a specific size determined by the chosen embedding model.
+**Consejo:** Para asegurar la compatibilidad entre un modelo de embedding y un índice de Vector Store, la alineación dimensional es esencial. Tanto **el modelo como el índice deben utilizar el mismo número de dimensiones para la representación vectorial**. La incompatibilidad de dimensionalidad resultará en errores de upsert, ya que el Vector Store está diseñado para manejar vectores de un tamaño específico determinado por el modelo de embedding elegido.
 {% endhint %}
 
 ## 4. Vector Store
 
-The [Vector Store node](../integrations/langchain/vector-stores/) is the **end node of our upserting flow**. It acts as the bridge between our Flowise instance and our vector database, enabling us to send the generated embeddings, along with any associated metadata, to our target Vector Store index for persistent storage and subsequent retrieval.
+El nodo [Vector Store](../integrations/langchain/vector-stores/) es el **nodo final de nuestro flujo de upsert**. Actúa como el puente entre nuestra instancia de Flowise y nuestra base de datos vectorial, permitiéndonos enviar los embeddings generados, junto con cualquier metadato asociado, a nuestro índice de Vector Store objetivo para almacenamiento persistente y recuperación posterior.
 
-It is in this node where we can set parameters like "**top K**", which, as we said previously, is the parameter that determines the maximum number of most similar chunks that are retrieved from the Vector Store in response to a query.
+Es en este nodo donde podemos establecer parámetros como "**top K**", que, como dijimos anteriormente, es el parámetro que determina el número máximo de chunks más similares que se recuperan del Vector Store en respuesta a una consulta.
 
 <figure><img src="../.gitbook/assets/UD_04.png" alt="" width="375"><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-**Tip:** A lower top K value will yield fewer but potentially more relevant results, while a higher value will return a broader range of results, potentially capturing more information.
+**Consejo:** Un valor top K más bajo producirá menos resultados pero potencialmente más relevantes, mientras que un valor más alto devolverá un rango más amplio de resultados, potencialmente capturando más información.
 {% endhint %}
 
 ## 5. Record Manager
 
-The [Record Manager node](../integrations/langchain/record-managers.md) is an optional but incredibly useful addition to our upserting flow. It allows us to maintain records of all the chunks that have been upserted to our Vector Store, enabling us to efficiently add or delete chunks as needed.
+El nodo [Record Manager](../integrations/langchain/record-managers.md) es una adición opcional pero increíblemente útil a nuestro flujo de upsert. Nos permite mantener registros de todos los chunks que se han hecho upsert a nuestro Vector Store, permitiéndonos agregar o eliminar chunks eficientemente según sea necesario.
 
-For a more in-depth guide, we refer you to [this guide](../integrations/langchain/record-managers.md).
+Para una guía más detallada, te referimos a [esta guía](../integrations/langchain/record-managers.md).
 
 <figure><img src="../.gitbook/assets/UD_05.png" alt="" width="375"><figcaption></figcaption></figure>
 
-## 6. Full Overview
+## 6. Visión General Completa
 
-Finally, let's examine each stage, from initial document loading to the final vector representation, highlighting the key components and their roles in the upserting process.
+Finalmente, examinemos cada etapa, desde la carga inicial del documento hasta la representación vectorial final, destacando los componentes clave y sus roles en el proceso de upsert.
 
 <figure><img src="../.gitbook/assets/UD_06.png" alt=""><figcaption></figcaption></figure>
 
-1. **Document Ingestion**:
-   * We begin by feeding our raw data into Flowise using the appropriate **Document Loader node** for your data format.
-2. **Strategic Splitting**
-   * Next, the **Text Splitter node** divides our document into smaller, more manageable chunks. This is crucial for efficient retrieval and cost control.
-   * We have flexibility in how this splitting happens by selecting the appropriate text splitter node and, importantly, by fine-tuning chunk size and chunk overlap to balance context preservation with efficiency.
-3. **Meaningful Embeddings**
-   * Now, just before our data is going to be recorded in the Vector Store, the **Embedding node** steps in. It transforms each text chunk and its meaning into a numerical representation that our LLM can understand.
-4. **Vector Store Index**
-   * Finally, the **Vector Store node** acts as the bridge between Flowise and our database. It sends our embeddings, along with any associated metadata, to the designated Vector Store index.
-   * Here, in this node, we can control the retrieval behavior by setting the **top K** parameter, which influences how many chunks are considered when answering a query.
-5. **Data Ready**
-   * Once upserted, our data is now represented as vectors within the Vector Store, ready for similarity search and retrieval.
-6. **Record Keeping (Optional)**
-   * For enhanced control and management data, the **Record Manager** node keeps track of all upserted chunks. This facilitates easy updates or removals as your data or needs evolve.
+1. **Ingesta de Documentos**:
+   * Comenzamos alimentando nuestros datos crudos en Flowise usando el nodo **Document Loader** apropiado para tu formato de datos.
+2. **División Estratégica**
+   * Luego, el nodo **Text Splitter** divide nuestro documento en chunks más pequeños y manejables. Esto es crucial para la recuperación eficiente y el control de costos.
+   * Tenemos flexibilidad en cómo ocurre esta división seleccionando el nodo text splitter apropiado y, importantemente, ajustando el tamaño de chunk y chunk overlap para balancear la preservación del contexto con la eficiencia.
+3. **Embeddings Significativos**
+   * Ahora, justo antes de que nuestros datos sean registrados en el Vector Store, el nodo **Embedding** entra en acción. Transforma cada chunk de texto y su significado en una representación numérica que nuestro LLM puede entender.
+4. **Índice de Vector Store**
+   * Finalmente, el nodo **Vector Store** actúa como el puente entre Flowise y nuestra base de datos. Envía nuestros embeddings, junto con cualquier metadato asociado, al índice de Vector Store designado.
+   * Aquí, en este nodo, podemos controlar el comportamiento de recuperación estableciendo el parámetro **top K**, que influye en cuántos chunks se consideran al responder una consulta.
+5. **Datos Listos**
+   * Una vez hecho el upsert, nuestros datos ahora están representados como vectores dentro del Vector Store, listos para búsqueda de similitud y recuperación.
+6. **Mantenimiento de Registros (Opcional)**
+   * Para un control y gestión de datos mejorados, el nodo **Record Manager** mantiene un registro de todos los chunks con upsert. Esto facilita actualizaciones o eliminaciones fáciles a medida que tus datos o necesidades evolucionan.
 
-In essence, the upserting process transforms our raw data into an LLM-ready format, optimized for fast and cost-effective retrieval.
+En esencia, el proceso de upsert transforma nuestros datos crudos en un formato listo para LLM, optimizado para recuperación rápida y costo-efectiva.

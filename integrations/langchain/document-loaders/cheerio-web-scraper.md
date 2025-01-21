@@ -1,21 +1,21 @@
-# Cheerio Web Scraper
+# Web Scraper Cheerio
 
-Cheerio is lightweight and doesn't require a full browser environment like some other scraping tools. Keep in mind that when scraping websites, **you should always review and comply with the website's terms of service and policies to ensure ethical and legal use of the data**.
+Cheerio es ligero y no requiere un entorno de navegador completo como otras herramientas de scraping. Ten en cuenta que al hacer scraping de sitios web, **siempre debes revisar y cumplir con los términos de servicio y políticas del sitio web para asegurar un uso ético y legal de los datos**.
 
-## Scrape One URL
+## Extraer de Una URL
 
-1. _(Optional)_ Connect [**Text Splitter**](../text-splitters/).
-2. Input desired URL to be scraped.
+1. _(Opcional)_ Conecta [**Text Splitter**](../text-splitters/).
+2. Ingresa la URL deseada para hacer scraping.
 
-## Crawl & Scrape Multiple URLs
+## Rastrear y Extraer Múltiples URLs
 
-Visit [**Web Crawl**](../../../use-cases/web-scrape-qna.md#id-1.-crawl-multiple-pages) guide to allow scaping of multiple pages.
+Visita la guía de [**Web Crawl**](../../../use-cases/web-scrape-qna.md#id-1.-crawl-multiple-pages) para permitir el scraping de múltiples páginas.
 
-## Output
+## Salida
 
-Loads URL content as Document
+Carga el contenido de la URL como Documento
 
-## Resources
+## Recursos
 
-* [LangChain JS Cheerio](https://js.langchain.com/docs/integrations/document\_loaders/web\_loaders/web\_cheerio)
+* [LangChain JS Cheerio](https://js.langchain.com/docs/integrations/document_loaders/web_loaders/web_cheerio)
 * [Cheerio](https://cheerio.js.org/)

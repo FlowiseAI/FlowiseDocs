@@ -1,40 +1,40 @@
 # Upstash
 
-## Prequisites
+## Prerequisitos
 
-1. Sign up or Sign In to [Upstash Console](https://console.upstash.com)
-2. Navigate to Vector page and click **Create Index**
+1. Regístrate o inicia sesión en [Upstash Console](https://console.upstash.com)
+2. Navega a la página Vector y haz clic en **Create Index**
    <figure><img src="../../../.gitbook/assets/upstash/list-index.jpeg" alt=""><figcaption></figcaption></figure>
-3. Do the necessary configurations and create the index.
+3. Realiza las configuraciones necesarias y crea el índice.
 
-   1. **Index Name**, name of the index to be created. (e.g. "flowise-upstash-demo")
-   2. **Dimensions**, size of the vectors to be inserted in the index. (e.g. 1536)
-   3. **Embedding Model**, the model to be used in [Upstash Embeddings](https://upstash.com/docs/vector/features/embeddingmodels). This is optional. If you enable it, you don't need to provide embeddings model.
+   1. **Index Name**, nombre del índice a crear (ej. "flowise-upstash-demo")
+   2. **Dimensions**, tamaño de los vectores a insertar en el índice (ej. 1536)
+   3. **Embedding Model**, el modelo a usar en [Upstash Embeddings](https://upstash.com/docs/vector/features/embeddingmodels). Esto es opcional. Si lo habilitas, no necesitas proporcionar un modelo de embeddings.
 
    <figure><img src="../../../.gitbook/assets/upstash/create-index.jpeg" alt=""><figcaption></figcaption></figure>
 
-## Setup
+## Configuración
 
-1.  Get your index credentials
+1. Obtén las credenciales de tu índice
 
 <figure><img src="../../../.gitbook/assets/upstash/env-variables.jpeg" alt=""><figcaption></figcaption></figure>
 
-1. Create new Upstash Vector credential and fill in
-   1. Upstash Vector REST URL from UPSTASH_VECTOR_REST_URL on console
-   2. Upstash Vector Rest Token from UPSTASH_VECTOR_REST_TOKEN on console
+2. Crea una nueva credencial de Upstash Vector y completa
+   1. Upstash Vector REST URL desde UPSTASH_VECTOR_REST_URL en la consola
+   2. Upstash Vector Rest Token desde UPSTASH_VECTOR_REST_TOKEN en la consola
 
 <figure><img src="../../../.gitbook/assets/upstash/credentials.jpeg" alt="" width="563"><figcaption></figcaption></figure>
 
-1.  Add a new **Upstash Vector** node to canvas
+3. Añade un nuevo nodo **Upstash Vector** al canvas
 
 <figure><img src="../../../.gitbook/assets/upstash/upstash-node.jpeg" alt="" width="279"><figcaption></figcaption></figure>
 
-1. Add additional nodes to canvas and start the upsert process
-   - **Document** can be connected with any node under [**Document Loader**](../document-loaders/) category
-   - **Embeddings** can be connected with any node under [**Embeddings** ](../embeddings/)category
+4. Añade nodos adicionales al canvas e inicia el proceso de upsert
+   - **Document** puede conectarse con cualquier nodo de la categoría [**Document Loader**](../document-loaders/)
+   - **Embeddings** puede conectarse con cualquier nodo de la categoría [**Embeddings**](../embeddings/)
 
 <figure><img src="../../../.gitbook/assets/upstash/flowise-design.jpeg" alt=""><figcaption></figcaption></figure>
 
-1. Verify from [Upstash dashboard](https://console.upstash.com) to see if data has been successfully updated:
+5. Verifica desde el [dashboard de Upstash](https://console.upstash.com) si los datos se han actualizado correctamente:
 
 <figure><img src="../../../.gitbook/assets/upstash/databrowser.jpeg" alt=""><figcaption></figcaption></figure>

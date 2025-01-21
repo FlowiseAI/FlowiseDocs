@@ -1,11 +1,11 @@
 ---
-description: Autonomous agent with chain of thoughts for self-guided task completion.
+description: Agente autónomo con cadena de pensamientos para completar tareas de forma autoguiada.
 ---
 
 # AutoGPT
 
-<figure><img src="../../../.gitbook/assets/image (12) (2).png" alt="" width="277"><figcaption><p>AutoGPT Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (12) (2).png" alt="" width="277"><figcaption><p>Node de AutoGPT</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../contributing/) para comenzar.
 {% endhint %}

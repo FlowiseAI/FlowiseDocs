@@ -1,71 +1,71 @@
 ---
-description: Learn how to use variables in Flowise
+description: Aprende cómo usar variables en Flowise
 ---
 
 # Variables
 
 ***
 
-Flowise allow users to create variables that can be used in the nodes. Variables can be Static or Runtime.
+Flowise permite a los usuarios crear variables que pueden ser utilizadas en los nodos. Las variables pueden ser Estáticas o de Tiempo de Ejecución.
 
-### Static
+### Estáticas
 
-Static variable will be saved with the value specified, and retrieved as it is.
+La variable estática se guardará con el valor especificado y se recuperará tal cual.
 
 <figure><img src="../.gitbook/assets/image (13) (1) (1) (1).png" alt="" width="542"><figcaption></figcaption></figure>
 
-### Runtime
+### Tiempo de Ejecución
 
-Value of the variable will be fetched from **.env** file using `process.env`
+El valor de la variable se obtendrá del archivo **.env** usando `process.env`
 
 <figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="537"><figcaption></figcaption></figure>
 
-### Override or setting variable through API
+### Sobrescribir o establecer variables a través de la API
 
-In order to override variable value, user must explicitly enable it from **Chatflow Configuration** -> **Security** tab:
+Para sobrescribir el valor de una variable, el usuario debe habilitarlo explícitamente desde la pestaña **Configuración del Flujo de Chat** -> **Seguridad**:
 
 <figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-If there is an existing variable created, variable value provided in the API will override the existing value.
+Si existe una variable creada, el valor de la variable proporcionado en la API sobrescribirá el valor existente.
 
 ```json
 {
-    "question": "hello",
+    "question": "hola",
     "overrideConfig": {
         "vars": {
-            "var": "some-override-value"
+            "var": "algun-valor-sobrescrito"
         }
     }
 }
 ```
 
-### Using Variables
+### Usando Variables
 
-Variables can be used by the nodes in Flowise. For instance, a variable named **`character`** is created:
+Las variables pueden ser utilizadas por los nodos en Flowise. Por ejemplo, se crea una variable llamada **`character`**:
 
 <figure><img src="../.gitbook/assets/image (96).png" alt=""><figcaption></figcaption></figure>
 
-We can then use this variable as **`$vars.<variable-name>`** in the Function of the following nodes:
+Luego podemos usar esta variable como **`$vars.<nombre-variable>`** en la Función de los siguientes nodos:
 
-* [Custom Tool](../integrations/langchain/tools/custom-tool.md)
-* [Custom Function](../integrations/utilities/custom-js-function.md)
-* [Custom Loader](../integrations/langchain/document-loaders/custom-document-loader.md)
-* [If Else](../integrations/utilities/if-else.md)
+* [Herramienta Personalizada](../integrations/langchain/tools/custom-tool.md)
+* [Función Personalizada](../integrations/utilities/custom-js-function.md)
+* [Cargador Personalizado](../integrations/langchain/document-loaders/custom-document-loader.md)
+* [Si No](../integrations/utilities/if-else.md)
 
 <figure><img src="../.gitbook/assets/image (105).png" alt="" width="283"><figcaption></figcaption></figure>
 
-Besides, user can also use the variable in text input of any node with the following format:
+Además, el usuario también puede usar la variable en la entrada de texto de cualquier nodo con el siguiente formato:
 
-**`{{$vars.<variable-name>}}`**
+**`{{$vars.<nombre-variable>}}`**
 
-For example, in Agent System Message:
+Por ejemplo, en el Mensaje del Sistema del Agente:
 
 <figure><img src="../.gitbook/assets/image (1) (1) (1) (2) (1).png" alt="" width="508"><figcaption></figcaption></figure>
 
-In Prompt Template:
+En la Plantilla de Prompt:
 
 <figure><img src="../.gitbook/assets/image (157).png" alt=""><figcaption></figcaption></figure>
 
-## Resources
+## Recursos
 
-* [Pass Variables to Function](../integrations/langchain/tools/custom-tool.md#pass-variables-to-function)
+* [Pasar Variables a Función](../integrations/langchain/tools/custom-tool.md#pass-variables-to-function)

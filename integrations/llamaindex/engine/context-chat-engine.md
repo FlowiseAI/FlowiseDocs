@@ -1,24 +1,24 @@
 # Context Chat Engine
 
-A chat engine serves as an end-to-end pipeline for having a human-like conversation with your data, allowing for multiple exchanges rather than a single question-and-answer interaction.
+Un chat engine sirve como un pipeline de extremo a extremo para mantener una conversación similar a la humana con tus datos, permitiendo múltiples intercambios en lugar de una única interacción de pregunta y respuesta.
 
 <figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-## Inputs
+## Entradas
 
 * Chat Model
 * Vector Store Retriever
 * [Memory](../../langchain/memory/)
 
-## Parameters
+## Parámetros
 
-| Name                    | Description                                                         |
+| Nombre                  | Descripción                                                          |
 | ----------------------- | ------------------------------------------------------------------- |
-| Return Source Documents | To return citations/sources that were used to build up the response |
-| System Message          | An instruction for LLM on how to answer query                       |
+| Return Source Documents | Para devolver citas/fuentes que se usaron para construir la respuesta|
+| System Message          | Una instrucción para el LLM sobre cómo responder la consulta        |
 
-## Outputs
+## Salidas
 
-| Name              | Description                   |
-| ----------------- | ----------------------------- |
-| ContextChatEngine | Final node to return response |
+| Nombre            | Descripción                            |
+| ----------------- | -------------------------------------- |
+| ContextChatEngine | Nodo final para devolver la respuesta  |

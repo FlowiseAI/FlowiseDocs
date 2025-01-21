@@ -1,38 +1,38 @@
 ---
-description: Learn how to query structured data
+description: Aprende cómo consultar datos estructurados
 ---
 
 # SQL QnA
 
 ***
 
-Unlike previous examples like [Web Scrape QnA](web-scrape-qna.md) and [Multiple Documents QnA](multiple-documents-qna.md), querying structured data does not require a vector database. At the high-level, this can be achieved with following steps:
+A diferencia de ejemplos anteriores como [QnA con Web Scraping](web-scrape-qna.md) y [QnA con Múltiples Documentos](multiple-documents-qna.md), consultar datos estructurados no requiere una base de datos vectorial. A alto nivel, esto se puede lograr con los siguientes pasos:
 
-1. Providing the LLM:
-   * overview of the SQL database schema
-   * example rows data
-2. Return a SQL query with few shot prompting
-3. Validate the SQL query using an [If Else](../integrations/utilities/if-else.md) node
-4. Create a custom function to execute the SQL query, and get the response
-5. Return a natural response from the executed SQL response
+1. Proporcionar al LLM:
+   * visión general del esquema de la base de datos SQL
+   * datos de ejemplo de filas
+2. Devolver una consulta SQL con few shot prompting
+3. Validar la consulta SQL usando un nodo [If Else](../integrations/utilities/if-else.md)
+4. Crear una función personalizada para ejecutar la consulta SQL y obtener la respuesta
+5. Devolver una respuesta natural de la respuesta SQL ejecutada
 
 <figure><img src="../.gitbook/assets/image (113).png" alt=""><figcaption></figcaption></figure>
 
-In this example, we are going to create a QnA chatbot that can interact with a SQL database stored in SingleStore
+En este ejemplo, vamos a crear un chatbot QnA que pueda interactuar con una base de datos SQL almacenada en SingleStore
 
 <figure><img src="../.gitbook/assets/image (116).png" alt=""><figcaption></figcaption></figure>
 
 ## TL;DR
 
-You can find the chatflow template:
+Puedes encontrar la plantilla del chatflow:
 
 {% file src="../.gitbook/assets/SQL Chatflow.json" %}
 
-## 1. SQL Database Schema + Example Rows
+## 1. Esquema de Base de Datos SQL + Filas de Ejemplo
 
-Use a Custom JS Function node to connect to SingleStore, retrieve database schema and top 3 rows.
+Usa un nodo Custom JS Function para conectarte a SingleStore, recuperar el esquema de la base de datos y las 3 primeras filas.
 
-From the [research paper](https://arxiv.org/abs/2204.00498), it is recommended to generate a prompt with following example format:
+Según el [paper de investigación](https://arxiv.org/abs/2204.00498), se recomienda generar un prompt con el siguiente formato de ejemplo:
 
 ```
 CREATE TABLE samples (firstName varchar NOT NULL, lastName varchar)
@@ -47,7 +47,7 @@ Steven Repici
 
 <details>
 
-<summary>Full Javascript Code</summary>
+<summary>Código Javascript Completo</summary>
 
 ```javascript
 const HOST = 'singlestore-host.com';
@@ -120,22 +120,22 @@ return sqlSchemaPrompt;
 
 </details>
 
-You can find more on how to get the `HOST`, `USER`, `PASSWORD` from this [guide](broken-reference/). Once finished, click Execute:
+Puedes encontrar más información sobre cómo obtener el `HOST`, `USER`, `PASSWORD` en esta [guía](broken-reference/). Una vez terminado, haz clic en Execute:
 
 <figure><img src="../.gitbook/assets/image (117).png" alt=""><figcaption></figcaption></figure>
 
-We can now see the correct format has been generated. Next step is to bring this into Prompt Template.
+Ahora podemos ver que se ha generado el formato correcto. El siguiente paso es llevarlo al Prompt Template.
 
-## 2. Return a SQL query with few shot prompting
+## 2. Devolver una consulta SQL con few shot prompting
 
-Create a new Chat Model + Prompt Template + LLMChain
+Crea un nuevo Chat Model + Prompt Template + LLMChain
 
 <figure><img src="../.gitbook/assets/image (118).png" alt=""><figcaption></figcaption></figure>
 
-Specify the following prompt in the Prompt Template:
+Especifica el siguiente prompt en el Prompt Template:
 
 ```
-Based on the provided SQL table schema and question below, return a SQL SELECT ALL query that would answer the user's question. For example: SELECT * FROM table WHERE id = '1'.
+Basado en el esquema de tabla SQL proporcionado y la pregunta a continuación, devuelve una consulta SQL SELECT ALL que respondería la pregunta del usuario. Por ejemplo: SELECT * FROM table WHERE id = '1'.
 ------------
 SCHEMA: {schema}
 ------------
@@ -144,19 +144,19 @@ QUESTION: {question}
 SQL QUERY:
 ```
 
-Since we are using 2 variables: {schema} and {question}, specify their values in **Format Prompt Values**:
+Como estamos usando 2 variables: {schema} y {question}, especifica sus valores en **Format Prompt Values**:
 
 <figure><img src="../.gitbook/assets/image (122).png" alt="" width="563"><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-You can provide more examples to the prompt (i.e few-shot prompting) to let the LLM learns better. Or take reference from [dialect-specific prompting](https://js.langchain.com/docs/use\_cases/sql/prompting#dialect-specific-prompting)
+Puedes proporcionar más ejemplos al prompt (es decir, few-shot prompting) para que el LLM aprenda mejor. O toma referencia del [dialect-specific prompting](https://js.langchain.com/docs/use_cases/sql/prompting#dialect-specific-prompting)
 {% endhint %}
 
-## 3. Validate the SQL query using [If Else](../integrations/utilities/if-else.md) node
+## 3. Validar la consulta SQL usando el nodo [If Else](../integrations/utilities/if-else.md)
 
-Sometimes the SQL query is invalid, and we do not want to waste resources the execute an invalid SQL query. For example, if a user is asking a general question that is irrelevant to the SQL database. We can use an `If Else` node to route to different path.
+A veces la consulta SQL es inválida, y no queremos desperdiciar recursos ejecutando una consulta SQL inválida. Por ejemplo, si un usuario está haciendo una pregunta general que es irrelevante para la base de datos SQL. Podemos usar un nodo `If Else` para enrutar a diferentes caminos.
 
-For instance, we can perform a basic check to see if SELECT and WHERE are included in the SQL query given by the LLM.
+Por ejemplo, podemos realizar una verificación básica para ver si SELECT y WHERE están incluidos en la consulta SQL dada por el LLM.
 
 {% tabs %}
 {% tab title="If Function" %}
@@ -184,19 +184,19 @@ return $sqlQuery;
 
 <figure><img src="../.gitbook/assets/image (119).png" alt="" width="327"><figcaption></figcaption></figure>
 
-In the Else Function, we will route to a Prompt Template + LLMChain that basically tells LLM that it is unable to answer user query:
+En la Else Function, enrutaremos a un Prompt Template + LLMChain que básicamente le dice al LLM que no puede responder la consulta del usuario:
 
 <figure><img src="../.gitbook/assets/image (120).png" alt=""><figcaption></figcaption></figure>
 
-## 4. Custom function to execute SQL query, and get the response
+## 4. Función personalizada para ejecutar la consulta SQL y obtener la respuesta
 
-If it is a valid SQL query, we need to execute the query. Connect the _**True**_ output from **If Else** node to a **Custom JS Function** node:
+Si es una consulta SQL válida, necesitamos ejecutarla. Conecta la salida _**True**_ del nodo **If Else** a un nodo **Custom JS Function**:
 
 <figure><img src="../.gitbook/assets/image (123).png" alt="" width="563"><figcaption></figcaption></figure>
 
 <details>
 
-<summary>Full Javascript Code</summary>
+<summary>Código Javascript Completo</summary>
 
 ```javascript
 const HOST = 'singlestore-host.com';
@@ -243,9 +243,9 @@ return result;
 
 </details>
 
-## 5. Return a natural response from the executed SQL response
+## 5. Devolver una respuesta natural de la respuesta SQL ejecutada
 
-Create a new Chat Model + Prompt Template + LLMChain
+Crea un nuevo Chat Model + Prompt Template + LLMChain
 
 <figure><img src="../.gitbook/assets/image (124).png" alt=""><figcaption></figcaption></figure>
 

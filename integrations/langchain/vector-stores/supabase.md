@@ -1,48 +1,48 @@
 # Supabase
 
-## Prerequisite
+## Prerequisitos
 
-1. Register an account for [Supabase](https://supabase.com/)
-2. Click **New project**
+1. Registra una cuenta en [Supabase](https://supabase.com/)
+2. Haz clic en **New project**
 
 <figure><img src="../../../.gitbook/assets/image (8) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
-3. Input required fields
+3. Ingresa los campos requeridos
 
-| Field Name                | Description                                       |
+| Nombre del Campo          | Descripción                                       |
 | ------------------------- | ------------------------------------------------- |
-| **Name**                  | name of the project to be created. (e.g. Flowise) |
-| **Database** **Password** | password to your postgres database                |
+| **Name**                  | nombre del proyecto a crear (ej. Flowise)         |
+| **Database** **Password** | contraseña para tu base de datos postgres         |
 
 <figure><img src="../../../.gitbook/assets/image (25) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-4. Click **Create new project** and wait for the project to finish setting up
-5. Click **SQL Editor**
+4. Haz clic en **Create new project** y espera a que el proyecto termine de configurarse
+5. Haz clic en **SQL Editor**
 
 <figure><img src="../../../.gitbook/assets/image (7) (2).png" alt=""><figcaption></figcaption></figure>
 
-6. Click **New query**
+6. Haz clic en **New query**
 
 <figure><img src="../../../.gitbook/assets/image (36) (1).png" alt=""><figcaption></figcaption></figure>
 
-7. Copy and Paste the below SQL query and run it by `Ctrl + Enter` or click **RUN**. Take note of the table name and function name.
+7. Copia y pega la siguiente consulta SQL y ejecútala con `Ctrl + Enter` o haciendo clic en **RUN**. Toma nota del nombre de la tabla y el nombre de la función.
 
-* **Table name**: `documents`
-* **Query name**: `match_documents`
+* **Nombre de la tabla**: `documents`
+* **Nombre de la consulta**: `match_documents`
 
 ```plsql
--- Enable the pgvector extension to work with embedding vectors
+-- Habilita la extensión pgvector para trabajar con vectores de embeddings
 create extension vector;
 
--- Create a table to store your documents
+-- Crea una tabla para almacenar tus documentos
 create table documents (
   id bigserial primary key,
-  content text, -- corresponds to Document.pageContent
-  metadata jsonb, -- corresponds to Document.metadata
-  embedding vector(1536) -- 1536 works for OpenAI embeddings, change if needed
+  content text, -- corresponde a Document.pageContent
+  metadata jsonb, -- corresponde a Document.metadata
+  embedding vector(1536) -- 1536 funciona para embeddings de OpenAI, cambiar si es necesario
 );
 
--- Create a function to search for documents
+-- Crea una función para buscar documentos
 create function match_documents (
   query_embedding vector(1536),
   match_count int DEFAULT null,
@@ -69,30 +69,29 @@ begin
   limit match_count;
 end;
 $$;
-
 ```
 
-If some cases, you might be using [Record Manager](../record-managers.md) to keep track of the upserts and prevent duplications. Since Record Manager generates a random UUID for each embeddings, you will have to change the id column entity to text:
+En algunos casos, podrías estar usando [Record Manager](../record-managers.md) para hacer seguimiento de los upserts y prevenir duplicaciones. Como Record Manager genera un UUID aleatorio para cada embedding, tendrás que cambiar la entidad de la columna id a texto:
 
 ```sql
--- Enable the pgvector extension to work with embedding vectors
+-- Habilita la extensión pgvector para trabajar con vectores de embeddings
 create extension vector;
 
--- Create a table to store your documents
+-- Crea una tabla para almacenar tus documentos
 create table documents (
-  id text primary key, -- CHANGE TO TEXT
+  id text primary key, -- CAMBIAR A TEXT
   content text,
   metadata jsonb,
   embedding vector(1536)
 );
 
--- Create a function to search for documents
+-- Crea una función para buscar documentos
 create function match_documents (
   query_embedding vector(1536),
   match_count int DEFAULT null,
   filter jsonb DEFAULT '{}'
 ) returns table (
-  id text, -- CHANGE TO TEXT
+  id text, -- CAMBIAR A TEXT
   content text,
   metadata jsonb,
   similarity float
@@ -113,35 +112,34 @@ begin
   limit match_count;
 end;
 $$;
-
 ```
 
 <figure><img src="../../../.gitbook/assets/image (19) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-## Setup
+## Configuración
 
-1. Click **Project Settings**
+1. Haz clic en **Project Settings**
 
 <figure><img src="../../../.gitbook/assets/image (30) (1).png" alt=""><figcaption></figcaption></figure>
 
-2. Get your **Project URL & API Key**
+2. Obtén tu **Project URL & API Key**
 
 <figure><img src="../../../.gitbook/assets/image (2) (3).png" alt=""><figcaption></figcaption></figure>
 
-3. Copy and Paste each details (_API Key, URL, Table Name, Query Name_) into **Supabase** node
+3. Copia y pega cada detalle (_API Key, URL, Table Name, Query Name_) en el nodo **Supabase**
 
 <figure><img src="../../../.gitbook/assets/image (85).png" alt="" width="331"><figcaption></figcaption></figure>
 
-4. **Document** can be connected with any node under [**Document Loader**](../document-loaders/) category
-5. **Embeddings** can be connected with any node under [**Embeddings** ](../embeddings/)category
+4. **Document** puede conectarse con cualquier nodo de la categoría [**Document Loader**](../document-loaders/)
+5. **Embeddings** puede conectarse con cualquier nodo de la categoría [**Embeddings**](../embeddings/)
 
-## Filtering
+## Filtrado
 
-Let's say you have different documents upserted, each specified with a unique value under the metadata key `{source}`
+Supongamos que tienes diferentes documentos insertados, cada uno especificado con un valor único bajo la clave de metadata `{source}`
 
 <figure><img src="../../../.gitbook/assets/Untitled.png" alt=""><figcaption></figcaption></figure>
 
-You can use metadata filtering to query specific metadata:
+Puedes usar filtrado de metadata para consultar metadata específica:
 
 **UI**
 
@@ -157,7 +155,7 @@ You can use metadata filtering to query specific metadata:
 }
 ```
 
-## Resources
+## Recursos
 
 * [LangChain JS Supabase](https://js.langchain.com/docs/modules/indexes/vector_stores/integrations/supabase)
 * [Supabase Blog Post](https://supabase.com/blog/openai-embeddings-postgres-vector)

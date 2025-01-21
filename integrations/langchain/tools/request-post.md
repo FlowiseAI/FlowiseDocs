@@ -1,11 +1,11 @@
 ---
-description: Execute HTTP POST requests.
+description: Ejecutar peticiones HTTP POST.
 ---
 
 # Request Post
 
-<figure><img src="../../../.gitbook/assets/up-010.png" alt="" width="280"><figcaption><p>Request Post Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/up-010.png" alt="" width="280"><figcaption><p>Nodo Request Post</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../contributing/) para comenzar.
 {% endhint %}

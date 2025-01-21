@@ -1,13 +1,13 @@
 ---
 description: >-
-  Converts Html to Markdown and then split your content into documents based on
-  the Markdown headers.
+  Convierte HTML a Markdown y luego divide tu contenido en documentos basándose en
+  los encabezados de Markdown.
 ---
 
 # Html-To-Markdown Text Splitter
 
-<figure><img src="../../../.gitbook/assets/image (152).png" alt="" width="301"><figcaption><p>Html-To-Markdown Text Splitter Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (152).png" alt="" width="301"><figcaption><p>Nodo Html-To-Markdown Text Splitter</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../contributing/) para comenzar.
 {% endhint %}

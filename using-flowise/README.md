@@ -1,23 +1,23 @@
 ---
-description: Learn about some core functionalities built into Flowise
+description: Aprende sobre algunas funcionalidades principales integradas en Flowise
 ---
 
-# Using Flowise
+# Usando Flowise
 
 ***
 
-This section provides in-depth guides on core Flowise functionalities, including API usage, variables, and telemetry collection practices.
+Esta sección proporciona guías detalladas sobre las funcionalidades principales de Flowise, incluyendo el uso de la API, variables y prácticas de recolección de telemetría.
 
-## Guides
+## Guías
 
-* [Agentflows](agentflows/)
-  * [Multi-Agent](agentflows/multi-agents.md)
-  * [Sequential Agents](agentflows/sequential-agents.md)
-    * [Video Tutorials](agentflows/sequential-agents/video-tutorials.md)
+* [Flujos de Agentes](agentflows/)
+  * [Multi-Agente](agentflows/multi-agents.md)
+  * [Agentes Secuenciales](agentflows/sequential-agents.md)
+    * [Tutoriales en Video](agentflows/sequential-agents/video-tutorials.md)
 * [API](api.md)
-* [Analytic](analytic.md)
-* [Document Stores](document-stores.md)
-* [Embed](embed.md)
+* [Analítica](analytic.md)
+* [Almacenes de Documentos](document-stores.md)
+* [Incrustación](embed.md)
 * [Streaming](streaming.md)
-* [Telemetry](telemetry.md)
+* [Telemetría](telemetry.md)
 * [Variables](variables.md)

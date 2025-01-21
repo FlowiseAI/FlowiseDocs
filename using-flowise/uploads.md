@@ -1,14 +1,14 @@
 ---
-description: Learn how to use upload images, audio, and other files
+description: Aprende cómo subir imágenes, audio y otros archivos
 ---
 
 # Uploads
 
-Flowise lets you upload images, audio, and other files from the chat. In this section, you'll learn how to enable and use these features.
+Flowise te permite subir imágenes, audio y otros archivos desde el chat. En esta sección, aprenderás cómo habilitar y usar estas funcionalidades.
 
 ## Image
 
-Certain chat models allow you to input images. Always refer to the official documentation of the LLM to confirm if the model supports image input.
+Ciertos modelos de chat permiten ingresar imágenes. Siempre consulta la documentación oficial del LLM para confirmar si el modelo admite la entrada de imágenes.
 
 * [ChatOpenAI](../integrations/llamaindex/chat-models/chatopenai.md)
 * [AzureChatOpenAI](../integrations/llamaindex/chat-models/azurechatopenai.md)
@@ -19,16 +19,16 @@ Certain chat models allow you to input images. Always refer to the official docu
 * [Google Vertex AI](../integrations/langchain/llms/googlevertex-ai.md)
 
 {% hint style="warning" %}
-Image processing only works with certain chains/agents in Chatflow.
+El procesamiento de imágenes solo funciona con ciertas cadenas/agentes en Chatflow.
 
 [LLMChain](../integrations/langchain/chains/llm-chain.md), [Conversation Chain](../integrations/langchain/chains/conversation-chain.md), [ReAct Agent](../integrations/langchain/agents/react-agent-chat.md), [Conversational Agent](../integrations/langchain/agents/conversational-agent.md), [Tool Agent](../integrations/langchain/agents/tool-agent.md)
 {% endhint %}
 
-If you enable **Allow Image Upload**, you can upload images from the chat interface.
+Si habilitas **Allow Image Upload**, podrás subir imágenes desde la interfaz de chat.
 
 <div align="center"><figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="255"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2024-02-29 011714.png" alt="" width="290"><figcaption></figcaption></figure></div>
 
-To upload images with the API:
+Para subir imágenes con la API:
 
 {% tabs %}
 {% tab title="Python" %}
@@ -41,10 +41,10 @@ def query(payload):
     return response.json()
     
 output = query({
-    "question": "Can you describe the image?",
+    "question": "¿Puedes describir la imagen?",
     "uploads": [
         {
-            "data": "data:image/png;base64,iVBORw0KGgdM2uN0", # base64 string or url
+            "data": "data:image/png;base64,iVBORw0KGgdM2uN0", # cadena base64 o url
             "type": "file", # file | url
             "name": "Flowise.png",
             "mime": "image/png"
@@ -72,10 +72,10 @@ async function query(data) {
 }
 
 query({
-    "question": "Can you describe the image?",
+    "question": "¿Puedes describir la imagen?",
     "uploads": [
         {
-            "data": "data:image/png;base64,iVBORw0KGgdM2uN0", //base64 string or url
+            "data": "data:image/png;base64,iVBORw0KGgdM2uN0", //cadena base64 o url
             "type": "file", // file | url
             "name": "Flowise.png",
             "mime": "image/png"
@@ -90,17 +90,17 @@ query({
 
 ## Audio
 
-In the Chatflow Configuration, you can select a speech-to-text module. Supported integrations include:
+En la Configuración del Chatflow, puedes seleccionar un módulo de speech-to-text. Las integraciones soportadas incluyen:
 
 * OpenAI
 * AssemblyAI
 * [LocalAI](../integrations/langchain/chat-models/chatlocalai.md)
 
-When this is enabled, users can speak directly into the microphone. Their speech is be transcribed into text.
+Cuando esto está habilitado, los usuarios pueden hablar directamente al micrófono. Su voz se transcribe a texto.
 
 <div align="left"><figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2024-02-29 012538.png" alt="" width="431"><figcaption></figcaption></figure></div>
 
-To upload audio with the API:
+Para subir audio con la API:
 
 {% tabs %}
 {% tab title="Python" %}
@@ -115,7 +115,7 @@ def query(payload):
 output = query({
     "uploads": [
         {
-            "data": "data:audio/webm;codecs=opus;base64,GkXf", # base64 string
+            "data": "data:audio/webm;codecs=opus;base64,GkXf", # cadena base64
             "type": "audio",
             "name": "audio.wav",
             "mime": "audio/webm"
@@ -145,7 +145,7 @@ async function query(data) {
 query({
     "uploads": [
         {
-            "data": "data:audio/webm;codecs=opus;base64,GkXf", // base64 string
+            "data": "data:audio/webm;codecs=opus;base64,GkXf", // cadena base64
             "type": "audio",
             "name": "audio.wav",
             "mime": "audio/webm"
@@ -160,26 +160,26 @@ query({
 
 ## Files
 
-You can upload files in two ways:
+Puedes subir archivos de dos maneras:
 
-* Retrieval augmented generation (RAG) file uploads
-* Full file uploads
+* Carga de archivos para generación aumentada por recuperación (RAG)
+* Carga completa de archivos
 
-When both options are on, full file uploads take precedence.
+Cuando ambas opciones están activadas, la carga completa de archivos tiene prioridad.
 
 ### RAG File Uploads
 
-You can upsert uploaded files on the fly to the vector store. To enable file uploads, make sure you meet these prerequisites:
+Puedes hacer upsert de los archivos subidos al vector store sobre la marcha. Para habilitar la carga de archivos, asegúrate de cumplir con estos requisitos previos:
 
-* You must include a vector store that supports file uploads in the chatflow.
+* Debes incluir un vector store que admita la carga de archivos en el chatflow.
   * [Pinecone](../integrations/langchain/vector-stores/pinecone.md)
   * [Milvus](../integrations/langchain/vector-stores/milvus.md)
   * [Postgres](../integrations/langchain/vector-stores/postgres.md)
   * [Qdrant](../integrations/langchain/vector-stores/qdrant.md)
   * [Upstash](../integrations/langchain/vector-stores/upstash-vector.md)
-* If you have multiple vector stores in a chatflow, you can only turn on file upload for one vector store at a time.
-* You must connect at least one document loader node to the vector store's document input.
-* Supported document loaders:
+* Si tienes múltiples vector stores en un chatflow, solo puedes activar la carga de archivos para un vector store a la vez.
+* Debes conectar al menos un nodo document loader a la entrada de documentos del vector store.
+* Document loaders soportados:
   * [CSV File](../integrations/langchain/document-loaders/csv-file.md)
   * [Docx File](../integrations/langchain/document-loaders/docx-file.md)
   * [Json File](../integrations/langchain/document-loaders/json-file.md)
@@ -190,26 +190,26 @@ You can upsert uploaded files on the fly to the vector store. To enable file upl
 
 <figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-You can upload one or more files in the chat:
+Puedes subir uno o más archivos en el chat:
 
 <div align="left"><figure><img src="../.gitbook/assets/image (3) (1) (1) (1).png" alt="" width="380"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2024-08-26 170456.png" alt=""><figcaption></figcaption></figure></div>
 
-Here's how it works:
+Así es como funciona:
 
-1. The metadata for uploaded files is updated with the chatId.
-2. This associates the file with the chatId.
-3. When querying, an **OR** filter applies:
+1. Los metadatos de los archivos subidos se actualizan con el chatId.
+2. Esto asocia el archivo con el chatId.
+3. Al consultar, se aplica un filtro **OR**:
 
-* Metadata contains `flowise_chatId`, and the value is the current chat session ID
-* Metadata does not contain `flowise_chatId`
+* Los metadatos contienen `flowise_chatId`, y el valor es el ID de la sesión de chat actual
+* Los metadatos no contienen `flowise_chatId`
 
-An example of a vector embedding upserted on Pinecone:
+Un ejemplo de un vector embedding con upsert en Pinecone:
 
 <figure><img src="../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-To do this with the API, follow these two steps:
+Para hacer esto con la API, sigue estos dos pasos:
 
-1. Use the [Vector Upsert API](api.md#vector-upsert-api) with `formData` and `chatId`:
+1. Usa la [Vector Upsert API](api.md#vector-upsert-api) con `formData` y `chatId`:
 
 {% tabs %}
 {% tab title="Python" %}
@@ -218,7 +218,7 @@ import requests
 
 API_URL = "http://localhost:3000/api/v1/vector/upsert/<chatflowid>"
 
-# Use form data to upload files
+# Usa form data para subir archivos
 form_data = {
     "files": ("state_of_the_union.txt", open("state_of_the_union.txt", "rb"))
 }
@@ -239,7 +239,7 @@ print(output)
 
 {% tab title="Javascript" %}
 ```javascript
-// Use FormData to upload files
+// Usa FormData para subir archivos
 let formData = new FormData();
 formData.append("files", input.files[0]);
 formData.append("chatId", "some-session-id");
@@ -263,7 +263,7 @@ query(formData).then((response) => {
 {% endtab %}
 {% endtabs %}
 
-2. Use the [Prediction API](api.md#prediction) with `uploads` and the `chatId` from step 1:
+2. Usa la [Prediction API](api.md#prediction) con `uploads` y el `chatId` del paso 1:
 
 {% tabs %}
 {% tab title="Python" %}
@@ -276,7 +276,7 @@ def query(payload):
     return response.json()
     
 output = query({
-    "question": "What is the speech about?",
+    "question": "¿De qué trata el discurso?",
     "chatId": "same-session-id-from-step-1",
     "uploads": [
         {
@@ -308,7 +308,7 @@ async function query(data) {
 }
 
 query({
-    "question": "What is the speech about?",
+    "question": "¿De qué trata el discurso?",
     "chatId": "same-session-id-from-step-1",
     "uploads": [
         {
@@ -327,17 +327,17 @@ query({
 
 ### Full File Uploads
 
-With RAG file uploads, you can't work with structured data like spreadsheets or tables, and you can't perform full summarization due to lack of full context. In some cases, you might want to include all the file content directly in the prompt for an LLM, especially with models like Gemini and Claude that have longer context windows. [This research paper](https://arxiv.org/html/2407.16833v1) is one of many that compare RAG with longer context windows.
+Con las cargas de archivos RAG, no puedes trabajar con datos estructurados como hojas de cálculo o tablas, y no puedes realizar resúmenes completos debido a la falta de contexto completo. En algunos casos, es posible que desees incluir todo el contenido del archivo directamente en el prompt para un LLM, especialmente con modelos como Gemini y Claude que tienen ventanas de contexto más largas. [Este artículo de investigación](https://arxiv.org/html/2407.16833v1) es uno de muchos que comparan RAG con ventanas de contexto más largas.
 
-To enable full file uploads, go to **Chatflow Configuration**, open the **File Upload** tab, and click the switch:
+Para habilitar la carga completa de archivos, ve a **Chatflow Configuration**, abre la pestaña **File Upload**, y activa el interruptor:
 
 <figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-You can see the **File Attachment** button in the chat, where you can upload one or more files. Under the hood, the [File Loader](../integrations/langchain/document-loaders/file-loader.md) processes each file and converts it into text.
+Puedes ver el botón **File Attachment** en el chat, donde puedes subir uno o más archivos. Internamente, el [File Loader](../integrations/langchain/document-loaders/file-loader.md) procesa cada archivo y lo convierte en texto.
 
 <figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-To upload files with the API:
+Para subir archivos con la API:
 
 {% tabs %}
 {% tab title="Python" %}
@@ -350,7 +350,7 @@ def query(payload):
     return response.json()
     
 output = query({
-    "question": "What is the data about?",
+    "question": "¿De qué tratan los datos?",
     "chatId": "some-session-id",
     "uploads": [
         {
@@ -382,7 +382,7 @@ async function query(data) {
 }
 
 query({
-    "question": "What is the data about?",
+    "question": "¿De qué tratan los datos?",
     "chatId": "some-session-id",
     "uploads": [
         {
@@ -399,4 +399,4 @@ query({
 {% endtab %}
 {% endtabs %}
 
-As you can see in the examples, uploads require a base64 string. To get a base64 string for a file, use the [Create Attachments API](../api-reference/attachments.md).
+Como puedes ver en los ejemplos, las cargas requieren una cadena base64. Para obtener una cadena base64 para un archivo, usa la [Create Attachments API](../api-reference/attachments.md).

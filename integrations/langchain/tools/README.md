@@ -1,14 +1,14 @@
 ---
-description: LangChain Tool Nodes
+description: Nodos de Herramientas LangChain
 ---
 
 # Tools
 
 ***
 
-Tools are functions that agents can use to interact with the world. These tools can be generic utilities (e.g. search), other chains, or even other agents.
+Las Tools (herramientas) son funciones que los agents pueden utilizar para interactuar con el mundo. Estas herramientas pueden ser utilidades genéricas (por ejemplo, búsqueda), otras chains, o incluso otros agents.
 
-### Tool Nodes:
+### Nodos de Tools:
 
 * [BraveSearch API](bravesearch-api.md)
 * [Calculator](calculator.md)

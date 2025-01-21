@@ -1,27 +1,27 @@
 ---
 description: >-
-  Upsert embedded data and perform similarity or mmr search upon query using
-  MongoDB Atlas, a managed cloud mongodb database.
+  Realiza upsert de datos embedidos y ejecuta búsquedas de similitud o mmr sobre consultas usando
+  MongoDB Atlas, una base de datos mongodb gestionada en la nube.
 ---
 
 # MongoDB Atlas
 
-<figure><img src="../../../.gitbook/assets/image (161).png" alt="" width="308"><figcaption><p>MongoDB Atlas Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (161).png" alt="" width="308"><figcaption><p>Nodo MongoDB Atlas</p></figcaption></figure>
 
-### Cluster Configuration[​](https://js.langchain.com/docs/integrations/vectorstores/mongodb_atlas/#initial-cluster-configuration) <a href="#initial-cluster-configuration" id="initial-cluster-configuration"></a>
+### Configuración del Cluster[​](https://js.langchain.com/docs/integrations/vectorstores/mongodb_atlas/#initial-cluster-configuration) <a href="#initial-cluster-configuration" id="initial-cluster-configuration"></a>
 
-To set up a MongoDB Atlas cluster, go to the [MongoDB Atlas ](https://www.mongodb.com/)website and sign up if you don’t have an account. When prompted, create and name your cluster, which will appear under the Database section. Then, select "**Browse Collections**" to either create a new collection or use one from the sample data provided.
+Para configurar un cluster de MongoDB Atlas, ve al sitio web de [MongoDB Atlas ](https://www.mongodb.com/)y regístrate si no tienes una cuenta. Cuando se te solicite, crea y nombra tu cluster, que aparecerá en la sección Database. Luego, selecciona "**Browse Collections**" para crear una nueva collection o usar una de los datos de ejemplo proporcionados.
 
 {% hint style="warning" %}
-Ensure the cluster you create is version 7.0 or higher.
+Asegúrate de que el cluster que crees sea versión 7.0 o superior.
 {% endhint %}
 
-### Creating Index
+### Creando el Index
 
-After setting up your cluster, the next step is to create an index for the collection field you intend to search.
+Después de configurar tu cluster, el siguiente paso es crear un index para el campo de la collection que pretendes buscar.
 
-1. Go to the **Atlas Search** tab and click on **Create Search Index**.
-2. Select **Atlas Vector Search - JSON Editor**, choose the appropriate database and collection, and then paste the following into the text box:
+1. Ve a la pestaña **Atlas Search** y haz clic en **Create Search Index**.
+2. Selecciona **Atlas Vector Search - JSON Editor**, elige la base de datos y collection apropiada, y luego pega lo siguiente en el cuadro de texto:
 
 ```json
 {
@@ -36,32 +36,32 @@ After setting up your cluster, the next step is to create an index for the colle
 }
 ```
 
-Make sure the `numDimensions` property corresponds to the dimensionality of the embeddings you're using. For instance, Cohere embeddings typically have 1024 dimensions, while OpenAI embeddings have 1536 by default.
+Asegúrate de que la propiedad `numDimensions` corresponda a la dimensionalidad de los embeddings que estás usando. Por ejemplo, los embeddings de Cohere típicamente tienen 1024 dimensiones, mientras que los embeddings de OpenAI tienen 1536 por defecto.
 
-**Note:** The vector store expects certain default values, such as:
+**Nota:** El vector store espera ciertos valores por defecto, como:
 
-* An index name of `default`
-* A collection field name of `embedding`
-* A raw text field name of `text`
+* Un nombre de index de `default`
+* Un nombre de campo de collection de `embedding`
+* Un nombre de campo de texto sin procesar de `text`
 
-Ensure you initialize the vector store with field names that match your index and collection schema, as shown in the example above.
+Asegúrate de inicializar el vector store con nombres de campos que coincidan con tu esquema de index y collection, como se muestra en el ejemplo anterior.
 
-Once this is done, proceed to build the index.
+Una vez hecho esto, procede a construir el index.
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../contributing/) para comenzar.
 {% endhint %}
 
-### Flowise Configuration
+### Configuración en Flowise
 
-Drag and drop the MongoDB Atlas Vector Store, and add a new credential. Use the connection string provided from the MongoDB Atlas dashboard:
+Arrastra y suelta el MongoDB Atlas Vector Store, y agrega una nueva credencial. Usa la cadena de conexión proporcionada desde el dashboard de MongoDB Atlas:
 
 <figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-Fill in the rest of the fields:
+Completa el resto de los campos:
 
 <figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="252"><figcaption></figcaption></figure>
 
-You may also configure more details from Additional Parameters:
+También puedes configurar más detalles desde Additional Parameters:
 
 <figure><img src="../../../.gitbook/assets/image (164).png" alt="" width="518"><figcaption></figcaption></figure>

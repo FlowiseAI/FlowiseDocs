@@ -1,53 +1,53 @@
 # Google VertexAI
 
-## Prerequisites
+## Prerequisitos
 
-1. [Start your GCP](https://cloud.google.com/docs/get-started)
-2. Install the [Google Cloud CLI](https://cloud.google.com/sdk/docs/install-sdk)
+1. [Inicia tu GCP](https://cloud.google.com/docs/get-started)
+2. Instala el [Google Cloud CLI](https://cloud.google.com/sdk/docs/install-sdk)
 
-## Setup
+## Configuración
 
-### Enable vertex AI API
+### Habilitar la API de Vertex AI
 
-1. Go to Vertex AI on GCP and click **"ENABLE ALL RECOMMENDED API"**
+1. Ve a Vertex AI en GCP y haz clic en **"ENABLE ALL RECOMMENDED API"**
 
 <figure><img src="../../../.gitbook/assets/gcp_credential/vertex_AI_enable.png" alt="" width="563"><figcaption></figcaption></figure>
 
-## Create credential file _(Optional)_
+## Crear archivo de credenciales _(Opcional)_
 
-There are 2 ways to create credential file
+Hay 2 formas de crear el archivo de credenciales
 
-### No. 1 : Use GCP CLI
+### No. 1: Usar GCP CLI
 
-1. Open terminal and run the following command
+1. Abre la terminal y ejecuta el siguiente comando
 
 ```bash
 gcloud auth application-default login
 ```
 
-2. Login to your GCP account
-3. Check your credential file. You can find your credential file in `~/.config/gcloud/application_default_credentials.json`
+2. Inicia sesión en tu cuenta de GCP
+3. Verifica tu archivo de credenciales. Puedes encontrar tu archivo de credenciales en `~/.config/gcloud/application_default_credentials.json`
 
-### No. 2 : Use GCP console
+### No. 2: Usar la consola de GCP
 
-1. Go to GCP console and click **"CREATE CREDENTIALS"**
+1. Ve a la consola de GCP y haz clic en **"CREATE CREDENTIALS"**
 
 <figure><img src="../../../.gitbook/assets/gcp_credential/create_credential.png" alt="" width="563"><figcaption></figcaption></figure>
 
-2. Create service account
+2. Crea una cuenta de servicio
 
 <figure><img src="../../../.gitbook/assets/gcp_credential/create_service_account.png" alt="" width="563"><figcaption></figcaption></figure>
 
-3. Fill in the form of Service account details and click **"CREATE AND CONTINUE"**
-4. Select proper role (for example Vertex AI User) and click **"DONE"**
+3. Completa el formulario de detalles de la cuenta de servicio y haz clic en **"CREATE AND CONTINUE"**
+4. Selecciona el rol apropiado (por ejemplo, Vertex AI User) y haz clic en **"DONE"**
 
 <figure><img src="../../../.gitbook/assets/gcp_credential/select_role.png" alt=""><figcaption></figcaption></figure>
 
-5. Click service account that you created and click **"ADD KEY" -> "Create new key"**
+5. Haz clic en la cuenta de servicio que creaste y haz clic en **"ADD KEY" -> "Create new key"**
 
 <figure><img src="../../../.gitbook/assets/gcp_credential/add_key.png" alt="" width="563"><figcaption></figcaption></figure>
 
-6. Select JSON and click **"CREATE"** then you can download your credential file
+6. Selecciona JSON y haz clic en **"CREATE"**, luego podrás descargar tu archivo de credenciales
 
 <figure><img src="../../../.gitbook/assets/gcp_credential/create_key.png" alt="" width="563"><figcaption></figcaption></figure>
 
@@ -55,31 +55,31 @@ gcloud auth application-default login
 
 <figure><img src="../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-### Without credential file
+### Sin archivo de credenciales
 
-If you are using a GCP service like Cloud Run, or if you have installed default credentials on your local machine, you do not need to set this credential.
+Si estás usando un servicio de GCP como Cloud Run, o si has instalado credenciales predeterminadas en tu máquina local, no necesitas configurar esta credencial.
 
-### With credential file
+### Con archivo de credenciales
 
-1. Go to Credential page on Flowise and click **"Add credential"**
-2. Click Google Vertex Auth
+1. Ve a la página de Credenciales en Flowise y haz clic en **"Add credential"**
+2. Haz clic en Google Vertex Auth
 
 <figure><img src="../../../.gitbook/assets/gcp_credential/google_vertex_auth.png" alt="" width="563"><figcaption></figcaption></figure>
 
-3. Register your credential file. There are 2 ways to register your credential file.
+3. Registra tu archivo de credenciales. Hay 2 formas de registrar tu archivo de credenciales.
 
 <figure><img src="../../../.gitbook/assets/gcp_credential/register_credential.png" alt="" width="563"><figcaption></figcaption></figure>
 
-* **Option 1 : Enter path of your credential file**
-  * If you have credential file on your machine, you can enter the path of your credential file into `Google Application Credential File Path`
-* **Option 2 : Paste text of your credential file**
-  * Or you can copy all text in the credential file and paste it into `Google Credential JSON Object`
+* **Opción 1: Ingresa la ruta de tu archivo de credenciales**
+  * Si tienes el archivo de credenciales en tu máquina, puedes ingresar la ruta en `Google Application Credential File Path`
+* **Opción 2: Pega el texto de tu archivo de credenciales**
+  * O puedes copiar todo el texto del archivo de credenciales y pegarlo en `Google Credential JSON Object`
 
-4. Finally, click "Add" button.
-5. **🎉**You can now use ChatGoogleVertexAI with the credential in Flowise now!
+4. Finalmente, haz clic en el botón "Add".
+5. **🎉**¡Ahora puedes usar ChatGoogleVertexAI con las credenciales en Flowise!
 
-### Resources
+### Recursos
 
 * [LangChain JS GoogleVertexAI](https://js.langchain.com/docs/api/llms_googlevertexai/classes/GoogleVertexAI)
-* [Google Service accounts overview](https://cloud.google.com/iam/docs/service-account-overview?)
-* [Try Google Vertex AI Palm 2 with Flowise: Without Coding to Leverage Intuition](https://tech.beatrust.com/entry/2023/08/22/Try_Google_Vertex_AI_Palm_2_with_Flowise%3A_Without_Coding_to_Leverage_Intuition)
+* [Descripción general de las cuentas de servicio de Google](https://cloud.google.com/iam/docs/service-account-overview?)
+* [Prueba Google Vertex AI Palm 2 con Flowise: Sin codificación para aprovechar la intuición](https://tech.beatrust.com/entry/2023/08/22/Try_Google_Vertex_AI_Palm_2_with_Flowise%3A_Without_Coding_to_Leverage_Intuition)

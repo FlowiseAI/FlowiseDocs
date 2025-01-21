@@ -1,13 +1,13 @@
 ---
 description: >-
-  Split documents recursively by different characters - starting with "\n\n",
-  then "\n", then " ".
+  Divide documentos recursivamente por diferentes caracteres - comenzando con "\n\n",
+  luego "\n", y finalmente " ".
 ---
 
 # Recursive Character Text Splitter
 
-<figure><img src="../../../.gitbook/assets/image (155).png" alt="" width="305"><figcaption><p>Recursive Character Text Splitter Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (155).png" alt="" width="305"><figcaption><p>Nodo Recursive Character Text Splitter</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../contributing/) para comenzar.
 {% endhint %}

@@ -1,63 +1,63 @@
 # ChatOpenAI
 
-## Prerequisite
+## Prerequisitos
 
-1. An [OpenAI](https://openai.com/) account
-2. Create an [API key](https://platform.openai.com/api-keys)
+1. Una cuenta de [OpenAI](https://openai.com/)
+2. Crear una [API key](https://platform.openai.com/api-keys)
 
-## Setup
+## Configuración
 
-1. **Chat Models** > drag **ChatOpenAI** node
+1. **Chat Models** > arrastra el nodo **ChatOpenAI**
 
 <figure><img src="../../../.gitbook/assets/image (10) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
-2. **Connect Credential** > click **Create New**
+2. **Connect Credential** > haz clic en **Create New**
 
 <figure><img src="../../../.gitbook/assets/image_openAI (1).png" alt="" width="278"><figcaption></figcaption></figure>
 
-2. Fill in the **ChatOpenAI** credential
+3. Completa la credencial de **ChatOpenAI**
 
 <figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
-4. Voila [🎉](https://emojipedia.org/party-popper/), you can now use **ChatOpenAI node** in Flowise
+4. ¡Voilà [🎉](https://emojipedia.org/party-popper/), ahora puedes usar el **nodo ChatOpenAI** en Flowise
 
 <figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-## Custom base URL and headers
+## URL base y encabezados personalizados
 
-Flowise supports using custom base URL and headers for Chat OpenAI. Users can easily use integrations like OpenRouter, TogetherAI and others that support OpenAI API compatibility.
+Flowise admite el uso de URL base y encabezados personalizados para Chat OpenAI. Los usuarios pueden usar fácilmente integraciones como OpenRouter, TogetherAI y otros que sean compatibles con la API de OpenAI.
 
 ### TogetherAI
 
-1. Refer to official [docs](https://docs.together.ai/docs/openai-api-compatibility#nodejs) from TogetherAI
-2. Create a new credential with TogetherAI API key
-3. Click **Additional Parameters** on ChatOpenAI node.
-4. Change the Base Path:
+1. Consulta la [documentación oficial](https://docs.together.ai/docs/openai-api-compatibility#nodejs) de TogetherAI
+2. Crea una nueva credencial con la API key de TogetherAI
+3. Haz clic en **Additional Parameters** en el nodo ChatOpenAI
+4. Cambia el Base Path:
 
 <figure><img src="../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 ### Open Router
 
-1. Refer to official [docs](https://openrouter.ai/docs#quick-start) from OpenRouter
-2. Create a new credential with OpenRouter API key
-3. Click Additional Parameters on ChatOpenAI node
-4. Change the Base Path and Base Options:
+1. Consulta la [documentación oficial](https://openrouter.ai/docs#quick-start) de OpenRouter
+2. Crea una nueva credencial con la API key de OpenRouter
+3. Haz clic en Additional Parameters en el nodo ChatOpenAI
+4. Cambia el Base Path y Base Options:
 
 <figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
-## Custom Model
+## Modelo Personalizado
 
-For models that are not supported on ChatOpenAI node, you can use ChatOpenAI Custom for that. This allow users to fill in model name such as `mistralai/Mixtral-8x7B-Instruct-v0.1`
+Para modelos que no están soportados en el nodo ChatOpenAI, puedes usar ChatOpenAI Custom. Esto permite a los usuarios introducir nombres de modelos como `mistralai/Mixtral-8x7B-Instruct-v0.1`
 
 <figure><img src="../../../.gitbook/assets/image (84).png" alt=""><figcaption></figcaption></figure>
 
-## Image Upload
+## Subida de Imágenes
 
-You can also allow images to be uploaded and analyzed by LLM. Under the hood, Flowise will use [OpenAI Vison ](https://platform.openai.com/docs/guides/vision)model to process the image. Only works with LLMChain, Conversation Chain, ReAct Agent, and Conversational Agent.
+También puedes permitir que las imágenes sean subidas y analizadas por el LLM. Internamente, Flowise utilizará el modelo [OpenAI Vision](https://platform.openai.com/docs/guides/vision) para procesar la imagen. Solo funciona con LLMChain, Conversation Chain, ReAct Agent y Conversational Agent.
 
 <figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (2).png" alt="" width="332"><figcaption></figcaption></figure>
 
-From the chat interface, you will now see a new image upload button:
+Desde la interfaz de chat, ahora verás un nuevo botón de subida de imágenes:
 
 <figure><img src="../../../.gitbook/assets/Untitled (1).png" alt=""><figcaption></figcaption></figure>
 

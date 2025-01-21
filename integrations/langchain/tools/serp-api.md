@@ -1,5 +1,5 @@
 ---
-description: Wrapper around SerpAPI - a real-time API to access Google search results.
+description: Wrapper alrededor de SerpAPI - una API en tiempo real para acceder a resultados de búsqueda de Google.
 ---
 
 # Serp API
@@ -7,5 +7,5 @@ description: Wrapper around SerpAPI - a real-time API to access Google search re
 <figure><img src="../../../.gitbook/assets/image (10) (1) (1).png" alt="" width="301"><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../contributing/) para comenzar.
 {% endhint %}

@@ -1,73 +1,73 @@
 ---
-description: Learn how Flowise collects anonymous app usage information
+description: Aprende cómo Flowise recopila información anónima del uso de la aplicación
 ---
 
-# Telemetry
+# Telemetría
 
 ***
 
-Flowise open source repository has a built-in telemetry that collects anonymous usage information. This helps us to better understand usage of Flowise, enabling us to prioritize our efforts towards developing new features and resolving issues, and enhancing the performance and stability of Flowise.
+El repositorio de código abierto de Flowise tiene una telemetría incorporada que recopila información anónima sobre el uso. Esto nos ayuda a comprender mejor el uso de Flowise, permitiéndonos priorizar nuestros esfuerzos hacia el desarrollo de nuevas funcionalidades y la resolución de problemas, y mejorar el rendimiento y la estabilidad de Flowise.
 
 {% hint style="warning" %}
-<mark style="color:red;">**Important**</mark> - We never collect any confidential information about the node input/output, messages, or any sort of credentials and variables. Only events are being sent.
+<mark style="color:red;">**Importante**</mark> - Nunca recopilamos ninguna información confidencial sobre la entrada/salida de los nodos, mensajes o cualquier tipo de credenciales y variables. Solo se envían eventos.
 {% endhint %}
 
-You can verify these claims by finding all locations `telemetry.sendTelemetry` is called from the source code.
+Puedes verificar estas afirmaciones encontrando todas las ubicaciones donde se llama a `telemetry.sendTelemetry` en el código fuente.
 
-<table><thead><tr><th width="238">Event</th><th>Metadata</th></tr></thead><tbody><tr><td>chatflow_created</td><td><pre class="language-json"><code class="lang-json">{
-    "version": &#x3C;app-version>,
-    "chatlowId": &#x3C;chatflow-id>,
+<table><thead><tr><th width="238">Evento</th><th>Metadatos</th></tr></thead><tbody><tr><td>chatflow_created</td><td><pre class="language-json"><code class="lang-json">{
+    "version": &#x3C;versión-app>,
+    "chatlowId": &#x3C;id-chatflow>,
     "flowGraph": {
-        "nodes": [&#x3C;nodeid-1>, &#x3C;nodeid-2>],
+        "nodes": [&#x3C;nodoid-1>, &#x3C;nodoid-2>],
         "edges": [
             {
-                "source": &#x3C;nodeid-1>,
-                "target": &#x3C;nodeid-2>
+                "source": &#x3C;nodoid-1>,
+                "target": &#x3C;nodoid-2>
             }
         ]
     }
 }
 </code></pre></td></tr><tr><td>tool_created</td><td><pre class="language-json"><code class="lang-json">{
-    "version": &#x3C;app-version>,
-    "toolId": &#x3C;tool-id>,
-    "toolName": &#x3C;tool-name>
+    "version": &#x3C;versión-app>,
+    "toolId": &#x3C;id-herramienta>,
+    "toolName": &#x3C;nombre-herramienta>
 }
 </code></pre></td></tr><tr><td>assistant_created</td><td><pre class="language-json"><code class="lang-json">{
-    "version": &#x3C;app-version>,
-    "assistantId": &#x3C;assistant-id>
+    "version": &#x3C;versión-app>,
+    "assistantId": &#x3C;id-asistente>
 }
 </code></pre></td></tr><tr><td>vector_upserted</td><td><pre class="language-json"><code class="lang-json">{
-    "version": &#x3C;app-version>,
-    "chatlowId": &#x3C;chatflow-id>,
+    "version": &#x3C;versión-app>,
+    "chatlowId": &#x3C;id-chatflow>,
     "type": "INTERNAL", // EXTERNAL
     "flowGraph": {
-        "nodes": [&#x3C;nodeid-1>, &#x3C;nodeid-2>],
+        "nodes": [&#x3C;nodoid-1>, &#x3C;nodoid-2>],
         "edges": [
             {
-                "source": &#x3C;nodeid-1>,
-                "target": &#x3C;nodeid-2>
+                "source": &#x3C;nodoid-1>,
+                "target": &#x3C;nodoid-2>
             }
         ]
     },
-    "stopNodeId": &#x3C;nodeid-1>
+    "stopNodeId": &#x3C;nodoid-1>
 }
 </code></pre></td></tr><tr><td>prediction_sent</td><td><pre class="language-json"><code class="lang-json">{
-    "version": &#x3C;app-version>,
-    "chatlowId": &#x3C;chatflow-id>,
-    "chatId": &#x3C;chat-id>,
+    "version": &#x3C;versión-app>,
+    "chatlowId": &#x3C;id-chatflow>,
+    "chatId": &#x3C;id-chat>,
     "type": "INTERNAL", // EXTERNAL
     "flowGraph": {
-        "nodes": [&#x3C;nodeid-1>, &#x3C;nodeid-2>],
+        "nodes": [&#x3C;nodoid-1>, &#x3C;nodoid-2>],
         "edges": [
             {
-                "source": &#x3C;nodeid-1>,
-                "target": &#x3C;nodeid-2>
+                "source": &#x3C;nodoid-1>,
+                "target": &#x3C;nodoid-2>
             }
         ]
     }
 }
 </code></pre></td></tr></tbody></table>
 
-## Disable Telemetry
+## Deshabilitar Telemetría
 
-Users can disable telemetry by setting `DISABLE_FLOWISE_TELEMETRY` to `true` in `.env` file.
+Los usuarios pueden deshabilitar la telemetría configurando `DISABLE_FLOWISE_TELEMETRY` como `true` en el archivo `.env`.

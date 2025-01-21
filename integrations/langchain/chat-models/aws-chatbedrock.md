@@ -1,11 +1,11 @@
 ---
-description: Wrapper around AWS Bedrock large language models that use the Chat endpoint.
+description: Wrapper alrededor de los modelos de lenguaje grandes de AWS Bedrock que utilizan el endpoint de Chat.
 ---
 
 # AWS ChatBedrock
 
-<figure><img src="../../../.gitbook/assets/image (10) (1) (1) (1) (1).png" alt="" width="265"><figcaption><p>AWS ChatBedrock</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (10) (1) (1) (1) (1).png" alt="" width="265"><figcaption><p>Node de AWS ChatBedrock</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../contributing/) para comenzar.
 {% endhint %}

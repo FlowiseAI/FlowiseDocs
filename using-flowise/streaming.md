@@ -1,14 +1,14 @@
 ---
-description: Learn how Flowise streaming works
+description: Aprende cómo funciona el streaming en Flowise
 ---
 
 # Streaming
 
-If streaming is set when making prediction, tokens will be sent as data-only [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent\_events/Using\_server-sent\_events#Event\_stream\_format) as they become available.
+Si el streaming está configurado al hacer una predicción, los tokens se enviarán como eventos del servidor de solo datos ([server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent\_events/Using\_server-sent\_events#Event\_stream\_format)) a medida que estén disponibles.
 
-### Using Python/TS Library
+### Usando la Biblioteca Python/TS
 
-Flowise provides 2 libraries:
+Flowise proporciona 2 bibliotecas:
 
 * [Python](https://pypi.org/project/flowise/): `pip install flowise`
 * [Typescript](https://www.npmjs.com/package/flowise-sdk): `npm install flowise-sdk`
@@ -21,19 +21,19 @@ from flowise import Flowise, PredictionData
 def test_streaming():
     client = Flowise()
 
-    # Test streaming prediction
+    # Prueba de predicción con streaming
     completion = client.create_prediction(
         PredictionData(
             chatflowId="<chatflow-id>",
-            question="Tell me a joke!",
+            question="¡Cuéntame un chiste!",
             streaming=True
         )
     )
 
-    # Process and print each streamed chunk
-    print("Streaming response:")
+    # Procesa e imprime cada fragmento transmitido
+    print("Respuesta en streaming:")
     for chunk in completion:
-        # {event: "token", data: "hello"}
+        # {event: "token", data: "hola"}
         print(chunk)
 
 
@@ -50,15 +50,15 @@ async function test_streaming() {
   const client = new FlowiseClient({ baseUrl: 'http://localhost:3000' });
 
   try {
-    // For streaming prediction
+    // Para predicción con streaming
     const prediction = await client.createPrediction({
       chatflowId: '<chatflow-id>',
-      question: 'What is the capital of France?',
+      question: '¿Cuál es la capital de Francia?',
       streaming: true,
     });
 
     for await (const chunk of prediction) {
-        // {event: "token", data: "hello"}
+        // {event: "token", data: "hola"}
         console.log(chunk);
     }
     
@@ -67,7 +67,7 @@ async function test_streaming() {
   }
 }
 
-// Run streaming test
+// Ejecutar prueba de streaming
 test_streaming()
 ```
 {% endtab %}
@@ -77,7 +77,7 @@ test_streaming()
 curl https://localhost:3000/api/v1/predictions/{chatflow-id} \
   -H "Content-Type: application/json" \
   -d '{
-    "question": "Hello world!",
+    "question": "¡Hola mundo!",
     "streaming": true
   }'
 ```
@@ -86,21 +86,21 @@ curl https://localhost:3000/api/v1/predictions/{chatflow-id} \
 
 ```html
 event: token
-data: Once upon a time...
+data: Había una vez...
 ```
 
-A prediction's event stream consists of the following event types:
+El flujo de eventos de una predicción consiste en los siguientes tipos de eventos:
 
-| Event           | Description                                                                                                                         |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| start           | The start of streaming                                                                                                              |
-| token           | Emitted when the prediction is streaming new token output                                                                           |
-| error           | Emitted when the prediction returns an error                                                                                        |
-| end             | Emitted when the prediction finishes                                                                                                |
-| metadata        | All metadata such as chatId, messageId, of the related flow. Emitted after all tokens have finished streaming, and before end event |
-| sourceDocuments | Emitted when the flow returns sources from vector store                                                                             |
-| usedTools       | Emitted when the flow used tools                                                                                                    |
+| Evento          | Descripción                                                                                                                                |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| start           | El inicio del streaming                                                                                                                    |
+| token           | Emitido cuando la predicción está transmitiendo un nuevo token de salida                                                                   |
+| error           | Emitido cuando la predicción devuelve un error                                                                                            |
+| end             | Emitido cuando la predicción finaliza                                                                                                      |
+| metadata        | Todos los metadatos como chatId, messageId, del flujo relacionado. Emitido después de que todos los tokens han terminado de transmitirse, y antes del evento end |
+| sourceDocuments | Emitido cuando el flujo devuelve fuentes del almacén de vectores                                                                           |
+| usedTools       | Emitido cuando el flujo utilizó herramientas                                                                                               |
 
-### Streamlit App
+### Aplicación Streamlit
 
 [https://github.com/HenryHengZJ/flowise-streamlit](https://github.com/HenryHengZJ/flowise-streamlit)

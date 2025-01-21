@@ -1,186 +1,187 @@
 ---
-description: Learn how to use the Flowise Document Stores, written by @toi500
+description: Aprende cómo usar los Document Stores de Flowise, escrito por @toi500
 ---
 
 # Document Stores
 
 ***
 
-Flowise's Document Stores offer a versatile approach to data management, enabling you to upload, split, and prepare your dataset and upsert it in a single location.
+Los Document Stores de Flowise ofrecen un enfoque versátil para la gestión de datos, permitiéndote cargar, dividir y preparar tu conjunto de datos y hacer upsert en una única ubicación.
 
-This centralized approach simplifies data handling and allows for efficient management of various data formats, making it easier to organize and access your data within the Flowise app.
+Este enfoque centralizado simplifica el manejo de datos y permite una gestión eficiente de varios formatos de datos, facilitando la organización y el acceso a tus datos dentro de la aplicación Flowise.
 
-## Setup
+## Configuración
 
-In this tutorial, we will set up a [Retrieval Augmented Generation (RAG)](../use-cases/multiple-documents-qna.md) system to retrieve information about the _LibertyGuard Deluxe Homeowners Policy_, a topic that LLMs are not extensively trained on.
+En este tutorial, configuraremos un sistema de [Retrieval Augmented Generation (RAG)](../use-cases/multiple-documents-qna.md) para recuperar información sobre la _Póliza de Propietarios de Vivienda LibertyGuard Deluxe_, un tema sobre el que los LLMs no están extensamente entrenados.
 
-Using the **Flowise Document Stores**, we'll prepare and upsert data about LibertyGuard and its set of home insurance policies. This will enable our RAG system to accurately answer user queries about LibertyGuard's home insurance offerings.
+Usando los **Document Stores de Flowise**, prepararemos y haremos upsert de datos sobre LibertyGuard y su conjunto de pólizas de seguro de hogar. Esto permitirá que nuestro sistema RAG responda con precisión a las consultas de los usuarios sobre las ofertas de seguro de hogar de LibertyGuard.
 
-## 1. Add a Document Store
+## 1. Agregar un Document Store
 
-* Start by adding a Document Store and naming it. In our case, "LibertyGuard Deluxe Homeowners Policy".
+* Comienza agregando un Document Store y nombrándolo. En nuestro caso, "LibertyGuard Deluxe Homeowners Policy".
 
 <figure><img src="../.gitbook/assets/ds01.png" alt=""><figcaption></figcaption></figure>
 
-## 2. Select a Document Loader
+## 2. Seleccionar un Document Loader
 
-* Enter the Document Store that you just created and select the [Document Loader](../integrations/langchain/document-loaders/) you want to use. In our case, since our dataset is in PDF format, we'll use the [PDF Loader](../integrations/langchain/document-loaders/pdf-file.md).
+* Ingresa al Document Store que acabas de crear y selecciona el [Document Loader](../integrations/langchain/document-loaders/) que deseas usar. En nuestro caso, como nuestro conjunto de datos está en formato PDF, usaremos el [PDF Loader](../integrations/langchain/document-loaders/pdf-file.md).
 
 <figure><img src="../.gitbook/assets/ds02.png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/ds03.png" alt=""><figcaption></figcaption></figure>
 
-## 3. Prepare Your Data
+## 3. Preparar tus Datos
 
-* First, we start by uploading our PDF file.
-* Then, we add a **unique metadata key**. This is optional, but a good practice as it allows us to target and filter down this same dataset later on if we need to.
+* Primero, comenzamos subiendo nuestro archivo PDF.
+* Luego, agregamos una **clave de metadata única**. Esto es opcional, pero es una buena práctica ya que nos permite dirigirnos y filtrar este mismo conjunto de datos más tarde si lo necesitamos.
 
 <figure><img src="../.gitbook/assets/ds04.png" alt=""><figcaption></figcaption></figure>
 
-* Finally, select the [Text Splitter](../integrations/langchain/text-splitters/) you want to use to chunk your data. In our particular case, we will use the [Recursive Character Text Splitter](../integrations/langchain/text-splitters/recursive-character-text-splitter.md).
+* Finalmente, selecciona el [Text Splitter](../integrations/langchain/text-splitters/) que deseas usar para dividir tus datos. En nuestro caso particular, usaremos el [Recursive Character Text Splitter](../integrations/langchain/text-splitters/recursive-character-text-splitter.md).
 
 {% hint style="info" %}
-In this guide, we've added a generous **Chunk Overlap** size to ensure no relevant data gets missed between chunks. However, the optimal overlap size is dependent on the complexity of your data. You may need to adjust this value based on your specific dataset and the nature of the information you want to extract. More about this topic in this [guide](../use-cases/upserting-data.md).
+En esta guía, hemos agregado un tamaño generoso de **Chunk Overlap** para asegurar que no se pierda información relevante entre chunks. Sin embargo, el tamaño óptimo de superposición depende de la complejidad de tus datos. Es posible que necesites ajustar este valor según tu conjunto de datos específico y la naturaleza de la información que deseas extraer. Más sobre este tema en esta [guía](../use-cases/upserting-data.md).
 {% endhint %}
 
 <figure><img src="../.gitbook/assets/ds05.png" alt=""><figcaption></figcaption></figure>
 
-## 4. Preview Your Data
+## 4. Vista Previa de tus Datos
 
-* We can now preview how our data will be chunked using our current [Text Splitter](../integrations/langchain/text-splitters/) configuration; `chunk_size=1500`and `chunk_overlap=750`.
+* Ahora podemos previsualizar cómo se dividirán nuestros datos usando nuestra configuración actual de [Text Splitter](../integrations/langchain/text-splitters/); `chunk_size=1500` y `chunk_overlap=750`.
 
 <figure><img src="../.gitbook/assets/ds06.png" alt=""><figcaption></figcaption></figure>
 
-* It's important to experiment with different [Text Splitters](../integrations/langchain/text-splitters/), Chunk Sizes, and Overlap values to find the optimal configuration for your specific dataset. This preview allows you to refine the chunking process and ensure that the resulting chunks are suitable for your RAG system.
+* Es importante experimentar con diferentes [Text Splitters](../integrations/langchain/text-splitters/), tamaños de Chunk y valores de Overlap para encontrar la configuración óptima para tu conjunto de datos específico. Esta vista previa te permite refinar el proceso de división y asegurar que los chunks resultantes sean adecuados para tu sistema RAG.
 
 <figure><img src="../.gitbook/assets/ds07.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-Note that our custom metadata `company: "liberty"` has been inserted into each chunk. This metadata allows us to easily filter and retrieve information from this specific dataset later on, even if we use the same vector store index for other datasets.
+Observa que nuestra metadata personalizada `company: "liberty"` se ha insertado en cada chunk. Esta metadata nos permite filtrar y recuperar fácilmente información de este conjunto de datos específico más tarde, incluso si usamos el mismo índice de vector store para otros conjuntos de datos.
 {% endhint %}
 
-## 5. Process Your Data
+## 5. Procesar tus Datos
 
-* Once you are satisfied with the chunking process, it's time to process your data.
+* Una vez que estés satisfecho con el proceso de división, es momento de procesar tus datos.
 
 <figure><img src="../.gitbook/assets/ds08.png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/ds09%20(1).png" alt=""><figcaption></figcaption></figure>
 
-After processing your data, you retain the ability to refine individual chunks by deleting or adding content. This granular control offers several advantages:
+Después de procesar tus datos, mantienes la capacidad de refinar chunks individuales eliminando o agregando contenido. Este control granular ofrece varias ventajas:
 
-* **Enhanced Accuracy:** Identify and rectify inaccuracies or inconsistencies present in the original data, ensuring the information used in your application is reliable.
-* **Improved Relevance:** Refine chunk content to emphasize key information and remove irrelevant sections, thereby increasing the precision and effectiveness of your retrieval process.
-* **Query Optimization:** Tailor chunks to better align with anticipated user queries, making them more targeted and improving the overall user experience.
+* **Precisión Mejorada:** Identifica y rectifica inexactitudes o inconsistencias presentes en los datos originales, asegurando que la información utilizada en tu aplicación sea confiable.
+* **Relevancia Mejorada:** Refina el contenido de los chunks para enfatizar información clave y eliminar secciones irrelevantes, aumentando así la precisión y efectividad de tu proceso de recuperación.
+* **Optimización de Consultas:** Adapta los chunks para alinearse mejor con las consultas anticipadas de los usuarios, haciéndolos más dirigidos y mejorando la experiencia general del usuario.
 
-## 6. Configure the Upsert Process
+## 6. Configurar el Proceso de Upsert
 
-* With our data properly processed - loaded via a Document Loader and appropriately chunked -, we can now proceed to configure the upsert process.
+* Con nuestros datos procesados adecuadamente - cargados a través de un Document Loader y divididos apropiadamente -, ahora podemos proceder a configurar el proceso de upsert.
 
 <figure><img src="../.gitbook/assets/dastore002.png" alt=""><figcaption></figcaption></figure>
 
-The upsert process comprises three fundamental steps:
+El proceso de upsert comprende tres pasos fundamentales:
 
-* **Embedding Selection:** We begin by choosing the appropriate embedding model to encode our dataset. This model will transform our data into a numerical vector representation.
-* **Data Store Selection:** Next, we determine the Vector Store where our dataset will reside.
-* **Record Manager Selection (Optional):** Finally, we have the option to implement a Record Manager. This component provides the functionalities for managing our dataset once it's stored within the Vector Store.
+* **Selección de Embedding:** Comenzamos eligiendo el modelo de embedding apropiado para codificar nuestro conjunto de datos. Este modelo transformará nuestros datos en una representación vectorial numérica.
+* **Selección de Data Store:** Luego, determinamos el Vector Store donde residirá nuestro conjunto de datos.
+* **Selección de Record Manager (Opcional):** Finalmente, tenemos la opción de implementar un Record Manager. Este componente proporciona las funcionalidades para gestionar nuestro conjunto de datos una vez que está almacenado dentro del Vector Store.
 
 <figure><img src="../.gitbook/assets/dastore003.png" alt=""><figcaption></figcaption></figure>
 
-### 1. Select Embeddings
+### 1. Seleccionar Embeddings
 
-* Click on the "Select Embeddings" card and choose your preferred [embedding model](../integrations/langchain/embeddings/). In our case, we will select OpenAI as the embedding provider and use the "text-embedding-ada-002" model with 1536 dimensions.
+* Haz clic en la tarjeta "Select Embeddings" y elige tu [modelo de embedding](../integrations/langchain/embeddings/) preferido. En nuestro caso, seleccionaremos OpenAI como proveedor de embedding y usaremos el modelo "text-embedding-ada-002" con 1536 dimensiones.
 
 <figure><img src="../.gitbook/assets/dastore004.png" alt=""><figcaption></figcaption></figure>
 
-### 2. Select Vector Store
+### 2. Seleccionar Vector Store
 
-* Click on the "Select Vector Store" card and choose your preferred [Vector Store](../integrations/langchain/vector-stores/). In our case, as we need a production-ready option, we will select Upstash.
+* Haz clic en la tarjeta "Select Vector Store" y elige tu [Vector Store](../integrations/langchain/vector-stores/) preferido. En nuestro caso, como necesitamos una opción lista para producción, seleccionaremos Upstash.
 
 <figure><img src="../.gitbook/assets/dastore005.png" alt=""><figcaption></figcaption></figure>
 
-### 3. Select Record Manager
+### 3. Seleccionar Record Manager
 
-* For advanced dataset management within the Vector Store, you can optionally select and configure a [Record Manager](../integrations/langchain/record-managers.md). Detailed instructions on how to set up and utilize this feature can be found in the dedicated [guide](../integrations/langchain/record-managers.md).
+* Para una gestión avanzada del conjunto de datos dentro del Vector Store, puedes opcionalmente seleccionar y configurar un [Record Manager](../integrations/langchain/record-managers.md). Las instrucciones detalladas sobre cómo configurar y utilizar esta función se pueden encontrar en la [guía](../integrations/langchain/record-managers.md) dedicada.
 
 <figure><img src="../.gitbook/assets/dastore006.png" alt=""><figcaption></figcaption></figure>
 
-## 7. Upsert Your Data to a Vector Store
+## 7. Hacer Upsert de tus Datos a un Vector Store
 
-* To begin the upsert process and transfer your data to the Vector Store, click the "Upsert" button.
+* Para comenzar el proceso de upsert y transferir tus datos al Vector Store, haz clic en el botón "Upsert".
 
 <figure><img src="../.gitbook/assets/dastore013.png" alt=""><figcaption></figcaption></figure>
 
-* As illustrated in the image below, our data has been successfully upserted into the Upstash vector database. The data was divided into 85 chunks to optimize the upsertion process and ensure efficient storage and retrieval.
+* Como se ilustra en la imagen de abajo, nuestros datos se han insertado exitosamente en la base de datos vectorial Upstash. Los datos se dividieron en 85 chunks para optimizar el proceso de upsertion y asegurar un almacenamiento y recuperación eficientes.
 
 <figure><img src="../.gitbook/assets/dastore007.png" alt="" width="375"><figcaption></figcaption></figure>
 
-## 8. Test Your Dataset
+## 8. Probar tu Conjunto de Datos
 
-* To quickly test the functionality of your dataset without navigating away from the Document Store, simply utilize the "Retrieval Query" button. This initiates a test query, allowing you to verify the accuracy and effectiveness of your data retrieval process.
+* Para probar rápidamente la funcionalidad de tu conjunto de datos sin salir del Document Store, simplemente utiliza el botón "Retrieval Query". Esto inicia una consulta de prueba, permitiéndote verificar la precisión y efectividad de tu proceso de recuperación de datos.
 
 <figure><img src="../.gitbook/assets/dastore010.png" alt=""><figcaption></figcaption></figure>
 
-* In our case, we see that when querying for information about kitchen flooring coverage in our insurance policy, we retrieve 4 relevant chunks from Upstash, our designated Vector Store. This retrieval is limited to 4 chunks as per the defined "top k" parameter, ensuring we receive the most pertinent information without unnecessary redundancy.
+* En nuestro caso, vemos que al consultar información sobre la cobertura de pisos de cocina en nuestra póliza de seguro, recuperamos 4 chunks relevantes de Upstash, nuestro Vector Store designado. Esta recuperación está limitada a 4 chunks según el parámetro "top k" definido, asegurando que recibamos la información más pertinente sin redundancia innecesaria.
 
 <figure><img src="../.gitbook/assets/dastore009.png" alt=""><figcaption></figcaption></figure>
 
-## 9. Test Your RAG
+## 9. Probar tu RAG
 
-* Finally, our Retrieval-Augmented Generation (RAG) system is operational. It's noteworthy how the LLM effectively interprets the query and successfully leverages relevant information from the chunked data to construct a comprehensive response.
+* Finalmente, nuestro sistema de Retrieval-Augmented Generation (RAG) está operativo. Es notable cómo el LLM interpreta efectivamente la consulta y aprovecha exitosamente la información relevante de los datos divididos para construir una respuesta completa.
 
-You can use the vector store that was configured earlier:
+Puedes usar el vector store que fue configurado anteriormente:
 
 <figure><img src="../.gitbook/assets/dastore011.png" alt=""><figcaption></figcaption></figure>
 
-Or, use the Document Store (Vector):
+O, usar el Document Store (Vector):
 
 <figure><img src="../.gitbook/assets/image (215).png" alt=""><figcaption></figcaption></figure>
 
 ## 10. API
 
-There are also APIs support for creating, updating and deleting document store. Refer to [Document Store API](../api-reference/document-store.md) for more details. In this section, we are going to highlight the 2 of the most used APIs: upsert and refresh.
+También hay soporte de APIs para crear, actualizar y eliminar document stores. Consulta [Document Store API](../api-reference/document-store.md) para más detalles. En esta sección, vamos a destacar 2 de las APIs más utilizadas: upsert y refresh.
 
 ### 1. Upsert
 
-You can upsert a new file using an existing document loader and upsert configuration. For example, you have a PDF loader inside document store, and the goal is to use the existing configuration, but with a new file.
+Puedes hacer upsert de un nuevo archivo usando una configuración existente de document loader y upsert. Por ejemplo, tienes un PDF loader dentro del document store, y el objetivo es usar la configuración existente, pero con un nuevo archivo.
 
 <figure><img src="../.gitbook/assets/image (216).png" alt=""><figcaption></figcaption></figure>
 
-First, take note of the store ID and document ID:
+Primero, toma nota del store ID y document ID:
 
 <figure><img src="../.gitbook/assets/Picture1.png" alt="" width="563"><figcaption></figcaption></figure>
 
-Since Pdf File Loader has Upload File functionality, **form data** will be used to allow sending files through API.
+Ya que el PDF File Loader tiene funcionalidad de Upload File, se usará **form data** para permitir enviar archivos a través de la API.
 
 {% hint style="info" %}
-Make sure the sent file type is compatible with the expected file type from document loader. For example, if a PDF File Loader is being used, you should only send **.pdf** files.
+Asegúrate de que el tipo de archivo enviado sea compatible con el tipo de archivo esperado del document loader. Por ejemplo, si se está usando un PDF File Loader, solo deberías enviar archivos **.pdf**.
 
-To avoid having separate loaders for different file types, we recommend to use [File Loader](../integrations/langchain/document-loaders/file-loader.md)
+Para evitar tener loaders separados para diferentes tipos de archivo, recomendamos usar [File Loader](../integrations/langchain/document-loaders/file-loader.md)
 {% endhint %}
 
 {% tabs %}
 {% tab title="Python API" %}
-<pre class="language-python"><code class="lang-python">import requests
+```python
+import requests
 import json
 
-API_URL = "http://localhost:3000/api/v1/document-store/upsert/&#x3C;storeId>"
+API_URL = "http://localhost:3000/api/v1/document-store/upsert/<storeId>"
 
-# use form data to upload files
+# usar form data para subir archivos
 form_data = {
-    "files": ('my-another-file.pdf', open('my-another-file.pdf', 'rb'))
+    "files": ('mi-otro-archivo.pdf', open('mi-otro-archivo.pdf', 'rb'))
 }
 
 body_data = {
-    "docId": &#x3C;docId>,
-    # override existing configuration
+    "docId": <docId>,
+    # sobrescribir configuración existente
     # "loader": "",
     "splitter": json.dumps({"name":"recursiveCharacterTextSplitter","config":{"chunkSize":20000}})
-<strong>    # "vectorStore": "",
-</strong><strong>    # "embedding": "",
-</strong><strong>    # "recordManager": "",
-</strong><strong>}
-</strong>
+    # "vectorStore": "",
+    # "embedding": "",
+    # "recordManager": "",
+}
+
 def query(form_data):
     response = requests.post(API_URL, files=form_data, data=body_data)
     print(response)
@@ -188,17 +189,17 @@ def query(form_data):
 
 output = query(form_data)
 print(output)
-</code></pre>
+```
 {% endtab %}
 
 {% tab title="Javascript API" %}
 ```javascript
-// use FormData to upload files
+// usar FormData para subir archivos
 let formData = new FormData();
 formData.append("files", input.files[0]);
 formData.append("docId", <docId>);
 formData.append("splitter", JSON.stringify({"name":"recursiveCharacterTextSplitter","config":{"chunkSize":20000}}));
-// override existing configuration
+// sobrescribir configuración existente
 // formData.append("loader", "");
 // formData.append("embedding", "");
 // formData.append("vectorStore", "");
@@ -223,7 +224,7 @@ query(formData).then((response) => {
 {% endtab %}
 {% endtabs %}
 
-For other [Document Loaders](https://docs.flowiseai.com/integrations/langchain/document-loaders) nodes without Upload File functionality, the API body is in **JSON** format:
+Para otros nodos de [Document Loaders](https://docs.flowiseai.com/integrations/langchain/document-loaders) sin funcionalidad de Upload File, el cuerpo de la API está en formato **JSON**:
 
 {% tabs %}
 {% tab title="Python API" %}
@@ -238,11 +239,11 @@ def query(payload):
 
 output = query({
     "docId": <docId>,
-    # override existing configuration
+    # sobrescribir configuración existente
     "loader": {
         "name": "plainText",
         "config": {
-            "text": "This is a new text"
+            "text": "Este es un nuevo texto"
         }
     },
     "splitter": {
@@ -278,7 +279,7 @@ async function query(data) {
 
 query({
     "docId": <docId>,
-    // override existing configuration
+    # override existing configuration
     "loader": {
         "name": "plainText",
         "config": {
@@ -291,9 +292,9 @@ query({
             "chunkSize": 20000
         }
     },
-    // embedding: {},
-    // vectorStore: {},
-    // recordManager: {}
+    # embedding: {},
+    # vectorStore: {},
+    # recordManager: {}
 }).then((response) => {
     console.log(response);
 });

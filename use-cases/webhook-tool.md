@@ -1,28 +1,28 @@
 ---
-description: Learn how to call a webhook on Make
+description: Aprende cómo llamar a un webhook en Make
 ---
 
-# Calling Webhook
+# Llamando a Webhook
 
 ***
 
-In this use case tutorial, we are going to create a custom tool that will be able to call a webhook endpoint, and pass in the necessary parameters into the webhook body. We'll be using [Make.com](https://www.make.com/en) to create the webhook workflow.
+En este tutorial de caso de uso, vamos a crear una herramienta personalizada que podrá llamar a un endpoint webhook y pasar los parámetros necesarios en el cuerpo del webhook. Usaremos [Make.com](https://www.make.com/en) para crear el flujo de trabajo webhook.
 
 ## Make
 
-Head over to Make.com, after registering an account, create a workflow that has a Webhook module and Discord module, which looks like below:
+Dirígete a Make.com, después de registrar una cuenta, crea un flujo de trabajo que tenga un módulo Webhook y un módulo Discord, que se vea como abajo:
 
 <figure><img src="../.gitbook/assets/screely-1691756705932.png" alt=""><figcaption></figcaption></figure>
 
-From the Webhook module, you should be able to see a webhook URL:
+Desde el módulo Webhook, deberías poder ver una URL webhook:
 
 <figure><img src="../.gitbook/assets/image (46).png" alt="" width="563"><figcaption></figcaption></figure>
 
-From the Discord module, we are passing the `message` body from the Webhook as the message to send to Discord channel:
+Desde el módulo Discord, estamos pasando el cuerpo `message` del Webhook como el mensaje para enviar al canal de Discord:
 
 <figure><img src="../.gitbook/assets/image (47).png" alt="" width="563"><figcaption></figcaption></figure>
 
-To test it out, you can click Run once at the bottom left corner, and send a POST request with a JSON body
+Para probarlo, puedes hacer clic en Run once en la esquina inferior izquierda y enviar una solicitud POST con un cuerpo JSON
 
 ```json
 {
@@ -32,24 +32,24 @@ To test it out, you can click Run once at the bottom left corner, and send a POS
 
 <figure><img src="../.gitbook/assets/image (48).png" alt="" width="563"><figcaption></figcaption></figure>
 
-You'll be able to see a Discord message sent to the channel:
+Podrás ver un mensaje de Discord enviado al canal:
 
 <figure><img src="../.gitbook/assets/image (49).png" alt="" width="249"><figcaption></figcaption></figure>
 
-Perfect! We have successfully configured a workflow that is able to pass a message and send to Discord channel [🎉 ](https://emojiterra.com/party-popper/)[🎉](https://emojiterra.com/party-popper/)
+¡Perfecto! Hemos configurado exitosamente un flujo de trabajo que puede pasar un mensaje y enviarlo al canal de Discord [🎉 ](https://emojiterra.com/party-popper/)[🎉](https://emojiterra.com/party-popper/)
 
 ## Flowise
 
-In Flowise, we are going to create a custom tool that is able to call the Webhook POST request, with the message body.
+En Flowise, vamos a crear una herramienta personalizada que pueda hacer la solicitud POST al Webhook, con el cuerpo del mensaje.
 
-From the dashboard, click **Tools**, then click **Create**
+Desde el dashboard, haz clic en **Tools**, luego haz clic en **Create**
 
 <figure><img src="../.gitbook/assets/screely-1691758397783.png" alt=""><figcaption></figcaption></figure>
 
-We can then fill in the following fields (feel free to change this according to your needs):
+Luego podemos llenar los siguientes campos (siéntete libre de cambiarlos según tus necesidades):
 
-* **Tool Name**: make\_webhook (must be in snake\_case)
-* **Tool Description**: Useful when you need to send message to Discord
+* **Tool Name**: make\_webhook (debe estar en snake\_case)
+* **Tool Description**: Útil cuando necesitas enviar mensajes a Discord
 * **Tool Icon Src**: [https://github.com/FlowiseAI/Flowise/assets/26460777/517fdab2-8a6e-4781-b3c8-fb92cc78aa0b](https://github.com/FlowiseAI/Flowise/assets/26460777/517fdab2-8a6e-4781-b3c8-fb92cc78aa0b)
 * **Input Schema**:
 
@@ -80,49 +80,49 @@ try {
 }
 ```
 
-Click **Add** to save the custom tool, and you should be able to see it now:
+Haz clic en **Add** para guardar la herramienta personalizada, y ahora deberías poder verla:
 
 <figure><img src="../.gitbook/assets/image (51).png" alt="" width="279"><figcaption></figcaption></figure>
 
-Now, create a new canvas with following nodes:
+Ahora, crea un nuevo canvas con los siguientes nodos:
 
 * **Buffer Memory**
 * **ChatOpenAI**
-* **Custom Tool** (select the make\_webhook tool we just created)
+* **Custom Tool** (selecciona la herramienta make\_webhook que acabamos de crear)
 * **OpenAI Function Agent**
 
-It should looks like below after connecting them up:
+Debería verse como abajo después de conectarlos:
 
 <figure><img src="../.gitbook/assets/screely-1691758990676.png" alt=""><figcaption></figcaption></figure>
 
-Save the chatflow, and start testing it!
+¡Guarda el chatflow y comienza a probarlo!
 
-For example, we can ask question like _"how to cook an egg"_
+Por ejemplo, podemos hacer preguntas como _"cómo cocinar un huevo"_
 
 <figure><img src="../.gitbook/assets/image (52).png" alt="" width="563"><figcaption></figcaption></figure>
 
-Then ask the agent to send all of these to Discord:
+Luego pide al agente que envíe todo esto a Discord:
 
 <figure><img src="../.gitbook/assets/image (53).png" alt="" width="563"><figcaption></figcaption></figure>
 
-Go to the Discord channel, and you will be able to see the message:
+Ve al canal de Discord, y podrás ver el mensaje:
 
 <figure><img src="../.gitbook/assets/image (54).png" alt=""><figcaption></figcaption></figure>
 
-That's it! OpenAI Function Agent will be able to automatically figure out what to pass as the message and send it over to Discord. This is just a quick example of how to trigger a webhook workflow with dynamic body. The same idea can be applied to workflow that has a webhook and Gmail, GoogleSheets etc.
+¡Eso es todo! OpenAI Function Agent será capaz de determinar automáticamente qué pasar como mensaje y enviarlo a Discord. Este es solo un ejemplo rápido de cómo activar un flujo de trabajo webhook con cuerpo dinámico. La misma idea se puede aplicar a flujos de trabajo que tienen un webhook y Gmail, GoogleSheets, etc.
 
-You can read more on how to pass chat information like `sessionId`, `flowid` and `variables` to custom tool - [#additional](../integrations/langchain/tools/custom-tool.md#additional "mention")
+Puedes leer más sobre cómo pasar información del chat como `sessionId`, `flowid` y `variables` a una herramienta personalizada - [#additional](../integrations/langchain/tools/custom-tool.md#additional "mention")
 
-## Tutorials
+## Tutoriales
 
-* Watch a step-by-step instruction video on using Webhooks with Flowise custom tools.
+* Mira un video de instrucciones paso a paso sobre el uso de Webhooks con herramientas personalizadas de Flowise.
 
 {% embed url="https://youtu.be/_K9xJqEgnrU" %}
 
-* Watch how to connect Flowise to Google Sheets using webhooks
+* Mira cómo conectar Flowise a Google Sheets usando webhooks
 
 {% embed url="https://youtu.be/fehXLdRLJFo" %}
 
-* Watch how to connect Flowise to Microsoft Excel using webhooks
+* Mira cómo conectar Flowise a Microsoft Excel usando webhooks
 
 {% embed url="https://youtu.be/cB2GC8JznJc" %}

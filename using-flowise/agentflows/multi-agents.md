@@ -1,147 +1,147 @@
 ---
-description: Learn how to use Multi-Agents in Flowise, written by @toi500
+description: Aprende cómo usar Multi-Agents en Flowise, escrito por @toi500
 ---
 
 # Multi-Agents
 
-This guide intends to provide an introduction of the multi-agent AI system architecture within Flowise, detailing its components, operational constraints, and workflow.
+Esta guía pretende proporcionar una introducción a la arquitectura del sistema de IA multi-agente dentro de Flowise, detallando sus componentes, restricciones operativas y flujo de trabajo.
 
-## Concept
+## Concepto
 
-Analogous to a team of domain experts collaborating on a complex project, a multi-agent system uses the principle of specialization within artificial intelligence.
+Análogo a un equipo de expertos en dominios colaborando en un proyecto complejo, un sistema multi-agente utiliza el principio de especialización dentro de la inteligencia artificial.
 
-This multi-agent system utilizes a hierarchical, sequential workflow, maximizing efficiency and specialization.
+Este sistema multi-agente utiliza un flujo de trabajo jerárquico y secuencial, maximizando la eficiencia y la especialización.
 
-### 1. System Architecture
+### 1. Arquitectura del Sistema
 
-We can define the multi-agent AI architecture as a scalable AI system capable of handling complex projects by breaking them down into manageable sub-tasks.
+Podemos definir la arquitectura de IA multi-agente como un sistema de IA escalable capaz de manejar proyectos complejos dividiéndolos en sub-tareas manejables.
 
-In Flowise, a multi-agent system comprises two primary nodes or agent types and a user, interacting in a hierarchical graph to process requests and deliver a targeted outcome:
+En Flowise, un sistema multi-agente comprende dos nodos principales o tipos de agentes y un usuario, interactuando en un gráfico jerárquico para procesar solicitudes y entregar un resultado específico:
 
-1. **User:** The user acts as the **system's starting point**, providing the initial input or request. While a multi-agent system can be designed to handle a wide range of requests, it's important that these user requests align with the system's intended purpose. Any request falling outside this scope can lead to inaccurate results, unexpected loops, or even system errors. Therefore, user interactions, while flexible, should always align with the system's core functionalities for optimal performance.
-2. **Supervisor AI:** The Supervisor acts as the **system's orchestrator**, overseeing the entire workflow. It analyzes user requests, decomposes them into a sequence of sub-tasks, assigns these sub-tasks to the specialized worker agents, aggregates the results, and ultimately presents the processed output back to the user.
-3. **Worker AI Team:** This team consists of specialized AI agents, or Workers, each instructed - via prompt messages - to handle a specific task within the workflow. These Workers operate independently, receiving instructions and data from the Supervisor, **executing their specialized functions**, using tools as needed, and returning the results to the Supervisor.
+1. **Usuario:** El usuario actúa como el **punto de inicio del sistema**, proporcionando la entrada o solicitud inicial. Si bien un sistema multi-agente puede ser diseñado para manejar una amplia gama de solicitudes, es importante que estas solicitudes del usuario se alineen con el propósito previsto del sistema. Cualquier solicitud que caiga fuera de este alcance puede llevar a resultados inexactos, bucles inesperados o incluso errores del sistema. Por lo tanto, las interacciones del usuario, aunque flexibles, siempre deben alinearse con las funcionalidades centrales del sistema para un rendimiento óptimo.
+2. **Supervisor AI:** El Supervisor actúa como el **orquestador del sistema**, supervisando todo el flujo de trabajo. Analiza las solicitudes del usuario, las descompone en una secuencia de sub-tareas, asigna estas sub-tareas a los agentes trabajadores especializados, agrega los resultados y finalmente presenta la salida procesada de vuelta al usuario.
+3. **Equipo Worker AI:** Este equipo consiste en agentes AI especializados, o Workers, cada uno instruido - a través de mensajes prompt - para manejar una tarea específica dentro del flujo de trabajo. Estos Workers operan independientemente, recibiendo instrucciones y datos del Supervisor, **ejecutando sus funciones especializadas**, usando herramientas según sea necesario, y devolviendo los resultados al Supervisor.
 
 <figure><img src="../../.gitbook/assets/multi-agent-diagram.svg" alt=""><figcaption></figcaption></figure>
 
-### 2. Operational Constraints
+### 2. Restricciones Operativas
 
-To maintain order and simplicity, this multi-agent system operates under two important constraints:
+Para mantener el orden y la simplicidad, este sistema multi-agente opera bajo dos restricciones importantes:
 
-* **One task at a time:** The Supervisor is intentionally designed to focus on a single task at a time. It waits for the active Worker to complete its task and return the results before it analyzes the next step and delegates the subsequent task. This ensures each step is completed successfully before moving on, preventing overcomplexity.
-* **One Supervisor per flow:** While it's theoretically possible to implement a set of nested multi-agent systems to form a more sophisticated hierarchical structure for highly complex workflows, what LangChain defines as "[Hierarchical Agent Teams](https://github.com/langchain-ai/langgraph/blob/main/examples/multi\_agent/hierarchical\_agent\_teams.ipynb)", with a top-level supervisor and mid-level supervisors managing teams of workers, Flowise's multi-agent systems currently operate with a single Supervisor.
+* **Una tarea a la vez:** El Supervisor está intencionalmente diseñado para enfocarse en una sola tarea a la vez. Espera a que el Worker activo complete su tarea y devuelva los resultados antes de analizar el siguiente paso y delegar la tarea subsiguiente. Esto asegura que cada paso se complete exitosamente antes de continuar, previniendo la sobrecomplejidad.
+* **Un Supervisor por flujo:** Si bien es teóricamente posible implementar un conjunto de sistemas multi-agente anidados para formar una estructura jerárquica más sofisticada para flujos de trabajo altamente complejos, lo que LangChain define como "[Hierarchical Agent Teams](https://github.com/langchain-ai/langgraph/blob/main/examples/multi_agent/hierarchical_agent_teams.ipynb)", con un supervisor de nivel superior y supervisores de nivel medio gestionando equipos de workers, los sistemas multi-agente de Flowise actualmente operan con un solo Supervisor.
 
 {% hint style="info" %}
-These two constraints are important when **planning your application's workflow**. If you try to design a workflow where the Supervisor needs to delegate multiple tasks simultaneously, in parallel, the system won't be able to handle it and you'll encounter an error.
+Estas dos restricciones son importantes cuando **planificas el flujo de trabajo de tu aplicación**. Si intentas diseñar un flujo de trabajo donde el Supervisor necesita delegar múltiples tareas simultáneamente, en paralelo, el sistema no podrá manejarlo y encontrarás un error.
 {% endhint %}
 
-## The Supervisor
+## El Supervisor
 
-The Supervisor, as the agent governing the overall workflow and responsible for delegating tasks to the appropriate Worker, requires a set of components to function correctly:
+El Supervisor, como el agente que gobierna el flujo de trabajo general y es responsable de delegar tareas al Worker apropiado, requiere un conjunto de componentes para funcionar correctamente:
 
-* **Chat Model capable of function calling** to manage the complexities of task decomposition, delegation, and result aggregation.
-* **Agent Memory (optional)**: While the Supervisor can function without Agent Memory, this node can significantly enhance workflows that require access to past Supervisor states. This **state preservation** could allow the Supervisor to resume the job from a specific point or leverage past data for improved decision-making.
+* **Chat Model capaz de function calling** para manejar las complejidades de la descomposición de tareas, delegación y agregación de resultados.
+* **Agent Memory (opcional)**: Si bien el Supervisor puede funcionar sin Agent Memory, este nodo puede mejorar significativamente los flujos de trabajo que requieren acceso a estados pasados del Supervisor. Esta **preservación del estado** podría permitir al Supervisor reanudar el trabajo desde un punto específico o aprovechar datos pasados para mejorar la toma de decisiones.
 
 <figure><img src="../../.gitbook/assets/mas07.png" alt=""><figcaption></figcaption></figure>
 
 ### Supervisor Prompt
 
-By default, the Supervisor Prompt is worded in a way that instructs the Supervisor to analyze user requests, decompose them into a sequence of sub-tasks, and assign these sub-tasks to the specialized worker agents.
+Por defecto, el Supervisor Prompt está redactado de una manera que instruye al Supervisor para analizar las solicitudes del usuario, descomponerlas en una secuencia de sub-tareas y asignar estas sub-tareas a los agentes trabajadores especializados.
 
-While the Supervisor Prompt is customizable to fit specific application needs, it always requires the following two key elements:
+Si bien el Supervisor Prompt es personalizable para adaptarse a necesidades específicas de la aplicación, siempre requiere los siguientes dos elementos clave:
 
-* **The {team\_members} Variable:** This variable is crucial for the Supervisor's understanding of the available workforce since it provides the Supervisor with list of Worker names. This allows the Supervisor to diligently delegate tasks to the most appropriate Worker based on their expertise.
-* **The "FINISH" Keyword:** This keyword serves as a signal within the Supervisor Prompt. It indicates when the Supervisor should consider the task complete and present the final output to the user. Without a clear "FINISH" directive, the Supervisor might continue delegating tasks unnecessarily or fail to deliver a coherent and finalized result to the user. It signals that all necessary sub-tasks have been executed and the user's request has been fulfilled.
+* **La Variable {team_members}:** Esta variable es crucial para la comprensión del Supervisor de la fuerza laboral disponible ya que proporciona al Supervisor una lista de nombres de Workers. Esto permite al Supervisor delegar diligentemente tareas al Worker más apropiado basado en su experiencia.
+* **La Palabra Clave "FINISH":** Esta palabra clave sirve como una señal dentro del Supervisor Prompt. Indica cuándo el Supervisor debe considerar la tarea completa y presentar la salida final al usuario. Sin una directiva clara de "FINISH", el Supervisor podría continuar delegando tareas innecesariamente o fallar en entregar un resultado coherente y finalizado al usuario. Señala que todas las sub-tareas necesarias han sido ejecutadas y la solicitud del usuario ha sido cumplida.
 
 <figure><img src="../../.gitbook/assets/mas06.png" alt="" width="375"><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-It's important to understand that the Supervisor plays a very distinct role from Workers. Unlike Workers, which can be tailored with highly specific instructions, the **Supervisor operates most effectively with general directives, which allow it to plan and delegate tasks as it deems appropriate.** If you're new to multi-agent systems, we recommend sticking with the default Supervisor prompt
+Es importante entender que el Supervisor juega un rol muy distinto al de los Workers. A diferencia de los Workers, que pueden ser adaptados con instrucciones altamente específicas, el **Supervisor opera más efectivamente con directivas generales, que le permiten planificar y delegar tareas como lo considere apropiado.** Si eres nuevo en sistemas multi-agente, recomendamos apegarse al prompt de Supervisor por defecto
 {% endhint %}
 
-### Understanding Recursion Limit in Supervisor node:
+### Entendiendo el Recursion Limit en el nodo Supervisor:
 
-This parameter restricts the maximum depth of nested function calls within our application. In our current context, **it limits how many times the Supervisor can trigger itself within a single workflow execution**. This is important for preventing unbounded recursion and ensuring resources are used efficiently.
+Este parámetro restringe la profundidad máxima de llamadas a funciones anidadas dentro de nuestra aplicación. En nuestro contexto actual, **limita cuántas veces el Supervisor puede activarse a sí mismo dentro de una sola ejecución de flujo de trabajo**. Esto es importante para prevenir la recursión sin límites y asegurar que los recursos se usen eficientemente.
 
 <figure><img src="../../.gitbook/assets/mas04.png" alt="" width="375"><figcaption></figcaption></figure>
 
-### How the Supervisor works
+### Cómo funciona el Supervisor
 
-Upon receiving a user query, the Supervisor initiates the workflow by analyzing the request and discerning the user's intended outcome.
+Al recibir una consulta del usuario, el Supervisor inicia el flujo de trabajo analizando la solicitud y discerniendo el resultado previsto por el usuario.
 
-Then, leveraging the `{team_members}` variable in the Supervisor Prompt, which only provides a list of available Worker AI names, the Supervisor infers each Worker's specialty and strategically selects the most suitable Worker for each task within the workflow.
+Luego, aprovechando la variable `{team_members}` en el Supervisor Prompt, que solo proporciona una lista de nombres de Worker AI disponibles, el Supervisor infiere la especialidad de cada Worker y selecciona estratégicamente el Worker más adecuado para cada tarea dentro del flujo de trabajo.
 
 {% hint style="info" %}
-Since the Supervisor only has the Workers' names to infer their functionality inside the workflow, it is very important that those names are set accordingly. **Clear, concise, and descriptive names that accurately reflect the Worker's role or area of expertise are crucial for the Supervisor to make informed decisions when delegating tasks.** This ensures that the right Worker is selected for the right job, maximizing the system's accuracy in fulfilling the user's request.
+Ya que el Supervisor solo tiene los nombres de los Workers para inferir su funcionalidad dentro del flujo de trabajo, es muy importante que esos nombres se establezcan adecuadamente. **Los nombres claros, concisos y descriptivos que reflejan con precisión el rol o área de experiencia del Worker son cruciales para que el Supervisor tome decisiones informadas al delegar tareas.** Esto asegura que el Worker correcto sea seleccionado para el trabajo correcto, maximizando la precisión del sistema en cumplir la solicitud del usuario.
 {% endhint %}
 
 ***
 
-## **The Worker**
+## **El Worker**
 
-The Worker, as a specialized agent instructed to handle a specific task within the system, requires two essential components to function correctly:
+El Worker, como un agente especializado instruido para manejar una tarea específica dentro del sistema, requiere dos componentes esenciales para funcionar correctamente:
 
-* **A Supervisor:** Each Worker must be connected to the Supervisor so it can be called upon when a task needs to be delegated. This connection establishes the essential hierarchical relationship within the multi-agent system, ensuring that the Supervisor can efficiently distribute work to the appropriate specialized Workers.
-* **A Chat Model node capable of function calling**: By default, Workers inherit the Supervisor's Chat Model node unless assigned one directly. This function-calling capability enables the Worker to interact with tools designed for its specialized task.
+* **Un Supervisor:** Cada Worker debe estar conectado al Supervisor para que pueda ser llamado cuando una tarea necesita ser delegada. Esta conexión establece la relación jerárquica esencial dentro del sistema multi-agente, asegurando que el Supervisor pueda distribuir eficientemente el trabajo a los Workers especializados apropiados.
+* **Un nodo Chat Model capaz de function calling**: Por defecto, los Workers heredan el nodo Chat Model del Supervisor a menos que se les asigne uno directamente. Esta capacidad de function-calling permite al Worker interactuar con herramientas diseñadas para su tarea especializada.
 
 <figure><img src="../../.gitbook/assets/mas05.png" alt="" width="375"><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-The ability to assign **different Chat Models to each Worker** provides significant flexibility and optimization opportunities for our application. By selecting [Chat Models](../../integrations/langchain/chat-models/) tailored to specific tasks, we can leverage more cost-effective solutions for simpler tasks and reserve specialized, potentially more expensive, models when truly necessary.
+La capacidad de asignar **diferentes Chat Models a cada Worker** proporciona flexibilidad significativa y oportunidades de optimización para nuestra aplicación. Al seleccionar [Chat Models](../../integrations/langchain/chat-models/) adaptados a tareas específicas, podemos aprovechar soluciones más rentables para tareas más simples y reservar modelos especializados, potencialmente más caros, cuando sea verdaderamente necesario.
 {% endhint %}
 
-### Undertanding Max Iteration parameter in Workers
+### Entendiendo el parámetro Max Iteration en Workers
 
-[LangChain](https://python.langchain.com/v0.1/docs/modules/agents/how\_to/max\_iterations/) refers to `Max Iterations Cap` as a important control mechanism for preventing haywire within an agentic system. In our current this context, it serves us as a guardrail against excessive, potentially infinite, interactions between the Supervisor and Worker.
+[LangChain](https://python.langchain.com/v0.1/docs/modules/agents/how_to/max_iterations/) se refiere a `Max Iterations Cap` como un mecanismo de control importante para prevenir el descontrol dentro de un sistema agéntico. En nuestro contexto actual, nos sirve como una barrera contra interacciones excesivas, potencialmente infinitas, entre el Supervisor y el Worker.
 
-Unlike the Supervisor node's `Recursion Limit`, which restricts how many times the Supervisor can call itself, the Worker node's `Max Iteration` parameter limits how many times a Supervisor can iterated or query a specific Worker.
+A diferencia del `Recursion Limit` del nodo Supervisor, que restringe cuántas veces el Supervisor puede llamarse a sí mismo, el parámetro `Max Iteration` del nodo Worker limita cuántas veces un Supervisor puede iterar o consultar a un Worker específico.
 
-By capping or limiting the Max Iteration, we ensure that costs remain under control, even in cases of unexpected system behavior.
+Al limitar el Max Iteration, aseguramos que los costos permanezcan bajo control, incluso en casos de comportamiento inesperado del sistema.
 
 ***
 
-## Example: A practical user case
+## Ejemplo: Un caso de uso práctico
 
-Now that we've established a foundational understanding of how Multi-Agent systems work within Flowise, let's explore a practical application.
+Ahora que hemos establecido una comprensión fundamental de cómo funcionan los sistemas Multi-Agent dentro de Flowise, exploremos una aplicación práctica.
 
-Imagine a **Lead Outreach multi-agent system** (available in the Marketplace) designed to automate the process of identifying, qualifying, and engaging with potential leads. This system would utilize a Supervisor to orchestrate the following two Workers:
+Imagina un **sistema multi-agente de Lead Outreach** (disponible en el Marketplace) diseñado para automatizar el proceso de identificar, calificar y comprometerse con potenciales leads. Este sistema utilizaría un Supervisor para orquestar los siguientes dos Workers:
 
-* **Lead Researcher:** This Worker, using the Google Search Tool, will be responsible for gathering potential leads based on user-defined criteria.
-* **Lead Sales Generator:** This Worker will utilize the information gathered by the Lead Researcher to create personalized email drafts for the sales team.
+* **Lead Researcher:** Este Worker, usando la Google Search Tool, será responsable de recopilar potenciales leads basados en criterios definidos por el usuario.
+* **Lead Sales Generator:** Este Worker utilizará la información recopilada por el Lead Researcher para crear borradores de correos electrónicos personalizados para el equipo de ventas.
 
 <figure><img src="../../.gitbook/assets/mas08.png" alt=""><figcaption></figcaption></figure>
 
-**Background:** A user working at Solterra Renewables wants to gather available information about Evergreen Energy Group, a reputable renewable energy company located in the UK, and target its CEO, Amelia Croft, as a potential lead.
+**Antecedentes:** Un usuario que trabaja en Solterra Renewables quiere recopilar información disponible sobre Evergreen Energy Group, una empresa de energía renovable respetable ubicada en el Reino Unido, y dirigirse a su CEO, Amelia Croft, como un potencial lead.
 
-**User Request:** The Solterra Renewables employee provides the following query to the multi-agent system: "_I need information about Evergreen Energy Group and Amelia Croft as a potential new customer for our business._"
+**Solicitud del Usuario:** El empleado de Solterra Renewables proporciona la siguiente consulta al sistema multi-agente: "_Necesito información sobre Evergreen Energy Group y Amelia Croft como un potencial nuevo cliente para nuestro negocio._"
 
 1. **Supervisor:**
-   * The Supervisor receives the user request and delegates the "Lead Research" task to the `Lead Researcher Worker`.
+   * El Supervisor recibe la solicitud del usuario y delega la tarea de "Lead Research" al `Lead Researcher Worker`.
 2. **Lead Researcher Worker:**
-   * The Lead Researcher Worker, using the Google Search Tool, gathers information about Evergreen Energy Group, focusing on:
-     * Company background, industry, size, and location.
-     * Recent news and developments.
-     * Key executives, including confirming Amelia Croft's role as CEO.
-   * The Lead Researcher sends the gathered information back to the `Supervisor`.
+   * El Lead Researcher Worker, usando la Google Search Tool, recopila información sobre Evergreen Energy Group, enfocándose en:
+     * Antecedentes de la empresa, industria, tamaño y ubicación.
+     * Noticias y desarrollos recientes.
+     * Ejecutivos clave, incluyendo la confirmación del rol de Amelia Croft como CEO.
+   * El Lead Researcher envía la información recopilada de vuelta al `Supervisor`.
 3. **Supervisor:**
-   * The Supervisor receives the research data from the Lead Researcher Worker and confirms that Amelia Croft is a relevant lead.
-   * The Supervisor delegates the "Generate Sales Email" task to the `Lead Sales Generator Worker`, providing:
-     * The research information on Evergreen Energy Group.
-     * Amelia Croft's email.
-     * Context about Solterra Renewables.
+   * El Supervisor recibe los datos de investigación del Lead Researcher Worker y confirma que Amelia Croft es un lead relevante.
+   * El Supervisor delega la tarea de "Generate Sales Email" al `Lead Sales Generator Worker`, proporcionando:
+     * La información de investigación sobre Evergreen Energy Group.
+     * El correo electrónico de Amelia Croft.
+     * Contexto sobre Solterra Renewables.
 4. **Lead Sales Generator Worker:**
-   * The Lead Sales Generator Worker crafts a personalized email draft tailored to Amelia Croft, taking into account:
-     * Her role as CEO and the relevance of Solterra Renewables' services to her company.
-     * Information from the research about Evergreen Energy Group's current focus or projects.
-   * The Lead Sales Generator Worker sends the completed email draft back to the `Supervisor`.
+   * El Lead Sales Generator Worker elabora un borrador de correo electrónico personalizado adaptado a Amelia Croft, teniendo en cuenta:
+     * Su rol como CEO y la relevancia de los servicios de Solterra Renewables para su empresa.
+     * Información de la investigación sobre el enfoque o proyectos actuales de Evergreen Energy Group.
+   * El Lead Sales Generator Worker envía el borrador de correo electrónico completado de vuelta al `Supervisor`.
 5. **Supervisor:**
-   * The Supervisor receives the generated email draft and issues the "FINISH" directive.
-   * The Supervisor outputs the email draft back to the user, the `Solterra Renewables employee`.
-6. **User Receives Output:** The Solterra Renewables employee receives a personalized email draft ready to be reviewed and sent to Amelia Croft.
+   * El Supervisor recibe el borrador de correo electrónico generado y emite la directiva "FINISH".
+   * El Supervisor envía el borrador de correo electrónico de vuelta al usuario, el `empleado de Solterra Renewables`.
+6. **Usuario Recibe la Salida:** El empleado de Solterra Renewables recibe un borrador de correo electrónico personalizado listo para ser revisado y enviado a Amelia Croft.
 
-## Video Tutorials
+## Tutoriales en Video
 
-Here, you'll find a list of video tutorials from [Leon's YouTube channel](https://www.youtube.com/@leonvanzyl) showing how to build multi-agent applications in Flowise using no-code.
+Aquí encontrarás una lista de tutoriales en video del [canal de YouTube de Leon](https://www.youtube.com/@leonvanzyl) que muestran cómo construir aplicaciones multi-agente en Flowise usando no-code.
 
 {% embed url="https://www.youtube.com/watch?ab_channel=LeonvanZyl&v=284Z8k7yJRE" %}
 

@@ -1,13 +1,13 @@
 ---
 description: >-
-  Upsert embedded data and perform similarity search upon query using Milvus,
-  world's most advanced open-source vector database.
+  Realiza upsert de datos embedidos y ejecuta búsquedas de similitud sobre consultas usando Milvus,
+  la base de datos vectorial de código abierto más avanzada del mundo.
 ---
 
 # Milvus
 
-<figure><img src="../../../.gitbook/assets/image (160).png" alt="" width="308"><figcaption><p>Milvus Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (160).png" alt="" width="308"><figcaption><p>Nodo Milvus</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../contributing/) para comenzar.
 {% endhint %}

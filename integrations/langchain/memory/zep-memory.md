@@ -1,29 +1,29 @@
 # Zep Memory
 
-[Zep](https://github.com/getzep/zep) is long-term memory store for LLM applications. It stores, summarizes, embeds, indexes, and enriches LLM app / chatbot histories, and exposes them via simple, low-latency APIs.
+[Zep](https://github.com/getzep/zep) es un almacén de memoria a largo plazo para aplicaciones LLM. Almacena, resume, incrusta, indexa y enriquece los historiales de aplicaciones/chatbots LLM, y los expone a través de APIs simples y de baja latencia.
 
-## Guide to Deploy Zep to Render
+## Guía para Desplegar Zep en Render
 
-You can easily deploy Zep to cloud services like [Render](https://render.com/), [Flyio](https://fly.io/). If you prefer to test it locally, you can also spin up a docker container by following their [quick guide](https://github.com/getzep/zep#quick-start).
+Puedes desplegar fácilmente Zep en servicios en la nube como [Render](https://render.com/), [Flyio](https://fly.io/). Si prefieres probarlo localmente, también puedes iniciar un contenedor docker siguiendo su [guía rápida](https://github.com/getzep/zep#quick-start).
 
-In this example, we are going to deploy to Render.
+En este ejemplo, vamos a desplegar en Render.
 
-1. Head over to [Zep Repo](https://github.com/getzep/zep#quick-start) and click **Deploy to Render**
-2. This will bring you to Render's Blueprint page and simply click **Create New Resources**
+1. Dirígete al [Repositorio de Zep](https://github.com/getzep/zep#quick-start) y haz clic en **Deploy to Render**
+2. Esto te llevará a la página Blueprint de Render y simplemente haz clic en **Create New Resources**
 
 <figure><img src="../../../.gitbook/assets/image (21) (1).png" alt=""><figcaption></figcaption></figure>
 
-3. When the deployment is done, you should see 3 applications created on your dashboard
+3. Cuando el despliegue esté completo, deberías ver 3 aplicaciones creadas en tu panel
 
 <figure><img src="../../../.gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure>
 
-4. Simply click the first one called **zep** and copy the deployed URL
+4. Simplemente haz clic en la primera llamada **zep** y copia la URL desplegada
 
 <figure><img src="../../../.gitbook/assets/image (38) (1).png" alt=""><figcaption></figcaption></figure>
 
-## Guide to Deploy Zep to Digital Ocean (via Docker)
+## Guía para Desplegar Zep en Digital Ocean (vía Docker)
 
-1. Clone the Repo
+1. Clona el Repositorio
 
 ```bash
 git clone https://github.com/getzep/zep.git
@@ -32,7 +32,7 @@ nano .env
 
 ```
 
-2. Add IN your OpenAI API Key in.ENV
+2. Agrega tu OpenAI API Key en .ENV
 
 ```bash
 ZEP_OPENAI_API_KEY=
@@ -43,78 +43,78 @@ ZEP_OPENAI_API_KEY=
 docker compose up -d --build
 ```
 
-3. Allow firewall access to port 8000
+3. Permite el acceso del firewall al puerto 8000
 
 ```bash
 sudo ufw allow from any to any port 8000 proto tcp
 ufw status numbered
 ```
 
-If using Digital ocean separate firewall from dashboard, make sure port 8000 is added there too
+Si estás usando el firewall separado del panel de Digital Ocean, asegúrate de que el puerto 8000 también esté agregado allí
 
-## Use in Flowise UI
+## Uso en la UI de Flowise
 
-1. Back to Flowise application, simply create a new canvas or use one of the template from marketplace. In this example, we are going to use **Simple Conversational Chain**
+1. De vuelta en la aplicación Flowise, simplemente crea un nuevo lienzo o usa una de las plantillas del marketplace. En este ejemplo, vamos a usar **Simple Conversational Chain**
 
 <figure><img src="../../../.gitbook/assets/Untitled (3) (1).png" alt=""><figcaption></figcaption></figure>
 
-2. Replace **Buffer Memory** with **Zep Memory**. Then replace the **Base URL** with the Zep URL you have copied above
+2. Reemplaza **Buffer Memory** con **Zep Memory**. Luego reemplaza la **Base URL** con la URL de Zep que has copiado anteriormente
 
 <figure><img src="../../../.gitbook/assets/Untitled (5).png" alt=""><figcaption></figcaption></figure>
 
-3. Save the chatflow and test it out to see if conversations are remembered.
+3. Guarda el chatflow y pruébalo para ver si las conversaciones son recordadas.
 
 <figure><img src="../../../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
 
-4. Now try clearing the chat history, you should see that it is now unable to remember the previous conversations.
+4. Ahora intenta limpiar el historial del chat, deberías ver que ahora no puede recordar las conversaciones anteriores.
 
 <figure><img src="../../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-## Zep Authentication
+## Autenticación de Zep
 
-Zep allows you to secure your instance using JWT authentication. We'll be using the `zepcli` command line utility [here](https://github.com/getzep/zepcli/releases).
+Zep te permite asegurar tu instancia usando autenticación JWT. Usaremos la utilidad de línea de comandos `zepcli` [aquí](https://github.com/getzep/zepcli/releases).
 
-#### 1. Generate a secret and the JWT token <a href="#id-1-generate-a-secret-and-the-jwt-token" id="id-1-generate-a-secret-and-the-jwt-token"></a>
+#### 1. Generar un secreto y el token JWT <a href="#id-1-generate-a-secret-and-the-jwt-token" id="id-1-generate-a-secret-and-the-jwt-token"></a>
 
-After downloaded the ZepCLI:
+Después de descargar ZepCLI:
 
-On Linux or MacOS
+En Linux o MacOS
 
 ```
 ./zepcli -i
 ```
 
-On Windows
+En Windows
 
 ```
 zepcli.exe -i
 ```
 
-You will first get your SECRET Token:
+Primero obtendrás tu Token SECRETO:
 
 <figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-Then you will get JWT Token:
+Luego obtendrás el Token JWT:
 
 <figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-#### 2. Configure Auth environment variables <a href="#id-2-configure-auth-environment-variables" id="id-2-configure-auth-environment-variables"></a>
+#### 2. Configurar variables de entorno de autenticación <a href="#id-2-configure-auth-environment-variables" id="id-2-configure-auth-environment-variables"></a>
 
-Set the following environment variables in your Zep server environment:
+Establece las siguientes variables de entorno en tu entorno del servidor Zep:
 
 ```
 ZEP_AUTH_REQUIRED=true
-ZEP_AUTH_SECRET=<the secret you generated above>
+ZEP_AUTH_SECRET=<el secreto que generaste arriba>
 ```
 
-#### 3. Configure Credential on Flowise <a href="#id-2-configure-auth-environment-variables" id="id-2-configure-auth-environment-variables"></a>
+#### 3. Configurar Credencial en Flowise <a href="#id-2-configure-auth-environment-variables" id="id-2-configure-auth-environment-variables"></a>
 
-Add a new credential for Zep, and put in the JWT Token in the API Key field:
+Agrega una nueva credencial para Zep, y coloca el Token JWT en el campo API Key:
 
 <figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
-#### 4. Use the created credential on Zep node <a href="#id-2-configure-auth-environment-variables" id="id-2-configure-auth-environment-variables"></a>
+#### 4. Usar la credencial creada en el nodo Zep <a href="#id-2-configure-auth-environment-variables" id="id-2-configure-auth-environment-variables"></a>
 
-In the Zep node Connect Credential, select the credential you have just created. And that's it!
+En Connect Credential del nodo Zep, selecciona la credencial que acabas de crear. ¡Y eso es todo!
 
 <figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>

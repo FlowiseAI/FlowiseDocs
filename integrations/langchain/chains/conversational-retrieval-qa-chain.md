@@ -1,31 +1,31 @@
-# Conversational Retrieval QA Chain
+# Cadena de Recuperación Conversacional QA
 
-A chain for performing question-answering tasks with a retrieval component.
+Una cadena para realizar tareas de preguntas y respuestas con un componente de recuperación.
 
 <figure><img src="../../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-## Definitions
+## Definiciones
 
-**A retrieval-based question-answering chain**, which integrates with a retrieval component and allows you to configure input parameters and perform question-answering tasks.\
-**Retrieval-Based Chatbots:** Retrieval-based chatbots are chatbots that generate responses by selecting pre-defined responses from a database or a set of possible responses. They "retrieve" the most appropriate response based on the input from the user.\
-**QA (Question Answering):** QA systems are designed to answer questions posed in natural language. They typically involve understanding the question and searching for or generating an appropriate answer.
+**Una cadena de preguntas y respuestas basada en recuperación**, que se integra con un componente de recuperación y te permite configurar parámetros de entrada y realizar tareas de preguntas y respuestas.\
+**Chatbots Basados en Recuperación:** Los chatbots basados en recuperación son chatbots que generan respuestas seleccionando respuestas predefinidas de una base de datos o un conjunto de posibles respuestas. "Recuperan" la respuesta más apropiada basándose en la entrada del usuario.\
+**QA (Preguntas y Respuestas):** Los sistemas QA están diseñados para responder preguntas planteadas en lenguaje natural. Típicamente involucran entender la pregunta y buscar o generar una respuesta apropiada.
 
-## Inputs
+## Entradas
 
-* [Language Model](../chat-models/)
-* [Vector Store Retriever](../vector-stores/)
-* [Memory (optional)](../memory/)
+* [Modelo de Lenguaje](../chat-models/)
+* [Recuperador de Almacén de Vectores](../vector-stores/)
+* [Memoria (opcional)](../memory/)
 
-## Parameters
+## Parámetros
 
-| Name                    | Description                                                                                                                                               |
-| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Return Source Documents | To return citations/sources that were used to build up the response                                                                                       |
-| System Message          | An instruction for LLM on how to answer query                                                                                                             |
-| Chain Option            | Method on how to summarize, answer questions, and extract information from documents. Read [more](https://js.langchain.com/docs/modules/chains/document/) |
+| Nombre                         | Descripción                                                                                                                                                    |
+| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Devolver Documentos Fuente     | Para devolver citas/fuentes que se utilizaron para construir la respuesta                                                                                      |
+| Mensaje del Sistema            | Una instrucción para el LLM sobre cómo responder la consulta                                                                                                    |
+| Opción de Cadena              | Método sobre cómo resumir, responder preguntas y extraer información de documentos. Lee [más](https://js.langchain.com/docs/modules/chains/document/)           |
 
-## Outputs
+## Salidas
 
-| Name                           | Description                   |
-| ------------------------------ | ----------------------------- |
-| ConversationalRetrievalQAChain | Final node to return response |
+| Nombre                         | Descripción                            |
+| ------------------------------ | -------------------------------------- |
+| ConversationalRetrievalQAChain | Nodo final para devolver la respuesta |

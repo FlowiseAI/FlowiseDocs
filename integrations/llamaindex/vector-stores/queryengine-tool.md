@@ -1,11 +1,11 @@
 ---
-description: Upsert embedded data to local path and perform similarity search.
+description: Realiza upsert de datos embedidos en una ruta local y ejecuta búsquedas de similitud.
 ---
 
 # SimpleStore
 
-<figure><img src="../../../.gitbook/assets/simplestore.png" alt="" width="375"><figcaption><p>SimpleStore Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/simplestore.png" alt="" width="375"><figcaption><p>Nodo SimpleStore</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../contributing/) para comenzar.
 {% endhint %}

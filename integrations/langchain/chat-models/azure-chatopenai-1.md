@@ -1,37 +1,37 @@
 # Azure ChatOpenAI
 
-## Prerequisite
+## Prerequisitos
 
-1. [Log in](https://portal.azure.com/) or [sign up](https://azure.microsoft.com/en-us/free/) to Azure
-2. [Create](https://portal.azure.com/#create/Microsoft.CognitiveServicesOpenAI) your Azure OpenAI and wait for approval approximately 10 business days
-3. Your API key will be available at **Azure OpenAI** > click **name\_azure\_openai** > click **Click here to manage keys**
+1. [Inicia sesión](https://portal.azure.com/) o [regístrate](https://azure.microsoft.com/en-us/free/) en Azure
+2. [Crea](https://portal.azure.com/#create/Microsoft.CognitiveServicesOpenAI) tu Azure OpenAI y espera la aprobación aproximadamente 10 días hábiles
+3. Tu clave API estará disponible en **Azure OpenAI** > haz clic en **name_azure_openai** > haz clic en **Click here to manage keys**
 
 <figure><img src="../../../.gitbook/assets/azure/azure-general/1.png" alt=""><figcaption></figcaption></figure>
 
-## Setup
+## Configuración
 
 ### Azure ChatOpenAI
 
-1. Click **Go to Azure OpenaAI Studio**
+1. Haz clic en **Go to Azure OpenaAI Studio**
 
 <figure><img src="../../../.gitbook/assets/azure/azure-general/2.png" alt=""><figcaption></figcaption></figure>
 
-2. Click **Deployments**
+2. Haz clic en **Deployments**
 
 <figure><img src="../../../.gitbook/assets/azure/azure-general/3.png" alt=""><figcaption></figcaption></figure>
 
-3. Click **Create new deployment**
+3. Haz clic en **Create new deployment**
 
 <figure><img src="../../../.gitbook/assets/azure/azure-general/4.png" alt=""><figcaption></figcaption></figure>
 
-4. Select as shown below and click **Create**
+4. Selecciona como se muestra a continuación y haz clic en **Create**
 
 <figure><img src="../../../.gitbook/assets/azure/azure-chatopenai/1.png" alt="" width="558"><figcaption></figcaption></figure>
 
-5. Successfully created **Azure ChatOpenAI**
+5. Se ha creado exitosamente **Azure ChatOpenAI**
 
-* Deployment name: `gpt-35-turbo`
-* Instance name: `top right conner`
+* Nombre del deployment: `gpt-35-turbo`
+* Nombre de la instancia: `esquina superior derecha`
 
 <figure><img src="../../../.gitbook/assets/azure/azure-chatopenai/2.png" alt=""><figcaption></figcaption></figure>
 
@@ -39,23 +39,23 @@
 
 ### Flowise
 
-1. **Chat Models** > drag **Azure ChatOpenAI** node
+1. **Chat Models** > arrastra el nodo **Azure ChatOpenAI**
 
 <figure><img src="../../../.gitbook/assets/azure/azure-chatopenai/3.png" alt="" width="563"><figcaption></figcaption></figure>
 
-2. **Connect Credential** > click **Create New**
+2. **Connect Credential** > haz clic en **Create New**
 
 <figure><img src="../../../.gitbook/assets/azure/azure-chatopenai/4.png" alt="" width="421"><figcaption></figcaption></figure>
 
-3. Copy & Paste each details (API Key, Instance & Deployment name, [API Version](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference#chat-completions)) into **Azure ChatOpenAI** credential
+3. Copia y pega cada detalle (API Key, Instance & Deployment name, [API Version](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference#chat-completions)) en la credencial de **Azure ChatOpenAI**
 
 <figure><img src="../../../.gitbook/assets/azure/azure-chatopenai/5.png" alt="" width="563"><figcaption></figcaption></figure>
 
-4. Voila [🎉](https://emojipedia.org/party-popper/), you have created **Azure ChatOpenAI node** in Flowise
+4. ¡Voilà [🎉](https://emojipedia.org/party-popper/), has creado el **nodo Azure ChatOpenAI** en Flowise
 
 <figure><img src="../../../.gitbook/assets/azure/azure-general/5.png" alt=""><figcaption></figcaption></figure>
 
-## Resources
+## Recursos
 
-* [LangChain JS Azure ChatOpenAI](https://js.langchain.com/docs/modules/model\_io/models/chat/integrations/azure)
-* [Azure OpenAI Service REST API reference](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference)
+* [LangChain JS Azure ChatOpenAI](https://js.langchain.com/docs/modules/model_io/models/chat/integrations/azure)
+* [Referencia de la API REST de Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference)

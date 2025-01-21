@@ -1,15 +1,15 @@
-# API Reference
+# Referencia de la API
 
-Using Flowise public API, you can programmatically execute many of the same tasks as you can in the GUI. This section introduces Flowise REST API.
+Usando la API pública de Flowise, puedes ejecutar programáticamente muchas de las mismas tareas que puedes hacer en la interfaz gráfica. Esta sección introduce la API REST de Flowise.
 
-* [Assistants](assistants.md)
-* [Chat Message](chat-message.md)
-* [Chatflows](chatflows.md)
-* [Document Store](document-store.md)
-* [Feedback](feedback.md)
+* [Asistentes](assistants.md)
+* [Mensaje de Chat](chat-message.md)
+* [Flujos de Chat](chatflows.md)
+* [Almacén de Documentos](document-store.md)
+* [Retroalimentación](feedback.md)
 * [Leads](leads.md)
 * [Ping](ping.md)
-* [Prediction](prediction.md)
-* [Tools](tools.md)
-* [Upsert History](upsert-history.md)
+* [Predicción](prediction.md)
+* [Herramientas](tools.md)
+* [Actualizar Historial](upsert-history.md)
 * [Variables](variables.md)

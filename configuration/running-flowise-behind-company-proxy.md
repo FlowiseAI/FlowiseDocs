@@ -1,19 +1,19 @@
-# Running Flowise behind company proxy
+# Ejecutando Flowise detrás de un proxy corporativo
 
-If you're running Flowise in an environment that requires a proxy, such as within an organizational network, you can configure Flowise to route all its backend requests through a proxy of your choice. This feature is powered by the `global-agent` package.
+Si estás ejecutando Flowise en un entorno que requiere un proxy, como dentro de una red organizacional, puedes configurar Flowise para enrutar todas sus solicitudes backend a través de un proxy de tu elección. Esta funcionalidad está impulsada por el paquete `global-agent`.
 
 [https://github.com/gajus/global-agent](https://github.com/gajus/global-agent)
 
-## Configuration
+## Configuración
 
-There are 2 environment variables you will need to run Flowise behind a company proxy:
+Hay 2 variables de entorno que necesitarás para ejecutar Flowise detrás de un proxy corporativo:
 
-| Variable                   | Purpose                                                                          | Required |
+| Variable                   | Propósito                                                                          | Requerido |
 | -------------------------- | -------------------------------------------------------------------------------- | -------- |
-| `GLOBAL_AGENT_HTTP_PROXY`  | Where to proxy all server HTTP requests through                                  | Yes      |
-| `GLOBAL_AGENT_HTTPS_PROXY` | Where to proxy all server HTTPS requests through                                 | No       |
-| `GLOBAL_AGENT_NO_PROXY`    | A pattern of URLs that should be excluded from proxying. Eg. `*.foo.com,baz.com` | No       |
+| `GLOBAL_AGENT_HTTP_PROXY`  | A través de dónde hacer proxy de todas las solicitudes HTTP del servidor          | Sí       |
+| `GLOBAL_AGENT_HTTPS_PROXY` | A través de dónde hacer proxy de todas las solicitudes HTTPS del servidor         | No       |
+| `GLOBAL_AGENT_NO_PROXY`    | Un patrón de URLs que deberían ser excluidas del proxy. Ej. `*.foo.com,baz.com`  | No       |
 
-## Outbound Allow-list
+## Lista de permitidos de salida
 
-For enterprise plan, you must allow several outbound connections for license checking. Please contact support@flowiseai.com for more information.
+Para el plan empresarial, debes permitir varias conexiones salientes para la verificación de licencia. Por favor, contacta a support@flowiseai.com para más información.

@@ -1,11 +1,11 @@
 ---
-description: Search documents with scores from vector store.
+description: Busca documentos con puntuaciones desde vector store.
 ---
 
 # VectorStore To Document
 
-<figure><img src="../../../.gitbook/assets/image (106).png" alt="" width="324"><figcaption><p>VectorStore To Document Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (106).png" alt="" width="324"><figcaption><p>Nodo VectorStore To Document</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../contributing/) para comenzar.
 {% endhint %}

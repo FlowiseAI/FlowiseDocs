@@ -1,13 +1,13 @@
 ---
 description: >-
-  Generate multiple queries from different perspectives for a given user input
-  query.
+  Genera múltiples consultas desde diferentes perspectivas para una consulta de entrada
+  del usuario.
 ---
 
 # Multi Query Retriever
 
-<figure><img src="../../../.gitbook/assets/up-006.png" alt="" width="283"><figcaption><p>Multi Query Retriever Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/up-006.png" alt="" width="283"><figcaption><p>Nodo Multi Query Retriever</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../contributing/) para comenzar.
 {% endhint %}

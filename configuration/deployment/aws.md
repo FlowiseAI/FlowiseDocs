@@ -17,21 +17,30 @@ Two options are available to deploy Flowise on AWS:
 
 ## Deploy on ECS using CloudFormation
 
-CloudFormation template is available here: [https://gist.github.com/MrHertal/549b31a18e350b69c7200ae8d26ed691](https://gist.github.com/MrHertal/549b31a18e350b69c7200ae8d26ed691)
+You can deploy Flowise on AWS ECS using our CloudFormation template. The template will create:
 
-It deploys Flowise on an ECS cluster exposed through ELB.
+- An ECS Cluster
+- A Task Definition
+- An ECS Service
+- An Application Load Balancer
+- A Target Group
+- Security Groups
+- An IAM Role
 
-It was inspired by this reference architecture: [https://github.com/aws-samples/ecs-refarch-cloudformation](https://github.com/aws-samples/ecs-refarch-cloudformation)
+### Steps for Deployment
 
-Feel free to edit this template to adapt things like Flowise image version, environment variables etc.
+1. Open the [AWS CloudFormation Console](https://console.aws.amazon.com/cloudformation)
+2. Click **Create Stack**
+3. Select **Template is ready** and **Upload a template file**
+4. Upload the `cloudformation.yaml` file from the [Flowise repository](https://github.com/FlowiseAI/Flowise/blob/main/docker/cloudformation.yaml)
+5. Click **Next**
+6. Enter a name for the stack and configure the parameters as needed
+7. Click **Next**
+8. Configure the stack options as needed
+9. Click **Next**
+10. Review the configuration and click **Create Stack**
 
-Example of command to deploy Flowise using the [AWS CLI](https://aws.amazon.com/fr/cli/):
-
-```bash
-aws cloudformation create-stack --stack-name flowise --template-body file://flowise-cloudformation.yml --capabilities CAPABILITY_IAM
-```
-
-After deployment, the URL of your Flowise application is available in the CloudFormation stack outputs.
+After deployment, the URL of your Flowise application will be available in the CloudFormation stack outputs.
 
 ## Deploy on ECS using Terraform
 

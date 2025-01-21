@@ -1,18 +1,18 @@
 ---
-description: LlamaIndex Vector Store Nodes
+description: Nodos Vector Store de LlamaIndex
 ---
 
 # Vector Stores
 
 ***
 
-A vector store or vector database refers to a type of database system that specializes in storing and retrieving high-dimensional numerical vectors. Vector stores are designed to efficiently manage and index these vectors, allowing for fast similarity searches.
+Un vector store o base de datos vectorial se refiere a un tipo de sistema de base de datos especializado en almacenar y recuperar vectores numéricos de alta dimensión. Los vector stores están diseñados para gestionar e indexar estos vectores de manera eficiente, permitiendo búsquedas de similitud rápidas.
 
-### Watch an intro on Vector Stores and how you can use that on Flowise
+### Mira una introducción sobre Vector Stores y cómo puedes usarlos en Flowise
 
 {% embed url="https://youtu.be/m0nr1_pnAxc" %}
 
-### Vector Store Nodes:
+### Nodos Vector Store:
 
 * [Pinecone](pinecone.md)
 * [SimpleStore](queryengine-tool.md)

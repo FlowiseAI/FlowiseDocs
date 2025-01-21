@@ -1,11 +1,11 @@
 ---
-description: Store vector store as retriever to be later queried by MultiRetrievalQAChain.
+description: Almacena vector store como retriever para ser consultado posteriormente por MultiRetrievalQAChain.
 ---
 
 # Vector Store Retriever
 
-<figure><img src="../../../.gitbook/assets/image (148).png" alt="" width="301"><figcaption><p>Vector Store Retriever Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (148).png" alt="" width="301"><figcaption><p>Nodo Vector Store Retriever</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../contributing/) para comenzar.
 {% endhint %}

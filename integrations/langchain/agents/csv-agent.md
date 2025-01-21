@@ -1,11 +1,11 @@
 ---
-description: Agent used to answer queries on CSV data.
+description: Agente utilizado para responder consultas sobre datos CSV.
 ---
 
 # CSV Agent
 
-<figure><img src="../../../.gitbook/assets/image (16) (1) (1).png" alt="" width="273"><figcaption><p>CSV Agent Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (16) (1) (1).png" alt="" width="273"><figcaption><p>Node de CSV Agent</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../contributing/) para comenzar.
 {% endhint %}

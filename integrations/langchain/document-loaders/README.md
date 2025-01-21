@@ -1,48 +1,48 @@
 ---
-description: LangChain Document Loader Nodes
+description: Nodos de Cargadores de Documentos LangChain
 ---
 
-# Document Loaders
+# Cargadores de Documentos
 
 ***
 
-Document loaders allow you to load documents from different sources like PDF, TXT, CSV, Notion, Confluence etc. They are often used together with [Vector Stores](../vector-stores/) to be upserted as embeddings, which can then retrieved upon query.
+Los cargadores de documentos te permiten cargar documentos desde diferentes fuentes como PDF, TXT, CSV, Notion, Confluence, etc. A menudo se utilizan junto con [Vector Stores](../vector-stores/) para ser insertados como embeddings, los cuales pueden ser recuperados posteriormente mediante consultas.
 
-### Watch an intro on Document Loaders
+### Mira una introducción sobre los Cargadores de Documentos
 
 {% embed url="https://youtu.be/kMtf9sNIcao" %}
 
-### Document Loader Nodes:
+### Nodos de Cargadores de Documentos:
 
-* [API Loader](api-loader.md)
+* [Cargador de API](api-loader.md)
 * [Airtable](airtable.md)
-* [Apify Website Content Crawler](apify-website-content-crawler.md)
-* [Cheerio Web Scraper](cheerio-web-scraper.md)
+* [Rastreador de Contenido Web Apify](apify-website-content-crawler.md)
+* [Web Scraper Cheerio](cheerio-web-scraper.md)
 * [Confluence](confluence.md)
-* [Csv File](csv-file.md)
-* [Custom Document Loader](custom-document-loader.md)
-* [Document Store](document-store.md)
-* [Docx File](docx-file.md)
+* [Archivo CSV](csv-file.md)
+* [Cargador de Documentos Personalizado](custom-document-loader.md)
+* [Almacén de Documentos](document-store.md)
+* [Archivo Docx](docx-file.md)
 * [Figma](figma.md)
 * [FireCrawl](firecrawl.md)
-* [Folder with Files](folder-with-files.md)
+* [Carpeta con Archivos](folder-with-files.md)
 * [GitBook](gitbook.md)
 * [Github](github.md)
-* [Json File](json-file.md)
-* [Json Lines File](json-lines-file.md)
-* [Notion Database](notion-database.md)
-* [Notion Folder](notion-folder.md)
-* [Notion Page](notion-page.md)
-* [PDF Files](pdf-file.md)
-* [Plain Text](plain-text.md)
-* [Playwright Web Scraper](playwright-web-scraper.md)
-* [Puppeteer Web Scraper](puppeteer-web-scraper.md)
-* [S3 File Loader](s3-file-loader.md)
-* [SearchApi For Web Search](searchapi-for-web-search.md)
+* [Archivo JSON](json-file.md)
+* [Archivo JSON Lines](json-lines-file.md)
+* [Base de Datos Notion](notion-database.md)
+* [Carpeta Notion](notion-folder.md)
+* [Página Notion](notion-page.md)
+* [Archivos PDF](pdf-file.md)
+* [Texto Plano](plain-text.md)
+* [Web Scraper Playwright](playwright-web-scraper.md)
+* [Web Scraper Puppeteer](puppeteer-web-scraper.md)
+* [Cargador de Archivos S3](s3-file-loader.md)
+* [SearchApi Para Búsqueda Web](searchapi-for-web-search.md)
 * Spider
-* [SerpApi For Web Search](serpapi-for-web-search.md)
-* [Spider - web search & crawler](spider-web-scraper-crawler.md)
-* [Text File](text-file.md)
-* [Unstructured File Loader](unstructured-file-loader.md)
-* [Unstructured Folder Loader](unstructured-folder-loader.md)
-* [VectorStore To Document](vectorstore-to-document.md)
+* [SerpApi Para Búsqueda Web](serpapi-for-web-search.md)
+* [Spider - búsqueda web y rastreador](spider-web-scraper-crawler.md)
+* [Archivo de Texto](text-file.md)
+* [Cargador de Archivos No Estructurados](unstructured-file-loader.md)
+* [Cargador de Carpetas No Estructuradas](unstructured-folder-loader.md)
+* [VectorStore a Documento](vectorstore-to-document.md)

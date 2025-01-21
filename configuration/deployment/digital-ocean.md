@@ -2,71 +2,69 @@
 description: Learn how to deploy Flowise on Digital Ocean
 ---
 
-# Digital Ocean
+# DigitalOcean
 
-***
+## Crear un Droplet
 
-## Create Droplet
+1. Haz click en **Create** y selecciona **Droplets**
 
-In this section, we are going to create a Droplet. For more information, refer to [official guide](https://docs.digitalocean.com/products/droplets/quickstart/).
+<figure><img src="../../.gitbook/assets/image (8) (2).png" alt=""><figcaption></figcaption></figure>
 
-1. First, Click **Droplets** from the dropdown
+2. Selecciona Ubuntu y el plan que prefieras
 
-<figure><img src="../../.gitbook/assets/image (15) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (2).png" alt=""><figcaption></figcaption></figure>
 
-2. Select Data Region and a Basic $6/mo Droplet type
+3. Selecciona un datacenter region
 
-<figure><img src="../../.gitbook/assets/image (17) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11) (2).png" alt=""><figcaption></figcaption></figure>
 
-3. Select Authentication Method. In this example, we are going to use Password
+4. Crea un nuevo SSH key o selecciona uno existente
 
-<figure><img src="../../.gitbook/assets/image (5) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (2).png" alt=""><figcaption></figcaption></figure>
 
-4. After a while you should be able to see your droplet created successfully
+5. Haz click en **Create Droplet**
 
-<figure><img src="../../.gitbook/assets/image (7) (2) (1).png" alt=""><figcaption></figcaption></figure>
+## Conectarse al Droplet
 
-## How to Connect to your Droplet
+Para Windows, sigue esta [guía](https://docs.digitalocean.com/products/droplets/how-to/connect-with-ssh/putty/).
 
-For Windows follow this [guide](https://docs.digitalocean.com/products/droplets/how-to/connect-with-ssh/putty/).
+Para Mac/Linux, sigue esta [guía](https://docs.digitalocean.com/products/droplets/how-to/connect-with-ssh/openssh/).
 
-For Mac/Linux, follow this [guide](https://docs.digitalocean.com/products/droplets/how-to/connect-with-ssh/openssh/).
+## Instalar Docker
 
-## Install Docker
-
-1. ```
-   curl -fsSL https://get.docker.com -o get-docker.sh
-   ```
-2. ```
-   sudo sh get-docker.sh
-   ```
-3. Install docker-compose:
-
+1. ```bash
+curl -fsSL https://get.docker.com -o get-docker.sh
 ```
+2. ```bash
+sudo sh get-docker.sh
+```
+3. Instala docker-compose:
+
+```bash
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 ```
 
-4. Set permission:
+4. Establece los permisos:
 
-```
+```bash
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
 ## Setup
 
-1. Clone the repo
+1. Clona el repositorio
 
-```
+```bash
 git clone https://github.com/FlowiseAI/Flowise.git
 ```
 
-2. Cd into docker folder
+2. Ingresa al directorio docker
 
 ```bash
 cd Flowise && cd docker
 ```
 
-3. Create a `.env` file. You can use your favourite editor. I'll use `nano`
+3. Crea un archivo `.env`. Puedes usar tu editor favorito. Yo usaré `nano`
 
 ```bash
 nano .env
@@ -74,7 +72,7 @@ nano .env
 
 <figure><img src="../../.gitbook/assets/image (10) (2).png" alt="" width="375"><figcaption></figcaption></figure>
 
-4. Specify the env variables:
+4. Especifica las environment variables:
 
 ```sh
 PORT=3000
@@ -85,85 +83,71 @@ LOG_PATH=/root/.flowise/logs
 BLOB_STORAGE_PATH=/root/.flowise/storage
 ```
 
-4. _(Optional)_ You can also specify `FLOWISE_USERNAME` and `FLOWISE_PASSWORD` for app level authorization. See more [broken-reference](broken-reference/ "mention")
-5. Then press `Ctrl + X` to Exit, and `Y` to save the file
-6. Run docker compose
+5. Inicia los contenedores
 
 ```bash
 docker compose up -d
 ```
 
-7. You can then view the app: "Your Public IPv4 DNS":3000. Example: `176.63.19.226:3000`
-8. You can bring the app down by:
+6. Verifica que los contenedores estén corriendo
 
 ```bash
-docker compose stop
+docker ps
 ```
 
-9. You can pull from latest image by:
+7. Abre tu navegador y navega a `http://[IP_ADDRESS]:3000`
 
-```bash
-docker pull flowiseai/flowise
-```
+## Configurar Nginx
 
-## Adding Reverse Proxy & SSL
+### Paso 1 — Instalar y Verificar Nginx
 
-A reverse proxy is the recommended method to expose an application server to the internet. It will let us connect to our droplet using a URL alone instead of the server IP and port number. This provides security benefits in isolating the application server from direct internet access, the ability to centralize firewall protection, a minimized attack plane for common threats such as denial of service attacks, and most importantly for our purposes, the ability to terminate SSL/TLS encryption in a single place.
-
-> A lack of SSL on your Droplet will cause the embeddable widget and API endpoints to be inaccessible in modern browsers. This is because browsers have begun to deprecate HTTP in favor of HTTPS, and block HTTP requests from pages loaded over HTTPS.
-
-### Step 1 — Installing Nginx
-
-1. Nginx is available for installation with apt through the default repositories. Update your repository index, then install Nginx:
+1. Actualiza el índice de paquetes:
 
 ```bash
 sudo apt update
+```
+
+2. Instala Nginx:
+
+```bash
 sudo apt install nginx
 ```
 
-> Press Y to confirm the installation. If you are asked to restart services, press ENTER to accept the defaults.
-
-2. You need to allow access to Nginx through your firewall. Having set up your server according to the initial server prerequisites, add the following rule with ufw:
+3. Verifica que Nginx esté corriendo:
 
 ```bash
-sudo ufw allow 'Nginx HTTP'
+sudo systemctl status nginx
 ```
 
-3. Now you can verify that Nginx is running:
-
-```bash
-systemctl status nginx
-```
-
-Output:
+Deberías ver una salida similar a:
 
 ```bash
 ● nginx.service - A high performance web server and a reverse proxy server
-     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
-     Active: active (running) since Mon 2022-08-29 06:52:46 UTC; 39min ago
-       Docs: man:nginx(8)
-   Main PID: 9919 (nginx)
-      Tasks: 2 (limit: 2327)
-     Memory: 2.9M
-        CPU: 50ms
-     CGroup: /system.slice/nginx.service
-             ├─9919 "nginx: master process /usr/sbin/nginx -g daemon on; master_process on;"
-             └─9920 "nginx: worker process
+    Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+    Active: active (running) since Mon 2022-08-29 06:52:46 UTC; 39min ago
+      Docs: man:nginx(8)
+  Main PID: 9919 (nginx)
+     Tasks: 2 (limit: 2327)
+    Memory: 2.9M
+       CPU: 50ms
+    CGroup: /system.slice/nginx.service
+            ├─9919 "nginx: master process /usr/sbin/nginx -g daemon on; master_process on;"
+            └─9920 "nginx: worker process
 ```
 
-Next you will add a custom server block with your domain and app server proxy.
+A continuación, agregarás un custom server block con tu dominio y proxy del app server.
 
-### Step 2 — Configuring your Server Block + DNS Record
+### Paso 2 — Configurando tu Server Block + DNS Record
 
-It is recommended practice to create a custom configuration file for your new server block additions, instead of editing the default configuration directly.
+Es una práctica recomendada crear un archivo de configuración personalizado para tus nuevas adiciones de server block, en lugar de editar la configuración por defecto directamente.
 
-1. Create and open a new Nginx configuration file using nano or your preferred text editor:
+1. Crea y abre un nuevo archivo de configuración de Nginx usando nano o tu editor de texto preferido:
 
 ```bash
 sudo nano /etc/nginx/sites-available/your_domain
 ```
 
-2. Insert the following into your new file, making sure to replace `your_domain` with your own domain name:
+2. Inserta lo siguiente en tu nuevo archivo, asegurándote de reemplazar `your_domain` con tu propio nombre de dominio:
 
 ```
 server {
@@ -181,36 +165,36 @@ server {
 }
 ```
 
-3. Save and exit, with `nano` you can do this by hitting `CTRL+O` then `CTRL+X`.
-4. Next, enable this configuration file by creating a link from it to the sites-enabled directory that Nginx reads at startup, making sure again to replace `your_domain` with your own domain name::
+3. Guarda y sale, con `nano` puedes hacerlo presionando `CTRL+O` y luego `CTRL+X`.
+4. Luego, habilita este archivo de configuración creando un enlace desde el directorio sites-enabled que Nginx lee al inicio, asegúrate de reemplazar `your_domain` con tu propio nombre de dominio:
 
 ```bash
 sudo ln -s /etc/nginx/sites-available/your_domain /etc/nginx/sites-enabled/
 ```
 
-5. You can now test your configuration file for syntax errors:
+5. Ahora puedes probar tu archivo de configuración para errores de sintaxis:
 
 ```bash
 sudo nginx -t
 ```
 
-6. With no problems reported, restart Nginx to apply your changes:
+6. Con problemas reportados, reinicia Nginx para aplicar tus cambios:
 
 ```bash
 sudo systemctl restart nginx
 ```
 
-7. Go to your DNS provider, and add a new A record. Name will be your domain name, and value will be the Public IPv4 address from your droplet
+7. Ve a tu proveedor de DNS y agrega un nuevo registro A. El nombre será tu nombre de dominio y el valor será la dirección IP pública de tu droplet
 
 <figure><img src="../../.gitbook/assets/image (3) (2).png" alt="" width="367"><figcaption></figcaption></figure>
 
-Nginx is now configured as a reverse proxy for your application server. You should now be able to open the app: http://yourdomain.com.
+Nginx ahora está configurado como proxy inverso para tu servidor de aplicaciones. Ahora deberías poder abrir la aplicación: http://yourdomain.com.
 
-### Step 3 — Installing Certbot for HTTPS (SSL)
+### Paso 3 — Instalar Certbot para HTTPS (SSL)
 
-If you'd like to add a secure `https` connection to your Droplet like https://yourdomain.com, you'll need to do the following:
+Si quieres agregar una conexión `https` segura a tu droplet como https://yourdomain.com, necesitarás hacer lo siguiente:
 
-1. For installing Certbot and enabling HTTPS on NGINX, we will rely on Python. So, first of all, let's set up a virtual environment:
+1. Para instalar Certbot y habilitar HTTPS en NGINX, nos apoyaremos en Python. Así que, primero de todo, vamos a configurar un entorno virtual:
 
 ```bash
 apt install python3.10-venv
@@ -218,64 +202,64 @@ sudo python3 -m venv /opt/certbot/
 sudo /opt/certbot/bin/pip install --upgrade pip
 ```
 
-2. Afterwards, run this command to install Certbot:
+2. Después, ejecuta este comando para instalar Certbot:
 
 ```bash
 sudo /opt/certbot/bin/pip install certbot certbot-nginx
 ```
 
-3. Now, execute the following command to ensure that the `certbot` command can be run:
+3. Ahora, ejecuta este comando para asegurarte de que el comando `certbot` pueda ser ejecutado:
 
 ```bash
 sudo ln -s /opt/certbot/bin/certbot /usr/bin/certbot
 ```
 
-4. Finally, run the following command to obtain a certificate and let Certbot automatically modify the NGINX configuration, enabling HTTPS:
+4. Finalmente, ejecuta este comando para obtener un certificado y permitir que Certbot modifique automáticamente la configuración de NGINX, habilitando HTTPS:
 
 ```bash
 sudo certbot --nginx
 ```
 
-5. After following the certificate generation wizard, we will be able to access our Droplet via HTTPS using the address https://yourdomain.com
+5. Después de seguir el asistente de generación de certificados, deberías poder acceder a tu droplet a través de HTTPS usando la dirección https://yourdomain.com
 
-### Set up automatic renewal
+### Configurar renovación automática
 
-To enable Certbot to automatically renew the certificates, it is sufficient to add a cron job by running the following command:
+Para permitir que Certbot renueve automáticamente los certificados, basta con agregar una tarea cron ejecutando el siguiente comando:
 
 ```bash
 echo "0 0,12 * * * root /opt/certbot/bin/python -c 'import random; import time; time.sleep(random.random() * 3600)' && sudo certbot renew -q" | sudo tee -a /etc/crontab > /dev/null
 ```
 
-## Congratulations!
+## ¡Felicidades!
 
-You have successfully setup Flowise on your Droplet, with SSL certificate on your domain [🥳](https://emojipedia.org/partying-face/)
+Has configurado correctamente Flowise en tu droplet, con certificado SSL en tu dominio [🥳](https://emojipedia.org/partying-face/)
 
-## Steps to update Flowise on Digital Ocean
+## Pasos para actualizar Flowise en Digital Ocean
 
-1. Navigate to the directory you installed flowise in
+1. Navega al directorio donde instalaste flowise
 
 ```bash
 cd Flowise/docker
 ```
 
-2. Stop and remove docker image
+2. Detén y elimina la imagen docker
 
-Note: This will not delete your flows as the database is stored in a separate folder
+Nota: Esto no eliminará tus flujos ya que la base de datos se almacena en una carpeta separada
 
 ```bash
 sudo docker compose stop
 sudo docker compose rm
 ```
 
-3. Pull the latest Flowise Image
+3. Extrae la imagen de Flowise más reciente
 
-You can check the latest version release [here](https://github.com/FlowiseAI/Flowise/releases)
+Puedes verificar la última versión de lanzamiento [aquí](https://github.com/FlowiseAI/Flowise/releases)
 
 ```bash
 docker pull flowiseai/flowise
 ```
 
-4. Start the docker
+4. Inicia el contenedor docker
 
 ```bash
 docker compose up -d

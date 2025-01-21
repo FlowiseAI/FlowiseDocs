@@ -1,25 +1,25 @@
 ---
-description: Scrape & Crawl the web with Spider - the fastest open source web scraper & crawler.
+description: Haz scraping y crawling de la web con Spider - el web scraper y crawler de código abierto más rápido.
 ---
 
 # Spider Web Scraper/Crawler
 
-<figure><img src="../../../.gitbook/assets/spider.png" alt="Spider Node" width="365"><figcaption><p>Spider Web Scraper/Crawler Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/spider.png" alt="Nodo Spider" width="365"><figcaption><p>Nodo Spider Web Scraper/Crawler</p></figcaption></figure>
 
-[Spider](https://spider.cloud/?ref=flowise) is the fastest open source web scraper & crawler that returns LLM-ready data. To get started using this node you need an API key from [Spider.cloud](https://spider.cloud/?ref=flowise).
+[Spider](https://spider.cloud/?ref=flowise) es el web scraper y crawler de código abierto más rápido que devuelve datos preparados para LLM. Para comenzar a usar este nodo necesitas una clave API de [Spider.cloud](https://spider.cloud/?ref=flowise).
 
-## Get Started
+## Comenzar
 
-1. Go to the [Spider.cloud](https://spider.cloud/?ref=flowise) website and sign up for a free account.
-2. Then go to the [API Keys](https://spider.cloud/api-keys) and create a new API key.
-3. Copy the API key and paste it into the "Credential" field in the Spider node.
+1. Ve al sitio web de [Spider.cloud](https://spider.cloud/?ref=flowise) y regístrate para obtener una cuenta gratuita.
+2. Luego ve a [API Keys](https://spider.cloud/api-keys) y crea una nueva clave API.
+3. Copia la clave API y pégala en el campo "Credential" en el nodo Spider.
 
-## Scrape & Crawl
+## Scraping y Crawling
 
-1. Choose either "Scrape" or "Crawl" in the mode dropdown.
-2. Enter the URL you want to scrape or crawl in the "Web Page URL" field.
-3. If you chose "Crawl", enter the maximum amount of pages you want to crawl in the "Limit" field. If no value or 0 is entered, the crawler will crawl all pages.
+1. Elige "Scrape" o "Crawl" en el menú desplegable de modo.
+2. Ingresa la URL que deseas analizar o rastrear en el campo "Web Page URL".
+3. Si elegiste "Crawl", ingresa la cantidad máxima de páginas que deseas rastrear en el campo "Limit". Si no se ingresa ningún valor o se ingresa 0, el crawler rastreará todas las páginas.
 
-## Example
+## Ejemplo
 
-<figure><img src="../../../.gitbook/assets/spider_example_usage.png" alt="Example on using spider node" width="365"><figcaption><p>Example on using Spider node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/spider_example_usage.png" alt="Ejemplo de uso del nodo spider" width="365"><figcaption><p>Ejemplo de uso del nodo Spider</p></figcaption></figure>

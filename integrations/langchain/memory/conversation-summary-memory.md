@@ -1,15 +1,15 @@
 # Conversation Summary Memory
 
-Use Flowise database table `chat_message` as the storage mechanism for storing/retrieving conversations.
+Usa la tabla de base de datos `chat_message` de Flowise como mecanismo de almacenamiento para guardar/recuperar conversaciones.
 
-This memory type creates a brief summary of the conversation over time. This is useful for shortening information from long discussions. It updates and saves a current summary as the conversation goes on. This is especially helpful in longer chats, where saving every past message would take up too much space.
+Este tipo de memoria crea un breve resumen de la conversación a lo largo del tiempo. Esto es útil para acortar información de discusiones largas. Actualiza y guarda un resumen actual mientras la conversación continúa. Esto es especialmente útil en chats más largos, donde guardar cada mensaje anterior ocuparía demasiado espacio.
 
 <figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (2).png" alt="" width="296"><figcaption></figcaption></figure>
 
-## Input
+## Entrada
 
-| Parameter  | Description                                                                   | Default       |
-| ---------- | ----------------------------------------------------------------------------- | ------------- |
-| Chat Model | LLM used to perform summarization                                             |               |
-| Session Id | An ID to retrieve/store messages. If not specified, a random ID will be used. |               |
-| Memory Key | A key used to format messages in prompt template                              | chat\_history |
+| Parámetro   | Descripción                                                                      | Valor por defecto |
+| ----------- | -------------------------------------------------------------------------------- | ----------------- |
+| Chat Model  | LLM usado para realizar la sumarización                                          |                   |
+| Session Id  | Un ID para recuperar/almacenar mensajes. Si no se especifica, se usará un ID aleatorio. |               |
+| Memory Key  | Una clave usada para formatear mensajes en la plantilla de prompt                | chat_history      |

@@ -1,12 +1,12 @@
 ---
-description: Learn about all available integrations / nodes in Flowise
+description: Aprende sobre todas las integraciones / nodes disponibles en Flowise
 ---
 
 # Integrations
 
 ***
 
-In Flowise, nodes are referred to as integrations. Similar to LEGO, you can build a customized LLM ochestration flow, a chatbot, an agent with all the integrations available in Flowise.
+En Flowise, los nodes son referidos como integraciones. Similar a LEGO, puedes construir un flujo personalizado de orquestación LLM, un chatbot, o un agente con todas las integraciones disponibles en Flowise.
 
 ### LangChain
 
@@ -42,7 +42,6 @@ In Flowise, nodes are referred to as integrations. Similar to LEGO, you can buil
 * [Custom JS Function](utilities/custom-js-function.md)
 * [Set/Get Variable](utilities/set-get-variable.md)
 * [If Else](utilities/if-else.md)
-* [Set Variable](broken-reference)
 * [Sticky Note](utilities/sticky-note.md)
 
 ### External Integrations

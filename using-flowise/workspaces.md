@@ -1,18 +1,18 @@
-# Workspaces
+# Espacios de Trabajo
 
 {% hint style="info" %}
-Workspaces is only available for Enterprise for now. Coming soon to Cloud Pro plan
+Los Espacios de Trabajo solo están disponibles para Empresas por ahora. Próximamente en el plan Cloud Pro
 {% endhint %}
 
-Upon your initial login, a default workspace will be automatically generated for you. Workspaces serve to partition resources among various teams or business units. Inside each workspace, Role-Based Access Control (RBAC) is used to manage permissions and access, ensuring users have access only to the resources and settings required for their role.
+Al iniciar sesión por primera vez, se generará automáticamente un espacio de trabajo predeterminado para ti. Los espacios de trabajo sirven para dividir recursos entre varios equipos o unidades de negocio. Dentro de cada espacio de trabajo, se utiliza el Control de Acceso Basado en Roles (RBAC) para gestionar permisos y accesos, asegurando que los usuarios tengan acceso solo a los recursos y configuraciones requeridos para su rol.
 
 <figure><img src="../.gitbook/assets/Untitled-2024-10-19-0050.png" alt=""><figcaption></figcaption></figure>
 
-## Setting up Admin Account
+## Configuración de Cuenta de Administrador
 
 <details>
 
-<summary>For self-hosted enterprise, following env variables must be set</summary>
+<summary>Para empresas auto-alojadas, se deben establecer las siguientes variables de entorno</summary>
 
 ```
 JWT_AUTH_TOKEN_SECRET
@@ -28,43 +28,43 @@ TOKEN_HASH_SECRET
 
 </details>
 
-By default, new installation of Flowise will require an admin setup, similar to how you have to setup a root user for your database initially.
+Por defecto, una nueva instalación de Flowise requerirá una configuración de administrador, similar a cómo tienes que configurar un usuario root para tu base de datos inicialmente.
 
 <figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt="" width="478"><figcaption></figcaption></figure>
 
-After setting up, user will be brought to Flowise dashboard. From the left side bar, you will see User & Workspace Management section. A default workspace was automatically created.
+Después de la configuración, el usuario será llevado al panel de control de Flowise. En la barra lateral izquierda, verás la sección de Gestión de Usuarios y Espacios de Trabajo. Un espacio de trabajo predeterminado fue creado automáticamente.
 
 <figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-## Creating Workspace
+## Creando un Espacio de Trabajo
 
-To create a new Workspace, click Add New:
+Para crear un nuevo Espacio de Trabajo, haz clic en Agregar Nuevo:
 
 <figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
-You will see yourself added as the Organization Admin in the workspace you created.
+Te verás agregado como Administrador de la Organización en el espacio de trabajo que creaste.
 
 <figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
-To invite new users to the workspace, you need to create a Role first.
+Para invitar nuevos usuarios al espacio de trabajo, primero necesitas crear un Rol.
 
-## Creating Role
+## Creando un Rol
 
-Navigate to Roles in the left side bar, and click Add Role:
+Navega a Roles en la barra lateral izquierda y haz clic en Agregar Rol:
 
 <figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
-User can specify granular control of permissions for each resources. The only exceptions are the resources in **User & Workspace Management** (Roles, Users, Workspaces, Login Activity). These are only available for Account Admin for now.
+El usuario puede especificar un control granular de permisos para cada recurso. Las únicas excepciones son los recursos en **Gestión de Usuarios y Espacios de Trabajo** (Roles, Usuarios, Espacios de Trabajo, Actividad de Inicio de Sesión). Estos solo están disponibles para el Administrador de la Cuenta por ahora.
 
-Here, we create an editor role which has access to everything. And another role with view-only permissions.
+Aquí, creamos un rol de editor que tiene acceso a todo. Y otro rol con permisos de solo lectura.
 
 <figure><img src="../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
-## Invite User
+## Invitar Usuario
 
 <details>
 
-<summary>For self-hosted enterprise, the following env variables must be set</summary>
+<summary>Para empresas auto-alojadas, se deben establecer las siguientes variables de entorno</summary>
 
 ```
 INVITE_TOKEN_EXPIRY_IN_HOURS
@@ -76,92 +76,92 @@ SMTP_PASSWORD
 
 </details>
 
-Navigate to Users in left side bar, you will see yourself as the account admin. This is indicated by the person icon with a star:
+Navega a Usuarios en la barra lateral izquierda, te verás a ti mismo como administrador de la cuenta. Esto se indica mediante el icono de persona con una estrella:
 
 <figure><img src="../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 
-Click Invite User, and enter email to be invited, the workspace to be assigned, and the role as well.
+Haz clic en Invitar Usuario e ingresa el correo electrónico a invitar, el espacio de trabajo a asignar y el rol también.
 
 <figure><img src="../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
 
-Click Send Invite. The invited email will receive an invitation:
+Haz clic en Enviar Invitación. El correo electrónico invitado recibirá una invitación:
 
 <figure><img src="../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
 
-Upon clicking the invitation link, invited user will be brought to a Sign Up page.
+Al hacer clic en el enlace de invitación, el usuario invitado será llevado a una página de Registro.
 
 <figure><img src="../.gitbook/assets/image (10) (1).png" alt="" width="463"><figcaption></figcaption></figure>
 
-After signed up and logged in as invited user, you will be in the workspace assigned, and there will be no User & Workspace Management section:
+Después de registrarse e iniciar sesión como usuario invitado, estarás en el espacio de trabajo asignado, y no habrá sección de Gestión de Usuarios y Espacios de Trabajo:
 
 <figure><img src="../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
 
-If you are invited into multiple workspaces, you can switch to different workspaces from the top right dropdown button. Here we are assigned to Workspace 2 with **view only** permission. You can notice the Add New button for Chatflow is no longer visible. This ensure user can only view, not create, update nor delete. The same RBAC rules apply for API as well.
+Si eres invitado a múltiples espacios de trabajo, puedes cambiar a diferentes espacios de trabajo desde el botón desplegable en la esquina superior derecha. Aquí estamos asignados al Espacio de Trabajo 2 con permiso de **solo lectura**. Puedes notar que el botón Agregar Nuevo para Flujo de Chat ya no es visible. Esto asegura que el usuario solo pueda ver, no crear, actualizar ni eliminar. Las mismas reglas de RBAC se aplican también para la API.
 
 <figure><img src="../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
 
-Now, back to Account Admin, you will be able to see the users invited, their status, roles, and active workspace:
+Ahora, de vuelta al Administrador de la Cuenta, podrás ver los usuarios invitados, su estado, roles y espacio de trabajo activo:
 
 <figure><img src="../.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
 
-Account admin can also modify the settings for other users:
+El administrador de la cuenta también puede modificar la configuración de otros usuarios:
 
 <figure><img src="../.gitbook/assets/image (15) (1).png" alt=""><figcaption></figcaption></figure>
 
-## Login Activity
+## Actividad de Inicio de Sesión
 
-Admin will be able to see every login and logout from all users:
+El administrador podrá ver cada inicio y cierre de sesión de todos los usuarios:
 
 <figure><img src="../.gitbook/assets/image (13) (1).png" alt=""><figcaption></figcaption></figure>
 
-## Creating item in Workspace
+## Creando elementos en el Espacio de Trabajo
 
-Every items created in a workspace, are isolated from another workspace. Workspaces are a way to logically group users and resources within an organization, ensuring separate trust boundaries for resource management and access control. It is recommended to create distinct workspaces for each team.
+Todos los elementos creados en un espacio de trabajo están aislados de otro espacio de trabajo. Los espacios de trabajo son una forma de agrupar lógicamente usuarios y recursos dentro de una organización, asegurando límites de confianza separados para la gestión y el control de acceso a recursos. Se recomienda crear espacios de trabajo distintos para cada equipo.
 
-Here, we create a Chatflow named **Chatflow1** in **Workspace1**:
+Aquí, creamos un Flujo de Chat llamado **Chatflow1** en el **Espacio de Trabajo 1**:
 
 <figure><img src="../.gitbook/assets/image (16) (1).png" alt=""><figcaption></figcaption></figure>
 
-When we switch to **Workspace2**, **Chatflow1** will not be visible. This applies to every resources such as Agentflows, Tools, Assistants, etc.
+Cuando cambiamos al **Espacio de Trabajo 2**, **Chatflow1** no será visible. Esto se aplica a todos los recursos como Flujos de Agentes, Herramientas, Asistentes, etc.
 
 <figure><img src="../.gitbook/assets/image (17) (1).png" alt=""><figcaption></figcaption></figure>
 
-The diagram below illustrates the relationship between organizations, workspaces, and the various resources associated with and contained within a workspace.
+El diagrama a continuación ilustra la relación entre organizaciones, espacios de trabajo y los diversos recursos asociados y contenidos dentro de un espacio de trabajo.
 
 <figure><img src="../.gitbook/assets/Untitled-2024-10-19-0050.png" alt=""><figcaption></figcaption></figure>
 
-## Sharing Credential
+## Compartiendo Credenciales
 
-You can share credential to other workspaces. This allow users to reuse same set of credentials in different workspaces.
+Puedes compartir credenciales con otros espacios de trabajo. Esto permite a los usuarios reutilizar el mismo conjunto de credenciales en diferentes espacios de trabajo.
 
-After creating a credential, Account Admin or user with Share Credential permission from the RBAC will be able to click Share:
+Después de crear una credencial, el Administrador de la Cuenta o el usuario con permiso de Compartir Credencial del RBAC podrá hacer clic en Compartir:
 
 <figure><img src="../.gitbook/assets/image (18) (1).png" alt=""><figcaption></figcaption></figure>
 
-User can select the workspaces to share the credential with:
+El usuario puede seleccionar los espacios de trabajo con los que compartir la credencial:
 
 <figure><img src="../.gitbook/assets/image (19) (1).png" alt=""><figcaption></figcaption></figure>
 
-Now, switch to the workspace where the credential was shared, you will see the Shared Credential. User is not able to edit shared credential.
+Ahora, cambia al espacio de trabajo donde se compartió la credencial, verás la Credencial Compartida. El usuario no puede editar credenciales compartidas.
 
 <figure><img src="../.gitbook/assets/image (20) (1).png" alt=""><figcaption></figcaption></figure>
 
-## Deleting a Workspace
+## Eliminando un Espacio de Trabajo
 
-Currently only Account Admin can delete workspaces. By default, you are not able to delete a workspace if there are still users within that workspace.
+Actualmente solo el Administrador de la Cuenta puede eliminar espacios de trabajo. Por defecto, no puedes eliminar un espacio de trabajo si aún hay usuarios dentro de ese espacio de trabajo.
 
 <figure><img src="../.gitbook/assets/image (21).png" alt=""><figcaption></figcaption></figure>
 
-You will need to unlink all of the invited users first. This allow flexibility in case you just want to remove certain users from a workspace. Note that Organization Owner who created the workspace is not able to be unlinked from a workspace.
+Necesitarás desvincular primero a todos los usuarios invitados. Esto permite flexibilidad en caso de que solo quieras eliminar ciertos usuarios de un espacio de trabajo. Ten en cuenta que el Propietario de la Organización que creó el espacio de trabajo no puede ser desvinculado de un espacio de trabajo.
 
 <figure><img src="../.gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
 
-After unlinking invited users, and the only user left within the workspace is the Organization Owner, delete button is now clickable:
+Después de desvincular a los usuarios invitados, y el único usuario que queda dentro del espacio de trabajo es el Propietario de la Organización, el botón de eliminar ahora se puede hacer clic:
 
 <figure><img src="../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
 
-Deleting a workspace is an irreversible action and will cascade delete all items within that workspace. You will see a warning box:
+Eliminar un espacio de trabajo es una acción irreversible y eliminará en cascada todos los elementos dentro de ese espacio de trabajo. Verás un cuadro de advertencia:
 
 <figure><img src="../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
 
-After deleting a workspace, user will fallback to the Default workspace. Default workspace that was automatically created at the start is not able to be deleted.
+Después de eliminar un espacio de trabajo, el usuario volverá al espacio de trabajo Predeterminado. El espacio de trabajo Predeterminado que se creó automáticamente al inicio no se puede eliminar.

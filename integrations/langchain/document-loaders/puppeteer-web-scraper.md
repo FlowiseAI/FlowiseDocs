@@ -1,20 +1,20 @@
 # Puppeteer Web Scraper
 
-Puppeteer is a Node.js library, controls Chrome/Chromium through the DevTools Protocol in headless mode. Keep in mind that when scraping websites, **you should always review and comply with the website's terms of service and policies to ensure ethical and legal use of the data**.
+Puppeteer es una biblioteca de Node.js que controla Chrome/Chromium a través del DevTools Protocol en modo headless. Ten en cuenta que al hacer scraping de sitios web, **siempre debes revisar y cumplir con los términos de servicio y políticas del sitio web para asegurar un uso ético y legal de los datos**.
 
-## Scrape One URL
+## Scraping de Una URL
 
-1.  _(Optional)_ Connect **[Text Splitter](../text-splitters/)**.
-2. Input desired URL to be scraped.
+1.  _(Opcional)_ Conecta **[Text Splitter](../text-splitters/)**.
+2. Ingresa la URL deseada para hacer scraping.
 
-## Crawl & Scrape Multiple URLs
-Visit **[Web Crawl](../../use-cases/web-crawl.md)** guide to allow scraping of multiple pages.
+## Crawl y Scraping de Múltiples URLs
+Visita la guía de **[Web Crawl](../../use-cases/web-crawl.md)** para permitir el scraping de múltiples páginas.
 
-## Output
+## Salida
 
-Loads URL content as Document
+Carga el contenido de la URL como Documento
 
-## Resources
+## Recursos
 
 * [LangChain JS Puppeteer](https://js.langchain.com/docs/integrations/document_loaders/web_loaders/web_puppeteer)
 * [Puppeteer](https://pptr.dev/)

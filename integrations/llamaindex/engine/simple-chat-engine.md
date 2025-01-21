@@ -1,22 +1,22 @@
 # Simple Chat Engine
 
-A simple chat engine functions as a complete pipeline for engaging in a dialogue between AI and user, without context retrieval. However it does equipped with [Memory](../../langchain/memory/), allowing to remember conversations.
+Un simple chat engine funciona como un pipeline completo para mantener un diálogo entre la IA y el usuario, sin recuperación de contexto. Sin embargo, está equipado con [Memory](../../langchain/memory/), lo que le permite recordar conversaciones.
 
 <figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
-## Inputs
+## Entradas
 
 * Chat Model
 * [Memory](../../langchain/memory/)
 
-## Parameters
+## Parámetros
 
-| Name           | Description                                   |
-| -------------- | --------------------------------------------- |
-| System Message | An instruction for LLM on how to answer query |
+| Nombre         | Descripción                                           |
+| -------------- | ----------------------------------------------------- |
+| System Message | Una instrucción para el LLM sobre cómo responder la consulta |
 
-## Outputs
+## Salidas
 
-| Name             | Description                   |
-| ---------------- | ----------------------------- |
-| SimpleChatEngine | Final node to return response |
+| Nombre           | Descripción                            |
+| ---------------- | -------------------------------------- |
+| SimpleChatEngine | Nodo final para devolver la respuesta  |

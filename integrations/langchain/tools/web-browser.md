@@ -1,11 +1,11 @@
 ---
-description: Gives agent the ability to visit a website and extract information.
+description: Proporciona al agent la capacidad de visitar un sitio web y extraer información.
 ---
 
 # Web Browser
 
-<figure><img src="../../../.gitbook/assets/image (12) (1) (1).png" alt="" width="309"><figcaption><p>Web Browser Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (12) (1) (1).png" alt="" width="309"><figcaption><p>Nodo Web Browser</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../contributing/) para comenzar.
 {% endhint %}

@@ -1,13 +1,13 @@
 ---
 description: >-
-  Parse the output of an LLM call into a given structure by providing a Zod
-  schema.
+  Analiza la salida de una llamada LLM en una estructura determinada proporcionando un esquema
+  Zod.
 ---
 
 # Advanced Structured Output Parser
 
-<figure><img src="../../../.gitbook/assets/image (129).png" alt="" width="299"><figcaption><p>Advanced Structured Output Parser Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (129).png" alt="" width="299"><figcaption><p>Nodo Advanced Structured Output Parser</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../contributing/) para comenzar.
 {% endhint %}

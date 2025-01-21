@@ -1,37 +1,37 @@
 ---
-description: Learn how to deploy Flowise to the cloud
+description: Aprende cómo hacer deployment de Flowise a la cloud
 ---
 
 # Deployment
 
 ***
 
-Flowise is designed with a platform-agnostic architecture, ensuring compatibility with a wide range of deployment environments to suit your infrastructure needs.
+Flowise está diseñado con una platform-agnostic architecture, asegurando compatibilidad con una amplia gama de deployment environments para adaptarse a tus necesidades de infrastructure.
 
 ## Local Machine
 
-To deploy Flowise locally, follow our [Get Started](../../getting-started/) guide.
+Para hacer deployment de Flowise localmente, sigue nuestra guía [Get Started](../../getting-started/).
 
 ## Modern Cloud Providers
 
-Modern cloud platforms prioritize automation and focus on developer workflows, simplifying cloud management and ongoing maintenance.&#x20;
+Las modern cloud platforms priorizan la automation y se enfocan en developer workflows, simplificando el cloud management y ongoing maintenance.
 
-This reduces the technical expertise needed, but may limit the level of customization you have over the underlying infrastructure.
+Esto reduce la technical expertise necesaria, pero puede limitar el nivel de customization que tienes sobre la underlying infrastructure.
 
 * [Elestio](https://elest.io/open-source/flowiseai)
 * [Hugging Face](hugging-face.md)
 * [Railway](railway.md)
 * [Render](render.md)
 * [Replit](replit.md)
-* [RepoCloud](https://repocloud.io/details/?app\_id=29)
+* [RepoCloud](https://repocloud.io/details/?app_id=29)
 * [Sealos](sealos.md)
 * [Zeabur](zeabur.md)
 
 ## Established Cloud Providers
 
-Established cloud providers, on the other hand, require a higher level of technical expertise to manage and optimize for your specific needs.&#x20;
+Los established cloud providers, por otro lado, requieren un mayor nivel de technical expertise para manage y optimize según tus specific needs.
 
-This complexity, however, also grants greater flexibility and control over your cloud environment.
+Esta complexity, sin embargo, también otorga mayor flexibility y control sobre tu cloud environment.
 
 * [AWS](aws.md)
 * [Azure](azure.md)

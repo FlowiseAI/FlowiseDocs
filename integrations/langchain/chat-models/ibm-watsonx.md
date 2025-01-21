@@ -1,49 +1,49 @@
 # IBM Watsonx
 
-## Prerequisite
+## Prerequisitos
 
-1. Register an account on [IBM Watsonx](https://www.ibm.com/watsonx)
-2. Create a new project:
+1. Registra una cuenta en [IBM Watsonx](https://www.ibm.com/watsonx)
+2. Crea un nuevo proyecto:
 
 <figure><img src="../../../.gitbook/assets/image (238).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/image (239).png" alt=""><figcaption></figcaption></figure>
 
-3. After project has been created, back to the main dashboard, and click **Explore foundation models**:
+3. Después de que el proyecto haya sido creado, regresa al panel principal y haz clic en **Explore foundation models**:
 
 <figure><img src="../../../.gitbook/assets/image (240).png" alt=""><figcaption></figcaption></figure>
 
-4. Choose the model you would like to use and open in Prompt Lab:
+4. Elige el modelo que te gustaría usar y ábrelo en Prompt Lab:
 
 <figure><img src="../../../.gitbook/assets/image (241).png" alt=""><figcaption></figcaption></figure>
 
-5. From the top right corner, click on View Code:
+5. Desde la esquina superior derecha, haz clic en View Code:
 
 <figure><img src="../../../.gitbook/assets/image (242).png" alt=""><figcaption></figcaption></figure>
 
-6. Take note on the `model_id` and `version` parameter. In this case, it is `ibm/granite-3-8b-instruct,` and the version is `2023-05-29`.
-7. Click the navigation bar from the left side, and click Developer access
+6. Toma nota del parámetro `model_id` y `version`. En este caso, es `ibm/granite-3-8b-instruct,` y la versión es `2023-05-29`.
+7. Haz clic en la barra de navegación del lado izquierdo y haz clic en Developer access
 
 <figure><img src="../../../.gitbook/assets/image (243).png" alt="" width="308"><figcaption></figcaption></figure>
 
-8. Take note on the `watsonx.ai URL`, `Project ID` and create a new API key from IBM Cloud Console.
-9. By now, you should have the following information:
+8. Toma nota de la `watsonx.ai URL`, `Project ID` y crea una nueva API key desde IBM Cloud Console.
+9. En este punto, deberías tener la siguiente información:
    * Watsonx.ai URL
    * Project ID
    * API Key
-   * Model's version
-   * Model's ID
+   * Versión del modelo
+   * ID del modelo
 
-## Setup
+## Configuración
 
-1. **Chat Models** > drag **ChatIBMWatsonx** node
+1. **Chat Models** > arrastra el nodo **ChatIBMWatsonx**
 
 <figure><img src="../../../.gitbook/assets/image (244).png" alt="" width="306"><figcaption></figcaption></figure>
 
-2. Fill in the Model with the Model ID earlier. Create New Credential and fill in all the details.
+2. Completa el Modelo con el ID del Modelo anterior. Crea una Nueva Credencial y completa todos los detalles.
 
 <figure><img src="../../../.gitbook/assets/image (245).png" alt="" width="419"><figcaption></figcaption></figure>
 
-2. Voila [🎉](https://emojipedia.org/party-popper/), you can now use **ChatIBMWatsonx node** in Flowise!
+2. ¡Voilà [🎉](https://emojipedia.org/party-popper/), ahora puedes usar el **nodo ChatIBMWatsonx** en Flowise!
 
 <figure><img src="../../../.gitbook/assets/image (246).png" alt=""><figcaption></figcaption></figure>

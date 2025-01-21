@@ -1,16 +1,16 @@
 ---
-description: LlamaIndex Agent Nodes
+description: Nodos de Agentes de LlamaIndex
 ---
 
 # Agents
 
 ***
 
-By themselves, language models can't take actions - they just output text.
+Por sí mismos, los modelos de lenguaje no pueden realizar acciones - solo generan texto.
 
-Agents are systems that use an LLM as a reasoning engine to determine which actions to take and what the inputs to those actions should be. The results of those actions can then be fed back into the agent, and it determines whether more actions are needed, or whether it is okay to finish.
+Los Agents son sistemas que utilizan un LLM como motor de razonamiento para determinar qué acciones tomar y cuáles deberían ser las entradas para esas acciones. Los resultados de esas acciones pueden ser retroalimentados al agente, y éste determina si se necesitan más acciones o si es apropiado finalizar.
 
-### Agent Nodes:
+### Nodos de Agentes:
 
 * [OpenAI Tool Agent](openai-tool-agent.md)
 * [Anthropic Tool Agent](openai-tool-agent-1.md)

@@ -1,14 +1,14 @@
 ---
 description: >-
-  Splits a raw text string by first converting the text into BPE tokens, then
-  split these tokens into chunks and convert the tokens within a single chunk
-  back into text.
+  Divide una cadena de texto sin procesar primero convirtiendo el texto en tokens BPE, luego
+  divide estos tokens en fragmentos y convierte los tokens dentro de un solo fragmento
+  de vuelta a texto.
 ---
 
 # Token Text Splitter
 
-<figure><img src="../../../.gitbook/assets/image (156).png" alt="" width="305"><figcaption><p>Token Text Splitter Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (156).png" alt="" width="305"><figcaption><p>Nodo Token Text Splitter</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../contributing/) para comenzar.
 {% endhint %}

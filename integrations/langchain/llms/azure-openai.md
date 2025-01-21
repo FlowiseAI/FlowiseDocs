@@ -1,11 +1,11 @@
 ---
-description: Wrapper around Azure OpenAI large language models.
+description: Envoltorio alrededor de los modelos de lenguaje grandes de Azure OpenAI.
 ---
 
 # Azure OpenAI
 
-<figure><img src="broken-reference" alt="" width="336"><figcaption><p>Azure OpenAI Node</p></figcaption></figure>
+<figure><img src="broken-reference" alt="" width="336"><figcaption><p>Nodo Azure OpenAI</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../contributing/) para comenzar.
 {% endhint %}

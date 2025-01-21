@@ -1,13 +1,13 @@
 ---
 description: >-
-  Store prompt template with name & description to be later queried by
+  Almacena plantillas de prompt con nombre y descripción para ser consultadas posteriormente por
   MultiPromptChain.
 ---
 
 # Prompt Retriever
 
-<figure><img src="../../../.gitbook/assets/image (145).png" alt="" width="301"><figcaption><p>Prompt Retriever Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (145).png" alt="" width="301"><figcaption><p>Nodo Prompt Retriever</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../contributing/) para comenzar.
 {% endhint %}

@@ -1,22 +1,22 @@
 # Query Engine Tool
 
-Turns Query Engine into a Tool which can then be used by [Sub-Question Query Engine](../engine/sub-question-query-engine.md) or Agent.
+Convierte un Query Engine en una Tool que puede ser utilizada por [Sub-Question Query Engine](../engine/sub-question-query-engine.md) o Agent.
 
 <figure><img src="../../../.gitbook/assets/image (9) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
-## Inputs
+## Entradas
 
 * Vector Store Index
 
-## Parameters
+## Parámetros
 
-| Name             | Description                                         |
+| Nombre          | Descripción                                                |
 | ---------------- | --------------------------------------------------- |
-| Tool Name        | Name of the tool                                    |
-| Tool Description | A description to tell when LLM should use this tool |
+| Tool Name        | Nombre de la tool                                    |
+| Tool Description | Una descripción para indicar cuándo el LLM debe usar esta tool |
 
-## Outputs
+## Salidas
 
-| Name            | Description                                                                                      |
+| Nombre          | Descripción                                                                                      |
 | --------------- | ------------------------------------------------------------------------------------------------ |
-| QueryEngineTool | Connecting point to Agent or [Sub-Question Query Engine](../engine/sub-question-query-engine.md) |
+| QueryEngineTool | Punto de conexión para Agent o [Sub-Question Query Engine](../engine/sub-question-query-engine.md) |

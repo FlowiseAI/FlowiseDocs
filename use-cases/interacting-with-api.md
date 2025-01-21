@@ -1,16 +1,16 @@
 ---
-description: Learn how to use external API integrations with Flowise
+description: Aprende a usar integraciones de API externas con Flowise
 ---
 
-# Interacting with API
+# Interactuando con API
 
 ***
 
-The OpenAPI Specification (OAS) defines a standard, language-agnostic interface to HTTP APIs. The goal of this use case is to have the LLM automatically figure out which API to call, while still having a stateful conversation with user.
+La OpenAPI Specification (OAS) define una interfaz estándar e independiente del lenguaje para APIs HTTP. El objetivo de este caso de uso es que el LLM determine automáticamente qué API llamar, mientras mantiene una conversación con estado con el usuario.
 
 ## OpenAPI Chain
 
-1. In this tutorial, we are going to use [Klarna OpenAPI](https://gist.github.com/HenryHengZJ/b60f416c42cb9bcd3160fe797421119a)
+1. En este tutorial, vamos a usar [Klarna OpenAPI](https://gist.github.com/HenryHengZJ/b60f416c42cb9bcd3160fe797421119a)
 
 {% code overflow="wrap" %}
 ```json
@@ -146,43 +146,43 @@ The OpenAPI Specification (OAS) defines a standard, language-agnostic interface 
 ```
 {% endcode %}
 
-2. You can use a [JSON to YAML converter](https://jsonformatter.org/json-to-yaml) and save it as a `.yaml` file, and upload it to **OpenAPI Chain**, then test by asking some questions. **OpenAPI Chain** will send the whole specs to LLM, and have the LLM automatically use the correct method and parameters for the API call.
+2. Puedes usar un [conversor de JSON a YAML](https://jsonformatter.org/json-to-yaml) y guardarlo como archivo `.yaml`, y subirlo a **OpenAPI Chain**, luego probar haciendo algunas preguntas. **OpenAPI Chain** enviará todas las especificaciones al LLM, y hará que el LLM use automáticamente el método y los parámetros correctos para la llamada a la API.
 
 <figure><img src="../.gitbook/assets/image (133).png" alt=""><figcaption></figcaption></figure>
 
-3. However, if you want to have a normal conversation chat, it is not able to do so. You will see the following error. This is because OpenAPI Chain has the following prompt:
+3. Sin embargo, si quieres tener una conversación normal, no podrá hacerlo. Verás el siguiente error. Esto es porque OpenAPI Chain tiene el siguiente prompt:
 
 ```
 Use the provided API's to respond to this user query
 ```
 
-Since we "forced" it to always find the API to answer user query, in the cases of normal conversation that is irrelevant to the OpenAPI, it fails to do so.
+Como lo "forzamos" a siempre encontrar la API para responder la consulta del usuario, en los casos de conversación normal que no son relevantes para la OpenAPI, falla al hacerlo.
 
 <figure><img src="../.gitbook/assets/image (134).png" alt="" width="361"><figcaption></figcaption></figure>
 
-Using this method might not work well if you have large OpenAPI spec. This is because we are including all the specifications as part of the message sent to LLM. We then rely on LLM to figure out the correct URL, query parameters, request body, and other necessary parameters needed to answer user query. As you can imagine, if your OpenAPI specs are complicated, there is a higher chance LLM will hallucinates.
+Usar este método podría no funcionar bien si tienes una especificación OpenAPI grande. Esto es porque estamos incluyendo todas las especificaciones como parte del mensaje enviado al LLM. Luego dependemos del LLM para determinar la URL correcta, los parámetros de consulta, el cuerpo de la solicitud y otros parámetros necesarios para responder la consulta del usuario. Como puedes imaginar, si tus especificaciones OpenAPI son complicadas, hay una mayor probabilidad de que el LLM alucine.
 
 ## Tool Agent + OpenAPI Toolkit
 
-In order to solve the above error, we can use Agent. From the official cookbook by OpenAI: [Function calling with an OpenAPI specification](https://cookbook.openai.com/examples/function_calling_with_an_openapi_spec), it is recommended to convert each API into a tool itself, instead of feeding all the APIs into LLM as single message. An agent is also capable of having human-like interaction, with the ability to decide which tool to use depending on user's query.
+Para resolver el error anterior, podemos usar un Agent. Según el cookbook oficial de OpenAI: [Function calling with an OpenAPI specification](https://cookbook.openai.com/examples/function_calling_with_an_openapi_spec), se recomienda convertir cada API en una tool por sí misma, en lugar de alimentar todas las APIs al LLM como un solo mensaje. Un agent también es capaz de tener una interacción similar a la humana, con la capacidad de decidir qué tool usar dependiendo de la consulta del usuario.
 
-OpenAPI Toolkit will converts each of the API from YAML file into a set of tools. This way, users don't have to create a [Custom Tool](../integrations/langchain/tools/custom-tool.md) for each API.
+OpenAPI Toolkit convertirá cada una de las APIs del archivo YAML en un conjunto de tools. De esta manera, los usuarios no tienen que crear una [Custom Tool](../integrations/langchain/tools/custom-tool.md) para cada API.
 
-1. Connect **ToolAgent** with **OpenAPI Toolkit**. Here, we upload the YAML spec for OpenAI API. The spec file can be found at the bottom of the page.
+1. Conecta **ToolAgent** con **OpenAPI Toolkit**. Aquí, subimos la especificación YAML para la API de OpenAI. El archivo de especificaciones se puede encontrar al final de la página.
 
 <figure><img src="../.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
 
-2. Let's try it!
+2. ¡Vamos a probarlo!
 
 <figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-As you can noticed from the chat, the agent is capable of carrying out normal conversation, and use appropriate tool to answer user query. If you are using Analytic Tool, you can see the list of tools we converted from the YAML file:
+Como puedes notar en el chat, el agent es capaz de mantener una conversación normal y usar la tool apropiada para responder la consulta del usuario. Si estás usando Analytic Tool, puedes ver la lista de tools que convertimos del archivo YAML:
 
 <figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-## Conclusion
+## Conclusión
 
-We've successfully created an agent that can interact with API when necessary, and still be able handle stateful conversations with users. Below are the templates used in this section:
+Hemos creado exitosamente un agent que puede interactuar con API cuando es necesario y aún así poder manejar conversaciones con estado con los usuarios. A continuación se encuentran las plantillas utilizadas en esta sección:
 
 {% file src="../.gitbook/assets/OpenAPI Chatflow.json" %}
 

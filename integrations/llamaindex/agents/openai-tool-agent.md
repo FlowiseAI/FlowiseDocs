@@ -1,13 +1,13 @@
 ---
 description: >-
-  Agent that uses OpenAI Function Calling to pick the tools and args to call
-  using LlamaIndex.
+  Agente que utiliza OpenAI Function Calling para seleccionar las herramientas y argumentos
+  a llamar usando LlamaIndex.
 ---
 
 # OpenAI Tool Agent
 
-<figure><img src="../../../.gitbook/assets/image (9) (1) (1).png" alt="" width="301"><figcaption><p>OpenAI Tool Agent Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (1) (1).png" alt="" width="301"><figcaption><p>Nodo OpenAI Tool Agent</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+Esta sección está en desarrollo. Agradecemos cualquier ayuda que puedas proporcionar para completar esta sección. Por favor, consulta nuestra [Guía de Contribución](../../../contributing/) para comenzar.
 {% endhint %}

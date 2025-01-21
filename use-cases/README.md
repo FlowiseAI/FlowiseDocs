@@ -1,21 +1,21 @@
 ---
-description: Learn to build your own Flowise solutions through practical examples
+description: Aprende a construir tus propias soluciones Flowise a través de ejemplos prácticos
 ---
 
 # Use Cases
 
 ***
 
-This section provides a collection of practical examples to demonstrate how Flowise can be used to build a variety of solutions.
+Esta sección proporciona una colección de ejemplos prácticos para demostrar cómo se puede usar Flowise para construir una variedad de soluciones.
 
-Each use case will guide you through the process of designing, building, and deploying real-world applications using Flowise.
+Cada use case te guiará a través del proceso de diseñar, construir e implementar aplicaciones del mundo real usando Flowise.
 
-## Guides
+## Guías
 
-* [Calling Children Flows](calling-children-flows.md)
-* [Calling Webhook](webhook-tool.md)
-* [Interacting with API](interacting-with-api.md)
-* [Multiple Documents QnA](multiple-documents-qna.md)
-* [SQL QnA](sql-qna.md)
-* [Upserting Data](upserting-data.md)
-* [Web Scrape QnA](web-scrape-qna.md)
+* [Llamando a Children Flows](calling-children-flows.md)
+* [Llamando a Webhook](webhook-tool.md)
+* [Interactuando con API](interacting-with-api.md)
+* [QnA con Múltiples Documentos](multiple-documents-qna.md)
+* [QnA con SQL](sql-qna.md)
+* [Upserting de Datos](upserting-data.md)
+* [QnA con Web Scraping](web-scrape-qna.md)

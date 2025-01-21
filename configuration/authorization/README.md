@@ -1,14 +1,14 @@
 ---
-description: Learn how to secure your Flowise Instances
+description: Aprende cómo asegurar tus instancias de Flowise
 ---
 
 # Auth
 
 ***
 
-This section guides you through configuring security with Flowise, focusing on authentication mechanisms at the application and chatflow levels.&#x20;
+Esta sección te guía a través de la configuración de security con Flowise, enfocándose en mecanismos de authentication a nivel de application y chatflow.
 
-By implementing robust authentication, you can protect your Flowise instances and ensure only authorized users can access and interact with your chatflows.
+Al implementar una authentication robusta, puedes proteger tus instancias de Flowise y asegurar que solo los usuarios autorizados puedan acceder e interactuar con tus chatflows.
 
 ## Supported Methods
 
