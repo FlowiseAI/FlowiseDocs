@@ -1,7 +1,6 @@
 # Table of contents
 
 * [Introduction](README.md)
-* [Primeros Pasos](primeros-pasos/README.md)
 * [Partes](partes/README.md)
   * [Parte 1: Introducción](partes/parte-1/README.md)
     * [Recursos](partes/parte-1/recursos.md)
@@ -10,6 +9,10 @@
 * [Desafíos](desafios/README.md)
   * [Desafío 1](desafios/desafio-1.md)
   * [Desafío 2](desafios/desafio-2.md)
+
+## Documentación Oficial
+
+* [Primeros Pasos](primeros-pasos/README.md)
 * [Guía de Contribución](contribucion/README.md)
   * [Building Node](contribucion/building-node.md)
 * [Referencia de API](referencia-api/README.md)
