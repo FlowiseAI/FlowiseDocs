@@ -163,7 +163,7 @@ Imagina una cadena de metal, donde cada eslabón representa un momento de la con
 - Cada eslabón sostiene al siguiente (cada mensaje da contexto al siguiente)
 - La cadena entera da fuerza al conjunto (toda la conversación da contexto completo)
 
-![Diagrama de Chain](/../../FlowiseDocs/.gitbook/assets/partes/parte1/Chains.Diagrama.png)
+![Diagrama de Chain](/../../.gitbook/assets/partes/parte1/Chains.Diagrama.png)
 
 ## Chat Models
 
