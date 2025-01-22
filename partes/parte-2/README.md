@@ -36,7 +36,7 @@ No necesita consultar a la IA de nuevo
 
 Es como tener un bloc de notas rápido donde consultar antes de hacer una llamada (que cuesta tiempo y dinero) a la IA.
 
-![Diagrama Simplificado del Funcionamiento del Cache](/../../.gitbook/assets/partes/parte2/Cache.png)
+![Diagrama Simplificado del Funcionamiento del Cache](/../../.gitbook/assets/partes/parte2/Cache1.png)
 
 ## Encadenamiento de Chains
 
