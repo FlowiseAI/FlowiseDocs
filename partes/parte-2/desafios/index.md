@@ -4,13 +4,16 @@
 Implementar un sistema que traduzca textos de lenguas muertas o antiguas al español moderno, facilitando el estudio de documentos históricos.
 
 ## Reto
-Se proporcionarán 3 textos a traducir (incluir las imágenes)
+Se proporcionarán 3 textos a traducir
 
-## Requisitos
-[Detalles específicos del desafío]
+### Texto 1
 
-## Entregables
-[Especificaciones de entrega]
+![Texto1](/../../.gitbook/assets/partes/parte2/desafio/traducir1.jpg)
 
-## Criterios de Evaluación
-[Criterios de evaluación] 
+### Texto 2
+
+![Texto2](/../../.gitbook/assets/partes/parte2/desafio/traducir2.jpg)
+
+### Texto 3
+
+![Texto3](/../../.gitbook/assets/partes/parte2/desafio/traducir3.jpg)
