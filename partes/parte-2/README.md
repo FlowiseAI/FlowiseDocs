@@ -78,7 +78,7 @@ Si quieres que la IA te escriba un poema, un buen Prompt podría ser: "Escribe u
 
 Los Output Parsers son herramientas que transforman la respuesta de la IA a un formato más útil y estructurado. Los modelos de lenguaje a veces generan texto libre, que puede ser difícil de procesar directamente por otras aplicaciones o sistemas. Los Output Parsers se encargan de analizar y formatear esa salida.
 
-![Ejemplo de Output Parser](/../../.gitbook/assets/partes/parte2/NodosPromptsOutputParser1.png)
+![Ejemplo de Output Parser](/../../.gitbook/assets/partes/parte2/OutputParser1.png)
 
 ## Moderación
 
