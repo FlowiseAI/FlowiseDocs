@@ -4,13 +4,6 @@
 - [Repositorio de Flowise](https://github.com/FlowiseAI/Flowise)
 - [Releases](https://github.com/FlowiseAI/Flowise/releases)
 
-### Comandos para actualizar Flowise
-```bash
-git pull origin main
-pnpm install
-pnpm build
-```
-
 ## Plataformas y APIs
 - [Google AI Studio](https://aistudio.google.com/prompts/new_chat)
 - [Cerebras API Key](https://cloud.cerebras.ai/platform/org_t2dyytk4hpfhtjh68hyh3vnv/playground)

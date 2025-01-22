@@ -243,3 +243,17 @@ Es recomendable revisar periódicamente la sección de releases para:
 - Estar al tanto de mejoras en el rendimiento
 - Saber qué errores se han corregido
 - Planificar cuándo actualizar tu instalación de Flowise
+
+## Links Relevantes
+
+- [Chains](../../integraciones/langchain/chains/README.md)
+  - [LLM Chain](../../integraciones/langchain/chains/llm-chain.md)
+  - [Conversation Chain](../../integraciones/langchain/chains/conversation-chain.md)
+- [Chat Models](../../integraciones/langchain/chat-models/README.md)
+  - [ChatOpenAI](../../integraciones/langchain/chat-models/chatopenai.md)
+  - [ChatGoogleGenerativeAI](../../integraciones/langchain/chat-models/google-ai.md)
+  - [ChatAnthropic](../../integraciones/langchain/chat-models/chatanthropic.md)
+- [Memory](../../integraciones/langchain/memory/README.md)
+  - [Buffer Memory](../../integraciones/langchain/memory/buffer-memory.md)
+  - [Buffer Window Memory](../../integraciones/langchain/memory/buffer-window-memory.md)
+  - [Conversation Summary Memory](../../integraciones/langchain/memory/conversation-summary-memory.md)
