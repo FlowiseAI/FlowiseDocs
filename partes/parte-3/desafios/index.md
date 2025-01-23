@@ -3,6 +3,8 @@
 ## Objetivo
 Crear un chatbot que simule hablar con Nikola Tesla, con conocimiento completo sobre su vida e invenciones.
 
+![Nikola Tesla](/../../.gitbook/assets/partes/parte3/desafio/Tesla.png)
+
 ## Requisitos
 El chatbot debe ser capaz de responder todas las preguntas básicas sobre su vida e invenciones, utilizando la información proporcionada en el PDF de recursos.
 
@@ -16,5 +18,6 @@ El chatbot debe responder correctamente las siguientes preguntas:
 ## Recursos
 Se proporcionará un PDF con toda la información necesaria sobre Nikola Tesla.
 
-## Criterios de Evaluación
-[Criterios específicos de evaluación] 
+Link para descargar el PDF con la información de Tesla de la Wikipedia:
+https://es.wikipedia.org/w/index.php?title=Especial:DownloadAsPdf&page=Nikola_Tesla&action=show-download-screen
+
