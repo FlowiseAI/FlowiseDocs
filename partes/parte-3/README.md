@@ -11,7 +11,7 @@ En esta tercera parte del curso, aprenderemos cómo Flowise maneja documentos y 
 - [Retrievers](#retrievers)
 - [Text Splitters](#text-splitters)
 - [Embeddings](#embeddings)
-
+- [Solución del Desafío 1](#posible-solución-del-desafío-1)
 ## RAG
 
 RAG (o Retrieval-Augmented Generation) es como tener un asistente que primero busca información en tus documentos y luego la usa para dar respuestas más precisas.
