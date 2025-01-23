@@ -40,7 +40,7 @@ El despliegue en la nube significa que nuestro chatbot está alojado en servidor
 - Chatbots que serán usados por muchas personas
 - Aplicaciones que necesitan alta disponibilidad
 
-Puedes desplegar Flowise en varios proveedores de nube:
+Puedes desplegar Flowise desde varios proveedores en la nube:
 - [Opciones de Despliegue](../../configuracion/deployment/README.md)
 
 ## Acceder a proyectos a través de API
