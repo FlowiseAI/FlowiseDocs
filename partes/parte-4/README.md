@@ -4,7 +4,7 @@ En esta cuarta parte del curso, aprenderemos a desplegar nuestros proyectos de F
 
 ## Contenidos
 
-- Despliegue de Chatbot
+- [Despliegue de Chatbot](#qué-es-el-despliegue)
   - [Local](#despliegue-local)
   - [En la nube](#despliegue-en-la-nube)
 - [Acceder a nuestros proyectos a través de API](#acceder-a-nuestros-proyectos-a-través-de-api)
@@ -41,10 +41,7 @@ El despliegue en la nube significa que nuestro chatbot está alojado en servidor
 - Aplicaciones que necesitan alta disponibilidad
 
 Puedes desplegar Flowise en varios proveedores de nube:
-- [AWS](../../configuracion/deployment/aws.md)
-- [Azure](../../configuracion/deployment/azure.md)
-- [Google Cloud](../../configuracion/deployment/gcp.md)
-- [Digital Ocean](../../configuracion/deployment/digital-ocean.md)
+- [Opciones de Despliegue](../../configuracion/deployment/README.md)
 
 ## Acceder a proyectos a través de API
 
@@ -148,6 +145,6 @@ output = query({
 - [API Reference](../../usar-flowise/api.md)
 - [Embed Documentation](../../usar-flowise/embed.md)
 - [Authentication](../../configuracion/autorizacion/README.md)
-- [Deployment Options](../../configuracion/deployment/README.md)
+- [Opciones de Despliegue](../../configuracion/deployment/README.md)
 - [Variables Configuration](../../usar-flowise/variables.md)
 - [Monitoring](../../usar-flowise/monitoring.md) 
