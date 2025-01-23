@@ -6,7 +6,7 @@ description: Learn how to configure environment variables for Flowise
 
 Flowise support different environment variables to configure your instance. You can specify the following variables in the `.env` file inside `packages/server` folder. Refer to [.env.example](https://github.com/FlowiseAI/Flowise/blob/main/packages/server/.env.example) file.
 
-<table><thead><tr><th width="233">Variable</th><th width="219">Description</th><th width="104">Type</th><th>Default</th></tr></thead><tbody><tr><td>PORT</td><td>The HTTP port Flowise runs on</td><td>Number</td><td>3000</td></tr><tr><td>FLOWISE_USERNAME</td><td>Username to login</td><td>String</td><td></td></tr><tr><td>FLOWISE_PASSWORD</td><td>Password to login</td><td>String</td><td></td></tr><tr><td>FLOWISE_FILE_SIZE_LIMIT</td><td>Maximum file size when uploading</td><td>String</td><td><code>50mb</code></td></tr><tr><td>NUMBER_OF_PROXIES</td><td>Rate Limit Proxy</td><td>Number</td><td></td></tr><tr><td>CORS_ORIGINS</td><td>The allowed origins for all cross-origin HTTP calls</td><td>String</td><td></td></tr><tr><td>IFRAME_ORIGINS</td><td>The allowed origins for iframe src embedding</td><td>String</td><td></td></tr><tr><td>DISABLE_CHATFLOW_REUSE</td><td>Disable caching the flow, allowing every interaction of the chatflow will be executed from scratch</td><td>Boolean: <code>true</code> or <code>false</code></td><td></td></tr><tr><td>SHOW_COMMUNITY_NODES</td><td>Display nodes that are created by community</td><td>Boolean: <code>true</code> or <code>false</code></td><td></td></tr></tbody></table>
+<table><thead><tr><th width="233">Variable</th><th width="219">Description</th><th width="104">Type</th><th>Default</th></tr></thead><tbody><tr><td>PORT</td><td>The HTTP port Flowise runs on</td><td>Number</td><td>3000</td></tr><tr><td>FLOWISE_USERNAME</td><td>Username to login</td><td>String</td><td></td></tr><tr><td>FLOWISE_PASSWORD</td><td>Password to login</td><td>String</td><td></td></tr><tr><td>FLOWISE_FILE_SIZE_LIMIT</td><td>Maximum file size when uploading</td><td>String</td><td><code>50mb</code></td></tr><tr><td>NUMBER_OF_PROXIES</td><td>Rate Limit Proxy</td><td>Number</td><td></td></tr><tr><td>CORS_ORIGINS</td><td>The allowed origins for all cross-origin HTTP calls</td><td>String</td><td></td></tr><tr><td>IFRAME_ORIGINS</td><td>The allowed origins for iframe src embedding</td><td>String</td><td></td></tr><tr><td>SHOW_COMMUNITY_NODES</td><td>Display nodes that are created by community</td><td>Boolean: <code>true</code> or <code>false</code></td><td></td></tr><tr><td>DISABLED_NODES</td><td>Comma separated list of node names to disable</td><td>String</td><td></td></tr></tbody></table>
 
 ## For Database
 
@@ -21,40 +21,18 @@ Flowise support different environment variables to configure your instance. You 
 | DATABASE\_NAME     | Database name (When DATABASE\_TYPE is not sqlite)                | String                                     |                          |
 | DATABASE\_SSL      | Database SSL is required (When DATABASE\_TYPE is not sqlite)     | Boolean: `true` or `false`                 | `false`                  |
 
-## For LangSmith Tracing
+## For Storage
 
-Flowise supports [LangSmith](https://docs.smith.langchain.com/) tracing with the following env variables:
+Flowise store the following files under a local path folder by default.
 
-<table><thead><tr><th width="247">Variable</th><th>Description</th><th width="151">Type</th></tr></thead><tbody><tr><td>LANGCHAIN_TRACING_V2</td><td>Turn LangSmith tracing ON or OFF</td><td>Enum String: <code>true</code>, <code>false</code></td></tr><tr><td>LANGCHAIN_ENDPOINT</td><td>LangSmith endpoint</td><td>String</td></tr><tr><td>LANGCHAIN_API_KEY</td><td>LangSmith API Key</td><td>String</td></tr><tr><td>LANGCHAIN_PROJECT</td><td>Project to trace on LangSmith</td><td>String</td></tr></tbody></table>
+* Files uploaded on [Document Loaders](../integrations/langchain/document-loaders/)/Document Store
+* Image/Audio uploads from chat
+* Images/Files from Assistant
+* Files from [Vector Upsert API](../using-flowise/api.md#vector-upsert-api)
 
-### Watch how connect Flowise and LangSmith
+User can specify `STORAGE_TYPE` to use AWS S3 or local path
 
-{% embed url="https://youtu.be/BGGhRxS3AVQ" %}
-
-## For Built-In and External Dependencies
-
-For security reasons, by default Tool Function only allow certain dependencies. It's possible to lift that restriction for built-in and external modules by setting the following environment variables:
-
-| Variable                      | Description                                          |        |
-| ----------------------------- | ---------------------------------------------------- | ------ |
-| TOOL\_FUNCTION\_BUILTIN\_DEP  | NodeJS built-in modules to be used for Tool Function | String |
-| TOOL\_FUNCTION\_EXTERNAL\_DEP | External modules to be used for Tool Function        | String |
-
-{% code title=".env" %}
-```bash
-# Allows usage of all builtin modules
-TOOL_FUNCTION_BUILTIN_DEP=*
-
-# Allows usage of only fs
-TOOL_FUNCTION_BUILTIN_DEP=fs
-
-# Allows usage of only crypto and fs
-TOOL_FUNCTION_BUILTIN_DEP=crypto,fs
-
-# Allow usage of external npm modules.
-TOOL_FUNCTION_EXTERNAL_DEP=axios,moment
-```
-{% endcode %}
+<table><thead><tr><th width="227">Variable</th><th width="196">Description</th><th width="131">Type</th><th>Default</th></tr></thead><tbody><tr><td>STORAGE_TYPE</td><td>Type of storage for uploaded files. default is <code>local</code></td><td>Enum String: <code>s3</code>, <code>local</code></td><td><code>local</code></td></tr><tr><td>BLOB_STORAGE_PATH</td><td>Local folder path where uploaded files are stored when <code>STORAGE_TYPE</code> is <code>local</code></td><td>String</td><td><code>your-home-dir/.flowise/storage</code></td></tr><tr><td>S3_STORAGE_BUCKET_NAME</td><td>Bucket name to hold the uploaded files when <code>STORAGE_TYPE</code> is <code>s3</code></td><td>String</td><td></td></tr><tr><td>S3_STORAGE_ACCESS_KEY_ID</td><td>AWS Access Key</td><td>String</td><td></td></tr><tr><td>S3_STORAGE_SECRET_ACCESS_KEY</td><td>AWS Secret Key</td><td>String</td><td></td></tr><tr><td>S3_STORAGE_REGION</td><td>Region for S3 bucket</td><td>String</td><td></td></tr><tr><td>S3_ENDPOINT_URL</td><td>Custom S3 endpoint (optional)</td><td>String</td><td></td></tr><tr><td>S3_FORCE_PATH_STYLE</td><td>Force S3 path style (optional)</td><td>Boolean</td><td>false</td></tr></tbody></table>
 
 ## For Debugging and Logs
 
@@ -76,16 +54,26 @@ TOOL_FUNCTION_EXTERNAL_DEP=axios,moment
 
 <figure><img src="../.gitbook/assets/image (5) (4).png" alt=""><figcaption><p><strong>server-error.log - logs error with stack trace</strong></p></figcaption></figure>
 
+### Logs Streaming S3
+
+When `STORAGE_TYPE` env variable is set to `s3` , logs will be automatically streamed and stored to S3. New log file will be created hourly, enabling easier debugging.
+
 ## For Credentials
 
 Flowise store your third party API keys as encrypted credentials using an encryption key.
 
 By default, a random encryption key will be generated when starting up the application and stored under a file path. This encryption key is then retrieved everytime to decrypt the credentials used within a chatflow. For example, your OpenAI API key, Pinecone API key, etc.
 
-| Variable                      | Description                                                                  | Type   |                           |
-| ----------------------------- | ---------------------------------------------------------------------------- | ------ | ------------------------- |
-| SECRETKEY\_PATH               | Location where encryption key (used to encrypt/decrypt credentials) is saved | String | `Flowise/packages/server` |
-| FLOWISE\_SECRETKEY\_OVERWRITE | Encryption key to be used instead of the key stored in SECRETKEY\_PATH       | String |                           |
+You can configure to use AWS Secret Manager to store the encryption key instead.
+
+| Variable                      | Description                                           | Type                        | Default                   |
+| ----------------------------- | ----------------------------------------------------- | --------------------------- | ------------------------- |
+| SECRETKEY\_STORAGE\_TYPE      | How to store the encryption key                       | Enum String: `local`, `aws` | `local`                   |
+| SECRETKEY\_PATH               | Local file path where encryption key is saved         | String                      | `Flowise/packages/server` |
+| FLOWISE\_SECRETKEY\_OVERWRITE | Encryption key to be used instead of the existing key | String                      |                           |
+| SECRETKEY\_AWS\_ACCESS\_KEY   |                                                       | String                      |                           |
+| SECRETKEY\_AWS\_SECRET\_KEY   |                                                       | String                      |                           |
+| SECRETKEY\_AWS\_REGION        |                                                       | String                      |                           |
 
 For some reasons, sometimes encryption key might be re-generated or the stored path was changed, this will cause errors like - <mark style="color:red;">Credentials could not be decrypted.</mark>
 
@@ -116,18 +104,32 @@ By default, Flowise stores your API keys (not Credentials) that can be used to i
 
 Using `db` as storage type will store the API keys to database instead of a local JSON file.
 
-## For Storage
+<figure><img src="../.gitbook/assets/image (254).png" alt=""><figcaption><p>Flowise API Keys</p></figcaption></figure>
 
-Flowise store the following files under a local path folder by default.
+## For Built-In and External Dependencies
 
-* Files uploaded on [Document Loaders](../integrations/langchain/document-loaders/)/Document Store
-* Image/Audio uploads from chat
-* Images/Files from Assistant
-* Files from [Vector Upsert API](../using-flowise/api.md#vector-upsert-api)
+There are certain nodes/features within Flowise that allow user to run Javascript code. For security reasons, by default it only allow certain dependencies. It's possible to lift that restriction for built-in and external modules by setting the following environment variables:
 
-User can specify `STORAGE_TYPE` to use AWS S3 or local path
+| Variable                      | Description                                          |        |
+| ----------------------------- | ---------------------------------------------------- | ------ |
+| TOOL\_FUNCTION\_BUILTIN\_DEP  | NodeJS built-in modules to be used for Tool Function | String |
+| TOOL\_FUNCTION\_EXTERNAL\_DEP | External modules to be used for Tool Function        | String |
 
-<table><thead><tr><th width="227">Variable</th><th width="196">Description</th><th width="131">Type</th><th>Default</th></tr></thead><tbody><tr><td>STORAGE_TYPE</td><td>Type of storage for uploaded files. default is <code>local</code></td><td>Enum String: <code>s3</code>, <code>local</code></td><td><code>local</code></td></tr><tr><td>BLOB_STORAGE_PATH</td><td>Local folder path where uploaded files are stored when <code>STORAGE_TYPE</code> is <code>local</code></td><td>String</td><td><code>your-home-dir/.flowise/storage</code></td></tr><tr><td>S3_STORAGE_BUCKET_NAME</td><td>Bucket name to hold the uploaded files when <code>STORAGE_TYPE</code> is <code>s3</code></td><td>String</td><td></td></tr><tr><td>S3_STORAGE_ACCESS_KEY_ID</td><td>AWS Access Key</td><td>String</td><td></td></tr><tr><td>S3_STORAGE_SECRET_ACCESS_KEY</td><td>AWS Secret Key</td><td>String</td><td></td></tr><tr><td>S3_STORAGE_REGION</td><td>Region for S3 bucket</td><td>String</td><td></td></tr></tbody></table>
+{% code title=".env" %}
+```bash
+# Allows usage of all builtin modules
+TOOL_FUNCTION_BUILTIN_DEP=*
+
+# Allows usage of only fs
+TOOL_FUNCTION_BUILTIN_DEP=fs
+
+# Allows usage of only crypto and fs
+TOOL_FUNCTION_BUILTIN_DEP=crypto,fs
+
+# Allow usage of external npm modules.
+TOOL_FUNCTION_EXTERNAL_DEP=axios,moment
+```
+{% endcode %}
 
 ## Examples of how to set environment variables:
 

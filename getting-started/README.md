@@ -20,6 +20,12 @@ Install Flowise locally using NPM.
 npm install -g flowise
 ```
 
+You can also install a specific version. Refer to available [versions](https://www.npmjs.com/package/flowise?activeTab=versions).
+
+```
+npm install -g flowise@x.x.x
+```
+
 2. Start Flowise:
 
 ```bash
