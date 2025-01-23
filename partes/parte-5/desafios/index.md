@@ -1,19 +1,18 @@
-# Desafío 3: Investigador de Memes
+# Desafío 3: Sumiller de Maridajes Sorprendentes
 
 ## Objetivo
-Crear un agente con capacidad de búsqueda en internet que pueda entender y explicar los memes más recientes.
+Crear un agente capaz de buscar información y proponer maridajes inesperados (bebidas, pero que tengan sentido) para platos de comida, incluso para platos raros o inventados.
 
-## Reto
-Se proporcionarán dos memes actuales que el agente deberá investigar y explicar.
 
 ## Requisitos
-- Capacidad de búsqueda en internet
-- Análisis de imágenes
-- Comprensión de contexto cultural
-- Explicación clara y concisa
+- Capacidad de buscar información en internet sobre comida y bebidas.
+- Entender cómo combinan diferentes sabores.
+- Ser creativo para proponer maridajes fuera de lo común.
+- Explicar por qué la bebida elegida combina con el plato.
 
-## Recursos
-Se proporcionarán dos memes específicos para el análisis.
+## Reto
+Se darán dos platos de comida (uno normal y otro más inusual) y el agente deberá buscar y sugerir una bebida sorprendente que combine bien con cada plato.
 
-## Criterios de Evaluación
-[Criterios específicos de evaluación] 
+Plato 1: "Hamburguesa con queso y bacon".
+
+Plato 2: "Helado de aguacate con chile".
