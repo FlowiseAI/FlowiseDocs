@@ -8,7 +8,7 @@
   * [Recursos](partes/parte-1/recursos/index.md)
 
 * [Parte 2: Chains Avanzadas](partes/parte-2/README.md)
-  * [Desafío 1: Traductor de Lenguajes Antiguos](partes/parte-2/desafios/index.md)
+  * [Desafío 1: Traductor de Lenguas Antiguas](partes/parte-2/desafios/index.md)
 
 * [Parte 3: Gestión de Documentos y Memoria](partes/parte-3/README.md)
   * [Desafío 2: Chatbot Nikola Tesla](partes/parte-3/desafios/index.md)
