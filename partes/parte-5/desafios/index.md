@@ -3,7 +3,7 @@
 ## Objetivo
 Crear un agente capaz de buscar información y proponer maridajes inesperados (bebidas, pero que tengan sentido) para platos de comida, incluso para platos raros o inventados.
 
-![Esquema](../../.gitbook/assets/partes/parte5/desafios/Sumiller.png)
+![Esquema](../../.gitbook/assets/partes/parte5/desafio/Sumiller.png)
 
 ## Requisitos
 - Capacidad de buscar información en internet sobre comida y bebidas.
