@@ -12,12 +12,3 @@ Se proporcionarán una serie de prompts y situaciones que pondrán a prueba a la
 - Toma de decisiones
 - Resolución de problemas
 
-## Evaluación
-Se evaluará la capacidad de la tripulación para:
-- Superar situaciones críticas
-- Trabajar en equipo
-- Gestionar recursos limitados
-- Alcanzar el objetivo final
-
-## Criterios de Éxito
-[Criterios específicos de evaluación] 
