@@ -6,15 +6,15 @@ description: Welcome to the official Flowise documentation
 
 <figure><img src=".gitbook/assets/flowise.gif" alt=""><figcaption><p>Flowise Drag &#x26; Drop UI</p></figcaption></figure>
 
-## What is Flowise?
+## ¿Qué es Flowise?
 
-Flowise is an open source low-code tool for developers to build customized LLM orchestration flows & AI agents.
+Flowise es una herramienta de bajo código y de código abierto para que los desarrolladores construyan flujos de orquestación personalizados con LLM y agentes de IA.
 
-Developing LLM apps often involves countless iterations. Our low-code and drag-and-drop UI approach enables quick iterations, helping you go from testing to production faster.
+Desarrollar aplicaciones de LLM suele implicar incontables iteraciones. Nuestro enfoque de bajo código y la interfaz de arrastrar y soltar permiten iteraciones rápidas, ayudándote a pasar de la fase de prueba a la producción con mayor agilidad.
 
-### See Flowise in action
+## Mira Flowise en acción
 
-In this 2-minute quickstart demo, you'll learn the basic fundamentals of how Flowise works.
+En esta demostración de inicio rápido de 2 minutos, descubrirás los fundamentos básicos de cómo funciona Flowise.
 
 {% embed url="https://youtu.be/d7vfUodP0c4" %}
 Building a PDF QnA app
@@ -34,4 +34,4 @@ If you want to help this project, please consider reviewing the [Contribution Gu
 
 ## Need Help?
 
-For support and further discussion, head over to our [Discord](https://discord.gg/jbaHfsRVBW) server.  
+For support and further discussion, head over to our [Discord](https://discord.gg/jbaHfsRVBW) server.
