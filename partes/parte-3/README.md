@@ -11,7 +11,7 @@ En esta tercera parte del curso, aprenderemos cómo Flowise maneja documentos y 
 - [Retrievers](#retrievers)
 - [Text Splitters](#text-splitters)
 - [Embeddings](#embeddings)
-- [Solución del Desafío 1](#posible-solución-del-desafío-1)
+
 ## RAG
 
 RAG (o Retrieval-Augmented Generation) es como tener un asistente que primero busca información en tus documentos y luego la usa para dar respuestas más precisas.
@@ -118,8 +118,4 @@ Esta "traducción" permite que la computadora pueda encontrar rápidamente docum
 - [Text Splitters](../../integraciones/langchain/text-splitters/README.md)
 - [Embeddings](../../integraciones/langchain/embeddings/README.md)
 
-## Posible Solución del Desafío 1
 
-- Revisión del [Desafío 1: Traductor de Lenguajes Antiguos](../../partes/parte-2/desafios/index.md)
-
-![Solución Desafío 1](../../.gitbook/assets/partes/parte3/Desafio1.png)

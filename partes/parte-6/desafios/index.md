@@ -16,6 +16,3 @@ Se proporcionarán múltiples prompts y casos para evaluar el funcionamiento del
 - Capacidad de procesamiento de lenguaje natural
 - Sistema de evaluación de criterios
 - Gestión de datos de contacto
-
-## Criterios de Evaluación
-[Criterios específicos de evaluación] 
