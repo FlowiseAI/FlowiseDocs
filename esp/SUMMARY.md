@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Introducción](README.md)
+* [Empezando](getting-started/README.md)
 
 ## Flowise
 
