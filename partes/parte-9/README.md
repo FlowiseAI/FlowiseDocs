@@ -4,39 +4,14 @@ Esta guía ofrece una visión completa de la arquitectura de Sequential Agent AI
 
 ## Contenidos
 - [Concepto](#concepto)
-    - [Entendiendo la Arquitectura DCG de Sequential Agents](#entendiendo-la-arquitectura-dcg-de-sequential-agents)
-        - [Principios Fundamentales](#principios-fundamentales)
-        - [Terminología](#terminología)
+- [Entendiendo la Arquitectura DCG de Sequential Agents](#entendiendo-la-arquitectura-dcg-de-sequential-agents)
 - [Sequential Agents vs Multi-Agents](#sequential-agents-vs-multi-agents)
 - [Introduciendo State, Loop y Condition Nodes](#introduciendo-state-loop-y-condition-nodes)
 - [Eligiendo el sistema correcto](#eligiendo-el-sistema-correcto)
 - [Sequential Agents Nodes](#sequential-agents-nodes)
 - [1. Start Node](#1-start-node)
-    - [Entendiendo el Start Node](#entendiendo-el-start-node)
-    - [Inputs](#inputs-start-node)
-    - [Outputs](#outputs-start-node)
-    - [Mejores Prácticas](#mejores-prácticas-start-node)
 - [2. Agent Memory Node](#2-agent-memory-node)
-    - [Dónde se registran los datos](#dónde-se-registran-los-datos)
-        - [Entendiendo la estructura y formato de datos de la tabla "checkpoints"](#entendiendo-la-estructura-y-formato-de-datos-de-la-tabla-checkpoints)
-        - [Estructura de la tabla](#estructura-de-la-tabla-agent-memory-node)
-        - [Cómo funciona](#cómo-funciona-agent-memory-node)
-    - [Inputs](#inputs-agent-memory-node)
-    - [Configuración del Nodo](#configuración-del-nodo-agent-memory-node)
-    - [Parámetros Adicionales](#parámetros-adicionales-agent-memory-node)
-    - [Outputs](#outputs-agent-memory-node)
-    - [Mejores Prácticas](#mejores-prácticas-agent-memory-node)
 - [3. State Node](#3-state-node)
-    - [Entendiendo el State Node](#entendiendo-el-state-node)
-    - [Inputs](#inputs-state-node)
-    - [Outputs](#outputs-state-node)
-    - [Parámetros Adicionales](#parámetros-adicionales-state-node)
-    - [Cómo establecer un State personalizado](#cómo-establecer-un-state-personalizado)
-        - [Ejemplo usando JS](#ejemplo-usando-js)
-        - [Ejemplo usando Tabla](#ejemplo-usando-tabla)
-        - [Ejemplo de Tabla](#ejemplo-de-tabla)
-        - [Ejemplo usando API](#ejemplo-usando-api)
-    - [Mejores Prácticas](#mejores-prácticas-state-node)
 - [4. Agent Node](#4-agent-node)
     - [Entendiendo el Agent Node](#entendiendo-el-agent-node)
     - [Inputs](#inputs-agent-node)
@@ -106,7 +81,8 @@ Este grafo, compuesto de nodos interconectados, define el flujo secuencial de in
 
 <figure><img src="../../.gitbook/assets/seq-21.svg" alt=""><figcaption></figcaption></figure>
 
-### Entendiendo la Arquitectura DCG de Sequential Agents
+
+## Entendiendo la Arquitectura DCG de Sequential Agents
 
 Esta arquitectura simplifica la gestión de flujos de trabajo conversacionales complejos definiendo una secuencia clara y comprensible de operaciones a través de su estructura DCG.
 
@@ -129,6 +105,7 @@ Exploremos algunos elementos clave de este enfoque:
 * **Parallel node execution:** Se refiere a la capacidad de ejecutar múltiples nodos concurrentemente dentro de un flujo de trabajo usando un mecanismo de ramificación. Esto significa que diferentes ramas del flujo de trabajo pueden procesar información o interactuar con herramientas simultáneamente, aunque el flujo general de ejecución permanece secuencial.
 {% endtab %}
 {% endtabs %}
+
 
 ## Sequential Agents vs Multi-Agents
 
