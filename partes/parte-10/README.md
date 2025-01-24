@@ -11,7 +11,7 @@ Esta guía profundiza en las capacidades avanzadas de los Sequential Agents en F
 
 El Concesionario Virtual es un ejemplo avanzado de Sequential Agents que demuestra cómo crear una experiencia de compra de automóviles interactiva y personalizada.
 
-![Workflow](../../.gitbook/assets/partes/parte4/concesionario.png)
+![Workflow](../../.gitbook/assets/partes/parte10/concesionario.png)
 
 
 - [Sequential Agents](../../integraciones/langchain/sequential-agents/README.md)
