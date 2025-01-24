@@ -166,8 +166,3 @@ Imagina un sistema multi-agente de Lead Outreach (disponible en el Marketplace) 
 
 **Usuario Recibe la Salida**: El empleado de Solterra Renewables recibe un borrador de correo electrónico personalizado listo para ser revisado y enviado a Amelia Croft.
 
-## Relevant Links
-content_copy
-download
-Use code with caution.
-Markdown
