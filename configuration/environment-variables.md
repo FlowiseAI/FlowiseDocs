@@ -93,9 +93,9 @@ By default, Flowise pulls the model list from [here](https://github.com/FlowiseA
 
 <table><thead><tr><th width="164">Variable</th><th width="196">Description</th><th width="78">Type</th><th>Default</th></tr></thead><tbody><tr><td>MODEL_LIST_CONFIG_JSON</td><td>Link to load list of models from your <code>models.json</code> config file</td><td>String</td><td><a href="https://raw.githubusercontent.com/FlowiseAI/Flowise/main/packages/components/models.json">https://raw.githubusercontent.com/FlowiseAI/Flowise/main/packages/components/models.json</a></td></tr></tbody></table>
 
-## For Flowise API Keys
+## For API Keys
 
-By default, Flowise stores your API keys (not Credentials) that can be used to interact with [API Reference](../api-reference/) to a local file path. User can change the behavior by using the below env variable.
+Users can create multiple API keys within Flowise in order to authenticate with the [APIs](../using-flowise/api.md). By default, keys get stored as a JSON file to your local file path. User can change the behavior by using the below env variable.
 
 | Variable              | Description                                                                                | Type                      | Default                   |
 | --------------------- | ------------------------------------------------------------------------------------------ | ------------------------- | ------------------------- |
