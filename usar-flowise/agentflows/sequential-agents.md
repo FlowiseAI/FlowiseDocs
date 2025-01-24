@@ -398,7 +398,7 @@ El Agent Node puede conectarse a los siguientes nodos como salidas:
 
 {% tabs %}
 {% tab title="Pro Tips" %}
-**System prompt claro**
+**System prompt claro.**
 
 Crea un System Prompt conciso y sin ambigüedades que refleje con precisión el rol y capacidades del agente. Esto guía la toma de decisiones del agente y asegura que actúe dentro de su alcance definido.
 
