@@ -1,258 +1,173 @@
-# Parte 8: AgentFlows
+# Parte 8: Multi-Agents
 
-En esta octava parte del curso, nos adentraremos en AgentFlows, un sistema que permite crear flujos complejos de agentes que trabajan juntos de manera coordinada.
+Esta guía pretende proporcionar una introducción a la arquitectura del sistema de IA multi-agente dentro de Flowise.
 
 ## Contenidos
+- [Concepto](#concepto)
+- [1. Arquitectura del Sistema](#1-arquitectura-del-sistema)
+- [2. Restricciones Operativas](#2-restricciones-operativas)
+- [El Supervisor](#el-supervisor)
+- [Supervisor Prompt](#supervisor-prompt)
+- [Entendiendo el Recursion Limit en el nodo Supervisor](#entendiendo-el-recursion-limit-en-el-nodo-supervisor)
+- [Cómo funciona el Supervisor](#cómo-funciona-el-supervisor)
+- [El Worker](#el-worker)
+- [Entendiendo el parámetro Max Iteration en Workers](#entendiendo-el-parámetro-max-iteration-en-workers)
+- [Ejemplo: Un caso de uso práctico](#ejemplo-un-caso-de-uso-práctico)
 
-- [Resolución del Desafío 5](#resolución-del-desafío-5)
-- [Introducción a AgentFlows](#introducción-a-agentflows)
-- [Supervisors](#supervisors)
-- [Workers](#workers)
-- [Agent Memory](#agent-memory)
-- [Prompting de AgentFlows](#prompting-de-agentflows)
-- [Gestión de Estado](#gestión-de-estado)
-- [Control de Flujo](#control-de-flujo)
-- [Patrones de Diseño](#patrones-de-diseño)
-- [Casos de Uso](#casos-de-uso)
-- [Optimización y Monitoreo](#optimización-y-monitoreo)
+## Concepto
 
-## Resolución del Desafío 5
+Análogo a un equipo de expertos en dominios colaborando en un proyecto complejo, un sistema multi-agente utiliza el principio de especialización dentro de la inteligencia artificial.
 
-Analizaremos la solución del desafío anterior, explorando:
-- Estrategias implementadas
-- Patrones de diseño utilizados
-- Lecciones aprendidas
-- Mejores prácticas identificadas
+Este sistema multi-agente utiliza un flujo de trabajo jerárquico y secuencial, maximizando la eficiencia y la especialización.
 
-## Introducción a AgentFlows
+## 1. Arquitectura del Sistema
 
-AgentFlows es un sistema que permite:
-- Crear flujos de trabajo con múltiples agentes
-- Coordinar acciones entre agentes
-- Gestionar el estado del sistema
-- Monitorear el progreso
+Podemos definir la arquitectura de IA multi-agente como un sistema de IA escalable capaz de manejar proyectos complejos dividiéndolos en sub-tareas manejables.
 
-### Componentes Básicos
-- Nodos de flujo
-- Conectores
-- Estados
-- Eventos
+En Flowise, un sistema multi-agente comprende dos nodos principales o tipos de agentes y un usuario, interactuando en un gráfico jerárquico para procesar solicitudes y entregar un resultado específico:
 
-> 💡 **Sugerencia de Diagrama**: Un diagrama mostrando la arquitectura básica de AgentFlows y cómo se conectan sus componentes.
+**Usuario**: El usuario actúa como el punto de inicio del sistema, proporcionando la entrada o solicitud inicial. Si bien un sistema multi-agente puede ser diseñado para manejar una amplia gama de solicitudes, es importante que estas solicitudes del usuario se alineen con el propósito previsto del sistema. Cualquier solicitud que caiga fuera de este alcance puede llevar a resultados inexactos, bucles inesperados o incluso errores del sistema. Por lo tanto, las interacciones del usuario, aunque flexibles, siempre deben alinearse con las funcionalidades centrales del sistema para un rendimiento óptimo.
 
-## Supervisors
+**Supervisor AI**: El Supervisor actúa como el orquestador del sistema, supervisando todo el flujo de trabajo. Analiza las solicitudes del usuario, las descompone en una secuencia de sub-tareas, asigna estas sub-tareas a los agentes trabajadores especializados, agrega los resultados y finalmente presenta la salida procesada de vuelta al usuario.
 
-Los Supervisors son agentes especiales que:
-- Coordinan otros agentes
-- Asignan tareas
-- Monitorizan el progreso
-- Toman decisiones de alto nivel
+**Equipo Worker AI**: Este equipo consiste en agentes AI especializados, o Workers, cada uno instruido - a través de mensajes prompt - para manejar una tarea específica dentro del flujo de trabajo. Estos Workers operan independientemente, recibiendo instrucciones y datos del Supervisor, ejecutando sus funciones especializadas, usando herramientas según sea necesario, y devolviendo los resultados al Supervisor.
 
-### Responsabilidades
-- Distribución de trabajo
-- Control de calidad
-- Gestión de recursos
-- Manejo de errores
+<figure><img src="../../.gitbook/assets/multi-agent-diagram.svg" alt=""><figcaption></figcaption></figure>
 
-> 💡 **Sugerencia de Diagrama**: Un diagrama jerárquico mostrando cómo un Supervisor gestiona múltiples Workers.
+## 2. Restricciones Operativas
 
-## Workers
+Para mantener el orden y la simplicidad, este sistema multi-agente opera bajo dos restricciones importantes:
 
-Los Workers son agentes que:
-- Ejecutan tareas específicas
-- Reportan progreso
-- Manejan errores locales
-- Colaboran con otros workers
+**Una tarea a la vez**: El Supervisor está intencionalmente diseñado para enfocarse en una sola tarea a la vez. Espera a que el Worker activo complete su tarea y devuelva los resultados antes de analizar el siguiente paso y delegar la tarea subsiguiente. Esto asegura que cada paso se complete exitosamente antes de continuar, previniendo la sobrecomplejidad.
 
-### Tipos de Workers
-- Task Workers (ejecutan tareas)
-- Data Workers (procesan datos)
-- Service Workers (proveen servicios)
-- Utility Workers (funciones auxiliares)
+**Un Supervisor por flujo**: Si bien es teóricamente posible implementar un conjunto de sistemas multi-agente anidados para formar una estructura jerárquica más sofisticada para flujos de trabajo altamente complejos, lo que LangChain define como "Hierarchical Agent Teams", con un supervisor de nivel superior y supervisores de nivel medio gestionando equipos de workers, los sistemas multi-agente de Flowise actualmente operan con un solo Supervisor.
 
-> 💡 **Sugerencia de Diagrama**: Un diagrama mostrando los diferentes tipos de Workers y sus interacciones.
+{% hint style="info" %}
+Estas dos restricciones son importantes cuando planificas el flujo de trabajo de tu aplicación. Si intentas diseñar un flujo de trabajo donde el Supervisor necesita delegar múltiples tareas simultáneamente, en paralelo, el sistema no podrá manejarlo y encontrarás un error.
+{% endhint %}
 
-## Agent Memory
+## El Supervisor
 
-El sistema de memoria permite a los agentes:
-- Recordar conversaciones previas
-- Mantener contexto
-- Compartir información
-- Aprender de experiencias
+El Supervisor, como el agente que gobierna el flujo de trabajo general y es responsable de delegar tareas al Worker apropiado, requiere un conjunto de componentes para funcionar correctamente:
 
-### Tipos de Memoria
-- Memoria a corto plazo
-- Memoria a largo plazo
-- Memoria compartida
-- Memoria episódica
+* Chat Model capaz de function calling para manejar las complejidades de la descomposición de tareas, delegación y agregación de resultados.
+* Agent Memory (opcional): Si bien el Supervisor puede funcionar sin Agent Memory, este nodo puede mejorar significativamente los flujos de trabajo que requieren acceso a estados pasados del Supervisor. Esta preservación del estado podría permitir al Supervisor reanudar el trabajo desde un punto específico o aprovechar datos pasados para mejorar la toma de decisiones.
 
-> 💡 **Sugerencia de Diagrama**: Un diagrama mostrando los diferentes tipos de memoria y cómo interactúan entre sí.
+<figure><img src="../../.gitbook/assets/mas07.png" alt=""><figcaption></figcaption></figure>
 
-## Prompting de AgentFlows
+## Supervisor Prompt
 
-El prompting en AgentFlows es crucial para:
-- Definir comportamientos
-- Establecer objetivos
-- Guiar decisiones
-- Mantener coherencia
+Por defecto, el Supervisor Prompt está redactado de una manera que instruye al Supervisor para analizar las solicitudes del usuario, descomponerlas en una secuencia de sub-tareas y asignar estas sub-tareas a los agentes trabajadores especializados.
 
-### Técnicas de Prompting
-- Prompts estructurados
-- Prompts en cadena
-- Prompts condicionales
-- Prompts de retroalimentación
+Si bien el Supervisor Prompt es personalizable para adaptarse a necesidades específicas de la aplicación, siempre requiere los siguientes dos elementos clave:
 
-### Mejores Prácticas
-- Ser específico y claro
-- Incluir ejemplos
-- Definir restricciones
-- Establecer formato de salida
+* La Variable `{team_members}`: Esta variable es crucial para la comprensión del Supervisor de la fuerza laboral disponible ya que proporciona al Supervisor una lista de nombres de Workers. Esto permite al Supervisor delegar diligentemente tareas al Worker más apropiado basado en su experiencia.
 
-> 💡 **Sugerencia de Diagrama**: Un diagrama mostrando la estructura de diferentes tipos de prompts y cómo se relacionan.
+* La Palabra Clave `"FINISH"`: Esta palabra clave sirve como una señal dentro del Supervisor Prompt. Indica cuándo el Supervisor debe considerar la tarea completa y presentar la salida final al usuario. Sin una directiva clara de "FINISH", el Supervisor podría continuar delegando tareas innecesariamente o fallar en entregar un resultado coherente y finalizado al usuario. Señala que todas las sub-tareas necesarias han sido ejecutadas y la solicitud del usuario ha sido cumplida.
 
-## Links Relevantes
+<figure><img src="../../.gitbook/assets/mas06.png" alt="" width="375"><figcaption></figcaption></figure>
 
-### Conceptos Básicos
-- [AgentFlows Overview](../../usar-flowise/agentflows/README.md)
-- [Multi-Agents](../../usar-flowise/agentflows/multi-agents.md)
-- [Sequential Agents](../../usar-flowise/agentflows/sequential-agents.md)
 
-### Componentes
-- [Supervisors Guide](../../usar-flowise/agentflows/supervisors.md)
-- [Workers Documentation](../../usar-flowise/agentflows/workers.md)
-- [Memory Systems](../../usar-flowise/agentflows/memory.md)
+{% hint style="info" %}
+Es importante entender que el Supervisor juega un rol muy distinto al de los Workers. A diferencia de los Workers, que pueden ser adaptados con instrucciones altamente específicas, el Supervisor opera más efectivamente con directivas generales, que le permiten planificar y delegar tareas como lo considere apropiado. Si eres nuevo en sistemas multi-agente, recomendamos apegarse al prompt de Supervisor por defecto
+{% endhint %}
 
-### Tutoriales
-- [Getting Started](../../usar-flowise/agentflows/getting-started.md)
-- [Best Practices](../../usar-flowise/agentflows/best-practices.md)
-- [Advanced Patterns](../../usar-flowise/agentflows/advanced-patterns.md)
+## Entendiendo el Recursion Limit en el nodo Supervisor
 
-## Fundamentos de Agentes Autónomos
+Este parámetro restringe la profundidad máxima de llamadas a funciones anidadas dentro de nuestra aplicación. En nuestro contexto actual, limita cuántas veces el Supervisor puede activarse a sí mismo dentro de una sola ejecución de flujo de trabajo. Esto es importante para prevenir la recursión sin límites y asegurar que los recursos se usen eficientemente.
 
-### Características Principales
-- Autonomía en decisiones
-- Aprendizaje continuo
-- Adaptabilidad
-- Auto-optimización
+<figure><img src="../../.gitbook/assets/mas04.png" alt="" width="375"><figcaption></figcaption></figure>
 
-### Componentes Clave
-- Motor de decisiones
-- Sistema de aprendizaje
-- Gestión de memoria
-- Mecanismos de control
+## Cómo funciona el Supervisor
 
-## Implementación
+Al recibir una consulta del usuario, el Supervisor inicia el flujo de trabajo analizando la solicitud y discerniendo el resultado previsto por el usuario.
 
-### Arquitectura Base
-- [Autonomous Agent](../../integraciones/langchain/agents/autonomous-agent.md)
-- [Learning Agent](../../integraciones/langchain/agents/learning-agent.md)
-- [Memory Agent](../../integraciones/langchain/agents/memory-agent.md)
-- [Control Agent](../../integraciones/langchain/agents/control-agent.md)
+Luego, aprovechando la variable `{team_members}` en el Supervisor Prompt, que solo proporciona una lista de nombres de Worker AI disponibles, el Supervisor infiere la especialidad de cada Worker y selecciona estratégicamente el Worker más adecuado para cada tarea dentro del flujo de trabajo.
 
-### Herramientas Especializadas
-- [Decision Engine](../../integraciones/langchain/tools/decision-engine.md)
-- [Learning System](../../integraciones/langchain/tools/learning-system.md)
-- [Memory Manager](../../integraciones/langchain/tools/memory-manager.md)
-- [Control System](../../integraciones/langchain/tools/control-system.md)
+{% hint style="info" %}
+Ya que el Supervisor solo tiene los nombres de los Workers para inferir su funcionalidad dentro del flujo de trabajo, es muy importante que esos nombres se establezcan adecuadamente. Los nombres claros, concisos y descriptivos que reflejan con precisión el rol o área de experiencia del Worker son cruciales para que el Supervisor tome decisiones informadas al delegar tareas. Esto asegura que el Worker correcto sea seleccionado para el trabajo correcto, maximizando la precisión del sistema en cumplir la solicitud del usuario.
+{% endhint %}
 
-### Sistemas de Aprendizaje
-- Aprendizaje por refuerzo
-- Aprendizaje supervisado
-- Aprendizaje no supervisado
-- Aprendizaje por imitación
+## El Worker
 
-## Gestión de Autonomía
+El Worker, como un agente especializado instruido para manejar una tarea específica dentro del sistema, requiere dos componentes esenciales para funcionar correctamente:
 
-### Toma de Decisiones
-- Evaluación de opciones
-- Análisis de riesgos
-- Selección de acciones
-- Validación de resultados
+* Un Supervisor: Cada Worker debe estar conectado al Supervisor para que pueda ser llamado cuando una tarea necesita ser delegada. Esta conexión establece la relación jerárquica esencial dentro del sistema multi-agente, asegurando que el Supervisor pueda distribuir eficientemente el trabajo a los Workers especializados apropiados.
 
-### Control y Supervisión
-- Límites operativos
-- Mecanismos de seguridad
-- Intervención humana
-- Auditoría de decisiones
+* Un nodo Chat Model capaz de function calling: Por defecto, los Workers heredan el nodo Chat Model del Supervisor a menos que se les asigne uno directamente. Esta capacidad de function-calling permite al Worker interactuar con herramientas diseñadas para su tarea especializada.
 
-### Optimización Autónoma
-- Ajuste de parámetros
-- Mejora de estrategias
-- Adaptación al entorno
-- Evaluación de rendimiento
+<figure><img src="../../.gitbook/assets/mas05.png" alt="" width="375"><figcaption></figcaption></figure>
 
-## Casos de Uso
 
-### Automatización Avanzada
-- Procesos industriales
-- Sistemas de trading
-- Gestión de infraestructura
-- Optimización de recursos
+{% hint style="info" %}
+La capacidad de asignar diferentes Chat Models a cada Worker proporciona flexibilidad significativa y oportunidades de optimización para nuestra aplicación. Al seleccionar Chat Models adaptados a tareas específicas, podemos aprovechar soluciones más rentables para tareas más simples y reservar modelos especializados, potencialmente más caros, cuando sea verdaderamente necesario.
+{% endhint %}
 
-### Asistentes Inteligentes
-- Asistentes personales
-- Agentes de soporte
-- Consultores virtuales
-- Tutores automatizados
+## Entendiendo el parámetro Max Iteration en Workers
 
-### Sistemas de Control
-- Control de procesos
-- Gestión de energía
-- Logística automatizada
-- Mantenimiento predictivo
+LangChain se refiere a Max Iterations Cap como un mecanismo de control importante para prevenir el descontrol dentro de un sistema agéntico. En nuestro contexto actual, nos sirve como una barrera contra interacciones excesivas, potencialmente infinitas, entre el Supervisor y el Worker.
 
-## Consideraciones Avanzadas
+A diferencia del Recursion Limit del nodo Supervisor, que restringe cuántas veces el Supervisor puede llamarse a sí mismo, el parámetro Max Iteration del nodo Worker limita cuántas veces un Supervisor puede iterar o consultar a un Worker específico.
 
-### Ética y Responsabilidad
-- Toma de decisiones éticas
-- Transparencia
-- Responsabilidad
-- Impacto social
+Al limitar el Max Iteration, aseguramos que los costos permanezcan bajo control, incluso en casos de comportamiento inesperado del sistema.
 
-### Seguridad
-- Protección contra manipulación
-- Validación de decisiones
-- Control de acceso
-- Registro de acciones
+## Ejemplo: Un caso de uso práctico
 
-### Mantenimiento
-- Actualización de modelos
-- Gestión de conocimiento
-- Monitoreo de salud
-- Backup y recuperación
+Ahora que hemos establecido una comprensión fundamental de cómo funcionan los sistemas Multi-Agent dentro de Flowise, exploremos una aplicación práctica.
 
-## Desafío 5: Asistente Autónomo de Investigación
+Imagina un sistema multi-agente de Lead Outreach (disponible en el Marketplace) diseñado para automatizar el proceso de identificar, calificar y comprometerse con potenciales leads. Este sistema utilizaría un Supervisor para orquestar los siguientes dos Workers:
 
-### Objetivo
-Desarrollar un asistente de investigación autónomo capaz de:
-- Búsqueda y análisis de información
-- Síntesis de conocimiento
-- Generación de reportes
-- Aprendizaje continuo
+* **Lead Researcher**: Este Worker, usando la Google Search Tool, será responsable de recopilar potenciales leads basados en criterios definidos por el usuario.
 
-### Requisitos
-- Acceso a fuentes de información
-- Capacidad de análisis
-- Generación de contenido
-- Sistema de aprendizaje
+* **Lead Sales Generator**: Este Worker utilizará la información recopilada por el Lead Researcher para crear borradores de correos electrónicos personalizados para el equipo de ventas.
 
-### Implementación Sugerida
-- Arquitectura del sistema
-- Flujo de trabajo
-- Gestión de conocimiento
-- Mecanismos de aprendizaje
+<figure><img src="../../.gitbook/assets/mas08.png" alt=""><figcaption></figcaption></figure>
 
-### Evaluación
-- Calidad de investigación
-- Eficiencia en búsqueda
-- Precisión de síntesis
-- Capacidad de aprendizaje
 
-## Próximos Pasos
+**Antecedentes**: Un usuario que trabaja en Solterra Renewables quiere recopilar información disponible sobre Evergreen Energy Group, una empresa de energía renovable respetable ubicada en el Reino Unido, y dirigirse a su CEO, Amelia Croft, como un potencial lead.
 
-Al completar esta parte, estarás preparado para:
-- Implementar agentes autónomos
-- Diseñar sistemas de aprendizaje
-- Gestionar decisiones autónomas
-- Desarrollar mecanismos de control
-- Avanzar a la [Parte 9: Sequential Agents](../parte-9/README.md) 
+**Solicitud del Usuario**: El empleado de Solterra Renewables proporciona la siguiente consulta al sistema multi-agente: "Necesito información sobre Evergreen Energy Group y Amelia Croft como un potencial nuevo cliente para nuestro negocio."
+
+**Supervisor**:
+
+* El Supervisor recibe la solicitud del usuario y delega la tarea de "Lead Research" al Lead Researcher Worker.
+
+**Lead Researcher Worker**:
+
+* El Lead Researcher Worker, usando la Google Search Tool, recopila información sobre Evergreen Energy Group, enfocándose en:
+    * Antecedentes de la empresa, industria, tamaño y ubicación.
+    * Noticias y desarrollos recientes.
+    * Ejecutivos clave, incluyendo la confirmación del rol de Amelia Croft como CEO.
+
+* El Lead Researcher envía la información recopilada de vuelta al Supervisor.
+
+**Supervisor**:
+
+* El Supervisor recibe los datos de investigación del Lead Researcher Worker y confirma que Amelia Croft es un lead relevante.
+
+* El Supervisor delega la tarea de "Generate Sales Email" al Lead Sales Generator Worker, proporcionando:
+    * La información de investigación sobre Evergreen Energy Group.
+    * El correo electrónico de Amelia Croft.
+    * Contexto sobre Solterra Renewables.
+
+**Lead Sales Generator Worker**:
+
+* El Lead Sales Generator Worker elabora un borrador de correo electrónico personalizado adaptado a Amelia Croft, teniendo en cuenta:
+    * Su rol como CEO y la relevancia de los servicios de Solterra Renewables para su empresa.
+    * Información de la investigación sobre el enfoque o proyectos actuales de Evergreen Energy Group.
+
+* El Lead Sales Generator Worker envía el borrador de correo electrónico completado de vuelta al Supervisor.
+
+**Supervisor**:
+
+* El Supervisor recibe el borrador de correo electrónico generado y emite la directiva "FINISH".
+
+* El Supervisor envía el borrador de correo electrónico de vuelta al usuario, el empleado de Solterra Renewables.
+
+**Usuario Recibe la Salida**: El empleado de Solterra Renewables recibe un borrador de correo electrónico personalizado listo para ser revisado y enviado a Amelia Croft.
+
+## Relevant Links
+content_copy
+download
+Use code with caution.
+Markdown
