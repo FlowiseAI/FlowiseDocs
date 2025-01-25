@@ -2,76 +2,16 @@
 
 Esta guía ofrece una visión completa de la arquitectura de Sequential Agent AI dentro de Flowise, explorando sus componentes principales y principios de diseño del flujo de trabajo.
 
-## Contenidos
+## Contenido
 - [Concepto](#concepto)
-- [Entendiendo la Arquitectura DCG de Sequential Agents](#entendiendo-la-arquitectura-dcg-de-sequential-agents)
 - [Sequential Agents vs Multi-Agents](#sequential-agents-vs-multi-agents)
-- [Introduciendo State, Loop y Condition Nodes](#introduciendo-state-loop-y-condition-nodes)
-- [Eligiendo el sistema correcto](#eligiendo-el-sistema-correcto)
-- [Sequential Agents Nodes](#sequential-agents-nodes)
-- [1. Start Node](#1-start-node)
-- [2. Agent Memory Node](#2-agent-memory-node)
-- [3. State Node](#3-state-node)
-- [4. Agent Node](#4-agent-node)
-    - [Entendiendo el Agent Node](#entendiendo-el-agent-node)
-    - [Inputs](#inputs-agent-node)
-    - [Outputs](#outputs-agent-node)
-    - [Configuración del Nodo](#configuración-del-nodo-agent-node)
-    - [Parámetros Adicionales](#parámetros-adicionales-agent-node)
-    - [Mejores Prácticas](#mejores-prácticas-agent-node)
-- [5. LLM Node](#5-llm-node)
-    - [Entendiendo el LLM Node](#entendiendo-el-llm-node)
-    - [Inputs](#inputs-llm-node)
-    - [Outputs](#outputs-llm-node)
-    - [Configuración del Nodo](#configuración-del-nodo-llm-node)
-    - [Parámetros Adicionales](#parámetros-adicionales-llm-node)
-    - [Mejores Prácticas](#mejores-prácticas-llm-node)
-- [6. Tool Node](#6-tool-node)
-    - [Entendiendo el Tool Node](#entendiendo-el-tool-node)
-    - [Inputs](#inputs-tool-node)
-    - [Outputs](#outputs-tool-node)
-    - [Configuración del Nodo](#configuración-del-nodo-tool-node)
-    - [Parámetros Adicionales](#parámetros-adicionales-tool-node)
-    - [Mejores Prácticas](#mejores-prácticas-tool-node)
-- [7. Condition Node](#7-condition-node)
-    - [Entendiendo el Condition Node](#entendiendo-el-condition-node)
-        - [Aquí hay una explicación paso a paso de cómo funciona](#aquí-hay-una-explicación-paso-a-paso-de-cómo-funciona-condition-node)
-    - [Inputs](#inputs-condition-node)
-    - [Outputs](#outputs-condition-node)
-    - [Configuración del Nodo](#configuración-del-nodo-condition-node)
-    - [Parámetros Adicionales](#parámetros-adicionales-condition-node)
-    - [Mejores Prácticas](#mejores-prácticas-condition-node)
-- [8. Condition Agent Node](#8-condition-agent-node)
-    - [Entendiendo el Condition Agent Node](#entendiendo-el-condition-agent-node)
-    - [Inputs](#inputs-condition-agent-node)
-    - [Outputs](#outputs-condition-agent-node)
-    - [Configuración del Nodo](#configuración-del-nodo-condition-agent-node)
-    - [Parámetros Adicionales](#parámetros-adicionales-condition-agent-node)
-    - [Mejores Prácticas](#mejores-prácticas-condition-agent-node)
-- [9. Loop Node](#9-loop-node)
-    - [Entendiendo el Loop Node](#entendiendo-el-loop-node)
-        - [Aquí hay un ejemplo de cómo se podría usar el Loop Node](#aquí-hay-un-ejemplo-de-cómo-se-podría-usar-el-loop-node)
-    - [Inputs](#inputs-loop-node)
-    - [Outputs](#outputs-loop-node)
-    - [Configuración del Nodo](#configuración-del-nodo-loop-node)
-    - [Parámetros Adicionales](#parámetros-adicionales-loop-node)
-    - [Mejores Prácticas](#mejores-prácticas-loop-node)
-- [10. End Node](#10-end-node)
-    - [Entendiendo el End Node](#entendiendo-el-end-node)
-    - [Inputs](#inputs-end-node)
-    - [Outputs](#outputs-end-node)
-    - [Mejores Prácticas](#mejores-prácticas-end-node)
+- [Sequential Agents Nodos](#sequential-agents-nodes)
 - [Condition Node vs. Condition Agent Node](#condition-node-vs-condition-agent-node)
-    - [Condition Node](#condition-node-comparison)
-    - [Condition Agent Node](#condition-agent-node-comparison)
-    - [Resumen](#resumen-condition-node-vs-condition-agent-node)
-    - [Eligiendo el nodo correcto](#eligiendo-el-nodo-correcto-condition-node-vs-condition-agent-node)
 - [Agent Node vs. LLM Node](#agent-node-vs-llm-node)
-    - [Agent Node](#agent-node-comparison)
-    - [LLM Node](#llm-node-comparison)
-    - [Resumen](#resumen-agent-node-vs-llm-node)
-    - [Eligiendo el nodo correcto](#eligiendo-el-nodo-correcto-agent-node-vs-llm-node)
-- [Relevant Links](#relevant-links)
+
+{% hint style="warning" %}
+**Aviso**: Esta documentación está destinada a ayudar a los usuarios de Flowise a entender y construir flujos de trabajo conversacionales usando la arquitectura Sequential Agent. No pretende ser una referencia técnica exhaustiva del framework LangGraph y no debe interpretarse como una definición de estándares de la industria o conceptos fundamentales de LangGraph.
+{% endhint %}
 
 ## Concepto
 
@@ -81,8 +21,7 @@ Este grafo, compuesto de nodos interconectados, define el flujo secuencial de in
 
 <figure><img src="../../.gitbook/assets/seq-21.svg" alt=""><figcaption></figcaption></figure>
 
-
-## Entendiendo la Arquitectura DCG de Sequential Agents
+### Entendiendo la Arquitectura DCG de Sequential Agents
 
 Esta arquitectura simplifica la gestión de flujos de trabajo conversacionales complejos definiendo una secuencia clara y comprensible de operaciones a través de su estructura DCG.
 
@@ -106,6 +45,7 @@ Exploremos algunos elementos clave de este enfoque:
 {% endtab %}
 {% endtabs %}
 
+***
 
 ## Sequential Agents vs Multi-Agents
 
@@ -115,7 +55,7 @@ Los **sistemas Multi-Agent**, que se caracterizan por una estructura jerárquica
 
 En contraste, los **sistemas Sequential Agent** operan como una línea de ensamblaje optimizada, donde los datos fluyen secuencialmente a través de una cadena de nodos, haciéndolos ideales para tareas que demandan un orden preciso de operaciones y refinamiento incremental de datos. Comparado con el sistema Multi-Agent, su acceso de nivel más bajo a la estructura del flujo de trabajo subyacente lo hace fundamentalmente más **flexible y personalizable, ofreciendo ejecución paralela de nodos y control total sobre la lógica del sistema**, incorporando nodos de condición, estado y bucle en el flujo de trabajo, permitiendo la creación de nuevas capacidades de ramificación dinámicas.
 
-## Introduciendo State, Loop y Condition Nodes
+### Introduciendo State, Loop y Condition Nodes
 
 Los Sequential Agents de Flowise ofrecen nuevas capacidades para crear sistemas conversacionales que pueden adaptarse a la entrada del usuario, tomar decisiones basadas en el contexto y realizar tareas iterativas.
 
@@ -127,7 +67,7 @@ Estas capacidades son posibles gracias a la introducción de cuatro nuevos nodos
 * **Loop Node:** Este nodo **introduce ciclos controlados** dentro del flujo de trabajo Sequential Agent, permitiendo procesos iterativos donde una secuencia de nodos puede repetirse basada en condiciones específicas. Esto permite a los agentes refinar salidas, recopilar información adicional del usuario o realizar tareas múltiples veces.
 * **Condition Nodes:** El Condition y Condition Agent Node proporcionan el control necesario para **crear flujos conversacionales complejos con caminos ramificados**. El Condition Node evalúa condiciones directamente, mientras que el Condition Agent Node usa el razonamiento de un agente para determinar la lógica de ramificación. Esto nos permite guiar dinámicamente el comportamiento del flujo basado en la entrada del usuario, el State personalizado o resultados de acciones tomadas por otros nodos.
 
-## Eligiendo el sistema correcto
+### Eligiendo el sistema correcto
 
 Seleccionar el sistema ideal para tu aplicación depende de entender tus necesidades específicas de flujo de trabajo. Factores como la complejidad de la tarea, la necesidad de procesamiento paralelo y tu nivel deseado de control sobre el flujo de datos son todas consideraciones clave.
 
@@ -142,6 +82,8 @@ Aquí hay una tabla comparando las implementaciones Multi-Agent y Sequential Age
 **Nota**: Aunque los sistemas Multi-Agent son técnicamente una capa de nivel superior construida sobre la arquitectura Sequential Agent, ofrecen una experiencia de usuario y enfoque distintivos para el diseño de flujos de trabajo. La comparación anterior los trata como sistemas separados para ayudarte a seleccionar la mejor opción para tus necesidades específicas.
 {% endhint %}
 
+***
+
 ## Sequential Agents Nodes
 
 Los Sequential Agents introducen una nueva dimensión a Flowise, **introduciendo 10 nodos especializados**, cada uno sirviendo un propósito específico, ofreciendo más control sobre cómo nuestros agentes conversacionales interactúan con los usuarios, procesan información, toman decisiones y ejecutan acciones.
@@ -149,6 +91,8 @@ Los Sequential Agents introducen una nueva dimensión a Flowise, **introduciendo
 Las siguientes secciones tienen como objetivo proporcionar una comprensión completa de la funcionalidad de cada nodo, entradas, salidas y mejores prácticas, permitiéndote finalmente crear flujos de trabajo conversacionales sofisticados para una variedad de aplicaciones.
 
 <figure><img src="../../.gitbook/assets/seq-00.png" alt=""><figcaption></figcaption></figure>
+
+***
 
 ## 1. Start Node
 
@@ -165,11 +109,11 @@ El Start Node asegura que nuestros flujos de trabajo conversacionales tengan la 
 * **Estableciendo un State personalizado:** Por defecto, el State contiene un array inmutable `state.messages`, que actúa como la transcripción o historial de la conversación entre el usuario y los agentes. El Start Node permite conectar un State personalizado al flujo de trabajo agregando un State Node, permitiendo el almacenamiento de información adicional relevante para tu flujo de trabajo
 * **Habilitando moderación:** Opcionalmente, podemos conectar Input Moderation para analizar la entrada del usuario y prevenir que contenido potencialmente dañino sea enviado al LLM.
 
-### Inputs <a name="inputs-start-node"></a>
+### Inputs
 
 <table><thead><tr><th width="212"></th><th width="103">Required</th><th>Description</th></tr></thead><tbody><tr><td>Chat Model</td><td><strong>Sí</strong></td><td>El LLM por defecto que alimentará la conversación. Solo compatible con <strong>modelos que son capaces de function calling</strong>.</td></tr><tr><td>Agent Memory Node</td><td>No</td><td>Conecta un Agent Memory Node para <strong>habilitar persistencia y preservación del contexto</strong>.</td></tr><tr><td>State Node</td><td>No</td><td>Conecta un State Node para <strong>establecer un State personalizado</strong>, un contexto compartido que puede ser accedido y modificado por otros nodos en el flujo de trabajo.</td></tr><tr><td>Input Moderation</td><td>No</td><td>Conecta un Moderation Node para <strong>filtrar contenido</strong> detectando texto que podría generar salida dañina, evitando que sea enviado al LLM.</td></tr></tbody></table>
 
-### Outputs <a name="outputs-start-node"></a>
+### Outputs
 
 El Start Node puede conectarse a los siguientes nodos como salidas:
 
@@ -178,7 +122,7 @@ El Start Node puede conectarse a los siguientes nodos como salidas:
 * **Condition Agent Node:** Se conecta a un Condition Agent Node para implementar lógica de ramificación basada en la evaluación del agente de la conversación.
 * **Condition Node:** Se conecta a un Condition Node para implementar lógica de ramificación basada en condiciones predefinidas.
 
-### Mejores Prácticas <a name="mejores-prácticas-start-node"></a>
+### Mejores Prácticas
 
 {% tabs %}
 {% tab title="Pro Tips" %}
@@ -230,7 +174,7 @@ Esta tabla **almacena instantáneas del State del sistema en varios puntos duran
 
 <figure><img src="../../.gitbook/assets/seq-12.png" alt=""><figcaption></figcaption></figure>
 
-#### Estructura de la tabla <a name="estructura-de-la-tabla-agent-memory-node"></a>
+#### Estructura de la tabla
 
 * **thread_id:** Un identificador único que representa una sesión de conversación específica, **nuestro ID de sesión**. Agrupa todos los checkpoints relacionados con una única ejecución del flujo de trabajo.
 * **checkpoint_id:** Un identificador único para cada paso de ejecución (ejecución de nodo) dentro del flujo de trabajo. Ayuda a rastrear el orden de operaciones e identificar el State en cada paso.
@@ -238,7 +182,7 @@ Esta tabla **almacena instantáneas del State del sistema en varios puntos duran
 * **checkpoint:** Contiene una cadena JSON que representa el State actual del flujo de trabajo en ese checkpoint específico. Esto incluye los valores de variables, los mensajes intercambiados y cualquier otro dato relevante capturado en ese punto de la ejecución.
 * **metadata:** Proporciona contexto adicional sobre el checkpoint, específicamente relacionado con operaciones de nodo.
 
-#### Cómo funciona <a name="cómo-funciona-agent-memory-node"></a>
+#### Cómo funciona
 
 A medida que un flujo de trabajo Sequential Agent se ejecuta, el sistema registra un checkpoint en esta tabla para cada paso significativo. Este mecanismo proporciona varios beneficios:
 
@@ -246,23 +190,23 @@ A medida que un flujo de trabajo Sequential Agent se ejecuta, el sistema registr
 * **Gestión de State:** Los checkpoints almacenan el State del flujo de trabajo en cada paso, incluyendo valores de variables, historial de conversación y cualquier otro dato relevante. Esto permite al sistema mantener conciencia contextual y tomar decisiones informadas basadas en el State actual.
 * **Reanudación del flujo de trabajo:** Si el flujo de trabajo es pausado o interrumpido (por ejemplo, debido a un error del sistema o solicitud del usuario), el sistema puede usar los checkpoints almacenados para reanudar la ejecución desde el último State registrado. Esto asegura que la conversación o tarea continúe desde donde se quedó, preservando el progreso del usuario y previniendo pérdida de datos.
 
-### **Inputs** <a name="inputs-agent-memory-node"></a>
+### **Inputs**
 
 El Agent Memory Node **no tiene conexiones de entrada específicas**.
 
-### Configuración del Nodo <a name="configuración-del-nodo-agent-memory-node"></a>
+### Configuración del Nodo
 
 <table><thead><tr><th width="189"></th><th width="107">Required</th><th>Description</th></tr></thead><tbody><tr><td>Database</td><td><strong>Sí</strong></td><td>El tipo de base de datos utilizada para almacenar el historial de conversación. Actualmente, <strong>solo SQLite está soportado</strong>.</td></tr></tbody></table>
 
-### Parámetros Adicionales <a name="parámetros-adicionales-agent-memory-node"></a>
+### Parámetros Adicionales
 
 <table><thead><tr><th width="189"></th><th width="107">Required</th><th>Description</th></tr></thead><tbody><tr><td>Database File Path</td><td>No</td><td>La ruta del archivo a la base de datos SQLite. <strong>Si no se proporciona, el sistema utilizará una ubicación por defecto</strong>.</td></tr></tbody></table>
 
-### **Outputs** <a name="outputs-agent-memory-node"></a>
+### **Outputs**
 
 El Agent Memory Node interactúa únicamente con el **Start Node**, haciendo que el historial de conversación esté disponible desde el comienzo del flujo de trabajo.
 
-### **Mejores Prácticas** <a name="mejores-prácticas-agent-memory-node"></a>
+### **Mejores Prácticas**
 
 {% tabs %}
 {% tab title="Pro Tips" %}
@@ -280,6 +224,8 @@ Emplea Agent Memory solo cuando sea necesario. Para interacciones simples y sin 
 {% endtab %}
 {% endtabs %}
 
+***
+
 ## 3. State Node
 
 El State Node, que solo puede conectarse al Start Node, **proporciona un mecanismo para establecer un State definido por el usuario o personalizado** en nuestro flujo de trabajo desde el inicio de la conversación. Este State personalizado es un objeto JSON que es compartido y puede ser actualizado por nodos en el grafo, pasando de un nodo a otro a medida que el flujo progresa.
@@ -296,19 +242,19 @@ Dado que por definición este array `state.messages` es inmutable y no puede ser
 Cuando no se usa **Agent Memory Node**, el State opera en memoria y no persiste para uso futuro.
 {% endhint %}
 
-### Inputs <a name="inputs-state-node"></a>
+### Inputs
 
 El State Node **no tiene conexiones de entrada específicas**.
 
-### Outputs <a name="outputs-state-node"></a>
+### Outputs
 
 El State Node solo puede conectarse al **Start Node**, permitiendo la configuración de un State personalizado desde el inicio del flujo de trabajo y permitiendo que otros nodos accedan y potencialmente modifiquen este State compartido personalizado.
 
-### Parámetros Adicionales <a name="parámetros-adicionales-state-node"></a>
+### Parámetros Adicionales
 
 <table><thead><tr><th width="157"></th><th width="113">Required</th><th>Description</th></tr></thead><tbody><tr><td>Custom State</td><td><strong>Sí</strong></td><td>Un objeto JSON que representa el <strong>State inicial personalizado del flujo de trabajo</strong>. Este objeto puede contener cualquier par clave-valor relevante para la aplicación.</td></tr></tbody></table>
 
-### Cómo establecer un State personalizado <a name="cómo-establecer-un-state-personalizado"></a> <a href="#alert-dialog-title" id="alert-dialog-title"></a>
+### Cómo establecer un State personalizado <a href="#alert-dialog-title" id="alert-dialog-title"></a>
 
 Especifica la **clave**, **tipo de operación** y **valor por defecto** para el objeto state. El tipo de operación puede ser "Replace" o "Append".
 
@@ -320,7 +266,7 @@ Especifica la **clave**, **tipo de operación** y **valor por defecto** para el 
   2. Los valores por defecto pueden estar vacíos o ser un array. Ej: \["a", "b"]
   3. El valor final es un array.
 
-#### Ejemplo usando JS <a name="ejemplo-usando-js"></a>
+#### Ejemplo usando JS
 
 {% code overflow="wrap" %}
 ```javascript
@@ -330,46 +276,39 @@ Especifica la **clave**, **tipo de operación** y **valor por defecto** para el 
         default: () => []
     }
 }
-content_copy
-download
-Use code with caution.
-Markdown
-
+```
 {% endcode %}
 
-Ejemplo usando Tabla <a name="ejemplo-usando-tabla"></a>
+#### Ejemplo usando Tabla
 
 Para definir un State personalizado usando la interfaz de tabla en el State Node, sigue estos pasos:
 
-Agregar elemento: Haz clic en el botón "+ Add Item" para agregar filas a la tabla. Cada fila representa un par clave-valor en tu State personalizado.
+1. **Agregar elemento:** Haz clic en el botón "+ Add Item" para agregar filas a la tabla. Cada fila representa un par clave-valor en tu State personalizado.
+2. **Especificar claves:** En la columna "Key", ingresa el nombre de cada clave que deseas definir en tu objeto state. Por ejemplo, podrías tener claves como "userName", "userLocation", etc.
+3. **Elegir operaciones:** En la columna "Operation", selecciona la operación deseada para cada clave. Tienes dos opciones:
+   * **Replace:** Esto reemplazará el valor existente de la clave con el nuevo valor proporcionado por un nodo. Si el nuevo valor es null, se mantendrá el valor existente.
+   * **Append:** Esto añadirá el nuevo valor al valor existente de la clave. El valor final será un array.
+4. **Establecer valores por defecto:** En la columna "Default Value", ingresa el valor inicial para cada clave. Este valor se usará si ningún otro nodo proporciona un valor para la clave. El valor por defecto puede estar vacío o ser un array.
 
-Especificar claves: En la columna "Key", ingresa el nombre de cada clave que deseas definir en tu objeto state. Por ejemplo, podrías tener claves como "userName", "userLocation", etc.
+#### Ejemplo de Tabla
 
-Elegir operaciones: En la columna "Operation", selecciona la operación deseada para cada clave. Tienes dos opciones:
+| Key      | Operation | Default Value |
+| -------- | --------- | ------------- |
+| userName | Replace   | null          |
 
-Replace: Esto reemplazará el valor existente de la clave con el nuevo valor proporcionado por un nodo. Si el nuevo valor es null, se mantendrá el valor existente.
-
-Append: Esto añadirá el nuevo valor al valor existente de la clave. El valor final será un array.
-
-Establecer valores por defecto: En la columna "Default Value", ingresa el valor inicial para cada clave. Este valor se usará si ningún otro nodo proporciona un valor para la clave. El valor por defecto puede estar vacío o ser un array.
-
-Ejemplo de Tabla <a name="ejemplo-de-tabla"></a>
-Key	Operation	Default Value
-userName	Replace	null
 <figure><img src="../../.gitbook/assets/seq-14.png" alt="" width="375"><figcaption></figcaption></figure>
 
-
-Esta tabla define una clave en el State personalizado: userName.
-
-La clave userName usará la operación "Replace", lo que significa que su valor se actualizará cuando un nodo proporcione un nuevo valor.
-
-La clave userName tiene un valor por defecto de null, indicando que no tiene valor inicial.
+1. Esta tabla define una clave en el State personalizado: `userName`.
+2. La clave `userName` usará la operación "Replace", lo que significa que su valor se actualizará cuando un nodo proporcione un nuevo valor.
+3. La clave `userName` tiene un valor por defecto de _null_, indicando que no tiene valor inicial.
 
 {% hint style="info" %}
 Recuerda que este enfoque basado en tabla es una alternativa a definir el State personalizado usando JavaScript. Ambos métodos logran el mismo resultado.
 {% endhint %}
 
-Ejemplo usando API <a name="ejemplo-usando-api"></a>
+#### Ejemplo usando API
+
+```json
 {
     "question": "hello",
     "overrideConfig": {
@@ -382,21 +321,134 @@ Ejemplo usando API <a name="ejemplo-usando-api"></a>
         ]
     }
 }
-content_copy
-download
-Use code with caution.
-Json
-Mejores Prácticas <a name="mejores-prácticas-state-node"></a>
+```
+
+### Mejores Prácticas
 
 {% tabs %}
 {% tab title="Pro-Tips" %}
-Planifica la estructura de tu State personalizado
+**Planifica la estructura de tu State personalizado**
 
 Antes de construir tu flujo de trabajo, diseña la estructura de tu State personalizado. Un State personalizado bien organizado hará que tu flujo de trabajo sea más fácil de entender, gestionar y depurar.
 
-Usa nombres de clave significativos
+**Usa nombres de clave significativos**
 
-Elige nombres de clave descriptivos y consistentes que indiquen claramente el propósito de los datos que contienen. Esto
+Elige nombres de clave descriptivos y consistentes que indiquen claramente el propósito de los datos que contienen. Esto mejorará la legibilidad de tu código y facilitará que otros (o tú en el futuro) entiendan cómo se está usando el State personalizado.
+
+**Mantén el State personalizado mínimo**
+
+Solo almacena información en el State personalizado que sea esencial para la lógica del flujo de trabajo y la toma de decisiones.
+
+**Considera la persistencia del State**
+
+Si necesitas preservar el State a través de múltiples sesiones de conversación (por ejemplo, para preferencias de usuario, historial de pedidos, etc.), usa el Agent Memory Node para almacenar el State en una base de datos persistente.
+{% endtab %}
+
+{% tab title="Potential Pitfalls" %}
+**Actualizaciones Inconsistentes del State**
+
+* **Problema:** Actualizar el State personalizado en múltiples nodos sin una estrategia clara puede llevar a inconsistencias y comportamiento inesperado.
+* **Ejemplo**
+  1. Agent 1 actualiza `orderStatus` a "Payment Confirmed".
+  2. Agent 2, en una rama diferente, actualiza `orderStatus` a "Order Complete" sin verificar el estado anterior.
+* **Solución:** Usa Conditions Nodes para controlar el flujo de las actualizaciones del State personalizado y asegura que las transiciones del State personalizado ocurran de manera lógica y consistente.
+{% endtab %}
+{% endtabs %}
+
+***
+
+## 4. Agent Node
+
+El Agent Node es un **componente central de la arquitectura Sequential Agent**. Actúa como un tomador de decisiones y orquestador dentro de nuestro flujo de trabajo.
+
+<figure><img src="../../.gitbook/assets/sa-agent.png" alt="" width="268"><figcaption></figcaption></figure>
+
+### Entendiendo el Agent Node
+
+Al recibir entrada de nodos precedentes, que siempre incluye el historial completo de conversación `state.messages` y cualquier State personalizado en ese punto de la ejecución, el Agent Node usa su "persona" definida, establecida por el System Prompt, para determinar si se necesitan herramientas externas para cumplir con la solicitud del usuario.
+
+* Si se requieren herramientas, el Agent Node selecciona y ejecuta autónomamente la herramienta apropiada. Esta ejecución puede ser automática o, para tareas sensibles, requerir aprobación humana (HITL) antes de proceder. Una vez que la herramienta completa su operación, el Agent Node recibe los resultados, los procesa usando el Chat Model (LLM) designado y genera una respuesta completa.
+* En casos donde no se necesitan herramientas, el Agent Node aprovecha directamente el Chat Model (LLM) para formular una respuesta basada en el contexto actual de la conversación.
+
+### Inputs
+
+<table><thead><tr><th width="195"></th><th width="107">Required</th><th>Description</th></tr></thead><tbody><tr><td>External Tools</td><td>No</td><td>Proporciona al Agent Node <strong>acceso a un conjunto de herramientas externas</strong>, permitiéndole realizar acciones y recuperar información.</td></tr><tr><td>Chat Model</td><td>No</td><td>Agrega un nuevo Chat Model para <strong>sobrescribir el Chat Model por defecto</strong> (LLM) del flujo de trabajo. Solo compatible con modelos que son capaces de function calling.</td></tr><tr><td>Start Node</td><td><strong>Sí</strong></td><td>Recibe la <strong>entrada inicial del usuario</strong>, junto con el State personalizado (si está configurado) y el resto del array <code>state.messages</code> por defecto del Start Node.</td></tr><tr><td>Condition Node</td><td><strong>Sí</strong></td><td>Recibe entrada de un Condition Node precedente, permitiendo que el Agent Node <strong>tome acciones o guíe la conversación basado en el resultado de la evaluación del Condition Node</strong>.</td></tr><tr><td>Condition Agent Node</td><td><strong>Sí</strong></td><td>Recibe entrada de un Condition Agent Node precedente, permitiendo que el Agent Node <strong>tome acciones o guíe la conversación basado en el resultado de la evaluación del Condition Agent Node</strong>.</td></tr><tr><td>Agent Node</td><td><strong>Sí</strong></td><td>Recibe entrada de un Agent Node precedente, <strong>permitiendo acciones de agente encadenadas</strong> y manteniendo el contexto conversacional</td></tr><tr><td>LLM Node</td><td><strong>Sí</strong></td><td>Recibe la salida del LLM Node, permitiendo que el Agent Node <strong>procese la respuesta del LLM</strong>.</td></tr><tr><td>Tool Node</td><td><strong>Sí</strong></td><td>Recibe la salida de un Tool Node, permitiendo que el Agent Node <strong>procese e integre las salidas de la herramienta en su respuesta</strong>.</td></tr></tbody></table>
+
+{% hint style="info" %}
+El **Agent Node requiere al menos una conexión de los siguientes nodos**: Start Node, Agent Node, Condition Node, Condition Agent Node, LLM Node, o Tool Node.
+{% endhint %}
+
+### Outputs
+
+El Agent Node puede conectarse a los siguientes nodos como salidas:
+
+* **Agent Node:** Pasa el control a un Agent Node subsiguiente, permitiendo el encadenamiento de múltiples acciones de agente dentro de un flujo de trabajo. Esto permite flujos conversacionales más complejos y orquestación de tareas.
+* **LLM Node:** Pasa la salida del agente a un LLM Node, permitiendo más procesamiento de lenguaje, generación de respuestas o toma de decisiones basada en las acciones e insights del agente.
+* **Condition Agent Node:** Dirige el flujo a un Condition Agent Node. Este nodo evalúa la salida del Agent Node y sus condiciones predefinidas para determinar el siguiente paso apropiado en el flujo de trabajo.
+* **Condition Node:** Similar al Condition Agent Node, el Condition Node usa condiciones predefinidas para evaluar la salida del Agent Node, dirigiendo el flujo por diferentes ramas basado en el resultado.
+* **End Node:** Concluye el flujo de conversación.
+* **Loop Node:** Redirige el flujo de vuelta a un nodo anterior, permitiendo procesos iterativos o cíclicos dentro del flujo de trabajo. Esto es útil para tareas que requieren múltiples pasos o involucran refinar resultados basados en interacciones previas. Por ejemplo, podrías volver a un Agent Node o LLM Node anterior para recopilar información adicional o refinar el flujo de conversación basado en la salida del Agent Node actual.
+
+### Configuración del Nodo
+
+<table><thead><tr><th width="201"></th><th width="101">Required</th><th>Description</th></tr></thead><tbody><tr><td>Agent Name</td><td><strong>Sí</strong></td><td>Agrega un nombre descriptivo al Agent Node para mejorar la legibilidad del flujo de trabajo y fácilmente <strong>apuntarlo de vuelta cuando uses bucles</strong> dentro del flujo de trabajo.</td></tr><tr><td>System Prompt</td><td>No</td><td>Define la <strong>'persona' del agente</strong> y <strong>guía su comportamiento</strong>. Por ejemplo, "<em>Eres un agente de servicio al cliente especializado en soporte técnico</em> [...]."</td></tr><tr><td>Require Approval</td><td>No</td><td><strong>Activa la característica Human-in-the-loop (HITL)</strong>. Si se establece en '<strong>True</strong>,' el Agent Node solicitará aprobación humana antes de ejecutar cualquier herramienta. Esto es particularmente valioso para operaciones sensibles o cuando se desea supervisión humana. Por defecto es '<strong>False</strong>,' permitiendo que el Agent Node ejecute herramientas autónomamente.</td></tr></tbody></table>
+
+### Parámetros Adicionales
+
+<table><thead><tr><th width="200"></th><th width="102">Required</th><th>Description</th></tr></thead><tbody><tr><td>Human Prompt</td><td>No</td><td>Este prompt se añade al array <code>state.messages</code> como un mensaje humano. Permite <strong>inyectar un mensaje similar al humano en el flujo de conversación</strong> después de que el Agent Node ha procesado su entrada y antes de que el siguiente nodo reciba la salida del Agent Node.</td></tr><tr><td>Approval Prompt</td><td>No</td><td><strong>Un prompt personalizable presentado al revisor humano cuando la característica HITL está activa</strong>. Este prompt proporciona contexto sobre la ejecución de la herramienta, incluyendo el nombre y propósito de la herramienta. La variable <code>{tools}</code> dentro del prompt será reemplazada dinámicamente con la lista actual de herramientas sugeridas por el agente, asegurando que el revisor humano tenga toda la información necesaria para tomar una decisión informada.</td></tr><tr><td>Approve Button Text</td><td>No</td><td>Personaliza <strong>el texto mostrado en el botón para aprobar la ejecución de la herramienta</strong> en la interfaz HITL. Esto permite adaptar el lenguaje al contexto específico y asegurar claridad para el revisor humano.</td></tr><tr><td>Reject Button Text</td><td>No</td><td>Personaliza el <strong>texto mostrado en el botón para rechazar la ejecución de la herramienta</strong> en la interfaz HITL. Como el Approve Button Text, esta personalización mejora la claridad y proporciona una acción clara para que el revisor humano tome si considera que la ejecución de la herramienta es innecesaria o potencialmente dañina.</td></tr><tr><td>Update State</td><td>No</td><td>Proporciona un <strong>mecanismo para modificar el objeto State personalizado compartido dentro del flujo de trabajo</strong>. Esto es útil para almacenar información recopilada por el agente o influir en el comportamiento de nodos subsiguientes.</td></tr><tr><td>Max Iteration</td><td>No</td><td>Limita el <strong>número de iteraciones</strong> que un Agent Node puede hacer dentro de una única ejecución del flujo de trabajo.</td></tr></tbody></table>
+
+### Mejores Prácticas
+
+{% tabs %}
+{% tab title="Pro Tips" %}
+**System prompt claro.**
+
+Crea un System Prompt conciso y sin ambigüedades que refleje con precisión el rol y capacidades del agente. Esto guía la toma de decisiones del agente y asegura que actúe dentro de su alcance definido.
+
+**Selección estratégica de herramientas**
+
+Elige y configura las herramientas disponibles para el Agent Node, asegurando que se alineen con el propósito del agente y los objetivos generales del flujo de trabajo.
+
+**HITL para tareas sensibles**
+
+Utiliza la opción 'Require Approval' para tareas que involucran datos sensibles, requieren juicio humano o conllevan un riesgo de consecuencias no intencionadas.
+
+**Aprovecha las actualizaciones de State personalizado**
+
+Actualiza el objeto State personalizado estratégicamente para almacenar información recopilada o influir en el comportamiento de nodos posteriores.
+{% endtab %}
+
+{% tab title="Potential Pitfalls" %}
+**Inacción del agente debido a sobrecarga de herramientas**
+
+* **Problema:** Cuando un Agent Node tiene acceso a un gran número de herramientas dentro de una única ejecución del flujo de trabajo, podría tener dificultades para decidir qué herramienta es la más apropiada para usar, incluso cuando una herramienta es claramente necesaria. Esto puede llevar a que el agente no llame a ninguna herramienta en absoluto, resultando en respuestas incompletas o inexactas.
+* **Ejemplo:** Imagina un agente de soporte al cliente diseñado para manejar una amplia gama de consultas. Lo has equipado con herramientas para seguimiento de pedidos, información de facturación, devoluciones de productos, soporte técnico y más. Un usuario pregunta, "¿Cuál es el estado de mi pedido?" pero el agente, abrumado por el número de herramientas potenciales, responde con una respuesta genérica como, "Puedo ayudarte con eso. ¿Cuál es tu número de pedido?" sin usar realmente la herramienta de seguimiento de pedidos.
+* **Solución**
+  1. **Refina los system prompts:** Proporciona instrucciones más claras y ejemplos dentro del System Prompt del Agent Node para guiarlo hacia la selección correcta de herramientas. Si es necesario, enfatiza las capacidades específicas de cada herramienta y las situaciones en las que deberían usarse.
+  2. **Limita las opciones de herramientas por nodo:** Si es posible, divide los flujos de trabajo complejos en segmentos más pequeños y manejables, cada uno con un conjunto más enfocado de herramientas. Esto puede ayudar a reducir la carga cognitiva en el agente y mejorar su precisión en la selección de herramientas.
+
+**Pasar por alto HITL para tareas sensibles**
+
+* **Problema:** No utilizar la característica "Require Approval" (HITL) del Agent Node para tareas que involucran información sensible, decisiones críticas o acciones con potenciales consecuencias en el mundo real puede llevar a resultados no intencionados o daño a la confianza del usuario.
+* **Ejemplo:** Tu agente de reservas de viajes tiene acceso a la información de pago de un usuario y puede reservar vuelos y hoteles automáticamente. Sin HITL, una mala interpretación de la intención del usuario o un error en la comprensión del agente podría resultar en una reserva incorrecta o uso no autorizado de los detalles de pago del usuario.
+* **Solución**
+  1. **Identifica acciones sensibles:** Analiza tu flujo de trabajo e identifica cualquier acción que involucre acceder o procesar datos sensibles (por ejemplo, información de pago, detalles personales).
+  2. **Implementa "Require Approval":** Para estas acciones sensibles, habilita la opción "Require Approval" dentro del Agent Node. Esto asegura que un humano revise la acción propuesta por el agente y el contexto relevante antes de que se acceda a cualquier dato sensible o se tome cualquier acción irreversible.
+  3. **Diseña prompts de aprobación claros:** Proporciona prompts claros y concisos para los revisores humanos, resumiendo la intención del agente, la acción propuesta y la información relevante necesaria para que el revisor tome una decisión informada.
+
+**System prompt poco claro o incompleto**
+
+* **Problema:** El System Prompt proporcionado al Agent Node carece de la especificidad y contexto necesarios para guiar al agente efectivamente en llevar a cabo sus tareas previstas. Un prompt vago o demasiado general puede llevar a respuestas irrelevantes, dificultad para entender la intención del usuario y una incapacidad para aprovechar herramientas o datos apropiadamente.
+* **Ejemplo:** Estás construyendo un agente de reservas de viajes, y tu System Prompt simplemente dice "_Eres un asistente AI útil._" Esto carece de las instrucciones específicas y el contexto necesario para que el agente guíe efectivamente a los usuarios a través de búsquedas de vuelos, reservas de hoteles y planificación de itinerarios.
+* **Solución:** Crea un System Prompt detallado y consciente del contexto:
+
+{% code overflow="wrap" %}
+```
+Eres un agente de reservas de viajes. Tu objetivo principal es ayudar a los usuarios a planificar y reservar sus viajes. 
+- Guíalos a través de la búsqueda de vuelos, encontrar alojamiento y explorar destinos.
+- Sé amable, paciente y ofrece recomendaciones de viaje basadas en sus preferencias.
+- Utiliza las herramientas disponibles para acceder a datos de vuelos, disponibilidad de hoteles e información de destinos.
+```
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -599,14 +651,14 @@ Por ejemplo, después de que un Agent o LLM Node proporciona una respuesta, un C
 
 Esto nos permite **crear ramificaciones en nuestro flujo de trabajo**, donde el camino tomado depende de los datos que fluyen a través del sistema.
 
-#### Aquí hay una explicación paso a paso de cómo funciona <a name="aquí-hay-una-explicación-paso-a-paso-de-cómo-funciona-condition-node"></a>
+#### Aquí hay una explicación paso a paso de cómo funciona
 
 1. El Condition Node recibe entrada de cualquier nodo precedente: Start Node, Agent Node, LLM Node, o Tool Node.
 2. Tiene acceso al historial completo de conversación y al State personalizado (si existe), dándole mucho contexto con el que trabajar.
 3. Definimos una condición que el nodo evaluará. Esto podría ser verificar palabras clave, comparar valores en el state, o cualquier otra lógica que podamos implementar vía JavaScript.
 4. Basado en si la condición se evalúa como **true** o **false**, el Condition Node envía el flujo por uno de sus caminos de salida predefinidos. Esto crea una "bifurcación en el camino" o rama para nuestro flujo de trabajo.
 
-### Inputs <a name="inputs-condition-node"></a>
+### Inputs
 
 <table><thead><tr><th width="195"></th><th width="107">Required</th><th>Description</th></tr></thead><tbody><tr><td>Start Node</td><td><strong>Sí</strong></td><td>Recibe la <strong>entrada inicial del usuario</strong> junto con el State personalizado (si está configurado) y el resto del array <code>state.messages</code> por defecto.</td></tr><tr><td>Agent Node</td><td><strong>Sí</strong></td><td>Recibe entrada de un Agent Node precedente, permitiendo que el Condition Node <strong>evalúe la salida del agente</strong> para determinar el siguiente paso en el flujo de trabajo.</td></tr><tr><td>LLM Node</td><td><strong>Sí</strong></td><td>Recibe la salida de un LLM Node, permitiendo que el Condition Node <strong>evalúe el contenido procesado</strong> para determinar la ruta del flujo.</td></tr><tr><td>Tool Node</td><td><strong>Sí</strong></td><td>Recibe la salida de un Tool Node, permitiendo que el Condition Node <strong>evalúe los resultados de la herramienta</strong> para determinar el siguiente paso.</td></tr></tbody></table>
 
@@ -614,7 +666,7 @@ Esto nos permite **crear ramificaciones en nuestro flujo de trabajo**, donde el 
 El **Condition Node requiere al menos una conexión de los siguientes nodos**: Start Node, Agent Node, LLM Node, o Tool Node.
 {% endhint %}
 
-### Outputs <a name="outputs-condition-node"></a>
+### Outputs
 
 El Condition Node puede conectarse a los siguientes nodos como salidas:
 
@@ -626,15 +678,15 @@ El Condition Node puede conectarse a los siguientes nodos como salidas:
 * **End Node:** Concluye el flujo de conversación cuando se cumple una condición específica.
 * **Loop Node:** Redirige el flujo de vuelta a un nodo anterior basado en el resultado de la evaluación.
 
-### Configuración del Nodo <a name="configuración-del-nodo-condition-node"></a>
+### Configuración del Nodo
 
 <table><thead><tr><th width="201"></th><th width="101">Required</th><th>Description</th></tr></thead><tbody><tr><td>Condition</td><td><strong>Sí</strong></td><td>La <strong>expresión JavaScript</strong> que será evaluada. Debe devolver un valor booleano (<code>true</code> o <code>false</code>).</td></tr></tbody></table>
 
-### Parámetros Adicionales <a name="parámetros-adicionales-condition-node"></a>
+### Parámetros Adicionales
 
 <table><thead><tr><th width="200"></th><th width="102">Required</th><th>Description</th></tr></thead><tbody><tr><td>Update State</td><td>No</td><td>Proporciona un <strong>mecanismo para modificar el objeto State personalizado compartido dentro del flujo de trabajo</strong>. Esto es útil para almacenar el resultado de la evaluación o influir en el comportamiento de nodos subsiguientes.</td></tr></tbody></table>
 
-### Mejores Prácticas <a name="mejores-prácticas-condition-node"></a>
+### Mejores Prácticas
 
 {% tabs %}
 {% tab title="Pro Tips" %}
@@ -698,7 +750,7 @@ A diferencia del Condition Node estándar, que utiliza condiciones predefinidas 
 * La decisión requiere comprensión del lenguaje natural o contexto conversacional
 * Las condiciones necesitan adaptarse dinámicamente basadas en el comportamiento del usuario
 
-### Inputs <a name="inputs-condition-agent-node"></a>
+### Inputs
 
 <table><thead><tr><th width="195"></th><th width="107">Required</th><th>Description</th></tr></thead><tbody><tr><td>Chat Model</td><td><strong>Sí</strong></td><td>El modelo de lenguaje que el agente usará para evaluar condiciones. Debe ser <strong>capaz de function calling</strong>.</td></tr><tr><td>Start Node</td><td><strong>Sí</strong></td><td>Recibe la <strong>entrada inicial del usuario</strong> junto con el State personalizado (si está configurado) y el resto del array <code>state.messages</code> por defecto.</td></tr><tr><td>Agent Node</td><td><strong>Sí</strong></td><td>Recibe entrada de un Agent Node precedente, permitiendo que el Condition Agent Node <strong>evalúe la salida del agente</strong> para determinar el siguiente paso.</td></tr><tr><td>LLM Node</td><td><strong>Sí</strong></td><td>Recibe la salida de un LLM Node, permitiendo que el Condition Agent Node <strong>evalúe el contenido procesado</strong> para determinar la ruta del flujo.</td></tr><tr><td>Tool Node</td><td><strong>Sí</strong></td><td>Recibe la salida de un Tool Node, permitiendo que el Condition Agent Node <strong>evalúe los resultados de la herramienta</strong> para determinar el siguiente paso.</td></tr></tbody></table>
 
@@ -706,7 +758,7 @@ A diferencia del Condition Node estándar, que utiliza condiciones predefinidas 
 El **Condition Agent Node requiere al menos una conexión de los siguientes nodos**: Start Node, Agent Node, LLM Node, o Tool Node.
 {% endhint %}
 
-### Outputs <a name="outputs-condition-agent-node"></a>
+### Outputs
 
 El Condition Agent Node puede conectarse a los siguientes nodos como salidas:
 
@@ -718,15 +770,15 @@ El Condition Agent Node puede conectarse a los siguientes nodos como salidas:
 * **End Node:** Concluye el flujo de conversación cuando el agente determina que es apropiado.
 * **Loop Node:** Redirige el flujo de vuelta a un nodo anterior basado en la evaluación del agente.
 
-### Configuración del Nodo <a name="configuración-del-nodo-condition-agent-node"></a>
+### Configuración del Nodo
 
 <table><thead><tr><th width="201"></th><th width="101">Required</th><th>Description</th></tr></thead><tbody><tr><td>System Prompt</td><td><strong>Sí</strong></td><td>Define el <strong>comportamiento y criterios de evaluación</strong> del agente. Por ejemplo, "<em>Eres un agente especializado en evaluar el sentimiento y la intención del usuario</em> [...]."</td></tr><tr><td>Output Paths</td><td><strong>Sí</strong></td><td>Define los <strong>posibles caminos de salida</strong> que el agente puede seleccionar basado en su evaluación.</td></tr></tbody></table>
 
-### Parámetros Adicionales <a name="parámetros-adicionales-condition-agent-node"></a>
+### Parámetros Adicionales
 
 <table><thead><tr><th width="200"></th><th width="102">Required</th><th>Description</th></tr></thead><tbody><tr><td>Human Prompt</td><td>No</td><td>Este prompt se añade al array <code>state.messages</code> como un mensaje humano. Permite <strong>inyectar un mensaje similar al humano en el flujo de conversación</strong> después de que el Condition Agent Node ha procesado su entrada.</td></tr><tr><td>Update State</td><td>No</td><td>Proporciona un <strong>mecanismo para modificar el objeto State personalizado compartido dentro del flujo de trabajo</strong>. Esto es útil para almacenar el resultado de la evaluación o influir en el comportamiento de nodos subsiguientes.</td></tr></tbody></table>
 
-### Mejores Prácticas <a name="mejores-prácticas-condition-agent-node"></a>
+### Mejores Prácticas
 
 {% tabs %}
 {% tab title="Pro Tips" %}
@@ -795,7 +847,7 @@ Por ejemplo, digamos que estamos construyendo un chatbot que ayuda a los usuario
 4. Si el usuario no está satisfecho, el Loop Node redirige el flujo de vuelta al primer Agent Node para refinar los criterios de búsqueda.
 5. Este proceso continúa hasta que el usuario encuentra un vuelo adecuado o decide terminar la búsqueda.
 
-### Inputs <a name="inputs-loop-node"></a>
+### Inputs
 
 <table><thead><tr><th width="195"></th><th width="107">Required</th><th>Description</th></tr></thead><tbody><tr><td>Start Node</td><td><strong>Sí</strong></td><td>Recibe la <strong>entrada inicial del usuario</strong> junto con el State personalizado (si está configurado) y el resto del array <code>state.messages</code> por defecto.</td></tr><tr><td>Agent Node</td><td><strong>Sí</strong></td><td>Recibe entrada de un Agent Node precedente, permitiendo que el Loop Node <strong>redirija el flujo basado en las acciones o decisiones del agente</strong>.</td></tr><tr><td>LLM Node</td><td><strong>Sí</strong></td><td>Recibe la salida de un LLM Node, permitiendo que el Loop Node <strong>redirija el flujo basado en el contenido procesado</strong>.</td></tr><tr><td>Tool Node</td><td><strong>Sí</strong></td><td>Recibe la salida de un Tool Node, permitiendo que el Loop Node <strong>redirija el flujo basado en los resultados de la herramienta</strong>.</td></tr><tr><td>Condition Node</td><td><strong>Sí</strong></td><td>Recibe entrada de un Condition Node precedente, permitiendo que el Loop Node <strong>redirija el flujo basado en el resultado de la evaluación de la condición</strong>.</td></tr><tr><td>Condition Agent Node</td><td><strong>Sí</strong></td><td>Recibe entrada de un Condition Agent Node precedente, permitiendo que el Loop Node <strong>redirija el flujo basado en la evaluación del agente</strong>.</td></tr></tbody></table>
 
@@ -803,7 +855,7 @@ Por ejemplo, digamos que estamos construyendo un chatbot que ayuda a los usuario
 El **Loop Node requiere al menos una conexión de los siguientes nodos**: Start Node, Agent Node, LLM Node, Tool Node, Condition Node, o Condition Agent Node.
 {% endhint %}
 
-### Outputs <a name="outputs-loop-node"></a>
+### Outputs
 
 El Loop Node puede conectarse a cualquier nodo que haya aparecido previamente en el flujo de trabajo, incluyendo:
 
@@ -814,15 +866,15 @@ El Loop Node puede conectarse a cualquier nodo que haya aparecido previamente en
 * **Condition Node:** Para reevaluar condiciones con nuevo contexto.
 * **Condition Agent Node:** Para permitir que un agente reevalúe la situación con información actualizada.
 
-### Configuración del Nodo <a name="configuración-del-nodo-loop-node"></a>
+### Configuración del Nodo
 
 <table><thead><tr><th width="201"></th><th width="101">Required</th><th>Description</th></tr></thead><tbody><tr><td>Target Node</td><td><strong>Sí</strong></td><td>El <strong>nodo al cual redirigir</strong> el flujo. Debe ser un nodo que aparezca previamente en el flujo de trabajo.</td></tr><tr><td>Max Iterations</td><td>No</td><td>El <strong>número máximo de veces</strong> que el bucle puede ejecutarse antes de terminar automáticamente. Por defecto es ilimitado.</td></tr></tbody></table>
 
-### Parámetros Adicionales <a name="parámetros-adicionales-loop-node"></a>
+### Parámetros Adicionales
 
 <table><thead><tr><th width="200"></th><th width="102">Required</th><th>Description</th></tr></thead><tbody><tr><td>Update State</td><td>No</td><td>Proporciona un <strong>mecanismo para modificar el objeto State personalizado compartido</strong> antes de redirigir el flujo. Esto es útil para rastrear el número de iteraciones o almacenar información entre iteraciones.</td></tr></tbody></table>
 
-### Mejores Prácticas <a name="mejores-prácticas-loop-node"></a>
+### Mejores Prácticas
 
 {% tabs %}
 {% tab title="Pro Tips" %}
@@ -881,7 +933,7 @@ El End Node marca el **punto de terminación definitivo de la conversación** en
 
 El End Node sirve como una señal dentro de la arquitectura Sequential Agent de Flowise, **indicando que la conversación ha alcanzado su conclusión prevista**. Al llegar al End Node, el sistema "entiende" que el objetivo conversacional se ha cumplido y no se requieren más acciones o interacciones dentro del flujo.
 
-### Inputs <a name="inputs-end-node"></a>
+### Inputs
 
 <table><thead><tr><th width="212"></th><th width="103">Required</th><th>Description</th></tr></thead><tbody><tr><td>Agent Node</td><td><strong>Sí</strong></td><td>Recibe la salida final de un Agent Node precedente, indicando el fin del procesamiento del agente.</td></tr><tr><td>LLM Node</td><td><strong>Sí</strong></td><td>Recibe la salida final de un LLM Node precedente, indicando el fin del procesamiento del LLM Node.</td></tr><tr><td>Tool Node</td><td><strong>Sí</strong></td><td>Recibe la salida final de un Tool Node precedente, indicando la finalización de la ejecución del Tool Node.</td></tr><tr><td>Condition Node</td><td><strong>Sí</strong></td><td>Recibe la salida final de un Condition Node precedente, indicando el fin de la ejecución del Condition Node.</td></tr><tr><td>Condition Agent Node</td><td><strong>Sí</strong></td><td>Recibe la salida final de un Condition Agent Node precedente, indicando la finalización del procesamiento del Condition Agent Node.</td></tr></tbody></table>
 
@@ -889,11 +941,11 @@ El End Node sirve como una señal dentro de la arquitectura Sequential Agent de 
 El **End Node requiere al menos una conexión de los siguientes nodos**: Agent Node, LLM Node, o Tool Node.
 {% endhint %}
 
-### Outputs <a name="outputs-end-node"></a>
+### Outputs
 
 El **End Node no tiene ninguna conexión de salida** ya que significa la terminación del flujo de información.
 
-### Mejores Prácticas <a name="mejores-prácticas-end-node"></a>
+### Mejores Prácticas
 
 {% tabs %}
 {% tab title="Pro Tips" %}
@@ -982,7 +1034,7 @@ Igual que el Condition Node:
 
 ### Resumen
 
-<table><thead><tr><th width="218"></th><th width="258">Condition Node</th><th>Condition Agent Node</th></tr></thead><tbody><tr><td><strong>Lógica de Decisión</strong></td><td>Basada en condiciones lógicas predefinidas.</td><td>Basada en el razonamiento del agente y salida estructurada.</td></tr><tr><td><strong>Participación del Agente</strong></td><td>No hay agente involucrado en la evaluación de condiciones.</td><td>Usa un agente para procesar el contexto y generar salida para las condiciones.</td></tr><tr><td><strong>Salida Estructurada</strong></td><td>No es posible.</td><td>Posible y recomendada para evaluación confiable de condiciones.</td></tr><tr><td><strong>Evaluación de Condiciones</strong></td><td>Solo define condiciones que se verifican contra el historial completo de conversación.</td><td>Puede definir condiciones que se verifican contra la propia salida del agente, estructurada o no.</td></tr><tr><td><strong>Complejidad</strong></td><td>Adecuado para lógica de ramificación simple.</td><td>Maneja enrutamiento más matizado y consciente del contexto.</td></tr><tr><td><strong>Casos de Uso Ideales</strong></td><td><ul><li>Enrutamiento basado en la edad del usuario o una palabra clave en la conversación.</li></ul></td><td><ul><li>Enrutamiento basado en el sentimiento del usuario, intención o factores contextuales complejos.</li></ul></td></tr></table>
+<table><thead><tr><th width="218"></th><th width="258">Condition Node</th><th>Condition Agent Node</th></tr></thead><tbody><tr><td><strong>Lógica de Decisión</strong></td><td>Basada en condiciones lógicas predefinidas.</td><td>Basada en el razonamiento del agente y salida estructurada.</td></tr><tr><td><strong>Participación del Agente</strong></td><td>No hay agente involucrado en la evaluación de condiciones.</td><td>Usa un agente para procesar el contexto y generar salida para las condiciones.</td></tr><tr><td><strong>Salida Estructurada</strong></td><td>No es posible.</td><td>Posible y recomendada para evaluación confiable de condiciones.</td></tr><tr><td><strong>Evaluación de Condiciones</strong></td><td>Solo define condiciones que se verifican contra el historial completo de conversación.</td><td>Puede definir condiciones que se verifican contra la propia salida del agente, estructurada o no.</td></tr><tr><td><strong>Complejidad</strong></td><td>Adecuado para lógica de ramificación simple.</td><td>Maneja enrutamiento más matizado y consciente del contexto.</td></tr><tr><td><strong>Casos de Uso Ideales</strong></td><td><ul><li>Enrutamiento basado en la edad del usuario o una palabra clave en la conversación.</li></ul></td><td><ul><li>Enrutamiento basado en el sentimiento del usuario, intención o factores contextuales complejos.</li></ul></td></tr></tbody></table>
 
 ### Eligiendo el nodo correcto
 
@@ -1042,7 +1094,7 @@ Similar al Agent Node, pero proporciona más flexibilidad al usar herramientas y
 
 ### Resumen
 
-<table><thead><tr><th width="206"></th><th width="253">Agent Node</th><th>LLM Node</th></tr></thead><tbody><tr><td><strong>Interacción con Herramientas</strong></td><td>Llama y gestiona múltiples herramientas directamente, HITL integrado.</td><td>Activa herramientas a través del Tool Node, control granular de HITL a nivel de herramienta.</td></tr><tr><td><strong>Human-in-the-Loop (HITL)</strong></td><td>HITL controlado a nivel de Agent Node (todas las herramientas conectadas afectadas).</td><td>HITL gestionado a nivel de Tool Node individual (más flexibilidad).</td></tr><tr><td><strong>Salida Estructurada</strong></td><td>Se basa en el formato de salida natural del LLM.</td><td>Se basa en el formato de salida natural del LLM, pero, si es necesario, proporciona definición de esquema JSON para estructurar la salida del LLM.</td></tr><tr><td><strong>Casos de Uso Ideales</strong></td><td><ul><li>Flujos de trabajo con orquestación compleja de herramientas.</li><li>HITL simplificado a nivel de Agente.</li></ul></td><td><ul><li>Extracción de datos estructurados de la salida del LLM</li><li>Flujos de trabajo con interacciones complejas de LLM y herramientas, que requieren niveles HITL mixtos.</li></ul></td></tr></table>
+<table><thead><tr><th width="206"></th><th width="253">Agent Node</th><th>LLM Node</th></tr></thead><tbody><tr><td><strong>Interacción con Herramientas</strong></td><td>Llama y gestiona múltiples herramientas directamente, HITL integrado.</td><td>Activa herramientas a través del Tool Node, control granular de HITL a nivel de herramienta.</td></tr><tr><td><strong>Human-in-the-Loop (HITL)</strong></td><td>HITL controlado a nivel de Agent Node (todas las herramientas conectadas afectadas).</td><td>HITL gestionado a nivel de Tool Node individual (más flexibilidad).</td></tr><tr><td><strong>Salida Estructurada</strong></td><td>Se basa en el formato de salida natural del LLM.</td><td>Se basa en el formato de salida natural del LLM, pero, si es necesario, proporciona definición de esquema JSON para estructurar la salida del LLM.</td></tr><tr><td><strong>Casos de Uso Ideales</strong></td><td><ul><li>Flujos de trabajo con orquestación compleja de herramientas.</li><li>HITL simplificado a nivel de Agente.</li></ul></td><td><ul><li>Extracción de datos estructurados de la salida del LLM</li><li>Flujos de trabajo con interacciones complejas de LLM y herramientas, que requieren niveles HITL mixtos.</li></ul></td></tr></tbody></table>
 
 ### Eligiendo el nodo correcto
 
@@ -1050,4 +1102,3 @@ Similar al Agent Node, pero proporciona más flexibilidad al usar herramientas y
 * **Elige el LLM Node:** Por otro lado, usa el LLM Node cuando necesites extraer datos estructurados de la salida del LLM usando la característica de esquema JSON, una capacidad no disponible en el Agent Node. El LLM Node también sobresale en la orquestación de ejecución de herramientas con control granular sobre HITL a nivel de herramienta individual, permitiéndote mezclar ejecuciones de herramientas automatizadas y revisadas por humanos usando múltiples Tool Nodes conectados al LLM Node.
 
 [^1]: En nuestro contexto actual, un nivel más bajo de abstracción se refiere a un sistema que expone un mayor grado de detalle de implementación al desarrollador.
-
