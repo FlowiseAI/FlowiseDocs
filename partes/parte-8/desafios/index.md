@@ -40,4 +40,4 @@ Prompt para el Capitán: "Nos hemos desviado de la trayectoria. Ingeniero, neces
 
 ## Recursos
 
-[Historial médico de la tripulación](../../pdf/historial.medico.pdf)
+[Historial médico de la tripulación](../../../pdf/historial.medico.pdf)

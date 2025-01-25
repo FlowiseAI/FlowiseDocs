@@ -22,4 +22,4 @@ Un usuario interactúa con el Sequential Agent, el usuario desea reservar para e
 
 ## Recursos
 
-[Menú del restaurante](../../pdf/menu.degustacion.pdf))
+[Menú del restaurante](../../../pdf/menu.degustacion.pdf))
