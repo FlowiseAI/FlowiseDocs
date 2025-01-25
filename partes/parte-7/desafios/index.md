@@ -15,5 +15,4 @@ Crear un agente que pueda:
 
 - Integración con una plataforma de mensajería (WhatsApp, Telegram, Facebook Messenger, etc.).
 
-- (Opcional) Python Interpreter: Para lógica de juego más compleja (gestión de inventario, puntos de vida, etc).
 

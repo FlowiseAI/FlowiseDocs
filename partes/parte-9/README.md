@@ -9,9 +9,6 @@ Esta guía ofrece una visión completa de la arquitectura de Sequential Agent AI
 - [Condition Node vs. Condition Agent Node](#condition-node-vs-condition-agent-node)
 - [Agent Node vs. LLM Node](#agent-node-vs-llm-node)
 
-{% hint style="warning" %}
-**Aviso**: Esta documentación está destinada a ayudar a los usuarios de Flowise a entender y construir flujos de trabajo conversacionales usando la arquitectura Sequential Agent. No pretende ser una referencia técnica exhaustiva del framework LangGraph y no debe interpretarse como una definición de estándares de la industria o conceptos fundamentales de LangGraph.
-{% endhint %}
 
 ## Concepto
 
@@ -30,7 +27,9 @@ Exploremos algunos elementos clave de este enfoque:
 {% tabs %}
 {% tab title="Principios Fundamentales" %}
 * **Procesamiento basado en nodos:** Cada nodo en el grafo representa una unidad discreta de procesamiento, encapsulando su propia funcionalidad como procesamiento de lenguaje, ejecución de herramientas o lógica condicional.
+
 * **Flujo de datos como conexiones:** Los bordes en el grafo representan el flujo de datos entre nodos, donde la salida de un nodo se convierte en la entrada para el siguiente nodo, permitiendo una cadena de pasos de procesamiento.
+
 * **Gestión de estado:** El estado se gestiona como un objeto compartido, persistiendo a lo largo de la conversación. Esto permite a los nodos acceder a información relevante a medida que avanza el flujo de trabajo.
 {% endtab %}
 
