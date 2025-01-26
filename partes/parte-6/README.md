@@ -13,6 +13,8 @@ En esta sexta parte del curso, exploraremos herramientas avanzadas, utilities y 
 
 Los Utility nodes son herramientas de desarrollo que nos ayudan a implementar funcionalidades personalizadas en nuestros flujos. 
 
+![Utilities](../../.gitbook/assets/partes/parte6/Utilities.png)
+
 ### Custom JS Function
 - Permite escribir código JavaScript personalizado
 - Útil para transformaciones de datos
@@ -39,12 +41,16 @@ AutoGPT es un agente autónomo que utiliza un proceso de pensamiento en cadena p
 - Evalúa los resultados
 - Ajusta su estrategia según sea necesario
 
+![AutoGPT](../../.gitbook/assets/partes/parte6/autogpt.png)
+
 ## BabyAGI
 
 BabyAGI es un agente autónomo (sin nodo de herramientas) que:
 - Crea tareas automáticamente
 - Reprioriza la lista de tareas
 - Se enfoca en alcanzar un objetivo específico
+
+![BabyAGI](../../.gitbook/assets/partes/parte6/babyagi.png)
 
 ## Herramientas en Profundidad
 

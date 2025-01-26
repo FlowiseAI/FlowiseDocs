@@ -4,6 +4,8 @@
 
 Crear un Sequential Agent en Flowise que asista a los usuarios en el proceso de reservar una mesa en un restaurante gourmet. El agente debe guiar al usuario a través de una serie de pasos, utilizando un flujo de preguntas y respuestas, e integrando herramientas para completar la reserva.
 
+![Restaurante](../../../.gitbook/assets/partes/parte9/restaurante.png)
+
 ## Requisitos
 
 Debe de saludar al usuario y presentarse.

@@ -1,6 +1,6 @@
 # Parte 7: Integraciones y Plataformas
 
-En esta séptima parte del curso, exploraremos cómo integrar Flowise con diferentes plataformas sociales y servicios de automatización, permitiendo llevar nuestros agentes a donde están los usuarios.
+En esta séptima parte del curso, exploraremos cómo integrar Flowise con algunas plataformas sociales y servicios de automatización, permitiendo llevar nuestros agentes a donde están los usuarios.
 
 ## Contenidos
 
@@ -20,16 +20,6 @@ En esta séptima parte del curso, exploraremos cómo integrar Flowise con difere
 - Manejo de mensajes y multimedia
 - Respuestas automatizadas
 
-### Instagram
-- Configuración de Instagram API
-- Manejo de mensajes
-
-### Discord
-- Configuración del bot
-- Comandos personalizados
-- Gestión de canales
-- Roles y permisos
-
 ## Integración con Make
 
 ### Configuración Básica
@@ -37,10 +27,4 @@ En esta séptima parte del curso, exploraremos cómo integrar Flowise con difere
 - Configuración de webhooks
 - Manejo de datos
 - Transformaciones
-
-### Automatizaciones Comunes
-- Sincronización de datos
-- Notificaciones automáticas
-- Procesamiento de formularios
-- Integración con CRM
 
