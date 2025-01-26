@@ -52,6 +52,8 @@ Ventajas de usar la API:
 - Automatización de procesos
 - Personalización completa de la interfaz
 
+![Opciones API](../../.gitbook/assets/partes/parte4/API.png)
+
 Para usar la API de Flowise, necesitarás:
 1. Tu API Key
 2. El ID de tu chatflow
@@ -62,12 +64,14 @@ Para usar la API de Flowise, necesitarás:
 ## Configuración Avanzada de Chatbots
 
 La configuración avanzada te permite personalizar cómo funciona tu chatbot:
-- Estilos y apariencia
 - Comportamiento del chat
 - Manejo de errores
 - Límites y restricciones
 
-[Guía de configuración avanzada](../../usar-flowise/embed.md)
+![Configuración Avanzada](../../.gitbook/assets/partes/parte4/configuracion.png)
+
+
+[Guía de configuración avanzada](../../configuracion/README.md)
 
 ## CURL
 
@@ -92,6 +96,8 @@ La función Share permite compartir tu chatbot con otros de forma fácil:
 - Controla quién puede acceder
 
 [Documentación de Share](../../usar-flowise/embed.md#sharing)
+
+![Ejemplo de Share](../../.gitbook/assets/partes/parte4/ejemploshare.png)
 
 ## Implementación en JavaScript
 
@@ -146,5 +152,4 @@ output = query({
 - [Embed Documentation](../../usar-flowise/embed.md)
 - [Authentication](../../configuracion/autorizacion/README.md)
 - [Opciones de Despliegue](../../configuracion/deployment/README.md)
-- [Variables Configuration](../../usar-flowise/variables.md)
 - [Monitoring](../../usar-flowise/monitoring.md) 
