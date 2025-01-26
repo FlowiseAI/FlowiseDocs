@@ -102,10 +102,3 @@ If using Docker, place the env variables inside `Flowise/docker/.env`
 
 If using local Git clone, place the env variables inside `Flowise/packages/server/.env`
 
-## Video Tutorials
-
-These two videos will teach you how to embed the Flowise widget into a website.
-
-{% embed url="https://youtu.be/4paQ2wObDQ4" %}
-
-{% embed url="https://youtu.be/XOeCV1xyN48" %}

@@ -83,22 +83,9 @@ BabyAGI es un agente autónomo (sin nodo de herramientas) que:
 
 ## Links Relevantes
 
-### Utilities
-- [Custom JS Function](../../integraciones/langchain/utilities/custom-js-function.md)
-- [Variables](../../integraciones/langchain/utilities/variables.md)
-- [If Else](../../integraciones/langchain/utilities/if-else.md)
-- [Sticky Notes](../../integraciones/langchain/utilities/sticky-note.md)
-
-### Frameworks Autónomos
+### Agentes Autónomos
 - [AutoGPT](../../integraciones/langchain/agents/autogpt.md)
 - [BabyAGI](../../integraciones/langchain/agents/babyagi.md)
 
 ### Herramientas
 - [Tools](../../integraciones/langchain/tools/README.md)
-- [BraveSearch](../../integraciones/langchain/tools/brave-search.md)
-- [Calculator](../../integraciones/langchain/tools/calculator.md)
-- [Chain Tool](../../integraciones/langchain/tools/chain-tool.md)
-- [Custom Tool](../../integraciones/langchain/tools/custom-tool.md)
-- [Python Tool](../../integraciones/langchain/tools/python.md)
-- [Request Tool](../../integraciones/langchain/tools/request.md)
-- [Web Browser](../../integraciones/langchain/tools/web-browser.md)

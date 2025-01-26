@@ -78,9 +78,9 @@ Estas herramientas permiten una mayor flexibilidad y adaptabilidad a necesidades
 Cada herramienta ofrece un conjunto específico de funcionalidades que, al combinarse, potencian la capacidad de los agentes.
 
 Guía de herramientas: 
-[Herramientas](../../integraciones/langchain/tools)
+[Herramientas](../../integraciones/langchain/tools/README.md)
 
 ## Links Relevantes
 
-- [Agentes](../../integraciones/langchain/agents)
-- [Herramientas](../../integraciones/langchain/tools)
+- [Agentes](../../integraciones/langchain/agents/README.md)
+- [Herramientas](../../integraciones/langchain/tools/README.md)

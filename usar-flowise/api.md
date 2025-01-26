@@ -634,12 +634,3 @@ Refer to [Document Stores](document-stores.md#id-10.-api) section for more infor
 [swagger (2).yml](<../.gitbook/assets/swagger (2).yml>)
 {% endswagger %}
 
-## Video Tutorials
-
-Those video tutorials cover the main use cases for implementing the Flowise API.
-
-{% embed url="https://youtu.be/9R5zo3IVkqU?si=y1v_aCQLE_70WBnA" %}
-
-{% embed url="https://youtu.be/LhN560DhlzU" %}
-
-{% embed url="https://youtu.be/kOwmPe8aLAA" %}

@@ -8,9 +8,6 @@ description: Nodos de Cargadores de Documentos LangChain
 
 Los cargadores de documentos te permiten cargar documentos desde diferentes fuentes como PDF, TXT, CSV, Notion, Confluence, etc. A menudo se utilizan junto con [Vector Stores](../vector-stores/) para ser insertados como embeddings, los cuales pueden ser recuperados posteriormente mediante consultas.
 
-### Mira una introducción sobre los Cargadores de Documentos
-
-{% embed url="https://youtu.be/kMtf9sNIcao" %}
 
 ### Nodos de Cargadores de Documentos:
 
