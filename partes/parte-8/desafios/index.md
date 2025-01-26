@@ -1,6 +1,7 @@
 # Desafío 6: Emergencia en la Misión a Marte
 
 ## Objetivo
+
 Gestionar una serie de emergencias durante una misión tripulada a Marte utilizando un equipo de Multi-agents en Flowise, cada uno con roles y herramientas específicas.
 
 ![Misión](../../../.gitbook/assets/partes/parte8/mision.jpg)
