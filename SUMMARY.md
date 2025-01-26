@@ -1,7 +1,5 @@
 # Tabla de Contenidos
 
-* [Introduction](README.md)
-
 ## Partes
 
 * [Parte 1: Introducción](partes/parte-1/README.md)

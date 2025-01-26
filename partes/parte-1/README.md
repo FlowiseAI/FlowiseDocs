@@ -1,6 +1,6 @@
 # Parte 1: Introducción
 
-En esta primera parte del curso, aprenderás los fundamentos esenciales para comenzar con Flowise. Cubriremos desde la instalación básica hasta conceptos fundamentales que necesitarás para crear tus primeros chatflows.
+En esta primera parte del curso, aprenderás los fundamentos esenciales para comenzar con Flowise. Cubriremos desde la instalación básica hasta conceptos fundamentales que necesitarás para crear tus primeros proyectos.
 
 ## Contenidos
 - [Instalación de Flowise](#instalación-de-flowise)
@@ -36,7 +36,7 @@ Acceder a http://localhost:3000
 npm update -g flowise
 ```
 
-## Docker
+## Instalación con Docker
 
 ### Docker Compose
 1. Clonar el proyecto Flowise
@@ -170,29 +170,29 @@ Un Chat Model es el nodo que nos da acceso a diferentes modelos de inteligencia 
 Es prácticamente igual que un nodo LLM, pero con algunas ventajas:
 
 - Podemos elegir entre más modelos diferentes
-- Incluye alternativas gratuitas como Gemini o Cerebras
+- Incluye alternativas gratuitas como Gemini, Cerebras o Grok
 
 Y si lo conectamos con el concepto de chain que vimos antes:
 
-La chain mantiene el historial de la conversación
-El Chat Model es el nodo que toma esa conversación y la envía al modelo de IA que hayamos elegido
-El modelo nos devuelve una respuesta que se añade como un nuevo eslabón a la chain
+- La chain mantiene el historial de la conversación
+- El Chat Model es el nodo que toma esa conversación y la envía al modelo de IA que hayamos elegido
+- El modelo nos devuelve una respuesta que se añade como un nuevo eslabón a la chain
 
-Por eso es un nodo que SIEMPRE necesitaremos en nuestros proyectos de Flowise: es literalmente el punto de conexión con la IA. Sin él, no podríamos obtener respuestas de ningún modelo de inteligencia artificial.
+Un Chat Model es un nodo que SIEMPRE necesitaremos en nuestros proyectos de Flowise: es el punto de conexión con la IA. Sin él, no podríamos obtener respuestas de ningún modelo de inteligencia artificial.
 
 ![Chat Model](/../../.gitbook/assets/partes/parte1/ChatModel.png)
 
 ## Memoria
 
-La memoria es lo que permite que la IA "recuerde" las conversaciones previas. Es como si la IA llevara un diario de lo que habla con cada persona.
-Imagina esta situación:
+La memoria es lo que permite que la IA "recuerde" las conversaciones previas.
+Ejemplo:
 
 Tú: "Hola, me llamo Ana"
 IA: "¡Hola Ana! ¿En qué puedo ayudarte?"
 Tú: "¿Cómo me llamo?"
 IA: "Te llamas Ana, me lo dijiste antes"
 
-¿Cómo logra la IA recordar esto? A través del sessionID.
+¿Cómo logra la IA recordar esto?: A través del sessionID.
 El sessionID es como un DNI para cada conversación. Cuando alguien nuevo comienza a chatear, Flowise le asigna automáticamente un sessionID único. Es como darle a cada persona su propia libreta donde se guarda solo su conversación.
 Hay varias formas de guardar estas "libretas de conversación":
 
@@ -202,12 +202,12 @@ Hay varias formas de guardar estas "libretas de conversación":
 
 Lo importante es entender que:
 
-Cada usuario tiene su propia conversación separada
-El sessionID es lo que permite mantener las conversaciones separadas
-En la interfaz de usuario, esto se maneja automáticamente
-Si usas la API, puedes especificar tu propio sessionID para mantener conversaciones separadas
+- Cada usuario tiene su propia conversación separada
+- El sessionID es lo que permite mantener las conversaciones separadas
+- En la interfaz de usuario, esto se maneja automáticamente
+- Si usas la API, puedes especificar tu propio sessionID para mantener conversaciones separadas
 
-Todo esto se puede ver y gestionar desde la interfaz de Flowise, donde puedes revisar las conversaciones pasadas, como si tuvieras acceso a todas las "libretas" de conversación.
+Todo esto se puede ver y gestionar desde la interfaz de Flowise
 
 La [memoria](../../integraciones/langchain/memory/README.md) es crucial para mantener el contexto en las conversaciones.
 
@@ -247,13 +247,5 @@ Es recomendable revisar periódicamente la sección de releases para:
 ## Links Relevantes
 
 - [Chains](../../integraciones/langchain/chains/README.md)
-  - [LLM Chain](../../integraciones/langchain/chains/llm-chain.md)
-  - [Conversation Chain](../../integraciones/langchain/chains/conversation-chain.md)
 - [Chat Models](../../integraciones/langchain/chat-models/README.md)
-  - [ChatOpenAI](../../integraciones/langchain/chat-models/chatopenai.md)
-  - [ChatGoogleGenerativeAI](../../integraciones/langchain/chat-models/google-ai.md)
-  - [ChatAnthropic](../../integraciones/langchain/chat-models/chatanthropic.md)
 - [Memory](../../integraciones/langchain/memory/README.md)
-  - [Buffer Memory](../../integraciones/langchain/memory/buffer-memory.md)
-  - [Buffer Window Memory](../../integraciones/langchain/memory/buffer-window-memory.md)
-  - [Conversation Summary Memory](../../integraciones/langchain/memory/conversation-summary-memory.md)

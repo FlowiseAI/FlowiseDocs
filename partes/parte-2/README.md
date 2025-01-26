@@ -18,21 +18,19 @@ El cache es como una "memoria temporal de respuestas". Imagina que es como una l
 
 ### ¿Por qué es útil?
 
-- Ahorra dinero: Si alguien hace una pregunta que ya se hizo antes, Flowise usa la respuesta guardada en vez de hacer una nueva consulta al modelo de IA (que cuesta dinero)
+- Ahorra dinero: Si alguien hace una pregunta que ya se hizo antes, Flowise usa la respuesta guardada en vez de hacer una nueva consulta al modelo de IA 
 - Es más rápido: En vez de esperar la respuesta de la IA, Flowise puede dar inmediatamente la respuesta que tenía guardada
 
 ### Un ejemplo práctico:
 
 Usuario 1 pregunta: "¿Qué es Flowise?"
 
-Flowise consulta a la IA
-Guarda la respuesta en el cache
+Flowise consulta a la IA y guarda la respuesta en el cache
 
 
 Usuario 2 pregunta: "¿Qué es Flowise?"
 
-Flowise lee la respuesta del cache
-No necesita consultar a la IA de nuevo
+Flowise lee la respuesta del cache y no necesita consultar a la IA de nuevo
 
 Es como tener un bloc de notas rápido donde consultar antes de hacer una llamada (que cuesta tiempo y dinero) a la IA.
 
@@ -54,7 +52,7 @@ Para conectar dos chains debes de usar el output de una chain (en modo Output Pr
 
 Finalmente, debes de asegurarte dentro de la prompt que seleccionas el output de la primera chain, dentro de "Format Prompt Values".
 
-![Output Seleccionado](/../../.gitbook/assets/partes/parte2/OutputChainSeleccionado.png)
+![Output Seleccionado](/../../.gitbook/assets/partes/parte2/Input.png)
 
 ## Input de imágenes
 
