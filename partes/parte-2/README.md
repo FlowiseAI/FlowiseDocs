@@ -48,7 +48,7 @@ Se realiza principalmente con LLM Chains, toda chain que quiera ser usada como i
 
 Para conectar dos chains debes de usar el output de una chain (en modo Output Prediction) como input en el prompt de la otra chain.
 
-![Dos Chains concectadas](/../../.gitbook/assets/partes/parte2/Chainsconectadas.png)
+![Chains Concectadas](/../../.gitbook/assets/partes/parte2/Conectadas.png)
 
 Finalmente, debes de asegurarte dentro de la prompt que seleccionas el output de la primera chain, dentro de "Format Prompt Values".
 
