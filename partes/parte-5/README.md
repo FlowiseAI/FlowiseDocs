@@ -20,7 +20,7 @@ Un agente es un sistema que utiliza un modelo de lenguaje (LLM) como motor de ra
 
 Es como tener un asistente que no solo piensa, sino que también puede interactuar con el mundo a través de herramientas.
 
-![Chains vs Agentes](../../.gitbook/assets/partes/parte5/chainsAgentes.png)
+![Comparación](../../.gitbook/assets/partes/parte5/chainsagentes.png)
 
 ## Herramientas
 
