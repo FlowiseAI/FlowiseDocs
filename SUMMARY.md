@@ -13,16 +13,16 @@
 
 * [Parte 4: Despliegue y API](partes/parte-4/README.md)
 
-* [Parte 5: Introducción a Agentes](partes/parte-5/README.md)
+* [Parte 5: Agentes y Herramientas](partes/parte-5/README.md)
   * [Desafíos](partes/parte-5/desafios/index.md)
 
 * [Parte 6: Agentes Avanzados](partes/parte-6/README.md)
   * [Desafíos](partes/parte-6/desafios/index.md)
 
-* [Parte 7: Multi-Agentes](partes/parte-7/README.md)
+* [Parte 7: Integraciones y Plataformas](partes/parte-7/README.md)
   * [Desafíos](partes/parte-7/desafios/index.md)
 
-* [Parte 8: AgentFlows](partes/parte-8/README.md)
+* [Parte 8: Multi-Agents](partes/parte-8/README.md)
   * [Desafíos](partes/parte-8/desafios/index.md)
 
 * [Parte 9: Agentes Secuenciales](partes/parte-9/README.md)
@@ -30,15 +30,9 @@
 
 * [Parte 10: Sequential Agents Avanzados](partes/parte-10/README.md)
 
-## Recursos
-* [Enlaces Útiles](recursos/enlaces.md)
-* [Documentación Oficial](recursos/documentacion.md)
-* [Ejemplos de Código](recursos/ejemplos.md)
-* [Mejores Prácticas](recursos/mejores-practicas.md)
-
 ## Documentación Oficial
 
-* [Introduction](README.md)
+* [Introducción](README.md)
 * [Primeros Pasos](primeros-pasos/README.md)
 * [Guía de Contribución](contribucion/README.md)
   * [Building Node](contribucion/building-node.md)

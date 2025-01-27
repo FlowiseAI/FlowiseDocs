@@ -1,4 +1,4 @@
-# Parte 5: Introducción a Agentes
+# Parte 5: Agentes y Herramientas
 
 En esta quinta parte del curso, nos adentraremos en los agentes. Los agentes son sistemas que utilizan modelos de lenguaje para tomar acciones.
 
