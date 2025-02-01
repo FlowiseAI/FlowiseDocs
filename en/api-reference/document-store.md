@@ -32,23 +32,22 @@
 [swagger (1) (1) (1).yml](<../.gitbook/assets/swagger (1) (1) (1).yml>)
 {% endswagger %}
 
-{% swagger src="../.gitbook/assets/swagger.yml" path="/document-store/loader/{storeId}/{loaderId}" method="delete" %}
-[swagger.yml](../.gitbook/assets/swagger.yml)
+{% swagger src="../.gitbook/assets/swagger (2).yml" path="/document-store/loader/{storeId}/{loaderId}" method="delete" %}
+[swagger (2).yml](<../.gitbook/assets/swagger (2).yml>)
 {% endswagger %}
 
 {% swagger src="../.gitbook/assets/swagger (1) (1) (1).yml" path="/document-store/vectorstore/{id}" method="delete" %}
 [swagger (1) (1) (1).yml](<../.gitbook/assets/swagger (1) (1) (1).yml>)
 {% endswagger %}
 
-{% swagger src="../.gitbook/assets/swagger.yml" path="/document-store/chunks/{storeId}/{loaderId}/{pageNo}" method="get" %}
-[swagger.yml](../.gitbook/assets/swagger.yml)
+{% swagger src="../.gitbook/assets/swagger (2).yml" path="/document-store/chunks/{storeId}/{loaderId}/{pageNo}" method="get" %}
+[swagger (2).yml](<../.gitbook/assets/swagger (2).yml>)
 {% endswagger %}
 
-{% swagger src="../.gitbook/assets/swagger.yml" path="/document-store/chunks/{storeId}/{loaderId}/{chunkId}" method="put" %}
-[swagger.yml](../.gitbook/assets/swagger.yml)
+{% swagger src="../.gitbook/assets/swagger (2).yml" path="/document-store/chunks/{storeId}/{loaderId}/{chunkId}" method="put" %}
+[swagger (2).yml](<../.gitbook/assets/swagger (2).yml>)
 {% endswagger %}
 
-{% swagger src="../.gitbook/assets/swagger.yml" path="/document-store/chunks/{storeId}/{loaderId}/{chunkId}" method="delete" %}
-[swagger.yml](../.gitbook/assets/swagger.yml)
+{% swagger src="../.gitbook/assets/swagger (2).yml" path="/document-store/chunks/{storeId}/{loaderId}/{chunkId}" method="delete" %}
+[swagger (2).yml](<../.gitbook/assets/swagger (2).yml>)
 {% endswagger %}
-

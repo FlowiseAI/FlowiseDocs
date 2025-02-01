@@ -626,12 +626,12 @@ query({
 
 Refer to [Document Stores](document-stores.md#id-10.-api) section for more information about how to use the API.
 
-{% swagger src="../.gitbook/assets/swagger (2).yml" path="/document-store/upsert/{id}" method="post" %}
-[swagger (2).yml](<../.gitbook/assets/swagger (2).yml>)
+{% swagger src="../.gitbook/assets/swagger (2) (1).yml" path="/document-store/upsert/{id}" method="post" %}
+[swagger (2) (1).yml](<../.gitbook/assets/swagger (2) (1).yml>)
 {% endswagger %}
 
-{% swagger src="../.gitbook/assets/swagger (2).yml" path="/document-store/refresh/{id}" method="post" %}
-[swagger (2).yml](<../.gitbook/assets/swagger (2).yml>)
+{% swagger src="../.gitbook/assets/swagger (2) (1).yml" path="/document-store/refresh/{id}" method="post" %}
+[swagger (2) (1).yml](<../.gitbook/assets/swagger (2) (1).yml>)
 {% endswagger %}
 
 ## Video Tutorials
