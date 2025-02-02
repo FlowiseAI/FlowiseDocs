@@ -20,8 +20,8 @@
 [swagger (1) (1) (1).yml](<../.gitbook/assets/swagger (1) (1) (1).yml>)
 {% endswagger %}
 
-{% swagger src="../.gitbook/assets/swagger (3).yml" path="/document-store/upsert/{id}" method="post" %}
-[swagger (3).yml](<../.gitbook/assets/swagger (3).yml>)
+{% swagger src="../.gitbook/assets/swagger (5).yml" path="/document-store/upsert/{id}" method="post" %}
+[swagger (5).yml](<../.gitbook/assets/swagger (5).yml>)
 {% endswagger %}
 
 {% swagger src="../.gitbook/assets/swagger (3).yml" path="/document-store/refresh/{id}" method="post" %}

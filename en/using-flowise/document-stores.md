@@ -141,30 +141,564 @@ Or, use the Document Store (Vector):
 
 There are also APIs support for creating, updating and deleting document store. Refer to [Document Store API](../api-reference/document-store.md) for more details. In this section, we are going to highlight the 2 of the most used APIs: upsert and refresh.
 
-### 1. Upsert
+### Upsert API
 
-You can upsert a new file using an existing document loader and upsert configuration. For example, you have a PDF loader inside document store, and the goal is to use the existing configuration, but with a new file.
+There are a few different scenarios for upserting process, and each have different outcomes.
 
-<figure><img src="../.gitbook/assets/image (216).png" alt=""><figcaption></figcaption></figure>
+#### Scenario 1: In the same document store, use an existing document loader configuration, upsert as new document loader.
 
-First, take note of the store ID and document ID:
+<figure><img src="../.gitbook/assets/Untitled-2025-02-02-1727.png" alt="" width="496"><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/Picture1.png" alt="" width="563"><figcaption></figcaption></figure>
+{% hint style="success" %}
+**`docId`** represents the existing document loader ID. It is required in the request body for this scenario.&#x20;
+{% endhint %}
 
-Since Pdf File Loader has Upload File functionality, **form data** will be used to allow sending files through API.
+{% tabs %}
+{% tab title="Python" %}
+```python
+import requests
+import json
 
-{% hint style="info" %}
-Make sure the sent file type is compatible with the expected file type from document loader. For example, if a PDF File Loader is being used, you should only send **.pdf** files.
+DOC_STORE_ID = "your_doc_store_id"
+DOC_LOADER_ID = "your_doc_loader_id"
+API_URL = f"http://localhost:3000/api/v1/document-store/upsert/{DOC_STORE_ID}"
+API_KEY = "your_api_key_here"
+
+form_data = {
+    "files": ('my-another-file.pdf', open('my-another-file.pdf', 'rb'))
+}
+
+body_data = {
+    "docId": DOC_LOADER_ID
+}
+
+headers = {
+    "Authorization": f"Bearer {BEARER_TOKEN}"
+}
+
+def query(form_data):
+    response = requests.post(API_URL, files=form_data, data=body_data, headers=headers)
+    print(response)
+    return response.json()
+
+output = query(form_data)
+print(output)
+```
+{% endtab %}
+
+{% tab title="Javascript" %}
+```javascript
+const DOC_STORE_ID = "your_doc_store_id"
+const DOC_LOADER_ID = "your_doc_loader_id"
+
+let formData = new FormData();
+formData.append("files", input.files[0]);
+formData.append("docId", DOC_LOADER_ID)
+
+async function query(formData) {
+    const response = await fetch(
+        `http://localhost:3000/api/v1/document-store/upsert/${DOC_STORE_ID}`,
+        {
+            method: "POST",
+            headers: {
+                "Authorization": "Bearer <your_api_key_here>"
+            },
+            body: formData
+        }
+    );
+    const result = await response.json();
+    return result;
+}
+
+query(formData).then((response) => {
+    console.log(response);
+});
+```
+{% endtab %}
+{% endtabs %}
+
+#### Scenario 2: In the same document store, replace an existing document loader with new files.
+
+<figure><img src="../.gitbook/assets/Untitled-2025-03-02-1727.png" alt="" width="563"><figcaption></figcaption></figure>
+
+{% hint style="success" %}
+**`docId`** and **`replaceExisting`** are both required in the request body for this scenario.&#x20;
+{% endhint %}
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+import requests
+import json
+
+DOC_STORE_ID = "your_doc_store_id"
+DOC_LOADER_ID = "your_doc_loader_id"
+API_URL = f"http://localhost:3000/api/v1/document-store/upsert/{DOC_STORE_ID}"
+API_KEY = "your_api_key_here"
+
+form_data = {
+    "files": ('my-another-file.pdf', open('my-another-file.pdf', 'rb'))
+}
+
+body_data = {
+    "docId": DOC_LOADER_ID,
+    "replaceExisting": True
+}
+
+headers = {
+    "Authorization": f"Bearer {BEARER_TOKEN}"
+}
+
+def query(form_data):
+    response = requests.post(API_URL, files=form_data, data=body_data, headers=headers)
+    print(response)
+    return response.json()
+
+output = query(form_data)
+print(output)
+```
+{% endtab %}
+
+{% tab title="Javascript" %}
+```javascript
+const DOC_STORE_ID = "your_doc_store_id";
+const DOC_LOADER_ID = "your_doc_loader_id";
+
+let formData = new FormData();
+formData.append("files", input.files[0]);
+formData.append("docId", DOC_LOADER_ID);
+formData.append("replaceExisting", true);
+
+async function query(formData) {
+    const response = await fetch(
+        `http://localhost:3000/api/v1/document-store/upsert/${DOC_STORE_ID}`,
+        {
+            method: "POST",
+            headers: {
+                "Authorization": "Bearer <your_api_key_here>"
+            },
+            body: formData
+        }
+    );
+    const result = await response.json();
+    return result;
+}
+
+query(formData).then((response) => {
+    console.log(response);
+});
+```
+{% endtab %}
+{% endtabs %}
+
+#### Scenario 3: In the same document store, upsert as new document loader from scratch.
+
+<figure><img src="../.gitbook/assets/Untitled-2025-04-02-1727.png" alt="" width="439"><figcaption></figcaption></figure>
+
+{% hint style="success" %}
+**`loader`, `splitter`, `embedding`, `vectorStore`** are all required in the request body for this scenario. **`recordManager`** is optional.
+{% endhint %}
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+import requests
+import json
+
+DOC_STORE_ID = "your_doc_store_id"
+API_URL = f"http://localhost:3000/api/v1/document-store/upsert/{DOC_STORE_ID}"
+API_KEY = "your_api_key_here"
+
+form_data = {
+    "files": ('my-another-file.pdf', open('my-another-file.pdf', 'rb'))
+}
+
+loader = {
+    "name": "pdfFile",
+    "config": {} # you can leave empty to use default config
+}
+
+splitter = {
+    "name": "recursiveCharacterTextSplitter",
+    "config": {
+        "chunkSize": 1400,
+        "chunkOverlap": 100
+    }
+}
+
+embedding = {
+    "name": "openAIEmbeddings",
+    "config": {
+        "modelName": "text-embedding-ada-002",
+        "credential": <your_credential_id>
+    }
+}
+
+vectorStore = {
+    "name": "pinecone",
+    "config": {
+        "pineconeIndex": "exampleindex",
+        "pineconeNamespace": "examplenamespace",
+        "credential":  <your_credential_i
+    }
+}
+
+body_data = {
+    "docId": DOC_LOADER_ID,
+    "loader": json.dumps(loader),
+    "splitter": json.dumps(splitter),
+    "embedding": json.dumps(embedding),
+    "vectorStore": json.dumps(vectorStore)
+}
+
+headers = {
+    "Authorization": f"Bearer {BEARER_TOKEN}"
+}
+
+def query(form_data):
+    response = requests.post(API_URL, files=form_data, data=body_data, headers=headers)
+    print(response)
+    return response.json()
+
+output = query(form_data)
+print(output)
+```
+{% endtab %}
+
+{% tab title="Javascript" %}
+```javascript
+const DOC_STORE_ID = "your_doc_store_id";
+const API_URL = `http://localhost:3000/api/v1/document-store/upsert/${DOC_STORE_ID}`;
+const API_KEY = "your_api_key_here";
+
+const formData = new FormData();
+formData.append("files", new Blob([await (await fetch('my-another-file.pdf')).blob()]), "my-another-file.pdf");
+
+const loader = {
+    name: "pdfFile",
+    config: {} // You can leave empty to use the default config
+};
+
+const splitter = {
+    name: "recursiveCharacterTextSplitter",
+    config: {
+        chunkSize: 1400,
+        chunkOverlap: 100
+    }
+};
+
+const embedding = {
+    name: "openAIEmbeddings",
+    config: {
+        modelName: "text-embedding-ada-002",
+        credential: "your_credential_id"
+    }
+};
+
+const vectorStore = {
+    name: "pinecone",
+    config: {
+        pineconeIndex: "exampleindex",
+        pineconeNamespace: "examplenamespace",
+        credential: "your_credential_id"
+    }
+};
+
+const bodyData = {
+    docId: "DOC_LOADER_ID",
+    loader: JSON.stringify(loader),
+    splitter: JSON.stringify(splitter),
+    embedding: JSON.stringify(embedding),
+    vectorStore: JSON.stringify(vectorStore)
+};
+
+const headers = {
+    "Authorization": `Bearer BEARER_TOKEN`
+};
+
+async function query() {
+    try {
+        const response = await fetch(API_URL, {
+            method: "POST",
+            headers: headers,
+            body: formData
+        });
+
+        const result = await response.json();
+        console.log(result);
+        return result;
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+
+query();
+
+```
+{% endtab %}
+{% endtabs %}
+
+{% hint style="danger" %}
+Creating from scratch is not recommended as it exposes your credential ID. The recommended way is to create a placeholder document store and configure the parameters on the UI. Then use the placeholder as the base for adding new document loader or creating new document store.
+{% endhint %}
+
+#### Scenario 4: Create new document store for every upsert
+
+<figure><img src="../.gitbook/assets/Untitled-2025-056-02-1727.png" alt="" width="533"><figcaption></figcaption></figure>
+
+{% hint style="success" %}
+**`createNewDocStore`** and **`docStore`** are both required in the request body for this scenario.
+{% endhint %}
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+import requests
+import json
+
+DOC_STORE_ID = "your_doc_store_id"
+DOC_LOADER_ID = "your_doc_loader_id"
+API_URL = f"http://localhost:3000/api/v1/document-store/upsert/{DOC_STORE_ID}"
+API_KEY = "your_api_key_here"
+
+form_data = {
+    "files": ('my-another-file.pdf', open('my-another-file.pdf', 'rb'))
+}
+
+body_data = {
+    "docId": DOC_LOADER_ID,
+    "createNewDocStore": True,
+    "docStore": json.dumps({"name":"My NEW Doc Store"})
+}
+
+headers = {
+    "Authorization": f"Bearer {BEARER_TOKEN}"
+}
+
+def query(form_data):
+    response = requests.post(API_URL, files=form_data, data=body_data, headers=headers)
+    print(response)
+    return response.json()
+
+output = query(form_data)
+print(output)
+```
+{% endtab %}
+
+{% tab title="Javascript" %}
+```javascript
+const DOC_STORE_ID = "your_doc_store_id";
+const DOC_LOADER_ID = "your_doc_loader_id";
+
+let formData = new FormData();
+formData.append("files", input.files[0]);
+formData.append("docId", DOC_LOADER_ID);
+formData.append("createNewDocStore", true);
+formData.append("docStore", JSON.stringify({ "name": "My NEW Doc Store" }));
+
+async function query(formData) {
+    const response = await fetch(
+        `http://localhost:3000/api/v1/document-store/upsert/${DOC_STORE_ID}`,
+        {
+            method: "POST",
+            headers: {
+                "Authorization": "Bearer <your_api_key_here>"
+            },
+            body: formData
+        }
+    );
+    const result = await response.json();
+    return result;
+}
+
+query(formData).then((response) => {
+    console.log(response);
+});
+```
+{% endtab %}
+{% endtabs %}
+
+#### Q: Where to find Document Store ID and Document Loader ID?
+
+A: You can find the respective IDs from the URL.
+
+<figure><img src="../.gitbook/assets/Picture1.png" alt=""><figcaption></figcaption></figure>
+
+#### Q: Where can I find the available configs to override?
+
+A: You can find the available configs from the **View API** button on each document loader:
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+For each upsert, there are 5 elements involved:
+
+* **`loader`**
+* **`splitter`**
+* **`embedding`**
+* **`vectorStore`**
+* **`recordManager`**
+
+You can override existing configuration with the **`config`** body of the element. For example, using the screenshot above, you can create a new document loader with a new **`url`**:
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+import requests
+
+API_URL = "http://localhost:3000/api/v1/document-store/upsert/<storeId>"
+
+def query(payload):
+    response = requests.post(API_URL, json=payload)
+    return response.json()
+
+output = query({
+    "docId": <docLoaderId>,
+    # override existing configuration
+    "loader": {
+        "config": {
+            "url": "https://new-url.com"
+        }
+    }
+})
+print(output)
+```
+{% endtab %}
+
+{% tab title="Javascript" %}
+```javascript
+async function query(data) {
+    const response = await fetch(
+        "http://localhost:3000/api/v1/document-store/upsert/<storeId>",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        }
+    );
+    const result = await response.json();
+    return result;
+}
+
+query({
+    "docId": <docLoaderId>,
+    // override existing configuration
+    "loader": {
+        "config": {
+            "url": "https://new-url.com"
+        }
+    }
+}).then((response) => {
+    console.log(response);
+});
+```
+{% endtab %}
+{% endtabs %}
+
+What if the loader has file upload? Yes, you guessed it right, we have to use form data as body!
+
+Using the image below as an example, we can override the **`usage`** parameter of the PDF File Loader like so:
+
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+import requests
+import json
+
+API_URL = "http://localhost:3000/api/v1/document-store/upsert/<storeId>"
+API_KEY = "your_api_key_here"
+
+form_data = {
+    "files": ('my-another-file.pdf', open('my-another-file.pdf', 'rb'))
+}
+
+override_loader_config = {
+    "config": {
+        "usage": "perPage"
+    }
+}
+
+body_data = {
+    "docId": <docLoaderId>,
+    "loader": json.dumps(override_loader_config) # Override existing configuration
+}
+
+headers = {
+    "Authorization": f"Bearer {BEARER_TOKEN}"
+}
+
+def query(form_data):
+    response = requests.post(API_URL, files=form_data, data=body_data, headers=headers)
+    print(response)
+    return response.json()
+
+output = query(form_data)
+print(output)
+```
+{% endtab %}
+
+{% tab title="Javascript" %}
+```javascript
+const DOC_STORE_ID = "your_doc_store_id";
+const DOC_LOADER_ID = "your_doc_loader_id";
+
+const overrideLoaderConfig = {
+    "config": {
+        "usage": "perPage"
+    }
+}
+
+let formData = new FormData();
+formData.append("files", input.files[0]);
+formData.append("docId", DOC_LOADER_ID);
+formData.append("loader", JSON.stringify(overrideLoaderConfig));
+
+async function query(formData) {
+    const response = await fetch(
+        `http://localhost:3000/api/v1/document-store/upsert/${DOC_STORE_ID}`,
+        {
+            method: "POST",
+            headers: {
+                "Authorization": "Bearer <your_api_key_here>"
+            },
+            body: formData
+        }
+    )
+    const result = await response.json();
+    return result;
+}
+
+query(formData).then((response) => {
+    console.log(response);
+});e
+```
+{% endtab %}
+{% endtabs %}
+
+#### Q: When to use Form Data vs JSON as the body of API request?
+
+A: For [Document Loaders](../integrations/langchain/document-loaders/) that have File Upload functionality, such as PDF, DOCX, TXT, etc, body must be sent as Form Data.
+
+{% hint style="warning" %}
+Make sure the sent file type is compatible with the expected file type from document loader.&#x20;
+
+For example, if a [PDF File Loader](../integrations/langchain/document-loaders/pdf-file.md) is being used, you should only send **.pdf** files.
 
 To avoid having separate loaders for different file types, we recommend to use [File Loader](../integrations/langchain/document-loaders/file-loader.md)
 {% endhint %}
 
 {% tabs %}
 {% tab title="Python API" %}
-<pre class="language-python"><code class="lang-python">import requests
+```python
+import requests
 import json
 
-API_URL = "http://localhost:3000/api/v1/document-store/upsert/&#x3C;storeId>"
+API_URL = "http://localhost:3000/api/v1/document-store/upsert/<storeId>"
 
 # use form data to upload files
 form_data = {
@@ -172,15 +706,9 @@ form_data = {
 }
 
 body_data = {
-    "docId": &#x3C;docId>,
-    # override existing configuration
-    # "loader": "",
-    "splitter": json.dumps({"name":"recursiveCharacterTextSplitter","config":{"chunkSize":20000}})
-<strong>    # "vectorStore": "",
-</strong><strong>    # "embedding": "",
-</strong><strong>    # "recordManager": "",
-</strong><strong>}
-</strong>
+    "docId": <docId>
+}
+
 def query(form_data):
     response = requests.post(API_URL, files=form_data, data=body_data)
     print(response)
@@ -188,7 +716,7 @@ def query(form_data):
 
 output = query(form_data)
 print(output)
-</code></pre>
+```
 {% endtab %}
 
 {% tab title="Javascript API" %}
@@ -197,12 +725,6 @@ print(output)
 let formData = new FormData();
 formData.append("files", input.files[0]);
 formData.append("docId", <docId>);
-formData.append("splitter", JSON.stringify({"name":"recursiveCharacterTextSplitter","config":{"chunkSize":20000}}));
-// override existing configuration
-// formData.append("loader", "");
-// formData.append("embedding", "");
-// formData.append("vectorStore", "");
-// formData.append("recordManager", "");
 
 async function query(formData) {
     const response = await fetch(
@@ -237,23 +759,7 @@ def query(payload):
     return response.json()
 
 output = query({
-    "docId": <docId>,
-    # override existing configuration
-    "loader": {
-        "name": "plainText",
-        "config": {
-            "text": "This is a new text"
-        }
-    },
-    "splitter": {
-        "name": "recursiveCharacterTextSplitter",
-        "config": {
-            "chunkSize": 20000
-        }
-    },
-    # embedding: {},
-    # vectorStore: {},
-    # recordManager: {}
+    "docId": <docId>
 })
 print(output)
 ```
@@ -277,23 +783,7 @@ async function query(data) {
 }
 
 query({
-    "docId": <docId>,
-    // override existing configuration
-    "loader": {
-        "name": "plainText",
-        "config": {
-            "text": "This is a new text"
-        }
-    },
-    "splitter": {
-        "name": "recursiveCharacterTextSplitter",
-        "config": {
-            "chunkSize": 20000
-        }
-    },
-    // embedding: {},
-    // vectorStore: {},
-    // recordManager: {}
+    "docId": <docId>
 }).then((response) => {
     console.log(response);
 });
@@ -301,7 +791,20 @@ query({
 {% endtab %}
 {% endtabs %}
 
-### 2. Refresh
+#### Q: Can I add new metadata?
+
+A: You can provide new metadata by passing the **`metadata`** inside the body request:
+
+```json
+{
+    "docId": <doc-id>,
+    "metadata": {
+        "source: "abc"
+    }
+}
+```
+
+### Refresh API
 
 Often times you might want to re-process every documents loaders within document store to fetch the latest data, and upsert to vector store, to keep everything in sync. This can be done via Refresh API:
 
