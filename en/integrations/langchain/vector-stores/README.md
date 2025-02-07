@@ -16,6 +16,7 @@ A vector store or vector database refers to a type of database system that speci
 
 * [AstraDB](astradb.md)
 * [Chroma](chroma.md)
+* [Couchbase](couchbase.md)
 * [Elastic](elastic.md)
 * [Faiss](faiss.md)
 * [In-Memory Vector Store](in-memory-vector-store.md)
