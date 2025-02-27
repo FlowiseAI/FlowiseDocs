@@ -12,6 +12,8 @@ There are several analytic providers Flowise integrates with:
 * [Langsmith](https://smith.langchain.com/)
 * [Langfuse](https://langfuse.com/)
 * [LangWatch](https://langwatch.ai/)
+* [Arize](https://arize.com/)
+* [Phoenix][https://phoenix.arize.com/]
 
 ## Lunary
 
