@@ -32,7 +32,20 @@ Flowise store the following files under a local path folder by default.
 
 User can specify `STORAGE_TYPE` to use AWS S3 or local path
 
-<table><thead><tr><th width="227">Variable</th><th width="196">Description</th><th width="131">Type</th><th>Default</th></tr></thead><tbody><tr><td>STORAGE_TYPE</td><td>Type of storage for uploaded files. default is <code>local</code></td><td>Enum String: <code>s3</code>, <code>local</code></td><td><code>local</code></td></tr><tr><td>BLOB_STORAGE_PATH</td><td>Local folder path where uploaded files are stored when <code>STORAGE_TYPE</code> is <code>local</code></td><td>String</td><td><code>your-home-dir/.flowise/storage</code></td></tr><tr><td>S3_STORAGE_BUCKET_NAME</td><td>Bucket name to hold the uploaded files when <code>STORAGE_TYPE</code> is <code>s3</code></td><td>String</td><td></td></tr><tr><td>S3_STORAGE_ACCESS_KEY_ID</td><td>AWS Access Key</td><td>String</td><td></td></tr><tr><td>S3_STORAGE_SECRET_ACCESS_KEY</td><td>AWS Secret Key</td><td>String</td><td></td></tr><tr><td>S3_STORAGE_REGION</td><td>Region for S3 bucket</td><td>String</td><td></td></tr><tr><td>S3_ENDPOINT_URL</td><td>Custom S3 endpoint (optional)</td><td>String</td><td></td></tr><tr><td>S3_FORCE_PATH_STYLE</td><td>Force S3 path style (optional)</td><td>Boolean</td><td>false</td></tr></tbody></table>
+| Variable | Description | Type | Default |
+|----------|-------------|------|---------|
+| STORAGE_TYPE | Type of storage for uploaded files. default is `local` | Enum String: `s3`, `local` | `local` |
+| BLOB_STORAGE_PATH | Local folder path where uploaded files are stored when `STORAGE_TYPE` is `local` | String | `your-home-dir/.flowise/storage` |
+| S3_STORAGE_BUCKET_NAME | Bucket name to hold the uploaded files when `STORAGE_TYPE` is `s3` | String | |
+| S3_STORAGE_ACCESS_KEY_ID | AWS Access Key | String | |
+| S3_STORAGE_SECRET_ACCESS_KEY | AWS Secret Key | String | |
+| S3_STORAGE_REGION | Region for S3 bucket | String | |
+| S3_ENDPOINT_URL | Custom S3 endpoint (optional) | String | |
+| S3_FORCE_PATH_STYLE | Force S3 path style (optional) | Boolean | false |
+| GOOGLE_CLOUD_STORAGE_CREDENTIAL | Google Cloud Service Account Key | String | |
+| GOOGLE_CLOUD_STORAGE_PROJ_ID | Google Cloud Project ID | String | |
+| GOOGLE_CLOUD_STORAGE_BUCKET_NAME | Google Cloud Storage Bucket Name | String | |
+| GOOGLE_CLOUD_UNIFORM_BUCKET_ACCESS | Type of Access | Boolean | true |
 
 ## For Debugging and Logs
 
@@ -116,6 +129,7 @@ There are certain nodes/features within Flowise that allow user to run Javascrip
 | TOOL\_FUNCTION\_EXTERNAL\_DEP | External modules to be used for Tool Function        | String |
 
 {% code title=".env" %}
+
 ```bash
 # Allows usage of all builtin modules
 TOOL_FUNCTION_BUILTIN_DEP=*
@@ -129,9 +143,10 @@ TOOL_FUNCTION_BUILTIN_DEP=crypto,fs
 # Allow usage of external npm modules.
 TOOL_FUNCTION_EXTERNAL_DEP=axios,moment
 ```
+
 {% endcode %}
 
-## Examples of how to set environment variables:
+## Examples of how to set environment variables
 
 ### NPM
 
