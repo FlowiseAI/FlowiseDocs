@@ -33,6 +33,7 @@
 * [Parte 10: Sequential Agents Avanzados](partes/parte-10/README.md)
 
 ## Recursos
+
 * [Enlaces Útiles](recursos/enlaces.md)
 * [Documentación Oficial](recursos/documentacion.md)
 * [Ejemplos de Código](recursos/ejemplos.md)
@@ -139,7 +140,7 @@
     * [Chat Models](integraciones/langchain/chat-models/README.md)
       * [AWS ChatBedrock](integraciones/langchain/chat-models/aws-chatbedrock.md)
       * [Azure ChatOpenAI](integraciones/langchain/chat-models/azure-chatopenai-1.md)
-      * [Nvdia NIM](integraciones/langchain/chat-models/nvdia-nim.md)
+      * [Nvidia NIM](integraciones/langchain/chat-models/nvidia-nim.md)
       * [ChatAnthropic](integraciones/langchain/chat-models/chatanthropic.md)
       * [ChatCohere](integraciones/langchain/chat-models/chatcohere.md)
       * [Chat Fireworks](integraciones/langchain/chat-models/chat-fireworks.md)
