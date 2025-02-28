@@ -90,7 +90,7 @@ The Worker, as a specialized agent instructed to handle a specific task within t
 The ability to assign **different Chat Models to each Worker** provides significant flexibility and optimization opportunities for our application. By selecting [Chat Models](../../integrations/langchain/chat-models/) tailored to specific tasks, we can leverage more cost-effective solutions for simpler tasks and reserve specialized, potentially more expensive, models when truly necessary.
 {% endhint %}
 
-### Undertanding Max Iteration parameter in Workers
+### Understanding Max Iteration parameter in Workers
 
 [LangChain](https://python.langchain.com/v0.1/docs/modules/agents/how\_to/max\_iterations/) refers to `Max Iterations Cap` as a important control mechanism for preventing haywire within an agentic system. In our current this context, it serves us as a guardrail against excessive, potentially infinite, interactions between the Supervisor and Worker.
 
