@@ -6,62 +6,72 @@ description: Learn how to call a webhook on Make
 
 ***
 
-In this use case tutorial, we are going to create a custom tool that will be able to call a webhook endpoint, and pass in the necessary parameters into the webhook body. We'll be using [Make.com](https://www.make.com/en) to create the webhook workflow.
+This tutorial walks you through creating a custom tool in FlowiseAI that calls a webhook endpoint, passing the necessary parameters in the request body. We will use [Make.com](https://www.make.com/en) to set up a webhook workflow that sends messages to a Discord channel.
 
-## Make
+## Setting Up a Webhook in Make.com
 
-Head over to Make.com, after registering an account, create a workflow that has a Webhook module and Discord module, which looks like below:
+1. Sign up or log in to [Make.com](https://www.make.com/en).
+2. Create a new workflow containing a **Webhook** module and a **Discord** module, as shown below:
 
-<figure><img src="../.gitbook/assets/screely-1691756705932.png" alt=""><figcaption></figcaption></figure>
+   <figure><img src="../.gitbook/assets/screely-1691756705932.png" alt="Workflow example"><figcaption></figcaption></figure>
 
-From the Webhook module, you should be able to see a webhook URL:
+3. From the **Webhook** module, copy the webhook URL:
 
-<figure><img src="../.gitbook/assets/image (46).png" alt="" width="563"><figcaption></figcaption></figure>
+   <figure><img src="../.gitbook/assets/image (46).png" alt="Webhook URL" width="563"><figcaption></figcaption></figure>
 
-From the Discord module, we are passing the `message` body from the Webhook as the message to send to Discord channel:
+4. In the **Discord** module, configure it to pass the `message` from the webhook body as the message sent to the Discord channel:
 
-<figure><img src="../.gitbook/assets/image (47).png" alt="" width="563"><figcaption></figcaption></figure>
+   <figure><img src="../.gitbook/assets/image (47).png" alt="Discord module setup" width="563"><figcaption></figcaption></figure>
 
-To test it out, you can click Run once at the bottom left corner, and send a POST request with a JSON body
+5. Click **Run Once** to start listening for incoming requests.
+6. Send a test POST request with the following JSON body:
 
-```json
-{
-    "message": "Hello Discord!"
-}
-```
+   ```json
+   {
+       "message": "Hello Discord!"
+   }
+   ```
 
-<figure><img src="../.gitbook/assets/image (48).png" alt="" width="563"><figcaption></figcaption></figure>
+   <figure><img src="../.gitbook/assets/image (48).png" alt="Sending POST request" width="563"><figcaption></figcaption></figure>
 
-You'll be able to see a Discord message sent to the channel:
+7. If successful, you will see the message appear in your Discord channel:
 
-<figure><img src="../.gitbook/assets/image (49).png" alt="" width="249"><figcaption></figcaption></figure>
+   <figure><img src="../.gitbook/assets/image (49).png" alt="Discord message" width="249"><figcaption></figcaption></figure>
 
-Perfect! We have successfully configured a workflow that is able to pass a message and send to Discord channel [🎉 ](https://emojiterra.com/party-popper/)[🎉](https://emojiterra.com/party-popper/)
+Congratulations! You have successfully set up a webhook workflow that sends messages to Discord. 🎉
 
-## Flowise
+## Creating a Webhook Tool in FlowiseAI
 
-In Flowise, we are going to create a custom tool that is able to call the Webhook POST request, with the message body.
+Next, we will create a custom tool in FlowiseAI to send webhook requests.
 
-From the dashboard, click **Tools**, then click **Create**
+### Step 1: Add a New Tool
 
-<figure><img src="../.gitbook/assets/screely-1691758397783.png" alt=""><figcaption></figcaption></figure>
+1. Open the **FlowiseAI** dashboard.
+2. Click **Tools**, then select **Create**.
 
-We can then fill in the following fields (feel free to change this according to your needs):
+   <figure><img src="../.gitbook/assets/screely-1691758397783.png" alt="Creating tool in FlowiseAI"><figcaption></figcaption></figure>
 
-* **Tool Name**: make\_webhook (must be in snake\_case)
-* **Tool Description**: Useful when you need to send message to Discord
-* **Tool Icon Src**: [https://github.com/FlowiseAI/Flowise/assets/26460777/517fdab2-8a6e-4781-b3c8-fb92cc78aa0b](https://github.com/FlowiseAI/Flowise/assets/26460777/517fdab2-8a6e-4781-b3c8-fb92cc78aa0b)
-* **Input Schema**:
+3. Fill in the following fields:
 
-<figure><img src="../.gitbook/assets/image (167).png" alt=""><figcaption></figcaption></figure>
+   | Field | Value |
+   |-------|-------|
+   | **Tool Name** | `make_webhook` (must be in snake_case) |
+   | **Tool Description** | Useful when you need to send messages to Discord |
+   | **Tool Icon Src** | [Flowise Tool Icon](https://github.com/FlowiseAI/Flowise/assets/26460777/517fdab2-8a6e-4781-b3c8-fb92cc78aa0b) |
 
-* **JavaScript Function**:
+4. Define the **Input Schema**:
+
+   <figure><img src="../.gitbook/assets/image (167).png" alt="Input schema example"><figcaption></figcaption></figure>
+
+### Step 2: Add Webhook Request Logic
+
+Enter the following JavaScript function:
 
 ```javascript
 const fetch = require('node-fetch');
 const webhookUrl = 'https://hook.eu1.make.com/abcdef';
 const body = {
-	"message": $message
+    "message": $message
 };
 const options = {
     method: 'POST',
@@ -80,49 +90,55 @@ try {
 }
 ```
 
-Click **Add** to save the custom tool, and you should be able to see it now:
+5. Click **Add** to save your custom tool.
 
-<figure><img src="../.gitbook/assets/image (51).png" alt="" width="279"><figcaption></figcaption></figure>
+   <figure><img src="../.gitbook/assets/image (51).png" alt="Tool added confirmation" width="279"><figcaption></figcaption></figure>
 
-Now, create a new canvas with following nodes:
+### Step 3: Build a Chatflow with Webhook Integration
 
-* **Buffer Memory**
-* **ChatOpenAI**
-* **Custom Tool** (select the make\_webhook tool we just created)
-* **OpenAI Function Agent**
+1. Create a new canvas and add the following nodes:
+   - **Buffer Memory**
+   - **ChatOpenAI**
+   - **Custom Tool** (select `make_webhook`)
+   - **OpenAI Function Agent**
 
-It should looks like below after connecting them up:
+2. Connect them as shown:
 
-<figure><img src="../.gitbook/assets/screely-1691758990676.png" alt=""><figcaption></figcaption></figure>
+   <figure><img src="../.gitbook/assets/screely-1691758990676.png" alt="Chatflow setup"><figcaption></figcaption></figure>
 
-Save the chatflow, and start testing it!
+3. Save the chatflow and start testing it.
 
-For example, we can ask question like _"how to cook an egg"_
+### Step 4: Sending Messages via Webhook
 
-<figure><img src="../.gitbook/assets/image (52).png" alt="" width="563"><figcaption></figcaption></figure>
+Try asking the chatbot a question like:
 
-Then ask the agent to send all of these to Discord:
+> _"How to cook an egg?"_
 
-<figure><img src="../.gitbook/assets/image (53).png" alt="" width="563"><figcaption></figcaption></figure>
+Then, request the agent to send this information to Discord:
 
-Go to the Discord channel, and you will be able to see the message:
+   <figure><img src="../.gitbook/assets/image (53).png" alt="Sending message via agent" width="563"><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (54).png" alt=""><figcaption></figcaption></figure>
+You should see the message appear in your Discord channel:
 
-That's it! OpenAI Function Agent will be able to automatically figure out what to pass as the message and send it over to Discord. This is just a quick example of how to trigger a webhook workflow with dynamic body. The same idea can be applied to workflow that has a webhook and Gmail, GoogleSheets etc.
+   <figure><img src="../.gitbook/assets/image (54).png" alt="Final message in Discord"><figcaption></figcaption></figure>
 
-You can read more on how to pass chat information like `sessionId`, `flowid` and `variables` to custom tool - [#additional](../integrations/langchain/tools/custom-tool.md#additional "mention")
+### Alternative Webhook Testing Tools
 
-## Tutorials
+If you want to test webhooks without Make.com, consider using:
 
-* Watch a step-by-step instruction video on using Webhooks with Flowise custom tools.
+- [Beeceptor](https://beeceptor.com) – Quickly set up a mock API endpoint.
+- [Webhook.site](https://webhook.site) – Inspect and debug HTTP requests in real-time.
+- [Pipedream RequestBin](https://pipedream.com/requestbin) – Capture and analyze incoming webhooks.
 
-{% embed url="https://youtu.be/_K9xJqEgnrU" %}
+## More Tutorials
 
-* Watch how to connect Flowise to Google Sheets using webhooks
+- Watch a step-by-step guide on using webhooks with Flowise custom tools:
+  {% embed url="https://youtu.be/_K9xJqEgnrU" %}
 
-{% embed url="https://youtu.be/fehXLdRLJFo" %}
+- Learn how to connect Flowise to Google Sheets using webhooks:
+  {% embed url="https://youtu.be/fehXLdRLJFo" %}
 
-* Watch how to connect Flowise to Microsoft Excel using webhooks
+- Learn how to connect Flowise to Microsoft Excel using webhooks:
+  {% embed url="https://youtu.be/cB2GC8JznJc" %}
 
-{% embed url="https://youtu.be/cB2GC8JznJc" %}
+By following this guide, you can trigger webhook workflows dynamically and extend automation to various services like Gmail, Google Sheets, and more.
