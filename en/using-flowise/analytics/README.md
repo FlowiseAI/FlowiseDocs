@@ -13,7 +13,7 @@ There are several analytic providers Flowise integrates with:
 * [Langfuse](https://langfuse.com/)
 * [LangWatch](https://langwatch.ai/)
 * [Arize](https://arize.com/)
-* [Phoenix][https://phoenix.arize.com/]
+* [Phoenix](https://phoenix.arize.com/)
 
 ## Lunary
 
@@ -39,7 +39,7 @@ Read more on how to setup Lunary with Flowise [here](https://lunary.ai/docs/inte
 
 <figure><img src="../.gitbook/assets/image (82).png" alt="Screenshot of an analytics provider with credentials fields expanded"><figcaption></figcaption></figure>
 
-3. Fill in the credentials and other configuration details, then turn the provider **ON**
+4. Fill in the credentials and other configuration details, then turn the provider **ON**. Click Save.
 
 <figure><img src="../.gitbook/assets/image (83).png" alt="Screenshot of analytics providers enabled"><figcaption></figcaption></figure>
 
