@@ -237,6 +237,7 @@
     * [Vector Stores](integrations/langchain/vector-stores/README.md)
       * [AstraDB](integrations/langchain/vector-stores/astradb.md)
       * [Chroma](integrations/langchain/vector-stores/chroma.md)
+      * [Couchbase](integrations/langchain/vector-stores/couchbase.md)
       * [Elastic](integrations/langchain/vector-stores/elastic.md)
       * [Faiss](integrations/langchain/vector-stores/faiss.md)
       * [In-Memory Vector Store](integrations/langchain/vector-stores/in-memory-vector-store.md)
