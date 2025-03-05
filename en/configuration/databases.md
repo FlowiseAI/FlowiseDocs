@@ -122,8 +122,6 @@ DATABASE_PASSWORD="mypassword"
 
 ### MySQL & MariaDB
 
-Windows & Linux:
-
 1. Backup database.
 
    ```bash
