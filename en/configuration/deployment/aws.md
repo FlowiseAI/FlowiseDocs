@@ -55,7 +55,7 @@ terraform apply
 terraform destroy
 ```
 
-## Launch EC2 Instance
+## Deploy Manualy Using EC2
 
 1. In the EC2 dashboard, click **Launch Instance**
 
