@@ -18,17 +18,17 @@ description: Learn how to setup Opik to analyze and troubleshoot your chatflows 
 
 3. You will see a list of providers, along with their configuration fields. Click on Opik.
 
-<figure><img src="../../.gitbook/assets/opik/opik-1.png" alt="Screenshot of an analytics provider with credentials fields expanded"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/opik-1.png" alt="Screenshot of an analytics provider with credentials fields expanded"><figcaption></figcaption></figure>
 
 4. Create credentials for Opik. Refer to the [official guide](https://www.comet.com/docs/opik/tracing/sdk_configuration) on how to get the Opik API key.
 
-<figure><img src="../../.gitbook/assets/opik/opik-2.png" alt="Screenshot of analytics providers enabled"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/opik-2.png" alt="Screenshot of analytics providers enabled"><figcaption></figcaption></figure>
 
 5. Fill in other configuration details, then turn the provider **ON**
 
-<figure><img src="../../.gitbook/assets/opik/opik-3.png" alt="Screenshot of analytics providers enabled"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/opik-3.png" alt="Screenshot of analytics providers enabled"><figcaption></figcaption></figure>
 
 
 Now you can analyze your chatflows and agentflows using Opik UI:
 
-<figure><img src="../../.gitbook/assets/opik/opik-4.png" alt="Screenshot of Opik UI"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/opik-4.png" alt="Screenshot of Opik UI"><figcaption></figcaption></figure>
