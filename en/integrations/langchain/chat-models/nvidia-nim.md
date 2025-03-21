@@ -1,8 +1,49 @@
-# Nvidia NIM
+# NVIDIA NIM
 
-## Prerequisite
+## Local
 
-1. Log in or sign up to [Nvidia](https://build.nvidia.com/).
+### Prerequisite
+
+### Flowise
+
+1. **Chat Models** > Drag the **Chat NVIDIA NIM** node > Click **Setup NIM Locally**.
+
+<figure><img src="../../../.gitbook/assets/nvidia-nim-local-1.png" alt=""><figcaption></figcaption></figure>
+
+2. If NIM is already installed, click **Next**. Otherwise, click **Download** to start the installer.
+
+<figure><img src="../../../.gitbook/assets/nvidia-nim-local-2.png" alt=""><figcaption></figcaption></figure>
+
+3. Select a model image to download.
+
+<figure><img src="../../../.gitbook/assets/nvidia-nim-local-3.png" alt=""><figcaption></figcaption></figure>
+
+4. Once selected, click **Next** to proceed with the download.
+
+<figure><img src="../../../.gitbook/assets/nvidia-nim-local-4.png" alt=""><figcaption></figcaption></figure>
+
+5. **Downloading Image** – Duration depends on internet speed.
+
+<figure><img src="../../../.gitbook/assets/nvidia-nim-local-5.png" alt=""><figcaption></figcaption></figure>
+
+6. Learn more about [Relax Memory Constraints](https://docs.nvidia.com/nim/large-language-models/1.7.0/configuration.html#environment-variables).  
+   The **Host Port** is the port for the container to map to the local machine.
+
+<figure><img src="../../../.gitbook/assets/nvidia-nim-local-6.png" alt=""><figcaption></figcaption></figure>
+
+7. **Starting the container...**
+
+<figure><img src="../../../.gitbook/assets/nvidia-nim-local-7.png" alt=""><figcaption></figcaption></figure>
+
+8. [🎉](https://emojipedia.org/party-popper/) **Voila!** Your **Chat NVIDIA NIM** node is now ready to use in Flowise!
+
+<figure><img src="../../../.gitbook/assets/nvidia-nim-local-8.png" alt=""><figcaption></figcaption></figure>
+
+## Cloud
+
+### Prerequisite
+
+1. Log in or sign up to [NVIDIA](https://build.nvidia.com/).
 2. From the top navigation bar, click NIM:
 
 <figure><img src="../../../.gitbook/assets/image (247).png" alt=""><figcaption></figcaption></figure>
@@ -15,21 +56,21 @@
 
 <figure><img src="../../../.gitbook/assets/image (249).png" alt="" width="563"><figcaption></figcaption></figure>
 
-## Flowise
+### Flowise
 
-1. **Chat Models** > drag **Chat NvidiaNIM** node
+1. **Chat Models** > drag **Chat NVIDIA NIM** node
 
 <figure><img src="../../../.gitbook/assets/image (250).png" alt=""><figcaption></figcaption></figure>
 
-2. If you are using Nvidia hosted endpoint, you must have your API key. **Connect Credential** > click **Create New.** However if you are using local setup, this is optional.
+2. If you are using NVIDIA hosted endpoint, you must have your API key. **Connect Credential** > click **Create New.** However if you are using local setup, this is optional.
 
 <div align="left"><figure><img src="../../../.gitbook/assets/image (251).png" alt=""><figcaption></figcaption></figure> <figure><img src="../../../.gitbook/assets/Screenshot 2024-12-23 180712.png" alt=""><figcaption></figcaption></figure></div>
 
-3. Put in the model name and voila [🎉](https://emojipedia.org/party-popper/), your **Nvidia NIM node** is now ready to be used in Flowise!
+3. Put in the model name and voila [🎉](https://emojipedia.org/party-popper/), your **Chat NVIDIA NIM node** is now ready to be used in Flowise!
 
 <figure><img src="../../../.gitbook/assets/image (252).png" alt=""><figcaption></figcaption></figure>
 
-## Resources
+### Resources
 
-* [Nvidia LLM Getting Started](https://docs.nvidia.com/nim/large-language-models/latest/getting-started.html)
-* [Nvidia NIM](https://build.nvidia.com/microsoft/phi-3-mini-4k?snippet_tab=Docker)
+- [NVIDIA LLM Getting Started](https://docs.nvidia.com/nim/large-language-models/latest/getting-started.html)
+- [NVIDIA NIM](https://build.nvidia.com/microsoft/phi-3-mini-4k?snippet_tab=Docker)
