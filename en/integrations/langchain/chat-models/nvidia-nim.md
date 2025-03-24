@@ -4,6 +4,8 @@
 
 ### Prerequisite
 
+1. Setup [NVIDIA NIM locally with WSL2](https://docs.nvidia.com/nim/wsl2/1.0.0/getting-started.html).
+
 ### Flowise
 
 1. **Chat Models** > Drag the **Chat NVIDIA NIM** node > Click **Setup NIM Locally**.
@@ -35,7 +37,13 @@
 
 <figure><img src="../../../.gitbook/assets/nvidia-nim-local-7.png" alt=""><figcaption></figcaption></figure>
 
-8. [🎉](https://emojipedia.org/party-popper/) **Voila!** Your **Chat NVIDIA NIM** node is now ready to use in Flowise!
+**Note: If you already have a container running with the selected model, Flowise will ask you if you want to reuse the running container. You can choose to reuse the running container or start a new one with a different port.**
+
+<figure><img src="../../../.gitbook/assets/nvidia-nim-container-exists.png" alt=""><figcaption></figcaption></figure>
+
+8. **Save the chatflow**
+
+9. [🎉](https://emojipedia.org/party-popper/) **Voila!** Your **Chat NVIDIA NIM** node is now ready to use in Flowise!
 
 <figure><img src="../../../.gitbook/assets/nvidia-nim-local-8.png" alt=""><figcaption></figcaption></figure>
 
