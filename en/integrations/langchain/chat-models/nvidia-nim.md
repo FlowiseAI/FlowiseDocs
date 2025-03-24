@@ -37,7 +37,7 @@
 
 <figure><img src="../../../.gitbook/assets/nvidia-nim-local-7.png" alt=""><figcaption></figcaption></figure>
 
-**Note: If you already have a container running with the selected model, Flowise will ask you if you want to reuse the running container. You can choose to reuse the running container or start a new one with a different port.**
+_Note: If you already have a container running with the selected model, Flowise will ask you if you want to reuse the running container. You can choose to reuse the running container or start a new one with a different port._
 
 <figure><img src="../../../.gitbook/assets/nvidia-nim-container-exists.png" alt=""><figcaption></figcaption></figure>
 
