@@ -2,6 +2,15 @@
 
 ## Local
 
+### Important Note on Running NIM with Flowise
+
+If an existing NIM instance is already running (e.g., via NVIDIA’s ChatRTX), starting another instance through Flowise **without checking for an existing endpoint** may cause conflicts. This issue occurs when multiple `podman run` commands are executed on the same NIM, leading to failures.
+
+For support, refer to:
+
+- **[NVIDIA Developer Forums](https://forums.developer.nvidia.com/)** – For technical issues and questions.
+- **[NVIDIA Developer Discord](https://discord.com/channels/1019361803752456192/1340013505834647572)** – For community engagement and announcements.
+
 ### Prerequisite
 
 1. Setup [NVIDIA NIM locally with WSL2](https://docs.nvidia.com/nim/wsl2/1.0.0/getting-started.html).
