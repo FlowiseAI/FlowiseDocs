@@ -9,7 +9,7 @@ If an existing NIM instance is already running (e.g., via NVIDIA’s ChatRTX), s
 For support, refer to:
 
 - **[NVIDIA Developer Forums](https://forums.developer.nvidia.com/)** – For technical issues and questions.
-- **[NVIDIA Developer Discord](https://discord.com/channels/1019361803752456192/1340013505834647572)** – For community engagement and announcements.
+- **[NVIDIA Developer Discord](https://discord.gg/nvidiadeveloper)** – For community engagement and [announcements](https://discord.com/channels/1019361803752456192/1340013505834647572).
 
 ### Prerequisite
 
