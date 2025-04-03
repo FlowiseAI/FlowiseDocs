@@ -14,6 +14,7 @@ There are several analytic providers Flowise integrates with:
 * [LangWatch](https://langwatch.ai/)
 * [Arize](https://arize.com/)
 * [Phoenix](https://phoenix.arize.com/)
+* [Opik](https://www.comet.com/site/products/opik/)
 
 ## Langfuse
 
@@ -66,7 +67,7 @@ Once the analytic has been turned ON from the UI, you can override or provide ad
   "overrideConfig": {
     "analytics": {
       "langFuse": {
-        // langSmith, langFuse, lunary, langWatch
+        // langSmith, langFuse, lunary, langWatch, opik
         "userId": "user1"
       }
     }

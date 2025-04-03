@@ -27,6 +27,7 @@
   * [Analytic](using-flowise/analytics/README.md)
     * [Arize](using-flowise/analytics/arize.md)
     * [Phoenix](using-flowise/analytics/phoenix.md)
+    * [Opik](using-flowise/analytics/opik.md)
   * [Document Stores](using-flowise/document-stores.md)
   * [Embed](using-flowise/embed.md)
   * [Monitoring](using-flowise/monitoring.md)
