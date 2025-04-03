@@ -16,29 +16,6 @@ There are several analytic providers Flowise integrates with:
 * [Phoenix](https://phoenix.arize.com/)
 * [Opik](https://www.comet.com/site/products/opik/)
 
-## Langfuse
-
-[Langfuse](https://langfuse.com) is an open source LLM engineering platform that helps teams trace API calls, monitor performance, and debug issues in their AI applications.
-
-With the native integration, you can use Flowise to quickly create complex LLM applications in no-code and then use Langfuse to monitor and improve them.
-
-The integration supports all use cases of Flowise, including: interactively in the UI, API, and embeds.
-
-{% embed url="https://youtu.be/iFsSW6HHoa0" %}
-
-You can optionally add `release` to tag the current version of the flow. You usually don't need to change the other options.
-
-
-## Lunary
-
-[Lunary](https://lunary.ai/) is a monitoring and analytics platform for LLM chatbots.
-
-Flowise has partnered with Lunary to provide a complete integration supporting user tracing, feedback tracking, conversation replays and detailed LLM analytics.
-
-Flowise users can get a 30% discount on the Teams Plan using code `FLOWISEFRIENDS` during checkout.
-
-Read more on how to setup Lunary with Flowise [here](https://lunary.ai/docs/integrations/flowise).
-
 ## Setup
 
 1. At the top right corner of your Chatflow or Agentflow, click **Settings** > **Configuration**

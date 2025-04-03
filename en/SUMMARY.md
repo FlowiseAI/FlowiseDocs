@@ -25,6 +25,8 @@
       * [Video Tutorials](using-flowise/agentflows/sequential-agents/video-tutorials.md)
   * [API](using-flowise/api.md)
   * [Analytic](using-flowise/analytics/README.md)
+    * [Langfuse](using-flowise/analytics/langfuse.md)
+    * [Lunary](using-flowise/analytics/lunary.md)
     * [Arize](using-flowise/analytics/arize.md)
     * [Phoenix](using-flowise/analytics/phoenix.md)
     * [Opik](using-flowise/analytics/opik.md)
