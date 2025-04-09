@@ -300,6 +300,7 @@
   * [External Integrations](integrations/3rd-party-platform-integration/README.md)
     * [Zapier Zaps](integrations/3rd-party-platform-integration/zapier-zaps.md)
 * [Migration Guide](migration-guide/README.md)
+  * [Cloud Migration](migration-guide/cloud-migration.md)
   * [v1.3.0 Migration Guide](migration-guide/v1.3.0-migration-guide.md)
   * [v1.4.3 Migration Guide](migration-guide/v1.4.3-migration-guide.md)
   * [v2.1.4 Migration Guide](migration-guide/v2.1.4-migration-guide.md)
