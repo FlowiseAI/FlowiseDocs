@@ -6,7 +6,10 @@ description: Learn how to deploy Flowise on Sealos
 
 ***
 
-1. Click the following prebuilt [template](https://template.cloud.sealos.io/deploy?templateName=flowise)
+1. Click the following prebuilt [template](https://template.sealos.io/deploy?templateName=flowise) or the button below.
+
+[![Deploy on Sealos](https://sealos.io/Deploy-on-Sealos.svg)](https://template.sealos.io/deploy?templateName=flowise)
+
 2. Add authorization
    * FLOWISE\_USERNAME
    * FLOWISE\_PASSWORD
