@@ -6,6 +6,8 @@ description: Learn how to setup Arize to analyze and troubleshoot your chatflows
 
 ***
 
+[Arize AI](https://docs.arize.com/arize) is a production-grade observability platform for monitoring, debugging, and improving LLM applications and AI Agents at scale. For a free, open-source alternative, explore [Phoenix](https://docs.flowiseai.com/using-flowise/analytics/phoenix).
+
 ## Setup
 
 1. At the top right corner of your Chatflow or Agentflow, click **Settings** > **Configuration**

@@ -6,6 +6,8 @@ description: Learn how to setup Phoenix to analyze and troubleshoot your chatflo
 
 ***
 
+[Phoenix](https://docs.arize.com/phoenix/self-hosting) is an open-source observability tool designed for experimentation, evaluation, and troubleshooting of AI and LLM applications. It can be access in its [Cloud](https://app.phoenix.arize.com/login) form online, or self-hosted and run on your own machine or server.
+
 ## Setup
 
 1. At the top right corner of your Chatflow or Agentflow, click **Settings** > **Configuration**
@@ -20,7 +22,7 @@ description: Learn how to setup Phoenix to analyze and troubleshoot your chatflo
 
 <figure><img src="../../.gitbook/assets/phoenix/phoenix-1.png" alt="Screenshot of an analytics provider with credentials fields expanded"><figcaption></figcaption></figure>
 
-4. Create credentials for Phoenix. Refer to the [official guide](https://docs.arize.com/phoenix/tracing/llm-traces-1) on how to get the Phoenix API key.
+4. Create credentials for Phoenix. Refer to the [official guide](https://docs.arize.com/phoenix/environments) on how to get the Phoenix API key.
 
 <figure><img src="../../.gitbook/assets/phoenix/phoenix-2.png" alt="Screenshot of analytics providers enabled"><figcaption></figcaption></figure>
 
