@@ -8,7 +8,7 @@ description: Learn how to deploy Flowise on Sealos
 
 1. Haz click en el botón de abajo para hacer deploy de Flowise en Sealos
 
-[![Deploy on Sealos](https://raw.githubusercontent.com/labring-actions/templates/main/Deploy-on-Sealos.svg)](https://cloud.sealos.io/?openapp=system-template%3FtemplateName%3Dflowise)
+[![Deploy on Sealos](https://sealos.io/Deploy-on-Sealos.svg)](https://template.sealos.io/deploy?templateName=flowise)
 
 2. Haz click en **Deploy**
 
