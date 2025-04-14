@@ -30,22 +30,22 @@ Flowise store the following files under a local path folder by default.
 * Images/Files from Assistant
 * Files from [Vector Upsert API](../using-flowise/api.md#vector-upsert-api)
 
-User can specify `STORAGE_TYPE` to use AWS S3 or local path
+User can specify `STORAGE_TYPE` to use AWS S3, Google Cloud Storage or local path
 
-| Variable | Description | Type | Default |
-|----------|-------------|------|---------|
-| STORAGE_TYPE | Type of storage for uploaded files. default is `local` | Enum String: `s3`, `local` | `local` |
-| BLOB_STORAGE_PATH | Local folder path where uploaded files are stored when `STORAGE_TYPE` is `local` | String | `your-home-dir/.flowise/storage` |
-| S3_STORAGE_BUCKET_NAME | Bucket name to hold the uploaded files when `STORAGE_TYPE` is `s3` | String | |
-| S3_STORAGE_ACCESS_KEY_ID | AWS Access Key | String | |
-| S3_STORAGE_SECRET_ACCESS_KEY | AWS Secret Key | String | |
-| S3_STORAGE_REGION | Region for S3 bucket | String | |
-| S3_ENDPOINT_URL | Custom S3 endpoint (optional) | String | |
-| S3_FORCE_PATH_STYLE | Force S3 path style (optional) | Boolean | false |
-| GOOGLE_CLOUD_STORAGE_CREDENTIAL | Google Cloud Service Account Key | String | |
-| GOOGLE_CLOUD_STORAGE_PROJ_ID | Google Cloud Project ID | String | |
-| GOOGLE_CLOUD_STORAGE_BUCKET_NAME | Google Cloud Storage Bucket Name | String | |
-| GOOGLE_CLOUD_UNIFORM_BUCKET_ACCESS | Type of Access | Boolean | true |
+| Variable                               | Description                                                                      | Type                              | Default                          |
+| -------------------------------------- | -------------------------------------------------------------------------------- | --------------------------------- | -------------------------------- |
+| STORAGE\_TYPE                          | Type of storage for uploaded files. default is `local`                           | Enum String: `s3`, `gcs`, `local` | `local`                          |
+| BLOB\_STORAGE\_PATH                    | Local folder path where uploaded files are stored when `STORAGE_TYPE` is `local` | String                            | `your-home-dir/.flowise/storage` |
+| S3\_STORAGE\_BUCKET\_NAME              | Bucket name to hold the uploaded files when `STORAGE_TYPE` is `s3`               | String                            |                                  |
+| S3\_STORAGE\_ACCESS\_KEY\_ID           | AWS Access Key                                                                   | String                            |                                  |
+| S3\_STORAGE\_SECRET\_ACCESS\_KEY       | AWS Secret Key                                                                   | String                            |                                  |
+| S3\_STORAGE\_REGION                    | Region for S3 bucket                                                             | String                            |                                  |
+| S3\_ENDPOINT\_URL                      | Custom S3 endpoint (optional)                                                    | String                            |                                  |
+| S3\_FORCE\_PATH\_STYLE                 | Force S3 path style (optional)                                                   | Boolean                           | false                            |
+| GOOGLE\_CLOUD\_STORAGE\_CREDENTIAL     | Google Cloud Service Account Key                                                 | String                            |                                  |
+| GOOGLE\_CLOUD\_STORAGE\_PROJ\_ID       | Google Cloud Project ID                                                          | String                            |                                  |
+| GOOGLE\_CLOUD\_STORAGE\_BUCKET\_NAME   | Google Cloud Storage Bucket Name                                                 | String                            |                                  |
+| GOOGLE\_CLOUD\_UNIFORM\_BUCKET\_ACCESS | Type of Access                                                                   | Boolean                           | true                             |
 
 ## For Debugging and Logs
 
@@ -70,6 +70,10 @@ User can specify `STORAGE_TYPE` to use AWS S3 or local path
 ### Logs Streaming S3
 
 When `STORAGE_TYPE` env variable is set to `s3` , logs will be automatically streamed and stored to S3. New log file will be created hourly, enabling easier debugging.
+
+### Logs Streaming GCS
+
+When `STORAGE_TYPE` env variable is set to `gcs` , logs will be automatically streamed to Google [Cloud Logging](https://cloud.google.com/logging?hl=en).
 
 ## For Credentials
 
@@ -129,7 +133,6 @@ There are certain nodes/features within Flowise that allow user to run Javascrip
 | TOOL\_FUNCTION\_EXTERNAL\_DEP | External modules to be used for Tool Function        | String |
 
 {% code title=".env" %}
-
 ```bash
 # Allows usage of all builtin modules
 TOOL_FUNCTION_BUILTIN_DEP=*
@@ -143,7 +146,6 @@ TOOL_FUNCTION_BUILTIN_DEP=crypto,fs
 # Allow usage of external npm modules.
 TOOL_FUNCTION_EXTERNAL_DEP=axios,moment
 ```
-
 {% endcode %}
 
 ## Examples of how to set environment variables
