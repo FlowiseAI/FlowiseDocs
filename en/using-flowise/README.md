@@ -15,7 +15,7 @@ This section provides in-depth guides on core Flowise functionalities, including
   * [Sequential Agents](agentflows/sequential-agents.md)
     * [Video Tutorials](agentflows/sequential-agents/video-tutorials.md)
 * [API](api.md)
-* [Analytic](analytic.md)
+* [Analytic](broken-reference)
 * [Document Stores](document-stores.md)
 * [Embed](embed.md)
 * [Streaming](streaming.md)
