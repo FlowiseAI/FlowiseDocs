@@ -1,42 +1,33 @@
-# Tabla de Contenidos
+# Table of contents
 
 * [Introduction](README.md)
 
 ## Partes
 
-* [Parte 1: Introducción](partes/parte-1/README.md)
-  * [Recursos](partes/parte-1/recursos/index.md)
-
-* [Parte 2: Chains Avanzadas](partes/parte-2/README.md)
-  * [Desafío 1: Traductor de Lenguas Antiguas](partes/parte-2/desafios/index.md)
-
-* [Parte 3: Gestión de Documentos y Memoria](partes/parte-3/README.md)
-  * [Desafío 2: Chatbot Nikola Tesla](partes/parte-3/desafios/index.md)
-
-* [Parte 4: Despliegue y API](partes/parte-4/README.md)
-
-* [Parte 5: Introducción a Agentes](partes/parte-5/README.md)
-  * [Desafíos](partes/parte-5/desafios/index.md)
-
-* [Parte 6: Agentes Avanzados](partes/parte-6/README.md)
-  * [Desafíos](partes/parte-6/desafios/index.md)
-
-* [Parte 7: Multi-Agentes](partes/parte-7/README.md)
-  * [Desafíos](partes/parte-7/desafios/index.md)
-
-* [Parte 8: AgentFlows](partes/parte-8/README.md)
-  * [Desafíos](partes/parte-8/desafios/index.md)
-
-* [Parte 9: Agentes Secuenciales](partes/parte-9/README.md)
-  * [Desafíos](partes/parte-9/desafios/index.md)
-
-* [Parte 10: Sequential Agents Avanzados](partes/parte-10/README.md)
+* [Parte 1: Introducción](partes/parte-1-introduccion/README.md)
+  * [Recursos](partes/parte-1-introduccion/recursos.md)
+* [Parte 2: Chains Avanzadas](partes/parte-2-chains-avanzadas/README.md)
+  * [Desafío 1: Traductor de Lenguas Antiguas](partes/parte-2-chains-avanzadas/desafio-1-traductor-de-lenguas-antiguas.md)
+* [Parte 3: Gestión de Documentos y Memoria](partes/parte-3-gestion-de-documentos-y-memoria/README.md)
+  * [Desafío 2: Chatbot Nikola Tesla](partes/parte-3-gestion-de-documentos-y-memoria/desafio-2-chatbot-nikola-tesla.md)
+* [Parte 4: Despliegue y API](partes/parte-4-despliegue-y-api.md)
+* [Parte 5: Introducción a Agentes](partes/parte-5-introduccion-a-agentes/README.md)
+  * [Desafíos](partes/parte-5-introduccion-a-agentes/desafios.md)
+* [Parte 6: Agentes Avanzados](partes/parte-6-agentes-avanzados/README.md)
+  * [Desafíos](partes/parte-6-agentes-avanzados/desafios.md)
+* [Parte 7: Multi-Agentes](partes/parte-7-multi-agentes/README.md)
+  * [Desafíos](partes/parte-7-multi-agentes/desafios.md)
+* [Parte 8: AgentFlows](partes/parte-8-agentflows/README.md)
+  * [Desafíos](partes/parte-8-agentflows/desafios.md)
+* [Parte 9: Agentes Secuenciales](partes/parte-9-agentes-secuenciales/README.md)
+  * [Desafíos](partes/parte-9-agentes-secuenciales/desafios.md)
+* [Parte 10: Sequential Agents Avanzados](partes/parte-10-sequential-agents-avanzados.md)
 
 ## Recursos
 
-* [Enlaces Útiles](recursos/enlaces.md)
-* [Documentación Oficial](recursos/documentacion.md)
-* [Ejemplos de Código](recursos/ejemplos.md)
+* [Enlaces Útiles](recursos/enlaces-utiles.md)
+* [Documentación Oficial](recursos/documentacion-oficial.md)
+* [Ejemplos de Código](recursos/ejemplos-de-codigo.md)
 * [Mejores Prácticas](recursos/mejores-practicas.md)
 
 ## Documentación Oficial

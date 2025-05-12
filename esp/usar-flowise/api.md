@@ -1,21 +1,20 @@
-description: >-
-  Aprende más sobre los detalles de algunas de las APIs más utilizadas: prediction,
-  vector-upsert
----
-
 # API
+
+### description: >- Aprende más sobre los detalles de algunas de las APIs más utilizadas: prediction, vector-upsert
+
+## API
 
 Consulta la [Referencia de API](../api-reference/) para ver la lista completa de APIs públicas
 
-## Prediction
+### Prediction
 
 <div data-full-width="false"><figure><img src="../.gitbook/assets/image (16) (1) (1) (1).png" alt=""><figcaption></figcaption></figure></div>
 
-{% swagger src="../.gitbook/assets/swagger (1) (1) (1).yml" path="/prediction/{id}" method="post" %}
+{% openapi src="../.gitbook/assets/swagger (1) (1) (1).yml" path="/prediction/{id}" method="post" %}
 [swagger (1) (1) (1).yml](<../.gitbook/assets/swagger (1) (1) (1).yml>)
-{% endswagger %}
+{% endopenapi %}
 
-### Usando Python/TS Library
+#### Usando Python/TS Library
 
 Flowise proporciona 2 librerías:
 
@@ -120,7 +119,7 @@ test_streaming()
 {% endtab %}
 {% endtabs %}
 
-### Override Config
+#### Override Config
 
 Sobrescribe la configuración de entrada existente del chatflow con la propiedad **overrideConfig**.
 
@@ -180,7 +179,7 @@ query({
 {% endtab %}
 {% endtabs %}
 
-### History
+#### History
 
 Puedes anteponer mensajes del historial para dar contexto al LLM. Por ejemplo, si quieres que el LLM recuerde el nombre del usuario:
 
@@ -254,7 +253,7 @@ query({
 {% endtab %}
 {% endtabs %}
 
-### Persists Memory
+#### Persists Memory
 
 Puedes pasar un `sessionId` para persistir el estado de la conversación, de modo que cada llamada API posterior tendrá contexto sobre la conversación anterior. De lo contrario, se generará una nueva sesión cada vez.
 
@@ -306,7 +305,7 @@ query({
 {% endtab %}
 {% endtabs %}
 
-### Variables
+#### Variables
 
 Pasa variables en la API para ser utilizadas por los nodos en el flujo. Ver más: [Variables](api.md#variables)
 
@@ -362,7 +361,7 @@ query({
 {% endtab %}
 {% endtabs %}
 
-### Image Uploads
+#### Image Uploads
 
 Cuando **Allow Image Upload** está habilitado, las imágenes pueden ser cargadas desde la interfaz de chat.
 
@@ -426,7 +425,7 @@ query({
 {% endtab %}
 {% endtabs %}
 
-### Speech to Text
+#### Speech to Text
 
 Cuando **Speech to Text** está habilitado, los usuarios pueden hablar directamente en el micrófono y la voz se transcribirá en texto.
 
@@ -488,13 +487,13 @@ query({
 {% endtab %}
 {% endtabs %}
 
-## Vector Upsert API
+### Vector Upsert API
 
-{% swagger src="../.gitbook/assets/swagger (1) (1) (1).yml" path="/vector/upsert/{id}" method="post" %}
+{% openapi src="../.gitbook/assets/swagger (1) (1) (1).yml" path="/vector/upsert/{id}" method="post" %}
 [swagger (1) (1) (1).yml](<../.gitbook/assets/swagger (1) (1) (1).yml>)
-{% endswagger %}
+{% endopenapi %}
 
-### Document Loaders with File Upload
+#### Document Loaders with File Upload
 
 Algunos document loaders en Flowise permiten al usuario cargar archivos:
 
@@ -508,8 +507,7 @@ Algunos document loaders en Flowise permiten al usuario cargar archivos:
 
 <div data-full-width="false"><figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure></div>
 
-Si el flujo contiene [Document Loaders](../integrations/langchain/document-loaders/) con la funcionalidad de carga de archivo, la API se ve ligeramente diferente. En lugar de pasar el cuerpo como JSON, **form data** se utiliza. Esto te permite enviar archivos a la API.
-If the flow contains [Document Loaders](../integrations/langchain/document-loaders/) with Upload File functionality, the API looks slightly different. Instead of passing body as JSON, **form data** is being used. This allows you to send files to the API.
+Si el flujo contiene [Document Loaders](../integrations/langchain/document-loaders/) con la funcionalidad de carga de archivo, la API se ve ligeramente diferente. En lugar de pasar el cuerpo como JSON, **form data** se utiliza. Esto te permite enviar archivos a la API. If the flow contains [Document Loaders](../integrations/langchain/document-loaders/) with Upload File functionality, the API looks slightly different. Instead of passing body as JSON, **form data** is being used. This allows you to send files to the API.
 
 {% hint style="info" %}
 Make sure the sent file type is compatible with the expected file type from document loader. For example, if a PDF File Loader is being used, you should only send **.pdf** files.
@@ -569,7 +567,7 @@ query(formData).then((response) => {
 {% endtab %}
 {% endtabs %}
 
-### Document Loaders without Upload
+#### Document Loaders without Upload
 
 For other [Document Loaders](../integrations/langchain/document-loaders/) nodes without Upload File functionality, the API body is in **JSON** format similar to [Prediction API](api.md#prediction-api).
 
@@ -622,19 +620,19 @@ query({
 {% endtab %}
 {% endtabs %}
 
-## Document Upsert/Refresh API
+### Document Upsert/Refresh API
 
 Refer to [Document Stores](document-stores.md#id-10.-api) section for more information about how to use the API.
 
-{% swagger src="../.gitbook/assets/swagger (2).yml" path="/document-store/upsert/{id}" method="post" %}
+{% openapi src="../.gitbook/assets/swagger (2).yml" path="/document-store/upsert/{id}" method="post" %}
 [swagger (2).yml](<../.gitbook/assets/swagger (2).yml>)
-{% endswagger %}
+{% endopenapi %}
 
-{% swagger src="../.gitbook/assets/swagger (2).yml" path="/document-store/refresh/{id}" method="post" %}
+{% openapi src="../.gitbook/assets/swagger (2).yml" path="/document-store/refresh/{id}" method="post" %}
 [swagger (2).yml](<../.gitbook/assets/swagger (2).yml>)
-{% endswagger %}
+{% endopenapi %}
 
-## Video Tutorials
+### Video Tutorials
 
 Those video tutorials cover the main use cases for implementing the Flowise API.
 
