@@ -4,15 +4,46 @@ description: Welcome to the official Flowise documentation
 
 # Introduction
 
-<figure><img src=".gitbook/assets/flowise.gif" alt=""><figcaption><p>Flowise Drag &#x26; Drop UI</p></figcaption></figure>
+<figure><picture><source srcset=".gitbook/assets/Flowise Logo Cropped White High Res.png" media="(prefers-color-scheme: dark)"><img src=".gitbook/assets/Flowise Cropped White High Res.png" alt="" width="563"></picture><figcaption></figcaption></figure>
 
-## What is Flowise?
+Flowise is an open source generative AI development platform for building AI Agents and LLM workflows.
 
-Flowise is an open source low-code tool for developers to build customized LLM orchestration flows & AI agents.
+It offers a complete solution that includes:
 
-Developing LLM apps often involves countless iterations. Our low-code and drag-and-drop UI approach enables quick iterations, helping you go from testing to production faster.
+* [x] Visual Builder
+* [x] Tracing & Analytics
+* [x] Evaluations
+* [x] Human in the Loop
+* [x] API, SDK, Embedded Chatbot
+* [x] Teams & Workspaces
 
-### See Flowise in action
+There are 3 main visual builders namely:
+
+* Assistant
+* Chatflow
+* Agentflow
+
+## Assistant
+
+Assistant is the most begineer-friendly way of creating an AI Agent. Users can create chat assistant that is able to follow instructions, use tools when neccessary, and retrieve knowledge base from uploaded files ([RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)) to respond to user queries.
+
+<figure><picture><source srcset=".gitbook/assets/Screenshot 2025-05-12 215934.png" media="(prefers-color-scheme: dark)"><img src=".gitbook/assets/image (172).png" alt=""></picture><figcaption></figcaption></figure>
+
+## Chatflow
+
+Chatflow is designed to build single-agent systems, chatbots and simple LLM flows. It is more flexible than Assistant. Users can use advance techniques like Graph RAG, Reranker, Custom Code, etc.
+
+<figure><picture><source srcset=".gitbook/assets/dark.png" media="(prefers-color-scheme: dark)"><img src=".gitbook/assets/white.png" alt=""></picture><figcaption></figcaption></figure>
+
+## Agentflow
+
+Agentflow is the superset of Chatflow & Assistant. It can be used to create chat assistant, single-agent system, multi-agent systems, and complex workflow orchestration.&#x20;
+
+<figure><img src=".gitbook/assets/FlowiseIntro.gif" alt=""><figcaption></figcaption></figure>
+
+## Video Resources
+
+### Flowise Chatflow Fundamentals
 
 In this 2-minute quickstart demo, you'll learn the basic fundamentals of how Flowise works.
 
@@ -34,4 +65,4 @@ If you want to help this project, please consider reviewing the [Contribution Gu
 
 ## Need Help?
 
-For support and further discussion, head over to our [Discord](https://discord.gg/jbaHfsRVBW) server.  
+For support and further discussion, head over to our [Discord](https://discord.gg/jbaHfsRVBW) server.
