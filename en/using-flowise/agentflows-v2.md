@@ -10,21 +10,23 @@ This guide explores the AgentFlow V2 framework, detailing its architecture built
 **Disclaimer:** This documentation describes AgentFlow V2 as of its current official release. Features, functionalities, and node parameters are subject to change in future updates and versions of Flowise. Please refer to the latest official release notes or in-app information for the most up-to-date details.
 {% endhint %}
 
-## Introducing AgentFlow V2: Multi-Agent Standalone Node Orchestration Framework
+## Introducing Agentflow V2: Multi-Agent Standalone Node Orchestration Framework
 
 Previous version V1 allowed us to produce very versatile agentic systems, managing complex execution cycles through internal Directed Cyclic Graphs (DCGs). While this method worked well for handling complex logic inside individual nodes, it presented architectural limitations regarding the flexibility of orchestrating connections and data flow between these self-contained nodes at the main workflow level.
 
-AgentFlow V2 represents a significant architectural evolution, introducing a new paradigm developed in Flowise that focuses on explicit workflow orchestration and enhanced flexibility. Unlike V1's primary reliance on external frameworks for its core agent graph logic, V2 shifts the focus towards designing the entire workflow using a granular set of specialized, **standalone nodes built natively as core Flowise components.**
+AgentFlow V2 represents a significant architectural evolution, introducing a new paradigm in Flowise that focuses on explicit workflow orchestration and enhanced flexibility. Unlike V1's primary reliance on external frameworks for its core agent graph logic, V2 shifts the focus towards designing the entire workflow using a granular set of specialized, **standalone nodes developed natively as core Flowise components.**
 
 In this V2 architecture, each node functions as an independent unit, executing a discrete operation based on its specific design and configuration. The visual connections between nodes on the canvas explicitly define the workflow's path and control sequence, data can be passed between nodes by referencing the outputs of any previously executed node in the current flow, and the `Flow State` provides an explicit mechanism for managing and sharing data throughout the workflow.
 
-This transition to orchestrating standalone nodes provides **finer-grained control and significantly increased flexibility** over the end-to-end execution sequence and data flow. Composing these standalone nodes enables the explicit construction of sophisticated multi-agent systems, as well as other diverse, multi-step, stateful, and interactive AI-driven applications directly within the Flowise environment.
+This transition to orchestrating standalone nodes provides **finer-grained control and significantly increased flexibility** over the end-to-end execution sequence and data flow. Composing these standalone nodes enables the explicit construction of sophisticated agentic systems, as well as other diverse, multi-step, stateful, and interactive AI-driven applications directly within the Flowise environment.
+
+<figure><img src="../../.gitbook/assets/v2-concept.svg" alt=""><figcaption><p>In AgentFlow V2, you draw your own graph</p></figcaption></figure>
 
 ## AgentFlow V2 Node Reference
 
 This section provides a detailed reference for each available node, outlining its specific purpose, key configuration parameters, expected inputs, generated outputs, and its role within the AgentFlow V2 architecture.
 
-<figure><img src="../../.gitbook/assets/v2-01.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/v2-all-nodes.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -33,11 +35,11 @@ This section provides a detailed reference for each available node, outlining it
 The designated entry point for initiating any AgentFlow V2 workflow execution. Every flow must begin with this node.
 
 * **Functionality:** Defines how the workflow is triggered and sets up the initial conditions. It can accept input either directly from the chat interface or through a customizable form presented to the user. It also allows for the initialization of `Flow State` variables at the beginning of the execution and can manage how conversation memory is handled for the run.
-* **Key Configuration Parameters**
+* **Configuration Parameters**
   * **Input Type**: Determines how the workflow execution is initiated, either by `Chat Input` from the user or via a submitted `Form Input`.
-    * **Form Title, Form Description, Form Input Types**: If `Form Input` is selected, these fields configure the appearance and structure of the form presented to the user, allowing for various input field types with defined labels and variable names.
-  * **Ephemeral Memory**: If enabled, instructs the workflow to begin this specific execution without considering any past messages from the conversation thread, effectively starting with a clean memory slate.
-  * **Flow State**: Defines the initial set of key-value pairs for the workflow's runtime state `$flow.state`. Each key can be established here, with an optional initial value, to be used or updated by subsequent nodes.
+    * **Form Title, Form Description, Form Input Types**: If `Form Input` is selected, these fields configure the appearance of the form presented to the user, allowing for various input field types with defined labels and variable names.
+  * **Ephemeral Memory**: If enabled, instructs the workflow to begin the execution without considering any past messages from the conversation thread, effectively starting with a clean memory slate.
+  * **Flow State**: Defines the complete set of initial key-value pairs for the workflow's runtime state `$flow.state`. All state keys that will be used or updated by subsequent nodes must be declared and initialized here.
 * **Inputs:** Receives the initial data that triggers the workflow, which will be either a chat message or the data submitted through a form.
 * **Outputs:** Provides a single output anchor to connect to the first operational node, passing along the initial input data and the initialized Flow State.
 
@@ -50,16 +52,16 @@ The designated entry point for initiating any AgentFlow V2 workflow execution. E
 Provides direct access to a configured Large Language Model (LLM) for executing AI tasks, enabling the workflow to perform structured data extraction if needed.
 
 * **Functionality:** This node sends requests to an LLM based on provided instructions (Messages) and context. It can be used for text generation, summarization, translation, analysis, answering questions, and generating structured JSON output according to a defined schema. It has access to memory for the conversation thread and can read/write to the `Flow State`.
-* **Key Configuration Parameters**
-  * **Model**: Specifies the AI model from a chosen service — like OpenAI's GPT-4o or Google Gemini.
+* **Configuration Parameters**
+  * **Model**: Specifies the AI model from a chosen service —  e.g., OpenAI's GPT-4o or Google Gemini.
   * **Messages**: Define the conversational input for the LLM, structuring it as a sequence of roles — System, User, Assistant, Developer — to guide the AI's response. Dynamic data can be inserted using `{{ variable }}`.
   * **Memory**: If enabled, determines if the LLM should consider the history of the current conversation thread when generating its response.
     * **Memory Type, Window Size, Max Token Limit**: If memory is used, these settings refine how the conversation history is managed and presented to the LLM — for example, whether to include all messages, only a recent window of turns, or a summarized version.
     * **Input Message**: Specifies the variable or text that will be appended as the most recent user message at the end of the existing conversation context — including initial context and memory — before being processed by the LLM/Agent.
-  * **Return Response**: Configures how the LLM's output is categorized — as a User Message or Assistant Message — which can influence how it's handled by subsequent memory systems or logging.
-  * **JSON Structured Output**: Instructs the LLM to format its output according to a specific JSON schema that you define — including keys, data types, and descriptions — ensuring predictable, machine-readable data.
-  * **Update Flow State**: Allows the results from this LLM operation, or data derived from it, to be stored as key-value pairs within the shared `$flow.state`, making it accessible to other nodes in the workflow.
-* **Inputs:** This node utilizes data from the workflow's initial trigger or from the outputs of preceding nodes, typically incorporating this data into the `Messages` or `Input Message` fields. It can also retrieve values from `$flow.state` when input variables reference it.
+  * **Return Response As**: Configures how the LLM's output is categorized — as a `User Message` or `Assistant Message` — which can influence how it's handled by subsequent memory systems or logging.
+  * **JSON Structured Output**: Instructs the LLM to format its output according to a specific JSON schema — including keys, data types, and descriptions — ensuring predictable, machine-readable data.
+  * **Update Flow State**: Allows the node to modify the workflow's runtime state `$flow.state` during execution by updating pre-defined keys. This makes it possible, for example, to store this LLM node's output under such a key, making it accessible to subsequent nodes.
+* **Inputs:** This node utilizes data from the workflow's initial trigger or from the outputs of preceding nodes, incorporating this data into the `Messages` or `Input Message` fields. It can also retrieve values from `$flow.state` when input variables reference it.
 * **Outputs:** Produces the LLM's response, which will be either plain text or a structured JSON object. The categorization of this output — as User or Assistant — is determined by the `Return Response` setting.
 
 <figure><img src="../../.gitbook/assets/v2-03.png" alt="" width="375"><figcaption></figcaption></figure>
@@ -71,15 +73,15 @@ Provides direct access to a configured Large Language Model (LLM) for executing 
 Represents an autonomous AI entity capable of reasoning, planning, and interacting with tools or knowledge sources to accomplish a given objective.
 
 * **Functionality:** This node uses an LLM to dynamically decide a sequence of actions. Based on the user's goal — provided via messages/input — it can choose to use available Tools or query Document Stores to gather information or perform actions. It manages its own reasoning cycle and can utilize memory for the conversation thread and `Flow State`. Suitable for tasks requiring multi-step reasoning or interacting dynamically with external systems or tools.
-* **Key Configuration Parameters**
-  * **Model**: Specifies the AI model from a chosen service — like OpenAI's GPT-4o or Google Gemini — that will drive the agent's reasoning and decision-making processes.
+* **Configuration Parameters**
+  * **Model**: Specifies the AI model from a chosen service — e.g., OpenAI's GPT-4o or Google Gemini — that will drive the agent's reasoning and decision-making processes.
   * **Messages**: Define the initial conversational input, objective, or context for the agent, structuring it as a sequence of roles — System, User, Assistant, Developer — to guide the agent's understanding and subsequent actions. Dynamic data can be inserted using `{{ variable }}`.
   * **Tools**: Specify which pre-defined Flowise Tools the agent is authorized to use to achieve its goals.
-    * For each selected tool, an optional Require Human Input flag indicates if the tool's operation might itself pause to ask for human intervention.
-  * **Knowledge (Document Stores)**: Configure access to information within Flowise-managed Document Stores. This is typically an array where each item represents a connection to a specific store:
+    * For each selected tool, an optional **Require Human Input flag** indicates if the tool's operation might itself pause to ask for human intervention.
+  * **Knowledge / Document Stores**: Configure access to information within Flowise-managed Document Stores.
     * **Document Store**: Choose a pre-configured Document Store from which the agent can retrieve information. These stores must be set up and populated in advance.
     * **Describe Knowledge**: Provide a natural language description of the content and purpose of this Document Store. This description guides the agent in understanding what kind of information the store contains and when it would be appropriate to query it.
-  * **Knowledge (Vector Embeddings)**: Configure access to external, pre-existing vector stores and their associated embeddings as additional knowledge sources for the agent.
+  * **Knowledge / Vector Embeddings**: Configure access to external, pre-existing vector stores as additional knowledge sources for the agent.
     * **Vector Store**: Selects the specific, pre-configured vector database the agent can query.
     * **Embedding Model**: Specifies the embedding model associated with the selected vector store, ensuring compatibility for queries.
     * **Knowledge Name**: Assigns a short, descriptive name to this vector-based knowledge source, which the agent can use for reference.
@@ -89,8 +91,8 @@ Represents an autonomous AI entity capable of reasoning, planning, and interacti
     * **Memory Type, Window Size, Max Token Limit**: If memory is used, these settings refine how the conversation history is managed and presented to the agent — for example, whether to include all messages, only a recent window of turns, or a summarized version.
     * **Input Message**: Specifies the variable or text that will be appended as the most recent user message at the end of the existing conversation context — including initial context and memory — before being processed by the LLM/Agent.&#x20;
   * **Return Response**: Configures how the agent's final output or message is categorized — as a User Message or Assistant Message — which can influence how it's handled by subsequent memory systems or logging.
-  * **Update Flow State**: Allows the results from this agent's operation, or data derived from it, to be stored as key-value pairs within the shared `$flow.state`, making it accessible to other nodes in the workflow.
-* **Inputs:** This node utilizes data from the workflow's initial trigger or from the outputs of preceding nodes, often incorporated into the `Messages` or `Input Message` fields. It accesses the configured `Tools` and `Knowledge` sources as needed.
+  * **Update Flow State**: Allows the node to modify the workflow's runtime state `$flow.state` during execution by updating pre-defined keys. This makes it possible, for example, to store this Agent node's output under such a key, making it accessible to subsequent nodes.
+* **Inputs:** This node utilizes data from the workflow's initial trigger or from the outputs of preceding nodes, often incorporated into the `Messages` or `Input Message` fields. It accesses the configured tools and knowledge sources as needed.
 * **Outputs:** Produces the final result or response generated by the agent after it has completed its reasoning, planning, and any interactions with tools or knowledge sources.
 
 <figure><img src="../../.gitbook/assets/v2-04.png" alt="" width="375"><figcaption></figcaption></figure>
@@ -104,18 +106,17 @@ Provides a mechanism for directly and deterministically executing a specific, pr
 * **Functionality:** This node is used when the workflow requires the execution of a known, specific capability at a defined point, with readily available inputs. It ensures deterministic action without involving LLM reasoning for tool selection.&#x20;
 * **How it Works**
   1. **Triggering:** When the workflow execution reaches a Tool node, it activates.
-  2. **Tool Identification:** It identifies the specific Flowise Tool selected in its configuration e.g., `Serp API Tool`, `Calculator Tool`.
-  3. **Input Argument Resolution:** It looks at the Tool Input Arguments configuration. For each required input parameter of the selected tool — e.g., `query` for SerpAPI, `expression` for Calculator, it retrieves the corresponding value specified by the user. This value is often dynamically pulled from workflow variables `{{ previousNode.output }}` or the Flow State `{{ $flow.state.someKey }}`.
+  2. **Tool Identification:** It identifies the specific Flowise Tool selected in its configuration.
+  3. **Input Argument Resolution:** It looks at the Tool Input Arguments configuration. For each required input parameter of the selected tool.
   4. **Execution:** It invokes the underlying code or API call associated with the selected Flowise Tool, passing the resolved input arguments.
-  5. **Output Generation:** It receives the result returned by the tool's execution — e.g., search results JSON, calculated number.
+  5. **Output Generation:** It receives the result returned by the tool's execution.
   6. **Output Propagation:** It makes this result available via its output anchor for subsequent nodes to use.
-  7. **Update State Update:** If configured in `Update Flow State`, it writes the tool's output or derived data into the `$flow.state`.
-* **Key Configuration Parameters**
+* **Configuration Parameters**
   * **Tool Selection**: Choose the specific, registered Flowise Tool that this node will execute from a dropdown list.
   * **Input Arguments**: Define how data from your workflow is supplied to the selected tool. This section dynamically adapts based on the chosen tool, presenting its specific required input parameters:
-    * **Map Argument Name**: For each input the selected tool requires (e.g., "input" for a Calculator), this field will show the expected parameter name as defined by the tool itself.
+    * **Map Argument Name**: For each input the selected tool requires (e.g., `input` for a Calculator), this field will show the expected parameter name as defined by the tool itself.
     * **Provide Argument Value**: Set the value for that corresponding parameter, using a dynamic variable like `{{ previousNode.output }}`, `{{ $flow.state.someKey }}`, or by entering static text.
-  * **Update Flow State**: Allows the output from the executed tool, or data derived from it, to be stored as key-value pairs within the shared `$flow.state`, making it accessible to other nodes in the workflow.
+  * **Update Flow State**: Allows the node to modify the workflow's runtime state `$flow.state` during execution by updating pre-defined keys. This makes it possible, for example, to store this Tool node's output under such a key, making it accessible to subsequent nodes.
 * **Inputs:** Receives necessary data for the tool's arguments via the `Input Arguments` mapping, sourcing values from previous node outputs, `$flow.state`, or static configurations.
 * **Outputs:** Produces the raw output generated by the executed tool — e.g., a JSON string from an API, a text result, or a numerical value.
 
@@ -151,7 +152,7 @@ Facilitates direct communication with external web services and APIs via the Hyp
   * **Target URL**: Define the complete URL of the external endpoint to which the request will be sent.
   * **Request Headers**: Set any necessary HTTP headers as key-value pairs to be included in the request.
   * **URL Query Parameters**: Define key-value pairs that will be appended to the URL as query parameters.
-  * **Request Body Type**: Choose the format of the request payload if sending data — options typically include `JSON`, `Raw text`, `Form Data`, or `x-www-form-urlencoded`.
+  * **Request Body Type**: Choose the format of the request payload if sending data — options include `JSON`, `Raw text`, `Form Data`, or `x-www-form-urlencoded`.
   * **Request Body**: Provide the actual data payload for methods like POST or PUT. The format should match the selected `Body Type`, and dynamic data can be inserted using `{{ variables }}`.
   * **Response Type**: Specify how the workflow should interpret the response received from the server — common options include `JSON`, `Text`, `Array Buffer`, or `Base64` for binary data.
 * **Inputs:** Receives configuration data such as the URL, method, headers, and body, often incorporating dynamic values from previous workflow steps or `$flow.state`.
@@ -200,9 +201,9 @@ Provides AI-driven dynamic branching based on natural language instructions and 
 
 Executes a defined sub-flow — a sequence of nodes nested within it — for each item in an input array. Implements a "for-each" loop.
 
-* **Functionality:** This node is designed for processing collections of data. It takes an array, either provided directly or referenced via a variable, as its input. For every individual element within that array, the Iteration Node sequentially executes the sequence of other AgentFlow nodes that are visually placed inside its boundaries on the canvas. Nodes operating within this iteration block gain special access to the current item being processed, typically via a `{{ $item }}` variable, and the current item's numerical index in the array, often via `{{ $index }}`. After all items in the input array have been processed through the nested sub-flow, the main workflow continues from the Iteration node's single output anchor.
+* **Functionality:** This node is designed for processing collections of data. It takes an array, either provided directly or referenced via a variable, as its input. For every individual element within that array, the Iteration Node sequentially executes the sequence of other AgentFlow nodes that are visually placed inside its boundaries on the canvas. Nodes operating within this iteration block gain special access to the current item being processed, via a `{{ $item }}` variable, and the current item's numerical index in the array, often via `{{ $index }}`. After all items in the input array have been processed through the nested sub-flow, the main workflow continues from the Iteration node's single output anchor.
 * **Key Configuration Parameters**
-  * **Array Input**: Specifies the input array that the node will iterate over. This is typically provided by referencing a variable that holds an array from a previous node's output or from the `$flow.state` — e.g., `{{ $flow.state.itemList }}`.
+  * **Array Input**: Specifies the input array that the node will iterate over. This is provided by referencing a variable that holds an array from a previous node's output or from the `$flow.state` — e.g., `{{ $flow.state.itemList }}`.
 * **Inputs:** Requires an array to be supplied to its `Array Input` parameter.
 * **Outputs:** Provides a single output anchor that becomes active only after the nested sub-flow has completed execution for all items in the input array. The data passed through this output can include aggregated results or the final state of variables modified within the loop, depending on the design of the sub-flow. Nodes placed inside the iteration block have their own distinct input and output connections that define the sequence of operations for each item.
 
@@ -229,7 +230,7 @@ Explicitly redirects the workflow execution back to a previously executed node.
 
 Pauses the workflow execution to request explicit input, approval, or feedback from a human user — a key component for Human-in-the-Loop (HITL) processes.
 
-* **Functionality:** This node halts the automated progression of the workflow and presents information or a question to a human user, typically via the chat interface. The content displayed to the user can either be a predefined, static text or dynamically generated by a LLM based on the current workflow context. The user is provided with distinct action choices — e.g., "Proceed," "Reject" — and, if enabled, a field to provide textual feedback. Once the user makes a selection and submits their response, the workflow resumes execution along the specific output path corresponding to their chosen action.
+* **Functionality:** This node halts the automated progression of the workflow and presents information or a question to a human user, via the chat interface. The content displayed to the user can either be a predefined, static text or dynamically generated by a LLM based on the current workflow context. The user is provided with distinct action choices — e.g., "Proceed," "Reject" — and, if enabled, a field to provide textual feedback. Once the user makes a selection and submits their response, the workflow resumes execution along the specific output path corresponding to their chosen action.
 * **Key Configuration Parameters**
   * **Description Type**: Determines how the message or question presented to the user is generated — either `Fixed` (static text) or `Dynamic` (generated by an LLM).
     * **If Description Type is `Fixed`**
@@ -266,7 +267,7 @@ Provides a mechanism for executing custom server-side Javascript code within the
 * **Functionality:** This node allows to write and run arbitrary Javascript code snippets, offering an "escape hatch" for complex data transformations, bespoke business logic, or interactions with resources not directly supported by other standard nodes or tools. The executed code can access specifically passed input variables, the general flow context, and any libraries available in the Flowise backend environment. The function is expected to return a value that can then be used by subsequent nodes or stored in the Flow State.
 * **Key Configuration Parameters**
   * **Input Variables**: Configure an array to define variables that will be passed into the scope of your Javascript function.
-  * **Javascript Function**: The code editor field where the server-side Javascript function is written. This function must return a value, typically a string or an object that can be serialized to a string.
+  * **Javascript Function**: The code editor field where the server-side Javascript function is written. This function must return a value,a string or an object that can be serialized to a string.
   * **Update Flow State**: Allows the return value of your Javascript function, or other data calculated within it, to be stored as key-value pairs within the shared `$flow.state`, making it accessible to other nodes.
 * **Inputs:** Receives data through the variables configured in `Input Variables`.&#x20;
 * **Outputs:** Produces the value returned by the executed Javascript function.
