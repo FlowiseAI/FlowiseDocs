@@ -4,7 +4,7 @@ description: Learn how to build multi-agents system using Agentflow V2, written 
 
 # Agentflow V2
 
-This guide explores the AgentFlow V2 architecture, detailing core concepts and comprehensive node references.
+This guide explores the AgentFlow V2 architecture, detailing its core concepts, use cases, Flow State, and comprehensive node references.
 
 {% hint style="warning" %}
 **Disclaimer:** This documentation describes AgentFlow V2 as of its current official release. Features, functionalities, and node parameters are subject to change in future updates and versions of Flowise. Please refer to the latest official release notes or in-app information for the most up-to-date details.
@@ -297,3 +297,43 @@ Enables the invocation and execution of another complete Flowise Chatflow or Age
 * **Outputs:** Produces the final output returned by the executed target workflow, formatted according to the `Return Response As` setting.
 
 <figure><picture><source srcset="../../.gitbook/assets/v2-15-d (1).png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/agentflowv2/v2-15.png" alt="" width="522"></picture><figcaption></figcaption></figure>
+
+## Understanding Flow State in AgentFlow V2
+
+A key architectural feature enabling the flexibility and data management capabilities of AgentFlow V2 is the **Flow State**. This mechanism provides a way to manage and share data dynamically throughout the execution of a single workflow instance.
+
+<figure><img src="../../.gitbook/assets/v2-17-d.png" alt="" width="563"><figcaption></figcaption></figure>
+
+#### **What is Flow State?**
+
+* Flow State (`$flow.state`) is a **runtime, key-value store** specifically associated with a single, individual execution of an AgentFlow V2 workflow.
+* It functions as temporary memory or a shared context that exists only for the duration of that particular run.
+* It is distinct from "memory for the conversation thread" — like `chat_history` — which typically stores dialogue turns for conversational context. It is also distinct from data passed directly as outputs from one node to the immediate input of a directly connected node via an edge.
+
+#### **Purpose of Flow State**
+
+The primary purpose of `$flow.state` is to enable **explicit data sharing and communication between nodes, especially those that may not be directly connected** in the workflow graph, or when data needs to be intentionally persisted and modified across multiple steps. It addresses several common orchestration challenges:
+
+1. **Passing Data Across Branches:** If a workflow splits into conditional paths, data generated or updated in one branch can be stored in `$flow.state` to be accessed later if the paths merge or if other branches need that information.
+2. **Accessing Data Across Non-Adjacent Steps:** Information initialized or updated by an early node can be retrieved by a much later node without needing to pass it explicitly through every intermediate node's inputs and outputs.
+
+#### **How Flow State Works**
+
+1. **Initialization / Declaration of Keys**
+   * All state keys that will be used throughout the workflow **must be initialized** with their default (even if empty) values using the `Flow State` parameter within the **Start node**. This step effectively declares the schema or structure of your `$flow.state` for that workflow. You define the initial key-value pairs here.
+2. **Updating State / Modifying Existing Keys**
+   * Many operational nodes — e.g., `LLM`, `Agent`, `Tool`, `HTTP`, `Retriever`, `Custom Function` — include an `Update Flow State` parameter in their configuration.
+   * This parameter allows the node to **modify the values of pre-existing keys** within `$flow.state`.
+   * You define a `Key` — which must match a key initialized in the `Start Node` (e.g., `apiResult`, `customerStatus`) — and the new `Value` for that key.
+   * The `Value` can be static text, the direct output of the current node (e.g.,`{{ nodeName.outputName }}`), or another variable`{{ variable }}`.
+   * When the node executes successfully, it **updates** the specified key(s) in `$flow.state` with the new value(s). **New keys cannot be created by operational nodes; only pre-defined keys can be updated.**
+3. **Reading from State**
+   * Any node input parameter that accepts variables can read values from the Flow State.
+   * Use the specific syntax: `{{ $flow.state.yourKey }}` — replace `yourKey` with the actual key name that was initialized in the Start Node and potentially updated by other nodes.
+   * For example, an LLM node's prompt might include `"...based on the user status: {{ $flow.state.customerStatus }}"`.
+
+#### **Scope and Persistence:**
+
+* It is created and initialized when a workflow execution begins and is destroyed when that specific execution ends.
+* It does **not** persist across different user sessions or separate runs of the same workflow.
+* Each concurrent execution of the workflow maintains its own independent `$flow.state`.
