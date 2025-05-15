@@ -321,6 +321,9 @@ The primary purpose of `$flow.state` is to enable **explicit data sharing and co
 
 1. **Initialization / Declaration of Keys**
    * All state keys that will be used throughout the workflow **must be initialized** with their default (even if empty) values using the `Flow State` parameter within the **Start node**. This step effectively declares the schema or structure of your `$flow.state` for that workflow. You define the initial key-value pairs here.
+
+   <figure><picture><source srcset="../.gitbook/assets/agentflowv2/darkmode/state.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/agentflowv2/state.png" alt="" width="375"></picture><figcaption></figcaption></figure>
+
 2. **Updating State / Modifying Existing Keys**
    * Many operational nodes — e.g., `LLM`, `Agent`, `Tool`, `HTTP`, `Retriever`, `Custom Function` — include an `Update Flow State` parameter in their configuration.
    * This parameter allows the node to **modify the values of pre-existing keys** within `$flow.state`.
