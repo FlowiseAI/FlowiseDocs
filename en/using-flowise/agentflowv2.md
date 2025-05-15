@@ -2,7 +2,7 @@
 description: Learn how to build multi-agents system using Agentflow V2, written by @toi500
 ---
 
-# Agentflows V2
+# Agentflow V2
 
 This guide explores the AgentFlow V2 framework, detailing core concepts and comprehensive node references.
 
@@ -16,7 +16,7 @@ In this V2 architecture, each node functions as an independent unit, executing a
 
 V2 architecture implements a comprehensive node-dependency and execution queue system that precisely respects these defined pathways while maintaining clear separation between components, allowing workflows to become both more sophisticated and easier to design. This allow complex patterns like loops, conditional branching, human-in-the-loop interactions and others to be achievable. This makes it more adaptable to diverse use cases while remaining more maintainable and extensible.
 
-<figure><img src="../.gitbook/assets/agentflowv2/patterns.png" alt=""><figcaption></figcaption></figure>
+<div data-full-width="false"><figure><img src="../.gitbook/assets/agentflowv2/patterns.png" alt=""><figcaption></figcaption></figure></div>
 
 ## AgentFlow V2 Node Reference
 
@@ -39,7 +39,7 @@ The designated entry point for initiating any AgentFlow V2 workflow execution. E
 * **Inputs:** Receives the initial data that triggers the workflow, which will be either a chat message or the data submitted through a form.
 * **Outputs:** Provides a single output anchor to connect to the first operational node, passing along the initial input data and the initialized Flow State.
 
-<figure><img src="../.gitbook/assets/agentflowv2/v2-02.png" alt="" width="100%"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/agentflowv2/v2-02.png" alt="" width="343"><figcaption></figcaption></figure>
 
 ***
 
@@ -49,7 +49,7 @@ Provides direct access to a configured Large Language Model (LLM) for executing 
 
 * **Functionality:** This node sends requests to an LLM based on provided instructions (Messages) and context. It can be used for text generation, summarization, translation, analysis, answering questions, and generating structured JSON output according to a defined schema. It has access to memory for the conversation thread and can read/write to the `Flow State`.
 * **Configuration Parameters**
-  * **Model**: Specifies the AI model from a chosen service —  e.g., OpenAI's GPT-4o or Google Gemini.
+  * **Model**: Specifies the AI model from a chosen service — e.g., OpenAI's GPT-4o or Google Gemini.
   * **Messages**: Define the conversational input for the LLM, structuring it as a sequence of roles — System, User, Assistant, Developer — to guide the AI's response. Dynamic data can be inserted using `{{ variable }}`.
   * **Memory**: If enabled, determines if the LLM should consider the history of the current conversation thread when generating its response.
     * **Memory Type, Window Size, Max Token Limit**: If memory is used, these settings refine how the conversation history is managed and presented to the LLM — for example, whether to include all messages, only a recent window of turns, or a summarized version.
@@ -85,7 +85,7 @@ Represents an autonomous AI entity capable of reasoning, planning, and interacti
     * **Return Source Documents**: If enabled, instructs the agent to include source document information with the data retrieved from the vector store.
   * **Memory**: If enabled, determines if the agent should consider the history of the current conversation thread when making decisions and generating responses.
     * **Memory Type, Window Size, Max Token Limit**: If memory is used, these settings refine how the conversation history is managed and presented to the agent — for example, whether to include all messages, only a recent window of turns, or a summarized version.
-    * **Input Message**: Specifies the variable or text that will be appended as the most recent user message at the end of the existing conversation context — including initial context and memory — before being processed by the LLM/Agent.&#x20;
+    * **Input Message**: Specifies the variable or text that will be appended as the most recent user message at the end of the existing conversation context — including initial context and memory — before being processed by the LLM/Agent.
   * **Return Response**: Configures how the agent's final output or message is categorized — as a User Message or Assistant Message — which can influence how it's handled by subsequent memory systems or logging.
   * **Update Flow State**: Allows the node to modify the workflow's runtime state `$flow.state` during execution by updating pre-defined keys. This makes it possible, for example, to store this Agent node's output under such a key, making it accessible to subsequent nodes.
 * **Inputs:** This node utilizes data from the workflow's initial trigger or from the outputs of preceding nodes, often incorporated into the `Messages` or `Input Message` fields. It accesses the configured tools and knowledge sources as needed.
@@ -99,7 +99,7 @@ Represents an autonomous AI entity capable of reasoning, planning, and interacti
 
 Provides a mechanism for directly and deterministically executing a specific, pre-defined Flowise Tool within the workflow sequence. Unlike the Agent node, where the LLM dynamically chooses a tool based on reasoning, the Tool node executes exactly the tool selected by the workflow designer during configuration.
 
-* **Functionality:** This node is used when the workflow requires the execution of a known, specific capability at a defined point, with readily available inputs. It ensures deterministic action without involving LLM reasoning for tool selection.&#x20;
+* **Functionality:** This node is used when the workflow requires the execution of a known, specific capability at a defined point, with readily available inputs. It ensures deterministic action without involving LLM reasoning for tool selection.
 * **How it Works**
   1. **Triggering:** When the workflow execution reaches a Tool node, it activates.
   2. **Tool Identification:** It identifies the specific Flowise Tool selected in its configuration.
@@ -153,8 +153,6 @@ Facilitates direct communication with external web services and APIs via the Hyp
   * **Response Type**: Specify how the workflow should interpret the response received from the server — options include `JSON`, `Text`, `Array Buffer`, or `Base64` for binary data.
 * **Inputs:** Receives configuration data such as the URL, method, headers, and body, often incorporating dynamic values from previous workflow steps or `$flow.state`.
 * **Outputs:** Produces the response received from the external server, parsed according to the selected `Response Type`.
-
-
 
 <figure><img src="../.gitbook/assets/agentflowv2/v2-07.png" alt="" width="375"><figcaption></figcaption></figure>
 
@@ -233,7 +231,7 @@ Pauses the workflow execution to request explicit input, approval, or feedback f
   * **Description Type**: Determines how the message or question presented to the user is generated — either `Fixed` (static text) or `Dynamic` (generated by an LLM).
     * **If Description Type is `Fixed`**
       * **Description**: This field contains the exact text to be displayed to the user. It supports the insertion of dynamic data using `{{ variables }}`
-    * &#x20;**If `Description Type` is `Dynamic`**
+    * **If `Description Type` is `Dynamic`**
       * **Model**: Selects the AI model from a chosen service that will generate the user-facing message.
       * **Prompt**: Provides the instructions or prompt for the selected LLM to generate the message shown to the user.
   * **Feedback:** If enabled, the user will be prompted with a feedback window to leave their feedback, and this feedback will be appended to the node's output.
@@ -266,11 +264,10 @@ Provides a mechanism for executing custom server-side Javascript code within the
   * **Input Variables:** Values passed via the `Input Variables` configuration are accessible within the function, typically prefixed with `$` — e.g., if an input variable `userid` is defined, it can be accessed as `$userid`.
   * **Flow Context:** Default flow configuration variables are available, such as `$flow.sessionId`, `$flow.chatId`, `$flow.chatflowId`, `$flow.input` — the initial input that started the workflow — and the entire `$flow.state` object.
   * **Custom Variables:** Any custom variables set up in Flowise — e.g., `$vars.<variable-name>`.
-  * **Libraries:** The function can utilize any libraries that have been imported and made available within the Flowise backend environment.
-    &#x20;**The function must return a string value at the end of its execution**.
+  * **Libraries:** The function can utilize any libraries that have been imported and made available within the Flowise backend environment.**The function must return a string value at the end of its execution**.
 * **Configuration Parameters**
   * **Input Variables**: Configure an array of input definitions that will be passed as variables into the scope of your Javascript function. For each variable you wish to define, you will specify:
-    * &#x20;**Variable Name**: The name you will use to refer to this variable within your Javascript code, typically prefixed with a `$` — e.g., if you enter `myValue` here, you might access it as `$myValue` in the script, corresponding to how input schema properties are mapped.
+    * **Variable Name**: The name you will use to refer to this variable within your Javascript code, typically prefixed with a `$` — e.g., if you enter `myValue` here, you might access it as `$myValue` in the script, corresponding to how input schema properties are mapped.
     * **Variable Value**: The actual data to be assigned to this variable, which can be static text or, more commonly, a dynamic value sourced from the workflow — e.g., `{{ previousNode.output }}` or `{{ $flow.state.someKey }}`.
   * **Javascript Function**: The code editor field where the server-side Javascript function is written. This function must ultimately return a string value.
   * **Update Flow State**: Allows the node to modify the workflow's runtime state `$flow.state` during execution by updating pre-defined keys. This makes it possible, for example, to store this Custom Function node's string output under such a key, making it accessible to subsequent nodes.
