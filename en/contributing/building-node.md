@@ -2,7 +2,7 @@
 
 ### Install Git
 
-First, install Git and clone Flowise repository. You can follow the steps from the [Get Started](../getting-started/#for-developers) guide.
+First, install Git and clone Flowise repository. You can follow the steps from the [Get Started](broken-reference) guide.
 
 ### Structure
 

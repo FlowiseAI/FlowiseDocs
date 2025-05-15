@@ -31,4 +31,4 @@ The Airtable Agent requires the following inputs to function effectively:
   * **Return All**: This option allows users to return all records from the specified table. If enabled, all records will be retrieved, otherwise, only a limited number will be returned.
   * **Limit**: Specifies the maximum number of records to be returned if **Return All** is not enabled. The default value is `100`.
 
-**Note**: This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](../../../contributing/) to get started.
+**Note**: This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.

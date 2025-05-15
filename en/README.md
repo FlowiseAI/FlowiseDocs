@@ -61,7 +61,7 @@ Build your first LLM app from scratch with Flowise
 
 ## Contributing
 
-If you want to help this project, please consider reviewing the [Contribution Guide](contributing/).
+If you want to help this project, please consider reviewing the [Contribution Guide](broken-reference).
 
 ## Need Help?
 

@@ -19,7 +19,7 @@
   * [Variables](api-reference/variables.md)
   * [Vector Upsert](api-reference/vector-upsert.md)
 * [Using Flowise](using-flowise/README.md)
-  * [Agentflows](using-flowise/agentflows/README.md)
+  * [Agentflow V1 (Deprecating)](using-flowise/agentflows/README.md)
     * [Multi-Agents](using-flowise/agentflows/multi-agents.md)
     * [Sequential Agents](using-flowise/agentflows/sequential-agents.md)
       * [Video Tutorials](using-flowise/agentflows/sequential-agents/video-tutorials.md)
