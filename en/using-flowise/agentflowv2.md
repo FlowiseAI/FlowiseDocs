@@ -294,4 +294,5 @@ Enables the invocation and execution of another complete Flowise Chatflow or Age
 * **Inputs:** Requires the selection of a target flow and the `Input` data for it.
 * **Outputs:** Produces the final output returned by the executed target workflow, formatted according to the `Return Response As` setting.
 
-<figure><img src="../.gitbook/assets/agentflowv2/v2-15.png" alt="" width="375"><figcaption></figcaption></figure>
+
+<figure><picture><source srcset="../.gitbook/assets/agentflowv2/darkmode/v2-15-d.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/agentflowv2/v2-15.png" alt="" width="375"></picture><figcaption></figcaption></figure>
