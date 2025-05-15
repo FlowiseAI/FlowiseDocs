@@ -20,7 +20,7 @@ V2 architecture implements a comprehensive node-dependency and execution queue s
 
 <div data-full-width="false"><figure><img src="../.gitbook/assets/agentflowv2/patterns.png" alt=""><figcaption></figcaption></figure></div>
 
-## AgentFlow V2 Node Reference
+## Agentflow V2 Node Reference
 
 This section provides a detailed reference for each available node, outlining its specific purpose, key configuration parameters, expected inputs, generated outputs, and its role within the AgentFlow V2 architecture.
 
@@ -284,7 +284,7 @@ Provides a mechanism for executing custom server-side Javascript code within the
 
 Enables the invocation and execution of another complete Flowise Chatflow or AgentFlow from within the current workflow.
 
-* **Functionality:** This node functions as a sub-routine or sub-workflow caller, promoting modular design and reusability of logic. It allows the current workflow to trigger a separate, pre-existing workflow — identified by its name or ID within the Flowise instance — pass an initial input to it, optionally override specific configurations of the target flow for that particular run, and then receive its final output back into the calling workflow to continue processing.
+* **Functionality:** This node functions as a sub-workflow caller, promoting modular design and reusability of logic. It allows the current workflow to trigger a separate, pre-existing workflow — identified by its name or ID within the Flowise instance — pass an initial input to it, optionally override specific configurations of the target flow for that particular run, and then receive its final output back into the calling workflow to continue processing.
 * **Configuration Parameters**
   * **Connect Credential**: Optionally provide Chatflow API credentials if the target flow being called requires specific authentication or permissions for execution.
   * **Select Flow**: Specify the particular Chatflow or AgentFlow that this node will execute from the list of available flows in your Flowise instance.
@@ -292,13 +292,13 @@ Enables the invocation and execution of another complete Flowise Chatflow or Age
   * **Override Config**: Optionally provide a JSON object containing parameters that will override the default configuration of the target workflow specifically for this execution instance — e.g., temporarily changing a model or prompt used in the sub-flow.
   * **Base URL**: Optionally specify an alternative base URL for the Flowise instance that hosts the target flow. This is useful in distributed setups or when flows are accessed via different routes, defaulting to the current instance's URL if not set.
   * **Return Response As**: Determine how the final output from the executed sub-flow should be categorized when it's returned to the current workflow — as a `User Message` or `Assistant Message`.
-  * **Update Flow State**: Allows the node to modify the workflow's runtime state `$flow.state` during **execution by updating pre-defined keys. This makes it possible, for example, to store this Execute Flow** node's output under such a key, making it accessible to subsequent nodes.
+  * **Update Flow State**: Allows the node to modify the workflow's runtime state `$flow.state` during execution by updating pre-defined keys. This makes it possible, for example, to store this Execute Flow node's output under such a key, making it accessible to subsequent nodes.
 * **Inputs:** Requires the selection of a target flow and the `Input` data for it.
 * **Outputs:** Produces the final output returned by the executed target workflow, formatted according to the `Return Response As` setting.
 
 <figure><picture><source srcset="../../.gitbook/assets/v2-15-d (1).png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/agentflowv2/v2-15.png" alt="" width="522"></picture><figcaption></figcaption></figure>
 
-## Understanding Flow State in AgentFlow V2
+## Understanding Flow State
 
 A key architectural feature enabling the flexibility and data management capabilities of AgentFlow V2 is the **Flow State**. This mechanism provides a way to manage and share data dynamically throughout the execution of a single workflow instance.
 
