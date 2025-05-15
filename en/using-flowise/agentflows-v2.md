@@ -20,8 +20,6 @@ In this V2 architecture, each node functions as an independent unit, executing a
 
 This transition to orchestrating standalone nodes provides **finer-grained control and significantly increased flexibility** over the end-to-end execution sequence and data flow. Composing these standalone nodes enables the explicit construction of sophisticated agentic systems, as well as other diverse, multi-step, stateful, and interactive AI-driven applications directly within the Flowise environment.
 
-<figure><img src="../../.gitbook/assets/v2-concept.png" alt=""><figcaption></figcaption></figure>
-
 ## AgentFlow V2 Node Reference
 
 This section provides a detailed reference for each available node, outlining its specific purpose, key configuration parameters, expected inputs, generated outputs, and its role within the AgentFlow V2 architecture.
