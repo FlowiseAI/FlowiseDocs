@@ -308,7 +308,6 @@ A key architectural feature enabling the flexibility and data management capabil
 
 * Flow State (`$flow.state`) is a **runtime, key-value store** specifically associated with a single, individual execution of an AgentFlow V2 workflow.
 * It functions as temporary memory or a shared context that exists only for the duration of that particular run.
-* It is distinct from "memory for the conversation thread" — like `chat_history` — which typically stores dialogue turns for conversational context. It is also distinct from data passed directly as outputs from one node to the immediate input of a directly connected node via an edge.
 
 #### **Purpose of Flow State**
 
