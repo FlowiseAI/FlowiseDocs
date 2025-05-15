@@ -126,14 +126,14 @@ Provides a mechanism for directly and deterministically executing a specific, pr
 
 ### **5. Retriever Node**
 
-Performs targeted information retrieval from configured knowledge bases (Document Stores).
+Performs targeted information retrieval from configured Document Stores.
 
 * **Functionality:** This node queries one or more specified Document Stores, fetching relevant document chunks based on semantic similarity. It's a focused alternative to using an Agent node when the only required action is retrieval and dynamic tool selection by an LLM is not necessary.
-* **Key Configuration Parameters**
-  * **Knowledge Source Selection (Document Stores)**: Specify which pre-configured and populated Document Store(s) this node should query to find relevant information.
-  * **Query Input (Retriever Query)**: Define the text query that will be used to search the selected Document Stores. Dynamic data can be inserted using `{{ variables }}`.
-  * **Result Formatting (Output Format)**: Choose how the retrieved information should be presented — either as plain `Text` or as `Text with Metadata`, which might include details like source document names or locations.
-  * **Update Flow State**: Allows the retrieved documents, or information derived from them, to be stored as key-value pairs within the shared `$flow.state`, making it accessible to other nodes in the workflow.
+* **Configuration Parameters**
+  * **Knowledge / Document Stores**: Specify which pre-configured and populated Document Store(s) this node should query to find relevant information.
+  * **Retriever Query**: Define the text query that will be used to search the selected Document Stores. Dynamic data can be inserted using `{{ variables }}`.
+  * **Output Format**: Choose how the retrieved information should be presented — either as plain `Text` or as `Text with Metadata`, which might include details like source document names or locations.
+  * **Update Flow State**: Allows the node to modify the workflow's runtime state `$flow.state` during execution by updating pre-defined keys. This makes it possible, for example, to store this Retriever node's output under such a key, making it accessible to subsequent nodes.
 * **Inputs:** Requires a query string — often supplied as a variable from a previous step or user input — and accesses the selected Document Stores for information.
 * **Outputs:** Produces the document chunks retrieved from the knowledge base, formatted according to the chosen `Output Format`.
 
@@ -143,10 +143,10 @@ Performs targeted information retrieval from configured knowledge bases (Documen
 
 ### 6. HTTP Node
 
-Facilitates direct communication with external web services and APIs via the Hypertext Transfer Protocol.
+Facilitates direct communication with external web services and APIs via the Hypertext Transfer Protocol (HTTP).
 
 * **Functionality:** This node enables the workflow to interact with any external system accessible via HTTP. It can send various types of requests (GET, POST, PUT, DELETE, PATCH) to a specified URL, allowing for integration with third-party APIs, fetching data from web resources, or triggering external webhooks. The node supports configuration of authentication methods, custom headers, query parameters, and different request body types to accommodate diverse API requirements.
-* **Key Configuration Parameters**
+* **Configuration Parameters**
   * **HTTP Credential**: Optionally select pre-configured credentials — such as Basic Auth, Bearer Token, or API Key — to authenticate requests to the target service.
   * **Request Method**: Specify the HTTP method to be used for the request — e.g., `GET`, `POST`, `PUT`, `DELETE`, `PATCH`.
   * **Target URL**: Define the complete URL of the external endpoint to which the request will be sent.
@@ -154,9 +154,11 @@ Facilitates direct communication with external web services and APIs via the Hyp
   * **URL Query Parameters**: Define key-value pairs that will be appended to the URL as query parameters.
   * **Request Body Type**: Choose the format of the request payload if sending data — options include `JSON`, `Raw text`, `Form Data`, or `x-www-form-urlencoded`.
   * **Request Body**: Provide the actual data payload for methods like POST or PUT. The format should match the selected `Body Type`, and dynamic data can be inserted using `{{ variables }}`.
-  * **Response Type**: Specify how the workflow should interpret the response received from the server — common options include `JSON`, `Text`, `Array Buffer`, or `Base64` for binary data.
+  * **Response Type**: Specify how the workflow should interpret the response received from the server — options include `JSON`, `Text`, `Array Buffer`, or `Base64` for binary data.
 * **Inputs:** Receives configuration data such as the URL, method, headers, and body, often incorporating dynamic values from previous workflow steps or `$flow.state`.
 * **Outputs:** Produces the response received from the external server, parsed according to the selected `Response Type`.
+
+
 
 <figure><img src="../../.gitbook/assets/v2-07.png" alt="" width="375"><figcaption></figcaption></figure>
 
@@ -167,14 +169,14 @@ Facilitates direct communication with external web services and APIs via the Hyp
 Implements deterministic branching logic within the workflow based on defined rules.
 
 * **Functionality:** This node acts as a decision point, evaluating one or more specified conditions to direct the workflow down different paths. It compares input values — which can be strings, numbers, or booleans — using a variety of logical operators, such as equals, contains, greater than, or is empty. Based on whether these conditions evaluate to true or false, the workflow execution proceeds along one of the distinct output branches connected to this node.
-* **Key Configuration Parameters**
+* **Configuration Parameters**
   * **Conditions**: Configure the set of logical rules the node will evaluate.
     * **Type**: Specify the type of data being compared for this rule — `String`, `Number`, or `Boolean`.
     * **Value 1**: Define the first value for the comparison. Dynamic data can be inserted using `{{ variables }}`.
     * **Operation**: Select the logical operator to apply between Value 1 and Value 2 — e.g., `equal`, `notEqual`, `contains`, `larger`, `isEmpty`.
     * **Value 2**: Define the second value for the comparison, if required by the chosen operation. Dynamic data can also be inserted here using `{{ variables }}`.
 * **Inputs:** Requires the data for `Value 1` and `Value 2` for each condition being evaluated. These values are supplied from previous node outputs or retrieved from `$flow.state`.
-* **Outputs:** Provides multiple output anchors, usually two, corresponding to the boolean outcome (true/false) of the evaluated conditions. The workflow continues along the specific path connected to the output anchor that matches the result.
+* **Outputs:** Provides multiple output anchors, corresponding to the boolean outcome (true/false) of the evaluated conditions. The workflow continues along the specific path connected to the output anchor that matches the result.
 
 <figure><img src="../../.gitbook/assets/v2-08.png" alt="" width="375"><figcaption></figcaption></figure>
 
@@ -184,8 +186,8 @@ Implements deterministic branching logic within the workflow based on defined ru
 
 Provides AI-driven dynamic branching based on natural language instructions and context.
 
-* **Functionality:** This node uses a Large Language Model (LLM) to intelligently route the workflow. It analyzes provided input data against a set of user-defined "Scenarios" — potential outcomes or categories — guided by high-level natural language "Instructions" that define the decision-making task. The LLM then determines which scenario best fits the current input context. Based on this AI-driven classification, the workflow execution proceeds down the specific output path corresponding to the chosen scenario. This node is particularly useful for tasks like user intent recognition, complex conditional routing, or nuanced situational decision-making where simple, predefined rules — as in the Condition Node — are insufficient.
-* **Key Configuration Parameters**
+* **Functionality:** This node uses a Large Language Model (LLM) to route the workflow. It analyzes provided input data against a set of user-defined "Scenarios" — potential outcomes or categories — guided by high-level natural language "Instructions" that define the decision-making task. The LLM then determines which scenario best fits the current input context. Based on this AI-driven classification, the workflow execution proceeds down the specific output path corresponding to the chosen scenario. This node is particularly useful for tasks like user intent recognition, complex conditional routing, or nuanced situational decision-making where simple, predefined rules — as in the Condition Node — are insufficient.
+* **Configuration Parameters**
   * **Model**: Specifies the AI model from a chosen service that will perform the analysis and scenario classification.
   * **Instructions**: Define the overall goal or task for the LLM in natural language — e.g., "Determine if the user's request is about sales, support, or general inquiry."
   * **Input**: Specify the data, often text from a previous step or user input, using `{{ variables }}`, that the LLM will analyze to make its routing decision.
@@ -199,10 +201,10 @@ Provides AI-driven dynamic branching based on natural language instructions and 
 
 ### **9. Iteration Node**
 
-Executes a defined sub-flow — a sequence of nodes nested within it — for each item in an input array. Implements a "for-each" loop.
+Executes a defined "sub-flow" — a sequence of nodes nested within it — for each item in an input array, implementing a "for-each" loop."
 
-* **Functionality:** This node is designed for processing collections of data. It takes an array, either provided directly or referenced via a variable, as its input. For every individual element within that array, the Iteration Node sequentially executes the sequence of other AgentFlow nodes that are visually placed inside its boundaries on the canvas. Nodes operating within this iteration block gain special access to the current item being processed, via a `{{ $item }}` variable, and the current item's numerical index in the array, often via `{{ $index }}`. After all items in the input array have been processed through the nested sub-flow, the main workflow continues from the Iteration node's single output anchor.
-* **Key Configuration Parameters**
+* **Functionality:** This node is designed for processing collections of data. It takes an array, either provided directly or referenced via a variable, as its input. For every individual element within that array, the Iteration Node sequentially executes the sequence of other nodes that are visually placed inside its boundaries on the canvas.
+* **Configuration Parameters**
   * **Array Input**: Specifies the input array that the node will iterate over. This is provided by referencing a variable that holds an array from a previous node's output or from the `$flow.state` — e.g., `{{ $flow.state.itemList }}`.
 * **Inputs:** Requires an array to be supplied to its `Array Input` parameter.
 * **Outputs:** Provides a single output anchor that becomes active only after the nested sub-flow has completed execution for all items in the input array. The data passed through this output can include aggregated results or the final state of variables modified within the loop, depending on the design of the sub-flow. Nodes placed inside the iteration block have their own distinct input and output connections that define the sequence of operations for each item.
@@ -215,12 +217,12 @@ Executes a defined sub-flow — a sequence of nodes nested within it — for eac
 
 Explicitly redirects the workflow execution back to a previously executed node.
 
-* **Functionality:** This node enables the creation of cycles or iterative retries within a workflow. When the execution flow reaches the Loop Node, it does not proceed forward to a new node; instead, it "jumps" back to a specified target node that has already been executed earlier in the current workflow run. This action causes the re-execution of that target node and any subsequent nodes in that part of the flow. To prevent unintended infinite loops, a maximum number of repetitions is enforced.
-* **Key Configuration Parameters**
+* **Functionality:** This node enables the creation of cycles or iterative retries within a workflow. When the execution flow reaches the Loop Node, it does not proceed forward to a new node; instead, it "jumps" back to a specified target node that has already been executed earlier in the current workflow run. This action causes the re-execution of that target node and any subsequent nodes in that part of the flow.
+* **Configuration Parameters**
   * **Loop Back To**: Selects the unique ID of a previously executed node within the current workflow to which the execution should return.
   * **Max Loop Count**: Defines the maximum number of times this loop operation can be performed within a single workflow execution, safeguarding against infinite cycles. The default value is 5.
 * **Inputs:** Receives the execution signal to activate. It internally tracks the number of times the loop has occurred for the current execution.
-* **Outputs:** This node characteristically does not have a standard forward-pointing output anchor, as its primary function is to redirect the execution flow backward to the `Loop Back To` target node, from where the workflow then continues.
+* **Outputs:** This node does not have a standard forward-pointing output anchor, as its primary function is to redirect the execution flow backward to the `Loop Back To` target node, from where the workflow then continues.
 
 <figure><img src="../../.gitbook/assets/v2-11.png" alt="" width="375"><figcaption></figcaption></figure>
 
@@ -231,16 +233,16 @@ Explicitly redirects the workflow execution back to a previously executed node.
 Pauses the workflow execution to request explicit input, approval, or feedback from a human user — a key component for Human-in-the-Loop (HITL) processes.
 
 * **Functionality:** This node halts the automated progression of the workflow and presents information or a question to a human user, via the chat interface. The content displayed to the user can either be a predefined, static text or dynamically generated by a LLM based on the current workflow context. The user is provided with distinct action choices — e.g., "Proceed," "Reject" — and, if enabled, a field to provide textual feedback. Once the user makes a selection and submits their response, the workflow resumes execution along the specific output path corresponding to their chosen action.
-* **Key Configuration Parameters**
+* **Configuration Parameters**
   * **Description Type**: Determines how the message or question presented to the user is generated — either `Fixed` (static text) or `Dynamic` (generated by an LLM).
     * **If Description Type is `Fixed`**
       * **Description**: This field contains the exact text to be displayed to the user. It supports the insertion of dynamic data using `{{ variables }}`
     * &#x20;**If `Description Type` is `Dynamic`**
-      * **Model**: Selects the AI model from a chosen service that will generate the user-facing message. Requires pre-configured credentials.
+      * **Model**: Selects the AI model from a chosen service that will generate the user-facing message.
       * **Prompt**: Provides the instructions or prompt for the selected LLM to generate the message shown to the user.
   * **Feedback:** If enabled, the user will be prompted with a feedback window to leave their feedback, and this feedback will be appended to the node's output.
 * **Inputs:** Receives the execution signal to pause the workflow. It can utilize data from previous steps or `$flow.state` through variables in the `Description` or `Prompt` fields if configured for dynamic content.
-* **Outputs:** Provides multiple output anchors, each corresponding to a distinct user action — e.g., an anchor for "proceed" and another for "reject". The workflow continues along the path connected to the anchor matching the user's selection.
+* **Outputs:** Provides two output anchors, each corresponding to a distinct user action — an anchor for "proceed" and another for "reject". The workflow continues along the path connected to the anchor matching the user's selection.
 
 <figure><img src="../../.gitbook/assets/v2-12.png" alt="" width="375"><figcaption></figcaption></figure>
 
@@ -251,7 +253,7 @@ Pauses the workflow execution to request explicit input, approval, or feedback f
 Sends a final message to the user and terminates the current execution path.
 
 * **Functionality:** This node serves as an endpoint for a specific branch or the entirety of a workflow. It takes a configured message — which can be static text or dynamic content from a variable — and delivers it directly to the end-user through the chat interface. Upon sending this message, the execution along this particular path of the workflow concludes; no further nodes connected from this point will be processed.
-* **Key Configuration Parameters**
+* **Configuration Parameters**
   * **Message**: Define the text or variable `{{ variable }}` that holds the content to be sent as the final reply to the user.
 * **Inputs:** Receives the message content, which is sourced from a previous node's output or a value stored in `$flow.state`.
 * **Outputs:** This node has no output anchors, as its function is to terminate the execution path after sending the reply.
@@ -264,13 +266,19 @@ Sends a final message to the user and terminates the current execution path.
 
 Provides a mechanism for executing custom server-side Javascript code within the workflow.
 
-* **Functionality:** This node allows to write and run arbitrary Javascript code snippets, offering an "escape hatch" for complex data transformations, bespoke business logic, or interactions with resources not directly supported by other standard nodes or tools. The executed code can access specifically passed input variables, the general flow context, and any libraries available in the Flowise backend environment. The function is expected to return a value that can then be used by subsequent nodes or stored in the Flow State.
-* **Key Configuration Parameters**
-  * **Input Variables**: Configure an array to define variables that will be passed into the scope of your Javascript function.
-  * **Javascript Function**: The code editor field where the server-side Javascript function is written. This function must return a value,a string or an object that can be serialized to a string.
-  * **Update Flow State**: Allows the return value of your Javascript function, or other data calculated within it, to be stored as key-value pairs within the shared `$flow.state`, making it accessible to other nodes.
-* **Inputs:** Receives data through the variables configured in `Input Variables`.&#x20;
-* **Outputs:** Produces the value returned by the executed Javascript function.
+* **Functionality:** This node allows to write and run arbitrary Javascript snippets, offering a efective way to implement complex data transformations, bespoke business logic, or interactions with resources not directly supported by other standard nodes. The executed code operates within a Node.js environment and has specific ways to access data:
+  * **Input Variables:** Values passed via the `Input Variables` configuration are accessible within the function, typically prefixed with `$` — e.g., if an input variable `userid` is defined, it can be accessed as `$userid`.
+  * **Flow Context:** Default flow configuration variables are available, such as `$flow.sessionId`, `$flow.chatId`, `$flow.chatflowId`, `$flow.input` — the initial input that started the workflow — and the entire `$flow.state` object.
+  * **Custom Variables:** Any custom variables set up in Flowise — e.g., `$vars.<variable-name>`.
+  * **Libraries:** The function can utilize any libraries that have been imported and made available within the Flowise backend environment.    &#x20;**The function must return a string value at the end of its execution**.
+* **Configuration Parameters**
+  * **Input Variables**: Configure an array of input definitions that will be passed as variables into the scope of your Javascript function. For each variable you wish to define, you will specify:
+    * &#x20;**Variable Name**: The name you will use to refer to this variable within your Javascript code, typically prefixed with a `$` — e.g., if you enter `myValue` here, you might access it as `$myValue` in the script, corresponding to how input schema properties are mapped.
+    * **Variable Value**: The actual data to be assigned to this variable, which can be static text or, more commonly, a dynamic value sourced from the workflow — e.g., `{{ previousNode.output }}` or `{{ $flow.state.someKey }}`.
+  * **Javascript Function**: The code editor field where the server-side Javascript function is written. This function must ultimately return a string value.
+  * **Update Flow State**: Allows the node to modify the workflow's runtime state `$flow.state` during execution by updating pre-defined keys. This makes it possible, for example, to store this Custom Function node's string output under such a key, making it accessible to subsequent nodes.
+* **Inputs:** Receives data through the variables configured in `Input Variables`. Can also implicitly access elements of the `$flow` context and `$vars`.
+* **Outputs:** Produces the string value returned by the executed Javascript function.
 
 <figure><img src="../../.gitbook/assets/v2-14.png" alt="" width="375"><figcaption></figcaption></figure>
 
@@ -281,14 +289,14 @@ Provides a mechanism for executing custom server-side Javascript code within the
 Enables the invocation and execution of another complete Flowise Chatflow or AgentFlow from within the current workflow.
 
 * **Functionality:** This node functions as a sub-routine or sub-workflow caller, promoting modular design and reusability of logic. It allows the current workflow to trigger a separate, pre-existing workflow — identified by its name or ID within the Flowise instance — pass an initial input to it, optionally override specific configurations of the target flow for that particular run, and then receive its final output back into the calling workflow to continue processing.
-* **Key Configuration Parameters**
+* **Configuration Parameters**
   * **Connect Credential**: Optionally provide Chatflow API credentials if the target flow being called requires specific authentication or permissions for execution.
   * **Select Flow**: Specify the particular Chatflow or AgentFlow that this node will execute from the list of available flows in your Flowise instance.
   * **Input**: Define the data — static text or `{{ variable }}` — that will be passed as the primary input to the target workflow when it is invoked.
   * **Override Config**: Optionally provide a JSON object containing parameters that will override the default configuration of the target workflow specifically for this execution instance — e.g., temporarily changing a model or prompt used in the sub-flow.
   * **Base URL**: Optionally specify an alternative base URL for the Flowise instance that hosts the target flow. This is useful in distributed setups or when flows are accessed via different routes, defaulting to the current instance's URL if not set.
   * **Return Response As**: Determine how the final output from the executed sub-flow should be categorized when it's returned to the current workflow — as a `User Message` or `Assistant Message`.
-  * **Update Flow State**: Allows the final output from the executed sub-flow, or other derived information, to be stored as key-value pairs within the current workflow's `$flow.state`.
+  * **Update Flow State**: Allows the node to modify the workflow's runtime state `$flow.state` during **execution by updating pre-defined keys. This makes it possible, for example, to store this Execute Flow** node's output under such a key, making it accessible to subsequent nodes.
 * **Inputs:** Requires the selection of a target flow and the `Input` data for it.
 * **Outputs:** Produces the final output returned by the executed target workflow, formatted according to the `Return Response As` setting.
 
