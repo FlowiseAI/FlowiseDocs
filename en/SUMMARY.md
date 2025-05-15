@@ -317,4 +317,4 @@
 ## Flowise
 
 * [Flowise GitHub](https://github.com/FlowiseAI)
-* [Flowise Cloud](https://flowiseai.com/join)
+* [Flowise Cloud](https://flowiseai.com/join) 
