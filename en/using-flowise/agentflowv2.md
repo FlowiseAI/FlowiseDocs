@@ -302,7 +302,7 @@ Enables the invocation and execution of another complete Flowise Chatflow or Age
 
 A key architectural feature enabling the flexibility and data management capabilities of AgentFlow V2 is the **Flow State**. This mechanism provides a way to manage and share data dynamically throughout the execution of a single workflow instance.
 
-<figure><img src="../../.gitbook/assets/v2-17-d.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><picture><source srcset="../../.gitbook/assets/v2-17-d.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/v2-18-l.png" alt="" width="563"></picture><figcaption></figcaption></figure>
 
 #### **What is Flow State?**
 
