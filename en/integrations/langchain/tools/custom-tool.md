@@ -219,7 +219,7 @@ You can now save it.
 
 You should see 3 tools created:
 
-<figure><img src="../../../.gitbook/assets/image (3) (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Create Chatflow
 

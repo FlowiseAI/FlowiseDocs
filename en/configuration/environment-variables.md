@@ -57,7 +57,7 @@ User can specify `STORAGE_TYPE` to use AWS S3, Google Cloud Storage or local pat
 
 `DEBUG`: if set to true, will print logs to terminal/console:
 
-<figure><img src="../.gitbook/assets/image (3) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 `LOG_LEVEL`: Different log levels for loggers to be saved. Can be `error`, `info`, `verbose`, or `debug.` By default it is set to `info,` only `logger.info` will be saved to the log files. If you want to have complete details, set to `debug`.
 

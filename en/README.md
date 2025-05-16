@@ -39,7 +39,7 @@ Chatflow is designed to build single-agent systems, chatbots and simple LLM flow
 
 Agentflow is the superset of Chatflow & Assistant. It can be used to create chat assistant, single-agent system, multi-agent systems, and complex workflow orchestration.&#x20;
 
-<figure><img src=".gitbook/assets/FlowiseIntro.gif" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/FlowiseIntro (1).gif" alt=""><figcaption></figcaption></figure>
 
 ## Video Resources
 

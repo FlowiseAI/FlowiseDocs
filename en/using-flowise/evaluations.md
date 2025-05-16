@@ -10,7 +10,7 @@ Evaluations help you monitor and understand the performance of your Chatflow/Age
 
 Datasets are the inputs that will be used to run your Chatflow/Agentflow, along with the corresponding outputs for comparison. User can add the input and anticipated output manually, or upload a CSV file with 2 columns: Input and Output.
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (3).png" alt=""><figcaption></figcaption></figure>
 
 | Input                             | Output                       |
 | --------------------------------- | ---------------------------- |

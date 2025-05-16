@@ -20,6 +20,48 @@ V2 architecture implements a comprehensive node-dependency and execution queue s
 
 <div data-full-width="false"><figure><img src="../.gitbook/assets/agentflowv2/patterns.png" alt=""><figcaption></figcaption></figure></div>
 
+## Difference between Agentflow and Automation Platform
+
+One of the most asked question: What is the difference between Agentflow and automation platforms like n8n, Make, or Zapier?
+
+### 💬 **Agent-to-agent communication**
+
+We support multimodal communication between different agents. For example, a Supervisor agent can formulate and delegate tasks to multiple Worker agents. The outputs from the Worker agents are fed back to the Supervisor.
+
+In every turn, agents have access to the full conversation history. This allows the Supervisor agent to determine the next task, and the Worker agent to understand the task, decide which tools to use, and take action accordingly.
+
+Multiple agents can **collaborate, delegate, and manage shared tasks**, something traditional automation tools don't support natively.
+
+<figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-05-16 153946.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/image.png" alt=""></picture><figcaption></figcaption></figure>
+
+### 🙋‍♂ Truly human-in-the-loop
+
+Why "**truly**"? Execution is paused while waiting for human input, but it does not block the running thread. Each checkpoint is saved, enabling the workflow to resume from that point, even after an application restart.
+
+This concept of checkpoints makes **long-running, stateful agents** possible.
+
+You can also configure agents to **seek permission before executing tools**, similar to how Claude asks for user approval before using MCP tools. This prevents agents from autonomously running sensitive tools without explicit user consent.
+
+After all, you wouldn’t want to find out that an agent placed a $500 order when you were just asking for restaurant recommendations, right?
+
+<figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-05-16 154908.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/image (1).png" alt=""></picture><figcaption></figcaption></figure>
+
+### 📖  Shared state
+
+Shared state enables data exchange between agents—especially useful for passing data across branches or non-adjacent steps in a flow. Refer to [#understanding-flow-state](agentflowv2.md#understanding-flow-state "mention")
+
+### ⚡ Streaming
+
+Supports Server-Sent Events (SSE) for real-time streaming of data.
+
+<figure><img src="../.gitbook/assets/longGIF.gif" alt=""><figcaption></figcaption></figure>
+
+One limitation we currently have is that we don’t yet offer as many integrations as other platforms. However, this changes with MCP. You can now connect MCP tools as part of the workflow, not just act as tools to agent. Just like how traditional platforms link different integrations.
+
+Moreover, you can even create your own custom MCP without relying on the platform to provide a pre-built integration. An additional benefit of MCP is that it’s considered an industry standard and is typically supported and maintained by the official provider. For example, the GitHub MCP is developed and maintained by the GitHub team, the same goes for Atlassian Jira, Brave Search, and many others.
+
+<figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-05-16 160752.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/image (3).png" alt=""></picture><figcaption></figcaption></figure>
+
 ## Agentflow V2 Node Reference
 
 This section provides a detailed reference for each available node, outlining its specific purpose, key configuration parameters, expected inputs, generated outputs, and its role within the AgentFlow V2 architecture.
@@ -302,39 +344,43 @@ Enables the invocation and execution of another complete Flowise Chatflow or Age
 
 A key architectural feature enabling the flexibility and data management capabilities of AgentFlow V2 is the **Flow State**. This mechanism provides a way to manage and share data dynamically throughout the execution of a single workflow instance.
 
-<figure><picture><source srcset="../.gitbook/assets/agentflowv2/darkmode/v2-17-d.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/v2-18-l.png" alt="" width="563"></picture><figcaption></figcaption></figure>
+### **What is Flow State?**
 
-#### **What is Flow State?**
+* Flow State (`$flow.state`) is a **runtime, key-value store** that is shared among the nodes in a single execution.
+* It functions as temporary memory or a shared context that exists only for the duration of that particular run/execution.
 
-* Flow State (`$flow.state`) is a **runtime, key-value store** specifically associated with a single, individual execution of an AgentFlow V2 workflow.
-* It functions as temporary memory or a shared context that exists only for the duration of that particular run.
-
-#### **Purpose of Flow State**
+### **Purpose of Flow State**
 
 The primary purpose of `$flow.state` is to enable **explicit data sharing and communication between nodes, especially those that may not be directly connected** in the workflow graph, or when data needs to be intentionally persisted and modified across multiple steps. It addresses several common orchestration challenges:
 
 1. **Passing Data Across Branches:** If a workflow splits into conditional paths, data generated or updated in one branch can be stored in `$flow.state` to be accessed later if the paths merge or if other branches need that information.
 2. **Accessing Data Across Non-Adjacent Steps:** Information initialized or updated by an early node can be retrieved by a much later node without needing to pass it explicitly through every intermediate node's inputs and outputs.
 
-#### **How Flow State Works**
+### **How Flow State Works**
 
 1. **Initialization / Declaration of Keys**
    * All state keys that will be used throughout the workflow **must be initialized** with their default (even if empty) values using the `Flow State` parameter within the **Start node**. This step effectively declares the schema or structure of your `$flow.state` for that workflow. You define the initial key-value pairs here.
 
-   <figure><picture><source srcset="../.gitbook/assets/agentflowv2/darkmode/state.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/agentflowv2/state.png" alt="" width="375"></picture><figcaption></figcaption></figure>
+<figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-05-16 160038.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/image (2).png" alt=""></picture><figcaption></figcaption></figure>
 
 2. **Updating State / Modifying Existing Keys**
-   * Many operational nodes — e.g., `LLM`, `Agent`, `Tool`, `HTTP`, `Retriever`, `Custom Function` — include an `Update Flow State` parameter in their configuration.
-   * This parameter allows the node to **modify the values of pre-existing keys** within `$flow.state`.
-   * You define a `Key` — which must match a key initialized in the `Start Node` (e.g., `apiResult`, `customerStatus`) — and the new `Value` for that key.
-   * The `Value` can be static text, the direct output of the current node (e.g.,`{{ nodeName.outputName }}`), or another variable`{{ variable }}`.
-   * When the node executes successfully, it **updates** the specified key(s) in `$flow.state` with the new value(s). **New keys cannot be created by operational nodes; only pre-defined keys can be updated.**
-3. **Reading from State**
-   * Any node input parameter that accepts variables can read values from the Flow State.
-   * Use the specific syntax: `{{ $flow.state.yourKey }}` — replace `yourKey` with the actual key name that was initialized in the Start Node and potentially updated by other nodes.
-   * For example, an LLM node's prompt might include `"...based on the user status: {{ $flow.state.customerStatus }}"`.
 
-#### **Scope and Persistence:**
+* Many operational nodes — e.g., `LLM`, `Agent`, `Tool`, `HTTP`, `Retriever`, `Custom Function` — include an `Update Flow State` parameter in their configuration.
+* This parameter allows the node to **modify the values of pre-existing keys** within `$flow.state`.
+* The value can be static text, the direct output of the current node, output from previous node, and many other variables. Type `{{` will show all the available variables.
+* When the node executes successfully, it **updates** the specified key(s) in `$flow.state` with the new value(s). **New keys cannot be created by operational nodes; only pre-defined keys can be updated.**
+
+<figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-05-16 160347.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/Screenshot 2025-05-16 160427.png" alt=""></picture><figcaption></figcaption></figure>
+
+3. **Reading from State**
+
+* Any node input parameter that accepts variables can read values from the Flow State.
+* Use the specific syntax: `{{ $flow.state.yourKey }}` — replace `yourKey` with the actual key name that was initialized in the Start Node.
+* For example, an LLM node's prompt might include `"...based on the user status: {{ $flow.state.customerStatus }}"`.
+
+<figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-05-16 161711.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/Screenshot 2025-05-16 161605.png" alt=""></picture><figcaption></figcaption></figure>
+
+### **Scope and Persistence:**
 
 * It is created and initialized when a workflow execution begins and is destroyed when that specific execution ends.
 * It does **not** persist across different user sessions or separate runs of the same workflow.
