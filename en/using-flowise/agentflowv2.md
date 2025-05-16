@@ -56,6 +56,8 @@ Supports Server-Sent Events (SSE) for real-time streaming of LLM/Agent response.
 
 <figure><img src="../.gitbook/assets/longGIF.gif" alt=""><figcaption></figcaption></figure>
 
+### 🌐 MCP to the rescue
+
 One limitation we currently have is that we don’t yet offer as many integrations as other platforms. However, this changes with MCP. You can now connect MCP tools as part of the workflow, not just act as tools to agent. Just like how traditional platforms link different integrations.
 
 Moreover, you can even create your own custom MCP without relying on the platform to provide a pre-built integration. An additional benefit of MCP is that it’s considered an industry standard and is typically supported and maintained by the official provider. For example, the GitHub MCP is developed and maintained by the GitHub team, the same goes for Atlassian Jira, Brave Search, and many others.
