@@ -52,7 +52,7 @@ Shared state enables data exchange between agents—especially useful for passin
 
 ### ⚡ Streaming
 
-Supports Server-Sent Events (SSE) for real-time streaming of data.
+Supports Server-Sent Events (SSE) for real-time streaming of LLM/Agent response. Streaming also let you subscribe to updates of the execution as it proceeds.
 
 <figure><img src="../.gitbook/assets/longGIF.gif" alt=""><figcaption></figcaption></figure>
 
