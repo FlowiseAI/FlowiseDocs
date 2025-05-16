@@ -44,8 +44,6 @@ This concept of checkpoints makes **long-running, stateful agents** possible.
 
 You can also configure agents to **seek permission before executing tools**, similar to how Claude asks for user approval before using MCP tools. This prevents agents from autonomously running sensitive tools without explicit user consent.
 
-After all, you wouldn’t want to find out that an agent placed a $500 order when you were just asking for restaurant recommendations, right?
-
 <figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-05-16 154908.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/image (1).png" alt=""></picture><figcaption></figcaption></figure>
 
 ### 📖  Shared state
@@ -58,7 +56,7 @@ Supports Server-Sent Events (SSE) for real-time streaming of LLM/Agent response.
 
 <figure><img src="../.gitbook/assets/longGIF.gif" alt=""><figcaption></figcaption></figure>
 
-### 🌐 MCP to the rescue
+### 🌐 MCP Tools
 
 One limitation we currently have is that we don’t yet offer as many integrations as other platforms. However, this changes with MCP. You can now connect MCP tools as part of the workflow, not just act as tools to agent. Just like how traditional platforms link different integrations.
 
