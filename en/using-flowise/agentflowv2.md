@@ -10,6 +10,8 @@ This guide explores the AgentFlow V2 architecture, detailing its core concepts, 
 **Disclaimer:** This documentation describes AgentFlow V2 as of its current official release. Features, functionalities, and node parameters are subject to change in future updates and versions of Flowise. Please refer to the latest official release notes or in-app information for the most up-to-date details.
 {% endhint %}
 
+{% embed url="https://youtu.be/-h4WQuzRHhI?si=jKkhueFIw06aO6Ge" %}
+
 ## Core Concept
 
 AgentFlow V2 represents a significant architectural evolution, introducing a new paradigm in Flowise that focuses on explicit workflow orchestration and enhanced flexibility. Unlike V1's primary reliance on external frameworks for its core agent graph logic, V2 shifts the focus towards designing the entire workflow using a granular set of specialized, standalone nodes developed natively as core Flowise components.
