@@ -42,7 +42,7 @@ Execution is paused while awaiting human input, without blocking the running thr
 
 The use of checkpoints enables **long-running, stateful agents**.
 
-Agents can also be configured to **request permission before executing tools**, similar to permission prompts in systems like Claude with MCP tools. This helps prevent the autonomous execution of sensitive actions without explicit user approval.
+Agents can also be configured to **request permission before executing tools**, similar to how Claude asks for user approval before using MCP tools. This helps prevent the autonomous execution of sensitive actions without explicit user approval.
 
 <figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-05-16 154908.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/image (1).png" alt=""></picture><figcaption></figcaption></figure>
 
@@ -58,7 +58,7 @@ Supports Server-Sent Events (SSE) for real-time streaming of LLM or agent respon
 
 ### 🌐 MCP Tools
 
-While traditional automation platforms often feature extensive libraries of pre-built integrations, Agentflow allows MCP ([Model Context Protocol](https://github.com/modelcontextprotocol)) tools to be connected as part of the workflow, rather than functioning solely as agent tools. This is similar to how traditional platforms integrate multiple services.
+While traditional automation platforms often feature extensive libraries of pre-built integrations, Agentflow allows MCP ([Model Context Protocol](https://github.com/modelcontextprotocol)) tools to be connected as part of the workflow, rather than functioning solely as agent tools.
 
 Custom MCPs can also be created independently, without depending on platform-provided integrations. MCP is widely considered an industry standard and is typically supported and maintained by the official providers. For example, the GitHub MCP is developed and maintained by the GitHub team, with similar support provided for Atlassian Jira, Brave Search, and others.
 
