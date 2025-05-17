@@ -28,39 +28,39 @@ One of the most asked question: What is the difference between Agentflow and aut
 
 ### 💬 **Agent-to-agent communication**
 
-We support multimodal communication between different agents. For example, a Supervisor agent can formulate and delegate tasks to multiple Worker agents. The outputs from the Worker agents are fed back to the Supervisor.
+Multimodal communication between agents is supported. A Supervisor agent can formulate and delegate tasks to multiple Worker agents, with outputs from the Worker agents subsequently returned to the Supervisor.
 
-In every turn, agents have access to the full conversation history. This allows the Supervisor agent to determine the next task, and the Worker agent to understand the task, decide which tools to use, and take action accordingly.
+At each step, agents have access to the complete conversation history, enabling the Supervisor to determine the next task and the Worker agents to interpret the task, select appropriate tools, and execute actions accordingly.
 
-Multiple agents can **collaborate, delegate, and manage shared tasks**, something traditional automation tools don't support natively.
+This architecture enables **collaboration, delegation, and shared task management** across multiple agents, such capabilities are not typically offered by traditional automation tools.
 
 <figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-05-16 153946.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/image.png" alt=""></picture><figcaption></figcaption></figure>
 
-### 🙋‍♂ Truly human-in-the-loop
+### 🙋‍♂ Human-in-the-loop
 
-Why "**truly**"? Execution is paused while waiting for human input, but it does not block the running thread. Each checkpoint is saved, enabling the workflow to resume from that point, even after an application restart.
+Execution is paused while awaiting human input, without blocking the running thread. Each checkpoint is saved, allowing the workflow to resume from the same point even after an application restart.
 
-This concept of checkpoints makes **long-running, stateful agents** possible.
+The use of checkpoints enables **long-running, stateful agents**.
 
-You can also configure agents to **seek permission before executing tools**, similar to how Claude asks for user approval before using MCP tools. This prevents agents from autonomously running sensitive tools without explicit user consent.
+Agents can also be configured to **request permission before executing tools**, similar to permission prompts in systems like Claude with MCP tools. This helps prevent the autonomous execution of sensitive actions without explicit user approval.
 
 <figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-05-16 154908.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/image (1).png" alt=""></picture><figcaption></figcaption></figure>
 
 ### 📖  Shared state
 
-Shared state enables data exchange between agents—especially useful for passing data across branches or non-adjacent steps in a flow. Refer to [#understanding-flow-state](agentflowv2.md#understanding-flow-state "mention")
+Shared state enables data exchange between agents, especially useful for passing data across branches or non-adjacent steps in a flow. Refer to [#understanding-flow-state](agentflowv2.md#understanding-flow-state "mention")
 
 ### ⚡ Streaming
 
-Supports Server-Sent Events (SSE) for real-time streaming of LLM/Agent response. Streaming also let you subscribe to updates of the execution as it proceeds.
+Supports Server-Sent Events (SSE) for real-time streaming of LLM or agent responses. Streaming also enables subscription to execution updates as the workflow progresses.
 
 <figure><img src="../.gitbook/assets/longGIF.gif" alt=""><figcaption></figcaption></figure>
 
 ### 🌐 MCP Tools
 
-One limitation we currently have is that we don’t yet offer as many integrations as other platforms. However, this changes with MCP. You can now connect MCP tools as part of the workflow, not just act as tools to agent. Just like how traditional platforms link different integrations.
+While traditional automation platforms often feature extensive libraries of pre-built integrations, Agentflow allows MCP ([Model Context Protocol](https://github.com/modelcontextprotocol)) tools to be connected as part of the workflow, rather than functioning solely as agent tools. This is similar to how traditional platforms integrate multiple services.
 
-Moreover, you can even create your own custom MCP without relying on the platform to provide a pre-built integration. An additional benefit of MCP is that it’s considered an industry standard and is typically supported and maintained by the official provider. For example, the GitHub MCP is developed and maintained by the GitHub team, the same goes for Atlassian Jira, Brave Search, and many others.
+Custom MCPs can also be created independently, without depending on platform-provided integrations. MCP is widely considered an industry standard and is typically supported and maintained by the official providers. For example, the GitHub MCP is developed and maintained by the GitHub team, with similar support provided for Atlassian Jira, Brave Search, and others.
 
 <figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-05-16 160752.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/image (3).png" alt=""></picture><figcaption></figcaption></figure>
 
