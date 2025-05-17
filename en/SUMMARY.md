@@ -35,7 +35,6 @@
   * [Embed](using-flowise/embed.md)
   * [Monitoring](using-flowise/monitoring.md)
   * [Streaming](using-flowise/streaming.md)
-  * [Telemetry](using-flowise/telemetry.md)
   * [Uploads](using-flowise/uploads.md)
   * [Variables](using-flowise/variables.md)
   * [Workspaces](using-flowise/workspaces.md)
