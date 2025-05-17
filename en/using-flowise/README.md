@@ -6,7 +6,7 @@ description: Learn about some core functionalities built into Flowise
 
 ***
 
-This section provides in-depth guides on core Flowise functionalities, including API usage, variables, and telemetry collection practices.
+This section provides in-depth guides on core Flowise functionalities.
 
 ## Guides
 
