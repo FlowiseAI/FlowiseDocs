@@ -26,7 +26,7 @@ V2 architecture implements a comprehensive node-dependency and execution queue s
 
 One of the most asked question: What is the difference between Agentflow and automation platforms like n8n, Make, or Zapier?
 
-### 💬 **Agent-to-agent communication**
+### 💬 **Agent-to-agent Communication**
 
 Multimodal communication between agents is supported. A Supervisor agent can formulate and delegate tasks to multiple Worker agents, with outputs from the Worker agents subsequently returned to the Supervisor.
 
@@ -46,7 +46,7 @@ Agents can also be configured to **request permission before executing tools**, 
 
 <figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-05-16 154908.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/image (1).png" alt=""></picture><figcaption></figcaption></figure>
 
-### 📖  Shared state
+### 📖  Shared State
 
 Shared state enables data exchange between agents, especially useful for passing data across branches or non-adjacent steps in a flow. Refer to [#understanding-flow-state](agentflowv2.md#understanding-flow-state "mention")
 
