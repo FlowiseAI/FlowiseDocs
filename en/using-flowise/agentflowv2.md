@@ -58,6 +58,8 @@ While traditional automation platforms often feature extensive libraries of pre-
 
 Furthermore, the MCP ecosystem itself offers two key advantages: it allows users to create custom MCP tools for significant extensibility, and many integrations benefit from being developed and maintained by their official service providers (such as the GitHub MCP by GitHub), which can enhance their robustness and currency.
 
+<figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-05-16 160752.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/image (3).png" alt=""></picture><figcaption></figcaption></figure>
+
 ## Agentflow V2 Node Reference
 
 This section provides a detailed reference for each available node, outlining its specific purpose, key configuration parameters, expected inputs, generated outputs, and its role within the AgentFlow V2 architecture.
