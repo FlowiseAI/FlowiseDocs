@@ -22,47 +22,41 @@ V2 architecture implements a comprehensive node-dependency and execution queue s
 
 <div data-full-width="false"><figure><img src="../.gitbook/assets/agentflowv2/patterns.png" alt=""><figcaption></figcaption></figure></div>
 
-## Difference between Agentflow and Automation Platform
+## AgentFlow V2 in Comparison to Traditional Automation Platforms
 
-One of the most asked question: What is the difference between Agentflow and automation platforms like n8n, Make, or Zapier?
+Users often ask about the differences between Flowise AgentFlow V2 and established automation platforms such as n8n, Make, or Zapier. While both categories of tools facilitate workflow automation, AgentFlow V2 introduces capabilities specifically tailored for orchestrating AI agents and complex, stateful interactions.
 
-### 💬 **Agent-to-agent communication**
+### Agent-to-Agent Communication and Collaboration
 
-We support multimodal communication between different agents. For example, a Supervisor agent can formulate and delegate tasks to multiple Worker agents. The outputs from the Worker agents are fed back to the Supervisor.
+AgentFlow V2 natively supports structured communication and task delegation between multiple distinct agent units within a single workflow. For example, a supervisory agent can be configured to formulate tasks and delegate them to specialized worker agents. The outputs from these worker agents are then programmatically returned to the supervising agent for further processing or decision-making.
 
-In every turn, agents have access to the full conversation history. This allows the Supervisor agent to determine the next task, and the Worker agent to understand the task, decide which tools to use, and take action accordingly.
-
-Multiple agents can **collaborate, delegate, and manage shared tasks**, something traditional automation tools don't support natively.
+In each interaction cycle, agents can be configured to access the complete conversation history. This contextual awareness allows a supervisory agent to determine subsequent tasks effectively, and worker agents to accurately interpret delegated tasks, select appropriate tools, and execute actions accordingly. This architecture enables multiple agents to collaborate on shared objectives and manage tasks dynamically, a feature not offered as a core, native component in traditional integration-focused automation tools.
 
 <figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-05-16 153946.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/image.png" alt=""></picture><figcaption></figcaption></figure>
 
-### 🙋‍♂ Truly human-in-the-loop
+### Human-in-the-Loop (HITL) Interactions
 
-Why "**truly**"? Execution is paused while waiting for human input, but it does not block the running thread. Each checkpoint is saved, enabling the workflow to resume from that point, even after an application restart.
+AgentFlow V2 implements a robust Human-in-the-Loop capability. Workflow execution can be explicitly paused at designated Human Input nodes, awaiting direct input, approval, or feedback from a human user. A key architectural aspect is that this pause does not block the primary execution thread; instead, the workflow state is checkpointed. This checkpointing mechanism allows the workflow to resume from the exact point of interruption, even if the application restarts, making long-running, stateful agentic processes viable.
 
-This concept of checkpoints makes **long-running, stateful agents** possible.
-
-You can also configure agents to **seek permission before executing tools**, similar to how Claude asks for user approval before using MCP tools. This prevents agents from autonomously running sensitive tools without explicit user consent.
+Furthermore, individual Agent Nodes can be configured with tools that require human approval before execution (via the "Require Human Input" flag on a tool within an Agent's configuration). This provides an important control layer, preventing autonomous execution of potentially sensitive tools without explicit user consent.
 
 <figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-05-16 154908.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/image (1).png" alt=""></picture><figcaption></figcaption></figure>
 
-### 📖  Shared state
+### Shared State Management
 
-Shared state enables data exchange between agents—especially useful for passing data across branches or non-adjacent steps in a flow. Refer to [#understanding-flow-state](agentflowv2.md#understanding-flow-state "mention")
+AgentFlow V2 incorporates a Flow State (`$flow.state`) mechanism, a runtime key-value store scoped to a single workflow execution. This feature enables effective data exchange between any nodes within the flow, including non-adjacent nodes or across different conditional branches. It is useful for maintaining context, passing intermediate results, or managing flags that influence the workflow's progression. For more details, refer to the section on [Understanding Flow State](agentflowv2.md#understanding-flow-state).
 
-### ⚡ Streaming
+### Real-time Streaming Capabilities
 
-Supports Server-Sent Events (SSE) for real-time streaming of LLM/Agent response. Streaming also let you subscribe to updates of the execution as it proceeds.
+Flowise V2 architecture supports Server-Sent Events (SSE) for real-time streaming of responses generated by LLM and Agent nodes. This allows client applications to receive outputs as they are generated, enhancing user experience for long-running tasks. Streaming also facilitates subscription to live updates on the workflow's execution progress.
 
 <figure><img src="../.gitbook/assets/longGIF.gif" alt=""><figcaption></figcaption></figure>
 
-### 🌐 MCP Tools
+### Integration with MCP Tools
 
-One limitation we currently have is that we don’t yet offer as many integrations as other platforms. However, this changes with MCP. You can now connect MCP tools as part of the workflow, not just act as tools to agent. Just like how traditional platforms link different integrations.
+While traditional automation platforms often feature extensive libraries of pre-built integrations, Flowise AgentFlow V2 provides a comprehensive integration landscape by combining its natively supported tools with the extensibility of the Multi-Component Protocol (MCP). A key aspect of this integration is that MCP tools can now be directly invoked as distinct nodes within the workflow blueprint, functioning as first-class components in the orchestration process. This capability means MCP tools are not limited to being utilities invoked internally by an Agent; they can be explicitly sequenced and managed as part of the overall AgentFlow.
 
-Moreover, you can even create your own custom MCP without relying on the platform to provide a pre-built integration. An additional benefit of MCP is that it’s considered an industry standard and is typically supported and maintained by the official provider. For example, the GitHub MCP is developed and maintained by the GitHub team, the same goes for Atlassian Jira, Brave Search, and many others.
-
-<figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-05-16 160752.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/image (3).png" alt=""></picture><figcaption></figcaption></figure>
+Furthermore, the MCP ecosystem itself offers two key advantages: it allows users to create custom MCP tools for significant extensibility, and many integrations benefit from being developed and maintained by their official service providers (such as the GitHub MCP by GitHub), which can enhance their robustness and currency.
 
 ## Agentflow V2 Node Reference
 
