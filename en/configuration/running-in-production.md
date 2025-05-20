@@ -4,8 +4,8 @@
 
 When running in production, we highly recommend using [Queue](running-flowise-using-queue.md) mode with the following settings:
 
-* At least 2 main servers with load balancing, each starting from 2 CPU 4GB RAM
-* At least 2 workers, each starting from 1 CPU 2GB RAM
+* 2 main servers with load balancing, each starting from 1 vCPU 2GB RAM
+* 4 workers, each starting from 2 vCPU 4GB RAM
 
 You can configure auto scaling depending on the traffic and volume.
 
