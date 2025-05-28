@@ -2,7 +2,7 @@
 description: Learn how to set up chatflow-level access control for your Flowise instances
 ---
 
-# Chatflow Level
+# Flows
 
 ***
 

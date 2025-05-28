@@ -192,23 +192,13 @@ pnpm dev
 
 ## For Enterprise
 
-Enterprise plans have separate repository and docker image.
-
-Once granted access to both, the setup is the same as [#setup-1](./#setup-1 "mention"). Before starting the app, enterprise users are required to fill in the values for Enterprise Parameters in the `.env` file. Refer to `.env.example` for the required changes.
+Before starting the app, enterprise users are required to fill in the values for Enterprise Parameters in the `.env` file. Refer to `.env.example` for the required changes.
 
 Reach out to support@flowiseai.com for the value of following env variables:
 
 ```
 LICENSE_URL
 FLOWISE_EE_LICENSE_KEY
-```
-
-For Docker Installation:
-
-```bash
-cd docker
-cd enterprise
-docker compose up -d
 ```
 
 ***
