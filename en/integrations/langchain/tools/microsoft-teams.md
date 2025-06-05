@@ -70,7 +70,7 @@ Parameters can be left empty to allow the Agent to determine the values on its o
 
 ## Use as Tool Node
 
-It can also be used as a Tool Node in a determined workflow scenario. For example, retrieving a list of Outlook messages before proceeding to the next step.\
+It can also be used as a Tool Node in a determined workflow scenario. For example, retrieving a list of Teams messages before proceeding to the next step.\
 In this mode, **Tool Input Arguments must be explicitly defined and filled with values**.\
 Unlike the [**Use as Agent Tool**](microsoft-teams.md#use-as-agent-tool) option, there is no Agent to automatically determine the inputs. The user must manually populate the fields, either by entering fixed values or using variables enclosed in double curly brackets `{{ }}`.
 
