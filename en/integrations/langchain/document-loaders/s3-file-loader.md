@@ -1,6 +1,66 @@
 # S3 File Loader
 
-S3 File Loader allows you to retrieve a file from s3, and use [Unstructured](https://unstructured.io/) to preprocess into a structured Document object that is ready to be converted into vector embeddings. Unstructured is being used to cater for wide range of different file types. Regardless if your file on s3 is PDF, XML, DOCX, CSV, it can be processed by Unstructured. See [here](https://unstructured-io.github.io/unstructured/api.html#supported-file-types) for supported file types.
+Amazon S3 (Simple Storage Service) is an object storage service offering industry-leading scalability, data availability, security, and performance. This module provides comprehensive functionality to load and process files stored in S3 buckets.
+
+This module provides a sophisticated S3 document loader that can:
+- Load files from S3 buckets using AWS credentials
+- Support multiple file formats (PDF, DOCX, CSV, Excel, PowerPoint, text files)
+- Process files using built-in loaders or Unstructured.io API
+- Handle text and binary files
+- Customize metadata extraction
+
+## Inputs
+
+### Required Parameters
+- **Bucket**: The name of the S3 bucket
+- **Object Key**: The unique identifier of the object in the S3 bucket
+- **Region**: AWS region where the bucket is located (default: us-east-1)
+
+### Processing Options
+- **File Processing Method**: Choose between:
+  - Built In Loaders: Use native file format processors
+  - Unstructured: Use Unstructured.io API for advanced processing
+- **Text Splitter** (optional): Text splitter for built-in processing
+- **Additional Metadata** (optional): JSON object with additional metadata
+- **Omit Metadata Keys** (optional): Keys to omit from metadata
+
+### Unstructured.io Options
+- **Unstructured API URL**: Endpoint for Unstructured.io API
+- **Unstructured API KEY** (optional): API key for authentication
+- **Strategy**: Processing strategy (hi_res, fast, ocr_only, auto)
+- **Encoding**: Text encoding method (default: utf-8)
+- **Skip Infer Table Types**: Document types to skip table extraction
+
+## Outputs
+
+- **Document**: Array of document objects containing metadata and pageContent
+- **Text**: Concatenated string from pageContent of documents
+
+## Features
+- AWS S3 integration
+- Multiple file format support
+- Built-in and Unstructured.io processing
+- Configurable AWS regions
+- Flexible metadata handling
+- Binary file processing
+- Temporary file management
+- MIME type detection
+
+## Supported File Types
+- PDF documents
+- Microsoft Word (DOCX)
+- Microsoft Excel
+- Microsoft PowerPoint
+- CSV files
+- Text files
+- And more through Unstructured.io
+
+## Notes
+- Requires AWS credentials (optional if using IAM roles)
+- Some file types may require specific processing methods
+- Unstructured.io API requires separate setup and credentials
+- Temporary files are created and managed automatically
+- Error handling for unsupported file types
 
 ## Unstructured Setup
 
