@@ -1,15 +1,15 @@
-# Gmail
+# Google Sheets
 
 ## Create credential in Flowise
 
-1. Add a new Gmail OAuth2 credential
+1. Add a new Google Sheets OAuth2 credential
 2. Enter a name for the credential.
 3. Copy the OAuth Redirect URL.
 4. Note that the following fields need to be filled in:
    * Client ID
    * Client Secret
 
-<figure><img src="../../../.gitbook/assets/image (255).png" alt="" width="437"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (271).png" alt="" width="429"><figcaption></figcaption></figure>
 
 ## Create/Use Google Project
 
@@ -34,9 +34,9 @@
 <figure><img src="../../../.gitbook/assets/image (259).png" alt="" width="489"><figcaption></figcaption></figure>
 
 9. In **Enabled APIs & Services**, click **+ ENABLE APIS AND SERVICES**.
-10. Search for and enable the **Gmail API**.
+10. Search for and enable the **Google Sheets API**.
 
-<figure><img src="../../../.gitbook/assets/image (260).png" alt="" width="538"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (272).png" alt="" width="560"><figcaption></figcaption></figure>
 
 11. Return to **Credentials**, click the newly created credential under **OAuth 2.0 Client IDs**, and on the detail page, you’ll find the **Client ID** and **Client Secret**.
 
@@ -44,7 +44,7 @@
 
 1. Fill in all the values copied earlier. Then click "**Authenticate**":
 
-<figure><img src="../../../.gitbook/assets/image (262).png" alt="" width="433"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (273).png" alt="" width="431"><figcaption></figcaption></figure>
 
 2. A Google login window will pop up:
 
@@ -61,12 +61,12 @@
 Multiple actions can be selected to let the Agent intelligently choose the appropriate one.\
 Parameters can be left empty to allow the Agent to determine the values on its own. However, if the user provides values, those will override the Agent's choices.
 
-<figure><img src="../../../.gitbook/assets/image (264).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (274).png" alt=""><figcaption></figcaption></figure>
 
 ## Use as Tool Node
 
-It can also be used as a Tool Node in a determined workflow scenario. For example, retrieving a list of draft messages before proceeding to the next step.\
+It can also be used as a Tool Node in a determined workflow scenario. For example, get a specific spreadsheet before proceeding to the next step.\
 In this mode, **Tool Input Arguments must be explicitly defined and filled with values**.\
-Unlike the [**Use as Agent Tool**](gmail.md#use-as-agent-tool) option, there is no Agent to automatically determine the inputs. The user must manually populate the fields, either by entering fixed values or using variables enclosed in double curly brackets `{{ }}`.
+Unlike the [**Use as Agent Tool**](google-sheets.md#use-as-agent-tool) option, there is no Agent to automatically determine the inputs. The user must manually populate the fields, either by entering fixed values or using variables enclosed in double curly brackets `{{ }}`.
 
-<figure><img src="../../../.gitbook/assets/image (265).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (275).png" alt=""><figcaption></figcaption></figure>
