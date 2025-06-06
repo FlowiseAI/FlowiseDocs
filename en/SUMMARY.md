@@ -147,6 +147,7 @@
       * [Microsoft Powerpoint](integrations/langchain/document-loaders/microsoft-powerpoint.md)
       * [Microsoft Word](integrations/langchain/document-loaders/microsoft-word.md)
       * [Notion](integrations/langchain/document-loaders/notion.md)
+      * [Oxylabs](integrations/langchain/document-loaders/oxylabs.md)
       * [PDF Files](integrations/langchain/document-loaders/pdf-file.md)
       * [Plain Text](integrations/langchain/document-loaders/plain-text.md)
       * [Playwright Web Scraper](integrations/langchain/document-loaders/playwright-web-scraper.md)
