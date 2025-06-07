@@ -10,18 +10,18 @@ Flowise is an open source generative AI development platform for building AI Age
 
 It offers a complete solution that includes:
 
-* [x] Visual Builder
-* [x] Tracing & Analytics
-* [x] Evaluations
-* [x] Human in the Loop
-* [x] API, SDK, Embedded Chatbot
-* [x] Teams & Workspaces
+- [x] Visual Builder
+- [x] Tracing & Analytics
+- [x] Evaluations
+- [x] Human in the Loop
+- [x] API, CLI, SDK, Embedded Chatbot
+- [x] Teams & Workspaces
 
 There are 3 main visual builders namely:
 
-* Assistant
-* Chatflow
-* Agentflow
+- Assistant
+- Chatflow
+- Agentflow
 
 ## Assistant
 
@@ -37,7 +37,7 @@ Chatflow is designed to build single-agent systems, chatbots and simple LLM flow
 
 ## Agentflow
 
-Agentflow is the superset of Chatflow & Assistant. It can be used to create chat assistant, single-agent system, multi-agent systems, and complex workflow orchestration.  Learn more[ #Agentflow V2](using-flowise/agentflowv2.md)
+Agentflow is the superset of Chatflow & Assistant. It can be used to create chat assistant, single-agent system, multi-agent systems, and complex workflow orchestration. Learn more[ #Agentflow V2](using-flowise/agentflowv2.md)
 
 <figure><img src=".gitbook/assets/FlowiseIntro (1).gif" alt=""><figcaption></figcaption></figure>
 
