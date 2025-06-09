@@ -12,9 +12,9 @@ Refer to [API Reference](../api-reference/) for full list of public APIs
 
 <div data-full-width="false"><figure><img src="../.gitbook/assets/image (16) (1) (1) (1).png" alt=""><figcaption></figcaption></figure></div>
 
-{% swagger src="../.gitbook/assets/swagger (1) (1) (1).yml" path="/prediction/{id}" method="post" %}
+{% openapi src="../.gitbook/assets/swagger (1) (1) (1).yml" path="/prediction/{id}" method="post" %}
 [swagger (1) (1) (1).yml](<../.gitbook/assets/swagger (1) (1) (1).yml>)
-{% endswagger %}
+{% endopenapi %}
 
 ### Using Python/TS Library
 
@@ -491,9 +491,9 @@ query({
 
 ## Vector Upsert API
 
-{% swagger src="../.gitbook/assets/swagger (1) (1) (1).yml" path="/vector/upsert/{id}" method="post" %}
+{% openapi src="../.gitbook/assets/swagger (1) (1) (1).yml" path="/vector/upsert/{id}" method="post" %}
 [swagger (1) (1) (1).yml](<../.gitbook/assets/swagger (1) (1) (1).yml>)
-{% endswagger %}
+{% endopenapi %}
 
 ### Document Loaders with File Upload
 
@@ -502,7 +502,7 @@ Some document loaders in Flowise allow user to upload files:
 * [CSV File](../integrations/langchain/document-loaders/csv-file.md)
 * [Docx File](../integrations/langchain/document-loaders/docx-file.md)
 * [Json File](../integrations/langchain/document-loaders/json-file.md)
-* [Json Lines File](../integrations/langchain/document-loaders/json-lines-file.md)
+* [Json Lines File](broken-reference)
 * [PDF File](../integrations/langchain/document-loaders/pdf-file.md)
 * [Text File](../integrations/langchain/document-loaders/text-file.md)
 * [Unstructured File](../integrations/langchain/document-loaders/unstructured-file-loader.md)
@@ -626,13 +626,13 @@ query({
 
 Refer to [Document Stores](document-stores.md#id-10.-api) section for more information about how to use the API.
 
-{% swagger src="../.gitbook/assets/swagger (2) (1).yml" path="/document-store/upsert/{id}" method="post" %}
+{% openapi src="../.gitbook/assets/swagger (2) (1).yml" path="/document-store/upsert/{id}" method="post" %}
 [swagger (2) (1).yml](<../.gitbook/assets/swagger (2) (1).yml>)
-{% endswagger %}
+{% endopenapi %}
 
-{% swagger src="../.gitbook/assets/swagger (2) (1).yml" path="/document-store/refresh/{id}" method="post" %}
+{% openapi src="../.gitbook/assets/swagger (2) (1).yml" path="/document-store/refresh/{id}" method="post" %}
 [swagger (2) (1).yml](<../.gitbook/assets/swagger (2) (1).yml>)
-{% endswagger %}
+{% endopenapi %}
 
 ## Video Tutorials
 

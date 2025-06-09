@@ -183,7 +183,7 @@ You can upsert uploaded files on the fly to the vector store. To enable file upl
   * [CSV File](../integrations/langchain/document-loaders/csv-file.md)
   * [Docx File](../integrations/langchain/document-loaders/docx-file.md)
   * [Json File](../integrations/langchain/document-loaders/json-file.md)
-  * [Json Lines File](../integrations/langchain/document-loaders/json-lines-file.md)
+  * [Json Lines File](broken-reference)
   * [PDF File](../integrations/langchain/document-loaders/pdf-file.md)
   * [Text File](../integrations/langchain/document-loaders/text-file.md)
   * [Unstructured File](../integrations/langchain/document-loaders/unstructured-file-loader.md)
