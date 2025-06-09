@@ -12,7 +12,7 @@ From v3.0.1 onwards, a new authentication method was introduced. Flowise uses a 
 
 For existing users who have been using [#Username & Password (Deprecated)](app-level.md#username-and-password-deprecated), you need to set up a new admin account. To prevent unauthorized ownership claims, you must first authenticate using the existing username and password configured as `FLOWISE_USERNAME` and `FLOWISE_PASSWORD`.
 
-<figure><img src="../../.gitbook/assets/image.png" alt="" width="387"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (18).png" alt="" width="387"><figcaption></figcaption></figure>
 
 The following environment variables can be altered:
 

@@ -19,7 +19,7 @@
 4. Click **Create new project** and wait for the project to finish setting up
 5. Click **SQL Editor**
 
-<figure><img src="../../../.gitbook/assets/image (7) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (2) (2).png" alt=""><figcaption></figcaption></figure>
 
 6. Click **New query**
 

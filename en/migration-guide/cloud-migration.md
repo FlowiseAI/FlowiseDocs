@@ -11,7 +11,7 @@ Why Cloud V2? We have re-written cloud from scratch, that has 5x speed improveme
 1. Login to Cloud V1 via [https://flowiseai.com/auth/login](https://flowiseai.com/auth/login)
 2. In your dashboard, at the top right corner:
 
-<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (2).png" alt=""><figcaption></figcaption></figure>
 
 3. **Select Version, then update to the latest version.**
 

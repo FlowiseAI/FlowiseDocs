@@ -528,7 +528,7 @@ A: You can find the respective IDs from the URL.
 
 A: You can find the available configs from the **View API** button on each document loader:
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (3).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/image (2) (6).png" alt=""><figcaption></figcaption></figure>
 
@@ -602,7 +602,7 @@ What if the loader has file upload? Yes, you guessed it right, we have to use fo
 
 Using the image below as an example, we can override the **`usage`** parameter of the PDF File Loader like so:
 
-<figure><img src="../.gitbook/assets/image (4) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% tabs %}
 {% tab title="Python" %}

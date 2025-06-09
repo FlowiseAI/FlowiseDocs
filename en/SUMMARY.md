@@ -319,6 +319,7 @@
   * [v2.1.4 Migration Guide](migration-guide/v2.1.4-migration-guide.md)
 * [Tutorials](tutorials/README.md)
   * [RAG](tutorials/rag.md)
+  * [Agentic RAG](tutorials/agentic-rag.md)
 * [Use Cases](use-cases/README.md)
   * [Calling Children Flows](use-cases/calling-children-flows.md)
   * [Calling Webhook](use-cases/webhook-tool.md)

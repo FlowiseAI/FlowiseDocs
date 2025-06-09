@@ -29,7 +29,7 @@ Evaluators are like unit tests. During an evaluation, the inputs from Datasets a
   * Starts With
   * Does Not Starts With
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (2).png" alt=""><figcaption></figcaption></figure>
 
 * **Numeric Based:** numbers type checking:
   * Total Tokens
@@ -41,13 +41,13 @@ Evaluators are like unit tests. During an evaluation, the inputs from Datasets a
   * Agentflow Latency (coming)
   * Output Characters Length
 
-<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (2).png" alt=""><figcaption></figcaption></figure>
 
 * **LLM Based**: using another LLM to grade the output
   * Hallucination
   * Correctness
 
-<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (2).png" alt=""><figcaption></figcaption></figure>
 
 ## Evaluations
 
@@ -55,23 +55,23 @@ Now that we have Datasets and Evaluators prepared, we can start running an evalu
 
 1.) Select dataset and chatflow to evaluate. You can select multiple datasets and chatflows. Using the example below, every inputs from Dataset1 will be ran against 2 chatflows. Since Dataset1 has 2 inputs, a total of 4 outputs will be produced and evaluated.
 
-<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10) (2).png" alt=""><figcaption></figcaption></figure>
 
 2.) Select the evaluators. Only string based and numeric based evaluators are available to be selected at this stage.
 
-<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11) (2).png" alt=""><figcaption></figcaption></figure>
 
 3.) (Optional) Select LLM Based evaluator. Start Evaluation:
 
-<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12) (2).png" alt=""><figcaption></figcaption></figure>
 
 4.) Wait for evaluation to be completed:
 
-<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13) (2).png" alt=""><figcaption></figcaption></figure>
 
 5.) After evaluation is completed, click the graph icon at the right side to view the details:
 
-<figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (14) (2).png" alt=""><figcaption></figcaption></figure>
 
 The 3 charts above show the summary of the evaluation:
 
@@ -81,19 +81,19 @@ The 3 charts above show the summary of the evaluation:
 
 Table below the charts shows the details of each execution.
 
-<figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (15) (2).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (16).png" alt="" width="355"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (16) (2).png" alt="" width="355"><figcaption></figcaption></figure>
 
 ### Re-run evaluation
 
 When the flows used on evaluation have been updated/modified, a warning message will be shown:
 
-<figure><img src="../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (17) (2).png" alt=""><figcaption></figcaption></figure>
 
 You can re-run the same evaluation using the Re-Run Evaluation button at the top right corner. You will be able to see the different versions:
 
-<figure><img src="../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (18) (2).png" alt=""><figcaption></figcaption></figure>
 
 You can also view and compare the results from different versions:
 

@@ -12,7 +12,7 @@ In this section, we are going to create a Droplet. For more information, refer t
 
 1. First, Click **Droplets** from the dropdown
 
-<figure><img src="../../.gitbook/assets/image (15) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (15) (2) (2).png" alt=""><figcaption></figcaption></figure>
 
 2. Select Data Region and a Basic $6/mo Droplet type
 
@@ -72,7 +72,7 @@ cd Flowise && cd docker
 nano .env
 ```
 
-<figure><img src="../../.gitbook/assets/image (10) (2).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10) (2) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 4. Specify the env variables:
 

@@ -37,7 +37,7 @@ When you are upserting multiple documents, and you want to prevent deletion of t
 
 4. Now, if we delete the **Dog** document, and update **Cat** to **Cats**, we will now see the following:
 
-<figure><img src="../../.gitbook/assets/image (13) (2).png" alt="" width="425"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (13) (2) (2).png" alt="" width="425"><figcaption></figcaption></figure>
 
 * The original **Cat** document is deleted
 * A new document with **Cats** is added

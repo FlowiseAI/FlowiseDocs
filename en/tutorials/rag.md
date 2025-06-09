@@ -2,7 +2,7 @@
 
 Large Language Models (LLMs) have unlocked the potential to create advanced Q\&A chatbots capable of delivering precise answers based on specific content. These systems rely on a method called Retrieval-Augmented Generation (RAG), which enhances their responses by grounding them in relevant source material.
 
-In this tutorial, you’ll learn how to create a basic Q\&A application that can extract and answer questions from a given file.
+In this tutorial, you’ll learn how to create a basic Q\&A application that can extract and answer questions from given document sources.
 
 The process can be separated out into 2 sub-processes:
 
@@ -15,7 +15,7 @@ The process can be separated out into 2 sub-processes:
 
 We support wide range of document loaders, ranging from files like Pdf, Word, Google Drive, to web scrapers like Playwright, Firecrawl, Apify and others. You can also create custom document loader.
 
-<figure><img src="../.gitbook/assets/image (293).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (293).png" alt="" width="563"><figcaption></figcaption></figure>
 
 ### Retrieval
 
