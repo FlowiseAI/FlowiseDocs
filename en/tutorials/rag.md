@@ -37,11 +37,11 @@ Only upserted document store can be used
 
 <figure><img src="../.gitbook/assets/image (289).png" alt="" width="388"><figcaption></figcaption></figure>
 
-4. Add a system prompt, or use the 'Generate' button to assist. We recommend using it, as it helps craft a more effective and optimized prompt.
+4. Add a system prompt, or use the **Generate** button to assist. We recommend using it, as it helps craft a more effective and optimized prompt.
 
-<figure><img src="../.gitbook/assets/image (291).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (294).png" alt="" width="482"><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (292).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (292).png" alt="" width="563"><figcaption></figcaption></figure>
 
 5. Your RAG agent is now ready to use!
 
