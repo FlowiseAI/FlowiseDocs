@@ -6,7 +6,7 @@ description: Aprende cómo configurar las environment variables para Flowise
 
 Flowise soporta diferentes environment variables para configurar tu instancia. Puedes especificar las siguientes variables en el archivo `.env` dentro de la carpeta `packages/server`. Consulta el archivo [.env.example](https://github.com/FlowiseAI/Flowise/blob/main/packages/server/.env.example).
 
-<table><thead><tr><th width="233">Variable</th><th width="219">Descripción</th><th width="104">Type</th><th>Default</th></tr></thead><tbody><tr><td>PORT</td><td>El puerto HTTP en el que se ejecuta Flowise</td><td>Number</td><td>3000</td></tr><tr><td>FLOWISE_USERNAME</td><td>Username para iniciar sesión</td><td>String</td><td></td></tr><tr><td>FLOWISE_PASSWORD</td><td>Password para iniciar sesión</td><td>String</td><td></td></tr><tr><td>FLOWISE_FILE_SIZE_LIMIT</td><td>Tamaño máximo de archivo al subir</td><td>String</td><td><code>50mb</code></td></tr><tr><td>NUMBER_OF_PROXIES</td><td>Rate Limit Proxy</td><td>Number</td><td></td></tr><tr><td>CORS_ORIGINS</td><td>Los orígenes permitidos para todas las llamadas HTTP cross-origin</td><td>String</td><td></td></tr><tr><td>IFRAME_ORIGINS</td><td>Los orígenes permitidos para incrustar en iframe src</td><td>String</td><td></td></tr><tr><td>DISABLE_CHATFLOW_REUSE</td><td>Deshabilita el cacheo del flow, permitiendo que cada interacción del chatflow se ejecute desde cero</td><td>Boolean: <code>true</code> o <code>false</code></td><td></td></tr><tr><td>SHOW_COMMUNITY_NODES</td><td>Muestra los nodes creados por la comunidad</td><td>Boolean: <code>true</code> o <code>false</code></td><td></td></tr></tbody></table>
+<table><thead><tr><th width="233">Variable</th><th width="219">Descripción</th><th width="104">Type</th><th>Default</th></tr></thead><tbody><tr><td>PORT</td><td>El puerto HTTP en el que se ejecuta Flowise</td><td>Number</td><td>3000</td></tr><tr><td>FLOWISE_FILE_SIZE_LIMIT</td><td>Tamaño máximo de archivo al subir</td><td>String</td><td><code>50mb</code></td></tr><tr><td>NUMBER_OF_PROXIES</td><td>Rate Limit Proxy</td><td>Number</td><td></td></tr><tr><td>CORS_ORIGINS</td><td>Los orígenes permitidos para todas las llamadas HTTP cross-origin</td><td>String</td><td></td></tr><tr><td>IFRAME_ORIGINS</td><td>Los orígenes permitidos para incrustar en iframe src</td><td>String</td><td></td></tr><tr><td>DISABLE_CHATFLOW_REUSE</td><td>Deshabilita el cacheo del flow, permitiendo que cada interacción del chatflow se ejecute desde cero</td><td>Boolean: <code>true</code> o <code>false</code></td><td></td></tr><tr><td>SHOW_COMMUNITY_NODES</td><td>Muestra los nodes creados por la comunidad</td><td>Boolean: <code>true</code> o <code>false</code></td><td></td></tr></tbody></table>
 
 ## Para Database
 
@@ -104,17 +104,6 @@ En algunos casos, podrías querer usar un modelo personalizado en los nodes exis
 Por defecto, Flowise obtiene la lista de modelos de [aquí](https://github.com/FlowiseAI/Flowise/blob/main/packages/components/models.json). Sin embargo, el usuario puede crear su propio archivo `models.json` y especificar la ruta del archivo:
 
 <table><thead><tr><th width="164">Variable</th><th width="196">Descripción</th><th width="78">Type</th><th>Default</th></tr></thead><tbody><tr><td>MODEL_LIST_CONFIG_JSON</td><td>Link para cargar la lista de modelos desde tu archivo de configuración <code>models.json</code></td><td>String</td><td><a href="https://raw.githubusercontent.com/FlowiseAI/Flowise/main/packages/components/models.json">https://raw.githubusercontent.com/FlowiseAI/Flowise/main/packages/components/models.json</a></td></tr></tbody></table>
-
-## Para Flowise API Keys
-
-Por defecto, Flowise almacena tus API keys (no Credentials) que pueden usarse para interactuar con [API Reference](../api-reference/) en una ruta de archivo local. El usuario puede cambiar el comportamiento usando la variable env de abajo.
-
-| Variable              | Descripción                                                                                | Type                      | Default                   |
-| --------------------- | ------------------------------------------------------------------------------------------ | ------------------------- | ------------------------- |
-| APIKEY_STORAGE_TYPE | Método para almacenar API keys                                                                   | Enum string: `json`, `db` | `json`                    |
-| APIKEY_PATH          | Ubicación donde se almacenan las API keys cuando `APIKEY_STORAGE_TYPE` no está especificado o es `json` | String                    | `Flowise/packages/server` |
-
-Usar `db` como tipo de almacenamiento guardará las API keys en la database en lugar de un archivo JSON local.
 
 ## Para Storage
 

@@ -37,12 +37,6 @@ description: Learn how to deploy Flowise on Replit
 
 <figure><img src="../../.gitbook/assets/image (15) (3).png" alt="" width="545"><figcaption></figcaption></figure>
 
-9. If you would like to turn on [app level authorization](broken-reference/), change the command to:
-
-```bash
-npx flowise start --FLOWISE_USERNAME=user --FLOWISE_PASSWORD=1234
-```
-
-10. You will now see a login page. Simply login with the username and password you've set.
+9. You will now see a login page. Simply login with the username and password you've set.
 
 <figure><img src="../../.gitbook/assets/image (12) (2) (1).png" alt=""><figcaption></figcaption></figure>

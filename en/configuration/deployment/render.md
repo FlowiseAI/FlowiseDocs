@@ -61,6 +61,7 @@ The default filesystem for services running on Render is ephemeral. Flowise data
 
 3. Click the **Environment** section, and add these new environment variables:
 
+* HOST - `0.0.0.0`
 * DATABASE\_PATH - `/opt/render/.flowise`
 * APIKEY\_PATH - `/opt/render/.flowise`
 * LOG\_PATH - `/opt/render/.flowise/logs`

@@ -32,4 +32,3 @@ Un ejemplo de llamar al API usando POSTMAN
 
 <figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-Puedes especificar la location donde se almacenan las api keys usando las environment variables `APIKEY_PATH`. Lee más en [environment-variables.md](../environment-variables.md "mention")

@@ -39,7 +39,6 @@ Para facilitar los pasos, tenemos un template de Railway con volumen montado: [h
 Solo haz click en Deploy y completa las Env Variables como abajo:
 
 * DATABASE_PATH - `/opt/railway/.flowise`
-* APIKEY_PATH - `/opt/railway/.flowise`
 * LOG_PATH - `/opt/railway/.flowise/logs`
 * SECRETKEY_PATH - `/opt/railway/.flowise`
 * BLOB_STORAGE_PATH - `/opt/railway/.flowise/storage`

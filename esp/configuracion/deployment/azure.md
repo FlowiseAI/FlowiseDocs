@@ -35,8 +35,6 @@ subscription_id = "subscription id"
 project_name = "webapp_name"
 db_username = "PostgresUserName"
 db_password = "strongPostgresPassword"
-flowise_username = "flowiseUserName"
-flowise_password = "strongFlowisePassword"
 flowise_secretkey_overwrite = "longandStrongSecretKey"
 webapp_ip_rules = [
   {
@@ -328,17 +326,6 @@ variable "db_password" {
   description = "DB Password"
 }
 
-variable "flowise_username" {
-  type        = string
-  description = "Flowise User Name"
-}
-
-variable "flowise_password" {
-  type        = string
-  sensitive   = true
-  description = "Flowise User Password"
-}
-
 variable "flowise_secretkey_overwrite" {
   type        = string
   sensitive   = true
@@ -402,15 +389,12 @@ resource "azurerm_linux_web_app" "webapp" {
     DOCKER_ENABLE_CI                    = true
     WEBSITES_CONTAINER_START_TIME_LIMIT = 1800
     WEBSITES_ENABLE_APP_SERVICE_STORAGE = false
-    APIKEY_PATH                         = "/root"
     DATABASE_TYPE                       = "postgres"
     DATABASE_HOST                       = azurerm_postgresql_flexible_server.postgres.fqdn
     DATABASE_NAME                       = azurerm_postgresql_flexible_server_database.production.name
     DATABASE_USER                       = azurerm_postgresql_flexible_server.postgres.administrator_login
     DATABASE_PASSWORD                   = azurerm_postgresql_flexible_server.postgres.administrator_password
     DATABASE_PORT                       = 5432
-    FLOWISE_USERNAME                    = var.flowise_username
-    FLOWISE_PASSWORD                    = var.flowise_password
     FLOWISE_SECRETKEY_OVERWRITE         = var.flowise_secretkey_overwrite
     PORT                                = 3000
     SECRETKEY_PATH                      = "/root"
@@ -536,7 +520,7 @@ Without persistent storage your data is kept in memory. This means that on a con
 
 <figure><img src="../../.gitbook/assets/azure/deployment/3.png" alt=""><figcaption><p>Second page in the Container Instance create wizard. It asks for netowrking type and ports.</p></figcaption></figure>
 
-4. Set Restart policy to `On failure`. Next, add 2 Environment variables `FLOWISE_USERNAME` and `FLOWISE_PASSWORD`. Add Command override `["/bin/sh", "-c", "flowise start"]`. Finally click "Review + create":
+4. Set Restart policy to `On failure`. Add Command override `["/bin/sh", "-c", "flowise start"]`. Finally click "Review + create":
 
 <figure><img src="../../.gitbook/assets/azure/deployment/4.png" alt=""><figcaption><p>Third page in the Container Instance create wizard. It asks for restart policy, environment variables and command that runs on container start.</p></figcaption></figure>
 
@@ -569,7 +553,6 @@ az container create -g flowise-rg \
 	--name flowise \
 	--image flowiseai/flowise \
 	--command-line "/bin/sh -c 'flowise start'" \
-	--environment-variables FLOWISE_USERNAME=flowise-user FLOWISE_PASSWORD=flowise-password \
 	--ip-address public \
 	--ports 80 3000 \
 	--restart-policy OnFailure
@@ -596,7 +579,7 @@ az container create -g flowise-rg \
 	--name flowise \
 	--image flowiseai/flowise \
 	--command-line "/bin/sh -c 'flowise start'" \
-	--environment-variables FLOWISE_USERNAME=flowise-user FLOWISE_PASSWORD=flowise-password DATABASE_PATH=/opt/flowise/.flowise APIKEY_PATH=/opt/flowise/.flowise SECRETKEY_PATH=/opt/flowise/.flowise LOG_PATH=/opt/flowise/.flowise/logs BLOB_STORAGE_PATH=/opt/flowise/.flowise/storage \
+	--environment-variables DATABASE_PATH=/opt/flowise/.flowise SECRETKEY_PATH=/opt/flowise/.flowise LOG_PATH=/opt/flowise/.flowise/logs BLOB_STORAGE_PATH=/opt/flowise/.flowise/storage \
 	--ip-address public \
 	--ports 80 3000 \
 	--restart-policy OnFailure \

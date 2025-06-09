@@ -44,8 +44,8 @@ description: Learn how to deploy Flowise on Render
 
 10. Agrega las siguientes variables:
 
+* HOST - `0.0.0.0`
 * DATABASE_PATH - `/opt/render/.flowise`
-* APIKEY_PATH - `/opt/render/.flowise`
 * LOG_PATH - `/opt/render/.flowise/logs`
 * SECRETKEY_PATH - `/opt/render/.flowise`
 * BLOB_STORAGE_PATH - `/opt/render/.flowise/storage`

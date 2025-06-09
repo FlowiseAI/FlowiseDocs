@@ -218,15 +218,13 @@ nano .env
 ```sh
 PORT=3000
 DATABASE_PATH=/root/.flowise
-APIKEY_PATH=/root/.flowise
 SECRETKEY_PATH=/root/.flowise
 LOG_PATH=/root/.flowise/logs
 BLOB_STORAGE_PATH=/root/.flowise/storage
 ```
 
-5. _(Optional)_ You can also specify `FLOWISE_USERNAME` and `FLOWISE_PASSWORD` for app level authorization. See more [broken-reference](broken-reference/ "mention")
-6. Then press `Ctrl + X` to Exit, and `Y` to save the file
-7. Run docker compose
+5. Then press `Ctrl + X` to Exit, and `Y` to save the file
+6. Run docker compose
 
 ```bash
 docker compose up -d

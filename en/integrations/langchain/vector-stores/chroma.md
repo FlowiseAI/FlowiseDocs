@@ -63,11 +63,8 @@ services:
         restart: always
         environment:
             - PORT=${PORT}
-            - FLOWISE_USERNAME=${FLOWISE_USERNAME}
-            - FLOWISE_PASSWORD=${FLOWISE_PASSWORD}
             - DEBUG=${DEBUG}
             - DATABASE_PATH=${DATABASE_PATH}
-            - APIKEY_PATH=${APIKEY_PATH}
             - SECRETKEY_PATH=${SECRETKEY_PATH}
             - FLOWISE_SECRETKEY_OVERWRITE=${FLOWISE_SECRETKEY_OVERWRITE}
             - LOG_PATH=${LOG_PATH}

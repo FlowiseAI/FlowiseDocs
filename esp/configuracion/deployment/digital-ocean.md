@@ -77,7 +77,6 @@ nano .env
 ```sh
 PORT=3000
 DATABASE_PATH=/root/.flowise
-APIKEY_PATH=/root/.flowise
 SECRETKEY_PATH=/root/.flowise
 LOG_PATH=/root/.flowise/logs
 BLOB_STORAGE_PATH=/root/.flowise/storage
