@@ -44,7 +44,7 @@ When you are upserting multiple documents, and you want to prevent deletion of t
 * **Dog** document is left untouched
 * The remaining vector embeddings in Vector Store are **Cats** and **Dog**
 
-<figure><img src="../../.gitbook/assets/image (15) (1) (1).png" alt="" width="448"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (15) (1) (1) (1).png" alt="" width="448"><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Full" %}

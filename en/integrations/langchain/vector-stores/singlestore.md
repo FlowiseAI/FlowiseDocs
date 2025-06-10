@@ -41,7 +41,7 @@
 
 11. Back to Flowise canvas, drag and drop SingleStore nodes. Click **Create New** from the Credentials dropdown:
 
-<figure><img src="../../../.gitbook/assets/image (4) (1) (2) (1).png" alt="" width="271"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1) (2) (1) (1).png" alt="" width="271"><figcaption></figcaption></figure>
 
 11. Put in the Username and Password from above:
 
