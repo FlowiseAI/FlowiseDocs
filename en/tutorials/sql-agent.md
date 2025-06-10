@@ -187,9 +187,8 @@ For incorrect queries (output 1) from previous Condition Agent node, add a **Loo
 
 #### Configuration:
 
-*
+<figure><img src="../.gitbook/assets/image (7).png" alt="" width="526"><figcaption></figcaption></figure>
 
-    <figure><img src="../.gitbook/assets/image (7).png" alt="" width="526"><figcaption></figcaption></figure>
 * **Loop Back To**: "Generate SQL Query"
 * **Max Loop Count**: Set to 5
 
