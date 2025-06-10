@@ -17,4 +17,7 @@ We'll also provide in-depth guides for deploying Flowise on different Platform a
 * [Deployment](deployment/)
 * [Environment Variables](environment-variables.md)
 * [Rate Limit](rate-limit.md)
-
+* [Proxy](running-flowise-behind-company-proxy.md)
+* [SSO](sso.md)
+* [Queue Mode](running-flowise-using-queue.md)
+* [Production Ready](running-in-production.md)

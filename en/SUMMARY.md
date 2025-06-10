@@ -322,6 +322,7 @@
   * [Agentic RAG](tutorials/agentic-rag.md)
   * [SQL Agent](tutorials/sql-agent.md)
   * [Agent as Tool](tutorials/agent-as-tool.md)
+  * [Interacting with API](tutorials/interacting-with-api.md)
 * [Use Cases](use-cases/README.md)
   * [Calling Children Flows](use-cases/calling-children-flows.md)
   * [Calling Webhook](use-cases/webhook-tool.md)

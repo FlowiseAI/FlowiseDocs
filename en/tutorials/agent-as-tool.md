@@ -2,8 +2,6 @@
 
 In this tutorial, we are going to take a look at how to leverage other flows as tools to a parent Agent. This approach allows you to create a parent agent that can delegate specific tasks to specialized child agents
 
-Using previous tutorials for [RAG](rag.md) and [SQL Agent](sql-agent.md), we can create a unified agent that is able to perform RAG and SQL query.
-
 ### Overview
 
 1. Receives user input through a parent agent
@@ -32,8 +30,12 @@ The key feature of this flow is configuring another agent as a tool. In the Pare
 #### Agent Tool Settings:
 
 * **Selected Agentflow**: Choose your child agentflow
-* **Name**: Title for the agentflow
-* **Description**: What is the child agentflow about
+* **Name**: Name for the agentflow
+* **Description**: Describe when this agentflow is useful. Example:
+
+```
+Useful for searching user availability, scheduling meetings and email related query
+```
 
 {% hint style="warning" %}
 Name and Description for the tool are extremely important! They must be clear and correctly describe the purpose of the tool. Refer to [best practices](https://platform.openai.com/docs/guides/function-calling?api-mode=chat#best-practices-for-defining-functions) guide.
