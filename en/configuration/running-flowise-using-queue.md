@@ -24,75 +24,198 @@ Here's how it works:
 
 <figure><img src="../.gitbook/assets/Untitled-2025-01-23-1520.png" alt=""><figcaption></figcaption></figure>
 
-## Start Redis
+## Local Setup
+
+### Start Redis
 
 Before starting main server and workers, Redis need to be running first. You can run Redis on a separate machine, but make sure that it's accessible by the server and worker instances.
 
 For example, you can get Redis running on your Docker following this [guide](https://www.docker.com/blog/how-to-use-the-redis-docker-official-image/).
 
-## Configure Main Server
+### Start Main Server
 
 This is the same as you were to run Flowise by default, with the exceptions of configuring the environment variables mentioned above.
 
-## Configure Worker
+```bash
+pnpm i
+pnpm build
+pnpm start
+```
 
-Same as main server, environment variables above must be configured. We recommend just using the same `.env` file for both main and worker instances. The only difference is how to run the workers.
+### Start Worker
+
+Same as main server, environment variables above must be configured. We recommend just using the same `.env` file for both main and worker instances. The only difference is how to run the workers. Open another terminal and run:
+
+```bash
+pnpm run start-worker
+```
 
 {% hint style="warning" %}
 Main server and worker need to share the same secret key. Refer to [#for-credentials](environment-variables.md#for-credentials "mention"). For production, we recommend using Postgres as database for perfomance.
 {% endhint %}
 
-### Running Flowise locally using NPM
+## Docker Setup
+
+### Method 1: Pre-built Images (Recommended)
+
+This method uses pre-built Docker images from Docker Hub, making it the fastest and most reliable deployment option.
+
+**Step 1: Setup Environment**
+
+Create a `.env` file in the `docker` directory:
 
 ```bash
-npx flowise worker # remember to pass in the env vars!
+# Basic Configuration
+PORT=3000
+WORKER_PORT=5566
+
+# Queue Configuration (Required)
+MODE=queue
+QUEUE_NAME=flowise-queue
+REDIS_URL=redis://redis:6379
+
+# Optional Queue Settings
+WORKER_CONCURRENCY=5
+REMOVE_ON_AGE=24
+REMOVE_ON_COUNT=1000
+QUEUE_REDIS_EVENT_STREAM_MAX_LEN=1000
+ENABLE_BULLMQ_DASHBOARD=false
+
+# Database (Optional - defaults to SQLite)
+DATABASE_PATH=/root/.flowise
+
+# Storage
+BLOB_STORAGE_PATH=/root/.flowise/storage
+
+# Secret Keys
+SECRETKEY_PATH=/root/.flowise
+
+# Logging
+LOG_PATH=/root/.flowise/logs
 ```
 
-### Docker Compose
-
-You can either use the `docker-compose.yml` provided [here](https://github.com/FlowiseAI/Flowise/tree/main/docker/worker) or reuse the same `docker-compose.yml` you were using for main server, but change the entrypoint from `flowise start`to `flowise worker`:
-
-```docker
-version: '3.1'
-
-services:
-    flowise:
-        image: flowiseai/flowise
-        restart: always
-        environment:
-            - PORT=${PORT}
-            ....
-            - MODE=${MODE}
-            - WORKER_CONCURRENCY=${WORKER_CONCURRENCY}
-            ....
-        ports:
-            - '${PORT}:${PORT}'
-        volumes:
-            - ~/.flowise:/root/.flowise
-        entrypoint: /bin/sh -c "sleep 3; flowise worker"
-```
-
-### Git Clone
-
-Open 1st terminal to run main server
+**Step 2: Deploy**
 
 ```bash
-pnpm start
+cd docker
+docker compose -f docker-compose-queue-prebuilt.yml up -d
 ```
 
-Other terminals to run worker
+**Step 3: Verify Deployment**
 
 ```bash
-pnpm start-worker
+# Check container status
+docker compose -f docker-compose-queue-prebuilt.yml ps
+
+# View logs
+docker compose -f docker-compose-queue-prebuilt.yml logs -f flowise
+docker compose -f docker-compose-queue-prebuilt.yml logs -f flowise-worker
 ```
 
-### AWS Terraform
+**Step 4: Access Services**
 
-_Coming soon_
+* **Flowise UI**: http://localhost:3000
+* **BullMQ Dashboard**: http://localhost:3000/queues (if enabled)
+* **Redis**: localhost:6379
+
+### Method 2: Build from Source
+
+This method builds Flowise from source code, useful for development or custom modifications.
+
+**Step 1: Setup Environment**
+
+Create the same `.env` file as in [Method 1](running-flowise-using-queue.md#method-1-pre-built-images-recommended).
+
+**Step 2: Deploy**
+
+```bash
+cd docker
+docker compose -f docker-compose-queue-source.yml up -d
+```
+
+**Step 3: Build Process**
+
+The source build will:
+
+* Build the main Flowise application from source
+* Build the worker image from source
+* Set up Redis and networking
+
+**Step 4: Monitor Build**
+
+```bash
+# Watch build progress
+docker compose -f docker-compose-queue-source.yml logs -f
+
+# Check final status
+docker compose -f docker-compose-queue-source.yml ps
+```
+
+### Method 3: Standard Setup with Queue Configuration
+
+This method uses the standard `docker-compose.yml` but configured for queue mode.
+
+**Step 1: Configure Environment**
+
+Create `.env` file with queue mode enabled:
+
+```bash
+# Enable queue mode
+MODE=queue
+QUEUE_NAME=flowise-queue
+REDIS_URL=redis://your-redis-host:6379
+
+# Other standard configurations...
+PORT=3000
+DATABASE_PATH=/root/.flowise
+```
+
+**Step 2: Setup External Redis**
+
+Since the standard compose doesn't include Redis, set up Redis separately:
+
+```bash
+# Option A: Run Redis in Docker
+docker run -d --name flowise-redis -p 6379:6379 redis:alpine
+
+# Option B: Use managed Redis service
+# Update REDIS_URL in .env to point to your Redis instance
+```
+
+**Step 3: Deploy**
+
+```bash
+docker compose up -d
+```
+
+**Step 4: Add Workers**
+
+To add workers, you'll need to run additional containers:
+
+```bash
+# Run worker containers manually
+docker run -d \
+  --name flowise-worker-1 \
+  --env-file .env \
+  -e WORKER_PORT=5566 \
+  -v ~/.flowise:/root/.flowise \
+  flowiseai/flowise-worker:latest
+```
+
+### Health Checks
+
+All compose files include health checks:
+
+```bash
+# Check main instance health
+curl http://localhost:3000/api/v1/ping
+
+# Check worker health (if exposed)
+curl http://localhost:5566/healthz
+```
 
 ## Queue Dashboard
 
-You can view all the jobs, their status, result, data by navigating to `<your-flowise-url.com>/admin/queues`
+Set `ENABLE_BULLMQ_DASHBOARD` to true will allow users to view all the jobs, status, result, data by navigating to `<your-flowise-url.com>/admin/queues`
 
 <figure><img src="../.gitbook/assets/image (253).png" alt=""><figcaption></figcaption></figure>
-
