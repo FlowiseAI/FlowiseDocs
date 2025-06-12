@@ -6,7 +6,7 @@ By default, Flowise runs in a NodeJS main thread. However, with large number of 
 
 With the following environment variables, you can run Flowise in `queue` mode.
 
-<table><thead><tr><th width="263">Variable</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>MODE</td><td>Mode to run Flowise</td><td>Enum String: <code>main</code>, <code>queue</code></td><td><code>main</code></td></tr><tr><td>WORKER_CONCURRENCY</td><td>How many jobs are allowed to be processed in parallel for a worker. If you have 1 worker, that means how many concurrent prediction tasks it can handle. More <a href="https://docs.bullmq.io/guide/workers/concurrency">info</a></td><td>Number</td><td>10000</td></tr><tr><td>QUEUE_NAME</td><td>The name of the message queue</td><td>String</td><td>flowise-queue</td></tr><tr><td>QUEUE_REDIS_EVENT_STREAM_MAX_LEN</td><td>Event stream is auto-trimmed so that its size does not grow too much. More <a href="https://docs.bullmq.io/guide/events">info</a></td><td>Number</td><td>10000</td></tr><tr><td>REDIS_HOST</td><td>Redis host</td><td>String</td><td>localhost</td></tr><tr><td>REDIS_PORT</td><td>Redis port</td><td>Number</td><td>6379</td></tr><tr><td>REDIS_USERNAME</td><td>Redis username (optional)</td><td>String</td><td></td></tr><tr><td>REDIS_PASSWORD</td><td>Redis password (optional)</td><td>String</td><td></td></tr><tr><td>REDIS_TLS</td><td>Redis TLS connection (optional) More <a href="https://redis.io/docs/latest/operate/oss_and_stack/management/security/encryption/">info</a></td><td>Boolean</td><td>false</td></tr><tr><td>REDIS_CERT</td><td>Redis self-signed certificate</td><td>String</td><td></td></tr><tr><td>REDIS_KEY</td><td>Redis self-signed certificate key file</td><td>String</td><td></td></tr><tr><td>REDIS_CA</td><td>Redis self-signed certificate CA file</td><td>String</td><td></td></tr></tbody></table>
+<table><thead><tr><th width="263">Variable</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>MODE</td><td>Mode to run Flowise</td><td>Enum String: <code>main</code>, <code>queue</code></td><td><code>main</code></td></tr><tr><td>WORKER_CONCURRENCY</td><td>How many jobs are allowed to be processed in parallel for a worker. If you have 1 worker, that means how many concurrent prediction tasks it can handle. More <a href="https://docs.bullmq.io/guide/workers/concurrency">info</a></td><td>Number</td><td>10000</td></tr><tr><td>QUEUE_NAME</td><td>The name of the message queue</td><td>String</td><td>flowise-queue</td></tr><tr><td>QUEUE_REDIS_EVENT_STREAM_MAX_LEN</td><td>Event stream is auto-trimmed so that its size does not grow too much. More <a href="https://docs.bullmq.io/guide/events">info</a></td><td>Number</td><td>10000</td></tr><tr><td>REDIS_URL</td><td>Redis URL</td><td>String</td><td></td></tr><tr><td>REDIS_HOST</td><td>Redis host</td><td>String</td><td>localhost</td></tr><tr><td>REDIS_PORT</td><td>Redis port</td><td>Number</td><td>6379</td></tr><tr><td>REDIS_USERNAME</td><td>Redis username (optional)</td><td>String</td><td></td></tr><tr><td>REDIS_PASSWORD</td><td>Redis password (optional)</td><td>String</td><td></td></tr><tr><td>REDIS_TLS</td><td>Redis TLS connection (optional) More <a href="https://redis.io/docs/latest/operate/oss_and_stack/management/security/encryption/">info</a></td><td>Boolean</td><td>false</td></tr><tr><td>REDIS_CERT</td><td>Redis self-signed certificate</td><td>String</td><td></td></tr><tr><td>REDIS_KEY</td><td>Redis self-signed certificate key file</td><td>String</td><td></td></tr><tr><td>REDIS_CA</td><td>Redis self-signed certificate CA file</td><td>String</td><td></td></tr></tbody></table>
 
 In `queue` mode, the main server will be responsible for processing requests, sending jobs to message queue. Main server will not execute the job. One or multiple workers receive jobs from the queue, execute them and send the results back.
 
@@ -37,8 +37,6 @@ For example, you can get Redis running on your Docker following this [guide](htt
 This is the same as you were to run Flowise by default, with the exceptions of configuring the environment variables mentioned above.
 
 ```bash
-pnpm i
-pnpm build
 pnpm start
 ```
 
@@ -112,12 +110,6 @@ docker compose -f docker-compose-queue-prebuilt.yml logs -f flowise
 docker compose -f docker-compose-queue-prebuilt.yml logs -f flowise-worker
 ```
 
-**Step 4: Access Services**
-
-* **Flowise UI**: http://localhost:3000
-* **BullMQ Dashboard**: http://localhost:3000/queues (if enabled)
-* **Redis**: localhost:6379
-
 ### Method 2: Build from Source
 
 This method builds Flowise from source code, useful for development or custom modifications.
@@ -149,57 +141,6 @@ docker compose -f docker-compose-queue-source.yml logs -f
 
 # Check final status
 docker compose -f docker-compose-queue-source.yml ps
-```
-
-### Method 3: Standard Setup with Queue Configuration
-
-This method uses the standard `docker-compose.yml` but configured for queue mode.
-
-**Step 1: Configure Environment**
-
-Create `.env` file with queue mode enabled:
-
-```bash
-# Enable queue mode
-MODE=queue
-QUEUE_NAME=flowise-queue
-REDIS_URL=redis://your-redis-host:6379
-
-# Other standard configurations...
-PORT=3000
-DATABASE_PATH=/root/.flowise
-```
-
-**Step 2: Setup External Redis**
-
-Since the standard compose doesn't include Redis, set up Redis separately:
-
-```bash
-# Option A: Run Redis in Docker
-docker run -d --name flowise-redis -p 6379:6379 redis:alpine
-
-# Option B: Use managed Redis service
-# Update REDIS_URL in .env to point to your Redis instance
-```
-
-**Step 3: Deploy**
-
-```bash
-docker compose up -d
-```
-
-**Step 4: Add Workers**
-
-To add workers, you'll need to run additional containers:
-
-```bash
-# Run worker containers manually
-docker run -d \
-  --name flowise-worker-1 \
-  --env-file .env \
-  -e WORKER_PORT=5566 \
-  -v ~/.flowise:/root/.flowise \
-  flowiseai/flowise-worker:latest
 ```
 
 ### Health Checks
