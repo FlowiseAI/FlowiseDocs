@@ -171,5 +171,9 @@ module.exports = app;
 
 There are 4 Request tools that can be used. This allows LLM to call the GET, POST, PUT, DELETE tools when necessary.
 
+### Step 1: Add the Start Node
+
+The Start node is the entry point of your flow
+
 
 
