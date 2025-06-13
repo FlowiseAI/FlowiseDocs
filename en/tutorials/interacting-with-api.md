@@ -175,9 +175,7 @@ There are 4 Request tools that can be used. This allows LLM to call the GET, POS
 
 The Start node is the entry point of your flow
 
-Absolutely! Here’s an in-depth explanation for **Step 2: Add the Requests Agent Node**, focusing on each tool’s input and configuration.
-
-<figure><img src="../.gitbook/assets/image.png" alt="" width="324"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4).png" alt="" width="324"><figcaption></figcaption></figure>
 
 ### Step 2: Add the Agent Node
 
@@ -185,7 +183,7 @@ Next, add an Agent node. In this setup, the agent is configured with four main t
 
 #### Tool 1: GET (Retrieve Events)
 
-<figure><img src="../.gitbook/assets/image (1).png" alt="" width="335"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt="" width="335"><figcaption></figcaption></figure>
 
 * **Purpose:** Fetch a list of events or a specific event from the API.
 * **Configuration Inputs:**
@@ -212,7 +210,7 @@ Next, add an Agent node. In this setup, the agent is configured with four main t
 
 #### Tool 2: POST (Create Event)
 
-<figure><img src="../.gitbook/assets/image (2).png" alt="" width="335"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt="" width="335"><figcaption></figcaption></figure>
 
 * **Purpose:** Create a new event in the system.
 * **Configuration Inputs:**
@@ -245,7 +243,7 @@ Next, add an Agent node. In this setup, the agent is configured with four main t
 
 #### Tool 3: PUT (Update Event)
 
-<figure><img src="../.gitbook/assets/image (3).png" alt="" width="335"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt="" width="335"><figcaption></figcaption></figure>
 
 * **Purpose:** Update an existing event’s details.
 * **Configuration Inputs:**
@@ -278,7 +276,7 @@ Next, add an Agent node. In this setup, the agent is configured with four main t
 
 #### Tool 4: DELETE (Delete Event)
 
-<figure><img src="../.gitbook/assets/image (4).png" alt="" width="335"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1).png" alt="" width="335"><figcaption></figcaption></figure>
 
 * **Purpose:** Remove an event from the system.
 * **Configuration Inputs:**
@@ -391,9 +389,223 @@ Certainly! Here are some **Example Interactions** for your flow, including sampl
 * It sends a DELETE request to `http://localhost:5566/events/12345`.
 * The agent confirms the event was deleted.
 
+### Complete Flow
+
+{% file src="../.gitbook/assets/Requests Tool Agent.json" %}
+
 ***
 
+## OpenAPI Toolkit
 
+The 4 Requests tools work great if you have a couple of APIs, but imagine having tens or hundreds of APIs, this could become hard to maintain. To solve this problem, Flowise provides an OpenAPI toolkit which is able to take in an OpenAPI YAML file, and parse each API into a tool. The [OpenAPI Specification (OAS)](https://swagger.io/specification/) is a universally accepted standard for describing the details of RESTful APIs in a format that machines can read and interpret.&#x20;
 
+Using the Event Management API, we can generate an OpenAPI YAML file:
 
+```yaml
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Event Management API
+  description: An API for managing event data
 
+servers:
+  - url: http://localhost:5566
+    description: Local development server
+
+paths:
+  /events:
+    get:
+      summary: List all events
+      operationId: listEvents
+      responses:
+        '200':
+          description: A list of events
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Event'
+    
+    post:
+      summary: Create a new event
+      operationId: createEvent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventInput'
+      responses:
+        '201':
+          description: The event was created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+        '400':
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /events/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The event ID
+    
+    get:
+      summary: Retrieve an event by ID
+      operationId: getEventById
+      responses:
+        '200':
+          description: The event
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+        '404':
+          description: Event not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    
+    patch:
+      summary: Update an event's details by ID
+      operationId: updateEventDetails
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventInput'
+      responses:
+        '200':
+          description: The event's details were updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+        '400':
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Event not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    
+    delete:
+      summary: Delete an event by ID
+      operationId: deleteEvent
+      responses:
+        '204':
+          description: The event was deleted
+        '404':
+          description: Event not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    Event:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique identifier for the event
+        name:
+          type: string
+          description: The name of the event
+        date:
+          type: string
+          format: date-time
+          description: The date and time of the event in ISO 8601 format
+        location:
+          type: string
+          description: The location of the event
+      required:
+        - name
+        - date
+        - location
+    
+    EventInput:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the event
+        date:
+          type: string
+          format: date-time
+          description: The date and time of the event in ISO 8601 format
+        location:
+          type: string
+          description: The location of the event
+      required:
+        - name
+        - date
+        - location
+    
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message
+```
+
+### Step 1: Add the Start Node
+
+<figure><img src="../.gitbook/assets/image.png" alt="" width="319"><figcaption></figcaption></figure>
+
+### Step 2: Add the Agent Node
+
+Next, add an Agent node. In this setup, the agent is configured with only 1 tool - OpenAPI Toolkit
+
+#### Tool: OpenAPI Toolkit
+
+<figure><img src="../.gitbook/assets/image (1).png" alt="" width="332"><figcaption></figcaption></figure>
+
+* **Purpose:** Fetch the list of APIs from YAML file and turn every APIs into list of tools
+* **Configuration Inputs:**
+  * **YAML File:** The OpenAPI YAML file
+  * **Return Direct:** Whether to return the response from API directly
+  * **Headers:** (Optional) Add any required HTTP headers.
+  * **Remove null parameters:** Remove all keys with null values from the parsed arguments
+  * **Custom Code**: Customize how response is being returned
+
+### Example Interactions:
+
+We can use the same sample queries from previous example to test it out:
+
+<figure><img src="../.gitbook/assets/image (2).png" alt="" width="563"><figcaption></figcaption></figure>
+
+## Calling API Sequentially
+
+From the examples above, we’ve seen how the Agent can dynamically call tools and interact with APIs. In some cases, it may be necessary to call an API sequentially before or after certain actions. For instance, you might fetch a customer list from a CRM and pass it to an Agent. In such cases, you can use the HTTP node.
+
+<figure><img src="../.gitbook/assets/image (3).png" alt="" width="563"><figcaption></figcaption></figure>
+
+## Tips
+
+* Interacting with APIs is typically used when you want an agent to fetch the most up-to-date information. For example, an agent might retrieve your calendar availability, project status, or other real-time data.
+* It is often helpful to explicitly include the current time in the system prompt. Flowise provides a variable called `{{current_date_time}}`, which retrieves the current date and time. This allows the LLM to be aware of the present moment, so if you ask about your availability for today, the model can reference the correct date. Otherwise, it may rely on its last training cutoff date, which would return outdated information. For example:
+
+```
+You are helpful assistant.
+
+Todays date time is {{current_date_time }}
+```
