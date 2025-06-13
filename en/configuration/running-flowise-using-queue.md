@@ -151,7 +151,7 @@ All compose files include health checks:
 # Check main instance health
 curl http://localhost:3000/api/v1/ping
 
-# Check worker health (if exposed)
+# Check worker health
 curl http://localhost:5566/healthz
 ```
 
