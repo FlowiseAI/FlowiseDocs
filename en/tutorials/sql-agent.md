@@ -2,7 +2,7 @@
 
 This tutorial will guide you through building an intelligent SQL Agent that can interact with databases, generate SQL queries, validate them, execute them, and self-correct when errors occur.
 
-### Overview
+## Overview
 
 The SQL Agent flow implements a robust database interaction system that:
 
@@ -331,11 +331,15 @@ Add a **Loop** node connected to the "Regenerate SQL Query" LLM.
 
 This creates a second feedback loop for runtime error correction.
 
-### Complete Flow Structure
+***
+
+## Complete Flow Structure
 
 {% file src="../.gitbook/assets/SQL Agent.json" %}
 
-#### Summary:
+***
+
+## Summary:
 
 1. **Start** → **Get DB Schema**
 2. **Get DB Schema** → **Generate SQL Query**
@@ -347,7 +351,9 @@ This creates a second feedback loop for runtime error correction.
 8. **Check Result** (Error) → **Regenerate SQL Query**
 9. **Regenerate SQL Query** → **Recheck SQL Query** (Loop back)
 
-### Testing Your SQL Agent
+***
+
+## Testing Your SQL Agent
 
 Test your agent with various types of database questions:
 

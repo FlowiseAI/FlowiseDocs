@@ -167,6 +167,8 @@ app.listen(PORT, () => {
 module.exports = app; 
 ```
 
+***
+
 ## Request Tools
 
 There are 4 Request tools that can be used. This allows LLM to call the GET, POST, PUT, DELETE tools when necessary.
@@ -593,9 +595,11 @@ We can use the same sample queries from previous example to test it out:
 
 <figure><img src="../.gitbook/assets/image (2).png" alt="" width="563"><figcaption></figcaption></figure>
 
+***
+
 ## Calling API Sequentially
 
-From the examples above, we’ve seen how the Agent can dynamically call tools and interact with APIs. In some cases, it may be necessary to call an API sequentially before or after certain actions. For instance, you might fetch a customer list from a CRM and pass it to an Agent. In such cases, you can use the HTTP node.
+From the examples above, we’ve seen how the Agent can dynamically call tools and interact with APIs. In some cases, it may be necessary to call an API sequentially before or after certain actions. For instance, you might fetch a customer list from a CRM and pass it to an Agent. In such cases, you can use the [HTTP node](../using-flowise/agentflowv2.md#id-6.-http-node).
 
 <figure><img src="../.gitbook/assets/image (3).png" alt="" width="563"><figcaption></figcaption></figure>
 

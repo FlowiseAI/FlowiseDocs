@@ -4,7 +4,7 @@ Agentic RAG is an agent based approach to perform [RAG](rag.md) in an orchestrat
 
 In this tutorial, we'll explore how to build a self-correcting RAG system that checks the relevance of retrieved data and automatically re-generates the query if the results are not relevant.
 
-### Overview
+## Overview
 
 The Agentic RAG flow implements a multi-step process that:
 
@@ -167,11 +167,11 @@ Add a **Loop** node connected to the "Regenerate Question" LLM.
 
 This creates a feedback loop that allows the system to retry with improved queries when initial results are not satisfactory.
 
-### Complete Flow Structure
+## Complete Flow Structure
 
 {% file src="../.gitbook/assets/Agentic RAG V2.json" %}
 
-#### Summary:
+## Summary:
 
 1. **Start** → **Check if query valid**
 2. **Check if query valid** (AI Related) → **Generate Query**
@@ -182,7 +182,7 @@ This creates a feedback loop that allows the system to retry with improved queri
 7. **Check if docs relevant** (Irrelevant) → **Regenerate Question**
 8. **Regenerate Question** → **Loop back to Retriever**
 
-### Testing Your Flow
+## Testing Your Flow
 
 Test your flow with various types of questions:
 

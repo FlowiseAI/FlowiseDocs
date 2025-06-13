@@ -9,7 +9,7 @@ The process can be separated out into 2 sub-processes:
 * Indexing
 * Retrieval
 
-### Indexing
+## Indexing
 
 [Document Stores](../using-flowise/document-stores.md) is designed to help with the whole indexing pipelines - retrieveing data from different sources, chunking strategy, upserting to vector database, syncing with updated data.
 
@@ -17,7 +17,7 @@ We support wide range of document loaders, ranging from files like Pdf, Word, Go
 
 <figure><img src="../.gitbook/assets/image (293).png" alt="" width="563"><figcaption></figcaption></figure>
 
-### Retrieval
+## Retrieval
 
 Based on the user's input, relevant document chunks are fetched from vector database. LLM then uses the retrieved context to generate a response.
 
@@ -45,6 +45,6 @@ Only upserted document store can be used
 
 5. Your RAG agent is now ready to use!
 
-### Resources
+## Resources
 
 {% embed url="https://youtu.be/KHc0ClOIv0A?si=mEZJydM8bT2imKJY" %}

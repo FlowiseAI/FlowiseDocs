@@ -2,7 +2,7 @@
 
 In this tutorial, we are going to take a look at how to leverage other flows as tools to a parent Agent. This approach allows you to create a parent agent that can delegate specific tasks to specialized child agents
 
-### Overview
+## Overview
 
 1. Receives user input through a parent agent
 2. Agent decides to retrieve data from document store, or call the Agentflow Tool.
@@ -52,7 +52,9 @@ Configure the **Knowledge (Document Stores)** section to give your parent agent 
 * **Document Store**: Select your pre-configured document store (e.g., "AI-Paper")
 * **Describe Knowledge**: Describe what the knowledge is about
 
-### Example Interactions
+***
+
+## Example Interactions
 
 #### Sample Queries and Expected Behavior:
 
@@ -82,7 +84,9 @@ Configure the **Knowledge (Document Stores)** section to give your parent agent 
 
 <figure><img src="../.gitbook/assets/image (302).png" alt="" width="563"><figcaption></figcaption></figure>
 
-### Best Practices
+***
+
+## Best Practices
 
 #### Design Guidelines:
 
