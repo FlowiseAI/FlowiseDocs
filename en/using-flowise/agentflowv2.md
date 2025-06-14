@@ -34,7 +34,7 @@ At each step, agents have access to the complete conversation history, enabling 
 
 This architecture enables **collaboration, delegation, and shared task management** across multiple agents, such capabilities are not typically offered by traditional automation tools.
 
-<figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-05-16 153946.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""></picture><figcaption></figcaption></figure>
+<figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-05-16 153946.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""></picture><figcaption></figcaption></figure>
 
 ### 🙋‍♂ Human-in-the-loop
 
@@ -44,7 +44,7 @@ The use of checkpoints enables **long-running, stateful agents**.
 
 Agents can also be configured to **request permission before executing tools**, similar to how Claude asks for user approval before using MCP tools. This helps prevent the autonomous execution of sensitive actions without explicit user approval.
 
-<figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-05-16 154908.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""></picture><figcaption></figcaption></figure>
+<figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-05-16 154908.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""></picture><figcaption></figcaption></figure>
 
 ### 📖  Shared State
 
@@ -62,7 +62,7 @@ While traditional automation platforms often feature extensive libraries of pre-
 
 Custom MCPs can also be created independently, without depending on platform-provided integrations. MCP is widely considered an industry standard and is typically supported and maintained by the official providers. For example, the GitHub MCP is developed and maintained by the GitHub team, with similar support provided for Atlassian Jira, Brave Search, and others.
 
-<figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-05-16 160752.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt=""></picture><figcaption></figcaption></figure>
+<figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-05-16 160752.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1).png" alt=""></picture><figcaption></figcaption></figure>
 
 ## Agentflow V2 Node Reference
 
@@ -363,7 +363,7 @@ The primary purpose of `$flow.state` is to enable **explicit data sharing and co
 1. **Initialization / Declaration of Keys**
    * All state keys that will be used throughout the workflow **must be initialized** with their default (even if empty) values using the `Flow State` parameter within the **Start node**. This step effectively declares the schema or structure of your `$flow.state` for that workflow. You define the initial key-value pairs here.
 
-<figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-05-16 160038.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""></picture><figcaption></figcaption></figure>
+<figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-05-16 160038.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt=""></picture><figcaption></figcaption></figure>
 
 2. **Updating State / Modifying Existing Keys**
 
