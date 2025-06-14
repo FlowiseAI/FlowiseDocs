@@ -104,6 +104,8 @@ Only use this when using Flowise locally, not when deployed to cloud services. T
 
 It is more suited for desktop application like Claude Desktop, VS Code etc.
 
+#### **NPX command**
+
 ```json
 {
   "command": "npx",
@@ -117,6 +119,47 @@ It is more suited for desktop application like Claude Desktop, VS Code etc.
 <figure><img src="../.gitbook/assets/image.png" alt="" width="419"><figcaption></figcaption></figure>
 
 For Windows, refer to this [guide](https://gist.github.com/feveromo/7a340d7795fca1ccd535a5802b976e1f).
+
+#### **Docker command**
+
+The Docker command is suitable when the machine running Flowise also has access to Docker. However, it is not suitable for deployments on cloud services where Docker access is restricted or unavailable.
+
+```json
+{
+  "command": "docker",
+  "args": [
+    "run",
+    "-i",
+    "--rm",
+    "mcp/sequentialthinking"
+  ]
+}
+```
+
+<figure><img src="../.gitbook/assets/image (312).png" alt="" width="416"><figcaption></figcaption></figure>
+
+Docker provides a list of MCP servers, which can be found [here](https://hub.docker.com/catalogs/mcp). Here's how it works:
+
+1. Make sure Docker is running.
+2. Locate the MCP server configuration and add it to **Custom MCP**. For example: [https://hub.docker.com/r/mcp/sequentialthinking](https://hub.docker.com/r/mcp/sequentialthinking)
+3. Refresh the **Available Actions**. If the image is not found locally, Docker will automatically pull the latest image. Once the image is pulled, you will see the list of available actions.
+
+```
+Unable to find image 'mcp/sequentialthinking:latest' locally
+latest: Pulling from mcp/sequentialthinking
+f18232174bc9: Already exists
+cb2bde55f71f: Pull complete
+9d0e0719fbe0: Pull complete
+6f063dbd7a5d: Pull complete
+93a0fbe48c24: Pull complete
+e2e59f8d7891: Pull complete
+96ec0bda7033: Pull complete
+4f4fb700ef54: Pull complete
+d0900e07408c: Pull complete
+Digest: sha256:cd3174b2ecf37738654cf7671fb1b719a225c40a78274817da00c4241f465e5f
+Status: Downloaded newer image for mcp/sequentialthinking:latest
+Sequential Thinking MCP Server running on stdio
+```
 
 #### When to use
 
