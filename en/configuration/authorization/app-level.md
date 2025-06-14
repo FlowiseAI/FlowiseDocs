@@ -60,8 +60,6 @@ These variables control authentication security, token expiration, and password 
 * Set appropriate token expiry times based on your security requirements
 * Use higher `PASSWORD_SALT_HASH_ROUNDS` values (12-15) for better security in production
 
-##
-
 ## Username & Password (Deprecated)
 
 App level authorization protects your Flowise instance by username and password. This protects your apps from being accessible by anyone when deployed online.
