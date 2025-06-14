@@ -603,7 +603,7 @@ From the examples above, we’ve seen how the Agent can dynamically call tools a
 
 <figure><img src="../.gitbook/assets/image (3) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
-## Tips
+## Best Practices
 
 * Interacting with APIs is typically used when you want an agent to fetch the most up-to-date information. For example, an agent might retrieve your calendar availability, project status, or other real-time data.
 * It is often helpful to explicitly include the current time in the system prompt. Flowise provides a variable called `{{current_date_time}}`, which retrieves the current date and time. This allows the LLM to be aware of the present moment, so if you ask about your availability for today, the model can reference the correct date. Otherwise, it may rely on its last training cutoff date, which would return outdated information. For example:

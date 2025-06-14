@@ -171,16 +171,16 @@ This creates a feedback loop that allows the system to retry with improved queri
 
 {% file src="../.gitbook/assets/Agentic RAG V2.json" %}
 
-## Summary:
+## Summary
 
-1. **Start** → **Check if query valid**
-2. **Check if query valid** (AI Related) → **Generate Query**
-3. **Check if query valid** (General) → **General Answer**
-4. **Generate Query** → **Retriever Vector DB**
-5. **Retriever Vector DB** → **Check if docs relevant**
-6. **Check if docs relevant** (Relevant) → **Generate Response**
-7. **Check if docs relevant** (Irrelevant) → **Regenerate Question**
-8. **Regenerate Question** → **Loop back to Retriever**
+1. Start → Check if query valid
+2. Check if query valid (AI Related) → Generate Query
+3. Check if query valid (General) → General Answer
+4. Generate Query → Retriever Vector DB
+5. Retriever Vector DB → Check if docs relevant
+6. Check if docs relevant (Relevant) → Generate Response
+7. Check if docs relevant (Irrelevant) → Regenerate Question
+8. Regenerate Question → Loop back to Retriever
 
 ## Testing Your Flow
 

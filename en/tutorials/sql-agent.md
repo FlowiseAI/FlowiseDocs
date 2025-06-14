@@ -339,17 +339,17 @@ This creates a second feedback loop for runtime error correction.
 
 ***
 
-## Summary:
+## Summary
 
-1. **Start** → **Get DB Schema**
-2. **Get DB Schema** → **Generate SQL Query**
-3. **Generate SQL Query** → **Check SQL Query**
-4. **Check SQL Query** (Correct) → **Run SQL Query**
-5. **Check SQL Query** (Incorrect) → **Regenerate Query** (Loop back)
-6. **Run SQL Query** → **Check Result**
-7. **Check Result** (Success) → **Return Response**
-8. **Check Result** (Error) → **Regenerate SQL Query**
-9. **Regenerate SQL Query** → **Recheck SQL Query** (Loop back)
+1. Start → Get DB Schema
+2. Get DB Schema → Generate SQL Query
+3. Generate SQL Query → Check SQL Query
+4. Check SQL Query (Correct) → Run SQL Query
+5. Check SQL Query (Incorrect) → Regenerate Query (Loop back)
+6. Run SQL Query → Check Result
+7. Check Result (Success) → Return Response
+8. Check Result (Error) → Regenerate SQL Query
+9. Regenerate SQL Query → Recheck SQL Query (Loop back)
 
 ***
 
