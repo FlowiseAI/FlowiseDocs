@@ -58,7 +58,7 @@ try {
 
 After custom tool has been created, you can use it on the Agent node.
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt="" width="341"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt="" width="341"><figcaption></figcaption></figure>
 
 From the Tool dropdown, select the custom tool. You can also turn on **Return Direc**t if you want to directly return the output from custom tool.
 
@@ -75,7 +75,7 @@ In this case, **Tool Input Arguments must be explicitly defined and filled with 
 
 MCP ([Model Context Protocol](https://modelcontextprotocol.io/introduction)) provides a standardized way to connect AI models to different data sources and tools. In other words, instead of relying on Flowise built in tools or creating custom tool, one can uses MCP servers that have been created by others. MCP is widely considered an industry standard and is typically supported and maintained by the official providers. For example, the GitHub MCP is developed and maintained by the GitHub team, with similar support provided for Atlassian Jira, Brave Search, and others. You can find the list of supported servers [here](https://modelcontextprotocol.io/examples).
 
-<figure><img src="../.gitbook/assets/image.png" alt="" width="413"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt="" width="413"><figcaption></figcaption></figure>
 
 ## Custom MCP
 
@@ -100,6 +100,24 @@ To handle the actual communication between clients and servers. MCP supports mul
 
 Stdio transport enables communication through standard input and output streams. This is particularly useful for local integrations and command-line tools.
 
+Only use this when using Flowise locally, not when deployed to cloud services. This is because running command like `npx` will install the MCP server package (ex: `@modelcontextprotocol/server-sequential-thinking`)  locally, and it often takes long time for that.&#x20;
+
+It is more suited for desktop application like Claude Desktop, VS Code etc.
+
+```json
+{
+  "command": "npx",
+  "args": [
+    "-y",
+    "@modelcontextprotocol/server-sequential-thinking"
+  ]
+}
+```
+
+<figure><img src="../.gitbook/assets/image.png" alt="" width="419"><figcaption></figcaption></figure>
+
+For Windows, refer to this [guide](https://gist.github.com/feveromo/7a340d7795fca1ccd535a5802b976e1f).
+
 #### When to use
 
 * Building command-line tools
@@ -115,7 +133,7 @@ We will use Github Remote MCP as an example. The beautiful part of [Remote GitHu
 
 In order to access the MCP server, we need to create a Personal Access Token from Github. Refer to [guide](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic). Once PAT has been created, create a variable to store the token. This variable will be used in Custom MCP.
 
-<figure><img src="../.gitbook/assets/image (1).png" alt="" width="508"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt="" width="508"><figcaption></figcaption></figure>
 
 #### Step 2: Create Custom MCP
 

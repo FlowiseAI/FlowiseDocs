@@ -1,6 +1,6 @@
 # Json Lines File
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="256"><figcaption><p>Json Lines File Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2).png" alt="" width="256"><figcaption><p>Json Lines File Node</p></figcaption></figure>
 
 JSON Lines (JSONL) is a text format where each line is a valid JSON value. This module provides functionality to load and process JSONL files, with support for pointer-based content extraction and dynamic metadata handling.
 

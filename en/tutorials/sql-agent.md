@@ -19,7 +19,7 @@ The SQL Agent flow implements a robust database interaction system that:
 
 Begin by adding a **Start** node to your canvas. This serves as the entry point for your SQL agent.
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 #### Configuration:
 

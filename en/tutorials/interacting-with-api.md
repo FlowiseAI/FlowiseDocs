@@ -185,7 +185,7 @@ Next, add an Agent node. In this setup, the agent is configured with four main t
 
 #### Tool 1: GET (Retrieve Events)
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt="" width="335"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt="" width="335"><figcaption></figcaption></figure>
 
 * **Purpose:** Fetch a list of events or a specific event from the API.
 * **Configuration Inputs:**
@@ -579,7 +579,7 @@ Next, add an Agent node. In this setup, the agent is configured with only 1 tool
 
 #### Tool: OpenAPI Toolkit
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt="" width="332"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt="" width="332"><figcaption></figcaption></figure>
 
 * **Purpose:** Fetch the list of APIs from YAML file and turn every APIs into list of tools
 * **Configuration Inputs:**
