@@ -1,13 +1,11 @@
 # Human In The Loop
 
-In the previous tutorials, we explored how an Agent can dynamically use tools and automate execution. **Human-in-the-loop** adds a layer of control by allowing the Agent to request human input, approval, or feedback before proceeding.
+In the previous tutorials, we explored how an Agent can dynamically use tools to answer queries or complete assigned tasks. **Human-in-the-loop** adds a layer of control by allowing the Agent to request human input, approval, or feedback before proceeding.
 
 There are 2 ways human in the loop can be used:
 
 * Using [Human Input](../using-flowise/agentflowv2.md#id-11.-human-input-node) node to halt the execution
-*   Enable **Require Human Input** for Agent's tools
-
-
+* Enable **Require Human Input** for Agent's tools
 
 ## Human Input Node
 
@@ -136,6 +134,10 @@ When an email inquiry comes in, here's what happens:
 5. Proceed and verify that email is being sent correctly:
 
 <figure><img src="../.gitbook/assets/image (12).png" alt="" width="563"><figcaption></figcaption></figure>
+
+### Complete Flow Structure
+
+{% file src="../.gitbook/assets/Human In The Loop Agent.json" %}
 
 ### How to let others to review
 
