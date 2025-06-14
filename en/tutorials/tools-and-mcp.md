@@ -6,7 +6,7 @@ In cases where the tool you need is not yet available, you can create a **Custom
 
 ## Custom Tool
 
-We are going to use the same Event Management Server, and create a custom tool which can call the HTTP POST request for `/events`.
+We are going to use the same [Event Management Server](interacting-with-api.md#prerequisite), and create a custom tool which can call the HTTP POST request for `/events`.
 
 <figure><img src="../.gitbook/assets/image.png" alt="" width="563"><figcaption></figcaption></figure>
 
