@@ -14,13 +14,13 @@ The Agentic RAG flow implements a multi-step process that:
 4. Self-corrects by regenerating queries when results are not relevant
 5. Provides contextual responses based on retrieved information
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Step 1: Setting Up the Start Node
 
 Begin by adding a **Start** node to your canvas. This serves as the entry point for your agent flow.
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 #### Configuration:
 

@@ -1,6 +1,6 @@
 # File
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="282"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="282"><figcaption></figcaption></figure>
 
 The File Loader is a versatile document loader that supports multiple file formats including TXT, JSON, CSV, DOCX, PDF, Excel, PowerPoint, and more. This module provides a unified interface for loading and processing various file types.
 

@@ -141,15 +141,20 @@ Inside the loop, add a **HTTP** node.
 
 ## Example Interactions
 
-**User Input:**\
-"List three upcoming tech events in New York."
+**User Input:**
+
+```
+create 2 events:
+1. JS Conference on next Sat in Netherlands
+2. GenAI meetup, Sept 19, in Dublin
+```
 
 **Flow:**
 
 * Start node receives the input.
 * LLM node generates a JSON array of events.
 * Loop node iterates through each event.
-* HTTP node sends each event to the API.
+* HTTP node create each event via the API.
 
 <figure><img src="../.gitbook/assets/image (304).png" alt=""><figcaption></figcaption></figure>
 
