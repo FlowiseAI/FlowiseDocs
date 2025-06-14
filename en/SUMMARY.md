@@ -325,6 +325,7 @@
   * [Interacting with API](tutorials/interacting-with-api.md)
   * [Tools & MCP](tutorials/tools-and-mcp.md)
   * [Structured Output](tutorials/structured-output.md)
+  * [Human In The Loop](tutorials/human-in-the-loop.md)
 * [Use Cases](use-cases/README.md)
   * [Calling Children Flows](use-cases/calling-children-flows.md)
   * [Calling Webhook](use-cases/webhook-tool.md)

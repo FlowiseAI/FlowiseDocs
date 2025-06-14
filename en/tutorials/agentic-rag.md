@@ -14,13 +14,13 @@ The Agentic RAG flow implements a multi-step process that:
 4. Self-corrects by regenerating queries when results are not relevant
 5. Provides contextual responses based on retrieved information
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Step 1: Setting Up the Start Node
 
 Begin by adding a **Start** node to your canvas. This serves as the entry point for your agent flow.
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 #### Configuration:
 
@@ -33,7 +33,7 @@ The Start node initializes the flow state with an empty `query` variable that wi
 
 Add a **Condition Agent** node and connect it to the Start node.
 
-<figure><img src="../.gitbook/assets/image (5) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 #### Configuration:
 
@@ -49,17 +49,17 @@ This node acts as a router, determining whether the query requires specialized A
 
 For non-AI related queries, add an **LLM** node connected to output 1 of the condition agent.
 
-<figure><img src="../.gitbook/assets/image (7) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 This provides direct responses for general queries without requiring document retrieval. You can also replace with Direct Reply node to return a predefined answer.
 
-<figure><img src="../.gitbook/assets/image (8) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 ### Step 4: Setting Up Query Generation
 
 For AI-related queries, add an **LLM** node connected to output 0 of the condition agent - which is the scenario for "AI-related".
 
-<figure><img src="../.gitbook/assets/image (9) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 #### Configuration:
 
@@ -87,7 +87,7 @@ This node transforms the user's natural language question into an optimized sear
 
 Add a **Retriever** node and connect it to the "Generate Query" LLM.
 
-<figure><img src="../.gitbook/assets/image (10) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 #### Configuration:
 
@@ -100,7 +100,7 @@ This node searches your vector database using the optimized query and returns re
 
 Add another **Condition Agent** node connected to the Retriever.
 
-<figure><img src="../.gitbook/assets/image (11) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 #### Configuration:
 
@@ -116,7 +116,7 @@ This evaluates whether the retrieved documents actually contain information rele
 
 For relevant documents, add an **LLM** node connected to output 0 of the relevance checker - which is when the scenario "Relevant" is matched.
 
-<figure><img src="../.gitbook/assets/image (12) (1).png" alt="" width="373"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12) (1) (1).png" alt="" width="373"><figcaption></figcaption></figure>
 
 #### Configuration:
 
@@ -134,9 +134,9 @@ This node creates the final answer by combining the user's question with the rel
 
 For irrelevant documents, add an **LLM** node connected to output 1 of the relevance checker - for the second scenario - "Irrelevant".
 
-<figure><img src="../.gitbook/assets/image (13) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (14) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (14) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 #### Configuration:
 
@@ -150,7 +150,7 @@ For irrelevant documents, add an **LLM** node connected to output 1 of the relev
     ```
 * **Update Flow State**: Set key "query" with value `{{ output }}`
 
-<figure><img src="../.gitbook/assets/image (15) (1).png" alt="" width="520"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (15) (1) (1).png" alt="" width="520"><figcaption></figcaption></figure>
 
 This node analyzes why the initial query didn't return relevant results and generates an improved version.
 
@@ -158,7 +158,7 @@ This node analyzes why the initial query didn't return relevant results and gene
 
 Add a **Loop** node connected to the "Regenerate Question" LLM.
 
-<figure><img src="../.gitbook/assets/image (16) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (16) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 #### Configuration:
 

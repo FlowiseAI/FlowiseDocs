@@ -8,7 +8,7 @@ If you are running a Custom Function, or LLM Chain, you might want to reuse the 
 
 Taking inputs from any node that outputs `string, number, boolean, json, array,` we can assign a variable name to it.
 
-<figure><img src="../../.gitbook/assets/image (11) (1) (1) (1) (1) (1).png" alt="" width="270"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11) (1) (1) (1) (1) (1) (1).png" alt="" width="270"><figcaption></figcaption></figure>
 
 ### Get Variable
 

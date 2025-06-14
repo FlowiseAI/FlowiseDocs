@@ -13,13 +13,13 @@ The SQL Agent flow implements a robust database interaction system that:
 5. Checks results for errors and self-corrects when needed
 6. Provides natural language responses based on query results
 
-<figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Step 1: Setting Up the Start Node
 
 Begin by adding a **Start** node to your canvas. This serves as the entry point for your SQL agent.
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 #### Configuration:
 
@@ -32,7 +32,7 @@ The Start node initializes the flow state with an empty `sqlQuery` variable that
 
 Add a **Custom Function** node and connect it to the Start node.
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 #### Configuration:
 
@@ -126,7 +126,7 @@ return sqlSchemaPrompt;
 
 Add an **LLM** node connected to the "Get DB Schema" node.
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 #### Configuration:
 
@@ -154,7 +154,7 @@ This node transforms the user's natural language question into a structured SQL 
 
 Add a **Condition Agent** node connected to the "Generate SQL Query" LLM.
 
-<figure><img src="../.gitbook/assets/image (5) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 #### Configuration:
 
@@ -183,11 +183,11 @@ This validation step catches common SQL errors before execution.
 
 For incorrect queries (output 1) from previous Condition Agent node, add a **Loop** node.
 
-<figure><img src="../.gitbook/assets/image (6).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 #### Configuration:
 
-<figure><img src="../.gitbook/assets/image (7).png" alt="" width="526"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1).png" alt="" width="526"><figcaption></figcaption></figure>
 
 * **Loop Back To**: "Generate SQL Query"
 * **Max Loop Count**: Set to 5
@@ -198,11 +198,11 @@ This creates a feedback loop that allows the system to retry query generation wh
 
 For correct queries (output 0), add a **Custom Function** node.
 
-<figure><img src="../.gitbook/assets/image (8).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 #### Configuration:
 
-<figure><img src="../.gitbook/assets/image (9).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 * **Input Variables**: Here we pass in the generated SQL query as variable to be used in Function.
   * Variable Name: "sqlQuery"
@@ -270,7 +270,7 @@ return formattedResult;
 
 Add a **Condition Agent** node connected to the "Run SQL Query" function.
 
-<figure><img src="../.gitbook/assets/image (10).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 #### Configuration:
 
@@ -286,7 +286,7 @@ This step validates the execution results and determines if further correction i
 
 For successful results (output 0 from Condition Agent), add an **LLM** node.
 
-<figure><img src="../.gitbook/assets/image (11).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 #### Configuration:
 
@@ -298,11 +298,11 @@ This node generates a natural language response based on the successful query re
 
 For failed executions (output 1 from Condition Agent), add an **LLM** node.
 
-<figure><img src="../.gitbook/assets/image (12).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 #### Configuration:
 
-<figure><img src="../.gitbook/assets/image (13).png" alt="" width="399"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13) (1).png" alt="" width="399"><figcaption></figcaption></figure>
 
 * **Messages**: Add the same system message as Step 3
 * **Input Message**:
@@ -322,7 +322,7 @@ This node analyzes runtime errors and generates corrected SQL queries.
 
 Add a **Loop** node connected to the "Regenerate SQL Query" LLM.
 
-<figure><img src="../.gitbook/assets/image (14).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (14) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 #### Configuration:
 
@@ -361,6 +361,6 @@ Test your agent with various types of database questions:
 * Complex queries: "What are the top 5 products by sales?"
 * Analytical queries: "Calculate the average order value by month"
 
-<figure><img src="../.gitbook/assets/image (15).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (15) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 This SQL Agent flow provides a robust, self-correcting system for database interactions that can handle SQL queries in natural language.
