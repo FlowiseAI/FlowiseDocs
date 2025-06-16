@@ -98,7 +98,7 @@ The Deep Research Agent workflow consists of several key components working toge
 
 3. Add the following research tools, you can use your own preferred tools:
    * **Google Search**: For web search links
-   * **Web Scraper**: For web content extraction. This will scrape the content of the links from Brave Search.
+   * **Web Scraper**: For web content extraction. This will scrape the content of the links from Google Search.
    * **ArXiv Search**: For searching and loading content of academic papers
 
 <figure><img src="../.gitbook/assets/image (11).png" alt="" width="389"><figcaption></figcaption></figure>
