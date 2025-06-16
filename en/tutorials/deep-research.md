@@ -179,6 +179,65 @@ The Deep Research Agent workflow consists of several key components working toge
 
 {% file src="../.gitbook/assets/Deep Research Dynamic SubAgents.json" %}
 
+## Walkthrough
+
+1. 🧠 Planner Agent - analyzes the research query and generates a list of specialized research tasks
+2. 🖧 Subagents - creates multiple research subagents, conduct focused research using web search, web scrape, and arxiv tools
+3. ✍️ Writer Agent - synthesizes all findings into a coherent, comprehensive report with citations
+4. ⇄ Condition Agent - determines if additional research is needed or if the findings are sufficient
+5. 🔄 Loop back to Planner Agent to generate more subagents
+
+### 🧠 Planner Agent
+
+Act as an expert research lead to:
+
+* Analyze and break down user queries
+* Create detailed research plans
+* Generate specific tasks for subagents
+
+Output an array of research tasks.
+
+<figure><img src="../.gitbook/assets/Untitled-2025-06-16-1507.png" alt="" width="563"><figcaption></figcaption></figure>
+
+### 🖧 Subagents
+
+For each task in the tasklist, a new subagent will be spawned to conduct focused research.
+
+Each subagent has:
+
+* Clear task understanding capabilities
+* Efficient research planning (2-5 tool calls per task)
+* Source quality evaluation
+* Parallel tool usage for efficiency
+
+<figure><img src="../.gitbook/assets/subagents.png" alt="" width="563"><figcaption></figcaption></figure>
+
+Subagent has access to web search, web scrape, and arxiv tools.
+
+* 🌐 Google Search - for web search links
+* 🗂️ Web Scraper - for web content extraction. This will scrape the content of the links from Google Search.
+* 📑 ArXiv - search, download and read content of arxiv papers
+
+<figure><img src="../.gitbook/assets/subagentstool.png" alt="" width="563"><figcaption></figcaption></figure>
+
+### ✍️ Writer Agent
+
+Act as a research writer that turn raw findings into a clear, structured Markdown report. Preserve all context and citations.
+
+We find Gemini to be the best for this, thanks to its large context window that allows it to synthesize all the findings effectively.
+
+<figure><img src="../.gitbook/assets/writer.png" alt="" width="563"><figcaption></figcaption></figure>
+
+### ⇄ Condition Agent
+
+With the generated report, we let the LLM determine whether additional research is needed or if the findings are sufficient.
+
+If more is needed, the Planner Agent reviews all messages, identifies areas for improvement, generates follow-up research tasks, and the loop continues.
+
+If the findings are sufficient, we simply return the final report from the Writer Agent as the output.
+
+<figure><img src="../.gitbook/assets/conditions.png" alt="" width="563"><figcaption></figcaption></figure>
+
 ## Advanced Configuration
 
 #### Customizing Research Depth
@@ -201,3 +260,10 @@ Enhance research capabilities by adding domain-specific tools:
 #### Adding RAG Context
 
 You can add more context to the LLM with [RAG](rag.md). This allows LLM to pull information from relevant existing knowledge sources when needed.
+
+## Best Practices
+
+* Model selection and fallback options are crucial due to the large amount of findings that causes token overflow.
+* Prompting is key. Anthropic open-sourced their entire prompt structure, covering task delegation, parallel tool usage, and thought processes - [https://github.com/anthropics/anthropic-cookbook/blob/main/patterns/agents/prompts](https://github.com/anthropics/anthropic-cookbook/blob/main/patterns/agents/prompts)
+* Tools need to be carefully crafted, when to use, how to limit the length of results returned from tool executions.
+* This is very similar to Trade-off Triangle, where optimizing two of the tree often negatively impacts another, in this case - Speed, Quality, Cost.
