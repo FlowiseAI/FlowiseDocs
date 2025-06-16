@@ -34,7 +34,7 @@ docker compose up -d --build
 | Collection Name | Chroma collection name. Refer to [here](https://docs.trychroma.com/usage-guide#creating-inspecting-and-deleting-collections) for naming convention |                       |
 | Chroma URL      | Specify the URL of your chroma instance                                                                                                            | http://localhost:8000 |
 
-<figure><img src="../../../.gitbook/assets/image (6) (1) (1) (1) (1) (2).png" alt="" width="238"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (1) (1) (1) (1) (2) (1).png" alt="" width="238"><figcaption></figcaption></figure>
 
 ### Additional
 
@@ -95,5 +95,5 @@ docker compose up -d
 
 ## Resources
 
-* [LangChain JS Chroma](https://js.langchain.com/docs/modules/indexes/vector\_stores/integrations/chroma)
+* [LangChain JS Chroma](https://js.langchain.com/docs/modules/indexes/vector_stores/integrations/chroma)
 * [Chroma Getting Started](https://docs.trychroma.com/getting-started)

@@ -17,7 +17,7 @@ To use LocalAI Embeddings within Flowise, follow the steps below:
 
 4. In the `/models` folder, you should be able to see the downloaded model in there:
 
-<figure><img src="../../../.gitbook/assets/image (23) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (23) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 5. You can now test the embeddings:
 

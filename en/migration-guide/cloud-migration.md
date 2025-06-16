@@ -19,7 +19,7 @@ Why Cloud V2? We have re-written cloud from scratch, that has 5x speed improveme
 
 4. Select Export, select the data you would like to export:
 
-<figure><img src="../.gitbook/assets/image (20).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (20) (2).png" alt="" width="563"><figcaption></figcaption></figure>
 
 5. Save the exported JSON file.
 6. Navigate to Cloud V2 [https://cloud.flowiseai.com](https://cloud.flowiseai.com/)

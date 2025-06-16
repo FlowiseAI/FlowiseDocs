@@ -11,7 +11,7 @@ In this example, we are going to deploy to Render.
 1. Head over to [Zep Repo](https://github.com/getzep/zep#quick-start) and click **Deploy to Render**
 2. This will bring you to Render's Blueprint page and simply click **Create New Resources**
 
-<figure><img src="../../../.gitbook/assets/image (21) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (21) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 3. When the deployment is done, you should see 3 applications created on your dashboard
 

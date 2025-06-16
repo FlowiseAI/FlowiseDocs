@@ -12,7 +12,7 @@ Flowise allow users to create variables that can be used in the nodes. Variables
 
 Static variable will be saved with the value specified, and retrieved as it is.
 
-<figure><img src="../.gitbook/assets/image (13) (1) (1) (1).png" alt="" width="542"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13) (1) (1) (1) (1).png" alt="" width="542"><figcaption></figcaption></figure>
 
 ### Runtime
 
@@ -24,7 +24,7 @@ Value of the variable will be fetched from **.env** file using `process.env`
 
 In order to override variable value, user must explicitly enable it from **Chatflow Configuration** -> **Security** tab:
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 If there is an existing variable created, variable value provided in the API will override the existing value.
 

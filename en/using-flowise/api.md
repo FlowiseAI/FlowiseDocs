@@ -10,7 +10,7 @@ Refer to [API Reference](../api-reference/) for full list of public APIs
 
 ## Prediction
 
-<div data-full-width="false"><figure><img src="../.gitbook/assets/image (16) (1) (1) (1).png" alt=""><figcaption></figcaption></figure></div>
+<div data-full-width="false"><figure><img src="../.gitbook/assets/image (16) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure></div>
 
 {% openapi src="../.gitbook/assets/swagger (1) (1) (1).yml" path="/prediction/{id}" method="post" %}
 [swagger (1) (1) (1).yml](<../.gitbook/assets/swagger (1) (1) (1).yml>)

@@ -27,7 +27,7 @@ wget https://gpt4all.io/models/ggml-gpt4all-j.bin -O models/ggml-gpt4all-j
 
 In the `/models` folder, you should be able to see the downloaded model in there:
 
-<figure><img src="../../../.gitbook/assets/image (22) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (22) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Refer [here](https://localai.io/model-compatibility/index.html) for list of supported models.
 
@@ -57,7 +57,7 @@ Fill in the fields:
 If you are running both Flowise and LocalAI on Docker, you might need to change the base path to [http://host.docker.internal:8080/v1](http://host.docker.internal:8080/v1). For Linux based systems the default docker gateway should be used since host.docker.internal is not available: [http://172.17.0.1:8080/v1](http://172.17.0.1:8080/v1)
 {% endhint %}
 
-That's it! For more information, refer to LocalAI [docs](https://localai.io/basics/getting\_started/index.html).
+That's it! For more information, refer to LocalAI [docs](https://localai.io/basics/getting_started/index.html).
 
 Watch how you can use LocalAI on Flowise
 

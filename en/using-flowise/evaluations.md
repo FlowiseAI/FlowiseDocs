@@ -97,7 +97,7 @@ You can re-run the same evaluation using the Re-Run Evaluation button at the top
 
 You can also view and compare the results from different versions:
 
-<figure><img src="../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (19) (2).png" alt=""><figcaption></figcaption></figure>
 
 ## Video Tutorial
 

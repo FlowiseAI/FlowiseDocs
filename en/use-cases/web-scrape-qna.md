@@ -42,7 +42,7 @@ If you do not specify anything, by default only the given URL page will be scrap
 
 2. A dialog will be shown that allow users to upsert data to Pinecone:
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 **Note:** Under the hood, following actions will be executed:
 
