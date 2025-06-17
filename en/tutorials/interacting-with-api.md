@@ -4,7 +4,7 @@ Almost all of the web applications relies on RESTful APIs. Enabling LLM to inter
 
 This tutorial showcases how LLM can be used to make API calls through tool calling.
 
-## Prerequisite
+## Prerequisite - Sample Event Management Server
 
 We are going to use a simple Event Management server, and showcase how to interact with it.
 

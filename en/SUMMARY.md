@@ -327,6 +327,7 @@
   * [Structured Output](tutorials/structured-output.md)
   * [Human In The Loop](tutorials/human-in-the-loop.md)
   * [Deep Research](tutorials/deep-research.md)
+  * [Customer Support](tutorials/customer-support.md)
 * [Use Cases](use-cases/README.md)
   * [Calling Children Flows](use-cases/calling-children-flows.md)
   * [Calling Webhook](use-cases/webhook-tool.md)
