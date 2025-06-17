@@ -201,7 +201,7 @@ While this setup is intended to showcase the architecture's capabilities, it's w
 <figure><img src="../.gitbook/assets/image (320).png" alt="" width="216"><figcaption></figcaption></figure>
 
 1. Connect a **Condition Agent** node to the Start node
-2. Set up the system instructions to act as a customer support agent. For example:
+2. Set up the system instructions to act as a customer support agent. You can also refer to the prompt used in [Single Agent](customer-support.md#single-agent). Here's a simple example:
 
 ```
 You are a customer support agent. Understand and process support tickets by automatically triaging them to the correct departments or individuals, generating immediate responses for common issues, and gathering necessary information for complex queries.
