@@ -6,7 +6,7 @@ description: Learn how to customize and embed our chat widget
 
 ***
 
-You can easily add the chat widget to your website. Just copy the provided widget script and paste it anywhere between the `<body>` and  `</body>`  tags of your HTML file.
+You can easily add the chat widget to your website. Just copy the provided widget script and paste it anywhere between the `<body>` and `</body>` tags of your HTML file.
 
 <figure><img src="../.gitbook/assets/image (8) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -44,7 +44,7 @@ For instance:
 
 ## Chatflow Config
 
-You can pass `chatflowConfig` JSON object to override existing configuration. This is the same as [#override-config](api.md#override-config "mention") in API.
+You can pass `chatflowConfig` JSON object to override existing configuration. This is the same as [Broken link](broken-reference "mention") in API.
 
 ```html
 <script type="module">

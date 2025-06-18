@@ -28,7 +28,7 @@ Flowise store the following files under a local path folder by default.
 * Files uploaded on [Document Loaders](../integrations/langchain/document-loaders/)/Document Store
 * Image/Audio uploads from chat
 * Images/Files from Assistant
-* Files from [Vector Upsert API](../using-flowise/api.md#vector-upsert-api)
+* Files from [Vector Upsert API](broken-reference)
 
 User can specify `STORAGE_TYPE` to use AWS S3, Google Cloud Storage or local path
 
@@ -112,7 +112,7 @@ By default, Flowise pulls the model list from [here](https://github.com/FlowiseA
 
 ## For API Keys (Deprecated)
 
-Users can create multiple API keys within Flowise in order to authenticate with the [APIs](../using-flowise/api.md). By default, keys get stored as a JSON file to your local file path. User can change the behavior by using the below env variable.
+Users can create multiple API keys within Flowise in order to authenticate with the [APIs](broken-reference). By default, keys get stored as a JSON file to your local file path. User can change the behavior by using the below env variable.
 
 | Variable              | Description                                                                                | Type                      | Default                   |
 | --------------------- | ------------------------------------------------------------------------------------------ | ------------------------- | ------------------------- |

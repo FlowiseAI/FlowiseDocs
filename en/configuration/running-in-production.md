@@ -23,7 +23,7 @@ Flowise uses an encryption key to encrypt/decrypt credentials you use such as Op
 
 ## API Key Storage
 
-Users can create multiple API keys within Flowise in order to authenticate with the [APIs](../using-flowise/api.md). By default, keys get stored as a JSON file to your local file path. However when you have multiple instances, each instance will create a new JSON file, causing confusion. You can change the behaviour to store into database instead. Refer [#for-flowise-api-keys](environment-variables.md#for-flowise-api-keys "mention")
+Users can create multiple API keys within Flowise in order to authenticate with the [APIs](broken-reference). By default, keys get stored as a JSON file to your local file path. However when you have multiple instances, each instance will create a new JSON file, causing confusion. You can change the behaviour to store into database instead. Refer [#for-flowise-api-keys](environment-variables.md#for-flowise-api-keys "mention")
 
 ## Rate Limit
 

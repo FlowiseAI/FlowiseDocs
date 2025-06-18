@@ -188,11 +188,11 @@ You can upsert uploaded files on the fly to the vector store. To enable file upl
   * [Text File](../integrations/langchain/document-loaders/text-file.md)
   * [Unstructured File](../integrations/langchain/document-loaders/unstructured-file-loader.md)
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 You can upload one or more files in the chat:
 
-<div align="left"><figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="380"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2024-08-26 170456.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="380"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2024-08-26 170456.png" alt=""><figcaption></figcaption></figure></div>
 
 Here's how it works:
 
@@ -205,11 +205,11 @@ Here's how it works:
 
 An example of a vector embedding upserted on Pinecone:
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 To do this with the API, follow these two steps:
 
-1. Use the [Vector Upsert API](api.md#vector-upsert-api) with `formData` and `chatId`:
+1. Use the [Vector Upsert API](broken-reference) with `formData` and `chatId`:
 
 {% tabs %}
 {% tab title="Python" %}
@@ -263,7 +263,7 @@ query(formData).then((response) => {
 {% endtab %}
 {% endtabs %}
 
-2. Use the [Prediction API](api.md#prediction) with `uploads` and the `chatId` from step 1:
+2. Use the [Prediction API](broken-reference) with `uploads` and the `chatId` from step 1:
 
 {% tabs %}
 {% tab title="Python" %}
@@ -331,11 +331,11 @@ With RAG file uploads, you can't work with structured data like spreadsheets or 
 
 To enable full file uploads, go to **Chatflow Configuration**, open the **File Upload** tab, and click the switch:
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 You can see the **File Attachment** button in the chat, where you can upload one or more files. Under the hood, the [File Loader](../integrations/langchain/document-loaders/file-loader.md) processes each file and converts it into text.
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Note that if your chatflow uses a Chat Prompt Template node, an input must be created from **Format Prompt Values** to pass the file data. The specified input name (e.g. {file}) should be included in the **Human Message** field.
 

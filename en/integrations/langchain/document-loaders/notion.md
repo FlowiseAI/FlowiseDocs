@@ -44,7 +44,7 @@ The Page loader extracts content from Notion pages, including all child pages as
 
 ## Notion Folder Loader
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="259"><figcaption><p>Notion Folder Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2).png" alt="" width="259"><figcaption><p>Notion Folder Node</p></figcaption></figure>
 
 The Folder loader processes exported and unzipped Notion content from a local folder.
 

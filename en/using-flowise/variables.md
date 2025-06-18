@@ -22,9 +22,11 @@ Value of the variable will be fetched from **.env** file using `process.env`
 
 ### Override or setting variable through API
 
-In order to override variable value, user must explicitly enable it from **Chatflow Configuration** -> **Security** tab:
+In order to override variable value, user must explicitly enable it from the top right button:
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+**Settings** -> **Configuration** -> **Security** tab:
+
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 If there is an existing variable created, variable value provided in the API will override the existing value.
 
@@ -51,6 +53,7 @@ We can then use this variable as **`$vars.<variable-name>`** in the Function of 
 * [Custom Function](../integrations/utilities/custom-js-function.md)
 * [Custom Loader](../integrations/langchain/document-loaders/custom-document-loader.md)
 * [If Else](../integrations/utilities/if-else.md)
+* Custom MCP
 
 <figure><img src="../.gitbook/assets/image (105).png" alt="" width="283"><figcaption></figcaption></figure>
 

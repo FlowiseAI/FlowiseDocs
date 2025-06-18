@@ -14,7 +14,7 @@ This section provides in-depth guides on core Flowise functionalities.
 * [Agentflow V1 (Deprecating)](agentflowv1/)
   * [Multi-Agents](agentflowv1/multi-agents.md)
   * [Sequential Agents](agentflowv1/sequential-agents/)
-* [API](api.md)
+* [API](broken-reference)
 * [Analytic](broken-reference/)
 * [Document Stores](document-stores.md)
 * [Embed](embed.md)

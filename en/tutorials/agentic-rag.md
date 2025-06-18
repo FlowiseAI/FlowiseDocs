@@ -14,13 +14,13 @@ The Agentic RAG flow implements a multi-step process that:
 4. Self-corrects by regenerating queries when results are not relevant
 5. Provides contextual responses based on retrieved information
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Step 1: Setting Up the Start Node
 
 Begin by adding a **Start** node to your canvas. This serves as the entry point for your agent flow.
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 #### Configuration:
 
@@ -33,7 +33,7 @@ The Start node initializes the flow state with an empty `query` variable that wi
 
 Add a **Condition Agent** node and connect it to the Start node.
 
-<figure><img src="../.gitbook/assets/image (5) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 #### Configuration:
 
@@ -49,7 +49,7 @@ This node acts as a router, determining whether the query requires specialized A
 
 For non-AI related queries, add an **LLM** node connected to output 1 of the condition agent.
 
-<figure><img src="../.gitbook/assets/image (7) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 This provides direct responses for general queries without requiring document retrieval. You can also replace with Direct Reply node to return a predefined answer.
 

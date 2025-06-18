@@ -4,7 +4,7 @@ description: Learn how Flowise streaming works
 
 # Streaming
 
-If streaming is set when making prediction, tokens will be sent as data-only [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent\_events/Using\_server-sent\_events#Event\_stream\_format) as they become available.
+If streaming is set when making prediction, tokens will be sent as data-only [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format) as they become available.
 
 ### Using Python/TS Library
 
@@ -24,7 +24,7 @@ def test_streaming():
     # Test streaming prediction
     completion = client.create_prediction(
         PredictionData(
-            chatflowId="<chatflow-id>",
+            chatflowId="<flow-id>",
             question="Tell me a joke!",
             streaming=True
         )
@@ -52,7 +52,7 @@ async function test_streaming() {
   try {
     // For streaming prediction
     const prediction = await client.createPrediction({
-      chatflowId: '<chatflow-id>',
+      chatflowId: '<flow-id>',
       question: 'What is the capital of France?',
       streaming: true,
     });
@@ -74,7 +74,7 @@ test_streaming()
 
 {% tab title="cURL" %}
 ```bash
-curl https://localhost:3000/api/v1/predictions/{chatflow-id} \
+curl https://localhost:3000/api/v1/predictions/{flow-id} \
   -H "Content-Type: application/json" \
   -d '{
     "question": "Hello world!",
