@@ -6,7 +6,11 @@ description: Learn how to analyze and troubleshoot your chatflows and agentflows
 
 ***
 
-There are several analytic providers Flowise integrates with:
+Flowise provides step by step tracing for [Agentflow V2](../agentflowv2.md):
+
+<figure><img src="../../.gitbook/assets/image (332).png" alt=""><figcaption></figcaption></figure>
+
+Besides, there are also several analytic providers Flowise integrates with:
 
 * [LunaryAI](https://lunary.ai/)
 * [Langsmith](https://smith.langchain.com/)
