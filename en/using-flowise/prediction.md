@@ -347,7 +347,7 @@ Override chatflow settings dynamically.
 
 Override config is disabled by default for security reasons. Enable it from the top right: **Settings** → **Configuration** → **Security** tab:
 
-<div align="right" data-full-width="false"><figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure></div>
+<div align="right" data-full-width="false"><figure><img src="../.gitbook/assets/image (21).png" alt=""><figcaption></figcaption></figure></div>
 
 {% tabs %}
 {% tab title="Python" %}

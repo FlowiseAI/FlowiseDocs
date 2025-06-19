@@ -15,11 +15,11 @@ The Deep Research Agent workflow consists of several key components working toge
 5. **Condition Agent**: Determines if additional research is needed or if the findings are sufficient
 6. **Loop**: Loop back to Planner Agent to improve research quality
 
-<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Step 1: Create the Start Node
 
-<figure><img src="../.gitbook/assets/image (5) (1).png" alt="" width="168"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1).png" alt="" width="168"><figcaption></figcaption></figure>
 
 1. Begin by adding a **Start** node to your canvas
 2. Configure the Start node with **Form Input** to collect the research query from users
@@ -31,11 +31,11 @@ The Deep Research Agent workflow consists of several key components working toge
    * `subagents`: To store the list of research tasks to be carried out by subagents
    * `findings`: To accumulate research results
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt="" width="407"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt="" width="407"><figcaption></figcaption></figure>
 
 ### Step 2: Add the Planner Agent
 
-<figure><img src="../.gitbook/assets/image (6) (1).png" alt="" width="331"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1) (1).png" alt="" width="331"><figcaption></figcaption></figure>
 
 1. Connect an **LLM** node to the Start node.
 2. Set up the system prompt to act as an expert research lead with the following key responsibilities:
@@ -44,7 +44,7 @@ The Deep Research Agent workflow consists of several key components working toge
    * Generate specific tasks for subagents
    * Example prompt - [research\_lead\_agent.md](https://github.com/anthropics/anthropic-cookbook/blob/main/patterns/agents/prompts/research_lead_agent.md)
 
-<figure><img src="../.gitbook/assets/image (2) (1).png" alt="" width="415"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt="" width="415"><figcaption></figcaption></figure>
 
 3. Configure **JSON Structured Output** to return a list of subagent tasks:
 
@@ -59,17 +59,17 @@ The Deep Research Agent workflow consists of several key components working toge
 
 4. Update the flow state by storing the generated subagents list
 
-<figure><img src="../.gitbook/assets/image (3) (1).png" alt="" width="398"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1).png" alt="" width="398"><figcaption></figcaption></figure>
 
 ### Step 3: Create the SubAgent Iteration Block
 
-<figure><img src="../.gitbook/assets/image (13).png" alt="" width="473"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13) (1).png" alt="" width="473"><figcaption></figcaption></figure>
 
 1. Add an **Iteration** node.
 2. Connect it to the Planner output
 3. Configure the iteration input to the flow state: `{{ $flow.state.subagents }}`. For each item in the array, a subagent will be spawned to carry out the research task. Example:
 
-<figure><img src="../.gitbook/assets/image (8).png" alt="" width="419"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (1).png" alt="" width="419"><figcaption></figcaption></figure>
 
 ```json
 {
@@ -94,20 +94,20 @@ The Deep Research Agent workflow consists of several key components working toge
    * Parallel tool usage for efficiency
    * Example prompt - [research\_subagent.md](https://github.com/anthropics/anthropic-cookbook/blob/main/patterns/agents/prompts/research_subagent.md)
 
-<figure><img src="../.gitbook/assets/image (9).png" alt="" width="401"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1).png" alt="" width="401"><figcaption></figcaption></figure>
 
 3. Add the following research tools, you can use your own preferred tools:
    * **Google Search**: For web search links
    * **Web Scraper**: For web content extraction. This will scrape the content of the links from Google Search.
    * **ArXiv Search**: For searching and loading content of academic papers
 
-<figure><img src="../.gitbook/assets/image (11).png" alt="" width="389"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11) (1).png" alt="" width="389"><figcaption></figcaption></figure>
 
 4. Set the user message to pass the current iteration task: `{{ $iteration.task }}`
 
 ### Step 5: Add the Writer Agent
 
-<figure><img src="../.gitbook/assets/image (14).png" alt="" width="397"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (14) (1).png" alt="" width="397"><figcaption></figcaption></figure>
 
 1. Connect a **LLM** node after the iteration completes.
 2. A larger context LLM like Gemini with 1-2 millions context size is needed to synthesize all findings and generate the report.
@@ -121,15 +121,15 @@ The Deep Research Agent workflow consists of several key components working toge
    * Existing findings: `{{ $flow.state.findings }}`
    * New findings: `{{ iterationAgentflow_0 }}`
 
-<figure><img src="../.gitbook/assets/image (15).png" alt="" width="399"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (15) (1).png" alt="" width="399"><figcaption></figcaption></figure>
 
 4. Update the `{{ $flow.state.findings }}` with the output of Write Agent.
 
-<figure><img src="../.gitbook/assets/image (16).png" alt="" width="397"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (16) (1).png" alt="" width="397"><figcaption></figcaption></figure>
 
 ### Step 6: Implement the Condition Check
 
-<figure><img src="../.gitbook/assets/image (17).png" alt="" width="332"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (17) (1).png" alt="" width="332"><figcaption></figcaption></figure>
 
 1. Add a **Condition Agent.**
 2. Set up the condition logic to determine if additional research is needed
@@ -141,7 +141,7 @@ The Deep Research Agent workflow consists of several key components working toge
    * Current subagents list
    * Accumulated findings
 
-<figure><img src="../.gitbook/assets/image (18).png" alt="" width="407"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (18) (1).png" alt="" width="407"><figcaption></figcaption></figure>
 
 ### Step 7: Create the Loop Mechanism
 
@@ -150,16 +150,16 @@ The Deep Research Agent workflow consists of several key components working toge
 3. Set a maximum loop count of 5 to prevent infinite loops
 4. Planner Agent will look at the current report, and generate additional research tasks.
 
-<figure><img src="../.gitbook/assets/image (19).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (19) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 ### Step 8: Add the Final Output
 
 1. For the "**Findings are sufficient**" path, add a **Direct Reply**
 2. Configure it to output the final report: `{{ $flow.state.findings }}`
 
-<figure><img src="../.gitbook/assets/image (20).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (20) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (21).png" alt="" width="409"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (21) (1).png" alt="" width="409"><figcaption></figcaption></figure>
 
 ## Testing the Flow
 

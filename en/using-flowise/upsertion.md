@@ -35,11 +35,11 @@ Once flow is setup correctly, there will be a green button at the top right that
 
 <figure><img src="../.gitbook/assets/Picture1.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 The upsert process can also be carried out via API:
 
-<figure><img src="../.gitbook/assets/image (2).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 ## Base URL and Authentication
 
@@ -65,7 +65,7 @@ Used when your chatflow uses Document Loaders that don't require file uploads (e
 To override any node configurations such as files, metadata, etc., you must explicitly enable that option.
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Document Loaders with File Upload
 

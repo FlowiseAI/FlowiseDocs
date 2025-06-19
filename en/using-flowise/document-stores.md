@@ -214,13 +214,13 @@ Finally, our Retrieval-Augmented Generation (RAG) system is operational. It's no
 
 With an Agent node, you can add the document store:
 
-<figure><img src="../.gitbook/assets/image (4).png" alt="" width="300"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1).png" alt="" width="300"><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (5).png" alt="" width="407"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1).png" alt="" width="407"><figcaption></figcaption></figure>
 
 Or directly connect to vector database and embedding mode:
 
-<figure><img src="../.gitbook/assets/image (6).png" alt="" width="394"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1).png" alt="" width="394"><figcaption></figcaption></figure>
 
 #### Chatflow
 

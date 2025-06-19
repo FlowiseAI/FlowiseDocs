@@ -129,8 +129,6 @@ In this scenario, we can have a single retriever tool, and place the **Metadata 
 
 <figure><img src="../.gitbook/assets/image (236).png" alt=""><figcaption></figcaption></figure>
 
-
-
 ## XML Agent
 
 For some LLMs, function callings capabilities are not supported. In this case, we can use XML Agent to prompt the LLM in a more structured format/syntax, with the goal of using the provided tools.
@@ -163,7 +161,7 @@ Question: {input}
 {agent_scratchpad}
 ```
 
-<figure><img src="../.gitbook/assets/image (20) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (20) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Conclusion
 

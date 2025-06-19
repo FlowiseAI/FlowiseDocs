@@ -177,7 +177,7 @@ There are 4 Request tools that can be used. This allows LLM to call the GET, POS
 
 The Start node is the entry point of your flow
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1).png" alt="" width="324"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1).png" alt="" width="324"><figcaption></figcaption></figure>
 
 ### Step 2: Add the Agent Node
 
@@ -185,7 +185,7 @@ Next, add an Agent node. In this setup, the agent is configured with four main t
 
 #### Tool 1: GET (Retrieve Events)
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="335"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="335"><figcaption></figcaption></figure>
 
 * **Purpose:** Fetch a list of events or a specific event from the API.
 * **Configuration Inputs:**
@@ -212,7 +212,7 @@ Next, add an Agent node. In this setup, the agent is configured with four main t
 
 #### Tool 2: POST (Create Event)
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt="" width="335"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="335"><figcaption></figcaption></figure>
 
 * **Purpose:** Create a new event in the system.
 * **Configuration Inputs:**
@@ -245,7 +245,7 @@ Next, add an Agent node. In this setup, the agent is configured with four main t
 
 #### Tool 3: PUT (Update Event)
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1).png" alt="" width="335"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="335"><figcaption></figcaption></figure>
 
 * **Purpose:** Update an existing event’s details.
 * **Configuration Inputs:**
@@ -278,7 +278,7 @@ Next, add an Agent node. In this setup, the agent is configured with four main t
 
 #### Tool 4: DELETE (Delete Event)
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1).png" alt="" width="335"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="335"><figcaption></figcaption></figure>
 
 * **Purpose:** Remove an event from the system.
 * **Configuration Inputs:**
@@ -571,7 +571,7 @@ components:
 
 ### Step 1: Add the Start Node
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt="" width="319"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1).png" alt="" width="319"><figcaption></figcaption></figure>
 
 ### Step 2: Add the Agent Node
 
@@ -579,7 +579,7 @@ Next, add an Agent node. In this setup, the agent is configured with only 1 tool
 
 #### Tool: OpenAPI Toolkit
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt="" width="332"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="332"><figcaption></figcaption></figure>
 
 * **Purpose:** Fetch the list of APIs from YAML file and turn every APIs into list of tools
 * **Configuration Inputs:**
@@ -593,7 +593,7 @@ Next, add an Agent node. In this setup, the agent is configured with only 1 tool
 
 We can use the same sample queries from previous example to test it out:
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 ***
 
@@ -601,7 +601,7 @@ We can use the same sample queries from previous example to test it out:
 
 From the examples above, we’ve seen how the Agent can dynamically call tools and interact with APIs. In some cases, it may be necessary to call an API sequentially before or after certain actions. For instance, you might fetch a customer list from a CRM and pass it to an Agent. In such cases, you can use the [HTTP node](../using-flowise/agentflowv2.md#id-6.-http-node).
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 ## Best Practices
 

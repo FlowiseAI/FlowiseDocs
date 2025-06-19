@@ -76,7 +76,7 @@ terraform destroy
 
 6. Fill in your preferred security group name and description. Next, add the following to Inbound Rules and **Create security group**
 
-<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 7. Back to the first tab (EC2 Launch an instance) and scroll down to **Network settings**. Select the security group you've just created
 
@@ -202,7 +202,7 @@ cd Flowise && cd docker
 nano .env
 ```
 
-<figure><img src="../../.gitbook/assets/image (13) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (13) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 4. Specify the env variables:
 
