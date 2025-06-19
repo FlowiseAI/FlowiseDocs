@@ -331,14 +331,6 @@
   * [Deep Research](tutorials/deep-research.md)
   * [Customer Support](tutorials/customer-support.md)
   * [Supervisor and Workers](tutorials/supervisor-and-workers.md)
-* [Use Cases](use-cases/README.md)
-  * [Calling Children Flows](use-cases/calling-children-flows.md)
-  * [Calling Webhook](use-cases/webhook-tool.md)
-  * [Interacting with API](use-cases/interacting-with-api.md)
-  * [Multiple Documents QnA](use-cases/multiple-documents-qna.md)
-  * [SQL QnA](use-cases/sql-qna.md)
-  * [Upserting Data](use-cases/upserting-data.md)
-  * [Web Scrape QnA](use-cases/web-scrape-qna.md)
 
 ## Flowise
 
