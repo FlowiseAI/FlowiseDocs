@@ -28,19 +28,22 @@ For details, see the [Prediction Endpoint API Reference](../api-reference/predic
     "streaming": false,
     "overrideConfig": {},
     "history": [],
-    "uploads": []
+    "uploads": [],
+    "form": {}
 }
 ```
 
 #### Parameters
 
-| Parameter        | Type    | Required | Description                                  |
-| ---------------- | ------- | -------- | -------------------------------------------- |
-| `question`       | string  | Yes      | The message/question to send to the chatflow |
-| `streaming`      | boolean | No       | Enable streaming responses (default: false)  |
-| `overrideConfig` | object  | No       | Override chatflow configuration              |
-| `history`        | array   | No       | Previous conversation messages               |
-| `uploads`        | array   | No       | Files to upload (images, audio, etc.)        |
+| Parameter        | Type    | Required                    | Description                                 |
+| ---------------- | ------- | --------------------------- | ------------------------------------------- |
+| `question`       | string  | Yes                         | The message/question to send to the flow    |
+| `form`           | object  | Either `question` or `form` | The form object to send to the flow         |
+| `streaming`      | boolean | No                          | Enable streaming responses (default: false) |
+| `overrideConfig` | object  | No                          | Override flow configuration                 |
+| `history`        | array   | No                          | Previous conversation messages              |
+| `uploads`        | array   | No                          | Files to upload (images, audio, etc.)       |
+| `humanInput`     | object  | No                          | Return human feedback and resume execution  |
 
 ## SDK Libraries
 
@@ -341,11 +344,104 @@ curl -X POST "http://localhost:3000/api/v1/prediction/your-chatflow-id" \
 
 ## Advanced Features
 
+### Form Input
+
+In Agentflow V2, you can select `form` as input type.
+
+<figure><img src="../.gitbook/assets/image (333).png" alt="" width="418"><figcaption></figcaption></figure>
+
+You can override the value by Variable Name of the Form Input
+
+```json
+{
+    "form": {
+        "title": "Example",
+        "count": 1,
+        ...
+    }
+}
+```
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+import requests
+
+def prediction(flow_id, form):
+    url = f"http://localhost:3000/api/v1/prediction/{flow_id}"
+    
+    payload = {
+        "form": form
+    }
+    
+    try:
+        response = requests.post(url, json=payload)
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"Error: {e}")
+        return None
+
+result = prediction(
+    flow_id="your-flow-id",
+    form={
+        "title": "ABC",
+        "choices": "A"
+    }
+)
+
+print(result)
+```
+{% endtab %}
+
+{% tab title="JavaScript" %}
+```javascript
+async function prediction(flowId, form) {
+    const url = `http://localhost:3000/api/v1/prediction/${flowId}`;
+    
+    const payload = {
+        form: form
+    };
+    
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload)
+        });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        return await response.json();
+        
+    } catch (error) {
+        console.error('Error:', error);
+        return null;
+    }
+}
+
+prediction(
+    'your-flow-id',
+    {
+        "title": "ABC",
+        "choices": "A"
+    }
+).then(result => {
+    console.log(result);
+});
+```
+{% endtab %}
+{% endtabs %}
+
 ### Configuration Override
 
 Override chatflow settings dynamically.
 
-Override config is disabled by default for security reasons. Enable it from the top right: **Settings** → **Configuration** → **Security** tab:
+Override config is **disabled** by default for security reasons. Enable it from the top right: **Settings** → **Configuration** → **Security** tab:
 
 <div align="right" data-full-width="false"><figure><img src="../.gitbook/assets/image (21).png" alt=""><figcaption></figcaption></figure></div>
 
@@ -376,7 +472,6 @@ result = query_with_config(
     question="How does machine learning work?",
     config={
         "sessionId": "user-123",
-        "returnSourceDocuments": True,
         "temperature": 0.5,
         "maxTokens": 1000
     }
@@ -423,7 +518,6 @@ queryWithConfig(
     'How does machine learning work?',
     {
         sessionId: 'user-123',
-        returnSourceDocuments: true,
         temperature: 0.5,
         maxTokens: 1000
     }
@@ -433,6 +527,27 @@ queryWithConfig(
 ```
 {% endtab %}
 {% endtabs %}
+
+For `array` type, hovering over the info icon will shows the schema that can be overriden:
+
+<figure><img src="../.gitbook/assets/image (334).png" alt=""><figcaption></figcaption></figure>
+
+```json
+"overrideConfig": {
+    "startState": [
+        {
+            "key": "foo",
+            "value": "bar"
+        }
+    ],
+    "llmMessages": [
+        {
+            "role": "system",
+            "content": "You are helpful assistant"
+        }
+    ]
+}
+```
 
 ### Conversation History
 
@@ -1550,6 +1665,38 @@ async function transcribeMultipleAudios() {
 ### File Uploads
 
 Upload files to have LLM process the files and answer query related to the files. Refer to [Files](uploads.md#files) for more reference.
+
+### Human Input
+
+To resume the execution from a previously stopped checkpoint, `humanInput` needs to be provided. Refer [Human In The Loop](../tutorials/human-in-the-loop.md) for details.
+
+**Human Input Structure**
+
+```json
+{
+    "type": "",
+    "feedback": ""
+}
+```
+
+* **type**: Either `proceed` or `reject`
+* **feedback**: Feedback to the last output
+
+{% hint style="warning" %}
+Must specify the same `sessionId` where the execution was stopped
+{% endhint %}
+
+```json
+{
+    "humanInput": {
+        "type": "reject",
+        "feedback": "Include more emoji"
+    },
+    "overrideConfig": {
+        "sessionId": "abc"
+    }
+}
+```
 
 ## Troubleshooting
 
