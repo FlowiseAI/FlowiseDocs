@@ -216,3 +216,7 @@ Use Streamable HTTP when:
 * Requiring stateful sessions
 * Supporting multiple concurrent clients
 * Implementing resumable connections
+
+## Video Tutorial
+
+{% embed url="https://youtu.be/7FClI-QM3tk?si=zBNEShd3NlcrOBrO" %}

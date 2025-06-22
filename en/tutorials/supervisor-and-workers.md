@@ -199,3 +199,7 @@ Here's how a typical interaction might flow:
 * Ensure each agent has a well-defined, specific role. Avoid overlapping responsibilities that could lead to confusion or redundant work.
 * Establish standard formats for how agents communicate their progress, findings, and recommendations. This helps the supervisor make better routing decisions.
 * Use memory settings appropriately to maintain conversation context while avoiding token limit issues. Consider using memory optimization settings like "Conversation Summary Buffer" for longer workflows.
+
+## Video Tutorial
+
+{% embed url="https://youtu.be/TbZaj5SZcbM?si=E4nxn__HHzJbNwdf" %}

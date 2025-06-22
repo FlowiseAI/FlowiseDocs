@@ -37,7 +37,7 @@ Chatflow is designed to build single-agent systems, chatbots and simple LLM flow
 
 ## Agentflow
 
-Agentflow is the superset of Chatflow & Assistant. It can be used to create chat assistant, single-agent system, multi-agent systems, and complex workflow orchestration. Learn more[ #Agentflow V2](using-flowise/agentflowv2.md)
+Agentflow is the superset of Chatflow & Assistant. It can be used to create chat assistant, single-agent system, multi-agent systems, and complex workflow orchestration. Learn more [Agentflow V2](using-flowise/agentflowv2.md)
 
 <figure><picture><source srcset=".gitbook/assets/screely-1749594631028.png" media="(prefers-color-scheme: dark)"><img src=".gitbook/assets/screely-1749594614881.png" alt=""></picture><figcaption></figcaption></figure>
 

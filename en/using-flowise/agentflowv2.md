@@ -389,3 +389,7 @@ The primary purpose of `$flow.state` is to enable **explicit data sharing and co
 * It is created and initialized when a workflow execution begins and is destroyed when that specific execution ends.
 * It does **not** persist across different user sessions or separate runs of the same workflow.
 * Each concurrent execution of the workflow maintains its own independent `$flow.state`.
+
+## Video Resources
+
+{% embed url="https://youtu.be/SLVVDUIbIBE?si=VU1m_btfDzVNl-PP" %}

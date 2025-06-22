@@ -67,3 +67,5 @@ if prompt := st.chat_input("What is up?"):
         full_response = st.write_stream(response)
     st.session_state.messages.append({"role": "assistant", "content": full_response})
 ```
+
+Full Github Repo: [https://github.com/HenryHengZJ/flowise-streamlit](https://github.com/HenryHengZJ/flowise-streamlit)

@@ -10,7 +10,7 @@ description: Learn how to set up app-level access control for your Flowise insta
 
 From v3.0.1 onwards, a new authentication method was introduced. Flowise uses a [**Passport.js**](https://www.passportjs.org/)**-based authentication system** with JWT tokens stored in secure HTTP-only cookies. When a user logs in, the system validates their email/password against the database using bcrypt hash comparison, then generates two JWT tokens: a short-lived access token (default 60 minutes) and a long-lived refresh token (default 90 days). These tokens are stored as secure cookies. For subsequent requests, the system extracts the JWT from cookies, validates the signature and claims using Passport's JWT strategy, and checks that the user session still exists. The system also supports automatic token refresh when the access token expires, maintains sessions using either Redis or database storage depending on configuration.
 
-For existing users who have been using [#Username & Password (Deprecated)](app-level.md#username-and-password-deprecated), you need to set up a new admin account. To prevent unauthorized ownership claims, you must first authenticate using the existing username and password configured as `FLOWISE_USERNAME` and `FLOWISE_PASSWORD`.
+For existing users who have been using [Username & Password (Deprecated)](app-level.md#username-and-password-deprecated), you need to set up a new admin account. To prevent unauthorized ownership claims, you must first authenticate using the existing username and password configured as `FLOWISE_USERNAME` and `FLOWISE_PASSWORD`.
 
 <figure><img src="../../.gitbook/assets/image (18) (1) (1).png" alt="" width="387"><figcaption></figcaption></figure>
 
