@@ -111,14 +111,7 @@ To enable Sign In With Google on your website, you first need to set up your Goo
 
 ## Inviting users for SSO sign in
 
-In order for new user to be able to login using SSO, we have to invite new users into Flowise application. This is essential to keep a record of the role/workspace of the invited user. Refer to [Invite Users](../using-flowise/workspaces.md#invite-user) section for env variables configuration.
-
-Organization Admin can choose the login type for invited user:
-
-<figure><img src="../.gitbook/assets/image (213).png" alt=""><figcaption></figcaption></figure>
-
-* SSO: invited user can only login using SSO
-* Email/Password: invited user can only login via email/password
+In order for new user to be able to login, you have to invite new users into Flowise application. This is essential to keep a record of the role/workspace of the invited user. Refer to [Invite Users](../using-flowise/workspaces.md#invite-user) section for env variables configuration.
 
 Invited user will be receiving invitation link to login:
 
