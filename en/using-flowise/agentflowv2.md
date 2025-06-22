@@ -50,8 +50,6 @@ Agents can also be configured to **request permission before executing tools**, 
 
 Shared state enables data exchange between agents, especially useful for passing data across branches or non-adjacent steps in a flow. Refer to [#understanding-flow-state](agentflowv2.md#understanding-flow-state "mention")
 
-{% embed url="https://youtu.be/h9N9wCrP9u4?si=9adU8bLiQdlB8CXo" %}
-
 ### ⚡ Streaming
 
 Supports Server-Sent Events (SSE) for real-time streaming of LLM or agent responses. Streaming also enables subscription to execution updates as the workflow progresses.
@@ -393,3 +391,5 @@ The primary purpose of `$flow.state` is to enable **explicit data sharing and co
 ## Video Resources
 
 {% embed url="https://youtu.be/SLVVDUIbIBE?si=VU1m_btfDzVNl-PP" %}
+
+{% embed url="https://youtu.be/h9N9wCrP9u4?si=8-9a9fktpxAykXXH" %}
