@@ -528,7 +528,18 @@ queryWithConfig(
 {% endtab %}
 {% endtabs %}
 
-For `array` type, hovering over the info icon will shows the schema that can be overriden:
+For `array` type, hovering over the info icon will shows the schema that can be overriden.
+
+Array value from overrideConfig will concatenate with existing array values. For example, if existing `startState` has:
+
+```json
+{
+  "key": "key1",
+  "value": "value1"
+}
+```
+
+And if we enable override:
 
 <figure><img src="../.gitbook/assets/image (334).png" alt=""><figcaption></figcaption></figure>
 
@@ -547,6 +558,21 @@ For `array` type, hovering over the info icon will shows the schema that can be 
         }
     ]
 }
+```
+
+The final `startState` will be:
+
+```json
+[
+  {
+    "key": "key1",
+    "value": "value1"
+  },
+  {
+    "key": "foo",
+    "value": "bar"
+  },
+]
 ```
 
 ### Conversation History
