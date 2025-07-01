@@ -38,7 +38,7 @@ npx flowise start
 
 ## Docker
 
-There are two ways to deploy Flowise with Docker:
+There are two ways to deploy Flowise with Docker. First, git clone the project: [https://github.com/FlowiseAI/Flowise](https://github.com/FlowiseAI/Flowise)
 
 ### Docker Compose
 
@@ -81,11 +81,12 @@ docker stop flowise
 
 ## For Developers
 
-Flowise has 3 different modules in a single mono repository:
+Flowise has 4 different modules in a single mono repository:
 
 * **Server**: Node backend to serve API logics
 * **UI**: React frontend
 * **Components**: Integration components
+* **Api Documentation**: Swagger spec for Flowise APIs
 
 ### Prerequisite
 
