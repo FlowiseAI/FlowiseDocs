@@ -6,6 +6,6 @@ description: Check whether content complies with OpenAI usage policies.
 
 <figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (2).png" alt="" width="302"><figcaption><p>OpenAI Moderation Node</p></figcaption></figure>
 
-{% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
-{% endhint %}
+OpenAI provides moderation API to check whether text or images are potentially harmful. If harmful content is identified, users can specify an error message to be displayed.
+
+<figure><img src="../../../.gitbook/assets/image (335).png" alt=""><figcaption></figcaption></figure>

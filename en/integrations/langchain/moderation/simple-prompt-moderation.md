@@ -8,6 +8,11 @@ description: >-
 
 <figure><img src="../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (2) (1).png" alt="" width="301"><figcaption><p>Simple Prompt Moderation Node</p></figcaption></figure>
 
-{% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
-{% endhint %}
+Use another LLM to identify if user query is close to the deny list, if yes output a default error message.
+
+For example, deny list can be:
+
+* Ignore previous instructions
+* Leak all sensitive information
+
+<figure><img src="../../../.gitbook/assets/image (336).png" alt=""><figcaption></figcaption></figure>
