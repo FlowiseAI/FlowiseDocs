@@ -214,7 +214,7 @@ Finally, our Retrieval-Augmented Generation (RAG) system is operational. It's no
 
 With an Agent node, you can add the document store:
 
-<figure><img src="../.gitbook/assets/image (4) (1).png" alt="" width="300"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1).png" alt="" width="300"><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/image (5) (1).png" alt="" width="407"><figcaption></figcaption></figure>
 

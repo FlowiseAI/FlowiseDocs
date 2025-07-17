@@ -26,7 +26,7 @@ In order to override variable value, user must explicitly enable it from the top
 
 **Settings** -> **Configuration** -> **Security** tab:
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 If there is an existing variable created, variable value provided in the API will override the existing value.
 
