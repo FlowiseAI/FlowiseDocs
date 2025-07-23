@@ -84,7 +84,7 @@ It's important to experiment with different [Text Splitters](../integrations/lan
 Note that our custom metadata `company: "liberty"` has been inserted into each chunk. This metadata allows us to easily filter and retrieve information from this specific dataset later on, even if we use the same vector store index for other datasets.
 {% endhint %}
 
-### Undertanding Chunk Overlap <a href="#undertanding-chunk-overlap" id="undertanding-chunk-overlap"></a>
+### Understanding Chunk Overlap <a href="#understanding-chunk-overlap" id="understanding-chunk-overlap"></a>
 
 In the context of vector-based retrieval and LLM querying, chunk overlap plays an **important role in maintaining contextual continuity** and **improving response accuracy**, especially when dealing with limited retrieval depth or **top K**, which is the parameter that determines the maximum number of most similar chunks that are retrieved from the [Vector Store](https://docs.flowiseai.com/integrations/langchain/vector-stores) in response to a query.
 
