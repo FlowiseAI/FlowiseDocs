@@ -31,7 +31,7 @@ The Deep Research Agent workflow consists of several key components working toge
    * `subagents`: To store the list of research tasks to be carried out by subagents
    * `findings`: To accumulate research results
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt="" width="407"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt="" width="407"><figcaption></figcaption></figure>
 
 ### Step 2: Add the Planner Agent
 
@@ -44,7 +44,7 @@ The Deep Research Agent workflow consists of several key components working toge
    * Generate specific tasks for subagents
    * Example prompt - [research\_lead\_agent.md](https://github.com/anthropics/anthropic-cookbook/blob/main/patterns/agents/prompts/research_lead_agent.md)
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1).png" alt="" width="415"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt="" width="415"><figcaption></figcaption></figure>
 
 3. Configure **JSON Structured Output** to return a list of subagent tasks:
 

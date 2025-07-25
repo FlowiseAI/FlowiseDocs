@@ -541,7 +541,7 @@ Array value from overrideConfig will concatenate with existing array values. For
 
 And if we enable override:
 
-<figure><img src="../.gitbook/assets/image (334).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (337).png" alt=""><figcaption></figcaption></figure>
 
 ```json
 "overrideConfig": {

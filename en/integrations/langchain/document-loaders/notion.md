@@ -4,7 +4,7 @@ Notion is a collaboration platform that combines note-taking, knowledge manageme
 
 ## Notion Database Loader
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="260"><figcaption><p>Notion Database Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2).png" alt="" width="260"><figcaption><p>Notion Database Node</p></figcaption></figure>
 
 The Database loader extracts content from Notion databases, treating each row as a separate document.
 
