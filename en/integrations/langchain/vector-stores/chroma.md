@@ -2,7 +2,11 @@
 
 ## Prerequisite
 
-You need a Chroma server. You can either sign up for [Chroma Cloud](https://trychroma.com/home) or deploy your own Chroma instance in [Docker](https://docs.trychroma.com/guides/deploy/docker).
+You need a Chroma server. You can:
+
+1. Install Chroma CLI and run the server using `chroma run`
+2. Sign up for [Chroma Cloud](https://trychroma.com/home).
+3. Deploy your own Chroma instance in [Docker](https://docs.trychroma.com/guides/deploy/docker).
 
 ## Setup
 
