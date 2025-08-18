@@ -2,37 +2,22 @@
 
 ## Prerequisite
 
-1. Download & Install [Docker ](https://www.docker.com/)and [Git](https://git-scm.com/)
-2. Clone [Chroma's repository](https://github.com/chroma-core/chroma) with your terminal
+You need a Chroma server. You can:
 
-```bash
-git clone https://github.com/chroma-core/chroma.git
-```
-
-3. Change directory path to your cloned Chroma
-
-```bash
-cd chroma
-```
-
-4. Run docker compose to build up Chroma image and container
-
-```bash
-docker compose up -d --build
-```
-
-5. If success, you will be able to see the docker images spun up:
-
-<figure><img src="../../../.gitbook/assets/image (4) (1) (3).png" alt="" width="390"><figcaption></figcaption></figure>
+1. Install Chroma CLI and run the server using `chroma run`
+2. Sign up for [Chroma Cloud](https://trychroma.com/home).
+3. Deploy your own Chroma instance in [Docker](https://docs.trychroma.com/guides/deploy/docker).
 
 ## Setup
 
-| Input           | Description                                                                                                                                        | Default               |
-| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| Document        | Can be connected with nodes from [Document Loader](../document-loaders/)                                                                           |                       |
-| Embeddings      | Can be connected with nodes from [Embeddings](../embeddings/)                                                                                      |                       |
-| Collection Name | Chroma collection name. Refer to [here](https://docs.trychroma.com/usage-guide#creating-inspecting-and-deleting-collections) for naming convention |                       |
-| Chroma URL      | Specify the URL of your chroma instance                                                                                                            | http://localhost:8000 |
+| Input           | Description                                                                                                                                        | Default               | Cloud |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | ----- |
+| Document        | Can be connected with nodes from [Document Loader](../document-loaders/)                                                                           |                       |       |
+| Embeddings      | Can be connected with nodes from [Embeddings](../embeddings/)                                                                                      |                       |       |
+| Collection Name | Chroma collection name. Refer to [here](https://docs.trychroma.com/usage-guide#creating-inspecting-and-deleting-collections) for naming convention |                       |       |
+| Chroma URL      | Specify the URL of your chroma instance                                                                                                            | http://localhost:8000 | https://api.trychroma.com:8000 |
+
+For Chroma Cloud, you will need to get your tenant ID, and create your database and API key.
 
 <figure><img src="../../../.gitbook/assets/image (6) (1) (1) (1) (1) (2) (1).png" alt="" width="238"><figcaption></figcaption></figure>
 
