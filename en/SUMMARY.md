@@ -32,6 +32,7 @@
   * [Upsertion](using-flowise/upsertion.md)
   * [Analytic](using-flowise/analytics/README.md)
     * [Arize](using-flowise/analytics/arize.md)
+    * [LangWatch](using-flowise/analytics/langwatch.md)
     * [Langfuse](using-flowise/analytics/langfuse.md)
     * [Lunary](using-flowise/analytics/lunary.md)
     * [Opik](using-flowise/analytics/opik.md)
