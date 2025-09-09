@@ -6,7 +6,7 @@ description: Learn how to customize and embed our chat widget
 
 ***
 
-You can easily add the chat widget to your website. Just copy the provided widget script and paste it anywhere between the `<body>` and `</body>` tags of your HTML file.
+You can easily add the chat widget to your website. Just copy the provided widget script and paste it between the `<body>` and `</body>` tags of your HTML file.
 
 <figure><img src="../.gitbook/assets/image (8) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
