@@ -45,10 +45,6 @@ Flowise supports using custom base URL and headers for Chat OpenAI. Users can ea
 
 <figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/chatopenai_cometapi_config.png" alt="" width="563"><figcaption></figcaption></figure>
-
-For the complete list of available models, visit the [CometAPI pricing page](https://api.cometapi.com/pricing).
-
 ## Custom Model
 
 For models that are not supported on ChatOpenAI node, you can use ChatOpenAI Custom for that. This allow users to fill in model name such as `mistralai/Mixtral-8x7B-Instruct-v0.1`
