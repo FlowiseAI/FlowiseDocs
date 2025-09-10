@@ -111,6 +111,7 @@
       * [AWS ChatBedrock](integrations/langchain/chat-models/aws-chatbedrock.md)
       * [Azure ChatOpenAI](integrations/langchain/chat-models/azure-chatopenai-1.md)
       * [NVIDIA NIM](integrations/langchain/chat-models/nvidia-nim.md)
+      * [ChatCometAPI](integrations/langchain/chat-models/chatcometapi.md)
       * [ChatAnthropic](integrations/langchain/chat-models/chatanthropic.md)
       * [ChatCohere](integrations/langchain/chat-models/chatcohere.md)
       * [Chat Fireworks](integrations/langchain/chat-models/chat-fireworks.md)
