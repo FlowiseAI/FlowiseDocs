@@ -45,14 +45,6 @@ Flowise supports using custom base URL and headers for Chat OpenAI. Users can ea
 
 <figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
-### CometAPI
-
-1. Refer to official [docs](https://api.cometapi.com/doc) from CometAPI
-2. Get your API key from [CometAPI Console](https://api.cometapi.com/console/token)
-3. Create a new credential with CometAPI API key
-4. Click **Additional Parameters** on ChatOpenAI node
-5. Change the Base Path to: `https://api.cometapi.com/v1/`
-
 <figure><img src="../../../.gitbook/assets/chatopenai_cometapi_config.png" alt="" width="563"><figcaption></figcaption></figure>
 
 For the complete list of available models, visit the [CometAPI pricing page](https://api.cometapi.com/pricing).
