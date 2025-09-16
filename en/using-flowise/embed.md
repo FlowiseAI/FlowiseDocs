@@ -142,6 +142,8 @@ You can change the full appearance of the embedded chatbot and enable functional
         showAgentMessages: true,
         title: 'Flowise Bot',
         titleAvatarSrc: 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg',
+        titleTextColor: '#ffffff',
+        titleBackgroundColor: '#3B81F6',
         welcomeMessage: 'Hello! This is custom welcome message',
         errorMessage: 'This is a custom error message',
         backgroundColor: '#ffffff',
