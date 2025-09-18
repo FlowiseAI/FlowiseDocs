@@ -110,27 +110,15 @@ By default, Flowise pulls the model list from [here](https://github.com/FlowiseA
 
 <table><thead><tr><th width="164">Variable</th><th width="196">Description</th><th width="78">Type</th><th>Default</th></tr></thead><tbody><tr><td>MODEL_LIST_CONFIG_JSON</td><td>Link to load list of models from your <code>models.json</code> config file</td><td>String</td><td><a href="https://raw.githubusercontent.com/FlowiseAI/Flowise/main/packages/components/models.json">https://raw.githubusercontent.com/FlowiseAI/Flowise/main/packages/components/models.json</a></td></tr></tbody></table>
 
-## For API Keys (Deprecated)
-
-Users can create multiple API keys within Flowise in order to authenticate with the [APIs](broken-reference). By default, keys get stored as a JSON file to your local file path. User can change the behavior by using the below env variable.
-
-| Variable              | Description                                                                                | Type                      | Default                   |
-| --------------------- | ------------------------------------------------------------------------------------------ | ------------------------- | ------------------------- |
-| APIKEY\_STORAGE\_TYPE | Method to store API keys                                                                   | Enum string: `json`, `db` | `json`                    |
-| APIKEY\_PATH          | Location where the API keys are stored when `APIKEY_STORAGE_TYPE` is unspecified or `json` | String                    | `Flowise/packages/server` |
-
-Using `db` as storage type will store the API keys to database instead of a local JSON file.
-
-<figure><img src="../.gitbook/assets/image (254).png" alt=""><figcaption><p>Flowise API Keys</p></figcaption></figure>
-
 ## For Built-In and External Dependencies
 
 There are certain nodes/features within Flowise that allow user to run Javascript code. For security reasons, by default it only allow certain dependencies. It's possible to lift that restriction for built-in and external modules by setting the following environment variables:
 
-| Variable                      | Description                                          |        |
-| ----------------------------- | ---------------------------------------------------- | ------ |
-| TOOL\_FUNCTION\_BUILTIN\_DEP  | NodeJS built-in modules to be used for Tool Function | String |
-| TOOL\_FUNCTION\_EXTERNAL\_DEP | External modules to be used for Tool Function        | String |
+| Variable                      | Description                           |         |
+| ----------------------------- | ------------------------------------- | ------- |
+| TOOL\_FUNCTION\_BUILTIN\_DEP  | NodeJS built-in modules to be used    | String  |
+| TOOL\_FUNCTION\_EXTERNAL\_DEP | External modules to be used           | String  |
+| ALLOW\_BUILTIN\_DEP           | Allow project dependencies to be used | Boolean |
 
 {% code title=".env" %}
 ```bash
@@ -145,8 +133,43 @@ TOOL_FUNCTION_BUILTIN_DEP=crypto,fs
 
 # Allow usage of external npm modules.
 TOOL_FUNCTION_EXTERNAL_DEP=axios,moment
+
+ALLOW_BUILTIN_DEP=true
 ```
 {% endcode %}
+
+## Security Configuration
+
+<table><thead><tr><th width="246.4444580078125">Variable</th><th width="180.4444580078125">Description</th><th width="192.666748046875">Options</th><th>Default</th></tr></thead><tbody><tr><td><code>HTTP_DENY_LIST</code></td><td>Blocks HTTP requests to specified URLs or domains in MCP servers</td><td>Comma-separated URLs/domains</td><td><em>(empty)</em></td></tr><tr><td><code>CUSTOM_MCP_SECURITY_CHECK</code></td><td>Enables comprehensive security validation for Custom MCP configurations</td><td><code>true</code> | <code>false</code></td><td><code>true</code></td></tr><tr><td><code>CUSTOM_MCP_PROTOCOL</code></td><td>Sets the default protocol for Custom MCP communication</td><td><code>stdio</code> | <code>sse</code></td><td><code>stdio</code></td></tr></tbody></table>
+
+#### `CUSTOM_MCP_SECURITY_CHECK=true`
+
+By default, this is enabled. When enabled, applies the following security validations:
+
+* **Command Allowlist**: Only permits safe commands (`node`, `npx`, `python`, `python3`, `docker`)
+* **Argument Validation**: Blocks dangerous file paths, directory traversal, and executable files
+* **Injection Prevention**: Prevents shell metacharacters and command chaining
+* **Environment Protection**: Blocks modification of critical environment variables (PATH, LD\_LIBRARY\_PATH)
+
+#### `CUSTOM_MCP_PROTOCOL`
+
+* **`stdio`**: Direct process communication (default, requires command execution)
+* **`sse`**: Server-Sent Events over HTTP (recommended for production, more secure)
+
+### Recommended Production Settings
+
+```bash
+# Enable security validation (default)
+CUSTOM_MCP_SECURITY_CHECK=true
+
+# Use SSE protocol for better security
+CUSTOM_MCP_PROTOCOL=sse
+
+# Block dangerous domains (example)
+HTTP_DENY_LIST=localhost,127.0.0.1,internal.company.com
+```
+
+> **Warning**: Disabling `CUSTOM_MCP_SECURITY_CHECK` allows arbitrary command execution and poses significant security risks in production environments.
 
 ## Examples of how to set environment variables
 
