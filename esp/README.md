@@ -59,7 +59,7 @@ Construye tu primera aplicación LLM desde cero con Flowise
 
 ## Contribuir
 
-Si quieres ayudar a este proyecto, por favor considera revisar la [Guía de Contribución](contributing/).
+Si quieres ayudar a este proyecto, por favor considera revisar la [Guía de Contribución](https://github.com/FlowiseAI/Flowise/blob/main/CONTRIBUTING.md).
 
 ## ¿Necesitas Ayuda?
 
