@@ -2,7 +2,7 @@
 description: Wrapper around SambaNova API with RDU Inference Engine.
 ---
 
-# GroqChat
+# ChatSambanova
 
 <figure><img src="../../../.gitbook/assets/sambanova-chat-model.png" alt="" width="262"><figcaption><p>ChatSambanova Node</p></figcaption></figure>
 
