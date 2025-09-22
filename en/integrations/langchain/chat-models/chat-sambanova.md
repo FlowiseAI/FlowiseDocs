@@ -1,5 +1,5 @@
 ---
-description: Wrapper around SambaNoca API with RDU Inference Engine.
+description: Wrapper around SambaNova API with RDU Inference Engine.
 ---
 
 # GroqChat
