@@ -15,7 +15,7 @@ In this tutorial, we'll build a collaborative system with:
 
 ### Step 1: Create the Start Node
 
-<figure><img src="../.gitbook/assets/image (7).png" alt="" width="160"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1).png" alt="" width="160"><figcaption></figcaption></figure>
 
 The flow begins with a **Start** node that captures user input and initializes the workflow state.
 
@@ -25,11 +25,11 @@ The flow begins with a **Start** node that captures user input and initializes t
    * `next`: To keep track of the next agent
    * `instruction`: Instruction for the next agent on what to do
 
-<figure><img src="../.gitbook/assets/image (6).png" alt="" width="417"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1).png" alt="" width="417"><figcaption></figcaption></figure>
 
 ### Step 2: Add the Supervisor LLM
 
-<figure><img src="../.gitbook/assets/image (8).png" alt="" width="227"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (1).png" alt="" width="227"><figcaption></figcaption></figure>
 
 The **Supervisor** is the orchestrator that decides which worker should handle each part of the task.
 

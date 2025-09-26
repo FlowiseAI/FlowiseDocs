@@ -34,7 +34,7 @@ By default, new installation of Flowise will require an admin setup, similar to 
 
 After setting up, user will be brought to Flowise dashboard. From the left side bar, you will see User & Workspace Management section. A default workspace was automatically created.
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Creating Workspace
 
@@ -52,13 +52,13 @@ To invite new users to the workspace, you need to create a Role first.
 
 Navigate to Roles in the left side bar, and click Add Role:
 
-<figure><img src="../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 User can specify granular control of permissions for each resources. The only exceptions are the resources in **User & Workspace Management** (Roles, Users, Workspaces, Login Activity). These are only available for Account Admin for now.
 
 Here, we create an editor role which has access to everything. And another role with view-only permissions.
 
-<figure><img src="../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Invite User
 
@@ -78,11 +78,11 @@ SMTP_PASSWORD
 
 Navigate to Users in left side bar, you will see yourself as the account admin. This is indicated by the person icon with a star:
 
-<figure><img src="../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Click Invite User, and enter email to be invited, the workspace to be assigned, and the role as well.
 
-<figure><img src="../.gitbook/assets/image (8) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Click Send Invite. The invited email will receive an invitation:
 

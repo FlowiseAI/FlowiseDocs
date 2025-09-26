@@ -37,7 +37,7 @@ The goal of this use case is to create an intelligent email reply system that:
    * **Body** (String): To capture the email content
    * **From** (String): To capture the sender's email address
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt="" width="398"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt="" width="398"><figcaption></figcaption></figure>
 
 #### Step 2: Creating the Email Reply Agent
 
@@ -53,7 +53,7 @@ The goal of this use case is to create an intelligent email reply system that:
    * **Google Custom Search**: To research customer information and provide relevant context
    * **Current DateTime**: To include accurate timestamps in responses
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 #### Step 3: Adding Human Input for Approval
 
@@ -66,7 +66,7 @@ The goal of this use case is to create an intelligent email reply system that:
    * **Proceed**: Approve the response and continue to email sending
    * **Reject**: Send feedback and loop back to the agent for improvements
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 #### Step 4: Setting up the Loop Back Mechanism
 
@@ -76,7 +76,7 @@ The goal of this use case is to create an intelligent email reply system that:
    * **Max Loop Count**: 5 (prevents infinite loops)
 3. Connect the "reject" output from the Human Input node to this Loop node. When a human rejects the response, the workflow will return to the agent with the feedback for improvement.
 
-<figure><img src="../.gitbook/assets/image (5) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 #### Step 5: Creating the Email Subject & Body Generator
 
@@ -85,7 +85,7 @@ The goal of this use case is to create an intelligent email reply system that:
    * **Key**: "subject", **Type**: "string", **Description**: "Subject of the email"
    * **Key**: "body", **Type**: "string", **Description**: "Body of the email"
 
-<figure><img src="../.gitbook/assets/image (6) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 #### Step 6: Setting up Email Sending
 
@@ -98,7 +98,7 @@ The goal of this use case is to create an intelligent email reply system that:
    * **subject**: Use `{{ llmAgentflow_0.output.subject }}` to get the generated subject from Step 5
    * **body**: Use `{{ llmAgentflow_0.output.body }}` to get the generated email body from Step 5
 
-<figure><img src="../.gitbook/assets/image (7) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 ### How the Workflow Operates
 
@@ -117,7 +117,7 @@ When an email inquiry comes in, here's what happens:
 
 1. Start the workflow by filling out the form with a sample email inquiry
 
-<figure><img src="../.gitbook/assets/image (8) (1) (1).png" alt="" width="527"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (1) (1) (1).png" alt="" width="527"><figcaption></figcaption></figure>
 
 2. Review the Agent response in the Human Input step
 
@@ -194,7 +194,7 @@ We can use the sample email reply system above, but simplify it to have just a s
 
 1.  Start the workflow by filling out the form with a sample email inquiry
 
-    <figure><img src="../.gitbook/assets/image (8) (1) (1).png" alt="" width="527"><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (8) (1) (1) (1).png" alt="" width="527"><figcaption></figcaption></figure>
 
 
 2. Before the Agent creates the Gmail draft, it will ask the user for approval or rejection.

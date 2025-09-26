@@ -8,11 +8,11 @@
 
 1. First, have Open WebUI up and running, you can refer to the [Quickstart](https://docs.openwebui.com/getting-started/quick-start/) guide. From the left bottom, click your profile and **Admin Panel**
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt="" width="235"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1).png" alt="" width="235"><figcaption></figcaption></figure>
 
 2. Open **Functions** tab, and add a new Function.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt="" width="423"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt="" width="423"><figcaption></figcaption></figure>
 
 3. Name the Function, and add the following code:
 
@@ -195,18 +195,18 @@ class Pipe:
 
 4. After Function has been saved, enable it, and click the settings button to put in your Flowise URL and Flowise API Key:
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (3) (1).png" alt="" width="431"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1).png" alt="" width="431"><figcaption></figcaption></figure>
 
 5. Now when you refresh and click New Chat, you will be able to see the list of flows. You can modify the code to show:
 
-- Only Agentflows V2: `f"{self.valves.flowise_url}/api/v1/chatflows?type=AGENTFLOW"`
-- Only Chatflows: `f"{self.valves.flowise_url}/api/v1/chatflows?type=CHATFLOW"`
-- Only Assistants: `f"{self.valves.flowise_url}/api/v1/chatflows?type=ASSISTANT"`
+* Only Agentflows V2: `f"{self.valves.flowise_url}/api/v1/chatflows?type=AGENTFLOW"`
+* Only Chatflows: `f"{self.valves.flowise_url}/api/v1/chatflows?type=CHATFLOW"`
+* Only Assistants: `f"{self.valves.flowise_url}/api/v1/chatflows?type=ASSISTANT"`
 
-<figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 6. Test:
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>

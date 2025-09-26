@@ -12,7 +12,7 @@ This centralized approach simplifies data handling and allows for efficient mana
 
 ## Setup
 
-In this tutorial, we will set up a [Retrieval Augmented Generation (RAG)](broken-reference) system to retrieve information about the _LibertyGuard Deluxe Homeowners Policy_, a topic that LLMs are not extensively trained on.
+In this tutorial, we will set up a [Retrieval Augmented Generation (RAG)](broken-reference/) system to retrieve information about the _LibertyGuard Deluxe Homeowners Policy_, a topic that LLMs are not extensively trained on.
 
 Using the **Flowise Document Stores**, we'll prepare and upsert data about LibertyGuard and its set of home insurance policies. This will enable our RAG system to accurately answer user queries about LibertyGuard's home insurance offerings.
 
@@ -172,13 +172,11 @@ Vector store is a special type of database that is used to store the vector embe
 A lower top K value will yield fewer but potentially more relevant results, while a higher value will return a broader range of results, potentially capturing more information.
 {% endhint %}
 
-
-
 <figure><img src="../.gitbook/assets/dastore005.png" alt=""><figcaption></figcaption></figure>
 
 ### Step 3: Select Record Manager
 
-Record Manager is an optional but incredibly useful addition to our upserting flow. It allows us to maintain records of all the chunks that have been upserted to our Vector Store, enabling us to efficiently add or delete chunks as needed.&#x20;
+Record Manager is an optional but incredibly useful addition to our upserting flow. It allows us to maintain records of all the chunks that have been upserted to our Vector Store, enabling us to efficiently add or delete chunks as needed.
 
 In other words, any changes to your documents during a new upsert will not result in duplicate vector embeddings being stored in the vector store.
 
@@ -214,13 +212,13 @@ Finally, our Retrieval-Augmented Generation (RAG) system is operational. It's no
 
 With an Agent node, you can add the document store:
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1).png" alt="" width="300"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1).png" alt="" width="300"><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (5) (1).png" alt="" width="407"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1).png" alt="" width="407"><figcaption></figcaption></figure>
 
 Or directly connect to vector database and embedding mode:
 
-<figure><img src="../.gitbook/assets/image (6) (1).png" alt="" width="394"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1) (1).png" alt="" width="394"><figcaption></figcaption></figure>
 
 #### Chatflow
 
@@ -250,7 +248,7 @@ There are a few different scenarios for upserting process, and each have differe
 <figure><img src="../.gitbook/assets/Untitled-2025-02-02-1727.png" alt="" width="496"><figcaption></figcaption></figure>
 
 {% hint style="success" %}
-**`docId`** represents the existing document loader ID. It is required in the request body for this scenario.&#x20;
+**`docId`** represents the existing document loader ID. It is required in the request body for this scenario.
 {% endhint %}
 
 {% tabs %}
@@ -322,7 +320,7 @@ query(formData).then((response) => {
 <figure><img src="../.gitbook/assets/Untitled-2025-03-02-1727.png" alt="" width="563"><figcaption></figcaption></figure>
 
 {% hint style="success" %}
-**`docId`** and **`replaceExisting`** are both required in the request body for this scenario.&#x20;
+**`docId`** and **`replaceExisting`** are both required in the request body for this scenario.
 {% endhint %}
 
 {% tabs %}
@@ -785,7 +783,7 @@ query(formData).then((response) => {
 A: For [Document Loaders](../integrations/langchain/document-loaders/) that have File Upload functionality, such as PDF, DOCX, TXT, etc, body must be sent as Form Data.
 
 {% hint style="warning" %}
-Make sure the sent file type is compatible with the expected file type from document loader.&#x20;
+Make sure the sent file type is compatible with the expected file type from document loader.
 
 For example, if a [PDF File Loader](../integrations/langchain/document-loaders/pdf-file.md) is being used, you should only send **.pdf** files.
 

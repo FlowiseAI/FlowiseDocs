@@ -575,6 +575,66 @@ The final `startState` will be:
 ]
 ```
 
+### Overriding Specific Node
+
+By default, if multiple nodes share the same type and no node ID is specified, overriding a property will update that property across all matching nodes.
+
+For example, there are 2 LLM nodes where I want to override the system message:
+
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+After enabling the ability to override:
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+I can override the system message for both LLMs like so:
+
+```json
+"overrideConfig": {
+    "llmMessages": [
+        {
+            "role": "system",
+            "content": "You are sarcastic"
+        }
+    ]
+}
+```
+
+From the Execution, you can see the overriden system message:
+
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+In some cases, you might want to just override config for specific node. You can do so by specifying the node id **inside** the property you want to override.
+
+For example:
+
+```json
+"overrideConfig": {
+    "llmMessages": {
+        "llmAgentflow_0": [
+            {
+                "role": "system",
+                "content": "You are sweet"
+            } 
+        ],
+        "llmAgentflow_1": [
+            {
+                "role": "system",
+                "content": "You are smart"
+            } 
+        ]
+    }
+}
+```
+
+If you head back to Execution, you can see each LLM has the correct overriden value:
+
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+
 ### Conversation History
 
 Provide conversation context by including previous messages in the history array.
