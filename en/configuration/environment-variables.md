@@ -114,11 +114,7 @@ By default, Flowise pulls the model list from [here](https://github.com/FlowiseA
 
 There are certain nodes/features within Flowise that allow user to run Javascript code. For security reasons, by default it only allow certain dependencies. It's possible to lift that restriction for built-in and external modules by setting the following environment variables:
 
-| Variable                      | Description                           |         |
-| ----------------------------- | ------------------------------------- | ------- |
-| TOOL\_FUNCTION\_BUILTIN\_DEP  | NodeJS built-in modules to be used    | String  |
-| TOOL\_FUNCTION\_EXTERNAL\_DEP | External modules to be used           | String  |
-| ALLOW\_BUILTIN\_DEP           | Allow project dependencies to be used | Boolean |
+<table><thead><tr><th>Variable</th><th width="300.4444580078125">Description</th><th></th></tr></thead><tbody><tr><td>TOOL_FUNCTION_BUILTIN_DEP</td><td>NodeJS built-in modules to be used</td><td>String</td></tr><tr><td>TOOL_FUNCTION_EXTERNAL_DEP</td><td>External modules to be used </td><td>String</td></tr><tr><td>ALLOW_BUILTIN_DEP</td><td>Allow project dependencies to be used such as <code>node-fetch</code>, <code>axios</code></td><td>Boolean</td></tr></tbody></table>
 
 {% code title=".env" %}
 ```bash
@@ -137,6 +133,19 @@ TOOL_FUNCTION_EXTERNAL_DEP=axios,moment
 ALLOW_BUILTIN_DEP=true
 ```
 {% endcode %}
+
+### NodeVM Execution Error: VMError: Cannot find module
+
+If you are using library that is not allowed by default, for example:
+
+```javascript
+const fetch = require('node-fetch');
+```
+
+You can either:
+
+1. Allow all project's [libraries/dependencies](https://github.com/FlowiseAI/Flowise/blob/main/packages/components/src/utils.ts#L52): `ALLOW_BUILTIN_DEP=true`
+2. (Recommended) Specifically allow certain libraries/dependencies: `TOOL_FUNCTION_EXTERNAL_DEP=node-fetch,axios`
 
 ## Security Configuration
 
