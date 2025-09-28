@@ -136,13 +136,7 @@ ALLOW_BUILTIN_DEP=true
 
 ### NodeVM Execution Error: VMError: Cannot find module
 
-If you are using library that is not allowed by default, for example:
-
-```javascript
-const fetch = require('node-fetch');
-```
-
-You can either:
+If you are using library that is not allowed by default, you can either:
 
 1. Allow all project's [libraries/dependencies](https://github.com/FlowiseAI/Flowise/blob/main/packages/components/src/utils.ts#L52): `ALLOW_BUILTIN_DEP=true`
 2. (Recommended) Specifically allow certain libraries/dependencies: `TOOL_FUNCTION_EXTERNAL_DEP=node-fetch,axios`
