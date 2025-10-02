@@ -28,3 +28,4 @@ Chat models take a list of messages as input and return a model-generated messag
 * [ChatOpenAI Custom](broken-reference)
 * [ChatTogetherAI](chattogetherai.md)
 * [GroqChat](groqchat.md)
+* [ChatSambanova](chat-sambanova.md)
