@@ -24,6 +24,45 @@ Here's how it works:
 
 <figure><img src="../.gitbook/assets/Untitled-2025-01-23-1520.png" alt=""><figcaption></figcaption></figure>
 
+## Flow Diagram
+
+<figure><img src="../.gitbook/assets/Untitled-2025-10-02-1133.png" alt=""><figcaption></figcaption></figure>
+
+#### 1. Request Entry Point
+
+A prediction request hits the Express server and immediately checks if `MODE=QUEUE`. If true, it switches from direct execution to asynchronous queue processing.
+
+#### 2. Job Creation & Dual Channels
+
+The system creates two parallel paths:
+
+* **Job Channel**: Request data becomes a Redis job via BullMQ, HTTP thread waits for completion
+* **Stream Channel**: SSE connection established for real-time updates via Redis pub/sub
+
+#### 3. Worker Processing
+
+Independent worker processes poll Redis for jobs. When assigned:
+
+* Reconstruct full execution context (DB, components, abort controllers)
+* Execute workflow with node-by-node processing
+* Publish real-time events (tokens, tools, progress) to Redis channels
+
+#### 4. Real-time Communication
+
+During execution:
+
+* [**RedisEventPublisher**](https://github.com/FlowiseAI/Flowise/blob/main/packages/server/src/queue/RedisEventPublisher.ts) broadcasts events from worker to Redis
+* [**RedisEventSubscriber**](https://github.com/FlowiseAI/Flowise/blob/main/packages/server/src/queue/RedisEventSubscriber.ts) forwards events from Redis to SSE clients
+* [**SSEStreamer**](https://github.com/FlowiseAI/Flowise/blob/main/packages/server/src/utils/SSEStreamer.ts) delivers events to browser in real-time
+
+#### 5. Completion & Response
+
+Job finishes, result stored in Redis:
+
+* HTTP thread unblocks, receives result
+* SSE connection closes gracefully
+* Resources cleaned up (abort controllers, connections)
+
 ## Local Setup
 
 ### Start Redis
