@@ -1,38 +1,38 @@
 ---
-description: Learn how to deploy Flowise on Azure
+description: Apprenez à déployer Flowise sur Azure
 ---
 
 # Azure
 
 ***
 
-## Flowise as Azure App Service with Postgres: Using Terraform
+## Flowise en tant que service d'application Azure avec Postgres : Utilisation de Terraform
 
-### Prerequisites
+### Prérequis
 
-1. **Azure Account**: Ensure you have an Azure account with an active subscription. If you do not have one, sign up at [Azure Portal](https://portal.azure.com/).
-2. **Terraform**: Install Terraform CLI on your machine. Download it from [Terraform's website](https://www.terraform.io/downloads.html).
-3. **Azure CLI**: Install Azure CLI. Instructions can be found on the [Azure CLI documentation page](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+1. **Compte Azure** : Assurez-vous d'avoir un compte Azure avec un abonnement actif. Si vous n'en avez pas, inscrivez-vous sur [Azure Portal](https://portal.azure.com/).
+2. **Terraform** : Installez Terraform CLI sur votre machine. Téléchargez-le depuis [le site de Terraform](https://www.terraform.io/downloads.html).
+3. **Azure CLI** : Installez Azure CLI. Les instructions se trouvent sur la [page de documentation d'Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
 
-### Setting Up Your Environment
+### Configuration de votre environnement
 
-1. **Login to Azure**: Open your terminal or command prompt and login to Azure CLI using:
+1. **Connexion à Azure** : Ouvrez votre terminal ou votre invite de commande et connectez-vous à Azure CLI en utilisant :
 
 ```bash
 az login --tenant <Your Subscription ID> --use-device-code 
 ```
 
-Follow the prompts to complete the login process.
+Suivez les instructions pour compléter le processus de connexion.
 
-2. **Set Subscription**: After logging in, set the Azure subscription using:
+2. **Configurer l'abonnement** : Après vous être connecté, configurez l'abonnement Azure en utilisant :
 
 ```bash
 az account set --subscription <Your Subscription ID>
 ```
 
-3. **Initialize Terraform**:
+3. **Initialiser Terraform** :
 
-Create a `terraform.tfvars` file in your Terraform project directory, if it's not already there, and add the following content:
+Créez un fichier `terraform.tfvars` dans votre répertoire de projet Terraform, s'il n'est pas déjà présent, et ajoutez le contenu suivant :
 
 ```hcl
 subscription_name = "subscrpiton_name"
@@ -61,9 +61,9 @@ source_image = "flowiseai/flowise:latest"
 tagged_image = "flow:v1"
 ```
 
-Replace the placeholders with actual values for your setup.
+Remplacez les espaces réservés par des valeurs réelles pour votre configuration.
 
-The file tree structure is as follows:
+La structure de l'arborescence des fichiers est la suivante :
 
 ```
 flow
@@ -80,11 +80,11 @@ flow
 
 ```
 
-Each `.tf` file in the Terraform configuration likely contains a different aspect of the infrastructure as code:
+Chaque fichier `.tf` dans la configuration Terraform contient probablement un aspect différent de l'infrastructure en tant que code :
 
 <details>
 
-<summary>`database.tf` would define the configuration for the Postgres database.</summary>
+<summary>`database.tf` définirait la configuration pour la base de données Postgres.</summary>
 
 ```yaml
 
@@ -146,7 +146,7 @@ resource "azurerm_postgresql_flexible_server_configuration" "postgres_config" {
 
 <details>
 
-<summary>`main.tf` could be the main configuration file that may include the Azure provider configuration and defines the Azure resource group.</summary>
+<summary>Le fichier `main.tf` pourrait être le fichier de configuration principal qui inclut la configuration du fournisseur Azure et définit le groupe de ressources Azure.</summary>
 
 ```yaml
 // main.tf
@@ -189,7 +189,7 @@ resource "azurerm_storage_share" "flowise-share" {
 
 <details>
 
-<summary>`network.tf` would include networking resources such as virtual networks, subnets, and network security groups.</summary>
+<summary>`network.tf` inclurait des ressources réseau telles que des réseaux virtuels, des sous-réseaux et des groupes de sécurité réseau.</summary>
 
 ```yaml
 // network.tf
@@ -260,7 +260,7 @@ resource "azurerm_private_dns_zone_virtual_network_link" "postgres" {
 
 <details>
 
-<summary>`providers.tf` would define the Terraform providers, such as Azure.</summary>
+<summary>Le fichier `providers.tf` définirait les fournisseurs Terraform, tels qu'Azure.</summary>
 
 ```yaml
 // providers.tf
@@ -289,7 +289,7 @@ provider "azurerm" {
 
 <details>
 
-<summary>`variables.tf` would declare variables used across all `.tf` files.</summary>
+<summary>`variables.tf` déclarera les variables utilisées dans tous les fichiers `.tf`.</summary>
 
 ```yaml
 // variables.tf
@@ -371,7 +371,7 @@ variable "tagged_image" {
 
 <details>
 
-<summary>`webapp.tf` Azure App Services that includes a service plan and linux web app</summary>
+<summary>`webapp.tf` Services d'application Azure incluant un plan de service et une application web Linux</summary>
 
 ```yaml
 // webapp.tf
@@ -471,9 +471,9 @@ resource "azurerm_app_service_virtual_network_swift_connection" "webappvnetinteg
 
 </details>
 
-Note: The `.terraform` directory is created by Terraform when initializing a project (`terraform init`) and it contains the plugins and binary files needed for Terraform to run. The `.terraform.lock.hcl` file is used to record the exact provider versions that are being used to ensure consistent installs across different machines.
+Note : Le répertoire `.terraform` est créé par Terraform lors de l'initialisation d'un projet (`terraform init`) et il contient les plugins et fichiers binaires nécessaires au bon fonctionnement de Terraform. Le fichier `.terraform.lock.hcl` est utilisé pour enregistrer les versions exactes des fournisseurs qui sont utilisées afin d'assurer des installations cohérentes sur différentes machines.
 
-Navigate to your Terraform project directory and run:
+Naviguez vers votre répertoire de projet Terraform et exécutez :
 
 ```bash
 terraform init
@@ -481,77 +481,77 @@ terraform init
 
 This will initialize Terraform and download the required providers.
 
-### Configuring Terraform Variables
+### Configurer les variables Terraform
 
-### Deploying with Terraform
+### Déployer avec Terraform
 
-1.  **Plan the Deployment**: Run the Terraform plan command to see what resources will be created:
+1.  **Planifier le déploiement** : Exécutez la commande Terraform plan pour voir quels ressources seront créées :
 
     ```bash
     terraform plan
     ```
-2.  **Apply the Deployment**: If you are satisfied with the plan, apply the changes:
+2.  **Appliquer le déploiement** : Si vous êtes satisfait du plan, appliquez les modifications :
 
     ```bash
     terraform apply
     ```
 
-    Confirm the action when prompted, and Terraform will begin creating the resources.
-3. **Verify the Deployment**: Once Terraform has completed, it will output any defined outputs such as IP addresses or domain names. Verify that the resources are correctly deployed in your Azure Portal.
+    Confirmez l'action lorsqu'on vous le demande, et Terraform commencera à créer les ressources.
+3. **Vérifier le déploiement** : Une fois que Terraform a terminé, il affichera toutes les sorties définies telles que les adresses IP ou les noms de domaine. Vérifiez que les ressources sont correctement déployées dans votre portail Azure.
 
 ***
 
-## Azure Continer Instance: Using Azure Portal UI or Azure CLI
+## Instance de Conteneur Azure : Utilisation de l'interface utilisateur du portail Azure ou de l'Azure CLI
 
-### Prerequisites
+### Prérequis
 
-1. _(Optional)_ [Install Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) if you'd like to follow the cli based commands
+1. _(Optionnel)_ [Installer l'Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) si vous souhaitez suivre les commandes basées sur la CLI
 
-## Create a Container Instance without Persistent Storage
+## Créer une instance de conteneur sans stockage persistant
 
-Without persistent storage your data is kept in memory. This means that on a container restart, all the data that you stored will disappear.
+Sans stockage persistant, vos données sont conservées en mémoire. Cela signifie qu'après un redémarrage du conteneur, toutes les données que vous avez stockées disparaîtront.
 
-### In Portal
+### Dans le portail
 
-1. Search for Container Instances in Marketplace and click Create:
+1. Recherchez les instances de conteneur dans le Marketplace et cliquez sur Créer :
 
-<figure><img src="../../.gitbook/assets/azure/deployment/1.png" alt=""><figcaption><p>Container Instances entry in Azure's Marketplace</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/azure/deployment/1.png" alt=""><figcaption><p>Entrée des instances de conteneur dans le Marketplace d'Azure</p></figcaption></figure>
 
-2. Select or create a Resource group, Container name, Region, Image source `Other registry`, Image type, Image `flowiseai/flowise`, OS type and Size. Then click "Next: Networking" to configure Flowise ports:
+2. Sélectionnez ou créez un groupe de ressources, un nom de conteneur, une région, une source d'image `Autre registre`, un type d'image, l'image `flowiseai/flowise`, le type de système d'exploitation et la taille. Cliquez ensuite sur "Suivant : Réseau" pour configurer les ports Flowise :
 
-<figure><img src="../../.gitbook/assets/azure/deployment/2.png" alt=""><figcaption><p>First page in the Container Instance create wizard</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/azure/deployment/2.png" alt=""><figcaption><p>Première page de l'assistant de création d'instance de conteneur</p></figcaption></figure>
 
-3. Add a new port `3000 (TCP)` next to the default `80 (TCP)`. Then Select "Next: Advanced":
+3. Ajoutez un nouveau port `3000 (TCP)` à côté du port par défaut `80 (TCP)`. Sélectionnez ensuite "Suivant : Avancé" :
 
-<figure><img src="../../.gitbook/assets/azure/deployment/3.png" alt=""><figcaption><p>Second page in the Container Instance create wizard. It asks for netowrking type and ports.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/azure/deployment/3.png" alt=""><figcaption><p>Deuxième page de l'assistant de création d'instance de conteneur. Elle demande le type de réseau et les ports.</p></figcaption></figure>
 
-4. Set Restart policy to `On failure`. Add Command override `["/bin/sh", "-c", "flowise start"]`. Finally click "Review + create":
+4. Définissez la politique de redémarrage sur `En cas d'échec`. Ajoutez l'override de commande `["/bin/sh", "-c", "flowise start"]`. Cliquez enfin sur "Vérifier + créer" :
 
-<figure><img src="../../.gitbook/assets/azure/deployment/4.png" alt=""><figcaption><p>Third page in the Container Instance create wizard. It asks for restart policy, environment variables and command that runs on container start.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/azure/deployment/4.png" alt=""><figcaption><p>Troisième page de l'assistant de création d'instance de conteneur. Elle demande la politique de redémarrage, les variables d'environnement et la commande à exécuter au démarrage du conteneur.</p></figcaption></figure>
 
-5. Review final settings and click "Create":
+5. Vérifiez les paramètres finaux et cliquez sur "Créer" :
 
-<figure><img src="../../.gitbook/assets/azure/deployment/5.png" alt=""><figcaption><p>Final review and create page for a Container Instance.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/azure/deployment/5.png" alt=""><figcaption><p>Page de révision finale et de création pour une instance de conteneur.</p></figcaption></figure>
 
-6. Once creation is completed, click on "Go to resource"
+6. Une fois la création terminée, cliquez sur "Accéder à la ressource"
 
-<figure><img src="../../.gitbook/assets/azure/deployment/6.png" alt=""><figcaption><p>Resource creation result page in Azure.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/azure/deployment/6.png" alt=""><figcaption><p>Page de résultat de création de ressource dans Azure.</p></figcaption></figure>
 
-7. Visit your Flowise instance by copying IP address and adding :3000 as a port:
+7. Visitez votre instance Flowise en copiant l'adresse IP et en ajoutant :3000 comme port :
 
-<figure><img src="../../.gitbook/assets/azure/deployment/7.png" alt=""><figcaption><p>Container Instance overview page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/azure/deployment/7.png" alt=""><figcaption><p>Page d'aperçu de l'instance de conteneur</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/azure/deployment/8.png" alt=""><figcaption><p>Flowise application deployed as Container Instance</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/azure/deployment/8.png" alt=""><figcaption><p>Application Flowise déployée en tant qu'instance de conteneur</p></figcaption></figure>
 
-### Create using Azure CLI
+### Créer en utilisant l'Azure CLI
 
-1. Create a resource group (if you don't already have one)
+1. Créez un groupe de ressources (si vous n'en avez pas déjà un)
 
 ```bash
 az group create --name flowise-rg --location "West US"
 ```
 
-2. Create a Container Instance
+2. Créez une instance de conteneur
 
 ```bash
 az container create -g flowise-rg \
@@ -563,23 +563,22 @@ az container create -g flowise-rg \
 	--restart-policy OnFailure
 ```
 
-3. Visit the IP address (including port :3000) printed from the output of the above command.
+3. Visitez l'adresse IP (y compris le port :3000) affichée dans la sortie de la commande ci-dessus.
 
-## Create a Container Instance with Persistent Storage
+## Créer une instance de conteneur avec stockage persistant
 
-The creation of a Container Instance with persistent storage is only possible using CLI:
+La création d'une instance de conteneur avec stockage persistant n'est possible que via la CLI :
 
-1. Create a resource group (if you don't already have one)
+1. Créez un groupe de ressources (si vous n'en avez pas déjà un)
 
 ```bash
 az group create --name flowise-rg --location "West US"
 ```
-
-2. Create the Storage Account resource (or use existing one) inside above resource group. You can check how to do it [here](https://learn.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-portal?tabs=azure-portal).
-3. Inside Azure Storage create new File share. You can check how to do it [here](https://learn.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-portal?tabs=azure-portal).
-4. Create a Container Instance
-
-```bash
+```markdown
+2. Créez la ressource de compte de stockage (ou utilisez un compte existant) dans le groupe de ressources ci-dessus. Vous pouvez vérifier comment le faire [ici](https://learn.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-portal?tabs=azure-portal).
+3. Dans Azure Storage, créez un nouveau partage de fichiers. Vous pouvez vérifier comment le faire [ici](https://learn.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-portal?tabs=azure-portal).
+4. Créez une instance de conteneur
+``````bash
 az container create -g flowise-rg \
 	--name flowise \
 	--image flowiseai/flowise \
@@ -594,9 +593,9 @@ az container create -g flowise-rg \
 	--azure-file-volume-mount-path /opt/flowise/.flowise
 ```
 
-5. Visit the IP address (including port :3000) printed from the output of the above command.
-6. From now on your data will be stored in an SQLite database which you can find in your File share.
+5. Visitez l'adresse IP (y compris le port :3000) affichée dans la sortie de la commande ci-dessus.  
+6. À partir de maintenant, vos données seront stockées dans une base de données SQLite que vous pouvez trouver dans votre partage de fichiers.  
 
-Watch video tutorial on deploying to Azure Container Instance:
+Regardez le tutoriel vidéo sur le déploiement sur Azure Container Instance :  
 
 {% embed url="https://www.youtube.com/watch?v=yDebxDfn2yk" %}

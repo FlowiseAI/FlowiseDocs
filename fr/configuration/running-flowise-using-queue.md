@@ -1,105 +1,105 @@
-# Running Flowise using Queue
+# Exécution de Flowise en mode Queue
 
-By default, Flowise runs in a NodeJS main thread. However, with large number of predictions, this does not scale well. Therefore there are 2 modes you can configure: `main` (default) and `queue`.
+Par défaut, Flowise s'exécute dans un thread principal NodeJS. Cependant, avec un grand nombre de prédictions, cela ne s'adapte pas bien. Il existe donc 2 modes que vous pouvez configurer : `main` (par défaut) et `queue`.
 
-## Queue Mode
+## Mode Queue
 
-With the following environment variables, you can run Flowise in `queue` mode.
+Avec les variables d'environnement suivantes, vous pouvez exécuter Flowise en mode `queue`.
 
-<table><thead><tr><th width="263">Variable</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>MODE</td><td>Mode to run Flowise</td><td>Enum String: <code>main</code>, <code>queue</code></td><td><code>main</code></td></tr><tr><td>WORKER_CONCURRENCY</td><td>How many jobs are allowed to be processed in parallel for a worker. If you have 1 worker, that means how many concurrent prediction tasks it can handle. More <a href="https://docs.bullmq.io/guide/workers/concurrency">info</a></td><td>Number</td><td>10000</td></tr><tr><td>QUEUE_NAME</td><td>The name of the message queue</td><td>String</td><td>flowise-queue</td></tr><tr><td>QUEUE_REDIS_EVENT_STREAM_MAX_LEN</td><td>Event stream is auto-trimmed so that its size does not grow too much. More <a href="https://docs.bullmq.io/guide/events">info</a></td><td>Number</td><td>10000</td></tr><tr><td>REDIS_URL</td><td>Redis URL</td><td>String</td><td></td></tr><tr><td>REDIS_HOST</td><td>Redis host</td><td>String</td><td>localhost</td></tr><tr><td>REDIS_PORT</td><td>Redis port</td><td>Number</td><td>6379</td></tr><tr><td>REDIS_USERNAME</td><td>Redis username (optional)</td><td>String</td><td></td></tr><tr><td>REDIS_PASSWORD</td><td>Redis password (optional)</td><td>String</td><td></td></tr><tr><td>REDIS_TLS</td><td>Redis TLS connection (optional) More <a href="https://redis.io/docs/latest/operate/oss_and_stack/management/security/encryption/">info</a></td><td>Boolean</td><td>false</td></tr><tr><td>REDIS_CERT</td><td>Redis self-signed certificate</td><td>String</td><td></td></tr><tr><td>REDIS_KEY</td><td>Redis self-signed certificate key file</td><td>String</td><td></td></tr><tr><td>REDIS_CA</td><td>Redis self-signed certificate CA file</td><td>String</td><td></td></tr></tbody></table>
+<table><thead><tr><th width="263">Variable</th><th>Description</th><th>Type</th><th>Par défaut</th></tr></thead><tbody><tr><td>MODE</td><td>Mode d'exécution de Flowise</td><td>Enum String : <code>main</code>, <code>queue</code></td><td><code>main</code></td></tr><tr><td>WORKER_CONCURRENCY</td><td>Nombre de tâches autorisées à être traitées en parallèle pour un travailleur. Si vous avez 1 travailleur, cela signifie combien de tâches de prédiction simultanées il peut gérer. Plus <a href="https://docs.bullmq.io/guide/workers/concurrency">d'infos</a></td><td>Nombre</td><td>10000</td></tr><tr><td>QUEUE_NAME</td><td>Le nom de la file de messages</td><td>String</td><td>flowise-queue</td></tr><tr><td>QUEUE_REDIS_EVENT_STREAM_MAX_LEN</td><td>Le flux d'événements est automatiquement réduit afin que sa taille ne croisse pas trop. Plus <a href="https://docs.bullmq.io/guide/events">d'infos</a></td><td>Nombre</td><td>10000</td></tr><tr><td>REDIS_URL</td><td>URL Redis</td><td>String</td><td></td></tr><tr><td>REDIS_HOST</td><td>Hôte Redis</td><td>String</td><td>localhost</td></tr><tr><td>REDIS_PORT</td><td>Port Redis</td><td>Nombre</td><td>6379</td></tr><tr><td>REDIS_USERNAME</td><td>Nom d'utilisateur Redis (optionnel)</td><td>String</td><td></td></tr><tr><td>REDIS_PASSWORD</td><td>Mot de passe Redis (optionnel)</td><td>String</td><td></td></tr><tr><td>REDIS_TLS</td><td>Connexion TLS Redis (optionnel) Plus <a href="https://redis.io/docs/latest/operate/oss_and_stack/management/security/encryption/">d'infos</a></td><td>Boolean</td><td>false</td></tr><tr><td>REDIS_CERT</td><td>Certificat auto-signé Redis</td><td>String</td><td></td></tr><tr><td>REDIS_KEY</td><td>Fichier clé du certificat auto-signé Redis</td><td>String</td><td></td></tr><tr><td>REDIS_CA</td><td>Fichier CA du certificat auto-signé Redis</td><td>String</td><td></td></tr></tbody></table>
 
-In `queue` mode, the main server will be responsible for processing requests, sending jobs to message queue. Main server will not execute the job. One or multiple workers receive jobs from the queue, execute them and send the results back.
+En mode `queue`, le serveur principal sera responsable du traitement des demandes, en envoyant des tâches à la file de messages. Le serveur principal n'exécutera pas la tâche. Un ou plusieurs travailleurs reçoivent des tâches de la file, les exécutent et renvoient les résultats.
 
-This allows for dynamic scaling: you can add workers to handle increased workloads or remove them during lighter periods.
+Cela permet une mise à l'échelle dynamique : vous pouvez ajouter des travailleurs pour gérer des charges de travail accrues ou les retirer pendant les périodes plus légères.
 
-Here's how it works:
+Voici comment cela fonctionne :
 
-1. The main server receive prediction or other requests from the web, adding them as jobs to the queue.
-2. These job queues are essential lists of tasks waiting to be processed. Workers, which are essentially separate processes or threads, pick up these jobs and execute them.
-3. Once the job is completed, the worker:
-   * Write the results in the database.
-   * Send an event to indicate the completion of the job.
-4. Main server receive the event, and send the result back to UI.
-5. Redis pub/sub is also used for streaming data back to UI.
+1. Le serveur principal reçoit des demandes de prédiction ou d'autres demandes du web, les ajoutant comme tâches à la file.
+2. Ces files de tâches sont des listes essentielles de tâches en attente d'être traitées. Les travailleurs, qui sont essentiellement des processus ou des threads séparés, prennent ces tâches et les exécutent.
+3. Une fois la tâche terminée, le travailleur :
+   * Écrit les résultats dans la base de données.
+   * Envoie un événement pour indiquer l'achèvement de la tâche.
+4. Le serveur principal reçoit l'événement et renvoie le résultat à l'interface utilisateur.
+5. Redis pub/sub est également utilisé pour diffuser des données vers l'interface utilisateur.
 
 <figure><img src="../.gitbook/assets/Untitled-2025-01-23-1520.png" alt=""><figcaption></figcaption></figure>
 
-## Flow Diagram
+## Diagramme de Flux
 
 <figure><img src="../.gitbook/assets/Untitled-2025-10-02-1133.png" alt=""><figcaption></figcaption></figure>
 
-#### 1. Request Entry Point
+#### 1. Point d'Entrée de la Demande
 
-A prediction request hits the Express server and immediately checks if `MODE=QUEUE`. If true, it switches from direct execution to asynchronous queue processing.
+Une demande de prédiction atteint le serveur Express et vérifie immédiatement si `MODE=QUEUE`. Si c'est vrai, il passe de l'exécution directe au traitement asynchrone en file d'attente.
 
-#### 2. Job Creation & Dual Channels
+#### 2. Création de Tâche & Canaux Doubles
 
-The system creates two parallel paths:
+Le système crée deux chemins parallèles :
 
-* **Job Channel**: Request data becomes a Redis job via BullMQ, HTTP thread waits for completion
-* **Stream Channel**: SSE connection established for real-time updates via Redis pub/sub
+* **Canal de Tâche** : Les données de la demande deviennent une tâche Redis via BullMQ, le thread HTTP attend l'achèvement
+* **Canal de Flux** : Connexion SSE établie pour des mises à jour en temps réel via la publication/souscription Redis
 
-#### 3. Worker Processing
+#### 3. Traitement par le Travailleur
 
-Independent worker processes poll Redis for jobs. When assigned:
+Des processus de travailleurs indépendants interrogent Redis pour des tâches. Lorsqu'une tâche est assignée :
 
-* Reconstruct full execution context (DB, components, abort controllers)
-* Execute workflow with node-by-node processing
-* Publish real-time events (tokens, tools, progress) to Redis channels
+* Reconstruire le contexte d'exécution complet (DB, composants, contrôleurs d'abandon)
+* Exécuter le flux de travail avec un traitement nœud par nœud
+* Publier des événements en temps réel (tokens, outils, progrès) sur les canaux Redis
 
-#### 4. Real-time Communication
+#### 4. Communication en Temps Réel
 
-During execution:
+Pendant l'exécution :
 
-* [**RedisEventPublisher**](https://github.com/FlowiseAI/Flowise/blob/main/packages/server/src/queue/RedisEventPublisher.ts) broadcasts events from worker to Redis
-* [**RedisEventSubscriber**](https://github.com/FlowiseAI/Flowise/blob/main/packages/server/src/queue/RedisEventSubscriber.ts) forwards events from Redis to SSE clients
-* [**SSEStreamer**](https://github.com/FlowiseAI/Flowise/blob/main/packages/server/src/utils/SSEStreamer.ts) delivers events to browser in real-time
+* [**RedisEventPublisher**](https://github.com/FlowiseAI/Flowise/blob/main/packages/server/src/queue/RedisEventPublisher.ts) diffuse des événements du travailleur vers Redis
+* [**RedisEventSubscriber**](https://github.com/FlowiseAI/Flowise/blob/main/packages/server/src/queue/RedisEventSubscriber.ts) transmet des événements de Redis aux clients SSE
+* [**SSEStreamer**](https://github.com/FlowiseAI/Flowise/blob/main/packages/server/src/utils/SSEStreamer.ts) livre des événements au navigateur en temps réel
 
-#### 5. Completion & Response
+#### 5. Achèvement & Réponse
 
-Job finishes, result stored in Redis:
+La tâche se termine, le résultat est stocké dans Redis :
 
-* HTTP thread unblocks, receives result
-* SSE connection closes gracefully
-* Resources cleaned up (abort controllers, connections)
+* Le thread HTTP se débloque, reçoit le résultat
+* La connexion SSE se ferme proprement
+* Les ressources sont nettoyées (contrôleurs d'abandon, connexions)
 
-## Local Setup
+## Configuration Locale
 
-### Start Redis
+### Démarrer Redis
 
-Before starting main server and workers, Redis need to be running first. You can run Redis on a separate machine, but make sure that it's accessible by the server and worker instances.
+Avant de démarrer le serveur principal et les travailleurs, Redis doit d'abord être en cours d'exécution. Vous pouvez exécuter Redis sur une machine séparée, mais assurez-vous qu'il est accessible par les instances de serveur et de travailleurs.
 
-For example, you can get Redis running on your Docker following this [guide](https://www.docker.com/blog/how-to-use-the-redis-docker-official-image/).
+Par exemple, vous pouvez faire fonctionner Redis sur votre Docker en suivant ce [guide](https://www.docker.com/blog/how-to-use-the-redis-docker-official-image/).
 
-### Start Main Server
+### Démarrer le Serveur Principal
 
-This is the same as you were to run Flowise by default, with the exceptions of configuring the environment variables mentioned above.
+C'est la même procédure que celle que vous suivriez pour exécuter Flowise par défaut, à l'exception de la configuration des variables d'environnement mentionnées ci-dessus.
 
 ```bash
 pnpm start
 ```
 
-### Start Worker
+### Démarrer le Travailleur
 
-Same as main server, environment variables above must be configured. We recommend just using the same `.env` file for both main and worker instances. The only difference is how to run the workers. Open another terminal and run:
+Tout comme pour le serveur principal, les variables d'environnement ci-dessus doivent être configurées. Nous recommandons d'utiliser le même fichier `.env` pour les instances principales et de travail. La seule différence réside dans la façon de lancer les travailleurs. Ouvrez un autre terminal et exécutez :
 
 ```bash
 pnpm run start-worker
 ```
 
 {% hint style="warning" %}
-Main server and worker need to share the same secret key. Refer to [#for-credentials](environment-variables.md#for-credentials "mention"). For production, we recommend using Postgres as database for perfomance.
+Le serveur principal et le worker doivent partager la même clé secrète. Référez-vous à [#for-credentials](environment-variables.md#for-credentials "mention"). Pour la production, nous recommandons d'utiliser Postgres comme base de données pour des performances optimales.
 {% endhint %}
 
-## Docker Setup
+## Configuration de Docker
 
-### Method 1: Pre-built Images (Recommended)
+### Méthode 1 : Images préconstruites (Recommandée)
 
-This method uses pre-built Docker images from Docker Hub, making it the fastest and most reliable deployment option.
+Cette méthode utilise des images Docker préconstruites depuis Docker Hub, ce qui en fait l'option de déploiement la plus rapide et la plus fiable.
 
-**Step 1: Setup Environment**
+**Étape 1 : Configurer l'environnement**
 
-Create a `.env` file in the `docker` directory:
+Créez un fichier `.env` dans le répertoire `docker` :
 
 ```bash
 # Basic Configuration
@@ -131,14 +131,14 @@ SECRETKEY_PATH=/root/.flowise
 LOG_PATH=/root/.flowise/logs
 ```
 
-**Step 2: Deploy**
+**Étape 2 : Déployer**
 
 ```bash
 cd docker
 docker compose -f docker-compose-queue-prebuilt.yml up -d
 ```
 
-**Step 3: Verify Deployment**
+**Étape 3 : Vérifier le déploiement**
 
 ```bash
 # Check container status
@@ -149,30 +149,30 @@ docker compose -f docker-compose-queue-prebuilt.yml logs -f flowise
 docker compose -f docker-compose-queue-prebuilt.yml logs -f flowise-worker
 ```
 
-### Method 2: Build from Source
+### Méthode 2 : Construire à partir du code source
 
-This method builds Flowise from source code, useful for development or custom modifications.
+Cette méthode construit Flowise à partir du code source, utile pour le développement ou les modifications personnalisées.
 
-**Step 1: Setup Environment**
+**Étape 1 : Configurer l'environnement**
 
-Create the same `.env` file as in [Method 1](running-flowise-using-queue.md#method-1-pre-built-images-recommended).
+Créez le même fichier `.env` que dans [Méthode 1](running-flowise-using-queue.md#method-1-pre-built-images-recommended).
 
-**Step 2: Deploy**
+**Étape 2 : Déployer**
 
 ```bash
 cd docker
 docker compose -f docker-compose-queue-source.yml up -d
 ```
 
-**Step 3: Build Process**
+**Étape 3 : Processus de construction**
 
-The source build will:
+La construction source va :
 
-* Build the main Flowise application from source
-* Build the worker image from source
-* Set up Redis and networking
+* Construire l'application principale Flowise à partir du code source
+* Construire l'image du worker à partir du code source
+* Configurer Redis et le réseau
 
-**Step 4: Monitor Build**
+**Étape 4 : Surveiller la construction**
 
 ```bash
 # Watch build progress
@@ -182,9 +182,9 @@ docker compose -f docker-compose-queue-source.yml logs -f
 docker compose -f docker-compose-queue-source.yml ps
 ```
 
-### Health Checks
+### Vérifications de santé
 
-All compose files include health checks:
+Tous les fichiers compose incluent des vérifications de santé :
 
 ```bash
 # Check main instance health
@@ -194,8 +194,8 @@ curl http://localhost:3000/api/v1/ping
 curl http://localhost:5566/healthz
 ```
 
-## Queue Dashboard
+## Tableau de bord des files d'attente
 
-Set `ENABLE_BULLMQ_DASHBOARD` to true will allow users to view all the jobs, status, result, data by navigating to `<your-flowise-url.com>/admin/queues`
+Définir `ENABLE_BULLMQ_DASHBOARD` sur true permettra aux utilisateurs de voir tous les travaux, l'état, le résultat et les données en naviguant vers `<your-flowise-url.com>/admin/queues`
 
 <figure><img src="../.gitbook/assets/image (253).png" alt=""><figcaption></figcaption></figure>

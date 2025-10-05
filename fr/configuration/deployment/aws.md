@@ -1,156 +1,155 @@
 ---
-description: Learn how to deploy Flowise on AWS
+description: Apprenez à déployer Flowise sur AWS
 ---
 
 # AWS
 
 ***
 
-## Prerequisite
+## Prérequis
 
-This requires some basic understanding of how AWS works.
+Cela nécessite une compréhension de base du fonctionnement d'AWS.
 
-Two options are available to deploy Flowise on AWS:
+Deux options sont disponibles pour déployer Flowise sur AWS :
 
-* [Deploy on ECS using CloudFormation](aws.md#deploy-on-ecs-using-cloudformation)
-* [Manually configure an EC2 Instance](aws.md#launch-ec2-instance)
+* [Déployer sur ECS en utilisant CloudFormation](aws.md#deploy-on-ecs-using-cloudformation)
+* [Configurer manuellement une instance EC2](aws.md#launch-ec2-instance)
 
-## Deploy on ECS using CloudFormation
+## Déployer sur ECS en utilisant CloudFormation
 
-CloudFormation template is available here: [https://gist.github.com/MrHertal/549b31a18e350b69c7200ae8d26ed691](https://gist.github.com/MrHertal/549b31a18e350b69c7200ae8d26ed691)
+Le modèle CloudFormation est disponible ici : [https://gist.github.com/MrHertal/549b31a18e350b69c7200ae8d26ed691](https://gist.github.com/MrHertal/549b31a18e350b69c7200ae8d26ed691)
 
-It deploys Flowise on an ECS cluster exposed through ELB.
+Il déploie Flowise sur un cluster ECS exposé via ELB.
 
-It was inspired by this reference architecture: [https://github.com/aws-samples/ecs-refarch-cloudformation](https://github.com/aws-samples/ecs-refarch-cloudformation)
+Il a été inspiré par cette architecture de référence : [https://github.com/aws-samples/ecs-refarch-cloudformation](https://github.com/aws-samples/ecs-refarch-cloudformation)
 
-Feel free to edit this template to adapt things like Flowise image version, environment variables etc.
+N'hésitez pas à modifier ce modèle pour adapter des éléments tels que la version de l'image Flowise, les variables d'environnement, etc.
 
-Example of command to deploy Flowise using the [AWS CLI](https://aws.amazon.com/fr/cli/):
+Exemple de commande pour déployer Flowise en utilisant le [CLI AWS](https://aws.amazon.com/fr/cli/) :
 
 ```bash
 aws cloudformation create-stack --stack-name flowise --template-body file://flowise-cloudformation.yml --capabilities CAPABILITY_IAM
 ```
 
-After deployment, the URL of your Flowise application is available in the CloudFormation stack outputs.
+Après le déploiement, l'URL de votre application Flowise est disponible dans les sorties de la pile CloudFormation.
 
-## Deploy on ECS using Terraform
+## Déployer sur ECS en utilisant Terraform
 
-The Terraform files (`variables.tf`, `main.tf`) are available in this GitHub repository: [terraform-flowise-setup](https://github.com/huiseo/terraform-flowise-setup/tree/main).
+Les fichiers Terraform (`variables.tf`, `main.tf`) sont disponibles dans ce dépôt GitHub : [terraform-flowise-setup](https://github.com/huiseo/terraform-flowise-setup/tree/main).
 
-This setup deploys Flowise on an ECS cluster exposed through an Application Load Balancer (ALB). It is based on AWS best practices for ECS deployments.
+Cette configuration déploie Flowise sur un cluster ECS exposé via un Application Load Balancer (ALB). Elle est basée sur les meilleures pratiques AWS pour les déploiements ECS.
 
-You can modify the Terraform template to adjust:
+Vous pouvez modifier le modèle Terraform pour ajuster :
 
-* Flowise image version
-* Environment variables
-* Resource configurations (CPU, memory, etc.)
+* La version de l'image Flowise
+* Les variables d'environnement
+* Les configurations des ressources (CPU, mémoire, etc.)
 
-### Example Commands for Deployment:
+### Exemples de commandes pour le déploiement :
 
-1. **Initialize Terraform:**
+1. **Initialiser Terraform :**
 
 ```bash
 terraform init
 terraform apply
 terraform destroy
 ```
+```markdown
+## Lancer une instance EC2
 
-## Launch EC2 Instance
-
-1. In the EC2 dashboard, click **Launch Instance**
+1. Dans le tableau de bord EC2, cliquez sur **Lancer une instance**
 
 <figure><img src="../../.gitbook/assets/image (19) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-2. Scroll down and **Create new key pair** if you don't have one
+2. Faites défiler vers le bas et **Créez une nouvelle paire de clés** si vous n'en avez pas
 
 <figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
-3. Fill in your preferred key pair name. For Windows, we will use `.ppk` and PuTTY to connect to the instance. For Mac and Linux, we will use `.pem` and OpenSSH
+3. Remplissez le nom de la paire de clés de votre choix. Pour Windows, nous utiliserons `.ppk` et PuTTY pour nous connecter à l'instance. Pour Mac et Linux, nous utiliserons `.pem` et OpenSSH
 
 <figure><img src="../../.gitbook/assets/image (15) (2) (1).png" alt="" width="370"><figcaption></figcaption></figure>
 
-4. Click **Create key pair** and select a location path to save the `.ppk` file
-5. Open the left side bar, and open a new tab from **Security Groups**. Then **Create security group**
+4. Cliquez sur **Créer une paire de clés** et sélectionnez un chemin d'emplacement pour enregistrer le fichier `.ppk`
+5. Ouvrez la barre latérale gauche et ouvrez un nouvel onglet à partir de **Groupes de sécurité**. Ensuite, **Créez un groupe de sécurité**
 
 <figure><img src="../../.gitbook/assets/image (20) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-6. Fill in your preferred security group name and description. Next, add the following to Inbound Rules and **Create security group**
+6. Remplissez le nom et la description de votre groupe de sécurité. Ensuite, ajoutez ce qui suit aux Règles entrantes et **Créez un groupe de sécurité**
 
 <figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-7. Back to the first tab (EC2 Launch an instance) and scroll down to **Network settings**. Select the security group you've just created
+7. Retournez au premier onglet (Lancer une instance EC2) et faites défiler vers le bas jusqu'à **Paramètres réseau**. Sélectionnez le groupe de sécurité que vous venez de créer
 
 <figure><img src="../../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
-8. Click **Launch instance**. Navigate back to EC2 Dashboard, after few mins we should be able to see a new instance up and running [🎉](https://emojipedia.org/party-popper/)
+8. Cliquez sur **Lancer l'instance**. Revenez au tableau de bord EC2, après quelques minutes, nous devrions voir une nouvelle instance opérationnelle [🎉](https://emojipedia.org/party-popper/)
 
 <figure><img src="../../.gitbook/assets/image (17) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-## How to Connect to your instance (Windows)
+## Comment se connecter à votre instance (Windows)
 
-1. For Windows, we are going to use PuTTY. You can download one from [here](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
-2. Open PuTTY and fill in the **HostName** with your instance's Public IPv4 DNS name
+1. Pour Windows, nous allons utiliser PuTTY. Vous pouvez le télécharger [ici](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
+2. Ouvrez PuTTY et remplissez le **HostName** avec le nom DNS IPv4 public de votre instance
 
 <figure><img src="../../.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-3. From the left hand side bar of PuTTY Configuration, expand **SSH** and click on **Auth**. Click Browse and select the `.ppk` file you downloaded earlier.
+3. Dans la barre latérale gauche de la configuration de PuTTY, développez **SSH** et cliquez sur **Auth**. Cliquez sur Parcourir et sélectionnez le fichier `.ppk` que vous avez téléchargé précédemment.
 
 <figure><img src="../../.gitbook/assets/image (23) (1) (1).png" alt="" width="296"><figcaption></figcaption></figure>
 
-4. Click **Open** and **Accept** the pop up message
+4. Cliquez sur **Ouvrir** et **Acceptez** le message contextuel
 
 <figure><img src="../../.gitbook/assets/image (18) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
-5. Then login as `ec2-user`
+5. Ensuite, connectez-vous en tant que `ec2-user`
 
 <figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
-6. Now you are connected to the EC2 instance
+6. Vous êtes maintenant connecté à l'instance EC2
 
-## How to Connect to your instance (Mac and Linux)
+## Comment se connecter à votre instance (Mac et Linux)
 
-1. Open the Terminal application on your Mac/Linux.
-2. _(Optional)_ Set the permissions of the private key file to restrict access to it:
-
-```bash
+1. Ouvrez l'application Terminal sur votre Mac/Linux.
+2. _(Optionnel)_ Modifiez les permissions du fichier de clé privée pour restreindre l'accès :
+``````bash
 chmod 400 /path/to/mykey.pem
 ```
 
-3. Use the `ssh` command to connect to your EC2 instance, specifying the username (`ec2-user`), Public IPv4 DNS, and the path to the `.pem` file.
+3. Utilisez la commande `ssh` pour vous connecter à votre instance EC2, en spécifiant le nom d'utilisateur (`ec2-user`), le DNS public IPv4 et le chemin vers le fichier `.pem`.
 
 ```bash
 ssh -i /Users/username/Documents/mykey.pem ec2-user@ec2-123-45-678-910.compute-1.amazonaws.com
 ```
 
-4. Press Enter, and if everything is configured correctly, you should successfully establish an SSH connection to your EC2 instance
+4. Appuyez sur Entrée, et si tout est configuré correctement, vous devriez établir avec succès une connexion SSH à votre instance EC2.
 
-## Install Docker
+## Installer Docker
 
-1. Apply pending updates using the yum command:
+1. Appliquez les mises à jour en attente en utilisant la commande yum :
 
 ```bash
 sudo yum update
 ```
 
-2. Search for Docker package:
+2. Recherchez le paquet Docker :
 
 ```bash
 sudo yum search docker
 ```
 
-3. Get version information:
+3. Obtenez des informations sur la version :
 
 ```bash
 sudo yum info docker
 ```
 
-4. Install docker, run:
+4. Installez Docker, exécutez :
 
 ```bash
 sudo yum install docker
 ```
 
-5. Add group membership for the default ec2-user so you can run all docker commands without using the sudo command:
+5. Ajoutez l'appartenance au groupe pour l'utilisateur par défaut ec2-user afin de pouvoir exécuter toutes les commandes docker sans utiliser la commande sudo :
 
 ```bash
 sudo usermod -a -G docker ec2-user
@@ -158,45 +157,45 @@ id ec2-user
 newgrp docker
 ```
 
-6. Install docker-compose:
+6. Installer docker-compose :
 
 ```bash
 sudo yum install docker-compose-plugin
 ```
 
-7. Enable docker service at AMI boot time:
+7. Activer le service docker au démarrage de l'AMI :
 
 ```bash
 sudo systemctl enable docker.service
 ```
 
-8. Start the Docker service:
+8. Démarrez le service Docker :
 
 ```bash
 sudo systemctl start docker.service
 ```
 
-## Install Git
+## Installer Git
 
 ```bash
 sudo yum install git -y
 ```
 
-## Setup
+## Configuration
 
-1. Clone the repo
+1. Clone le dépôt
 
 ```bash
 git clone https://github.com/FlowiseAI/Flowise.git
 ```
 
-2. Cd into docker folder
+2. Accédez au dossier docker
 
 ```bash
 cd Flowise && cd docker
 ```
 
-3. Create a `.env` file. You can use your favourite editor. I'll use `nano`
+3. Créez un fichier `.env`. Vous pouvez utiliser votre éditeur préféré. J'utiliserai `nano`
 
 ```bash
 nano .env
@@ -204,7 +203,7 @@ nano .env
 
 <figure><img src="../../.gitbook/assets/image (13) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
-4. Specify the env variables:
+4. Spécifiez les variables d'environnement :
 
 ```sh
 PORT=3000
@@ -214,41 +213,42 @@ LOG_PATH=/root/.flowise/logs
 BLOB_STORAGE_PATH=/root/.flowise/storage
 ```
 
-5. Then press `Ctrl + X` to Exit, and `Y` to save the file
-6. Run docker compose
+5. Ensuite, appuyez sur `Ctrl + X` pour quitter, puis sur `Y` pour enregistrer le fichier  
+6. Exécutez docker compose
 
 ```bash
 docker compose up -d
 ```
 
-7. Your application is now ready at your Public IPv4 DNS on port 3000:
+7. Votre application est maintenant prête à l'adresse DNS IPv4 publique sur le port 3000 :
 
 ```
 http://ec2-123-456-789.compute-1.amazonaws.com:3000
 ```
 
-8. You can bring the app down by:
+8. Vous pouvez fermer l'application en :
 
 ```bash
 docker compose stop
 ```
 
-9. You can pull from latest image by:
+9. Vous pouvez récupérer la dernière image en :
 
 ```bash
 docker pull flowiseai/flowise
 ```
+Voici la traduction en français :
 
-Alternatively:
-
-```bash
+```markdown
+Alternativement :
+``````bash
 docker-compose pull
 docker-compose up --build -d
 ```
 
-## Using NGINX
+## Utilisation de NGINX
 
-If you want to get rid of the :3000 on the url and have a custom domain, you can use NGINX to reverse proxy port 80 to 3000 So user will be able to open the app using your domain. Example: `http://yourdomain.com`.
+Si vous souhaitez vous débarrasser du :3000 dans l'URL et avoir un domaine personnalisé, vous pouvez utiliser NGINX pour faire un reverse proxy du port 80 vers 3000. Ainsi, l'utilisateur pourra ouvrir l'application en utilisant votre domaine. Exemple : `http://yourdomain.com`.
 
 1. ```bash
    sudo yum install nginx
@@ -260,7 +260,7 @@ If you want to get rid of the :3000 on the url and have a custom domain, you can
    </strong></code></pre>
 4. <pre class="language-bash"><code class="lang-bash"><strong>sudo nano /etc/nginx/conf.d/flowise.conf
    </strong></code></pre>
-5. Copy paste the following and change to your domain:
+5. Copiez-collez ce qui suit et modifiez-le avec votre domaine :
 
 ```shell
 server {
@@ -281,7 +281,7 @@ server {
 }
 ```
 
-press `Ctrl + X` to Exit, and `Y` to save the file
+press `Ctrl + X` pour quitter, et `Y` pour enregistrer le fichier
 
 6. ```bash
    sudo systemctl restart nginx
@@ -303,34 +303,34 @@ sudo python3 -m venv /opt/certbot/
 sudo /opt/certbot/bin/pip install --upgrade pip
 ```
 
-2. Afterwards, run this command to install Certbot:
+2. Ensuite, exécutez cette commande pour installer Certbot :
 
 ```bash
 sudo /opt/certbot/bin/pip install certbot certbot-nginx
 ```
 
-3. Now, execute the following command to ensure that the `certbot` command can be run:
+3. Maintenant, exécutez la commande suivante pour vous assurer que la commande `certbot` peut être exécutée :
 
 ```bash
 sudo ln -s /opt/certbot/bin/certbot /usr/bin/certbot
 ```
 
-4. Finally, run the following command to obtain a certificate and let Certbot automatically modify the NGINX configuration, enabling HTTPS:
+4. Enfin, exécutez la commande suivante pour obtenir un certificat et permettre à Certbot de modifier automatiquement la configuration NGINX, activant ainsi HTTPS :
 
 ```bash
 sudo certbot --nginx
 ```
 
-5. After following the certificate generation wizard, we will be able to access our EC2 instance via HTTPS using the address `https://yourdomain.com`
+5. Après avoir suivi l'assistant de génération de certificat, nous pourrons accéder à notre instance EC2 via HTTPS en utilisant l'adresse `https://yourdomain.com`
 
-## Set up automatic renewal
+## Configurer le renouvellement automatique
 
-To enable Certbot to automatically renew the certificates, it is sufficient to add a cron job by running the following command:
+Pour permettre à Certbot de renouveler automatiquement les certificats, il suffit d'ajouter une tâche cron en exécutant la commande suivante :
 
 ```bash
 echo "0 0,12 * * * root /opt/certbot/bin/python -c 'import random; import time; time.sleep(random.random() * 3600)' && sudo certbot renew -q" | sudo tee -a /etc/crontab > /dev/null
 ```
 
-## Congratulations!
+## Félicitations !
 
-You have successfully setup Flowise apps on EC2 instance with SSL certificate on your domain[🥳](https://emojipedia.org/partying-face/)
+Vous avez réussi à configurer les applications Flowise sur une instance EC2 avec un certificat SSL sur votre domaine[🥳](https://emojipedia.org/partying-face/)

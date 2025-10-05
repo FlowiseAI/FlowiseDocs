@@ -1,14 +1,14 @@
 ---
-description: Learn how to set up and run Flowise instances
+description: Apprenez à configurer et à exécuter des instances Flowise
 ---
 
 # Configuration
 
 ***
 
-This section will guide you through various configuration options to customize your Flowise instances for development, testing, and production environments.
+Cette section vous guidera à travers diverses options de configuration pour personnaliser vos instances Flowise pour les environnements de développement, de test et de production.
 
-We'll also provide in-depth guides for deploying Flowise on different Platform as a Service (PaaS) options, ensuring a smooth and successful deployment.
+Nous fournirons également des guides détaillés pour déployer Flowise sur différentes options de Plateforme en tant que Service (PaaS), garantissant un déploiement fluide et réussi.
 
 ## Guides
 

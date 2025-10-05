@@ -1,42 +1,42 @@
 ---
-description: Learn how to deploy Flowise on Railway
+description: Apprenez à déployer Flowise sur Railway
 ---
 
 # Railway
 
 ***
 
-1. Click the following prebuilt [template](https://railway.app/template/pn4G8S?referralCode=WVNPD9)
-2. Click Deploy Now
+1. Cliquez sur le [modèle](https://railway.app/template/pn4G8S?referralCode=WVNPD9) préconstruit suivant
+2. Cliquez sur Déployer maintenant
 
 <figure><img src="../../.gitbook/assets/image (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
-3. Change to your preferred repository name and click Deploy
+3. Changez le nom du dépôt selon votre préférence et cliquez sur Déployer
 
 <figure><img src="../../.gitbook/assets/image (2) (1) (2) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
-4. If succeeds, you should be able to see a deployed URL
+4. Si cela réussit, vous devriez voir une URL déployée
 
 <figure><img src="../../.gitbook/assets/image (2) (2).png" alt=""><figcaption></figcaption></figure>
 
-5. To add authorization, navigate to Variables tab and add:
+5. Pour ajouter une autorisation, allez dans l'onglet Variables et ajoutez :
 
 * FLOWISE\_USERNAME
 * FLOWISE\_PASSWORD
 
 <figure><img src="../../.gitbook/assets/image (15) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-6. There are list of env variables you can configure. Refer to [environment-variables.md](../environment-variables.md "mention")
+6. Il existe une liste de variables d'environnement que vous pouvez configurer. Consultez [environment-variables.md](../environment-variables.md "mention")
 
-That's it! You now have a deployed Flowise on Railway [🎉](https://emojipedia.org/party-popper/)[🎉](https://emojipedia.org/party-popper/)
+C'est tout ! Vous avez maintenant un Flowise déployé sur Railway [🎉](https://emojipedia.org/party-popper/)[🎉](https://emojipedia.org/party-popper/)
 
-## Persistent Volume
+## Volume Persistant
 
-The default filesystem for services running on Railway is ephemeral. Flowise data isn’t persisted across deploys and restarts. To solve this issue, we can use [Railway Volume](https://docs.railway.app/reference/volumes).
+Le système de fichiers par défaut pour les services fonctionnant sur Railway est éphémère. Les données de Flowise ne sont pas conservées entre les déploiements et les redémarrages. Pour résoudre ce problème, nous pouvons utiliser [Railway Volume](https://docs.railway.app/reference/volumes).
 
-To ease the steps, we have a Railway template with volume mounted: [https://railway.app/template/nEGbjR](https://railway.app/template/nEGbjR)
+Pour simplifier les étapes, nous avons un modèle Railway avec volume monté : [https://railway.app/template/nEGbjR](https://railway.app/template/nEGbjR)
 
-Just click Deploy and fill in the Env Variables like below:
+Il suffit de cliquer sur Déployer et de remplir les variables d'environnement comme ci-dessous :
 
 * DATABASE\_PATH - `/opt/railway/.flowise`
 * APIKEY\_PATH - `/opt/railway/.flowise`
@@ -46,4 +46,4 @@ Just click Deploy and fill in the Env Variables like below:
 
 <figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="420"><figcaption></figcaption></figure>
 
-Now try creating a flow and save it in Flowise. Then try restarting service or redeploy, you should still be able to see the flow you have saved previously.
+Essayez maintenant de créer un flux et de l'enregistrer dans Flowise. Ensuite, essayez de redémarrer le service ou de redéployer, vous devriez toujours voir le flux que vous avez enregistré précédemment.

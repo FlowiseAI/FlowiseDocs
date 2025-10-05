@@ -1,23 +1,23 @@
 ---
-description: Welcome to the official Flowise documentation
+description: Bienvenue dans la documentation officielle de Flowise
 ---
 
 # Introduction
 
 <figure><img src=".gitbook/assets/FlowiseIntro (1).gif" alt=""><figcaption></figcaption></figure>
 
-Flowise is an open source generative AI development platform for building AI Agents and LLM workflows.
+Flowise est une plateforme de développement d'IA générative open source pour la création d'agents IA et de workflows LLM.
 
-It offers a complete solution that includes:
+Elle offre une solution complète qui inclut :
 
-* [x] Visual Builder
-* [x] Tracing & Analytics
-* [x] Evaluations
-* [x] Human in the Loop
-* [x] API, CLI, SDK, Embedded Chatbot
-* [x] Teams & Workspaces
+* [x] Constructeur Visuel
+* [x] Suivi & Analytique
+* [x] Évaluations
+* [x] Humain dans la Boucle
+* [x] API, CLI, SDK, Chatbot Intégré
+* [x] Équipes & Espaces de Travail
 
-There are 3 main visual builders namely:
+Il existe 3 principaux constructeurs visuels, à savoir :
 
 * Assistant
 * Chatflow
@@ -25,47 +25,47 @@ There are 3 main visual builders namely:
 
 ## Assistant
 
-Assistant is the most begineer-friendly way of creating an AI Agent. Users can create chat assistant that is able to follow instructions, use tools when neccessary, and retrieve knowledge base from uploaded files ([RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)) to respond to user queries.
+L'Assistant est la manière la plus conviviale de créer un agent IA. Les utilisateurs peuvent créer un assistant de chat capable de suivre des instructions, d'utiliser des outils si nécessaire, et de récupérer des connaissances à partir de fichiers téléchargés ([RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)) pour répondre aux requêtes des utilisateurs.
 
 <figure><picture><source srcset=".gitbook/assets/Screenshot 2025-06-10 232758.png" media="(prefers-color-scheme: dark)"><img src=".gitbook/assets/image (303).png" alt=""></picture><figcaption></figcaption></figure>
 
 ## Chatflow
 
-Chatflow is designed to build single-agent systems, chatbots and simple LLM flows. It is more flexible than Assistant. Users can use advance techniques like Graph RAG, Reranker, Retriever, etc.
+Chatflow est conçu pour construire des systèmes à agent unique, des chatbots et des flux LLM simples. Il est plus flexible que l'Assistant. Les utilisateurs peuvent utiliser des techniques avancées telles que Graph RAG, Reranker, Retriever, etc.
 
 <figure><picture><source srcset=".gitbook/assets/screely-1749594035877.png" media="(prefers-color-scheme: dark)"><img src=".gitbook/assets/screely-1749593961545.png" alt=""></picture><figcaption></figcaption></figure>
 
 ## Agentflow
 
-Agentflow is the superset of Chatflow & Assistant. It can be used to create chat assistant, single-agent system, multi-agent systems, and complex workflow orchestration. Learn more [Agentflow V2](using-flowise/agentflowv2.md)
+Agentflow est le sur-ensemble de Chatflow et de l'Assistant. Il peut être utilisé pour créer un assistant de chat, un système à agent unique, des systèmes multi-agents et une orchestration de workflows complexes. En savoir plus sur [Agentflow V2](using-flowise/agentflowv2.md)
 
 <figure><picture><source srcset=".gitbook/assets/screely-1749594631028.png" media="(prefers-color-scheme: dark)"><img src=".gitbook/assets/screely-1749594614881.png" alt=""></picture><figcaption></figcaption></figure>
 
-## Flowise Capabilities
+## Capacités de Flowise
 
-| Feature Area                 | Flowise Capabilities                                                                                                |
+| Domaine de Fonctionnalité    | Capacités de Flowise                                                                                               |
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| Orchestration                | Visual editor, supports open-source & proprietary models, expressions, custom code, branching/looping/routing logic |
-| Data Ingestion & Integration | Connects to 100+ sources, tools, vector databases, memories                                                         |
-| Monitoring                   | Execution logs, visual debugging, external log streaming                                                            |
-| Deployment                   | Self-hosted options, air-gapped deploy                                                                              |
-| Data Processing              | Data transforms, filters, aggregates, custom code, RAG indexing pipelines                                           |
-| Memory & Planning            | Various memory optimization technique and integrations                                                              |
-| MCP Integration              | MCP client/server nodes, tool listing, SSE, auth support                                                            |
-| Safety & Control             | Input moderation & output post-processing                                                                           |
-| API, SDK, CLI                | API access, JS/Python SDK, Command Line Interface                                                                   |
-| Embedded & Share Chatbot     | Customizable embedded chat widget and component                                                                     |
-| Templates & Components       | Template marketplace, reusable components                                                                           |
-| Security Controls            | RBAC, SSO, encrypted creds, secret managers, rate limit, restricted domains                                         |
-| Scalability                  | Vertical/horizontal scale, high throughput/workflow load                                                            |
-| Evaluations                  | Datasets, Evaluators and Evaluations                                                                                |
-| Community Support            | Active community forum                                                                                              |
-| Vendor Support               | SLA support, consultations, fixed/deterministic pricing                                                             |
+| Orchestration                | Éditeur visuel, prend en charge les modèles open-source et propriétaires, expressions, code personnalisé, logique de branchement/boucle/routage |
+| Ingestion et Intégration des Données | Se connecte à plus de 100 sources, outils, bases de données vectorielles, mémoires                                   |
+| Surveillance                 | Journaux d'exécution, débogage visuel, diffusion de journaux externes                                               |
+| Déploiement                  | Options auto-hébergées, déploiement en environnement isolé                                                         |
+| Traitement des Données       | Transformations de données, filtres, agrégats, code personnalisé, pipelines d'indexation RAG                       |
+| Mémoire et Planification      | Techniques d'optimisation de mémoire variées et intégrations                                                       |
+| Intégration MCP              | Nœuds client/serveur MCP, liste d'outils, SSE, support d'authentification                                         |
+| Sécurité et Contrôle         | Modération des entrées et post-traitement des sorties                                                              |
+| API, SDK, CLI                | Accès API, SDK JS/Python, Interface en Ligne de Commande                                                           |
+| Chatbot Intégré et Partagé    | Widget de chat intégré personnalisable et composant                                                                |
+| Modèles et Composants        | Marché de modèles, composants réutilisables                                                                        |
+| Contrôles de Sécurité        | RBAC, SSO, identifiants chiffrés, gestionnaires de secrets, limitation de taux, domaines restreints                 |
+| Scalabilité                  | Échelle verticale/horizontale, charge de travail/flux élevée                                                       |
+| Évaluations                  | Ensembles de données, Évaluateurs et Évaluations                                                                    |
+| Support Communautaire        | Forum communautaire actif                                                                                           |
+| Support Fournisseur          | Support SLA, consultations, tarification fixe/déterministe                                                         |
 
-## Contributing
+## Contribuer
 
-If you want to help this project, please consider reviewing the [Contribution Guide](broken-reference/).
+Si vous souhaitez aider ce projet, veuillez envisager de consulter le [Guide de Contribution](broken-reference/).
 
-## Need Help?
+## Besoin d'aide ?
 
-For support and further discussion, head over to our [Discord](https://discord.gg/jbaHfsRVBW) server.
+Pour un support et des discussions supplémentaires, rendez-vous sur notre serveur [Discord](https://discord.gg/jbaHfsRVBW).

@@ -1,36 +1,36 @@
 ---
-description: Learn how to deploy Flowise on Sealos
+description: Apprenez à déployer Flowise sur Sealos
 ---
 
 # Sealos
 
 ***
 
-1. Click the following prebuilt [template](https://template.sealos.io/deploy?templateName=flowise) or the button below.
+1. Cliquez sur le [modèle](https://template.sealos.io/deploy?templateName=flowise) préconstruit ci-dessous ou sur le bouton ci-dessous.
 
-[![Deploy on Sealos](https://sealos.io/Deploy-on-Sealos.svg)](https://template.sealos.io/deploy?templateName=flowise)
+[![Déployer sur Sealos](https://sealos.io/Deploy-on-Sealos.svg)](https://template.sealos.io/deploy?templateName=flowise)
 
-2. Add authorization
+2. Ajoutez l'autorisation
    * FLOWISE\_USERNAME
    * FLOWISE\_PASSWORD
 
 <figure><img src="../../.gitbook/assets/1.jpg" alt=""><figcaption></figcaption></figure>
 
-3. Click "Deploy Application" on the template page to start deployment.
-4. Once deployment concludes, click "Details" to navigate to the application's details.
+3. Cliquez sur "Déployer l'application" sur la page du modèle pour commencer le déploiement.
+4. Une fois le déploiement terminé, cliquez sur "Détails" pour accéder aux détails de l'application.
 
 <figure><img src="../../.gitbook/assets/2.png" alt=""><figcaption></figcaption></figure>
 
-5. Wait for the application's status to switch to running. Subsequently, click on the external link to open the application's Web interface directly through the external domain.
+5. Attendez que le statut de l'application passe à "en cours d'exécution". Ensuite, cliquez sur le lien externe pour ouvrir l'interface Web de l'application directement via le domaine externe.
 
 <figure><img src="../../.gitbook/assets/3.png" alt=""><figcaption></figcaption></figure>
 
-## Persistent Volume
+## Volume Persistant
 
-Click "Update" top-right on the app details page, then click "Advanced" -> "Add volume", Fill in the value of "mount path": `/root/.flowise`.
+Cliquez sur "Mettre à jour" en haut à droite de la page des détails de l'application, puis cliquez sur "Avancé" -> "Ajouter un volume", remplissez la valeur du "chemin de montage" : `/root/.flowise`.
 
 <figure><img src="../../.gitbook/assets/4.png" alt="" width="375"><figcaption></figcaption></figure>
 
-To wrap up, click the "Deploy" button.
+Pour terminer, cliquez sur le bouton "Déployer".
 
-Now try creating a flow and save it in Flowise. Then try restarting service or redeploy, you should still be able to see the flow you have saved previously.
+Essayez maintenant de créer un flux et de l'enregistrer dans Flowise. Ensuite, essayez de redémarrer le service ou de redéployer, vous devriez toujours pouvoir voir le flux que vous avez enregistré précédemment.

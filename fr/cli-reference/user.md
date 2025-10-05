@@ -1,58 +1,58 @@
-# User
+# Utilisateur
 
-## List User Emails
+## Lister les e-mails des utilisateurs
 
-This command allows you to list all user emails registered in the system.
+Cette commande vous permet de lister tous les e-mails des utilisateurs enregistrés dans le système.
 
-### Local Usage
+### Utilisation locale
 
 ```bash
 pnpm user
 ```
 
-Or if using npm
+Ou si vous utilisez npm
 
 ```bash
 npx flowise user
 ```
 
-### Docker Usage
+### Utilisation de Docker
 
-If you're running Flowise in a Docker container, use the following command:
+Si vous exécutez Flowise dans un conteneur Docker, utilisez la commande suivante :
 
 ```bash
 docker exec -it FLOWISE_CONTAINER_NAME pnpm user
 ```
 
-Replace `FLOWISE_CONTAINER_NAME` with your actual Flowise container name.
+Replace `FLOWISE_CONTAINER_NAME` par le nom réel de votre conteneur Flowise.
 
-## Reset User Password
+## Réinitialiser le mot de passe de l'utilisateur
 
-This command allows you to reset a user's password.
+Cette commande vous permet de réinitialiser le mot de passe d'un utilisateur.
 
-### Local Usage
+### Utilisation locale
 
 ```bash
 pnpm user --email "admin@admin.com" --password "myPassword1!"
 ```
 
-Or if using npm
+Ou si vous utilisez npm
 
 ```
 npx flowise user --email "admin@admin.com" --password "myPassword1!"
 ```
 
-### Docker Usage
+### Utilisation de Docker
 
-If you're running Flowise in a Docker container, use the following command:
+Si vous exécutez Flowise dans un conteneur Docker, utilisez la commande suivante :
 
 ```bash
 docker exec -it FLOWISE_CONTAINER_NAME pnpm user --email "admin@admin.com" --password "myPassword1!"
 ```
 
-Replace `FLOWISE_CONTAINER_NAME` with your actual Flowise container name.
+Replacez `FLOWISE_CONTAINER_NAME` par le nom de votre conteneur Flowise.
 
-### Parameters
+### Paramètres
 
-* `--email`: The email address of the user whose password you want to reset
-* `--password`: The new password to set for the user
+* `--email` : L'adresse e-mail de l'utilisateur dont vous souhaitez réinitialiser le mot de passe
+* `--password` : Le nouveau mot de passe à définir pour l'utilisateur

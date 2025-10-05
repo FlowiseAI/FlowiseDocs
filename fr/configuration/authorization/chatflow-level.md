@@ -1,34 +1,34 @@
 ---
-description: Learn how to set up chatflow-level access control for your Flowise instances
+description: Apprenez à configurer le contrôle d'accès au niveau du chatflow pour vos instances Flowise
 ---
 
 # Flows
 
 ***
 
-After you have a chatflow / agentflow constructed, by default, your flow is available to public. Anyone that has access to the Chatflow ID is able to run prediction through Embed or API.
+Après avoir construit un chatflow / agentflow, par défaut, votre flux est accessible au public. Quiconque ayant accès à l'ID du Chatflow peut exécuter des prédictions via Embed ou API.
 
-In cases where you might want to allow certain people to be able to access and interact with it, you can do so by assigning an API key for that specific chatflow.
+Dans les cas où vous souhaitez permettre à certaines personnes d'accéder et d'interagir avec celui-ci, vous pouvez le faire en attribuant une clé API pour ce chatflow spécifique.
 
-## API Key
+## Clé API
 
-In dashboard, navigate to API Keys section, and you should be able to see a DefaultKey created. You can also add or delete any keys.
+Dans le tableau de bord, accédez à la section Clés API, et vous devriez voir une DefaultKey créée. Vous pouvez également ajouter ou supprimer des clés.
 
 <figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Chatflow
 
-Navigate to the chatflow, and now you can select the API Key you want to use to protect the chatflow.
+Accédez au chatflow, et maintenant vous pouvez sélectionner la clé API que vous souhaitez utiliser pour protéger le chatflow.
 
 <figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-After assigning an API key, one can only access the chatflow API when the Authorization header is provided with the correct API key specified during a HTTP call.
+Après avoir attribué une clé API, on ne peut accéder à l'API du chatflow que lorsque l'en-tête Authorization est fourni avec la clé API correcte spécifiée lors d'un appel HTTP.
 
 ```json
 "Authorization": "Bearer <your-api-key>"
 ```
 
-An example of calling the API using POSTMAN
+Un exemple d'appel de l'API en utilisant POSTMAN
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 

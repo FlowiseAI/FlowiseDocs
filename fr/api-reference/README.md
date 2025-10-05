@@ -1,17 +1,17 @@
-# API Reference
+# Référence API
 
-Using Flowise public API, you can programmatically execute many of the same tasks as you can in the GUI. This section introduces Flowise REST API.
+En utilisant l'API publique de Flowise, vous pouvez exécuter de manière programmatique de nombreuses tâches similaires à celles que vous pouvez réaliser dans l'interface graphique. Cette section présente l'API REST de Flowise.
 
 * [Assistants](assistants.md)
-* [Attachments](attachments.md)
-* [Chat Message](chat-message.md)
-* [Chatflows](chatflows.md)
-* [Document Store](document-store.md)
-* [Feedback](feedback.md)
-* [Leads](leads.md)
+* [Pièces jointes](attachments.md)
+* [Message de chat](chat-message.md)
+* [Flux de chat](chatflows.md)
+* [Stockage de documents](document-store.md)
+* [Retour d'information](feedback.md)
+* [Prospects](leads.md)
 * [Ping](ping.md)
-* [Prediction](prediction.md)
-* [Tools](tools.md)
-* [Upsert History](upsert-history.md)
+* [Prédiction](prediction.md)
+* [Outils](tools.md)
+* [Historique d'Upsert](upsert-history.md)
 * [Variables](variables.md)
-* [Vector Upsert](vector-upsert.md)
+* [Upsert de vecteur](vector-upsert.md)

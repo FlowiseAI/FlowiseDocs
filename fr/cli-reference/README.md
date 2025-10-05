@@ -1,5 +1,5 @@
-# CLI Reference
+# Référence CLI
 
-Using Flowise CLI, you can programmatically execute many of the same tasks as you can in the GUI. This section introduces Flowise Command Line Interface.
+Avec Flowise CLI, vous pouvez exécuter de manière programmatique de nombreuses tâches identiques à celles que vous pouvez effectuer dans l'interface graphique. Cette section présente l'interface de ligne de commande Flowise.
 
-- [User](user.md)
+- [Utilisateur](user.md)

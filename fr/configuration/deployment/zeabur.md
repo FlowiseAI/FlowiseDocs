@@ -1,5 +1,5 @@
 ---
-description: Learn how to deploy Flowise on Zeabur
+description: Apprenez à déployer Flowise sur Zeabur
 ---
 
 # Zeabur
@@ -7,36 +7,36 @@ description: Learn how to deploy Flowise on Zeabur
 ***
 
 {% hint style="warning" %}
-Please note that the following template made by Zeabur is outdated (from 2024-01-24).
+Veuillez noter que le modèle suivant créé par Zeabur est obsolète (du 2024-01-24).
 {% endhint %}
 
-1. Click the following prebuilt [template](https://zeabur.com/templates/2JYZTR) or the button below.
+1. Cliquez sur le [modèle](https://zeabur.com/templates/2JYZTR) préconstruit ci-dessous ou sur le bouton ci-dessous.
 
-[![Deploy on Zeabur](https://zeabur.com/button.svg)](https://zeabur.com/templates/2JYZTR)
+[![Déployer sur Zeabur](https://zeabur.com/button.svg)](https://zeabur.com/templates/2JYZTR)
 
-2. Click Deploy
+2. Cliquez sur Déployer
 
-<figure><img src="../../.gitbook/assets/zeabur/1.png" alt="zeabur template"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/zeabur/1.png" alt="modèle zeabur"><figcaption></figcaption></figure>
 
-3. Select your favorite region and continue
+3. Sélectionnez votre région préférée et continuez
 
-<figure><img src="../../.gitbook/assets/zeabur/2.png" alt="select region"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/zeabur/2.png" alt="sélectionner la région"><figcaption></figcaption></figure>
 
-4. You will be redirected to Zeabur's dashboard and you will see the deployment process
+4. Vous serez redirigé vers le tableau de bord de Zeabur et vous verrez le processus de déploiement
 
-<figure><img src="../../.gitbook/assets/zeabur/3.png" alt="deployment process"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/zeabur/3.png" alt="processus de déploiement"><figcaption></figcaption></figure>
 
-5. To add authorization, navigate to Variables tab and add:
+5. Pour ajouter une autorisation, allez dans l'onglet Variables et ajoutez :
 
 * FLOWISE\_USERNAME
 * FLOWISE\_PASSWORD
 
-<figure><img src="../../.gitbook/assets/zeabur/4.png" alt="authorization"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/zeabur/4.png" alt="autorisation"><figcaption></figcaption></figure>
 
-6. There are list of env variables you can configure. Refer to [environment-variables.md](../environment-variables.md "mention")
+6. Il existe une liste de variables d'environnement que vous pouvez configurer. Consultez [environment-variables.md](../environment-variables.md "mention")
 
-That's it! You now have a deployed Flowise on Zeabur [🎉](https://emojipedia.org/party-popper/)[🎉](https://emojipedia.org/party-popper/)
+C'est tout ! Vous avez maintenant déployé Flowise sur Zeabur [🎉](https://emojipedia.org/party-popper/)[🎉](https://emojipedia.org/party-popper/)
 
-## Persistent Volume
+## Volume Persistant
 
-Zeabur will automatically create a persistent volume for you so you don't have to worry about it.
+Zeabur créera automatiquement un volume persistant pour vous, donc vous n'avez pas à vous en soucier.

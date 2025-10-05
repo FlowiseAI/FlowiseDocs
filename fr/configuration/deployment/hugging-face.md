@@ -1,31 +1,31 @@
 ---
-description: Learn how to deploy Flowise on Hugging Face
+description: Apprenez à déployer Flowise sur Hugging Face
 ---
 
 # Hugging Face
 
 ***
 
-### Create a new space
+### Créer un nouvel espace
 
-1. Sign in to [Hugging Face](https://huggingface.co/login)
-2. Start creating a [new Space](https://huggingface.co/new-space) with your preferred name.
-3. Select **Docker** as **Space SDK** and choose **Blank** as the Docker template.
-4. Select **CPU basic ∙ 2 vCPU ∙ 16GB ∙ FREE** as **Space hardware**.
-5. Click **Create Space**.
+1. Connectez-vous à [Hugging Face](https://huggingface.co/login)
+2. Commencez à créer un [nouvel espace](https://huggingface.co/new-space) avec le nom de votre choix.
+3. Sélectionnez **Docker** comme **SDK de l'espace** et choisissez **Vide** comme modèle Docker.
+4. Sélectionnez **CPU de base ∙ 2 vCPU ∙ 16 Go ∙ GRATUIT** comme **matériel de l'espace**.
+5. Cliquez sur **Créer l'espace**.
 
-### Set the environment variables
+### Définir les variables d'environnement
 
-1. Go to **Settings** of your new space and find the **Variables and Secrets** section
-2. Click on **New variable** and add the name as `PORT` with value `7860`
-3. Click on **Save**
-4. _(Optional)_ Click on **New secret**
-5. _(Optional)_ Fill in with your environment variables, such as database credentials, file paths, etc. You can check for valid fields in the `.env.example` [here](https://github.com/FlowiseAI/Flowise/blob/main/docker/.env.example)
+1. Allez dans **Paramètres** de votre nouvel espace et trouvez la section **Variables et Secrets**
+2. Cliquez sur **Nouvelle variable** et ajoutez le nom `PORT` avec la valeur `7860`
+3. Cliquez sur **Sauvegarder**
+4. _(Optionnel)_ Cliquez sur **Nouveau secret**
+5. _(Optionnel)_ Remplissez avec vos variables d'environnement, telles que les identifiants de base de données, les chemins de fichiers, etc. Vous pouvez vérifier les champs valides dans le fichier `.env.example` [ici](https://github.com/FlowiseAI/Flowise/blob/main/docker/.env.example)
 
-### Create a Dockerfile
+### Créer un Dockerfile
 
-1. At the files tab, click on button _**+ Add file**_ and click on **Create a new file** (or Upload files if you prefer to)
-2. Create a file called **Dockerfile** and paste the following:
+1. Dans l'onglet des fichiers, cliquez sur le bouton _**+ Ajouter un fichier**_ et cliquez sur **Créer un nouveau fichier** (ou téléchargez des fichiers si vous préférez)
+2. Créez un fichier appelé **Dockerfile** et collez ce qui suit :
 
 ```Dockerfile
 FROM node:18-alpine
@@ -56,8 +56,8 @@ WORKDIR /data
 CMD ["npx", "flowise", "start"]
 ```
 
-3. Click on **Commit file to `main`** and it will start to build your app.
+3. Cliquez sur **Valider le fichier dans `main`** et cela commencera à construire votre application.
 
-### Done 🎉
+### Terminé 🎉
 
-When the build finishes you can click on the **App** tab to see your app running.
+Lorsque la construction est terminée, vous pouvez cliquer sur l'onglet **Application** pour voir votre application en cours d'exécution.

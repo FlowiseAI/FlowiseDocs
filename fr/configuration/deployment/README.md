@@ -1,22 +1,22 @@
 ---
-description: Learn how to deploy Flowise to the cloud
+description: Apprenez à déployer Flowise dans le cloud
 ---
 
-# Deployment
+# Déploiement
 
 ***
 
-Flowise is designed with a platform-agnostic architecture, ensuring compatibility with a wide range of deployment environments to suit your infrastructure needs.
+Flowise est conçu avec une architecture indépendante de la plateforme, garantissant une compatibilité avec une large gamme d'environnements de déploiement pour répondre à vos besoins d'infrastructure.
 
-## Local Machine
+## Machine locale
 
-To deploy Flowise locally, follow our [Get Started](../../getting-started/) guide.
+Pour déployer Flowise localement, suivez notre guide [Commencer](../../getting-started/).
 
-## Modern Cloud Providers
+## Fournisseurs de cloud modernes
 
-Modern cloud platforms prioritize automation and focus on developer workflows, simplifying cloud management and ongoing maintenance.&#x20;
+Les plateformes cloud modernes privilégient l'automatisation et se concentrent sur les flux de travail des développeurs, simplifiant ainsi la gestion du cloud et la maintenance continue.&#x20;
 
-This reduces the technical expertise needed, but may limit the level of customization you have over the underlying infrastructure.
+Cela réduit l'expertise technique nécessaire, mais peut limiter le niveau de personnalisation que vous avez sur l'infrastructure sous-jacente.
 
 * [Elestio](https://elest.io/open-source/flowiseai)
 * [Hugging Face](hugging-face.md)
@@ -27,14 +27,14 @@ This reduces the technical expertise needed, but may limit the level of customiz
 * [Sealos](sealos.md)
 * [Zeabur](zeabur.md)
 
-## Established Cloud Providers
+## Fournisseurs de cloud établis
 
-Established cloud providers, on the other hand, require a higher level of technical expertise to manage and optimize for your specific needs.&#x20;
+Les fournisseurs de cloud établis, en revanche, nécessitent un niveau d'expertise technique plus élevé pour gérer et optimiser selon vos besoins spécifiques.&#x20;
 
-This complexity, however, also grants greater flexibility and control over your cloud environment.
+Cette complexité, cependant, offre également une plus grande flexibilité et un meilleur contrôle sur votre environnement cloud.
 
 * [AWS](aws.md)
 * [Azure](azure.md)
 * [DigitalOcean](digital-ocean.md)
 * [GCP](gcp.md)
-* [Kubernetes using Helm](https://artifacthub.io/packages/helm/cowboysysop/flowise)
+* [Kubernetes avec Helm](https://artifacthub.io/packages/helm/cowboysysop/flowise)
