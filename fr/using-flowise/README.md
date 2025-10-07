@@ -2,11 +2,11 @@
 description: Learn about some core functionalities built into Flowise
 ---
 
-# Using Flowise
+# Utilisation de Flowise
 
 ***
 
-This section provides in-depth guides on core Flowise functionalities.
+Cette section fournit des guides approfondis sur les fonctionnalités flomentes de base.
 
 ## Guides
 

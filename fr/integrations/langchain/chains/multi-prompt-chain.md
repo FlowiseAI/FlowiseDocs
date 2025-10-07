@@ -1,13 +1,12 @@
 ---
 description: >-
-  Chain automatically picks an appropriate prompt from multiple prompt
-  templates.
+  Chain sélectionne automatiquement un prompt approprié parmi plusieurs modèles de prompt.
 ---
 
-# Multi Prompt Chain
+# Chaîne de Prompts Multiples
 
-<figure><img src="../../../.gitbook/assets/image (32).png" alt="" width="334"><figcaption><p>Multi Prompt Chain Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (32).png" alt="" width="334"><figcaption><p>Noeud de Chaîne de Prompts Multiples</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
+Cette section est en cours de développement. Nous apprécions toute aide que vous pouvez apporter pour compléter cette section. Veuillez consulter notre [Guide de Contribution](broken-reference) pour commencer.
 {% endhint %}

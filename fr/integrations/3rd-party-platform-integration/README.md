@@ -1,11 +1,11 @@
 ---
-description: Learn how to integrate Flowise with third-party platforms
+description: Apprenez à intégrer Flowise avec des plateformes tierces
 ---
 
-# External Integrations
+# Intégrations externes
 
 ***
 
-Flowise can also be used in 3rd party platform. Here are some usage examples:
+Flowise peut également être utilisé sur des plateformes tierces. Voici quelques exemples d'utilisation :
 
 * [Zapier Zaps](zapier-zaps.md)

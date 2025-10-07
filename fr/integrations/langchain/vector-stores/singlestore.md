@@ -1,62 +1,62 @@
-# SingleStore
+# Singlestore
 
-## Setup
+## Installation
 
-1. Register an account on [SingleStore](https://www.singlestore.com/)
-2. Login to portal. On the left side panel, click **CLOUD** -> **Create new workspace group.** Then click **Create Workspace** button.
+1. Enregistrer un compte sur[SingleStore](https://www.singlestore.com/)
+2. Connectez-vous vers le portail. Sur le panneau gauche, cliquez sur ** Cloud ** -> ** Créer un nouveau groupe d'espace de travail. ** puis cliquez sur ** Création du bouton Workspace **.
 
-<figure><img src="../../../.gitbook/assets/image (56).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (56) .png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-3. Select cloud provider and data region, then click **Next**:
+3. Sélectionnez le fournisseur de cloud et la région de données, puis cliquez sur ** Suivant **:
 
-<figure><img src="../../../.gitbook/assets/image (57).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (57) .png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-4. Review and click **Create Workspace**:
+4. Revoir et cliquer sur ** Créer un espace de travail **:
 
-<figure><img src="../../../.gitbook/assets/image (58).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (58) .png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-5. You should now see your workspace created:
+5. Vous devriez maintenant voir votre espace de travail créé:
 
-<figure><img src="../../../.gitbook/assets/image (60).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (60) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-6. Proceed to create a database
+6. Procéder à la création d'une base de données
 
-<figure><img src="../../../.gitbook/assets/image (65).png" alt="" width="485"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (65) .png" alt = "" width = "485"> <Figcaption> </ Figcaption> </ Figure>
 
-7. You should be able to see your database created and attached to the workspace:
+7. Vous devriez pouvoir voir votre base de données créée et attachée à l'espace de travail:
 
-<figure><img src="../../../.gitbook/assets/image (66).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (66) .png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-8. Click Connect from the workspace dropdown -> Connect Directly:
+8. Cliquez sur Connecter dans la liste déroulante de l'espace de travail -> Connectez-vous directement:
 
-<figure><img src="../../../.gitbook/assets/image (61).png" alt="" width="418"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (61) .png" alt = "" width = "418"> <Figcaption> </ Figcaption> </ Figure>
 
-9. You can specify a new password or use the default generated one. Then click Continue:
+9. Vous pouvez spécifier un nouveau mot de passe ou utiliser celui généré par défaut. Puis cliquez sur Continuer:
 
-<figure><img src="../../../.gitbook/assets/image (62).png" alt="" width="485"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (62) .png" alt = "" width = "485"> <Figcaption> </ Figcaption> </ Figure>
 
-10. On the tabs, switch to **Your App**, and select **Node.js** from the dropdown. Take note/save the `Username`, `Host`, `Password` as you will need these in Flowise later.
+10. Dans les onglets, passez à ** votre application ** et sélectionnez ** node.js ** dans la liste déroulante. Prenez note / enregistrez le`Username`, `Host`, `Password`Comme vous en aurez besoin en flux plus tard.
 
-<figure><img src="../../../.gitbook/assets/image (63).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (63) .png" alt = "" width = "563"> <Figcaption> </ Figcaption> </ Figure>
 
-11. Back to Flowise canvas, drag and drop SingleStore nodes. Click **Create New** from the Credentials dropdown:
+11. Retour à la toile fluide, glisser et déposer les nœuds singlestore. Cliquez sur ** Créer un nouveau ** à partir de la liste déroulante des informations d'identification:
 
-<figure><img src="../../../.gitbook/assets/image (4) (1) (2) (1) (1).png" alt="" width="271"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (4) (1) (2) (1) (1) .png" alt = "" width = "271"> <figCaption> </gigcaption> </ figure>
 
-11. Put in the Username and Password from above:
+11. Mettez le nom d'utilisateur et le mot de passe d'en haut:
 
-<figure><img src="../../../.gitbook/assets/image (64).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (64) .png" alt = "" width = "563"> <Figcaption> </ Figcaption> </ Figure>
 
-13. Then specify the Host and Database Name:
+13. Spécifiez ensuite le nom de l'hôte et de la base de données:
 
-<figure><img src="../../../.gitbook/assets/image (5) (1) (2).png" alt="" width="272"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (5) (1) (2) .png" alt = "" width = "272"> <figcaption> </gigcaption> </ figure>
 
-13. Now you can start upserting data with SingleStore:
+13. Vous pouvez maintenant démarrer des données avec Singlestore:
 
-<figure><img src="../../../.gitbook/assets/image (6) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (6) (1) (2) .png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-<figure><img src="../../../.gitbook/assets/image (7) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (7) (1) (2) .png" alt = ""> <Figcaption> </ Figcaption> </gigust>
 
-14. Navigate back to SingleStore portal, and to your database, you will be able to see all the data that has been upserted:
+14. Revenez vers le portail Singlestore et dans votre base de données, vous pourrez voir toutes les données qui ont été renversées:
 
-<figure><img src="../../../.gitbook/assets/image (70).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (70) .png" alt = ""> <Figcaption> </gigcaption> </gigne>

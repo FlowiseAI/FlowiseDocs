@@ -1,75 +1,75 @@
-# Cheerio Web Scraper
+# Reccardage de cheerio
 
-Cheerio is a fast, flexible, and lean implementation of core jQuery designed specifically for the server. This module provides powerful web scraping capabilities using Cheerio to extract content from web pages.
+Cheerio est une implémentation rapide, flexible et maigre de Core JQuery conçu spécifiquement pour le serveur. Ce module offre de puissantes capacités de grattage Web utilisant Cheerio pour extraire le contenu des pages Web.
 
-This module provides a sophisticated web scraper that can:
+Ce module fournit un grattoir Web sophistiqué qui peut:
 
-* Load content from single or multiple web pages
-* Crawl relative links from websites
-* Extract content using CSS selectors
-* Handle XML sitemaps
-* Process web content with text splitters
+* Chargez le contenu à partir de pages Web uniques ou multiples
+* Crawl liens relatifs des sites Web
+* Extraire du contenu à l'aide de sélecteurs CSS
+* Gérer des sitemaps XML
+* Traiter le contenu Web avec des séparateurs de texte
 
-## Inputs
+## Entrées
 
-* **URL**: The webpage URL to scrape
-* **Text Splitter** (optional): A text splitter to process the extracted content
-* **Get Relative Links Method** (optional): Choose between:
-  * Web Crawl: Crawl relative links from HTML URL
-  * Scrape XML Sitemap: Scrape relative links from XML sitemap URL
-* **Get Relative Links Limit** (optional): Limit for number of relative links to process (default: 10, 0 for all links)
-* **Selector (CSS)** (optional): CSS selector to target specific content
-* **Additional Metadata** (optional): JSON object with additional metadata to add to documents
-* **Omit Metadata Keys** (optional): Comma-separated list of metadata keys to omit
+* ** URL **: L'URL de la page Web pour gratter
+* ** Splitter de texte ** (facultatif): un séparateur de texte pour traiter le contenu extrait
+* ** Obtenez la méthode des liens relatifs ** (facultatif): Choisissez entre:
+  * Crawl Web: Crawl Liens relatifs de l'URL HTML
+  * Gratter le plan du site XML: Racler les liens relatifs de l'URL du site XML
+* ** Obtenez des liens relatifs Limite ** (Facultatif): Limite pour le nombre de liens relatifs à traiter (par défaut: 10, 0 pour tous les liens)
+* ** Sélecteur (CSS) ** (Facultatif): sélecteur CSS pour cibler un contenu spécifique
+* ** Métadonnées supplémentaires ** (Facultatif): objet JSON avec des métadonnées supplémentaires à ajouter aux documents
+* ** omettre les clés de métadonnées ** (facultative): liste de clés de métadonnées séparées par des virgules pour omettre
 
-## Outputs
+## Sorties
 
-* **Document**: Array of document objects containing metadata and pageContent
-* **Text**: Concatenated string from pageContent of documents
+* ** Document **: tableau d'objets de document contenant des métadonnées et un conceptent
+* ** Texte **: chaîne concaténée du conceptent de documents
 
-## Features
+## Caractéristiques
 
-* CSS selector-based content extraction
-* Web crawling capabilities
-* XML sitemap processing
-* Configurable link limits
-* Error handling for invalid URLs and PDFs
-* Metadata customization
-* Debug logging support
+* Extraction de contenu basée sur le sélecteur CSS
+* Capacités d'exploration sur le Web
+* Traitement du plan du site XML
+* Limites de liaison configurables
+* Gestion des erreurs pour les URL et les PDF non valides
+* Personnalisation des métadonnées
+* Débogage du support de journalisation
 
 ## Notes
 
-* PDF files are not supported and will be skipped
-* Invalid URLs will throw an error
-* Setting link limit to 0 will retrieve all available links (may take longer)
-* Debug mode provides detailed logging of the scraping process
+* Les fichiers PDF ne sont pas pris en charge et seront ignorés
+* Les URL non valides lanceront une erreur
+* La définition de la limite des liens à 0 récupérera tous les liens disponibles (peut prendre plus de temps)
+* Le mode de débogage fournit une journalisation détaillée du processus de grattage
 
-## Scrape One URL
+## Gratter une URL
 
-1. _(Optional)_ Connect [**Text Splitter**](../text-splitters/).
-2. Input desired URL to be scraped.
+1. _ (Facultatif) _ Connectez-vous[**Text Splitter**](../text-splitters/).
+2. Entrée URL souhaitée à gratter.
 
-## Crawl & Scrape Multiple URLs
+## Crawl et gratter plusieurs URL
 
-1. Select `Web Crawl` or `Scrape XML Sitemap` in **Get Relative Links Method**.
-2. Input `0` in **Get Relative Links Limit** to retrieve all links available from the provided URL.
+1. Sélectionner`Web Crawl`ou`Scrape XML Sitemap`Dans ** Get Relative Links Method **.
+2. Saisir`0`Dans ** Obtenez des liens relatifs Limite ** Pour récupérer tous les liens disponibles à partir de l'URL fournie.
 
-<figure><img src="../../../.gitbook/assets/image (87).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (87) .png" alt = "" width = "563"> <Figcaption> </ Figcaption> </ Figure>
 
-### Manage Links (Optional)
+### Gérer les liens (facultatif)
 
-1. Input desired URL to be crawled.
-2. Click **Fetch Links** to retrieve links based on the inputs of the **Get Relative Links Method** and **Get Relative Links Limit** in **Additional Parameters**.
-3. In **Crawled Links** section, remove unwanted links by clicking **Red Trash Bin Icon**.
-4. Lastly, click **Save**.
+1. Entrée URL souhaitée à ramper.
+2. Cliquez sur ** Répondre aux liens ** Pour récupérer les liens en fonction des entrées de la méthode ** Get Relative Links ** et ** Obtenir des liens relatifs Limite ** Dans ** Paramètres supplémentaires **.
+3. Dans ** Liens rampés ** Section, supprimez les liens indésirables en cliquant sur ** Icône de bac à ordures rouges **.
+4. Enfin, cliquez sur ** Enregistrer **.
 
-<figure><img src="../../../.gitbook/assets/image (88).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (88) .png" alt = "" width = "563"> <Figcaption> </ Figcaption> </ Figure>
 
-## Output
+## Sortir
 
-Loads URL content as Document
+Charge le contenu de l'URL en tant que document
 
-## Resources
+## Ressources
 
 * [LangChain JS Cheerio](https://js.langchain.com/docs/integrations/document_loaders/web_loaders/web_cheerio)
 * [Cheerio](https://cheerio.js.org/)

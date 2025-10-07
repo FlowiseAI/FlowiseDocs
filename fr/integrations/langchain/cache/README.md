@@ -1,18 +1,18 @@
 ---
-description: LangChain Cache Nodes
+description: Nœuds de Cache LangChain
 ---
 
 # Cache
 
 ***
 
-Caching can save you money by reducing the number of API calls you make to the LLM provider, if you're often requesting the same completion multiple times. It can speed up your application by reducing the number of API calls you make to the LLM provider.
+Le caching peut vous faire économiser de l'argent en réduisant le nombre d'appels API que vous effectuez auprès du fournisseur LLM, si vous demandez souvent la même complétion plusieurs fois. Cela peut accélérer votre application en diminuant le nombre d'appels API que vous faites au fournisseur LLM.
 
-### Cache Nodes:
+### Nœuds de Cache :
 
-* [InMemory Cache](in-memory-cache.md)
-* [InMemory Embedding Cache](inmemory-embedding-cache.md)
-* [Momento Cache](momento-cache.md)
-* [Redis Cache](redis-cache.md)
-* [Redis Embeddings Cache](redis-embeddings-cache.md)
-* [Upstash Redis Cache](upstash-redis-cache.md)
+* [Cache Memoire](in-memory-cache.md)
+* [Cache Integrée Memoire](inmemory-embedding-cache.md)
+* [Cache Momento](momento-cache.md)
+* [Cache Redis](redis-cache.md)
+* [Cache Integrée Redis](redis-embeddings-cache.md)
+* [Cache Redis Upstash](upstash-redis-cache.md)

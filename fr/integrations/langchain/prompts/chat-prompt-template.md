@@ -2,10 +2,10 @@
 description: Schema to represent a chat prompt.
 ---
 
-# Chat Prompt Template
+# Modèle d'invite de chat
 
-<figure><img src="../../../.gitbook/assets/image (14) (1) (1) (2).png" alt="" width="239"><figcaption><p>Chat Prompt Template Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (14) (1) (1) (2) .png" alt = "" width = "239"> <figcaption> <p> Node de modèle d'invite de chat </p> </ Figcaption> </stigne>
 
-{% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
-{% endhint %}
+{% hint style = "info"%}
+Cette section est un travail en cours. Nous apprécions toute aide que vous pouvez fournir pour terminer cette section. Veuillez vérifier notre[Contribution Guide](broken-reference)Pour commencer.
+{% EndHint%}

@@ -2,24 +2,24 @@
 description: LlamaIndex Embeddings Nodes
 ---
 
-# Embeddings
+# Incorporer
 
 ***
 
-An embedding is a vector (list) of floating point numbers. The distance between two vectors measures their relatedness. Small distances suggest high relatedness and large distances suggest low relatedness.
+Une intégration est un vecteur (liste) de numéros de points flottants. La distance entre deux vecteurs mesure leur relation. De petites distances suggèrent une forte parenté et de grandes distances suggèrent une faible parenté.
 
-Embeddings can be used to create a numerical representation of textual data. This numerical representation is useful because it can be used to find similar documents.
+Les intégres peuvent être utilisés pour créer une représentation numérique des données textuelles. Cette représentation numérique est utile car elle peut être utilisée pour trouver des documents similaires.
 
-They are commonly used for:
+Ils sont couramment utilisés pour:
 
-* Search (where results are ranked by relevance to a query string)
-* Clustering (where text strings are grouped by similarity)
-* Recommendations (where items with related text strings are recommended)
-* Anomaly detection (where outliers with little relatedness are identified)
-* Diversity measurement (where similarity distributions are analyzed)
-* Classification (where text strings are classified by their most similar label)
+* Recherche (où les résultats sont classés par pertinence pour une chaîne de requête)
+* Clustering (où les chaînes de texte sont regroupées par similitude)
+* Recommandations (où les éléments avec des chaînes de texte connexes sont recommandés)
+* Détection d'anomalies (où les valeurs aberrantes avec peu de parenté sont identifiées)
+* Mesure de la diversité (où les distributions de similitude sont analysées)
+* Classification (où les chaînes de texte sont classées par leur étiquette la plus similaire)
 
-### Embedding Nodes:
+### Nœuds d'intégration:
 
 * [Azure OpenAI Embeddings](azure-openai-embeddings.md)
 * [OpenAI Embedding](openai-embedding.md)

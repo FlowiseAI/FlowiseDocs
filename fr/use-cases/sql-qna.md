@@ -2,37 +2,37 @@
 description: Learn how to query structured data
 ---
 
-# SQL QnA
+# SQL QNA
 
 ***
 
-Unlike previous examples like [Web Scrape QnA](web-scrape-qna.md) and [Multiple Documents QnA](multiple-documents-qna.md), querying structured data does not require a vector database. At the high-level, this can be achieved with following steps:
+Contrairement aux exemples précédents comme[Web Scrape QnA](web-scrape-qna.md)et[Multiple Documents QnA](multiple-documents-qna.md), interroger les données structurées ne nécessite pas de base de données vectorielle. Au niveau élevé, cela peut être réalisé avec les étapes suivantes:
 
-1. Providing the LLM:
-   * overview of the SQL database schema
-   * example rows data
-2. Return a SQL query with few shot prompting
-3. Validate the SQL query using an [If Else](../integrations/utilities/if-else.md) node
-4. Create a custom function to execute the SQL query, and get the response
-5. Return a natural response from the executed SQL response
+1. Fournir le LLM:
+   * Aperçu du schéma de base de données SQL
+   * Exemples de données de lignes
+2. Renvoyez une requête SQL avec peu d'incitation
+3. Valider la requête SQL à l'aide d'un[If Else](../integrations/utilities/if-else.md)nœud
+4. Créez une fonction personnalisée pour exécuter la requête SQL et obtenez la réponse
+5. Renvoyer une réponse naturelle de la réponse SQL exécutée
 
-<figure><img src="../.gitbook/assets/image (113).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (113) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-In this example, we are going to create a QnA chatbot that can interact with a SQL database stored in SingleStore
+Dans cet exemple, nous allons créer un chatbot QNA qui peut interagir avec une base de données SQL stockée à Singlestore
 
-<figure><img src="../.gitbook/assets/image (116).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (116) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-## TL;DR
+## Tl; dr
 
-You can find the chatflow template:
+Vous pouvez trouver le modèle ChatFlow:
 
-{% file src="../.gitbook/assets/SQL Chatflow.json" %}
+{% fichier src = "../. gitbook / actifs / sql chatflow.json"%}
 
-## 1. SQL Database Schema + Example Rows
+## 1. Schéma de base de données SQL + Exemples de lignes
 
-Use a Custom JS Function node to connect to SingleStore, retrieve database schema and top 3 rows.
+Utilisez un nœud de fonction JS personnalisé pour vous connecter à Singlestore, récupérer le schéma de base de données et les 3 premières lignes.
 
-From the [research paper](https://arxiv.org/abs/2204.00498), it is recommended to generate a prompt with following example format:
+De[research paper](https://arxiv.org/abs/2204.00498), il est recommandé de générer une invite avec le format d'exemple suivant:
 
 ```
 CREATE TABLE samples (firstName varchar NOT NULL, lastName varchar)
@@ -43,11 +43,11 @@ Jack McGinnis
 Steven Repici
 ```
 
-<figure><img src="../.gitbook/assets/image (114).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (114) .png" alt = ""> <figcaption> </gigcaption> </gigust>
 
-<details>
+<Dettots>
 
-<summary>Full Javascript Code</summary>
+<summary> Code JavaScript complet </summary>
 
 ```javascript
 const HOST = 'singlestore-host.com';
@@ -118,21 +118,21 @@ await main();
 return sqlSchemaPrompt;
 ```
 
-</details>
+</fords>
 
-You can find more on how to get the `HOST`, `USER`, `PASSWORD` from this [guide](broken-reference/). Once finished, click Execute:
+Vous pouvez en savoir plus sur la façon d'obtenir le`HOST`, `USER`, `PASSWORD`de cette[guide](broken-reference/). Une fois terminé, cliquez sur Exécuter:
 
-<figure><img src="../.gitbook/assets/image (117).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (117) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-We can now see the correct format has been generated. Next step is to bring this into Prompt Template.
+Nous pouvons maintenant voir que le bon format a été généré. La prochaine étape consiste à mettre cela dans le modèle invite.
 
-## 2. Return a SQL query with few shot prompting
+## 2. Renvoyez une requête SQL avec peu d'incitation
 
-Create a new Chat Model + Prompt Template + LLMChain
+Créer un nouveau modèle de chat + modèle d'invite + llmchain
 
-<figure><img src="../.gitbook/assets/image (118).png" alt=""><figcaption></figcaption></figure>
+<Figure> <img src = "../. GitBook / Assets / Image (118) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-Specify the following prompt in the Prompt Template:
+Spécifiez l'invite suivante dans le modèle d'invite:
 
 ```
 Based on the provided SQL table schema and question below, return a SQL SELECT ALL query that would answer the user's question. For example: SELECT * FROM table WHERE id = '1'.
@@ -144,22 +144,22 @@ QUESTION: {question}
 SQL QUERY:
 ```
 
-Since we are using 2 variables: {schema} and {question}, specify their values in **Format Prompt Values**:
+Puisque nous utilisons 2 variables: {schéma} et {question}, spécifiez leurs valeurs dans les valeurs d'invite de format ** **:
 
-<figure><img src="../.gitbook/assets/image (122).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (122) .png" alt = "" width = "563"> <Figcaption> </gigcaption> </ Figure>
 
-{% hint style="info" %}
-You can provide more examples to the prompt (i.e few-shot prompting) to let the LLM learns better. Or take reference from [dialect-specific prompting](https://js.langchain.com/docs/use\_cases/sql/prompting#dialect-specific-prompting)
-{% endhint %}
+{% hint style = "info"%}
+Vous pouvez fournir plus d'exemples à l'invite (c'est-à-dire une invitation à quelques coups) pour permettre que le LLM apprenne mieux. Ou faire référence à[dialect-specific prompting](https://js.langchain.com/docs/use\_cases/sql/prompting#dialect-specific-prompting)
+{% EndHint%}
 
-## 3. Validate the SQL query using [If Else](../integrations/utilities/if-else.md) node
+## 3. Valider la requête SQL en utilisant[If Else](../integrations/utilities/if-else.md)nœud
 
-Sometimes the SQL query is invalid, and we do not want to waste resources the execute an invalid SQL query. For example, if a user is asking a general question that is irrelevant to the SQL database. We can use an `If Else` node to route to different path.
+Parfois, la requête SQL n'est pas valide, et nous ne voulons pas gaspiller les ressources de l'exécution d'une requête SQL non valide. Par exemple, si un utilisateur pose une question générale qui n'est pas pertinente pour la base de données SQL. Nous pouvons utiliser un`If Else`Node pour se rendre à un chemin différent.
 
-For instance, we can perform a basic check to see if SELECT and WHERE are included in the SQL query given by the LLM.
+Par exemple, nous pouvons effectuer une vérification de base pour voir si Sélectionner et où sont incluses dans la requête SQL donnée par le LLM.
 
-{% tabs %}
-{% tab title="If Function" %}
+{% Tabs%}
+{% tab title = "if function"%}
 ```javascript
 const sqlQuery = $sqlQuery.trim();
 
@@ -173,30 +173,30 @@ if (cleanSql.includes("SELECT") && cleanSql.includes("WHERE")) {
     return cleanSql;
 }
 ```
-{% endtab %}
+{% endtab%}
 
-{% tab title="Else Function" %}
+{% tab title = "else function"%}
 ```javascript
 return $sqlQuery;
 ```
-{% endtab %}
-{% endtabs %}
+{% endtab%}
+{% endtabs%}
 
-<figure><img src="../.gitbook/assets/image (119).png" alt="" width="327"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (119) .png" alt = "" width = "327"> <Figcaption> </ Figcaption> </gigust>
 
-In the Else Function, we will route to a Prompt Template + LLMChain that basically tells LLM that it is unable to answer user query:
+Dans la fonction ELSE, nous irons vers un modèle rapide + llmchain qui indique essentiellement à LLM qu'il n'est pas en mesure de répondre à la requête utilisateur:
 
-<figure><img src="../.gitbook/assets/image (120).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (120) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-## 4. Custom function to execute SQL query, and get the response
+## 4. Fonction personnalisée pour exécuter la requête SQL et obtenir la réponse
 
-If it is a valid SQL query, we need to execute the query. Connect the _**True**_ output from **If Else** node to a **Custom JS Function** node:
+S'il s'agit d'une requête SQL valide, nous devons exécuter la requête. Connectez la sortie _ ** true ** _ de ** nœud if else ** à une fonction ** js personnalisée ** nœud:
 
-<figure><img src="../.gitbook/assets/image (123).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (123) .png" alt = "" width = "563"> <Figcaption> </gigcaption> </gigust>
 
-<details>
+<Dettots>
 
-<summary>Full Javascript Code</summary>
+<summary> Code JavaScript complet </summary>
 
 ```javascript
 const HOST = 'singlestore-host.com';
@@ -241,15 +241,15 @@ await main();
 return result;
 ```
 
-</details>
+</fords>
 
-## 5. Return a natural response from the executed SQL response
+## 5. Renvoie une réponse naturelle de la réponse SQL exécutée
 
-Create a new Chat Model + Prompt Template + LLMChain
+Créer un nouveau modèle de chat + modèle d'invite + llmchain
 
-<figure><img src="../.gitbook/assets/image (124).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (124) .png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-Write the following prompt in the Prompt Template:
+Écrivez l'invite suivante dans le modèle d'invite:
 
 ```
 Based on the question, and SQL response, write a natural language response, be details as possible:
@@ -261,66 +261,66 @@ SQL RESPONSE: {sqlResponse}
 NATURAL LANGUAGE RESPONSE:
 ```
 
-Specify the variables in **Format Prompt Values**:
+Spécifiez les variables dans les valeurs d'invite de format ** **:
 
-<figure><img src="../.gitbook/assets/image (125).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (125) .png" alt = "" width = "563"> <Figcaption> </gigcaption> </gigust>
 
-Voila! Your SQL chatbot is now ready for testing!
+Le tour est joué! Votre chatbot SQL est maintenant prêt pour les tests!
 
-## Query
+## Requête
 
-First, let's ask something related to the database.
+Tout d'abord, demandons quelque chose lié à la base de données.
 
-<figure><img src="../.gitbook/assets/image (128).png" alt="" width="434"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (128) .png" alt = "" width = "434"> <Figcaption> </ Figcaption> </gigust>
 
-Looking at the logs, we can see the first LLMChain is able to give us a SQL query:
+En regardant les journaux, nous pouvons voir que le premier LLMCHAIN ​​est capable de nous donner une requête SQL:
 
-**Input:**
+**Saisir:**
 
-{% code overflow="wrap" %}
+{% code overflow = "wrap"%}
 ```
 Based on the provided SQL table schema and question below, return a SQL SELECT ALL query that would answer the user's question. For example: SELECT * FROM table WHERE id = '1'.\n------------\nSCHEMA: CREATE TABLE samples (id bigint(20) NOT NULL, firstName varchar(300) NOT NULL, lastName varchar(300) NOT NULL, userAddress varchar(300) NOT NULL, userState varchar(300) NOT NULL, userCode varchar(300) NOT NULL, userPostal varchar(300) NOT NULL, createdate timestamp(6) NOT NULL)\nSELECT * FROM samples LIMIT 3\nid firstName lastName userAddress userState userCode userPostal createdate\n1125899906842627 Steven Repici 14 Kingston St. Oregon NJ 5578 Thu Dec 14 2023 13:06:17 GMT+0800 (Singapore Standard Time)\n1125899906842625 John Doe 120 jefferson st. Riverside NJ 8075 Thu Dec 14 2023 13:04:32 GMT+0800 (Singapore Standard Time)\n1125899906842629 Bert Jet 9th, at Terrace plc Desert City CO 8576 Thu Dec 14 2023 13:07:11 GMT+0800 (Singapore Standard Time)\n------------\nQUESTION: what is the address of John\n------------\nSQL QUERY:
 ```
-{% endcode %}
+{% Endcode%}
 
-**Output**
+**Sortir**
 
-<pre class="language-sql"><code class="lang-sql"><strong>SELECT userAddress FROM samples WHERE firstName = 'John'
-</strong></code></pre>
+<pre class = "Language-SQL"> <Code class = "Lang-SQL"> <strong> Sélectionnez UserAddress à partir d'échantillons où FirstName = 'John'
+</strong> </code> </pre>
 
-After executing the SQL query, the result is passed to the 2nd LLMChain:
+Après avoir exécuté la requête SQL, le résultat est transmis au 2e llmchain:
 
-**Input**
+**Saisir**
 
-{% code overflow="wrap" %}
+{% code overflow = "wrap"%}
 ```
 Based on the question, and SQL response, write a natural language response, be details as possible:\n------------\nQUESTION: what is the address of John\n------------\nSQL RESPONSE: [{\"userAddress\":\"120 jefferson st.\"}]\n------------\nNATURAL LANGUAGE RESPONSE:
 ```
-{% endcode %}
+{% Endcode%}
 
-**Output**
+**Sortir**
 
 ```
 The address of John is 120 Jefferson St.
 ```
 
-Now, we if ask something that is irrelevant to the SQL database, the Else route is taken.
+Maintenant, si nous demandons quelque chose qui n'est pas pertinent pour la base de données SQL, l'itinéraire ELSE est emprunté.
 
-<figure><img src="../.gitbook/assets/image (132).png" alt="" width="428"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / image (132) .png" alt = "" width = "428"> <Figcaption> </gigcaption> </gigust>
 
-For first LLMChain, a SQL query is generated as below:
+Pour le premier llmchain, une requête SQL est générée comme ci-dessous:
 
 ```sql
 SELECT * FROM samples LIMIT 3
 ```
 
-However, it fails the `If Else` check because it doesn't contains both `SELECT` and `WHERE`, hence entering the Else route that has a prompt that says:
+Cependant, il échoue`If Else`Vérifiez car il ne contient pas les deux`SELECT`et`WHERE`, donc entrant sur l'itinéraire des autres qui a une invite qui dit:
 
 ```
 Politely say "I'm not able to answer query"
 ```
 
-And the final output is:
+Et la sortie finale est:
 
 ```
 I apologize, but I'm not able to answer your query at the moment.
@@ -328,8 +328,8 @@ I apologize, but I'm not able to answer your query at the moment.
 
 ## Conclusion
 
-In this example, we have successfully created a SQL chatbot that can interact with your database, and is also able to handle questions that are irrelevant to database. Further improvement includes adding memory to provide conversation history.
+Dans cet exemple, nous avons créé avec succès un chatbot SQL qui peut interagir avec votre base de données et est également en mesure de gérer des questions qui ne sont pas pertinentes pour la base de données. Une amélioration supplémentaire comprend l'ajout de mémoire pour fournir l'historique des conversations.
 
-You can find the chatflow below:
+Vous pouvez trouver le Chatflow ci-dessous:
 
-{% file src="../.gitbook/assets/SQL Chatflow (1).json" %}
+{% fichier src = "../. gitbook / actifs / sql chatflow (1) .json"%}

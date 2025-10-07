@@ -1,69 +1,69 @@
-# Elastic
+# Élastique
 
-## Prerequisite
+## Condition préalable
 
-1. You can use the [official Docker image](https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html) to get started, or you can use [Elastic Cloud](https://www.elastic.co/cloud/), Elastic's official cloud service. In this guide, we will be using cloud version.
-2. [Register](https://cloud.elastic.co/registration) an account or [login](https://cloud.elastic.co/login) with existing account on Elastic cloud.
+1. Vous pouvez utiliser le[official Docker image](https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html)pour commencer, ou vous pouvez utiliser[Elastic Cloud](https://www.elastic.co/cloud/), Service cloud officiel d'Elastic. Dans ce guide, nous utiliserons la version cloud.
+2. [Register](https://cloud.elastic.co/registration)un compte ou[login](https://cloud.elastic.co/login)avec le compte existant sur Elastic Cloud.
 
-<figure><img src="../../../.gitbook/assets/elastic1.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Elastic1.png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-3. Click **Create deployment**. Then, name your deployment, and choose the provider.
+3. Cliquez sur ** Créer un déploiement **. Ensuite, nommez votre déploiement et choisissez le fournisseur.
 
-<figure><img src="../../../.gitbook/assets/elastic2.png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Elastic2.png" alt = "" width = "563"> <Figcaption> </ Figcaption> </ Figure>
 
-4. After deployment is finished, you should be able to see the setup guides as shown below. Click the **Set up vector search** option.
+4. Une fois le déploiement terminé, vous devriez être en mesure de voir les guides de configuration comme indiqué ci-dessous. Cliquez sur l'option ** Configuration de la recherche vectorielle **.
 
-<figure><img src="../../../.gitbook/assets/elastic4.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Elastic4.png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-5. You should now see the **Getting started** page for **Vector Search**.
+5. Vous devriez maintenant voir la page ** de démarrage ** pour ** Vector Search **.
 
-<figure><img src="../../../.gitbook/assets/elastic5.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Elastic5.png" alt = ""> <Figcaption> </gigcaption> </ Figure>
 
-6. On the left hand side bar, click **Indices**. Then, **Create a new index**.
+6. Sur la barre gauche, cliquez sur ** Indices **. Ensuite, ** Créez un nouvel index **.
 
-<figure><img src="../../../.gitbook/assets/elastic6.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Elastic6.png" alt = ""> <Figcaption> </ Figcaption> </gigne>
 
-7. Select **API** ingestion method
+7. Sélectionnez ** API ** Méthode d'ingestion
 
-<figure><img src="../../../.gitbook/assets/elastic7.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Elastic7.png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-8. Name your search index name, then **Create Index**
+8. Nommez votre nom d'index de recherche, puis ** Créer un index **
 
-<figure><img src="../../../.gitbook/assets/elastic8.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Elastic8.png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-9. After the index has been created, generate a new API key, take note of both generated API key and the URL
+9. Une fois l'index créé, générez une nouvelle clé API, prenez note à la fois de la clé API générée et de l'URL
 
-<figure><img src="../../../.gitbook/assets/elastic9.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. gitbook / actifs / élastique9
 
-## Flowise Setup
+## Configuration de flux
 
-1. Add a new **Elasticsearch** node on canvas and fill in the **Index Name**
+1. Ajoutez un nouveau nœud ** elasticsearch ** sur toile et remplissez le nom ** index **
 
-<figure><img src="../../../.gitbook/assets/elastic10.png" alt="" width="275"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Elastic10.png" alt = "" width = "275"> <Figcaption> </gigcaption> </gigust>
 
-2. Add new credential via **Elasticsearch API**
+2. Ajouter de nouveaux informations d'identification via ** API Elasticsearch **
 
-<figure><img src="../../../.gitbook/assets/elastic11.png" alt="" width="429"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Elastic11.png" alt = "" width = "429"> <Figcaption> </ Figcaption> </ Figure>
 
-3. Take the URL and API Key from Elasticsearch, fill in the fields
+3. Prenez la clé URL et API d'Elasticsearch, remplissez les champs
 
-<figure><img src="../../../.gitbook/assets/elastic12.png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Elastic12.png" alt = "" width = "563"> <Figcaption> </gigcaption> </ Figure>
 
-4. After credential has been created successfully, you can start upserting the data
+4. Une fois les informations d'identification créées avec succès, vous pouvez démarrer les données
 
-<figure><img src="../../../.gitbook/assets/Untitled (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / Untitled (1) (1) (1) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-<figure><img src="../../../.gitbook/assets/elastic13.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Elastic13.png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-5. After data has been upserted successfully, you can verify it from Elastic dashboard:
+5. Une fois que les données ont été renversées avec succès, vous pouvez la vérifier à partir du tableau de bord élastique:
 
-<figure><img src="../../../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (7) (1) (1) (1) (1) (1) (2) (1) .png" alt = ""> <figCaption> </gigcaption> </gigu
 
-6. Voila! You can now start asking question in the chat
+6. Le tour est joué! Vous pouvez maintenant commencer à poser une question dans le chat
 
-<figure><img src="../../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (6) (1) (1) (1) (1) (1) (1) (2) (1) .png" alt = ""> <figCaption> </ FigCaption> </pigucial>
 
-## Resources
+## Ressources
 
 * [LangChain JS Elastic](https://js.langchain.com/docs/integrations/vectorstores/elasticsearch)
 * [Vector Search (kNN) Implementation Guide - API Edition](https://www.elastic.co/search-labs/blog/articles/vector-search-implementation-guide-api-edition)

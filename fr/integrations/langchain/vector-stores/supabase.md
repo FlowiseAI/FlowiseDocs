@@ -1,34 +1,34 @@
 # Supabase
 
-## Prerequisite
+## Condition préalable
 
-1. Register an account for [Supabase](https://supabase.com/)
-2. Click **New project**
+1. Enregistrer un compte pour[Supabase](https://supabase.com/)
+2. Cliquez sur ** Nouveau projet **
 
-<figure><img src="../../../.gitbook/assets/image (8) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (8) (2) (1) .png" alt = ""> <Figcaption> </gigcaption> </ Figure>
 
-3. Input required fields
+3. Entrée champs requis
 
-| Field Name                | Description                                       |
+| Nom du champ | Description |
 | ------------------------- | ------------------------------------------------- |
-| **Name**                  | name of the project to be created. (e.g. Flowise) |
-| **Database** **Password** | password to your postgres database                |
+| ** Nom ** | Nom du projet à créer. (par exemple Flowise) |
+| ** Base de données ** ** Mot de passe ** | Mot de passe à votre base de données Postgres |
 
-<figure><img src="../../../.gitbook/assets/image (25) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (25) (1) (1) .png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-4. Click **Create new project** and wait for the project to finish setting up
-5. Click **SQL Editor**
+4. Cliquez sur ** Créer un nouveau projet ** et attendez que le projet termine la configuration
+5. Cliquez sur ** Éditeur SQL **
 
-<figure><img src="../../../.gitbook/assets/image (7) (2) (2).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (7) (2) (2) .png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-6. Click **New query**
+6. Cliquez sur ** Nouvelle requête **
 
-<figure><img src="../../../.gitbook/assets/image (36) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (36) (1) .png" alt = ""> <figcaption> </gigcaption> </ figure>
 
-7. Copy and Paste the below SQL query and run it by `Ctrl + Enter` or click **RUN**. Take note of the table name and function name.
+7. Copiez et collez la requête SQL ci-dessous et exécutez-la par`Ctrl + Enter`ou cliquez sur ** Exécuter **. Prenez note du nom de la table et du nom de la fonction.
 
-* **Table name**: `documents`
-* **Query name**: `match_documents`
+* ** Nom de la table **:`documents`
+* ** Nom de la requête **:`match_documents`
 
 ```plsql
 -- Enable the pgvector extension to work with embedding vectors
@@ -54,7 +54,7 @@ create function match_documents (
   similarity float
 )
 language plpgsql
-as $$
+as $
 #variable_conflict use_column
 begin
   return query
@@ -68,11 +68,11 @@ begin
   order by documents.embedding <=> query_embedding
   limit match_count;
 end;
-$$;
+$;
 
 ```
 
-If some cases, you might be using [Record Manager](../record-managers.md) to keep track of the upserts and prevent duplications. Since Record Manager generates a random UUID for each embeddings, you will have to change the id column entity to text:
+Si certains cas, vous pouvez utiliser[Record Manager](../record-managers.md)pour garder une trace des upserts et éviter les duplications. Étant donné que Record Manager génère un UUID aléatoire pour chaque intégration, vous devrez modifier l'entité de la colonne d'ID en texte:
 
 ```sql
 -- Enable the pgvector extension to work with embedding vectors
@@ -98,7 +98,7 @@ create function match_documents (
   similarity float
 )
 language plpgsql
-as $$
+as $
 #variable_conflict use_column
 begin
   return query
@@ -112,42 +112,42 @@ begin
   order by documents.embedding <=> query_embedding
   limit match_count;
 end;
-$$;
+$;
 
 ```
 
-<figure><img src="../../../.gitbook/assets/image (19) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / Image (19) (1) (1) (1) (2) .png" alt = ""> <figcaption> </gigcaption> </gigne>
 
-## Setup
+## Installation
 
-1. Click **Project Settings**
+1. Cliquez sur ** Paramètres du projet **
 
-<figure><img src="../../../.gitbook/assets/image (30) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (30) (1) .png" alt = ""> <figcaption> </gigcaption> </gigust>
 
-2. Get your **Project URL & API Key**
+2. Obtenez votre ** URL du projet et la clé API **
 
-<figure><img src="../../../.gitbook/assets/image (2) (3).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (2) (3) .png" alt = ""> <figcaption> </gigcaption> </gigust>
 
-3. Copy and Paste each details (_API Key, URL, Table Name, Query Name_) into **Supabase** node
+3. Copiez et collez chaque détail (clé _API, URL, nom de table, nom de requête _) dans ** Supabase ** Node
 
-<figure><img src="../../../.gitbook/assets/image (85).png" alt="" width="331"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (85) .png" alt = "" width = "331"> <Figcaption> </ Figcaption> </ Figure>
 
-4. **Document** can be connected with any node under [**Document Loader**](../document-loaders/) category
-5. **Embeddings** can be connected with any node under [**Embeddings** ](../embeddings/)category
+4. ** Document ** peut être connecté à n'importe quel nœud sous[**Document Loader**](../document-loaders/)catégorie
+5. ** Embeddings ** peut être connecté à n'importe quel nœud sous[**Embeddings** ](../embeddings/)catégorie
 
-## Filtering
+## Filtration
 
-Let's say you have different documents upserted, each specified with a unique value under the metadata key `{source}`
+Disons que vous avez différents documents renversés, chacun spécifié avec une valeur unique sous la clé de métadonnées`{source}`
 
-<figure><img src="../../../.gitbook/assets/Untitled.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Untitled.png" alt = ""> <Figcaption> </ Figcaption> </gigne>
 
-You can use metadata filtering to query specific metadata:
+Vous pouvez utiliser le filtrage des métadonnées pour interroger les métadonnées spécifiques:
 
-**UI**
+** ui **
 
-<figure><img src="../../../.gitbook/assets/image (9) (1) (1) (1) (1) (2) (1).png" alt="" width="232"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / Image (9) (1) (1) (1) (1) (2) (1) .png" alt = "" width = "232"> <Figcaption> </ Figcaption> </ Figure>
 
-**API**
+** API **
 
 ```json
 "overrideConfig": {
@@ -157,7 +157,7 @@ You can use metadata filtering to query specific metadata:
 }
 ```
 
-## Resources
+## Ressources
 
 * [LangChain JS Supabase](https://js.langchain.com/docs/modules/indexes/vector_stores/integrations/supabase)
 * [Supabase Blog Post](https://supabase.com/blog/openai-embeddings-postgres-vector)

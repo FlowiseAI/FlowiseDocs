@@ -2,23 +2,23 @@
 description: Learn how to customize and embed our chat widget
 ---
 
-# Embed
+# Encombrer
 
 ***
 
-You can easily add the chat widget to your website. Just copy the provided widget script and paste it anywhere between the `<body>` and `</body>` tags of your HTML file.
+Vous pouvez facilement ajouter le widget de chat à votre site Web. Copiez simplement le script de widget fourni et collez-le entre le`<body>`et`</body>`Tags de votre fichier HTML.
 
-<figure><img src="../.gitbook/assets/image (8) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. Gitbook / Assets / image (8) (2) (1) (1) .png" alt = ""> <figcaption> </gigcaption> </gigust>
 
-## Widget Setup
+## Configuration du widget
 
-The following video shows how to inject the widget script into any webpage.
+La vidéo suivante montre comment injecter le script de widget dans n'importe quelle page Web.
 
-{% embed url="https://github.com/FlowiseAI/Flowise/assets/26460777/c128829a-2d08-4d60-b821-1e41a9e677d0" %}
+{% embed url = "https://github.com/flowiseai/flowise/assets/26460777/c128829a-2d08-4d60-b821-1e41a9e677d0"%}
 
-## Using Specific Version
+## En utilisant une version spécifique
 
-You can specify the version of flowise-embed's `web.js` to use. For full list of versions: [https://www.npmjs.com/package/flowise-embed](https://www.npmjs.com/package/flowise-embed)
+Vous pouvez spécifier la version de Flowise-Embed's`web.js`à utiliser. Pour la liste complète des versions:[https://www.npmjs.com/package/flowise-embed](https://www.npmjs.com/package/flowise-embed)
 
 ```html
 <script type="module">
@@ -30,21 +30,21 @@ You can specify the version of flowise-embed's `web.js` to use. For full list of
 </script>
 ```
 
-{% hint style="warning" %}
-In Flowise **v2.1.0**, we have modified the way streaming works. If your Flowise version is lower than that, you might find your embedded chatbot not able to receive messages.
+{% hint style = "avertissement"%}
+Dans Flowise ** v2.1.0 **, nous avons modifié le fonctionnement du streaming. Si votre version Flowise est inférieure à cela, vous pouvez trouver votre chatbot intégré à recevoir des messages.
 
-You can either update Flowise to **v2.1.0** and above
+Vous pouvez soit mettre à jour le flux vers ** v2.1.0 ** et au-dessus
 
-Or, if for some reason you prefer not to update Flowise, you can specify the latest **v1.x.x** version of [Flowise-Embed](https://www.npmjs.com/package/flowise-embed?activeTab=versions). Last maintained `web.js` version is **v1.3.14.**
+Ou, si pour une raison quelconque, vous préférez ne pas mettre à jour Flowise, vous pouvez spécifier la dernière version ** v1.x.x ** de[Flowise-Embed](https://www.npmjs.com/package/flowise-embed?activeTab=versions). Dernière maintenue`web.js`La version est ** v1.3.14. **
 
-For instance:
+Par exemple:
 
 `https://cdn.jsdelivr.net/npm/flowise-embed@1.3.14/dist/web.js`
-{% endhint %}
+{% EndHint%}
 
-## Chatflow Config
+## ConfigFlow Config
 
-You can pass `chatflowConfig` JSON object to override existing configuration. This is the same as [Broken link](broken-reference "mention") in API.
+Tu peux passer`chatflowConfig`Objet JSON pour remplacer la configuration existante. C'est la même chose que[Broken link](broken-reference "mention")en API.
 
 ```html
 <script type="module">
@@ -60,9 +60,9 @@ You can pass `chatflowConfig` JSON object to override existing configuration. Th
 </script>
 ```
 
-## Observer Config
+## Configuration d'observateur
 
-This allows you to execute code in parent based upon signal observations within the chatbot.
+Cela vous permet d'exécuter du code dans le parent en fonction des observations de signal dans le chatbot.
 
 ```html
 <script type="module">
@@ -88,15 +88,15 @@ This allows you to execute code in parent based upon signal observations within 
 </script>
 ```
 
-## Theme
+## Thème
 
-You can change the full appearance of the embedded chatbot and enable functionalities like tooltips, disclaimers, custom welcome messages, and more using the theme property. This allows you to deeply customize the look and feel of the widget, including:
+Vous pouvez modifier l'apparence complète du chatbot intégré et activer les fonctionnalités telles que les infractions, les avertissements, les messages de bienvenue personnalisés, et plus en utilisant la propriété du thème. Cela vous permet de personnaliser profondément l'apparence du widget, notamment:
 
-* **Button:** Position, size, color, icon, drag-and-drop behavior, and automatic opening.
-* **Tooltip:** Visibility, message text, background color, text color, and font size.
-* **Disclaimer:** Title, message, colors for text, buttons, and background, including a blurred overlay option.
-* **Chat Window:** Title, agent/user message display, welcome/error messages, background color/image, dimensions, font size, starter prompts, HTML rendering, message styling (colors, avatars), text input behavior (placeholder, colors, character limits, sounds), feedback options, date/time display, and footer customization.
-* **Custom CSS:** Directly inject CSS code for even finer control over the appearance, overriding default styles as needed ([see the instructions guide below](embed.md#custom-css-modification))
+* ** Bouton: ** Position, taille, couleur, icône, comportement de glisser-déposer et d'ouverture automatique.
+* ** Infiltration: ** Visibilité, texte du message, couleur d'arrière-plan, couleur du texte et taille de police.
+* ** Avis de non-responsabilité: ** Titre, message, couleurs pour le texte, les boutons et l'arrière-plan, y compris une option de superposition floue.
+* ** Fenêtre de chat: ** Titre, agent / affichage des messages utilisateur, messages de bienvenue / d'erreur, couleur / image d'arrière-plan, dimensions, taille de police, invites de démarrage, rendu HTML, style de message (couleurs, avatars), comportement d'entrée de texte (Couleurs, limites de caractère, sons), options de rétroaction, affichage de date / temps et personnalisation de la page.
+* ** CSSS personnalisé: ** Injectez directement le code CSS pour un contrôle encore plus fin sur l'apparence, remplacement des styles par défaut au besoin ([see the instructions guide below](embed.md#custom-css-modification))
 
 ```html
 <script type="module">
@@ -200,31 +200,31 @@ You can change the full appearance of the embedded chatbot and enable functional
 </script>
 ```
 
-**Note:** See full [configuration list](https://github.com/FlowiseAI/FlowiseChatEmbed#configuration)
+** Remarque: ** Voir plein[configuration list](https://github.com/FlowiseAI/FlowiseChatEmbed#configuration)
 
-## Custom Code Modification
+## Modification du code personnalisé
 
-To modify the full source code of embedded chat widget, follow these steps:
+Pour modifier le code source complet du widget de chat embarqué, suivez ces étapes:
 
-1. Fork the [Flowise Chat Embed](https://github.com/FlowiseAI/FlowiseChatEmbed) repository
-2. Run `yarn install` to install the necessary dependencies
-3. Then you can make any code changes
-4. Run `yarn build` to pick up the changes
-5. Push changes to the forked repository
-6. You can then use your custom `web.js` as embedded chat like so:
+1. Fourchez le[Flowise Chat Embed](https://github.com/FlowiseAI/FlowiseChatEmbed)dépôt
+2. Courir`yarn install`Pour installer les dépendances nécessaires
+3. Ensuite, vous pouvez apporter des modifications au code
+4. Courir`yarn build`Pour récupérer les changements
+5. Poussez les modifications au référentiel fourchu
+6. Vous pouvez ensuite utiliser votre personnalité`web.js`comme un chat intégré comme ça:
 
-Replace `username` to your Github username, and `forked-repo` to your forked repo.
+Remplacer`username`à votre nom d'utilisateur GitHub, et`forked-repo`à votre dépôt fourchu.
 
-<pre class="language-html"><code class="lang-html"><strong>&#x3C;script type="module">
-</strong>      import Chatbot from "https://cdn.jsdelivr.net/gh/username/forked-repo/dist/web.js"
-      Chatbot.init({
-          chatflowid: "your-chatflowid-here",
-          apiHost: "your-apihost-here",
+<pre class = "Language-html"> <code class = "lang-html"> <strong> <script type = "module">
+</strong> Importer le chatbot depuis "https://cdn.jsdelivr.net/gh/username/forked-repo/dist/web.js"
+Chatbot.init ({
+Chatflowid: "Votre chatflowid-here",
+apihost: "votre-apihost-here",
       })
-&#x3C;/script>
-</code></pre>
+</cript>
+</code> </pre>
 
-<figure><img src="../.gitbook/assets/image (1) (1) (2).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / image (1) (1) (2) .png" alt = "" width = "563"> <Figcaption> </ Figcaption> </ Figure>
 
 ```html
 <script type="module">
@@ -236,22 +236,22 @@ Replace `username` to your Github username, and `forked-repo` to your forked rep
 </script>
 ```
 
-{% hint style="info" %}
-An alternative to jsdelivr is unpkg. Here is an example:
+{% hint style = "info"%}
+Une alternative à jsdelivr est un peu. Voici un exemple:
 
-<pre><code><strong>https://unpkg.com/flowise-embed/dist/web.js
-</strong></code></pre>
-{% endhint %}
+<pre> <code> <strong> https://unpkg.com/flowise-embed/dist/web.js
+</strong> </code> </pre>
+{% EndHint%}
 
-## Custom CSS Modification
+## Modification CSS personnalisée
 
-You can now directly add custom CSS to style your embedded chat widget, eliminating the need for custom `web.js` files (requires v2.0.8 or later). This allows you to:
+Vous pouvez désormais ajouter directement des CSS personnalisés pour styliser votre widget de chat intégré, éliminant le besoin de personnalité`web.js`Fichiers (nécessite v2.0.8 ou version ultérieure). Cela vous permet de:
 
-* Give each embedded chatbot a unique look and feel
-* Use the official `web.js`—no more custom builds or hosting are needed for styling
-* Update styles instantly
+* Donnez à chaque chatbot intégré un aspect et une sensation uniques
+* Utilisez le fonctionnaire`web.js`—Les versions ou hébergeurs plus personnalisés ne sont nécessaires pour le style
+* Mettre à jour les styles instantanément
 
-Here's how to use it:
+Voici comment l'utiliser:
 
 ```html
 <script src="https://cdn.jsdelivr.net/gh/FlowiseAI/FlowiseChatEmbed@main/dist/web.js"></script>
@@ -270,35 +270,35 @@ Here's how to use it:
 </script>
 ```
 
-## CORS
+## Cors
 
-When using embedded chat widget, there's chance that you might face CORS issue like:
+Lorsque vous utilisez un widget de chat intégré, il y a une chance que vous puissiez faire face à un problème COR comme:
 
-{% hint style="danger" %}
-Access to fetch at 'https://\<your-flowise.com>/api/v1/prediction/' from origin 'https://\<your-flowise.com>' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
-{% endhint %}
+{% hint style = "danger"%}
+L'accès à la récupération à 'https: // \ <your-flowise.com> / api / v1 / prédiction /' From Origin 'https: // \ <your-flowise.com>' n'a été bloqué par la politique CORS: pas de «Access-Control-Allow-origin» Header n'est présent sur la ressource demandée.
+{% EndHint%}
 
-To fix it, specify the following environment variables:
+Pour le réparer, spécifiez les variables d'environnement suivantes:
 
 ```
 CORS_ORIGINS=*
 IFRAME_ORIGINS=*
 ```
 
-For example, if you are using `npx flowise start`
+Par exemple, si vous utilisez`npx flowise start`
 
 ```
 npx flowise start --CORS_ORIGINS=* --IFRAME_ORIGINS=*
 ```
 
-If using Docker, place the env variables inside `Flowise/docker/.env`
+Si vous utilisez Docker, placez les variables Env à l'intérieur`Flowise/docker/.env`
 
-If using local Git clone, place the env variables inside `Flowise/packages/server/.env`
+Si vous utilisez un clone Git local, placez les variables Env à l'intérieur`Flowise/packages/server/.env`
 
-## Video Tutorials
+## Tutoriels vidéo
 
-These two videos will teach you how to embed the Flowise widget into a website.
+Ces deux vidéos vous apprendront à intégrer le widget Flowise dans un site Web.
 
-{% embed url="https://youtu.be/4paQ2wObDQ4" %}
+{% embed url = "https://youtu.be/4paq2wobdq4"%}
 
-{% embed url="https://youtu.be/XOeCV1xyN48" %}
+{% embed url = "https://youtu.be/xoecv1xyn48"%}

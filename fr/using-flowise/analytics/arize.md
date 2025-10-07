@@ -2,30 +2,30 @@
 description: Learn how to setup Arize to analyze and troubleshoot your chatflows and agentflows
 ---
 
-# Arize
+# Se manifester
 
 ***
 
-[Arize AI](https://docs.arize.com/arize) is a production-grade observability platform for monitoring, debugging, and improving LLM applications and AI Agents at scale. For a free, open-source alternative, explore [Phoenix](https://docs.flowiseai.com/using-flowise/analytics/phoenix).
+[Arize AI](https://docs.arize.com/arize)est une plate-forme d'observabilité de qualité de production pour surveiller, déboguer et améliorer les applications LLM et les agents d'IA à grande échelle. Pour une alternative libre et open source, explorez[Phoenix](https://docs.flowiseai.com/using-flowise/analytics/phoenix).
 
-## Setup
+## Installation
 
-1. At the top right corner of your Chatflow or Agentflow, click **Settings** > **Configuration**
+1. Dans le coin supérieur droit de votre ChatFlow ou AgentFlow, cliquez sur ** Paramètres **> ** Configuration **
 
-<figure><img src="../../.gitbook/assets/analytic-1.webp" alt="Screenshot of user clicking in the configuration menu" width="375"><figcaption></figcaption></figure>
+<gigne> <img src = "../../. GitBook / Assets / analytic-1.webp" alt = "Capture d'écran de l'utilisateur cliquant dans le menu de configuration" width = "375"> <figCaption> </gigcaption> </ figure>
 
-2. Then go to the Analyse Chatflow section
+2. Ensuite, allez à la section Analyser Chatflow
 
-<figure><img src="../../.gitbook/assets/analytic-2.png" alt="Screenshot of the Analyse Chatflow section with the different Analytics providers"><figcaption></figcaption></figure>
+<Figure> <img src = "../../. GitBook / Assets / Analytic-2.png" alt = "Capture d'écran de la section Analyze Chatflow avec les différents fournisseurs d'analyses"> <FigCaption> </gigcaption> </ figure>
 
-3. You will see a list of providers, along with their configuration fields. Click on Arize.
+3. Vous verrez une liste de fournisseurs, ainsi que leurs champs de configuration. Cliquez sur Arize.
 
-<figure><img src="../../.gitbook/assets/arize/arize-1.png" alt="Screenshot of an analytics provider with credentials fields expanded"><figcaption></figcaption></figure>
+<gigne> <img src = "../../. GitBook / Assets / Arize / Arize-1.png" alt = "Écran d'un fournisseur d'analyse avec des champs d'identification étendus"> <Figcaption> </Figcaption> </GUFIGE>
 
-4. Create credentials for Arize. Refer to the [official guide](https://docs.arize.com/arize/llm-tracing/quickstart-llm#get-your-api-keys) on how to get the Arize API key.
+4. Créez des informations d'identification pour Arize. Reportez-vous au[official guide](https://docs.arize.com/arize/llm-tracing/quickstart-llm#get-your-api-keys)sur la façon d'obtenir la clé API Arize.
 
-<figure><img src="../../.gitbook/assets/arize/arize-2.png" alt="Screenshot of analytics providers enabled"><figcaption></figcaption></figure>
+<gigne> <img src = "../../. GitBook / Assets / Arize / Arize-2.png" alt = "ScreenShot of Analytics Providers activé"> <Figcaption> </gigcaption> </stigne>
 
-5. Fill in other configuration details, then turn the provider **ON**
+5. Remplissez les autres détails de configuration, puis allumez le fournisseur ** sur **
 
-<figure><img src="../../.gitbook/assets/arize/arize-3.png" alt="Screenshot of analytics providers enabled"><figcaption></figcaption></figure>
+<gigne> <img src = "../../. GitBook / Assets / arize / arize -3.png" alt = "ScreenShot of Analytics Providers activé"> <Figcaption> </ Figcaption> </stigne>

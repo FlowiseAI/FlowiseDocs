@@ -1,20 +1,20 @@
 # Open WebUI
 
-[Open WebUI](https://github.com/open-webui/open-webui) is an extensible, feature-rich, and user-friendly _self-hosted AI platform_ designed to operate entirely offline.
+[Open WebUI](https://github.com/open-webui/open-webui) est une plateforme _IA auto-hébergée_ extensible, riche en fonctionnalités et conviviale, conçue pour fonctionner entièrement hors ligne.
 
-[Functions](https://docs.openwebui.com/features/plugin/functions/) are like plugins for Open WebUI. We can create a custom [Pipe Function](https://docs.openwebui.com/features/plugin/functions/pipe) that process inputs and generate responses by invoking Flowise Prediction API before returning results to the user. Through this, Flowise can be used in Open WebUI.
+[Les Fonctions](https://docs.openwebui.com/features/plugin/functions/) sont comme des plugins pour Open WebUI. Nous pouvons créer une [Fonction Pipe](https://docs.openwebui.com/features/plugin/functions/pipe) personnalisée qui traite les entrées et génère des réponses en invoquant l'API de prédiction Flowise avant de retourner les résultats à l'utilisateur. Grâce à cela, Flowise peut être utilisé dans Open WebUI.
 
-## Setup
+## Configuration
 
-1. First, have Open WebUI up and running, you can refer to the [Quickstart](https://docs.openwebui.com/getting-started/quick-start/) guide. From the left bottom, click your profile and **Admin Panel**
+1. Tout d'abord, assurez-vous qu'Open WebUI est opérationnel, vous pouvez consulter le guide [Démarrage rapide](https://docs.openwebui.com/getting-started/quick-start/). En bas à gauche, cliquez sur votre profil et **Panneau d'administration**
 
 <figure><img src="../../.gitbook/assets/image (4) (1).png" alt="" width="235"><figcaption></figcaption></figure>
 
-2. Open **Functions** tab, and add a new Function.
+2. Ouvrez l'onglet **Fonctions**, et ajoutez une nouvelle Fonction.
 
 <figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt="" width="423"><figcaption></figcaption></figure>
 
-3. Name the Function, and add the following code:
+3. Nommez la Fonction, et ajoutez le code suivant :
 
 ```python
 """
@@ -192,21 +192,22 @@ class Pipe:
         except Exception as e:
             return f"Error in Flowise pipe: {e}"
 ```
-
-4. After Function has been saved, enable it, and click the settings button to put in your Flowise URL and Flowise API Key:
+```markdown
+4. Après avoir enregistré la fonction, activez-la et cliquez sur le bouton des paramètres pour entrer votre URL Flowise et votre clé API Flowise :
 
 <figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (3) (1) (1).png" alt="" width="431"><figcaption></figcaption></figure>
 
-5. Now when you refresh and click New Chat, you will be able to see the list of flows. You can modify the code to show:
+5. Maintenant, lorsque vous actualisez et cliquez sur Nouveau Chat, vous pourrez voir la liste des flux. Vous pouvez modifier le code pour afficher :
 
-* Only Agentflows V2: `f"{self.valves.flowise_url}/api/v1/chatflows?type=AGENTFLOW"`
-* Only Chatflows: `f"{self.valves.flowise_url}/api/v1/chatflows?type=CHATFLOW"`
-* Only Assistants: `f"{self.valves.flowise_url}/api/v1/chatflows?type=ASSISTANT"`
+* Seulement les Agentflows V2 : `f"{self.valves.flowise_url}/api/v1/chatflows?type=AGENTFLOW"`
+* Seulement les Chatflows : `f"{self.valves.flowise_url}/api/v1/chatflows?type=CHATFLOW"`
+* Seulement les Assistants : `f"{self.valves.flowise_url}/api/v1/chatflows?type=ASSISTANT"`
 
 <figure><img src="../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-6. Test:
+6. Test :
 
 <figure><img src="../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
+```

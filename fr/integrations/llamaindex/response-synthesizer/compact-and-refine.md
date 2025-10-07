@@ -1,16 +1,16 @@
-# Compact And Refine
+# Compact et affiner
 
-This is the default when no Response Synthesizer is explicilty defined.
+Il s'agit de la valeur par défaut lorsqu'aucun synthétiseur de réponse n'est défini en explile.
 
-Compact the prompt during each LLM call by stuffing as many text chunks that can fit within the maximum prompt size. If there are too many chunks to stuff in one prompt, "create and refine" an answer by going through multiple compact prompts.
+Compacte l'invite lors de chaque appel LLM en remplissant autant de morceaux de texte qui peuvent s'adapter à la taille invite maximale. S'il y a trop de morceaux pour faire des trucs dans une invite, "Créez et affinez" une réponse en passant par plusieurs invites compactes.
 
-**Pros**: The same as [Refine](refine.md), Good for more detailed answers, and should result in less LLM calls
+** Pros **: le même que[Refine](refine.md), Bon pour les réponses plus détaillées, et devrait entraîner des appels LLM moins
 
-**Cons**: Due to the multiple LLM calls , can be expensive
+** CONS **: En raison des multiples appels LLM, peut être coûteux
 
-<figure><img src="../../../.gitbook/assets/image (6) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (6) (1) (1) (1) (2) .png" alt = ""> <figcaption> </ Figcaption> </gigne>
 
-**Refine Prompt**
+** Affiner l'invite **
 
 ```markup
 The original query is as follows: {query}
@@ -23,7 +23,7 @@ Given the new context, refine the original answer to better answer the query. If
 Refined Answer:
 ```
 
-**Text QA Prompt**
+** Texte du texte QA Invite **
 
 ```
 Context information is below.

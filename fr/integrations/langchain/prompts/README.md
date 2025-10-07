@@ -2,13 +2,13 @@
 description: LangChain Prompt Nodes
 ---
 
-# Prompts
+# Invite
 
 ***
 
-Prompt template nodes help to translate user input and parameters into instructions for a language model. This can be used to guide a model's response, helping it understand the context and generate relevant and coherent language-based output.
+Les nœuds de modèle d'invite aident à traduire l'entrée et les paramètres de l'utilisateur en instructions pour un modèle de langue. Cela peut être utilisé pour guider la réponse d'un modèle, l'aidant à comprendre le contexte et à générer une sortie pertinente et cohérente basée sur le langage.
 
-### Prompt Nodes:
+### Nœuds rapides:
 
 * [Chat Prompt Template](chat-prompt-template.md)
 * [Few Shot Prompt Template](few-shot-prompt-template.md)

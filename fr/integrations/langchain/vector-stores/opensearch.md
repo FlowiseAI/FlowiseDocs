@@ -4,10 +4,10 @@ description: >-
   OpenSearch, an open-source, all-in-one vector database.
 ---
 
-# OpenSearch
+# Opeensearch
 
-<figure><img src="../../../.gitbook/assets/image (162).png" alt="" width="284"><figcaption><p>OpenSearch Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (162) .png" alt = "" width = "284"> <figcaption> <p> OpenSearch Node </p> </gigcaption> </ figure>
 
-{% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
-{% endhint %}
+{% hint style = "info"%}
+Cette section est un travail en cours. Nous apprécions toute aide que vous pouvez fournir pour terminer cette section. Veuillez vérifier notre[Contribution Guide](broken-reference)Pour commencer.
+{% EndHint%}

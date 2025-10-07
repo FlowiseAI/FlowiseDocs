@@ -1,15 +1,15 @@
-# Buffer Window Memory
+# Mémoire de fenêtre de tampon
 
-Use Flowise database table `chat_message` as the storage mechanism for storing/retrieving conversations.
+Utilisez la table de base de données Flowise`chat_message`comme mécanisme de stockage pour stocker / récupérer les conversations.
 
-Difference being it only fetches the last K interactions. This approach is beneficial for preserving a sliding window of the most recent interactions, ensuring the buffer remains manageable in size.
+La différence étant, elle ne fait que les dernières interactions k. Cette approche est bénéfique pour préserver une fenêtre coulissante des interactions les plus récentes, garantissant que le tampon reste gérable en taille.
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (3) (1).png" alt="" width="298"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (1) (1) (3) (1) .png" alt = "" width = "298"> <Figcaption> </ Figcaption> </ Figure>
 
-## Input
+## Saisir
 
-| Parameter  | Description                                                                   | Default       |
+| Paramètre | Description | Par défaut |
 | ---------- | ----------------------------------------------------------------------------- | ------------- |
-| Size       | Last K messages to fetch                                                      | 4             |
-| Session Id | An ID to retrieve/store messages. If not specified, a random ID will be used. |               |
-| Memory Key | A key used to format messages in prompt template                              | chat\_history |
+| Taille | Dernier k messages à récupérer | 4 |
+| ID de session | Un identifiant pour récupérer / stocker les messages. S'il n'est pas spécifié, un ID aléatoire sera utilisé. |               |
+| Clé de mémoire | Une clé utilisée pour formater les messages dans le modèle d'invite | CHAT \ _History |

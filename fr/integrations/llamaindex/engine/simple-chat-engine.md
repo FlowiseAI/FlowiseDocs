@@ -1,22 +1,22 @@
-# Simple Chat Engine
+# Moteur de chat simple
 
-A simple chat engine functions as a complete pipeline for engaging in a dialogue between AI and user, without context retrieval. However it does equipped with [Memory](../../langchain/memory/), allowing to remember conversations.
+Un moteur de chat simple fonctionne comme un pipeline complet pour s'engager dans un dialogue entre l'IA et l'utilisateur, sans récupération de contexte. Cependant, il est équipé de[Memory](../../langchain/memory/), permettant de se souvenir des conversations.
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (2) (1) (1) (1) (1) (1) (1) (1) (2) .png" alt = ""> <figCaption> </gigCaption> </pigucial>
 
-## Inputs
+## Entrées
 
-* Chat Model
+* Modèle de chat
 * [Memory](../../langchain/memory/)
 
-## Parameters
+## Paramètres
 
-| Name           | Description                                   |
+| Nom | Description |
 | -------------- | --------------------------------------------- |
-| System Message | An instruction for LLM on how to answer query |
+| Message système | Une instruction pour LLM sur la façon de répondre à la requête |
 
-## Outputs
+## Sorties
 
-| Name             | Description                   |
+| Nom | Description |
 | ---------------- | ----------------------------- |
-| SimpleChatEngine | Final node to return response |
+| Simplechatégine | Node final pour retourner la réponse |

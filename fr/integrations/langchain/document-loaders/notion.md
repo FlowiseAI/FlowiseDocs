@@ -1,116 +1,116 @@
 # Notion
 
-Notion is a collaboration platform that combines note-taking, knowledge management, and project management. This module provides three different loaders to process Notion content: Database, Page, and Folder loaders.
+La notion est une plate-forme de collaboration qui combine la prise de notes, la gestion des connaissances et la gestion de projet. Ce module fournit trois chargeurs différents pour traiter le contenu de la notion: la base de données, la page et les chargeurs de dossiers.
 
-## Notion Database Loader
+## Chargeur de base de données de notion
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2).png" alt="" width="260"><figcaption><p>Notion Database Node</p></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) .png" Alt = "" width = "260"> <Figcaption> <p> notion database notion notion database notion notion DATAbase notion notion notion de notion notion de notion de notion notion de notion de notion de notion de notion de notion de notion de notion de notion de notion de notion de notion de notion Nœud </p> </gigcaption> </ figure>
 
-The Database loader extracts content from Notion databases, treating each row as a separate document.
+Le chargeur de base de données extrait le contenu des bases de données de notion, traitant chaque ligne comme un document distinct.
 
-### Features
+### Caractéristiques
 
-* Load database rows as documents
-* Extract properties as metadata
-* Support property headers
-* Handle concurrent loading
-* Process content with text splitters
-* Customize metadata extraction
+* Chargez les lignes de la base de données comme documents
+* Extraire les propriétés sous forme de métadonnées
+* Soutenir les en-têtes de propriété
+* Gérer le chargement simultané
+* Traiter le contenu avec des séparateurs de texte
+* Personnaliser l'extraction des métadonnées
 
-### Required Parameters
+### Paramètres requis
 
-* **Connect Credential**: Notion API credentials
-* **Database Id**: The unique identifier of the Notion database
+* ** Connectez les informations d'identification **: notion API
+* ** ID de base de données **: L'identifiant unique de la base de données de notion
 
-## Notion Page Loader
+## Chargeur de page de notion
 
-<figure><img src="../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (2).png" alt="" width="262"><figcaption><p>Notion Page Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (4) (1) (1) (1) (1) (1) (1) (1) (1) (2) .png" alt = "" width = "262"> <figcaption> <p> Page de notion Node </p> </1/ / Figcaption>
 
-The Page loader extracts content from Notion pages, including all child pages as separate documents.
+Le chargeur de page extrait le contenu des pages de notion, y compris toutes les pages enfants en tant que documents distincts.
 
-### Features
+### Caractéristiques
 
-* Load page content as documents
-* Process child pages recursively
-* Extract page properties
-* Handle page hierarchy
-* Support text splitting
-* Customize metadata extraction
+* Chargez le contenu de la page sous forme de documents
+* Traiter les pages enfants récursivement
+* Extraire les propriétés de la page
+* Gérer la hiérarchie des pages
+* Prise en charge du fractionnement du texte
+* Personnaliser l'extraction des métadonnées
 
-### Required Parameters
+### Paramètres requis
 
-* **Connect Credential**: Notion API credentials
-* **Page Id**: The 32-character hex identifier from the page URL
+* ** Connectez les informations d'identification **: notion API
+* ** ID de page **: l'identifiant hexadécimal à 32 caractères de l'URL de la page
 
-## Notion Folder Loader
+## Chargeur de dossiers de notion
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2).png" alt="" width="259"><figcaption><p>Notion Folder Node</p></figcaption></figure>
+<gigne> <img src = "../../../. gitbook / actifs / image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) .png" alt = "" width = "259"> <Figcaption> <p> NODE NODE </p> </pigction>
 
-The Folder loader processes exported and unzipped Notion content from a local folder.
+Le chargeur de dossier traite le contenu de notion exporté et dézippé à partir d'un dossier local.
 
-### Features
+### Caractéristiques
 
-* Process exported Notion content
-* Handle multiple pages
-* Support local file system
-* Extract page content
-* Maintain document structure
-* Support text splitting
-* Customize metadata extraction
+* Traiter le contenu de la notion exportée
+* Gérer plusieurs pages
+* Prise en charge du système de fichiers local
+* Extraire le contenu de la page
+* Maintenir la structure des documents
+* Prise en charge du fractionnement du texte
+* Personnaliser l'extraction des métadonnées
 
-### Required Parameters
+### Paramètres requis
 
-* **Notion Folder**: Path to the exported and unzipped Notion folder
+* ** Dossier de notion **: Chemin vers le dossier de notion exporté et dézippé
 
-## Common Features
+## Caractéristiques communes
 
-All Notion loaders support:
+Tous les chargeurs de notion Support:
 
-### Optional Parameters
+### Paramètres facultatifs
 
-* **Text Splitter**: A text splitter to process the extracted content
-* **Additional Metadata**: JSON object with additional metadata
-* **Omit Metadata Keys**: Comma-separated list of metadata keys to omit
+* ** Splitter du texte **: un séparateur de texte pour traiter le contenu extrait
+* ** Metadata supplémentaires **: objet JSON avec métadonnées supplémentaires
+* ** omettre les clés de métadonnées **: Liste des clés de métadonnées séparées par des virgules pour omettre
 
-### Outputs
+### Sorties
 
-* **Document**: Array of document objects containing metadata and pageContent
-* **Text**: Concatenated string from pageContent of documents
+* ** Document **: tableau d'objets de document contenant des métadonnées et un conceptent
+* ** Texte **: chaîne concaténée du conceptent de documents
 
-## Authentication
+## Authentification
 
-### API Authentication (Database & Page Loaders)
+### Authentification de l'API (base de données et chargeurs de page)
 
-* Requires Notion Integration Token
-* API rate limiting handled automatically
-* Support for workspace-level access
-* Secure credential management
+* Nécessite un jeton d'intégration de notion
+* Limitation du taux d'API géré automatiquement
+* Prise en charge de l'accès au niveau de l'espace de travail
+* Gestion d'identification sécurisée
 
-### Local Access (Folder Loader)
+### Accès local (chargeur de dossiers)
 
-* No authentication required
-* Direct file system access
-* Process offline content
-* Handle exported data
+* Aucune authentification requise
+* Accès au système de fichiers direct
+* Traiter le contenu hors ligne
+* Gérer les données exportées
 
-## Document Structure
+## Structure de document
 
-Each document contains:
+Chaque document contient:
 
-* **pageContent**: Extracted text content
-* **metadata**:
-  * source: Original source (URL or file path)
-  * title: Page or database title
-  * properties: Notion properties
-  * Additional custom metadata
+* ** PageContent **: Contenu texte extrait
+* ** Metadata **:
+  * Source: source d'origine (URL ou chemin de fichier)
+  * Titre: Page ou Titre de la base de données
+  * Propriétés: propriétés de notion
+  * Métadonnées personnalisées supplémentaires
 
 ## Notes
 
-* API loaders require Notion integration setup
-* Folder loader needs exported content
-* Rate limiting handled automatically
-* Memory-efficient processing
-* Error handling for invalid inputs
-* Support for large datasets
-* Flexible output formats
-* Metadata customization
+* Les chargeurs d'API nécessitent une configuration d'intégration de notion
+* Le chargeur de dossier a besoin de contenu exporté
+* La limitation du taux géré automatiquement
+* Traitement économe en mémoire
+* Gestion des erreurs pour les entrées non valides
+* Prise en charge des grands ensembles de données
+* Formats de sortie flexibles
+* Personnalisation des métadonnées

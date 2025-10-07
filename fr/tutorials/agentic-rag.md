@@ -1,69 +1,69 @@
-# Agentic RAG
+# Chiffon agentique
 
-Agentic RAG is an agent based approach to perform [RAG](rag.md) in an orchestrated fashion. It may involve retrieving data from various document sources, comparing summaries, and implementing an automatic self-correction mechanism.
+Le chiffon agentique est une approche basée sur des agents pour effectuer[RAG](rag.md)de manière orchestrée. Cela peut impliquer la récupération des données de diverses sources de documents, la comparaison des résumés et la mise en œuvre d'un mécanisme d'auto-correction automatique.
 
-In this tutorial, we'll explore how to build a self-correcting RAG system that checks the relevance of retrieved data and automatically re-generates the query if the results are not relevant.
+Dans ce didacticiel, nous explorerons comment créer un système de chiffon auto-corrigé qui vérifie la pertinence des données récupérées et re-génère automatiquement la requête si les résultats ne sont pas pertinents.
 
-## Overview
+## Aperçu
 
-The Agentic RAG flow implements a multi-step process that:
+Le flux de chiffon agentique implémente un processus en plusieurs étapes qui:
 
-1. Validates and categorizes incoming queries
-2. Generates optimized search queries for vector database retrieval
-3. Evaluates the relevance of retrieved documents
-4. Self-corrects by regenerating queries when results are not relevant
-5. Provides contextual responses based on retrieved information
+1. Valide et catégorise les requêtes entrantes
+2. Génère des requêtes de recherche optimisées pour la récupération de la base de données vectorielle
+3. Évalue la pertinence des documents récupérés
+4. S'auto-correction en régénérant les requêtes lorsque les résultats ne sont pas pertinents
+5. Fournit des réponses contextuelles basées sur des informations récupérées
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. Gitbook / Assets / image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) .png" alt = ""> <figcaption>
 
-### Step 1: Setting Up the Start Node
+### Étape 1: Configuration du nœud de démarrage
 
-Begin by adding a **Start** node to your canvas. This serves as the entry point for your agent flow.
+Commencez par ajouter un nœud ** start ** à votre toile. Cela sert de point d'entrée pour le flux de votre agent.
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
-
-#### Configuration:
-
-* **Input Type**: Select "Chat Input" to accept user questions
-* **Flow State**: Add a state variable with key "`query`" and empty value
-
-The Start node initializes the flow state with an empty `query` variable that will be updated throughout the process.
-
-### Step 2: Adding Query Validation
-
-Add a **Condition Agent** node and connect it to the Start node.
-
-<figure><img src="../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. Gitbook / Assets / image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) .png" alt = "" width = "563"> <gigcaption> </ / figction> </ figure>
 
 #### Configuration:
 
-* **Instructions**: "Check if user is asking about AI related topic, or just general query"
-* **Input**: `{{ question }}` (references the user's input)
-* **Scenarios**:
-  * Scenario 1: "AI Related"
-  * Scenario 2: "General"
+* ** Type d'entrée **: Sélectionnez "CHAT ENTRE" pour accepter les questions des utilisateurs
+* ** État de flux **: Ajoutez une variable d'état avec la clé "`query`"Et une valeur vide
 
-This node acts as a router, determining whether the query requires specialized AI knowledge or can be answered generally.
+Le nœud de démarrage initialise l'état de débit avec un vide`query`variable qui sera mise à jour tout au long du processus.
 
-### Step 3: Creating the General Response Branch
+### Étape 2: Ajout de validation de la requête
 
-For non-AI related queries, add an **LLM** node connected to output 1 of the condition agent.
+Ajoutez un nœud d'agent de condition ** ** et connectez-le au nœud de démarrage.
 
-<figure><img src="../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
-
-This provides direct responses for general queries without requiring document retrieval. You can also replace with Direct Reply node to return a predefined answer.
-
-<figure><img src="../.gitbook/assets/image (8) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
-
-### Step 4: Setting Up Query Generation
-
-For AI-related queries, add an **LLM** node connected to output 0 of the condition agent - which is the scenario for "AI-related".
-
-<figure><img src="../.gitbook/assets/image (9) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (5) (1) (1) (1) (1) (1) (1) (1) (1) .png" alt = "" width = "563"> <figcaption> </gigcaption> </pigu
 
 #### Configuration:
 
-*   **Messages**: Add a system message:
+* ** Instructions **: "Vérifiez si l'utilisateur pose des questions sur le sujet lié à l'IA, ou tout simplement une requête générale"
+* **Saisir**:`{{ question }}`(référence à l'entrée de l'utilisateur)
+* ** Scénarios **:
+  * Scénario 1: "lié à l'IA"
+  * Scénario 2: "Général"
+
+Ce nœud agit comme un routeur, déterminant si la requête nécessite des connaissances spécialisées d'IA ou peut être répondue en général.
+
+### Étape 3: Création de la branche de réponse générale
+
+Pour les requêtes non liées à AI, ajoutez un nœud ** llm ** connecté à la sortie 1 de l'agent de condition.
+
+<gigne> <img src = "../. Gitbook / Assets / image (7) (1) (1) (1) (1) (1) (1) .png" alt = "" width = "375"> <figcaption> </gigcaption> </ figure>
+
+Cela fournit des réponses directes pour les requêtes générales sans nécessiter de récupération de documents. Vous pouvez également remplacer par le nœud de réponse directe pour renvoyer une réponse prédéfinie.
+
+<gigne> <img src = "../. GitBook / Assets / image (8) (1) (1) (1) (1) (1) .png" alt = "" width = "375"> <figCaption> </gigcaption> </gigu
+
+### Étape 4: Configuration de la génération de requêtes
+
+Pour les requêtes liées à l'AI, ajoutez un nœud ** llm ** connecté à la sortie 0 de l'agent de condition - qui est le scénario pour "lié à l'AI".
+
+<gigne> <img src = "../. GitBook / Assets / Image (9) (1) (1) (1) (1) .png" alt = "" width = "563"> <figCaption> </ Figcaption> </gigne>
+
+#### Configuration:
+
+*   ** Messages **: Ajouter un message système:
 
     ```
     Given the user question and history, construct a short string that can be used for searching vector database. Only generate the query, no meta comments, no explanation
@@ -79,48 +79,48 @@ For AI-related queries, add an **LLM** node connected to output 0 of the conditi
     Question: {{ question }}
     Query:
     ```
-* **Update Flow State**: Set key "query" with value `{{ output }}`. This will update the value of "query" to the output from this LLM node.
+* ** Mettre à jour l'état de flux **: Définir la clé "Requête" avec une valeur`{{ output }}`. Cela mettra à jour la valeur de "Query" vers la sortie de ce nœud LLM.
 
-This node transforms the user's natural language question into an optimized search query for the vector database.
+Ce nœud transforme la question du langage naturel de l'utilisateur en une requête de recherche optimisée pour la base de données vectorielle.
 
-### Step 5: Configuring the Vector Database Retriever
+### Étape 5: Configuration de la base de données vectorielle Retriever
 
-Add a **Retriever** node and connect it to the "Generate Query" LLM.
+Ajoutez un nœud ** Retriever ** et connectez-le à la "Generate Query" LLM.
 
-<figure><img src="../.gitbook/assets/image (10) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
-
-#### Configuration:
-
-* **Knowledge (Document Stores)**: Select your pre-configured document store (e.g., "ai paper")
-* **Retriever Query**: `{{ $flow.state.query }}` (uses the "query" value from shared state)
-
-This node searches your vector database using the optimized query and returns relevant documents.
-
-### Step 6: Adding Document Relevance Check
-
-Add another **Condition Agent** node connected to the Retriever.
-
-<figure><img src="../.gitbook/assets/image (11) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / image (10) (1) (1) (1) (1) .png" alt = "" width = "563"> <Figcaption> </ Figcaption> </gigu
 
 #### Configuration:
 
-* **Instructions**: "Determine if the document is relevant to user question. User question is \{{ question \}}"
-* **Input**: `{{ retrieverAgentflow_0 }}` (references the retrieved documents from Step 5)
-* **Scenarios**:
-  * Scenario 1: "Relevant"
-  * Scenario 2: "Irrelevant"
+* ** Connaissances (magasins de documents) **: Sélectionnez votre magasin de documents préconfiguré (par exemple, "Papier AI")
+* ** Retriever Query **:`{{ $flow.state.query }}`(utilise la valeur "requête" de l'état partagé)
 
-This evaluates whether the retrieved documents actually contain information relevant to the user's question.
+Ce nœud recherche votre base de données vectorielle à l'aide de la requête optimisée et renvoie les documents pertinents.
 
-### Step 7: Creating the Final Response Generator
+### Étape 6: Ajouter la vérification de la pertinence du document
 
-For relevant documents, add an **LLM** node connected to output 0 of the relevance checker - which is when the scenario "Relevant" is matched.
+Ajoutez un autre nœud d'agent de condition ** ** connecté au retriever.
 
-<figure><img src="../.gitbook/assets/image (12) (1) (1) (1) (1).png" alt="" width="373"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / image (11) (1) (1) (1) (1) .png" alt = "" width = "563"> <figCaption> </ Figcaption> </gigu
 
 #### Configuration:
 
-*   **Input Message**:
+* ** Instructions **: "Déterminez si le document est pertinent pour la question de l'utilisateur. La question de l'utilisateur est \ {{question \}}"
+* **Saisir**:`{{ retrieverAgentflow_0 }}`(Référence les documents récupérés de l'étape 5)
+* ** Scénarios **:
+  * Scénario 1: "pertinent"
+  * Scénario 2: "hors de propos"
+
+Cela évalue si les documents récupérés contiennent réellement des informations pertinentes pour la question de l'utilisateur.
+
+### Étape 7: Création du générateur de réponse final
+
+Pour les documents pertinents, ajoutez un nœud ** llm ** connecté à la sortie 0 du vérificateur de pertinence - c'est-à-dire lorsque le scénario "pertinent" est égalé.
+
+<gigne> <img src = "../. GitBook / Assets / image (12) (1) (1) (1) (1) .png" alt = "" width = "373"> <Figcaption> </gigcaption> </gigu
+
+#### Configuration:
+
+*   ** Message d'entrée **:
 
     ```
     Given the question: {{ question }}
@@ -128,68 +128,68 @@ For relevant documents, add an **LLM** node connected to output 0 of the relevan
     Output the final response
     ```
 
-This node creates the final answer by combining the user's question with the relevant retrieved documents.
+Ce nœud crée la réponse finale en combinant la question de l'utilisateur avec les documents récupérés pertinents.
 
-### Step 8: Implementing Self-Correction
+### Étape 8: Mise en œuvre de l'auto-correction
 
-For irrelevant documents, add an **LLM** node connected to output 1 of the relevance checker - for the second scenario - "Irrelevant".
+Pour les documents non pertinents, ajoutez un nœud ** llm ** connecté à la sortie 1 du vérificateur de pertinence - pour le deuxième scénario - "non pertinent".
 
-<figure><img src="../.gitbook/assets/image (13) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (13) (1) (1) (1) (1) .png" alt = "" width = "375"> <figCaption> </gigcaption> </gigne>
 
-<figure><img src="../.gitbook/assets/image (14) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (14) (1) (1) (1) (1) .png" alt = "" width = "563"> <figCaption> </ Figcaption> </ Figure>
 
 #### Configuration:
 
-* **Messages**: Add system message: "You are a helpful assistant that can transform the query to produce a better question."
-*   **Input Message**:
+* ** Messages **: Ajouter un message système: "Vous êtes un assistant utile qui peut transformer la requête pour produire une meilleure question."
+*   ** Message d'entrée **:
 
     ```
     Look at the input and try to reason about the underlying semantic intent / meaning.
     Here is the initial question: {{ $flow.state.query }}
     Formulate an improved question:
     ```
-* **Update Flow State**: Set key "query" with value `{{ output }}`
+* ** Mettre à jour l'état de flux **: Définir la clé "Requête" avec une valeur`{{ output }}`
 
-<figure><img src="../.gitbook/assets/image (15) (1) (1) (1) (1).png" alt="" width="520"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (15) (1) (1) (1) (1) .png" alt = "" width = "520"> <figCaption> </gigcaption> </stigne>
 
-This node analyzes why the initial query didn't return relevant results and generates an improved version.
+Ce nœud analyse pourquoi la requête initiale n'a pas renvoyé les résultats pertinents et génère une version améliorée.
 
-### Step 9: Adding the Loop Back Mechanism
+### Étape 9: Ajout du mécanisme de la boucle
 
-Add a **Loop** node connected to the "Regenerate Question" LLM.
+Ajoutez un nœud ** LOOP ** connecté à la "question de régénération" LLM.
 
-<figure><img src="../.gitbook/assets/image (16) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (16) (1) (1) (1) (1) .png" alt = "" width = "563"> <figCaption> </gigcaption> </gigu
 
 #### Configuration:
 
-* **Loop Back To**: Select "retrieverAgentflow\_0-Retriever Vector DB"
-* **Max Loop Count**: Set to 5 (prevents infinite loops)
+* ** Loop Retour à **: Sélectionnez "RetrieverAgentFlow \ _0-Retriever Vector DB"
+* ** Count de boucle maximale **: réglé sur 5 (empêche les boucles infinies)
 
-This creates a feedback loop that allows the system to retry with improved queries when initial results are not satisfactory.
+Cela crée une boucle de rétroaction qui permet au système de réessayer avec des requêtes améliorées lorsque les résultats initiaux ne sont pas satisfaisants.
 
-## Complete Flow Structure
+## Structure d'écoulement complète
 
-{% file src="../.gitbook/assets/Agentic RAG V2.json" %}
+{% fichier src = "../. gitbook / actifs / rag de l'agentique v2.json"%}
 
-## Summary
+## Résumé
 
-1. Start → Check if query valid
-2. Check if query valid (AI Related) → Generate Query
-3. Check if query valid (General) → General Answer
-4. Generate Query → Retriever Vector DB
-5. Retriever Vector DB → Check if docs relevant
-6. Check if docs relevant (Relevant) → Generate Response
-7. Check if docs relevant (Irrelevant) → Regenerate Question
-8. Regenerate Question → Loop back to Retriever
+1. Démarrer → Vérifiez si la requête est valide
+2. Vérifiez si la requête est valide (liée à l'IA) → Générer des requêtes
+3. Vérifiez si la requête valide (générale) → Réponse générale
+4. Générer la requête → Retriever Vector DB
+5. Retriever Vector DB → Vérifiez si les documents pertinents
+6. Vérifiez si les documents pertinents (pertinents) → Générer une réponse
+7. Vérifiez si les documents pertinents (non pertinents) → Regérer la question
+8. Régénérer Question → Loop Retour à Retriever
 
-## Testing Your Flow
+## Tester votre flux
 
-Test your flow with various types of questions:
+Testez votre flux avec différents types de questions:
 
-* AI-related queries: "What are the latest developments in machine learning?"
-* General queries: "What's the weather like today?"
-* Complex queries that might require refinement: "How does that new technique work?"
+* Requêtes liées à l'IA: "Quels sont les derniers développements de l'apprentissage automatique?"
+* Requêtes générales: "Quel temps fait-il aujourd'hui?"
+* Des requêtes complexes qui pourraient nécessiter un raffinement: "Comment fonctionne cette nouvelle technique?"
 
-<figure><img src="../.gitbook/assets/image (17) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (17) (1) (1) .png" alt = "" width = "563"> <Figcaption> </figcaption> </ figure>
 
-This Agentic RAG provides a robust, self-improving system for document-based question answering that can handle both simple and complex queries while maintaining high accuracy through iterative refinement.
+Ce chiffon agentique fournit un système robuste et auto-amélioré pour la réponse aux questions basée sur des documents qui peut gérer des requêtes simples et complexes tout en maintenant une grande précision grâce à un raffinement itératif.

@@ -1,42 +1,42 @@
 # ChatGoogleGenerativeAI
 
-## Prerequisite
+## Prérequis
 
-1. Register a [Google](https://accounts.google.com/InteractiveLogin) account
-2. Create an [API key](https://aistudio.google.com/app/apikey)
+1. Inscrivez-vous pour un compte [Google](https://accounts.google.com/InteractiveLogin)
+2. Créez une [clé API](https://aistudio.google.com/app/apikey)
 
-## Setup
+## Configuration
 
-1. **Chat Models** > drag **ChatGoogleGenerativeAI** node
+1. **Modèles de Chat** > faites glisser le nœud **ChatGoogleGenerativeAI**
 
 <figure><img src="../../../.gitbook/assets/google_ai/1.png" alt="" width="563"><figcaption></figcaption></figure>
 
-2. **Connect Credential** > click **Create New**
+2. **Connecter les Identifiants** > cliquez sur **Créer Nouveau**
 
 <figure><img src="../../../.gitbook/assets/google_ai/2.png" alt="" width="278"><figcaption></figcaption></figure>
 
-3. Fill in the **Google AI** credential
+3. Remplissez les identifiants **Google AI**
 
 <figure><img src="../../../.gitbook/assets/google_ai/3.png" alt="" width="563"><figcaption></figcaption></figure>
 
-4. Voila [🎉](https://emojipedia.org/party-popper/), you can now use **ChatGoogleGenerativeAI node** in Flowise
+4. Voilà [🎉](https://emojipedia.org/party-popper/), vous pouvez maintenant utiliser le nœud **ChatGoogleGenerativeAI** dans Flowise
 
 <figure><img src="../../../.gitbook/assets/google_ai/4.png" alt=""><figcaption></figcaption></figure>
 
-## Safety Attributes Configuration
+## Configuration des Attributs de Sécurité
 
-1. Click **Additonal Parameters**
+1. Cliquez sur **Paramètres Supplémentaires**
 
 <figure><img src="../../../.gitbook/assets/google_ai/5.png" alt="" width="563"><figcaption></figcaption></figure>
 
-* When configuring **Safety Attributes**, the amount of selection in **Harm Category** & **Harm Block Threshold** should be the same amount. If not it will throw an error `Harm Category & Harm Block Threshold are not the same length`
+* Lors de la configuration des **Attributs de Sécurité**, le nombre de sélections dans **Catégorie de Dommages** et **Seuil de Blocage de Dommages** doit être le même. Sinon, une erreur sera générée : `La Catégorie de Dommages et le Seuil de Blocage de Dommages ne sont pas de la même longueur`
 
-* The combination of **Safety Attributes** below will result in `Dangerous` is set to `Low and Above` and `Harassment` is set to `Medium and Above`
+* La combinaison des **Attributs de Sécurité** ci-dessous entraînera que `Dangereux` est défini sur `Faible et Au-dessus` et `Harcèlement` est défini sur `Moyen et Au-dessus`
 
 <figure><img src="../../../.gitbook/assets/google_ai/6.png" alt="" width="563"><figcaption></figcaption></figure>
 
-## Resources
+## Ressources
 
 * [LangChain JS ChatGoogleGenerativeAI](https://js.langchain.com/docs/integrations/chat/google_generativeai)
-* [Google AI for Developers](https://ai.google.dev/)
-* [Gemini API Docs](https://ai.google.dev/docs)
+* [Google AI pour les Développeurs](https://ai.google.dev/)
+* [Documentation de l'API Gemini](https://ai.google.dev/docs)

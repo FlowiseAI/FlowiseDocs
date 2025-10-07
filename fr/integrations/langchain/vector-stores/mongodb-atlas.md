@@ -6,22 +6,22 @@ description: >-
 
 # MongoDB Atlas
 
-<figure><img src="../../../.gitbook/assets/image (161).png" alt="" width="308"><figcaption><p>MongoDB Atlas Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (161) .png" alt = "" width = "308"> <Figcaption> <p> MongoDB Atlas nœud </p> </ figCaption> </ Figure>
 
-### Cluster Configuration[​](https://js.langchain.com/docs/integrations/vectorstores/mongodb_atlas/#initial-cluster-configuration) <a href="#initial-cluster-configuration" id="initial-cluster-configuration"></a>
+### Configuration de la cluster[​](https://js.langchain.com/docs/integrations/vectorstores/mongodb_atlas/#initial-cluster-configuration)<a href = "# Initial-Cluster-Configuration" id = "Initial-Cluster-Configuration"> </a>
 
-To set up a MongoDB Atlas cluster, go to the [MongoDB Atlas ](https://www.mongodb.com/)website and sign up if you don’t have an account. When prompted, create and name your cluster, which will appear under the Database section. Then, select "**Browse Collections**" to either create a new collection or use one from the sample data provided.
+Pour configurer un cluster MongoDB Atlas, allez au[MongoDB Atlas ](https://www.mongodb.com/)Site Web et inscrivez-vous si vous n'avez pas de compte. Lorsque vous y êtes invité, créez et nommez votre cluster, qui apparaîtra dans la section de la base de données. Ensuite, sélectionnez "** Browse Collections **" pour créer une nouvelle collection ou en utiliser une à partir des exemples de données fournies.
 
-{% hint style="warning" %}
-Ensure the cluster you create is version 7.0 or higher.
-{% endhint %}
+{% hint style = "avertissement"%}
+Assurez-vous que le cluster que vous créez est la version 7.0 ou supérieure.
+{% EndHint%}
 
-### Creating Index
+### Création d'index
 
-After setting up your cluster, the next step is to create an index for the collection field you intend to search.
+Après avoir configuré votre cluster, l'étape suivante consiste à créer un index pour le champ de collection que vous avez l'intention de rechercher.
 
-1. Go to the **Atlas Search** tab and click on **Create Search Index**.
-2. Select **Atlas Vector Search - JSON Editor**, choose the appropriate database and collection, and then paste the following into the text box:
+1. Accédez à l'onglet ** Recherche ** ATLAS ** et cliquez sur ** Créer un index de recherche **.
+2. SELECT ** ATLAS VECTOR Recherche - JSON Editor **, choisissez la base de données et la collection appropriées, puis collez ce qui suit dans la zone de texte:
 
 ```json
 {
@@ -36,32 +36,32 @@ After setting up your cluster, the next step is to create an index for the colle
 }
 ```
 
-Make sure the `numDimensions` property corresponds to the dimensionality of the embeddings you're using. For instance, Cohere embeddings typically have 1024 dimensions, while OpenAI embeddings have 1536 by default.
+Assurez-vous que le`numDimensions`La propriété correspond à la dimensionnalité des intérêts que vous utilisez. Par exemple, les incorporations de cohére ont généralement 1024 dimensions, tandis que les incorporations OpenAI ont 1536 par défaut.
 
-**Note:** The vector store expects certain default values, such as:
+** Remarque: ** Le magasin vectoriel attend certaines valeurs par défaut, telles que:
 
-* An index name of `default`
-* A collection field name of `embedding`
-* A raw text field name of `text`
+* Un nom d'index de`default`
+* Un nom de champ de collection de`embedding`
+* Un nom de champ de texte brut de`text`
 
-Ensure you initialize the vector store with field names that match your index and collection schema, as shown in the example above.
+Assurez-vous d'initialiser le magasin vectoriel avec des noms de champ qui correspondent à votre schéma d'index et de collecte, comme indiqué dans l'exemple ci-dessus.
 
-Once this is done, proceed to build the index.
+Une fois cela fait, procédez pour construire l'index.
 
-{% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
-{% endhint %}
+{% hint style = "info"%}
+Cette section est un travail en cours. Nous apprécions toute aide que vous pouvez fournir pour terminer cette section. Veuillez vérifier notre[Contribution Guide](broken-reference)Pour commencer.
+{% EndHint%}
 
-### Flowise Configuration
+### Configuration de flux
 
-Drag and drop the MongoDB Atlas Vector Store, and add a new credential. Use the connection string provided from the MongoDB Atlas dashboard:
+Faites glisser et déposez le MongoDB Atlas Vector Store et ajoutez un nouvel diplôme. Utilisez la chaîne de connexion fournie à partir du tableau de bord MongoDB ATLAS:
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (1) (1) (1) (1) (1) (1) (1) (1) (2) .png" alt = ""> <figCaption> </ Figcaption> </pigucial>
 
-Fill in the rest of the fields:
+Remplissez le reste des champs:
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (2) (1).png" alt="" width="252"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / image (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) .png" alt = "" width = "252"> <figcaption>
 
-You may also configure more details from Additional Parameters:
+Vous pouvez également configurer plus de détails à partir de paramètres supplémentaires:
 
-<figure><img src="../../../.gitbook/assets/image (164).png" alt="" width="518"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (164) .png" alt = "" width = "518"> <Figcaption> </ Figcaption> </ Figure>

@@ -1,11 +1,11 @@
 ---
-description: Answer questions over a SQL database.
+description: Répondre à des questions sur une base de données SQL.
 ---
 
-# Sql Database Chain
+# Chaîne de Base de Données SQL
 
-<figure><img src="../../../.gitbook/assets/image (40).png" alt="" width="332"><figcaption><p>Sql Database Chain Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (40).png" alt="" width="332"><figcaption><p>Noeud de Chaîne de Base de Données SQL</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
+Cette section est en cours de développement. Nous apprécions toute aide que vous pouvez apporter pour compléter cette section. Veuillez consulter notre [Guide de Contribution](broken-reference) pour commencer.
 {% endhint %}

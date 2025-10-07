@@ -1,40 +1,40 @@
-# AstraDB
+# Astradb
 
-## Setup
+## Installation
 
-1. Register an account on [AstraDB](https://astra.datastax.com/)
-2. Login to portal. Create a Database
+1. Enregistrer un compte sur[AstraDB](https://astra.datastax.com/)
+2. Connectez-vous vers le portail. Créer une base de données
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (1) (1) (1) (1) (1) (1) (1) (2) (1) .png" alt = ""> <figCaption> </ FigCaption> </ Figure>
 
-3. Choose Serverless (Vector), fill in the Database name, Provider, and Region
+3. Choisissez Serverless (vecteur), remplissez le nom de la base de données, le fournisseur et la région
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (2) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / Image (1) (1) (1) (1) (1) (1) (1) (2) (1) (1) .png" alt = "" width = "563"> <figcaption>
 
-4. After database has been setup, grab the API Endpoint, and generate Application Token
+4. Une fois la base de données configurée, saisissez le point de terminaison de l'API et générez un jeton d'application
 
-<figure><img src="../../../.gitbook/assets/Picture7.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Picture7.png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-5. Create a new collection, select the desired dimenstion and similarity metric:
+5. Créez une nouvelle collection, sélectionnez la métrique de dimension et de similitude souhaitée:
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (2) (1) (1) (1) (1) (2) (1) .png" alt = ""> <figCaption> </gigcaption> </ figure>
 
-6. Back to Flowise canvas, drag and drop Astra node. Click **Create New** from the Credentials dropdown:
+6. Retour à la toile fluide, glisser et déposer le nœud Astra. Cliquez sur ** Créer un nouveau ** à partir de la liste déroulante des informations d'identification:
 
-<figure><img src="../../../.gitbook/assets/image (4) (1) (1) (1) (1) (2).png" alt="" width="235"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (4) (1) (1) (1) (1) (2) .png" alt = "" width = "235"> <figcaption> </ figCaption> </ Figure>
 
-7. Specify the API Endpoint and Application Token:
+7. Spécifiez le point de terminaison de l'API et le jeton d'application:
 
-<figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1) (1) (2).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (5) (1) (1) (1) (1) (2) .png" alt = "" width = "563"> <Figcaption> </ FigCaption> </ Figure>
 
-8. You can now upsert data to AstraDB
+8. Vous pouvez maintenant augmenter les données à Astradb
 
-<figure><img src="../../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (2) (2).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (6) (1) (1) (1) (1) (1) (1) (2) (2) .png" alt = ""> <figCaption> </ FigCaption> </pigucial>
 
-9. Navigate back to Astra portal, and to your collection, you will be able to see all the data that has been upserted:
+9. Revenez au portail Astra et à votre collection, vous pourrez voir toutes les données qui ont été renversées:
 
-<figure><img src="../../../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / Image (7) (1) (1) (1) (1) (1) (2) .png" alt = ""> <figcaption> </gigcaption> </gigne>
 
-10. Start querying!
+10. Commencez à interroger!
 
-<figure><img src="../../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / Image (8) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) .png" alt = ""> <figcaption> </ Figcaption> </ Figure>

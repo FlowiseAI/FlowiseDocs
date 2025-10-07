@@ -4,10 +4,10 @@ description: >-
   query.
 ---
 
-# Multi Query Retriever
+# Retriever multi-requêtes
 
-<figure><img src="../../../.gitbook/assets/up-006.png" alt="" width="283"><figcaption><p>Multi Query Retriever Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Up-006.png" alt = "" width = "283"> <gigcaption> <p> Node de récupération multi-requête </p> </gigcaption> </pigucion>
 
-{% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
-{% endhint %}
+{% hint style = "info"%}
+Cette section est un travail en cours. Nous apprécions toute aide que vous pouvez fournir pour terminer cette section. Veuillez vérifier notre[Contribution Guide](broken-reference)Pour commencer.
+{% EndHint%}

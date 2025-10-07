@@ -6,29 +6,29 @@ description: Learn how to use variables in Flowise
 
 ***
 
-Flowise allow users to create variables that can be used in the nodes. Variables can be Static or Runtime.
+Flowise permet aux utilisateurs de créer des variables qui peuvent être utilisées dans les nœuds. Les variables peuvent être statiques ou d'exécution.
 
-### Static
+### Statique
 
-Static variable will be saved with the value specified, and retrieved as it is.
+La variable statique sera enregistrée avec la valeur spécifiée et récupérée telle qu'elle est.
 
-<figure><img src="../.gitbook/assets/image (13) (1) (1) (1) (1) (1).png" alt="" width="542"><figcaption></figcaption></figure>
+<gigne> <img src = "../. Gitbook / Assets / image (13) (1) (1) (1) (1) (1) .png" alt = "" width = "542"> <figCaption> </ Figcaption> </gigu
 
-### Runtime
+### Temps d'exécution
 
-Value of the variable will be fetched from **.env** file using `process.env`
+La valeur de la variable sera récupérée à partir du fichier **. Env ** en utilisant`process.env`
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="537"><figcaption></figcaption></figure>
+<Figure> <img src = "../. Gitbook / Assets / Image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) .png" alt = "" width = "537"> <Figcaption> </gigcaption> </gigust>
 
-### Override or setting variable through API
+### Remplacer ou régler la variable via l'API
 
-In order to override variable value, user must explicitly enable it from the top right button:
+Afin de remplacer la valeur de la variable, l'utilisateur doit l'activer explicitement à partir du bouton supérieur droit:
 
-**Settings** -> **Configuration** -> **Security** tab:
+** Paramètres ** -> ** Configuration ** -> ** Sécurité ** Tab:
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) .png" alt = ""> <Figcaption> </ Figcaption> </ / Figure>
 
-If there is an existing variable created, variable value provided in the API will override the existing value.
+S'il existe une variable existante créée, la valeur de variable fournie dans l'API remplacera la valeur existante.
 
 ```json
 {
@@ -41,34 +41,34 @@ If there is an existing variable created, variable value provided in the API wil
 }
 ```
 
-### Using Variables
+### En utilisant des variables
 
-Variables can be used by the nodes in Flowise. For instance, a variable named **`character`** is created:
+Les variables peuvent être utilisées par les nœuds en flux. Par exemple, une variable nommée **`character`** est créé:
 
-<figure><img src="../.gitbook/assets/image (96).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (96) .png" alt = ""> <figcaption> </gigcaption> </gigust>
 
-We can then use this variable as **`$vars.<variable-name>`** in the Function of the following nodes:
+Nous pouvons alors utiliser cette variable comme **`$vars.<variable-name>`** Dans la fonction des nœuds suivants:
 
 * [Custom Tool](../integrations/langchain/tools/custom-tool.md)
 * [Custom Function](../integrations/utilities/custom-js-function.md)
 * [Custom Loader](../integrations/langchain/document-loaders/custom-document-loader.md)
 * [If Else](../integrations/utilities/if-else.md)
-* Custom MCP
+* MCP personnalisé
 
-<figure><img src="../.gitbook/assets/image (105).png" alt="" width="283"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (105) .png" alt = "" width = "283"> <figcaption> </gigcaption> </gigust>
 
-Besides, user can also use the variable in text input of any node with the following format:
+En outre, l'utilisateur peut également utiliser la variable dans l'entrée de texte de n'importe quel nœud avec le format suivant:
 
 **`{{$vars.<variable-name>}}`**
 
-For example, in Agent System Message:
+Par exemple, dans le message du système d'agent:
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (2) (1).png" alt="" width="508"><figcaption></figcaption></figure>
+<gigne> <img src = "../. Gitbook / Assets / image (1) (1) (1) (2) (1) .png" alt = "" width = "508"> <figcaption> </gigcaption> </gigu
 
-In Prompt Template:
+Dans le modèle invite:
 
-<figure><img src="../.gitbook/assets/image (157).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (157) .png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-## Resources
+## Ressources
 
 * [Pass Variables to Function](../integrations/langchain/tools/custom-tool.md#pass-variables-to-function)

@@ -1,6 +1,6 @@
 # Streamlit
 
-[Python SDK](https://github.com/FlowiseAI/FlowisePy) can be used to create a [Streamlit](https://streamlit.io/) app:
+[Python SDK](https://github.com/FlowiseAI/FlowisePy) peut être utilisé pour créer une [Streamlit](https://streamlit.io/) application :
 
 ```python
 import streamlit as st
@@ -68,4 +68,4 @@ if prompt := st.chat_input("What is up?"):
     st.session_state.messages.append({"role": "assistant", "content": full_response})
 ```
 
-Full Github Repo: [https://github.com/HenryHengZJ/flowise-streamlit](https://github.com/HenryHengZJ/flowise-streamlit)
+Github Repo: [https://github.com/HenryHengZJ/flowise-streamlit](https://github.com/HenryHengZJ/flowise-streamlit)

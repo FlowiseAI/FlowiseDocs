@@ -1,18 +1,18 @@
 # Threads
 
-[Threads](https://platform.openai.com/docs/assistants/how-it-works/managing-threads-and-messages) is only used when an OpenAI Assistant is being used. It is a conversation session between an Assistant and a user. Threads store messages and automatically handle truncation to fit content into a model’s context.
+[Threads](https://platform.openai.com/docs/assistants/how-it-works/managing-threads-and-messages) n'est utilisé que lorsqu'un Assistant OpenAI est en cours d'utilisation. Il s'agit d'une session de conversation entre un Assistant et un utilisateur. Les threads stockent les messages et gèrent automatiquement la troncature pour adapter le contenu au contexte d'un modèle.
 
 <figure><img src="../../../../.gitbook/assets/screely-1699896158130.png" alt=""><figcaption></figcaption></figure>
 
-## Separate conversations for multiple users
+## Conversations séparées pour plusieurs utilisateurs
 
-### UI & Embedded Chat
+### UI & Chat intégré
 
-By default, UI and Embedded Chat will automatically separate threads for multiple users conversations. This is done by generating a unique **`chatId`** for each new interaction. That logic is handled under the hood by Flowise.
+Par défaut, l'UI et le Chat intégré sépareront automatiquement les threads pour les conversations de plusieurs utilisateurs. Cela se fait en générant un **`chatId`** unique pour chaque nouvelle interaction. Cette logique est gérée en arrière-plan par Flowise.
 
-### Prediction API
+### API de prédiction
 
-POST /`api/v1/prediction/{your-chatflowid}`, specify the **`chatId`** . Same thread will be used for the same chatId.
+POST /`api/v1/prediction/{your-chatflowid}`, spécifiez le **`chatId`**. Le même thread sera utilisé pour le même chatId.
 
 ```json
 {
@@ -26,8 +26,8 @@ POST /`api/v1/prediction/{your-chatflowid}`, specify the **`chatId`** . Same thr
 * GET `/api/v1/chatmessage/{your-chatflowid}`
 * DELETE `/api/v1/chatmessage/{your-chatflowid}`
 
-You can also filter via **`chatId` -** `/api/v1/chatmessage/{your-chatflowid}?chatId={your-chatid}`
+Vous pouvez également filtrer via **`chatId` -** `/api/v1/chatmessage/{your-chatflowid}?chatId={your-chatid}`
 
-All conversations can be visualized and managed from UI as well:
+Toutes les conversations peuvent également être visualisées et gérées depuis l'interface utilisateur :
 
 <figure><img src="../../../../.gitbook/assets/image (77).png" alt=""><figcaption></figcaption></figure>

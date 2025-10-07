@@ -2,10 +2,10 @@
 description: Wrapper around ChatAnthropic LLM specific for LlamaIndex.
 ---
 
-# ChatAnthropic
+# Chatanthropic
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2).png" alt="" width="291"><figcaption><p>ChatAnthropic Node</p></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) .png" alt = "" width = "291"> <gigcaption>
 
-{% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
-{% endhint %}
+{% hint style = "info"%}
+Cette section est un travail en cours. Nous apprécions toute aide que vous pouvez fournir pour terminer cette section. Veuillez vérifier notre[Contribution Guide](broken-reference)Pour commencer.
+{% EndHint%}

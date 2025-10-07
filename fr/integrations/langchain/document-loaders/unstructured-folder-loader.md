@@ -4,109 +4,109 @@ description: >-
   support .png and .heic until unstructured is updated.
 ---
 
-# Unstructured Folder Loader
+# Chargeur de dossiers non structurés
 
-<figure><img src="../../../.gitbook/assets/image (101).png" alt="" width="320"><figcaption><p>Unstructured Folder Loader Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (101) .png" alt = "" width = "320"> <FigCaption> <p> Node de chargeur de dossier non structuré </p> </gigcaption> </piguré> non structuré
 
-The Unstructured Folder Loader uses [Unstructured.io](https://unstructured.io) to load and process multiple documents from a folder. It provides advanced document parsing capabilities with extensive configuration options for OCR, chunking, and metadata extraction.
+Le chargeur de dossier non structuré utilise[Unstructured.io](https://unstructured.io)Pour charger et traiter plusieurs documents à partir d'un dossier. Il fournit des capacités d'analyse de document avancées avec des options de configuration étendues pour l'OCR, le groupe et l'extraction des métadonnées.
 
-{% hint style="warning" %}
-Currently doesn't support .png and .heic files until unstructured is updated.
-{% endhint %}
+{% hint style = "avertissement"%}
+Actuellement, ne prend pas en charge les fichiers .png et .heic jusqu'à la mise à jour non structurée.
+{% EndHint%}
 
-## Features
-- Batch processing of multiple documents
-- Multiple processing strategies
-- OCR support with 15+ languages
-- Flexible chunking strategies
-- Table structure inference
-- XML processing options
-- Page break handling
-- Coordinate extraction
-- Metadata customization
+## Caractéristiques
+- Traitement par lots de plusieurs documents
+- Plusieurs stratégies de traitement
+- Support OCR avec plus de 15 langues
+- Stratégies de section flexibles
+- Inférence de la structure du tableau
+- Options de traitement XML
+- Gestion de la pause de la page
+- Coordonnée
+- Personnalisation des métadonnées
 
 ## Configuration
 
-### API Setup
-- Default API URL: `http://localhost:8000/general/v0/general`
-- Can be configured via environment variable: `UNSTRUCTURED_API_URL`
-- Optional API key authentication
+### Configuration de l'API
+- URL de l'API par défaut:`http://localhost:8000/general/v0/general`
+- Peut être configuré via une variable d'environnement:`UNSTRUCTURED_API_URL`
+- Authentification des clés API facultative
 
-## Parameters
+## Paramètres
 
-### Required Parameters
-- **Folder Path**: Path to the folder containing documents to process
+### Paramètres requis
+- ** Path de dossier **: Chemin vers le dossier contenant des documents à traiter
 
-### Optional Parameters
+### Paramètres facultatifs
 
-#### Basic Configuration
-- **Unstructured API URL**: API endpoint (default: http://localhost:8000/general/v0/general)
-- **Strategy**: Processing strategy (default: auto)
-  - hi_res: High resolution processing
-  - fast: Quick processing
-  - ocr_only: OCR-focused processing
-  - auto: Automatic selection
-- **Encoding**: Document encoding (default: utf-8)
+#### Configuration de base
+- ** URL API non structurée **: point de terminaison de l'API (par défaut: http: // localhost: 8000 / général / v0 / général)
+- ** Stratégie **: stratégie de traitement (par défaut: auto)
+  - HI_RES: traitement haute résolution
+  - rapide: traitement rapide
+  - OCR_ONLY: Traitement axé sur l'OCR
+  - Auto: sélection automatique
+- ** Encodage **: Encodage du document (par défaut: UTF-8)
 
-#### OCR Options
-- **OCR Languages**: Multiple language support including:
-  - English (eng)
-  - Spanish (spa)
-  - Mandarin Chinese (cmn)
+#### Options OCR
+- ** Langues OCR **: Support linguistique multiple, y compris:
+  - Anglais (Eng)
+  - Espagnol (spa)
+  - Mandarin Chinois (CMN)
   - Hindi (hin)
-  - Arabic (ara)
-  - Portuguese (por)
-  - Bengali (ben)
-  - Russian (rus)
-  - Japanese (jpn)
-  - And more...
+  - Arabe (ARA)
+  - Portugais (POR)
+  - Bengali (Ben)
+  - Russe (RUS)
+  - Japonais (JPN)
+  - Et plus ...
 
-#### Processing Options
-- **Skip Infer Table Types**: File types to skip table extraction (default: ["pdf", "jpg", "png"])
-- **Hi-Res Model Name**: Model selection for hi_res strategy (default: detectron2_onnx)
-  - chipper: Unstructured's in-house VDU model
-  - detectron2_onnx: Facebook AI's fast object detection
-  - yolox: Single-stage real-time detector
-  - yolox_quantized: Optimized YOLOX version
-- **Coordinates**: Extract element coordinates (default: false)
-- **Include Page Breaks**: Include page break elements
-- **XML Keep Tags**: Preserve XML tags
-- **Multi-Page Sections**: Handle multi-page sections
+#### Options de traitement
+- ** Les types de tables de saut de déduction **: Types de fichiers pour sauter l'extraction de la table (par défaut: ["PDF", "JPG", "PNG"])
+- ** Nom du modèle HI-RES **: Sélection du modèle pour la stratégie HI_RES (par défaut: Detectron2_onnx)
+  - Chipper: modèle VDU interne de non structuré
+  - Detectron2_onnx: la détection rapide d'objets de Facebook AI
+  - Yolox: détecteur en temps réel à un étage
+  - yolox_quantized: version optimisée yolox
+- ** Coordonnées **: Extraire les coordonnées des éléments (par défaut: false)
+- ** Inclure les pauses de page **: Inclure des éléments de pause de page
+- ** Tags de conservation XML **: préserver les balises XML
+- ** Sections de plusieurs pages **: gérer les sections de plusieurs pages
 
-#### Text Chunking Options
-- **Chunking Strategy**: Text chunking method (default: by_title)
-  - None: No chunking
-  - by_title: Chunk by document titles
-- **Combine Under N Chars**: Minimum chunk size
-- **New After N Chars**: Soft maximum chunk size
-- **Max Characters**: Hard maximum chunk size (default: 500)
+#### Options de section texte
+- ** Stratégie de section **: Méthode de bunking texte (par défaut: by_title)
+  - Aucun: pas de bond
+  - by_title: Chunk by Document titres
+- ** Mélanger sous N Chars **: Taille minimale de morceaux
+- ** NOUVEAU APRÈS N Chars **: Taille de morceau maximum doux
+- ** Caractères max **: Taille du morceau maximum dur (par défaut: 500)
 
-#### Metadata Options
-- **Source ID Key**: Key for document source identification (default: source)
-- **Additional Metadata**: Custom metadata as JSON
-- **Omit Metadata Keys**: Keys to exclude from metadata
+#### Options de métadonnées
+- ** Clé ID source **: clé pour l'identification de la source du document (par défaut: source)
+- ** Metadata supplémentaires **: métadonnées personnalisées en tant que JSON
+- ** omettre les métadonnées clés **: clés pour exclure des métadonnées
 
-## Supported File Types
+## Types de fichiers pris en charge
 - Documents: .doc, .docx, .odt, .ppt, .pptx, .pdf
-- Spreadsheets: .xls, .xlsx
-- Text: .txt, .text, .md, .rtf
+- Feuilles de calcul: .xls, .xlsx
+- Texte: .txt, .Text, .md, .rtf
 - Web: .html, .htm
-- Email: .eml, .msg
-- Images: .jpg, .jpeg (Note: .png and .heic currently unsupported)
+- Courriel: .eml, .msg
+- Images: .jpg, .jpeg (Remarque: .png et .heic actuellement non pris en charge)
 
-## Output Structure
+## Structure de sortie
 
-### Document Format
-Each processed document includes:
-- **pageContent**: Extracted text content
-- **metadata**: 
-  - source: Document source identifier
-  - Additional metadata from processing
-  - Custom metadata (if specified)
+### Format de document
+Chaque document traité comprend:
+- ** PageContent **: Contenu texte extrait
+- ** Metadata **:
+  - Source: Document Source Identifier
+  - Métadonnées supplémentaires du traitement
+  - Métadonnées personnalisées (si spécifiées)
 
-## Usage Examples
+## Exemples d'utilisation
 
-### Basic Configuration
+### Configuration de base
 ```json
 {
   "folderPath": "/path/to/documents",
@@ -115,7 +115,7 @@ Each processed document includes:
 }
 ```
 
-### Advanced Processing
+### Traitement avancé
 ```json
 {
   "folderPath": "/path/to/documents",
@@ -132,24 +132,24 @@ Each processed document includes:
 }
 ```
 
-## Best Practices
-1. Choose appropriate strategy based on document quality and processing needs
-2. Configure OCR languages based on document content
-3. Adjust chunking parameters for optimal text segmentation
-4. Use appropriate hi-res model for your use case
-5. Consider memory usage when processing large folders
-6. Monitor API usage and response times
-7. Handle potential API errors in your workflow
+## Meilleures pratiques
+1. Choisissez une stratégie appropriée basée sur la qualité des documents et les besoins de traitement
+2. Configurer les langages OCR en fonction du contenu du document
+3. Ajustez les paramètres de segment pour la segmentation optimale de texte
+4. Utilisez un modèle haute résolution approprié pour votre cas d'utilisation
+5. Considérez l'utilisation de la mémoire lors du traitement de grands dossiers
+6. Surveiller l'utilisation et les temps de réponse de l'API
+7. Gérer les erreurs d'API potentielles dans votre flux de travail
 
 ## Notes
-- Process multiple documents in batch
-- Supports various file formats
-- Memory-efficient processing
-- Automatic metadata handling
-- Flexible output formats
-- Error handling for API responses
-- Configurable processing options
+- Traiter plusieurs documents en lot
+- Prend en charge divers formats de fichiers
+- Traitement économe en mémoire
+- Gestion automatique des métadonnées
+- Formats de sortie flexibles
+- Gestion des erreurs pour les réponses API
+- Options de traitement configurables
 
-{% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
-{% endhint %}
+{% hint style = "info"%}
+Cette section est un travail en cours. Nous apprécions toute aide que vous pouvez fournir pour terminer cette section. Veuillez vérifier notre[Contribution Guide](broken-reference)Pour commencer.
+{% EndHint%}

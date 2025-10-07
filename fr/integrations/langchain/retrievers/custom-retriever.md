@@ -2,11 +2,11 @@
 description: Custom Retriever allows user to specify the format of the context to LLM
 ---
 
-# Custom Retriever
+# Retriever personnalisé
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (2) (1).png" alt="" width="298"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (3) (1) (1) (2) (1) .png" alt = "" width = "298"> <figCaption> </ Figcaption> </ Figure>
 
-By default, when context is being retrieved from vector store, they are in the following format:
+Par défaut, lorsque le contexte est récupéré à partir du magasin Vector, ils sont dans le format suivant:
 
 ```json
 [ 
@@ -25,18 +25,18 @@ By default, when context is being retrieved from vector store, they are in the f
 ]
 ```
 
-**pageContent** of the array will be joined together as a string, and fed back to LLM for completion.
+** PageContent ** du tableau sera assemblé en tant que chaîne et renvoyé à LLM pour l'achèvement.
 
-However, in some cases, you might want to include information from metadata to give more information to LLM, such as source, link, etc. This is where **Custom Retriever** comes in. We can specify the format to return to LLM.
+Cependant, dans certains cas, vous voudrez peut-être inclure des informations provenant de métadonnées pour donner plus d'informations à LLM, telles que Source, Link, etc. C'est là que ** personnalisé Retriever ** entre en jeu. Nous pouvons spécifier le format pour revenir à LLM.
 
-For instance, using the following format:
+Par exemple, en utilisant le format suivant:
 
 ```javascript
 {{context}}
 Source: {{metadata.source}}
 ```
 
-Will results in the combined string as below:
+Entraînera la chaîne combinée comme ci-dessous:
 
 ```
 This is an example
@@ -46,4 +46,4 @@ This is example 2
 Source: example2.txt
 ```
 
-This will be sent back to LLM. Since LLM now has the sources of the answers, we can use prompts to instruct LLM to return answers followed by citations.
+Cela sera renvoyé à LLM. Étant donné que LLM possède désormais les sources des réponses, nous pouvons utiliser des invites pour instruire LLM de retourner des réponses suivies de citations.

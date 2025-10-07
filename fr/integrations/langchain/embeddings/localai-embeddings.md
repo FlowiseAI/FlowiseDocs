@@ -1,25 +1,25 @@
-# LocalAI Embeddings
+# Incorporation locale
 
-## LocalAI Setup
+## Configuration locale
 
-[**LocalAI** ](https://github.com/go-skynet/LocalAI)is a drop-in replacement REST API that’s compatible with OpenAI API specifications for local inferencing. It allows you to run LLMs (and not only) locally or on-prem with consumer grade hardware, supporting multiple model families that are compatible with the ggml format.
+[**LocalAI** ](https://github.com/go-skynet/LocalAI)est une API de repos de remplacement qui est compatible avec les spécifications de l'API OpenAI pour l'inférence locale. Il vous permet d'exécuter des LLM (et pas seulement) localement ou sur site avec le matériel de qualité grand public, prenant en charge plusieurs familles de modèles compatibles avec le format GGML.
 
-To use LocalAI Embeddings within Flowise, follow the steps below:
+Pour utiliser les incorporations locales dans Flowise, suivez les étapes ci-dessous:
 
 1. ```bash
    git clone https://github.com/go-skynet/LocalAI
    ```
-2. <pre class="language-bash"><code class="lang-bash"><strong>cd LocalAI
-   </strong></code></pre>
-3. LocalAI provides an [API endpoint](https://localai.io/api-endpoints/index.html#applying-a-model---modelsapply) to download/install the model. In this example, we are going to use BERT Embeddings model:
+2. <pre class = "Language-Bash"> <code class = "Lang-bash"> <strong> cd localai
+</strong> </code> </pre>
+3. Localai fournit un[API endpoint](https://localai.io/api-endpoints/index.html#applying-a-model---modelsapply)Pour télécharger / installer le modèle. Dans cet exemple, nous allons utiliser le modèle Bert Embeddings:
 
-<figure><img src="../../../.gitbook/assets/image (27) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (27) (1) .png" alt = ""> <figcaption> </gigcaption> </gigust>
 
-4. In the `/models` folder, you should be able to see the downloaded model in there:
+4. Dans le`/models`dossier, vous devriez pouvoir y voir le modèle téléchargé:
 
-<figure><img src="../../../.gitbook/assets/image (23) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (23) (1) (2) .png" alt = ""> <Figcaption> </ Figcaption> </gigne>
 
-5. You can now test the embeddings:
+5. Vous pouvez maintenant tester les intégres:
 
 ```bash
 curl http://localhost:8080/v1/embeddings -H "Content-Type: application/json" -d '{
@@ -28,19 +28,19 @@ curl http://localhost:8080/v1/embeddings -H "Content-Type: application/json" -d 
   }'
 ```
 
-6. Response should looks like:
+6. La réponse devrait ressembler:
 
-<figure><img src="../../../.gitbook/assets/image (29).png" alt="" width="375"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (29) .png" alt = "" width = "375"> <Figcaption> </ Figcaption> </ Figure>
 
-## Flowise Setup
+## Configuration de flux
 
-Drag and drop a new LocalAIEmbeddings component to canvas:
+Faites glisser et déposez un nouveau composant localembeddings sur toile:
 
-<figure><img src="../../../.gitbook/assets/image (21) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / Image (21) (1) (2) .png" alt = ""> <Figcaption> </gigcaption> </ Figure>
 
-Fill in the fields:
+Remplissez les champs:
 
-* **Base Path**: The base url from LocalAI such as [http://localhost:8080/v1](http://localhost:8080/v1)
-* **Model Name**: The model you want to use. Note that it must be inside `/models` folder of LocalAI directory. For instance: `text-embedding-ada-002`
+* ** Path de base **: L'URL de base de localai comme[http://localhost:8080/v1](http://localhost:8080/v1)
+* ** Nom du modèle **: Le modèle que vous souhaitez utiliser. Notez que ce doit être à l'intérieur`/models`dossier du répertoire localai. Par exemple:`text-embedding-ada-002`
 
-That's it! For more information, refer to LocalAI [docs](https://localai.io/models/index.html#embeddings-bert).
+C'est ça! Pour plus d'informations, reportez-vous à Localai[docs](https://localai.io/models/index.html#embeddings-bert).

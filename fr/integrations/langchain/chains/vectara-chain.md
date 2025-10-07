@@ -1,27 +1,27 @@
 # Vectara QA Chain
 
-A chain for performing question-answering tasks with Vectara.
+Une chaîne pour effectuer des tâches de question-réponse avec Vectara.
 
 <figure><img src="../../../.gitbook/assets/screely-1700662138252.png" alt=""><figcaption></figcaption></figure>
 
-## Definitions
+## Définitions
 
-**A retrieval-based question-answering chain**, which integrates with a Vectara retrieval component and allows you to configure input parameters and perform question-answering tasks.
+**Une chaîne de question-réponse basée sur la récupération**, qui s'intègre à un composant de récupération Vectara et vous permet de configurer les paramètres d'entrée et d'effectuer des tâches de question-réponse.
 
-## Inputs
+## Entrées
 
 * [Vectara Store](../vector-stores/vectara.md)
 
-## Parameters
+## Paramètres
 
-| Name                   | Description                                                   |
+| Nom                   | Description                                                   |
 | ---------------------- | ------------------------------------------------------------- |
-| Summarizer Prompt Name | model to be used in generating the summary                    |
-| Response Language      | desired language for the response                             |
-| Max Summarized Results | number of top results to use in summarization (defaults to 7) |
+| Nom du Prompt de Résumé | modèle à utiliser pour générer le résumé                     |
+| Langue de la Réponse  | langue souhaitée pour la réponse                              |
+| Résultats Résumés Max | nombre de résultats principaux à utiliser dans le résumé (par défaut 7) |
 
-## Outputs
+## Sorties
 
-| Name           | Description                   |
-| -------------- | ----------------------------- |
-| VectaraQAChain | Final node to return response |
+| Nom               | Description                   |
+| ----------------- | ----------------------------- |
+| VectaraQAChain    | Noeud final pour retourner la réponse |

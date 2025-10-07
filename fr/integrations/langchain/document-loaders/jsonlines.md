@@ -1,63 +1,63 @@
-# Json Lines File
+# Fichier de lignes JSON
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1).png" alt="" width="256"><figcaption><p>Json Lines File Node</p></figcaption></figure>
+<gigne> <img src = "../../../. gitbook / actifs / image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) .png" alt = "" width = "256"> <Figction> Nœud </p> </gigcaption> </ figure>
 
-JSON Lines (JSONL) is a text format where each line is a valid JSON value. This module provides functionality to load and process JSONL files, with support for pointer-based content extraction and dynamic metadata handling.
+JSON Lines (JSONL) est un format de texte où chaque ligne est une valeur JSON valide. Ce module fournit des fonctionnalités pour charger et traiter les fichiers JSONL, avec la prise en charge de l'extraction de contenu basée sur le pointeur et de la manipulation dynamique des métadonnées.
 
-This module provides a sophisticated JSONL document loader that can:
+Ce module fournit un chargeur de document JSONL sophistiqué qui peut:
 
-* Load single or multiple JSONL files
-* Extract specific values using JSON pointers
-* Handle dynamic metadata extraction
-* Process content with text splitters
-* Support base64 encoded files
-* Handle file storage integration
-* Customize metadata extraction
+* Chargez des fichiers JSONL simples ou multiples
+* Extraire des valeurs spécifiques à l'aide de pointeurs JSON
+* Manipuler l'extraction des métadonnées dynamiques
+* Traiter le contenu avec des séparateurs de texte
+* Prise en charge des fichiers codés Base64
+* Gérer l'intégration du stockage des fichiers
+* Personnaliser l'extraction des métadonnées
 
-## Inputs
+## Entrées
 
-### Required Parameters
+### Paramètres requis
 
-* **JSONL File**: The JSONL file(s) to process (.jsonl extension)
-* **Pointer Extraction**: JSON pointer to extract content (e.g., "key" for `{"key": "value"}`)
+* ** Fichier JSONL **: le (s) fichier JSONL (.
+* ** Extraction du pointeur **: Pointeur JSON pour extraire le contenu (par exemple, "clé" pour`{"key": "value"}`)
 
-### Optional Parameters
+### Paramètres facultatifs
 
-* **Text Splitter**: A text splitter to process the extracted content
-* **Additional Metadata**: JSON object with additional metadata
-* **Omit Metadata Keys**: Comma-separated list of metadata keys to omit
+* ** Splitter du texte **: un séparateur de texte pour traiter le contenu extrait
+* ** Metadata supplémentaires **: objet JSON avec métadonnées supplémentaires
+* ** omettre les clés de métadonnées **: Liste des clés de métadonnées séparées par des virgules pour omettre
 
-## Outputs
+## Sorties
 
-* **Document**: Array of document objects containing metadata and pageContent
-* **Text**: Concatenated string from pageContent of documents
+* ** Document **: tableau d'objets de document contenant des métadonnées et un conceptent
+* ** Texte **: chaîne concaténée du conceptent de documents
 
-## Features
+## Caractéristiques
 
-* JSON pointer extraction
-* Dynamic metadata handling
-* Text splitting support
-* Base64 file support
-* File storage integration
-* Error handling
-* Memory-efficient processing
+* Extraction du pointeur JSON
+* Gestion des métadonnées dynamiques
+* Support de division de texte
+* Prise en charge du fichier Base64
+* Intégration de stockage de fichiers
+* Gestion des erreurs
+* Traitement économe en mémoire
 
-## JSON Pointer Extraction
+## Extraction du pointeur JSON
 
-### Basic Example
+### Exemple de base
 
-For JSONL content:
+Pour le contenu JSONL:
 
 ```jsonl
 {"key": "value1", "source": "file1.txt"}
 {"key": "value2", "source": "file2.txt"}
 ```
 
-With pointer "key", extracts: "value1", "value2"
+Avec le pointeur "clé", extraits: "Value1", "Value2"
 
-### Dynamic Metadata
+### Métadonnées dynamiques
 
-You can extract values as metadata using JSON pointers:
+Vous pouvez extraire les valeurs sous forme de métadonnées à l'aide de pointeurs JSON:
 
 ```json
 {
@@ -66,37 +66,37 @@ You can extract values as metadata using JSON pointers:
 }
 ```
 
-## Document Structure
+## Structure de document
 
-Each document contains:
+Chaque document contient:
 
-* **pageContent**: Extracted content using pointer
-* **metadata**:
-  * source: Original file path
-  * line: Line number in file
-  * pointer: Used JSON pointer
-  * Additional dynamic metadata
+* ** PageContent **: Extrait de contenu à l'aide du pointeur
+* ** Metadata **:
+  * Source: chemin d'origine du fichier
+  * ligne: numéro de ligne dans le fichier
+  * pointeur: pointeur JSON utilisé
+  * Métadonnées dynamiques supplémentaires
 
-## File Handling
+## Manutention de fichiers
 
-### Local Files
+### Fichiers locaux
 
-* Direct file loading
-* Base64 encoded content
-* Multiple file support
+* Chargement de fichier direct
+* Base64 Contenu codé
+* Prise en charge des fichiers multiples
 
-### Storage Integration
+### Intégration de stockage
 
-* File storage system support
-* Organization-based storage
-* Chatflow-based storage
+* Prise en charge du système de stockage de fichiers
+* Stockage basé sur l'organisation
+* Stockage basé sur Chatflow
 
 ## Notes
 
-* One document per JSONL line
-* Invalid JSON lines are skipped
-* Memory-efficient processing
-* Error handling for invalid pointers
-* Support for nested JSON structures
-* Dynamic metadata extraction
-* Flexible output formats
+* Un document par ligne JSONL
+* Les lignes JSON non valides sont ignorées
+* Traitement économe en mémoire
+* Gestion des erreurs pour les pointeurs non valides
+* Support aux structures JSON imbriquées
+* Extraction des métadonnées dynamiques
+* Formats de sortie flexibles

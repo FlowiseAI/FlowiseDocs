@@ -1,62 +1,62 @@
-# EPUB File Loader
+# Chargeur de fichiers EPUB
 
-EPUB (Electronic Publication) is a free and open e-book standard by the International Digital Publishing Forum (IDPF). This module provides functionality to load and process EPUB files within your workflow.
+Epub (publication électronique) est une norme de livre électronique gratuite et ouverte par le Forum international de publication numérique (IDPF). Ce module fournit des fonctionnalités pour charger et traiter les fichiers EPUB dans votre flux de travail.
 
-This module provides a sophisticated EPUB document loader that can:
-- Load single or multiple EPUB files
-- Support both base64-encoded files and files from storage
-- Extract content per chapter or per file
-- Process content with text splitters
-- Handle metadata extraction
-- Manage temporary file processing
+Ce module fournit un chargeur de documents EPUB sophistiqué qui peut:
+- Chargez des fichiers EPUB simples ou multiples
+- Prise en charge des fichiers et fichiers codés en base de base64 à partir du stockage
+- Extraire du contenu par chapitre ou par fichier
+- Traiter le contenu avec des séparateurs de texte
+- Gérer l'extraction des métadonnées
+- Gérer le traitement de fichiers temporaire
 
-## Inputs
+## Entrées
 
-### Required Parameters
-- **EPUB File**: The EPUB file(s) to process (.epub extension required)
-- **Usage**: Choose between:
-  - One document per chapter: Split content by chapters
-  - One document per file: Process entire file as one document
+### Paramètres requis
+- ** Fichier EPUB **: le (s) fichier (s) pour traiter (extension .pub requis)
+- ** Utilisation **: Choisissez entre:
+  - Un document par chapitre: Contenu divisé par les chapitres
+  - Un document par fichier: traiter le fichier entier comme un seul document
 
-### Optional Parameters
-- **Text Splitter**: A text splitter to process the extracted content
-- **Additional Metadata**: JSON object with additional metadata
-- **Omit Metadata Keys**: Comma-separated list of metadata keys to omit
+### Paramètres facultatifs
+- ** Splitter du texte **: un séparateur de texte pour traiter le contenu extrait
+- ** Metadata supplémentaires **: objet JSON avec métadonnées supplémentaires
+- ** omettre les clés de métadonnées **: Liste des clés de métadonnées séparées par des virgules pour omettre
 
-## Outputs
+## Sorties
 
-- **Document**: Array of document objects containing metadata and pageContent
-- **Text**: Concatenated string from pageContent of documents
+- ** Document **: tableau d'objets de document contenant des métadonnées et un conceptent
+- ** Texte **: chaîne concaténée du conceptent de documents
 
-## Features
-- Multiple file processing
-- Chapter-level splitting
-- File-level processing
-- Storage integration
-- Metadata customization
-- Text splitting support
-- Temporary file handling
-- Error handling
+## Caractéristiques
+- Traitement de fichiers multiples
+- Division au niveau du chapitre
+- Traitement au niveau des fichiers
+- Intégration de stockage
+- Personnalisation des métadonnées
+- Support de division de texte
+- Traitement des fichiers temporaires
+- Gestion des erreurs
 
-## Processing Modes
+## Modes de traitement
 
-### Per Chapter Mode
-- Creates separate documents for each chapter
-- Maintains chapter structure
-- Preserves chapter metadata
-- Better for detailed analysis
+### Par mode chapitre
+- Crée des documents distincts pour chaque chapitre
+- Maintient la structure du chapitre
+- Conserve les métadonnées du chapitre
+- Mieux pour l'analyse détaillée
 
-### Per File Mode
-- Processes entire file as one document
-- Maintains overall structure
-- Simpler document organization
-- Better for overview analysis
+### Par mode de fichier
+- Traite le fichier entier comme un seul document
+- Maintient la structure globale
+- Organisation de documents plus simples
+- Mieux pour l'analyse de la vue d'ensemble
 
 ## Notes
-- Supports both local and storage-based files
-- Handles base64 encoded content
-- Automatically cleans up temporary files
-- Preserves document structure
-- Supports custom metadata addition
-- Error handling for invalid files
-- Memory-efficient processing 
+- Prend en charge les fichiers locaux et basés sur le stockage
+- Gère le contenu codé de base64
+- Nettoie automatiquement les fichiers temporaires
+- Préserve la structure du document
+- Prend en charge l'ajout de métadonnées personnalisées
+- Gestion des erreurs pour les fichiers non valides
+- Traitement économe en mémoire

@@ -4,10 +4,10 @@ description: >-
   content that is relevant to the query.
 ---
 
-# LLM Filter Retriever
+# Filtre LLM Retriever
 
-<figure><img src="../../../.gitbook/assets/image (144).png" alt="" width="297"><figcaption><p>LLM Filter Retriever Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (144) .png" alt = "" width = "297"> <Figcaption> <p> llm Filter Retriever Node </p> </gigcaption> </pigucial>
 
-{% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
-{% endhint %}
+{% hint style = "info"%}
+Cette section est un travail en cours. Nous apprécions toute aide que vous pouvez fournir pour terminer cette section. Veuillez vérifier notre[Contribution Guide](broken-reference)Pour commencer.
+{% EndHint%}

@@ -1,22 +1,22 @@
-# Query Engine Tool
+# Outil de moteur de requête
 
-Turns Query Engine into a Tool which can then be used by [Sub-Question Query Engine](../engine/sub-question-query-engine.md) or Agent.
+Transforme le moteur de requête en un outil qui peut ensuite être utilisé par[Sub-Question Query Engine](../engine/sub-question-query-engine.md)ou agent.
 
-<figure><img src="../../../.gitbook/assets/image (9) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (9) (1) (1) (1) (2) (1) .png" alt = ""> <Figcaption> </ Figcaption> </ Figure>
 
-## Inputs
+## Entrées
 
-* Vector Store Index
+* Index du magasin vectoriel
 
-## Parameters
+## Paramètres
 
-| Name             | Description                                         |
+| Nom | Description |
 | ---------------- | --------------------------------------------------- |
-| Tool Name        | Name of the tool                                    |
-| Tool Description | A description to tell when LLM should use this tool |
+| Nom de l'outil | Nom de l'outil |
+| Description de l'outil | Une description pour dire quand LLM doit utiliser cet outil |
 
-## Outputs
+## Sorties
 
-| Name            | Description                                                                                      |
+| Nom | Description |
 | --------------- | ------------------------------------------------------------------------------------------------ |
-| QueryEngineTool | Connecting point to Agent or [Sub-Question Query Engine](../engine/sub-question-query-engine.md) |
+| QueryEnginetool | Point de connexion à l'agent ou[Sub-Question Query Engine](../engine/sub-question-query-engine.md) |

@@ -2,41 +2,41 @@
 description: Get data from any website with Oxylabs.
 ---
 
-# Oxylabs Document Loaders
+# Chargeurs de documents oxylabs
 
-Oxylabs is a web scraping service that retrieves public web data at scale, with tools designed to navigate regional restrictions.
+OxyLabs est un service de grattage Web qui récupère les données Web publiques à grande échelle, avec des outils conçus pour naviguer dans les restrictions régionales.
 
-<figure><img src="../../../.gitbook/assets/oxylabs_document_loader.png" alt="" width="260"><figcaption><p>Oxylabs Docuemnt Loader Node</p></figcaption></figure>
-
-
-### Features
-- Retrieve data from Google, Amazon and any other website
-- Set geolocation
-- Utilize the browser rendering
-- Parse the data
-- Specify User Agent types
-- Process content with text splitters
-
-### Required Parameters
-- **Connect Credential**: Oxylabs API credentials
-- **Query**: Search query or URL
-- **Source**: One of the available sources:
-  - Universal - scrape any website
-  - Google Search - scrape Google Search results
-  - Amazon Product - scrape Amazon Product information
-  - Amazon Search - scrape Amazon Search results
-
-### Optional Parameters
-- **Geolocation**: Sets the proxy's geo location to retrieve data. See [documentation](https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FiwDdoZGfMbUe5cRL2417%2Fuploads%2FxoQb19qSyodB2D4no0DZ%2FList%20of%20supported%20geo_location%20values_sapi.json?alt=media&token=d2e2df7b-10ba-4399-a547-0c4a99e62293) for more details.
-- **Render**: Enables JavaScript rendering when set to true.
-- **Parse**: Returns parsed data when set to true, as long as a dedicated parser exists for the submitted URL's page type.
-- **User Agent Type**: Device type and browser.
-
-### Outputs
-- **Document**: Array of document objects containing metadata and pageContent
-- **Text**: Concatenated string from pageContent of documents
+<gigne> <img src = "../../../. GitBook / Assets / OxyLabs_Document_Loadher.png" alt = "" width = "260"> <Figcaption> <p> oxylabs docuemnt chargeur nœud </ p> </gigcaption> </ Figure>
 
 
-## Document Structure
-Each document contains:
-- **pageContent**: Extracted page content
+### Caractéristiques
+- Récupérer les données de Google, d'Amazon et de tout autre site Web
+- Régler la géolocalisation
+- Utiliser le rendu du navigateur
+- Analyser les données
+- Spécifiez les types d'agents utilisateur
+- Traiter le contenu avec des séparateurs de texte
+
+### Paramètres requis
+- ** Connectez les informations d'identification **: les informations d'identification de l'API OxyLabs
+- ** Query **: Rechercher la requête ou l'URL
+- ** Source **: l'une des sources disponibles:
+  - Universal - grattez n'importe quel site Web
+  - Recherche Google - StrAchez les résultats de la recherche Google
+  - Product Amazon - StrArez les informations sur les produits Amazon
+  - Recherche d'Amazon - StrAter les résultats de recherche Amazon
+
+### Paramètres facultatifs
+- ** Geolocation **: Définit l'emplacement GEO du proxy pour récupérer les données. Voir[documentation](https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FiwDdoZGfMbUe5cRL2417%2Fuploads%2FxoQb19qSyodB2D4no0DZ%2FList%20of%20supported%20geo_location%20values_sapi.json?alt=media&token=d2e2df7b-10ba-4399-a547-0c4a99e62293)pour plus de détails.
+- ** Render **: Active le rendu JavaScript lorsqu'il est défini sur true.
+- ** Parse **: Renvoie les données analysées lorsqu'elles sont définies sur true, tant qu'un analyseur dédié existe pour le type de page de l'URL soumis.
+- ** Type d'agent utilisateur **: type de périphérique et navigateur.
+
+### Sorties
+- ** Document **: tableau d'objets de document contenant des métadonnées et un conceptent
+- ** Texte **: chaîne concaténée du conceptent de documents
+
+
+## Structure de document
+Chaque document contient:
+- ** PageContent **: Contenu de la page extrait

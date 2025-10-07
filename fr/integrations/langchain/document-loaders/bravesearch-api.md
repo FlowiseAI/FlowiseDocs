@@ -1,50 +1,50 @@
-# BraveSearch API Document Loader
+# Chargeur de documents Bravesearch API
 
-BraveSearch is a privacy-focused search engine that provides a powerful API for web search. This module enables loading and processing search results from BraveSearch into documents.
+Bravesearch est un moteur de recherche axé sur la confidentialité qui fournit une API puissante pour la recherche Web. Ce module permet le chargement et le traitement des résultats de recherche de Bravesearch dans les documents.
 
-This module provides a sophisticated search document loader that can:
-- Execute web searches using BraveSearch API
-- Convert search results into structured documents
-- Extract snippets and metadata from results
-- Process results with text splitters
-- Customize metadata extraction
+Ce module fournit un chargeur de document de recherche sophistiqué qui peut:
+- Exécuter des recherches Web à l'aide de l'API Bravesearch
+- Convertir les résultats de recherche en documents structurés
+- Extraire des extraits et des métadonnées à partir des résultats
+- Processus Résultats avec des séparateurs de texte
+- Personnaliser l'extraction des métadonnées
 
-## Inputs
+## Entrées
 
-### Required Parameters
-- **Query**: The search query to execute
-- **Connect Credential**: BraveSearch API credentials
+### Paramètres requis
+- ** requête **: la requête de recherche à exécuter
+- ** Connectez les informations d'identification **: Bravesearch API Identifiés
 
-### Optional Parameters
-- **Text Splitter**: A text splitter to process the extracted content
-- **Additional Metadata**: JSON object with additional metadata
-- **Omit Metadata Keys**: Comma-separated list of metadata keys to omit
+### Paramètres facultatifs
+- ** Splitter du texte **: un séparateur de texte pour traiter le contenu extrait
+- ** Metadata supplémentaires **: objet JSON avec métadonnées supplémentaires
+- ** omettre les clés de métadonnées **: Liste des clés de métadonnées séparées par des virgules pour omettre
 
-## Outputs
+## Sorties
 
-- **Document**: Array of document objects containing metadata and pageContent
-- **Text**: Concatenated string from pageContent of documents
+- ** Document **: tableau d'objets de document contenant des métadonnées et un conceptent
+- ** Texte **: chaîne concaténée du conceptent de documents
 
-## Features
-- Privacy-focused web search
-- Structured result processing
-- Automatic metadata extraction
-- Result content splitting
-- Customizable metadata handling
-- Error handling for API responses
+## Caractéristiques
+- Recherche Web axée sur la confidentialité
+- Traitement des résultats structurés
+- Extraction automatique des métadonnées
+- Résultat de contenu
+- Manipulation des métadonnées personnalisables
+- Gestion des erreurs pour les réponses API
 
-## Document Structure
-Each search result is converted into a document with:
-- **pageContent**: The snippet/content from the search result
-- **metadata**:
-  - title: The title of the webpage
-  - link: The URL of the webpage
-  - Additional custom metadata as specified
+## Structure de document
+Chaque résultat de recherche est converti en document avec:
+- ** PageContent **: l'extrait / contenu du résultat de la recherche
+- ** Metadata **:
+  - Titre: le titre de la page Web
+  - Lien: l'URL de la page Web
+  - Métadonnées personnalisées supplémentaires comme spécifié
 
 ## Notes
-- Requires valid BraveSearch API key
-- Results include webpage snippets and metadata
-- Can be combined with text splitters for content processing
-- Supports custom metadata addition and omission
-- Handles API rate limits and errors
-- Preserves privacy-focused search features 
+- Nécessite la clé de l'API Bravesearch valide
+- Les résultats incluent des extraits de page Web et des métadonnées
+- Peut être combiné avec des séparateurs de texte pour le traitement du contenu
+- Prend en charge l'ajout et l'omission des métadonnées personnalisées
+- Gère les limites et les erreurs du taux de l'API
+- Préserve les fonctionnalités de recherche axées sur la confidentialité

@@ -1,29 +1,29 @@
-# Zep Memory
+# Mémoire zep
 
-[Zep](https://github.com/getzep/zep) is long-term memory store for LLM applications. It stores, summarizes, embeds, indexes, and enriches LLM app / chatbot histories, and exposes them via simple, low-latency APIs.
+[Zep](https://github.com/getzep/zep)est un magasin de mémoire à long terme pour les applications LLM. Il stocke, résume, intègre, index et enrichit les histoires de l'application / chatbot LLM et les expose via des API simples à faible latence.
 
-## Guide to Deploy Zep to Render
+## Guide pour déployer ZEP à rendre
 
-You can easily deploy Zep to cloud services like [Render](https://render.com/), [Flyio](https://fly.io/). If you prefer to test it locally, you can also spin up a docker container by following their [quick guide](https://github.com/getzep/zep#quick-start).
+Vous pouvez facilement déployer ZEP sur des services cloud comme[Render](https://render.com/), [Flyio](https://fly.io/). Si vous préférez le tester localement, vous pouvez également tourner un conteneur Docker en suivant leur[quick guide](https://github.com/getzep/zep#quick-start).
 
-In this example, we are going to deploy to Render.
+Dans cet exemple, nous allons déployer pour rendre.
 
-1. Head over to [Zep Repo](https://github.com/getzep/zep#quick-start) and click **Deploy to Render**
-2. This will bring you to Render's Blueprint page and simply click **Create New Resources**
+1. Se diriger vers[Zep Repo](https://github.com/getzep/zep#quick-start)et cliquez sur ** Déployer pour rendre **
+2. Cela vous amènera à la page Blueprint de Render et cliquez simplement sur ** Créer de nouvelles ressources **
 
-<figure><img src="../../../.gitbook/assets/image (21) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / Image (21) (1) (1) (1) .png" alt = ""> <Figcaption> </ / Figcaption> </ Figure>
 
-3. When the deployment is done, you should see 3 applications created on your dashboard
+3. Lorsque le déploiement est terminé, vous devriez voir 3 applications créées sur votre tableau de bord
 
-<figure><img src="../../../.gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (1) (2) .png" alt = ""> <figcaption> </gigcaption> </gigu
 
-4. Simply click the first one called **zep** and copy the deployed URL
+4. Cliquez simplement sur le premier appelé ** zep ** et copiez l'URL déployée
 
-<figure><img src="../../../.gitbook/assets/image (38) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (38) (1) .png" alt = ""> <figcaption> </figcaption> </gigust>
 
-## Guide to Deploy Zep to Digital Ocean (via Docker)
+## Guide pour déployer ZEP vers Digital Ocean (via Docker)
 
-1. Clone the Repo
+1. Cloner le repo
 
 ```bash
 git clone https://github.com/getzep/zep.git
@@ -32,7 +32,7 @@ nano .env
 
 ```
 
-2. Add IN your OpenAI API Key in.ENV
+2. Ajoutez votre clé API Openai dans.env
 
 ```bash
 ZEP_OPENAI_API_KEY=
@@ -43,78 +43,78 @@ ZEP_OPENAI_API_KEY=
 docker compose up -d --build
 ```
 
-3. Allow firewall access to port 8000
+3. Autoriser l'accès au pare-feu au port 8000
 
 ```bash
 sudo ufw allow from any to any port 8000 proto tcp
 ufw status numbered
 ```
 
-If using Digital ocean separate firewall from dashboard, make sure port 8000 is added there too
+Si vous utilisez un pare-feu séparé de Digital Ocean du tableau de bord, assurez-vous que le port 8000 y est également ajouté
 
-## Use in Flowise UI
+## Utiliser dans Flowise UI
 
-1. Back to Flowise application, simply create a new canvas or use one of the template from marketplace. In this example, we are going to use **Simple Conversational Chain**
+1. Retour à l'application Flowise, créez simplement une nouvelle toile ou utilisez l'un des modèles de Marketplace. Dans cet exemple, nous allons utiliser ** une simple chaîne conversationnelle **
 
-<figure><img src="../../../.gitbook/assets/Untitled (3) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Untitled (3) (1) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-2. Replace **Buffer Memory** with **Zep Memory**. Then replace the **Base URL** with the Zep URL you have copied above
+2. Remplacer ** Mémoire de tampon ** par ** Mémoire ZEP **. Remplacez ensuite l'URL de base ** ** par l'URL ZEP que vous avez copiée ci-dessus
 
-<figure><img src="../../../.gitbook/assets/Untitled (5).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Untitled (5) .png" alt = ""> <Figcaption> </gigcaption> </ Figure>
 
-3. Save the chatflow and test it out to see if conversations are remembered.
+3. Enregistrez le chatflow et testez-le pour voir si les conversations sont connues.
 
-<figure><img src="../../../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (27) .png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-4. Now try clearing the chat history, you should see that it is now unable to remember the previous conversations.
+4. Essayez maintenant d'effacer l'historique du chat, vous devriez voir qu'il est désormais incapable de vous souvenir des conversations précédentes.
 
-<figure><img src="../../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / Image (8) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) .png" alt = ""> <Figcaption> </figcaption> </ Figure>
 
-## Zep Authentication
+## Authentification ZEP
 
-Zep allows you to secure your instance using JWT authentication. We'll be using the `zepcli` command line utility [here](https://github.com/getzep/zepcli/releases).
+ZEP vous permet de sécuriser votre instance à l'aide de l'authentification JWT. Nous utiliserons le`zepcli`utilitaire de ligne de commande[here](https://github.com/getzep/zepcli/releases).
 
-#### 1. Generate a secret and the JWT token <a href="#id-1-generate-a-secret-and-the-jwt-token" id="id-1-generate-a-secret-and-the-jwt-token"></a>
+#### 1. Générez un token secret et jwt <a href = "# id-1-generate-a-secret-and-the-jwt-token" id = "id-1-generate-a-secret-and-the-jwt-token"> </a>
 
-After downloaded the ZepCLI:
+Après avoir téléchargé le Zepcli:
 
-On Linux or MacOS
+Sur Linux ou macOS
 
 ```
 ./zepcli -i
 ```
 
-On Windows
+Sous les fenêtres
 
 ```
 zepcli.exe -i
 ```
 
-You will first get your SECRET Token:
+Vous obtiendrez d'abord votre jeton secret:
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1). Alt = ""> <Figcaption> </figcaption> </gigne>
 
-Then you will get JWT Token:
+Ensuite, vous obtiendrez un jeton JWT:
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<Figure> <img src = "../../../. Gitbook / Assets / Image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1). Alt = ""> <Figcaption> </figcaption> </gigne>
 
-#### 2. Configure Auth environment variables <a href="#id-2-configure-auth-environment-variables" id="id-2-configure-auth-environment-variables"></a>
+#### 2. Configurer les variables de l'environnement AUTH <a href = "# id-2-configure-Auth-Environment-Variables" id = "id-2-Configure-Auth-Environment-Variables"> </a>
 
-Set the following environment variables in your Zep server environment:
+Définissez les variables d'environnement suivantes dans votre environnement de serveur ZEP:
 
 ```
 ZEP_AUTH_REQUIRED=true
 ZEP_AUTH_SECRET=<the secret you generated above>
 ```
 
-#### 3. Configure Credential on Flowise <a href="#id-2-configure-auth-environment-variables" id="id-2-configure-auth-environment-variables"></a>
+#### 3. Configurer les informations d'identification sur Flowise <a href = "# id-2-configure-Auth-Environment-Variables" id = "id-2-Configure-Auth-Environment-Variables"> </a>
 
-Add a new credential for Zep, and put in the JWT Token in the API Key field:
+Ajoutez un nouvel diplôme pour ZEP et mettez le jeton JWT dans le champ Key API:
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / Image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) .png" Alt = "" width = "563"> <Figcaption> </gigcaption> </gigust>
 
-#### 4. Use the created credential on Zep node <a href="#id-2-configure-auth-environment-variables" id="id-2-configure-auth-environment-variables"></a>
+#### 4. Utilisez les informations d'identification créées sur le nœud zep <a href = "# id-2-configure-Auth-Environment-Variables" id = "id-2-Configure-Auth-Environment-Variables"> </a>
 
-In the Zep node Connect Credential, select the credential you have just created. And that's it!
+Dans les informations d'identification ZEP Node Connect, sélectionnez les informations d'identification que vous venez de créer. Et c'est tout!
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).

@@ -1,12 +1,12 @@
-# Monitoring
+# Surveillance
 
-Flowise has native support for Prometheus with Grafana and OpenTelemetry. However, only high-level metrics such as API requests, counts of flows/predictions are tracked. Refer [here](https://github.com/FlowiseAI/Flowise/blob/main/packages/server/src/Interface.Metrics.ts#L13) for the lists of counter metrics. For details node by node observability, we recommend using [Analytic](broken-reference).
+Flowise a un support natif pour Prometheus avec Grafana et Opentelémétrie. Cependant, seules des mesures de haut niveau telles que les demandes d'API, les dénombrements de flux / prédictions sont suivis. Référer[here](https://github.com/FlowiseAI/Flowise/blob/main/packages/server/src/Interface.Metrics.ts#L13)Pour les listes de contre-métriques. Pour plus de détails, l'observabilité du nœud par nœud, nous vous recommandons d'utiliser[Analytic](broken-reference).
 
-## Prometheus
+## Prométhée
 
-[Prometheus](https://prometheus.io/) is an open-source monitoring and alerting solution.
+[Prometheus](https://prometheus.io/)est une solution de surveillance et d'alerte open source.
 
-Before setting up Prometheus, configure the following env variables in Flowise:
+Avant de configurer Prometheus, configurez les variables Env suivantes dans Flowise:
 
 ```properties
 ENABLE_METRICS=true
@@ -14,66 +14,66 @@ METRICS_PROVIDER=prometheus
 METRICS_INCLUDE_NODE_METRICS=true
 ```
 
-After Prometheus is installed, run it using a configuration file. Flowise provides a default configuration file that can be found [here](https://github.com/FlowiseAI/Flowise/blob/main/metrics/prometheus/prometheus.config.yml).
+Une fois ProTheus installé, exécutez-le à l'aide d'un fichier de configuration. Flowise fournit un fichier de configuration par défaut qui peut être trouvé[here](https://github.com/FlowiseAI/Flowise/blob/main/metrics/prometheus/prometheus.config.yml).
 
-Remember to have Flowise instance also running. You can open browser and navigate to port 9090. From the dashboard, you should be able to see the metric endpoint - `/api/v1/metrics` is now live.
+N'oubliez pas d'avoir une instance fluide également en cours d'exécution. Vous pouvez ouvrir le navigateur et naviguer vers le port 9090. Dans le tableau de bord, vous devriez pouvoir voir le point de terminaison métrique -`/api/v1/metrics`est maintenant en direct.
 
-<figure><img src="../.gitbook/assets/image (178).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (178) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-By default, `/api/v1/metrics` is available for Prometheus to pull the metrics from.
+Par défaut,`/api/v1/metrics`est disponible pour Prometheus pour tirer les mesures.
 
-<figure><img src="../.gitbook/assets/image (177).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (177) .png" alt = "" width = "563"> <Figcaption> </gigcaption> </ Figure>
 
 ## Grafana
 
-Prometheus collects rich metrics and provides a powerful querying language; Grafana transforms metrics into meaningful visualizations.
+Prométhée recueille des mesures riches et fournit un langage de requête puissant; Grafana transforme les mesures en visualisations significatives.
 
-Grafana can be installed in various ways. Refer to the [guide](https://grafana.com/docs/grafana/latest/setup-grafana/installation/).
+Grafana peut être installé de diverses manières. Reportez-vous au[guide](https://grafana.com/docs/grafana/latest/setup-grafana/installation/).
 
-Grafana by default will expose port 9091:
+Grafana expose par défaut le port 9091:
 
-<figure><img src="../.gitbook/assets/image (179).png" alt=""><figcaption></figcaption></figure>
+<Figure> <img src = "../. GitBook / Assets / Image (179) .png" alt = ""> <figcaption> </gigcaption> </gigust>
 
-On the left side bar, click Add new connection, and select Prometheus:
+Sur la barre gauche, cliquez sur Ajouter une nouvelle connexion et sélectionnez Prometheus:
 
-<figure><img src="../.gitbook/assets/image (180).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (180) .png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-Since our Prometheus is serving at port 9090:
+Puisque notre Prometheus sert au port 9090:
 
-<figure><img src="../.gitbook/assets/image (181).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (181) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-Scroll to the bottom and test the connection:
+Faites défiler vers le bas et testez la connexion:
 
-<figure><img src="../.gitbook/assets/image (182).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (182) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-Take note of the data source ID shown in the toolbar, we'll need this for creating dashboards:
+Prenez note de l'ID de source de données indiqué dans la barre d'outils, nous en aurons besoin pour créer des tableaux de bord:
 
-<figure><img src="../.gitbook/assets/image (184).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (184) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-Now that connection is added successfully, we can start adding dashboard. From the left side bar, click Dashboards, and Create Dashboard.
+Maintenant que la connexion est ajoutée avec succès, nous pouvons commencer à ajouter un tableau de bord. Dans la barre gauche, cliquez sur Tableaux de bord et créez un tableau de bord.
 
-Flowise provides 2 template dashboards:
+Flowise fournit 2 tableaux de bord de modèle:
 
-* [grafana.dashboard.app.json.txt](https://github.com/FlowiseAI/Flowise/blob/main/metrics/grafana/grafana.dashboard.app.json.txt): API metrics such as number of chatflows/agentflows, predictions count, tools, assistant, upserted vectors, etc.
-* [grafana.dashboard.server.json.txt](https://github.com/FlowiseAI/Flowise/blob/main/metrics/grafana/grafana.dashboard.server.json.txt): metrics of the Flowise node.js instance such as heap, CPU, RAM usage
+* [grafana.dashboard.app.json.txt](https://github.com/FlowiseAI/Flowise/blob/main/metrics/grafana/grafana.dashboard.app.json.txt): Les mesures API telles que le nombre de ChatFlows / Agentflows, le nombre de prédictions, les outils, l'assistant, les vecteurs renversés, etc.
+* [grafana.dashboard.server.json.txt](https://github.com/FlowiseAI/Flowise/blob/main/metrics/grafana/grafana.dashboard.server.json.txt): métriques de l'instance Node.js flowise telle que le tas, le processeur, l'utilisation de la RAM
 
-If you are using templates above, find and replace all occurence of `cds4j1ybfuhogb` with the data source ID you created and saved earlier.
+Si vous utilisez des modèles ci-dessus, trouvez et remplacez toutes`cds4j1ybfuhogb`avec l'ID de source de données que vous avez créé et enregistré plus tôt.
 
-<figure><img src="../.gitbook/assets/image (183).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (183) .png" alt = ""> <figcaption> </gigcaption> </gigust>
 
-You can also choose to import first then edit the JSON later:
+Vous pouvez également choisir d'importer d'abord, puis modifier le JSON plus tard:
 
-<figure><img src="../.gitbook/assets/image (185).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (185) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-Now, try to perform some actions on the Flowise, you should be able to see the metrics displayed:
+Maintenant, essayez d'effectuer des actions sur le flux, vous devriez pouvoir voir les métriques affichées:
 
-<figure><img src="../.gitbook/assets/image (186).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (186) .png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-<figure><img src="../.gitbook/assets/image (187).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (187) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
 ## OpenTelemetry
 
-[OpenTelemetry](https://opentelemetry.io/) is an open source framework for creating and managing telemetry data. To enable OTel, configure the following env variables in Flowise:
+[OpenTelemetry](https://opentelemetry.io/)est un cadre open source pour créer et gérer les données de télémétrie. Pour activer Otel, configurez les variables Env suivantes dans Flowise:
 
 ```properties
 ENABLE_METRICS=true
@@ -84,7 +84,7 @@ METRICS_OPEN_TELEMETRY_PROTOCOL=http # http | grpc | proto (default is http)
 METRICS_OPEN_TELEMETRY_DEBUG=true
 ```
 
-Next, we need OpenTelemetry Collector to receive, process and export telemetry data. Flowise provides a [docker compose file](https://github.com/FlowiseAI/Flowise/blob/main/metrics/otel/compose.yaml) which can be used to start the collector container.
+Ensuite, nous avons besoin d'un collecteur d'OpenTelemetry pour recevoir, traiter et exporter des données de télémétrie. Flowise fournit un[docker compose file](https://github.com/FlowiseAI/Flowise/blob/main/metrics/otel/compose.yaml)qui peut être utilisé pour démarrer le conteneur collecteur.
 
 ```bash
 cd Flowise
@@ -92,6 +92,6 @@ cd metrics && cd otel
 docker compose up -d
 ```
 
-The collector will be using the [otel.config.yml](https://github.com/FlowiseAI/Flowise/blob/main/metrics/otel/otel.config.yml) file under the same directory for configurations. Currently only [Datadog](https://www.datadoghq.com/) and Prometheus are supported, refer to the [Open Telemetry](https://opentelemetry.io/) documentation to configure different APM tools such as Zipkin, Jeager, New Relic, Splunk and others.
+Le collectionneur utilisera le[otel.config.yml](https://github.com/FlowiseAI/Flowise/blob/main/metrics/otel/otel.config.yml)Fichier sous le même répertoire pour les configurations. Actuellement seulement[Datadog](https://www.datadoghq.com/)et prometheus sont soutenus, référer à[Open Telemetry](https://opentelemetry.io/)Documentation pour configurer différents outils APM tels que Zipkin, Jeaver, New Relic, Splunk et autres.
 
-Make sure to replace with the necessary API key for the exporters within the yml file.
+Assurez-vous de remplacer par la touche API nécessaire pour les exportateurs dans le fichier YML.

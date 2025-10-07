@@ -1,86 +1,86 @@
-# Microsoft Excel Document Loader
+# Chargeur de documents Microsoft Excel
 
-<figure><img src="../../../.gitbook/assets/image (285).png" alt="" width="238"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (285) .png" alt = "" width = "238"> <Figcaption> </ Figcaption> </ Figure>
 
-Microsoft Excel is a spreadsheet program that features calculation tools, pivot tables, and a macro programming language. This module provides functionality to load and process Excel files using SheetJS.
+Microsoft Excel est un programme de feuille de calcul qui comprend des outils de calcul, des tables de pivot et un langage de programmation macro. Ce module fournit des fonctionnalités pour charger et traiter les fichiers Excel à l'aide de sheetjs.
 
-This module provides a sophisticated Excel document loader that can:
-- Load multiple Excel file formats
-- Process multiple worksheets
-- Convert rows to structured documents
-- Handle various data types
-- Preserve cell formatting
-- Extract metadata per row
-- Support type inference
+Ce module fournit un chargeur de documents Excel sophistiqué qui peut:
+- Chargez plusieurs formats de fichiers Excel
+- Traiter plusieurs feuilles de calcul
+- Convertir les lignes en documents structurés
+- Gérer divers types de données
+- Conserver la mise en forme des cellules
+- Extraire les métadonnées par rangée
+- Inférence du type de support
 
-## Inputs
+## Entrées
 
-### Required Parameters
-- **Excel File**: The Excel file(s) to process (.xls, .xlsx, .xlsm, .xlsb)
+### Paramètres requis
+- ** Fichier Excel **: le (s) fichier (s) pour traiter (.xls, .xlsx, .xlsm, .xlsb)
 
-### Optional Parameters
-- **Text Splitter**: A text splitter to process the extracted content
-- **Additional Metadata**: JSON object with additional metadata
-- **Omit Metadata Keys**: Comma-separated list of metadata keys to omit
+### Paramètres facultatifs
+- ** Splitter du texte **: un séparateur de texte pour traiter le contenu extrait
+- ** Metadata supplémentaires **: objet JSON avec métadonnées supplémentaires
+- ** omettre les clés de métadonnées **: Liste des clés de métadonnées séparées par des virgules pour omettre
 
-## Outputs
+## Sorties
 
-- **Document**: Array of document objects containing metadata and pageContent
-- **Text**: Concatenated string from pageContent of documents
+- ** Document **: tableau d'objets de document contenant des métadonnées et un conceptent
+- ** Texte **: chaîne concaténée du conceptent de documents
 
-## Features
-- Multiple format support
-- Multi-sheet processing
-- Data type preservation
-- Metadata extraction
-- Type inference
-- Error handling
-- Memory-efficient processing
+## Caractéristiques
+- Support de format multiple
+- Traitement à plusieurs feuilles
+- Préservation du type de données
+- Extraction de métadonnées
+- Type d'inférence
+- Gestion des erreurs
+- Traitement économe en mémoire
 
-## Supported Formats
-- Excel Binary (.xls)
+## Formats pris en charge
+- Excel binaire (.xls)
 - Excel Workbook (.xlsx)
-- Excel Macro-Enabled (.xlsm)
+- Excel Macro-compatible (.xlsm)
 - Excel Binary Workbook (.xlsb)
 
-## Data Type Handling
+## Traitement des types de données
 
-### Supported Types
-- Text (string)
-- Numbers (number)
+### Types pris en charge
+- Texte (chaîne)
+- Nombres (numéro)
 - Dates (date)
-- Booleans (boolean)
-- Formulas (calculated values)
-- Empty cells (null)
+- Booléens (booléen)
+- Formules (valeurs calculées)
+- Cellules vides (null)
 
-## Document Structure
-Each document contains:
-- **pageContent**: Formatted row content as key-value pairs
-- **metadata**:
-  - worksheet: Sheet name
-  - rowNum: Row index
-  - Original column values
-  - Additional custom metadata
+## Structure de document
+Chaque document contient:
+- ** PageContent **: Contenu de ligne formaté comme paires de valeurs clés
+- ** Metadata **:
+  - feuille de travail: nom de feuille
+  - Rownum: indice de ligne
+  - Valeurs de colonne d'origine
+  - Métadonnées personnalisées supplémentaires
 
-## Row Processing
-Each row is converted to a document with:
-- Key-value pairs for each cell
-- Preserved column headers
-- Type information
-- Row position
+## Traitement des lignes
+Chaque ligne est convertie en document avec:
+- Paires de valeurs clés pour chaque cellule
+- En-têtes de colonne conservées
+- Type d'information
+- Position
 
-## Metadata Attributes
-Default attributes include:
-- worksheet: Sheet or Worksheet Name (string)
-- rowNum: Row index (number)
-- Dynamic attributes based on column headers
+## Attributs de métadonnées
+Les attributs par défaut incluent:
+- feuille de travail: feuille ou nom de feuille de travail (chaîne)
+- Rownum: Index de ligne (numéro)
+- Attributs dynamiques basés sur les en-têtes de colonne
 
 ## Notes
-- Uses SheetJS for parsing
-- Preserves data types
-- Handles multiple sheets
-- Infers column types
-- Memory-efficient processing
-- Error handling for invalid files
-- Flexible output formats
-- Column type inference
+- Utilise des feuilles pour l'analyse
+- Conserve les types de données
+- Gère plusieurs feuilles
+- Enfil Types de colonnes
+- Traitement économe en mémoire
+- Gestion des erreurs pour les fichiers non valides
+- Formats de sortie flexibles
+- Inférence de type colonne

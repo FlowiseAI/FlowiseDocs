@@ -1,34 +1,34 @@
 # Redis
 
-## Prerequisite
+## Condition préalable
 
-1. Spin up a [Redis-Stack Server](https://redis.io/docs/latest/operate/oss_and_stack/install/install-stack/docker/) using Docker
+1. Tourner un[Redis-Stack Server](https://redis.io/docs/latest/operate/oss_and_stack/install/install-stack/docker/)Utilisation de Docker
 
 ```bash
 docker run -d --name redis-stack-server -p 6379:6379 redis/redis-stack-server:latest
 ```
 
-## Setup
+## Installation
 
-1. Add a new **Redis** node on canvas.
-2. Create new Redis credential.
+1. Ajoutez un nouveau nœud ** redis ** sur toile.
+2. Créez de nouveaux informations d'identification Redis.
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (3) (1) (1).png" alt="" width="257"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / Image (1) (1) (3) (1) (1) .png" alt = "" width = "257"> <figCaption> </ Figcaption> </ Figure>
 
-3. Select type of Redis Credential. Choose Redis API if you have username and password, otherwise Redis URL:
+3. Sélectionnez le type d'identification Redis. Choisissez l'API Redis si vous avez un nom d'utilisateur et un mot de passe, sinon redis URL:
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (2).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (2) (1) (1) (2) .png" alt = "" width = "563"> <figCaption> </ Figcaption> </ Figure>
 
-4. Fill in the url:
+4. Remplissez l'URL:
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (2) (1).png" alt="" width="542"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (3) (1) (1) (1) (2) (1) .png" alt = "" width = "542"> <Figcaption> </ FigCaption> </ Figure>
 
-5. Now you can start upserting data with Redis:
+5. Vous pouvez maintenant démarrer des données avec Redis:
 
-<figure><img src="../../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (8) (1) (1) (1) (1) (1) (1) (1) (1) (1) .png" alt = ""> <figCaption> </gigcaption> </pigu
 
-<figure><img src="../../../.gitbook/assets/image (9) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / Image (9) (2) (1) .png" alt = ""> <Figcaption> </ Figcaption> </gigust>
 
-6. Navigate to Redis Insight portal, and to your database, you will be able to see all the data that has been upserted:
+6. Accédez au portail Redis Insight et à votre base de données, vous pourrez voir toutes les données qui ont été renversées:
 
-<figure><img src="../../../.gitbook/assets/image (138).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (138) .png" alt = ""> <Figcaption> </gigcaption> </gigne>

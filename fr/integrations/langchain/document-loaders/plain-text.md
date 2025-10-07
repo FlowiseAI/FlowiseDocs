@@ -1,95 +1,95 @@
-# Plain Text
+# Texte brut
 
-<figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (2).png" alt="" width="263"><figcaption><p>Plain Text Node</p></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / image (5) (1) (1) (1) (1) (1) (1) (1) (1) (2) .png" alt = "" width = "263"> <figcaption>
 
-Plain text is the most basic form of text data, containing no formatting or other embedded information. This module provides functionality to load and process plain text content directly.
+Le texte brut est la forme la plus élémentaire de données de texte, ne contenant pas de formatage ou d'autres informations intégrées. Ce module fournit des fonctionnalités pour charger et traiter directement le contenu de texte brut.
 
-This module provides a straightforward text document loader that can:
+Ce module fournit un chargeur de document texte simple qui peut:
 
-* Load text content directly
-* Process text with splitters
-* Add custom metadata
-* Handle escape characters
-* Support document splitting
-* Customize metadata extraction
-* Manage text encoding
+* Chargez directement le contenu du texte
+* Traiter le texte avec des séparateurs
+* Ajouter des métadonnées personnalisées
+* Gérer les caractères d'évasion
+* Prise en charge du fractionnement du document
+* Personnaliser l'extraction des métadonnées
+* Gérer l'encodage du texte
 
-## Inputs
+## Entrées
 
-### Required Parameters
+### Paramètres requis
 
-* **Text**: The plain text content to process
+* ** Texte **: le contenu en texte brut à traiter
 
-### Optional Parameters
+### Paramètres facultatifs
 
-* **Text Splitter**: A text splitter to process the content
-* **Additional Metadata**: JSON object with additional metadata
-* **Omit Metadata Keys**: Comma-separated list of metadata keys to omit
+* ** Splitter de texte **: un séparateur de texte pour traiter le contenu
+* ** Metadata supplémentaires **: objet JSON avec métadonnées supplémentaires
+* ** omettre les clés de métadonnées **: Liste des clés de métadonnées séparées par des virgules pour omettre
 
-## Outputs
+## Sorties
 
-* **Document**: Array of document objects containing metadata and pageContent
-* **Text**: Concatenated string from pageContent of documents
+* ** Document **: tableau d'objets de document contenant des métadonnées et un conceptent
+* ** Texte **: chaîne concaténée du conceptent de documents
 
-## Features
+## Caractéristiques
 
-* Direct text input
-* Text splitting support
-* Metadata handling
-* Error handling
-* Memory-efficient processing
-* Character encoding handling
-* Flexible output formats
+* Entrée de texte direct
+* Support de division de texte
+* Manipulation des métadonnées
+* Gestion des erreurs
+* Traitement économe en mémoire
+* Traitement de codage de caractère
+* Formats de sortie flexibles
 
-## Text Processing
+## Traitement du texte
 
-### Direct Mode
+### Mode direct
 
-* Single document creation
-* Preserves original text
-* Basic metadata handling
-* Memory efficient
+* Création de documents uniques
+* Conserve le texte original
+* Manipulation de métadonnées de base
+* Mémoire efficace
 
-### Split Mode
+### Mode partagé
 
-* Multiple document creation
-* Custom splitting rules
-* Individual chunk metadata
-* Granular content access
+* Création de documents multiples
+* Règles de division personnalisées
+* Métadonnées individuelles
+* Accès de contenu granulaire
 
-## Document Structure
+## Structure de document
 
-Each document contains:
+Chaque document contient:
 
-* **pageContent**: Original or split text content
-* **metadata**:
-  * Custom metadata from input
-  * Split-specific metadata (when using splitter)
-  * Additional metadata properties
+* ** PageContent **: Contenu du texte original ou divisé
+* ** Metadata **:
+  * Métadonnées personnalisées à partir de l'entrée
+  * Métadonnées spécifiques divisées (lors de l'utilisation du séparateur)
+  * Propriétés de métadonnées supplémentaires
 
-## Content Handling
+## Traitement du contenu
 
-### Text Input
+### Entrée de texte
 
-* Direct string input
-* Multi-line support
-* Unicode support
-* Escape character handling
+* Entrée directe de chaîne
+* Support multi-lignes
+* Support Unicode
+* Échapper à la manipulation des personnages
 
-### Processing Options
+### Options de traitement
 
-* Text splitting
-* Metadata addition
-* Character normalization
-* Whitespace handling
+* Division de texte
+* Ajout de métadonnées
+* Normalisation du caractère
+* Manipulation des espaces
 
 ## Notes
 
-* Simple and efficient
-* No file handling required
-* Memory-efficient processing
-* Error handling for invalid inputs
-* Support for large texts
-* Flexible output formats
-* Metadata customization
-* Character encoding support
+* Simple et efficace
+* Aucune gestion de fichier requise
+* Traitement économe en mémoire
+* Gestion des erreurs pour les entrées non valides
+* Prise en charge des grands textes
+* Formats de sortie flexibles
+* Personnalisation des métadonnées
+* Caractère Encoding Support

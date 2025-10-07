@@ -2,15 +2,15 @@
 description: Learn how Flowise integrates with the LangChain framework
 ---
 
-# LangChain
+# Lubriole
 
 ***
 
-[**LangChain**](https://www.langchain.com/) is a framework for developing applications powered by language models. It simplifies the process of creating generative AI application, connecting data sources, vectors, memories with LLMs.
+[**LangChain**](https://www.langchain.com/)est un cadre pour développer des applications alimentées par des modèles de langue. Il simplifie le processus de création d'application d'IA générative, de connexion des sources de données, des vecteurs, des souvenirs avec LLMS.
 
-Flowise complements LangChain by offering a visual interface. Here, nodes are organized into distinct sections, making it easier to build workflows.
+Flowise complète Langchain en offrant une interface visuelle. Ici, les nœuds sont organisés en sections distinctes, ce qui facilite la construction de workflows.
 
-### LangChain Sections:
+### Sections de Langchain:
 
 * [Agents](agents/)
 * [Cache](cache/)

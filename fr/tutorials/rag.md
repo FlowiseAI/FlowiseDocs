@@ -1,50 +1,50 @@
-# RAG
+# CHIFFON
 
-Large Language Models (LLMs) have unlocked the potential to create advanced Q\&A chatbots capable of delivering precise answers based on specific content. These systems rely on a method called Retrieval-Augmented Generation (RAG), which enhances their responses by grounding them in relevant source material.
+Les modèles de grandes langues (LLMS) ont débloqué le potentiel de création de chatbots Q \ & A avancés capables de fournir des réponses précises en fonction du contenu spécifique. Ces systèmes reposent sur une méthode appelée génération (RAG) (RAG) de la récupération, ce qui améliore leurs réponses en les ancrant dans le matériel source pertinent.
 
-In this tutorial, you’ll learn how to create a basic Q\&A application that can extract and answer questions from given document sources.
+Dans ce tutoriel, vous apprendrez à créer une application Q \ & A de base qui peut extraire et répondre aux questions à partir de sources de documents données.
 
-The process can be separated out into 2 sub-processes:
+Le processus peut être séparé en 2 sous-processus:
 
-* Indexing
-* Retrieval
+* Indexage
+* Récupération
 
-## Indexing
+## Indexage
 
-[Document Stores](../using-flowise/document-stores.md) is designed to help with the whole indexing pipelines - retrieveing data from different sources, chunking strategy, upserting to vector database, syncing with updated data.
+[Document Stores](../using-flowise/document-stores.md)est conçu pour aider à l'ensemble des pipelines d'indexation - récupérer des données à partir de différentes sources, une stratégie de section, une augmentation de la base de données vectorielle, une synchronisation avec des données mises à jour.
 
-We support wide range of document loaders, ranging from files like Pdf, Word, Google Drive, to web scrapers like Playwright, Firecrawl, Apify and others. You can also create custom document loader.
+Nous prenons en charge un large éventail de chargeurs de documents, allant de fichiers comme PDF, Word, Google Drive, vers des grabyers Web comme Playwright, Firecrawl, Apify et autres. Vous pouvez également créer un chargeur de documents personnalisé.
 
-<figure><img src="../.gitbook/assets/image (293).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (293) .png" alt = "" width = "563"> <Figcaption> </ Figcaption> </gigust>
 
-## Retrieval
+## Récupération
 
-Based on the user's input, relevant document chunks are fetched from vector database. LLM then uses the retrieved context to generate a response.
+En fonction de l'entrée de l'utilisateur, les morceaux de document pertinents sont récupérés à partir de la base de données vectorielle. LLM utilise ensuite le contexte récupéré pour générer une réponse.
 
-1. Drag and drop an [Agent](../using-flowise/agentflowv2.md#id-3.-agent-node) node, and configure the model to use.
+1. Faites glisser et déposez un[Agent](../using-flowise/agentflowv2.md#id-3.-agent-node)Node et configurez le modèle à utiliser.
 
-<figure><img src="../.gitbook/assets/image (290).png" alt="" width="391"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (290) .png" alt = "" width = "391"> <Figcaption> </gigcaption> </ Figure>
 
-2. Add a new Knowledge (Document Store) and define what the content is about. This helps the LLM understand when and how to retrieve relevant information. You can also use the auto-generate button to assist with this process.
+2. Ajoutez une nouvelle connaissance (magasin de documents) et définissez ce qu'est le contenu. Cela aide le LLM à comprendre quand et comment récupérer les informations pertinentes. Vous pouvez également utiliser le bouton de génération automatique pour aider à ce processus.
 
-{% hint style="success" %}
-Only upserted document store can be used
-{% endhint %}
+{% Hint Style = "Success"%}
+Seul le magasin de documents renversé peut être utilisé
+{% EndHint%}
 
-<figure><img src="../.gitbook/assets/image (288).png" alt="" width="482"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (288) .png" alt = "" width = "482"> <Figcaption> </gigcaption> </gigust>
 
-3. (Optional) If the data has already been stored in a vector database without going through the document store indexing pipeline, you can also connect directly to the vector database and embedding model.
+3. (Facultatif) Si les données ont déjà été stockées dans une base de données vectorielle sans passer par le pipeline d'indexation du magasin de documents, vous pouvez également vous connecter directement à la base de données vectorielle et au modèle d'intégration.
 
-<figure><img src="../.gitbook/assets/image (289).png" alt="" width="388"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (289) .png" alt = "" width = "388"> <Figcaption> </gigcaption> </gigne>
 
-4. Add a system prompt, or use the **Generate** button to assist. We recommend using it, as it helps craft a more effective and optimized prompt.
+4. Ajoutez une invite système ou utilisez le bouton ** générer ** pour aider. Nous vous recommandons de l'utiliser, car cela aide à élaborer une invite plus efficace et optimisée.
 
-<figure><img src="../.gitbook/assets/image (294).png" alt="" width="482"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (294) .png" alt = "" width = "482"> <Figcaption> </gigcaption> </ Figure>
 
-<figure><img src="../.gitbook/assets/image (292).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (292) .png" alt = "" width = "563"> <Figcaption> </gigcaption> </ Figure>
 
-5. Your RAG agent is now ready to use!
+5. Votre agent de chiffon est maintenant prêt à l'emploi!
 
-## Resources
+## Ressources
 
-{% embed url="https://youtu.be/KHc0ClOIv0A?si=mEZJydM8bT2imKJY" %}
+{% embed url = "https://youtu.be/khc0cloiv0a?si=mezjydm8bt2imkjy"%}

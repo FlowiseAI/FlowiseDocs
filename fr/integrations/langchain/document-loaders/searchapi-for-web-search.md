@@ -2,87 +2,87 @@
 description: Load data from real-time search results.
 ---
 
-# SearchApi For Web Search
+# Searchapi pour la recherche sur le Web
 
-<figure><img src="../../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1) (2).png" alt="" width="322"><figcaption><p>SearchApi For Web Search</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (8) (1) (1) (1) (1) (1) (1) (2) .png" alt = "" width = "322"> <pgaption> <p> searchapi pour la recherche Web </p> </figcaption> </ / figure>
 
-The SearchApi For Web Search loader provides access to real-time search results from multiple search engines using the SearchApi service. This loader enables you to fetch, process, and structure search results as documents that can be used in your workflow.
+Le SeechAPI pour le chargeur de recherche Web donne accès aux résultats de recherche en temps réel à partir de plusieurs moteurs de recherche à l'aide du service SearchAPI. Ce chargeur vous permet de récupérer, de traiter et de structurer les résultats de recherche comme des documents qui peuvent être utilisés dans votre flux de travail.
 
-## Features
+## Caractéristiques
 
-* Real-time search results from multiple search engines
-* Customizable search parameters
-* Text splitting capabilities
-* Flexible metadata handling
-* Multiple output formats
-* API key authentication
+* Résultats de recherche en temps réel à partir de plusieurs moteurs de recherche
+* Paramètres de recherche personnalisables
+* Capacités de division de texte
+* Manipulation flexible des métadonnées
+* Formats de sortie multiples
+* Authentification des clés de l'API
 
-## Inputs
+## Entrées
 
-### Required Parameters
+### Paramètres requis
 
-* **Connect Credential**: SearchApi API key credential
-* At least one of:
-  * **Query**: Search query string
-  * **Custom Parameters**: JSON object with search parameters
+* ** Connectez les informations d'identification **: Recherche d'identification de la clé de l'API SearchAPI
+* Au moins un de:
+  * ** requête **: chaîne de requête de recherche
+  * ** Paramètres personnalisés **: objet JSON avec paramètres de recherche
 
-### Optional Parameters
+### Paramètres facultatifs
 
-* **Query**: The search query to execute (if not using custom parameters)
-* **Custom Parameters**: JSON object with additional search parameters
-  * Supports all parameters from [SearchApi documentation](https://www.searchapi.io/docs/google)
-  * Can override default settings
-  * Allows engine-specific configurations
-* **Text Splitter**: A text splitter to process the extracted content
-* **Additional Metadata**: JSON object with additional metadata to add to documents
-* **Omit Metadata Keys**: Comma-separated list of metadata keys to exclude
-  * Format: `key1, key2, key3.nestedKey1`
-  * Use \* to remove all default metadata
+* ** Query **: la requête de recherche à exécuter (sinon en utilisant des paramètres personnalisés)
+* ** Paramètres personnalisés **: objet JSON avec paramètres de recherche supplémentaires
+  * Prend en charge tous les paramètres de[SearchApi documentation](https://www.searchapi.io/docs/google)
+  * Peut remplacer les paramètres par défaut
+  * Permet des configurations spécifiques au moteur
+* ** Splitter du texte **: un séparateur de texte pour traiter le contenu extrait
+* ** Métadonnées supplémentaires **: objet JSON avec des métadonnées supplémentaires à ajouter aux documents
+* ** omettre les clés de métadonnées **: Liste des clés de métadonnées séparées par des virgules à exclure
+  * Format:`key1, key2, key3.nestedKey1`
+  * Utiliser \ * pour supprimer toutes les métadonnées par défaut
 
-## Outputs
+## Sorties
 
-* **Document**: Array of document objects containing:
-  * metadata: Search result metadata
-  * pageContent: Search result content
-* **Text**: Concatenated string of all search results' content
+* ** Document **: tableau d'objets de document contenant:
+  * métadonnées: métadonnées du résultat de la recherche
+  * contenu de la recherche: contenu de résultat de recherche
+* ** Texte **: chaîne concaténée du contenu de tous les résultats de recherche
 
-## Document Structure
+## Structure de document
 
-Each document contains:
+Chaque document contient:
 
-* **pageContent**: The main content from the search result
-* **metadata**:
-  * Default search result metadata
-  * Custom metadata (if specified)
-  * Filtered metadata (based on omitted keys)
+* ** PageContent **: le contenu principal du résultat de la recherche
+* ** Metadata **:
+  * Métadonnées de résultat de recherche par défaut
+  * Métadonnées personnalisées (si spécifiées)
+  * Métadonnées filtrées (basées sur les clés omises)
 
-## Metadata Handling
+## Manipulation des métadonnées
 
-Two ways to customize metadata:
+Deux façons de personnaliser les métadonnées:
 
-1. **Additional Metadata**
-   * Add new metadata fields via JSON
-   * Merged with existing metadata
-   * Useful for adding custom tracking or categorization
-2. **Omit Metadata Keys**
-   * Remove unwanted metadata fields
-   * Comma-separated list of keys to exclude
-   * Support for nested key removal
-   * Use \* to remove all default metadata
+1. ** métadonnées supplémentaires **
+   * Ajouter de nouveaux champs de métadonnées via JSON
+   * Fusionné avec les métadonnées existantes
+   * Utile pour ajouter un suivi ou une catégorisation personnalisée
+2. ** omettre les clés de métadonnées **
+   * Retirer les champs de métadonnées indésirables
+   * Liste de clés séparée par des virgules pour exclure
+   * Prise en charge de la suppression des clés imbriqués
+   * Utiliser \ * pour supprimer toutes les métadonnées par défaut
 
-## Usage Tips
+## Conseils d'utilisation
 
-* Provide specific search queries for better results
-* Use custom parameters for advanced search configurations
-* Consider using text splitters for large search results
-* Manage metadata to keep relevant information
-* Handle rate limits through appropriate query spacing
+* Fournir des requêtes de recherche spécifiques pour de meilleurs résultats
+* Utilisez des paramètres personnalisés pour les configurations de recherche avancées
+* Envisagez d'utiliser des séparateurs de texte pour les grands résultats de recherche
+* Gérer les métadonnées pour conserver les informations pertinentes
+* Manipuler les limites de taux grâce à l'espacement des requêtes approprié
 
 ## Notes
 
-* Requires SearchApi API key
-* Respects API rate limits
-* Supports multiple search engines
-* Real-time search results
-* Memory-efficient processing
-* Error handling for API requests
+* Nécessite la clé de l'API Searchapi
+* Respecte les limites de taux de l'API
+* Prend en charge plusieurs moteurs de recherche
+* Résultats de recherche en temps réel
+* Traitement économe en mémoire
+* Gestion des erreurs pour les demandes d'API

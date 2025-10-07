@@ -1,7 +1,7 @@
 ---
-description: Deprecating Node.
+description: Dépréciation de Node.
 ---
 
-# Conversational Retrieval Agent
+# Agent de Récupération Conversationnel
 
 <figure><img src="../../../.gitbook/assets/giphy.gif" alt="" width="256"><figcaption></figcaption></figure>

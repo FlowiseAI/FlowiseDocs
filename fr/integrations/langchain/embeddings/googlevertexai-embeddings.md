@@ -2,10 +2,10 @@
 description: Google vertexAI API to generate embeddings for a given text.
 ---
 
-# Google VertexAI Embeddings
+# Google Vertexai Embeddings
 
-<figure><img src="../../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (2).png" alt="" width="301"><figcaption><p>Google VertexAI Embeddings Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (8) (1) (1) (1) (1) (1) (2) .png" alt = "" width = "301"> </ Figcaption> <p> google vertexai EmbedDing
 
-{% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
-{% endhint %}
+{% hint style = "info"%}
+Cette section est un travail en cours. Nous apprécions toute aide que vous pouvez fournir pour terminer cette section. Veuillez vérifier notre[Contribution Guide](broken-reference)Pour commencer.
+{% EndHint%}

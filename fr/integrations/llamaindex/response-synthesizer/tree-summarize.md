@@ -1,14 +1,14 @@
-# Tree Summarize
+# Arbre résumer
 
-When provided with text chunks and a query, recursively build a tree structure and return the root node as the result.
+Lorsqu'il est fourni avec des morceaux de texte et une requête, construisez récursivement une structure d'arbre et renvoyez le nœud racine en conséquence.
 
-**Pros**: Beneficial for summarization tasks
+** PROS **: bénéfique pour les tâches de résumé
 
-**Cons**: Accuracy of answer might be lost during traversal of tree structure
+** CONS **: La précision de la réponse peut être perdue lors de la traversée de la structure des arbres
 
-<figure><img src="../../../.gitbook/assets/image (7) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (7) (1) (1) (1) (2) .png" alt = ""> <figcaption> </ Figcaption> </gigne>
 
-**Prompt**
+**Rapide**
 
 ```
 Context information from multiple sources is below.

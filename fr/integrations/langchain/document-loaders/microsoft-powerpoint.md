@@ -1,84 +1,84 @@
-# Microsoft PowerPoint Document Loader
+# Chargeur de documents Microsoft PowerPoint
 
-<figure><img src="../../../.gitbook/assets/image (286).png" alt="" width="234"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (286) .png" alt = "" width = "234"> <Figcaption> </gigcaption> </ figure>
 
-Microsoft PowerPoint is a presentation program for creating and displaying slide shows. This module provides functionality to load and process PowerPoint files using officeparser.
+Microsoft PowerPoint est un programme de présentation pour la création et l'affichage des diapositives. Ce module fournit des fonctionnalités pour charger et traiter les fichiers PowerPoint à l'aide de OfficePaSer.
 
-This module provides a sophisticated PowerPoint document loader that can:
-- Load PowerPoint presentations
-- Extract text from slides
-- Split content into individual slides
-- Handle slide numbering
-- Process metadata per slide
-- Support multiple slide formats
-- Handle various slide separators
+Ce module fournit un chargeur de document PowerPoint sophistiqué qui peut:
+- Chargez des présentations PowerPoint
+- Extraire du texte des diapositives
+- Diviser le contenu en diapositives individuelles
+- Numéro de la diapositive
+- Traiter les métadonnées par diapositive
+- Prise en charge de plusieurs formats de diapositive
+- Gérer divers séparateurs de diapositives
 
-## Inputs
+## Entrées
 
-### Required Parameters
-- **PowerPoint File**: The PowerPoint file(s) to process (.ppt, .pptx)
+### Paramètres requis
+- ** Fichier PowerPoint **: le (s) fichier (s) PowerPoint (.ppt, .pptx)
 
-### Optional Parameters
-- **Text Splitter**: A text splitter to process the extracted content
-- **Additional Metadata**: JSON object with additional metadata
-- **Omit Metadata Keys**: Comma-separated list of metadata keys to omit
+### Paramètres facultatifs
+- ** Splitter du texte **: un séparateur de texte pour traiter le contenu extrait
+- ** Metadata supplémentaires **: objet JSON avec métadonnées supplémentaires
+- ** omettre les clés de métadonnées **: Liste des clés de métadonnées séparées par des virgules pour omettre
 
-## Outputs
+## Sorties
 
-- **Document**: Array of document objects containing metadata and pageContent
-- **Text**: Concatenated string from pageContent of documents
+- ** Document **: tableau d'objets de document contenant des métadonnées et un conceptent
+- ** Texte **: chaîne concaténée du conceptent de documents
 
-## Features
-- Text extraction
-- Slide separation
-- Metadata handling
-- Error handling
-- Memory-efficient processing
-- Heuristic slide detection
-- Content filtering
+## Caractéristiques
+- Extraction de texte
+- Séparation de diapositives
+- Manipulation des métadonnées
+- Gestion des erreurs
+- Traitement économe en mémoire
+- Détection de diapositives heuristiques
+- Filtrage de contenu
 
-## Slide Detection Methods
+## Méthodes de détection de diapositives
 
-### Pattern Recognition
-The loader attempts to identify slides using common patterns:
-- "Slide X" markers
-- "Page X" markers
-- "X/Y" page numbers
-- Underscore separators
-- Dash separators
-- Multiple newlines
+### Reconnaissance des modèles
+Le chargeur tente d'identifier les diapositives en utilisant des modèles communs:
+- Marqueurs "Slide X"
+- Marqueurs "page X"
+- Numéros de page "x / y"
+- Souligneurs de soulignement
+- Séparateurs de tableau de bord
+- Plusieurs lignes de newlines
 
-### Fallback Mechanisms
-If pattern recognition fails:
-1. Split by double newlines
-2. Treat content as single slide
+### Mécanismes de secours
+Si la reconnaissance des modèles échoue:
+1. Split by Double Newlines
+2. Traitez le contenu comme une seule diapositive
 
-## Document Structure
-Each document contains:
-- **pageContent**: Extracted text content from the slide
-- **metadata**:
-  - slideNumber: Sequential slide number
-  - documentType: "powerpoint"
-  - Additional custom metadata
+## Structure de document
+Chaque document contient:
+- ** PageContent **: Contenu du texte extrait de la diapositive
+- ** Metadata **:
+  - SlideNumber: numéro de diapositif séquentiel
+  - DocumentType: "PowerPoint"
+  - Métadonnées personnalisées supplémentaires
 
-## Content Processing
-- Empty slides are filtered out
-- Leading/trailing whitespace removed
-- Minimum content length validation
-- Reasonable slide count validation
+## Traitement du contenu
+- Les lames vides sont filtrées
+- Espace blanc de tête / traînage supprimé
+- Validation minimale de la longueur du contenu
+- Validation du nombre de diapositives raisonnable
 
-## Metadata Attributes
-Default attributes include:
-- slideNumber: Slide number (number)
-- documentType: Type of document (string)
-- Custom metadata from input
+## Attributs de métadonnées
+Les attributs par défaut incluent:
+- SlideNumber: Numéro de diapositive (numéro)
+- DocumentType: Type de document (chaîne)
+- Métadonnées personnalisées à partir de l'entrée
 
 ## Notes
-- Uses officeparser for extraction
-- Handles various slide formats
-- Intelligent slide detection
-- Content validation
-- Memory-efficient processing
-- Error handling for invalid files
-- Flexible output formats
-- Robust fallback mechanisms
+- Utilise OfficeArser pour l'extraction
+- Gère divers formats de diapositive
+- Détection de diapositive intelligente
+- Validation du contenu
+- Traitement économe en mémoire
+- Gestion des erreurs pour les fichiers non valides
+- Formats de sortie flexibles
+- Mécanismes de secours robustes

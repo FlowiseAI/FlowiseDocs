@@ -2,17 +2,17 @@
 description: LlamaIndex Vector Store Nodes
 ---
 
-# Vector Stores
+# Magasins vectoriels
 
 ***
 
-A vector store or vector database refers to a type of database system that specializes in storing and retrieving high-dimensional numerical vectors. Vector stores are designed to efficiently manage and index these vectors, allowing for fast similarity searches.
+Un magasin vectoriel ou une base de données vectorielle fait référence à un type de système de base de données spécialisée dans le stockage et la récupération des vecteurs numériques de haute dimension. Les magasins vectoriels sont conçus pour gérer et indexer efficacement ces vecteurs, permettant des recherches de similitude rapides.
 
-### Watch an intro on Vector Stores and how you can use that on Flowise
+### Regardez une introduction sur les magasins vectoriels et comment vous pouvez l'utiliser sur Flowise
 
-{% embed url="https://youtu.be/m0nr1_pnAxc" %}
+{% embed url = "https://youtu.be/m0nr1_pnaxc"%}
 
-### Vector Store Nodes:
+### Nœuds de magasin vectoriel:
 
 * [Pinecone](pinecone.md)
 * [SimpleStore](queryengine-tool.md)

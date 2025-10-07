@@ -1,68 +1,68 @@
-# Puppeteer Web Scraper
+# Grattoir Web de marionnettiste
 
-Puppeteer is a Node.js library that provides a high-level API to control Chrome/Chromium over the DevTools Protocol. This module provides advanced web scraping capabilities using Puppeteer to extract content from web pages, including dynamic content that requires JavaScript execution.
+Puppeteer est une bibliothèque Node.js qui fournit une API de haut niveau pour contrôler Chrome / Chromium sur le protocole Devtools. Ce module fournit des capacités de grattage Web avancées à l'aide de marionnetteer pour extraire le contenu à partir de pages Web, y compris du contenu dynamique qui nécessite une exécution JavaScript.
 
-This module provides a sophisticated web scraper that can:
-- Load content from single or multiple web pages
-- Handle JavaScript-rendered content
-- Support various page load strategies
-- Wait for specific elements to load
-- Crawl relative links from websites
-- Process XML sitemaps
+Ce module fournit un grattoir Web sophistiqué qui peut:
+- Chargez le contenu à partir de pages Web uniques ou multiples
+- Gérer le contenu rendu javascript
+- Soutenez diverses stratégies de chargement de pages
+- Attendez que des éléments spécifiques se chargent
+- Crawl liens relatifs des sites Web
+- Processus des sitemaps XML
 
-## Inputs
+## Entrées
 
-- **URL**: The webpage URL to scrape
-- **Text Splitter** (optional): A text splitter to process the extracted content
-- **Get Relative Links Method** (optional): Choose between:
-  - Web Crawl: Crawl relative links from HTML URL
-  - Scrape XML Sitemap: Scrape relative links from XML sitemap URL
-- **Get Relative Links Limit** (optional): Limit for number of relative links to process (default: 10, 0 for all links)
-- **Wait Until** (optional): Page load strategy:
-  - Load: When initial HTML document's DOM is loaded
-  - DOM Content Loaded: When complete HTML document's DOM is loaded
-  - Network Idle 0: No network connections for 500ms
-  - Network Idle 2: No more than 2 network connections for 500ms
-- **Wait for selector to load** (optional): CSS selector to wait for before scraping
-- **Additional Metadata** (optional): JSON object with additional metadata to add to documents
-- **Omit Metadata Keys** (optional): Comma-separated list of metadata keys to omit
+- ** URL **: L'URL de la page Web pour gratter
+- ** Splitter de texte ** (facultatif): un séparateur de texte pour traiter le contenu extrait
+- ** Obtenez la méthode des liens relatifs ** (facultatif): Choisissez entre:
+  - Crawl Web: Crawl Liens relatifs de l'URL HTML
+  - Gratter le plan du site XML: Racler les liens relatifs de l'URL du site XML
+- ** Obtenez des liens relatifs Limite ** (Facultatif): Limite pour le nombre de liens relatifs à traiter (par défaut: 10, 0 pour tous les liens)
+- ** Attendez jusqu'à ** (facultatif): Stratégie de chargement de la page:
+  - Charge: lorsque le DOM du document HTML initial est chargé
+  - Contenu DOM Chargé: lorsque le DOM du document HTML complet est chargé
+  - Network Invalette 0: pas de connexions réseau pour 500 ms
+  - Network Idle 2: Pas plus de 2 connexions réseau pendant 500 ms
+- ** Attendez que le sélecteur charge ** (facultatif): le sélecteur CSS attend avant de gratter
+- ** Métadonnées supplémentaires ** (Facultatif): objet JSON avec des métadonnées supplémentaires à ajouter aux documents
+- ** omettre les clés de métadonnées ** (facultative): liste de clés de métadonnées séparées par des virgules pour omettre
 
-## Outputs
+## Sorties
 
-- **Document**: Array of document objects containing metadata and pageContent
-- **Text**: Concatenated string from pageContent of documents
+- ** Document **: tableau d'objets de document contenant des métadonnées et un conceptent
+- ** Texte **: chaîne concaténée du conceptent de documents
 
-## Features
-- JavaScript execution support
-- Configurable page load strategies
-- Element wait capabilities
-- Web crawling functionality
-- XML sitemap processing
-- Headless browser operation
-- Sandbox configuration
-- Error handling for invalid URLs
-- Metadata customization
+## Caractéristiques
+- Prise en charge de l'exécution JavaScript
+- Stratégies de chargement de page configurables
+- Capacités d'attente des éléments
+- Fonctionnalité de rampe sur le Web
+- Traitement du plan du site XML
+- Opération de navigateur sans tête
+- Configuration de bac à sable
+- Gestion des erreurs pour les URL non valides
+- Personnalisation des métadonnées
 
 ## Notes
-- Runs in headless mode by default
-- Uses no-sandbox mode for compatibility
-- Invalid URLs will throw an error
-- Setting link limit to 0 will retrieve all available links (may take longer)
-- Supports waiting for specific DOM elements before extraction
+- S'exécute en mode sans tête par défaut
+- Utilise le mode sans sandbox pour la compatibilité
+- Les URL non valides lanceront une erreur
+- La définition de la limite des liens à 0 récupérera tous les liens disponibles (peut prendre plus de temps)
+- Prend en charge l'attente d'éléments DOM spécifiques avant l'extraction
 
-## Scrape One URL
+## Gratter une URL
 
-1.  _(Optional)_ Connect **[Text Splitter](../text-splitters/)**.
-2. Input desired URL to be scraped.
+1.  _ (Facultatif) _ connecter **[Text Splitter](../text-splitters/)**.
+2. Entrée URL souhaitée à gratter.
 
-## Crawl & Scrape Multiple URLs
-Visit **[Web Crawl](../../use-cases/web-crawl.md)** guide to allow scraping of multiple pages.
+## Crawl et gratter plusieurs URL
+Visite **[Web Crawl](../../use-cases/web-crawl.md)** Guide pour permettre le grattage de plusieurs pages.
 
-## Output
+## Sortir
 
-Loads URL content as Document
+Charge le contenu de l'URL en tant que document
 
-## Resources
+## Ressources
 
 * [LangChain JS Puppeteer](https://js.langchain.com/docs/integrations/document_loaders/web_loaders/web_puppeteer)
 * [Puppeteer](https://pptr.dev/)

@@ -1,86 +1,86 @@
-# Microsoft Word Document Loader
+# Chargeur de documents Microsoft Word
 
-<figure><img src="../../../.gitbook/assets/image (287).png" alt="" width="234"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (287) .png" alt = "" width = "234"> <Figcaption> </gigcaption> </ figure>
 
-Microsoft Word is a word processing software for creating and editing text documents. This module provides functionality to load and process Word documents using officeparser.
+Microsoft Word est un logiciel de traitement de texte pour créer et modifier des documents texte. Ce module fournit des fonctionnalités pour charger et traiter des documents de mots à l'aide de OfficePaSer.
 
-This module provides a sophisticated Word document loader that can:
-- Load Word documents
-- Extract text content
-- Split content into sections
-- Handle page numbering
-- Process metadata per section
-- Support multiple section formats
-- Handle various section separators
+Ce module fournit un chargeur de documents de mots sophistiqué qui peut:
+- Documents de chargement
+- Extraire le contenu du texte
+- Diviser le contenu en sections
+- Numéro de la page
+- Traiter les métadonnées par section
+- Prise en charge de plusieurs formats de section
+- Gérer divers séparateurs de section
 
-## Inputs
+## Entrées
 
-### Required Parameters
-- **Word File**: The Word file(s) to process (.doc, .docx)
+### Paramètres requis
+- ** Fichier Word **: le (s) fichier (s) pour traiter (.doc, .docx)
 
-### Optional Parameters
-- **Text Splitter**: A text splitter to process the extracted content
-- **Additional Metadata**: JSON object with additional metadata
-- **Omit Metadata Keys**: Comma-separated list of metadata keys to omit
+### Paramètres facultatifs
+- ** Splitter du texte **: un séparateur de texte pour traiter le contenu extrait
+- ** Metadata supplémentaires **: objet JSON avec métadonnées supplémentaires
+- ** omettre les clés de métadonnées **: Liste des clés de métadonnées séparées par des virgules pour omettre
 
-## Outputs
+## Sorties
 
-- **Document**: Array of document objects containing metadata and pageContent
-- **Text**: Concatenated string from pageContent of documents
+- ** Document **: tableau d'objets de document contenant des métadonnées et un conceptent
+- ** Texte **: chaîne concaténée du conceptent de documents
 
-## Features
-- Text extraction
-- Section separation
-- Metadata handling
-- Error handling
-- Memory-efficient processing
-- Heuristic section detection
-- Content filtering
+## Caractéristiques
+- Extraction de texte
+- Séparation de section
+- Manipulation des métadonnées
+- Gestion des erreurs
+- Traitement économe en mémoire
+- Détection de section heuristique
+- Filtrage de contenu
 
-## Section Detection Methods
+## Méthodes de détection de section
 
-### Pattern Recognition
-The loader attempts to identify sections using common patterns:
-- "Page X" markers
-- "Section X" markers
-- "Chapter X" markers
-- Numbered sections (e.g., "1. ", "2. ")
-- ALL CAPS headings
-- Long underscore separators
-- Long dash separators
+### Reconnaissance des modèles
+Le chargeur tente d'identifier les sections en utilisant des modèles communs:
+- Marqueurs "page X"
+- Marqueurs "Section X"
+- Marqueurs "Chapitre X"
+- Sections numérotées (par exemple, "1.", "2.")
+- Tous les têtes de capuchons
+- Séparateurs de soulignement longs
+- Séparateurs de tiret long
 
-### Fallback Mechanisms
-If pattern recognition fails:
-1. Split by multiple newlines
-2. Split by double newlines
-3. Treat content as single section
+### Mécanismes de secours
+Si la reconnaissance des modèles échoue:
+1. Split par plusieurs nouvelles lignes
+2. Split by Double Newlines
+3. Traitez le contenu comme une seule section
 
-## Document Structure
-Each document contains:
-- **pageContent**: Extracted text content from the section
-- **metadata**:
-  - documentType: "word"
-  - pageNumber: Sequential section number
-  - Additional custom metadata
+## Structure de document
+Chaque document contient:
+- ** PageContent **: Contenu texte extrait de la section
+- ** Metadata **:
+  - DocumentType: "Word"
+  - Pagenumber: numéro de section séquentiel
+  - Métadonnées personnalisées supplémentaires
 
-## Content Processing
-- Empty sections are filtered out
-- Leading/trailing whitespace removed
-- Minimum content length validation
-- Reasonable section count validation
+## Traitement du contenu
+- Les sections vides sont filtrées
+- Espace blanc de tête / traînage supprimé
+- Validation minimale de la longueur du contenu
+- Validation du nombre de sections raisonnables
 
-## Metadata Attributes
-Default attributes include:
-- documentType: Type of document (string)
-- pageCount: Number of pages/sections (number)
-- Custom metadata from input
+## Attributs de métadonnées
+Les attributs par défaut incluent:
+- DocumentType: Type de document (chaîne)
+- PageCount: Nombre de pages / sections (numéro)
+- Métadonnées personnalisées à partir de l'entrée
 
 ## Notes
-- Uses officeparser for extraction
-- Handles various document formats
-- Intelligent section detection
-- Content validation
-- Memory-efficient processing
-- Error handling for invalid files
-- Flexible output formats
-- Robust fallback mechanisms
+- Utilise OfficeArser pour l'extraction
+- Gère divers formats de documents
+- Détection de section intelligente
+- Validation du contenu
+- Traitement économe en mémoire
+- Gestion des erreurs pour les fichiers non valides
+- Formats de sortie flexibles
+- Mécanismes de secours robustes

@@ -1,14 +1,14 @@
 ---
-description: LangChain Chat Model Nodes
+description: Nœuds de Modèles de Chat LangChain
 ---
 
-# Chat Models
+# Modèles de Chat
 
 ***
 
-Chat models take a list of messages as input and return a model-generated message as output. These models such as **gpt-3.5-turbo** or **gpt4** are powerful and cheaper than its predecessor Completions models such as **text-davincii-003**.
+Les modèles de chat prennent une liste de messages en entrée et renvoient un message généré par le modèle en sortie. Ces modèles, tels que **gpt-3.5-turbo** ou **gpt4**, sont puissants et moins coûteux que leurs prédécesseurs, les modèles de Complétion tels que **text-davincii-003**.
 
-### Chat Model Nodes:
+### Nœuds de Modèle de Chat :
 
 * [AWS ChatBedrock](aws-chatbedrock.md)
 * [Azure ChatOpenAI](../../llamaindex/chat-models/azurechatopenai.md)

@@ -1,9 +1,9 @@
-# Simple Response Builder
+# Builder de réponse simple
 
-Using a collection of text segments and a query, execute the query on each segment, gathering the responses into an array. Return a combined string containing all responses.
+À l'aide d'une collection de segments de texte et d'une requête, exécutez la requête sur chaque segment, en rassemblant les réponses dans un tableau. Renvoie une chaîne combinée contenant toutes les réponses.
 
-**Pros**: Useful for individually querying each text segment with the same query
+** PROS **: utile pour interroger individuellement chaque segment de texte avec la même requête
 
-**Cons**: Not suitable for complex and detailed answer
+** CONS **: Pas adapté à une réponse complexe et détaillée
 
-<figure><img src="../../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (8) (1) (1) (1) (1) (1) (1) (2) (1) .png" alt = ""> <figCaption> </ FigCaption> </pigucial>

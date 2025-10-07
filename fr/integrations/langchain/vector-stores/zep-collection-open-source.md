@@ -4,10 +4,10 @@ description: >-
   Zep, a fast and scalable building block for LLM apps.
 ---
 
-# Zep Collection - Open Source
+# Collection ZEP - open source
 
-<figure><img src="../../../.gitbook/assets/image (166).png" alt="" width="295"><figcaption><p>Zep Collection - Open Source Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (166) .png" alt = "" width = "295"> <Figcaption> <p> Collection Zep - Node d'ouverture </p> </gigcaption> </pigucion>
 
-{% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
-{% endhint %}
+{% hint style = "info"%}
+Cette section est un travail en cours. Nous apprécions toute aide que vous pouvez fournir pour terminer cette section. Veuillez vérifier notre[Contribution Guide](broken-reference)Pour commencer.
+{% EndHint%}

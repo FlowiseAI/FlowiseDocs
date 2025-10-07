@@ -2,81 +2,81 @@
 description: Load data from a GitHub repository.
 ---
 
-# GitHub Document Loader
+# Chargeur de documents github
 
-<figure><img src="../../../.gitbook/assets/image (79).png" alt="" width="260"><figcaption><p>Github Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (79) .png" alt = "" width = "260"> <figcaption> <p> nœud github </p> </gigcaption> </ figure>
 
-GitHub is a platform for version control and collaboration. This module provides functionality to load and process content from GitHub repositories, supporting both public and private repositories.
+GitHub est une plate-forme pour le contrôle et la collaboration de versions. Ce module fournit des fonctionnalités pour charger et traiter le contenu à partir des référentiels GitHub, soutenant les référentiels publics et privés.
 
-This module provides a sophisticated GitHub document loader that can:
-- Load content from GitHub repositories
-- Support private repository access
-- Process repositories recursively
-- Handle custom GitHub instances
-- Control concurrency and retries
-- Customize file filtering
-- Process content with text splitters
+Ce module fournit un chargeur de document GitHub sophistiqué qui peut:
+- Chargez le contenu des référentiels GitHub
+- Prise en charge de l'accès au référentiel privé
+- Traiter les référentiels récursivement
+- Gérer les instances de github personnalisées
+- Contrôler la concurrence et les tentatives
+- Personnaliser le filtrage des fichiers
+- Traiter le contenu avec des séparateurs de texte
 
-## Inputs
+## Entrées
 
-### Required Parameters
-- **Repo Link**: The GitHub repository URL (e.g., https://github.com/FlowiseAI/Flowise)
-- **Branch**: The branch to load content from (default: main)
+### Paramètres requis
+- ** REPO LIEN **: L'URL du référentiel GitHub (par exemple, https://github.com/flowiseai/flowise)
+- ** Branch **: La branche pour charger le contenu de (par défaut: Main)
 
-### Optional Parameters
-- **Connect Credential**: GitHub API credentials (required for private repos)
-- **Recursive**: Whether to process subdirectories
-- **Max Concurrency**: Maximum number of concurrent file loads
-- **Github Base URL**: Custom GitHub base URL for enterprise instances
-- **Github Instance API**: Custom GitHub API URL for enterprise instances
-- **Ignore Paths**: Array of glob patterns for paths to ignore
-- **Max Retries**: Maximum number of retry attempts
-- **Text Splitter**: A text splitter to process the extracted content
-- **Additional Metadata**: JSON object with additional metadata
-- **Omit Metadata Keys**: Comma-separated list of metadata keys to omit
+### Paramètres facultatifs
+- ** Connectez les informations d'identification **: les informations d'identification de l'API GitHub (requises pour les références privées)
+- ** récursif **: s'il faut traiter les sous-répertoires
+- ** MAX CONCURENCE **: Nombre maximum de charges de fichiers simultanées
+- ** URL de base GitHub **: URL de base GitHub personnalisée pour les instances d'entreprise
+- ** API d'instance GitHub **: URL de l'API GitHub personnalisée pour les instances d'entreprise
+- ** Ignorer les chemins **: tableau des modèles globaux pour les chemins à ignorer
+- ** MAX RETRES **: Nombre maximum de tentatives de réessayer
+- ** Splitter du texte **: un séparateur de texte pour traiter le contenu extrait
+- ** Metadata supplémentaires **: objet JSON avec métadonnées supplémentaires
+- ** omettre les clés de métadonnées **: Liste des clés de métadonnées séparées par des virgules pour omettre
 
-## Outputs
+## Sorties
 
-- **Document**: Array of document objects containing metadata and pageContent
-- **Text**: Concatenated string from pageContent of documents
+- ** Document **: tableau d'objets de document contenant des métadonnées et un conceptent
+- ** Texte **: chaîne concaténée du conceptent de documents
 
-## Features
-- Public/private repo support
-- Enterprise instance support
-- Recursive directory processing
-- Concurrency control
-- Retry mechanism
-- Path filtering
-- Text splitting support
-- Metadata customization
+## Caractéristiques
+- Support public / privé Repo
+- Prise en charge de l'instance d'entreprise
+- Traitement répertoire récursif
+- Contrôle de la concurrence
+- Réessayer le mécanisme
+- Filtrage de chemin
+- Support de division de texte
+- Personnalisation des métadonnées
 
-## Authentication Methods
+## Méthodes d'authentification
 
-### Public Repositories
-- No authentication required
-- Rate limits apply
-- Limited to public content
+### Référentiels publics
+- Aucune authentification requise
+- Les limites de taux s'appliquent
+- Limité au contenu public
 
-### Private Repositories
-- Requires GitHub access token
-- Higher rate limits
-- Access to private content
-- Enterprise support
+### Référentiels privés
+- Nécessite un jeton d'accès GitHub
+- Limites de taux plus élevées
+- Accès au contenu privé
+- Assistance d'entreprise
 
-## Document Structure
-Each document contains:
-- **pageContent**: File content
-- **metadata**:
-  - source: File path in repository
-  - branch: Repository branch
-  - commit: Commit hash
-  - Additional custom metadata
+## Structure de document
+Chaque document contient:
+- ** PageContent **: contenu de fichier
+- ** Metadata **:
+  - Source: chemin de fichier dans le référentiel
+  - branche: branche du référentiel
+  - commit: engager le hachage
+  - Métadonnées personnalisées supplémentaires
 
 ## Notes
-- Supports both public and private repos
-- Enterprise GitHub instances supported
-- Rate limiting handled automatically
-- Exponential backoff for retries
-- Path filtering with glob patterns
-- Memory-efficient processing
-- Error handling for invalid repos
+- Soutient les reposs publics et privés
+- Instances GitHub d'entreprise prises en charge
+- La limitation du taux géré automatiquement
+- Backoff exponentiel pour les tentatives
+- Filtrage de chemin avec les modèles globaux
+- Traitement économe en mémoire
+- Gestion des erreurs pour les références non valides

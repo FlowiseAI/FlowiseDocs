@@ -2,55 +2,55 @@
 description: Learn how to effectively use the Chatflow Tool and the Custom Tool
 ---
 
-# Calling Children Flows
+# Appeler les enfants coule
 
 ***
 
-One of the powerful features of Flowise is that you can turn flows into tools. For example, having a main flow to orchestrate which/when to use the necessary tools. And each tool is designed to perform a niece/specific thing.
+L'une des caractéristiques puissantes de Flowise est que vous pouvez transformer les flux en outils. Par exemple, avoir un flux principal pour orchestrer qui / quand utiliser les outils nécessaires. Et chaque outil est conçu pour effectuer une nièce / une chose spécifique.
 
-This offers a few benefits:
+Cela offre quelques avantages:
 
-* Each children flow as tool will execute on its own, with separate memory to allow cleaner output
-* Aggregating detailed outputs from each children flow to a final agent, often results in higher quality output
+* Chaque enfant coule comme l'outil s'exécutera seul, avec une mémoire séparée pour permettre une sortie plus propre
+* L'agrégation des sorties détaillées de chaque enfant circule vers un agent final, se traduit souvent par une sortie de meilleure qualité
 
-You can achieve this by using the following tools:
+Vous pouvez y parvenir en utilisant les outils suivants:
 
-* Chatflow Tool
-* Custom Tool
+* Outil Chatflow
+* Outil personnalisé
 
-## Chatflow Tool
+## Outil Chatflow
 
-1. Have a chatflow ready. In this case, we create a Chain of Thought chatflow that can go through multiple chainings.
+1. Ayez un ChatFlow prêt. Dans ce cas, nous créons une chaîne de chat de pensée qui peut passer par plusieurs chaînes.
 
-<figure><img src="../.gitbook/assets/image (169).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (169) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-2. Create another chatflow with Tool Agent + Chatflow Tool. Select the chatflow you want to call from the tool. In this case, it was Chain of Thought chatflow. Give it a name, and an appropriate description to let LLM knows when to use this tool:
+2. Créez un autre ChatFlow avec l'agent d'outils + outil ChatFlow. Sélectionnez le ChatFlow que vous souhaitez appeler dans l'outil. Dans ce cas, c'était une chaîne de pensée Chatflow. Donnez-lui un nom et une description appropriée pour permettre à LLM de savoir quand utiliser cet outil:
 
-<figure><img src="../.gitbook/assets/image (35).png" alt="" width="245"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (35) .png" alt = "" width = "245"> <figcaption> </gigcaption> </gigust>
 
-3. Test it out!
+3. Testez-le!
 
-<figure><img src="../.gitbook/assets/image (168).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (168) .png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-4. From the response, you can see the input and output from the Chatflow Tool:
+4. Dans la réponse, vous pouvez voir l'entrée et la sortie de l'outil ChatFlow:
 
-<figure><img src="../.gitbook/assets/image (170).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (170) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-## Custom Tool
+## Outil personnalisé
 
-With the same example as above, we are going to create a custom tool that will calls the [Prediction API](broken-reference) of the Chain of Thought chatflow.
+Avec le même exemple que ci-dessus, nous allons créer un outil personnalisé qui appellera le[Prediction API](broken-reference)de la chaîne de pensée Chatflow.
 
-1. Create a new tool:
+1. Créer un nouvel outil:
 
-<table><thead><tr><th width="180">Tool Name</th><th>Tool Description</th></tr></thead><tbody><tr><td>ideas_flow</td><td>Use this tool when you need to achieve certain objective</td></tr></tbody></table>
+<Bile> <Thead> <Tr> <th width = "180"> Nom de l'outil </th> <th> outil Description </th> </tr> </thead> <tbody> <tr> <td> ideas_flow </td> <td> Utilisez cet outil lorsque vous avez besoin d'atteindre certains objectifs </td> </tr> </tbody> </ Table>
 
-Input Schema:
+Schéma d'entrée:
 
-<table><thead><tr><th>Property</th><th>Type</th><th>Description</th><th data-type="checkbox">Required</th></tr></thead><tbody><tr><td>input</td><td>string</td><td>input question</td><td>true</td></tr></tbody></table>
+<Bile> <THEAD> <TR> <TH> Propriété </th> <th> Type </th> <th> Description </th> <th data-type = "Checkbox"> Obligatoire </th> </tr> </thead> <tdbody> <tr> <td> Entrée </td> <td> string </td> <td> Entrée Question </td> <td> true </td> </tr> </tbody> </ table>
 
-<figure><img src="../.gitbook/assets/image (95) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (95) (1) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-Javascript Function of the tool:
+Fonction JavaScript de l'outil:
 
 ```javascript
 const fetch = require('node-fetch');
@@ -78,14 +78,14 @@ try {
 }
 ```
 
-2. Create a Tool Agent + Custom Tool. Specify the tool we've created in Step 1 in the Custom Tool.
+2. Créez un outil d'agent d'outils + personnalisé. Spécifiez l'outil que nous avons créé à l'étape 1 dans l'outil personnalisé.
 
-<figure><img src="../.gitbook/assets/image (97).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (97) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-3. From the response, you can see the input and output from the Custom Tool:
+3. À partir de la réponse, vous pouvez voir l'entrée et la sortie de l'outil personnalisé:
 
-<figure><img src="../.gitbook/assets/image (99).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (99) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
 ## Conclusion
 
-In this example, we have successfully demonstrate 2 ways of turning other chatflows into tools, via Chatflow Tool and Custom Tool. Both are using the same code logic under the hood.
+Dans cet exemple, nous avons réussi à démontrer 2 façons de transformer d'autres chatflows en outils, via l'outil ChatFlow et l'outil personnalisé. Les deux utilisent la même logique de code sous le capot.

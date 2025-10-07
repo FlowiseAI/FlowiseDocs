@@ -1,14 +1,14 @@
-# Refine
+# Affiner
 
-Create and refine an answer by sequentially going through each retrieved text chunk.
+Créez et affinez une réponse en parcourant séquentiellement chaque morceau de texte récupéré.
 
-**Pros**: Good for more detailed answers
+** Pros **: Bon pour les réponses plus détaillées
 
-**Cons**: Separate LLM call per Node (can be expensive)
+** CONS **: appel LLM séparé par nœud (peut être cher)
 
-<figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / Image (5) (1) (1) (1) (1) (2) (1) .png" alt = ""> <figCaption> </gigcaption> </ figure>
 
-**Refine Prompt**
+** Affiner l'invite **
 
 ```markup
 The original query is as follows: {query}
@@ -21,7 +21,7 @@ Given the new context, refine the original answer to better answer the query. If
 Refined Answer:
 ```
 
-**Text QA Prompt**
+** Texte du texte QA Invite **
 
 ```
 Context information is below.

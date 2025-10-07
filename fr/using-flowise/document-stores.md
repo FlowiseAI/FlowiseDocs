@@ -2,257 +2,257 @@
 description: Learn how to use the Flowise Document Stores, written by @toi500
 ---
 
-# Document Stores
+# Magasins de documents
 
 ***
 
-Flowise's Document Stores offer a versatile approach to data management, enabling you to upload, split, and prepare your dataset and upsert it in a single location.
+Les magasins de documents de Flowise offrent une approche polyvalente de la gestion des données, vous permettant de télécharger, de fendre et de préparer votre ensemble de données et de le mettre en œuvre en un seul endroit.
 
-This centralized approach simplifies data handling and allows for efficient management of various data formats, making it easier to organize and access your data within the Flowise app.
+Cette approche centralisée simplifie la gestion des données et permet une gestion efficace de divers formats de données, ce qui facilite l'organisation et l'accès à vos données dans l'application Flowise.
 
-## Setup
+## Installation
 
-In this tutorial, we will set up a [Retrieval Augmented Generation (RAG)](broken-reference/) system to retrieve information about the _LibertyGuard Deluxe Homeowners Policy_, a topic that LLMs are not extensively trained on.
+Dans ce tutoriel, nous installerons un[Retrieval Augmented Generation (RAG)](broken-reference/)Système pour récupérer des informations sur la politique de maison de luxe _LiberTyGuard Policy_, un sujet sur lequel les LLM ne sont pas largement formées.
 
-Using the **Flowise Document Stores**, we'll prepare and upsert data about LibertyGuard and its set of home insurance policies. This will enable our RAG system to accurately answer user queries about LibertyGuard's home insurance offerings.
+En utilisant les magasins de documents ** Flowise **, nous préparerons et améliorerons les données sur LibertyGuard et son ensemble de polices d'assurance habitation. Cela permettra à notre système de chiffon de répondre avec précision aux requêtes des utilisateurs sur les offres d'assurance habitation de Libertyguard.
 
-## 1. Add a Document Store
+## 1. Ajouter une boutique de documents
 
-Start by adding a Document Store and naming it. In our case, "LibertyGuard Deluxe Homeowners Policy".
+Commencez par ajouter un magasin de documents et le nommer. Dans notre cas, "Politique des propriétaires de Libertyguard Deluxe".
 
-<figure><img src="../.gitbook/assets/ds01.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / DS01.png" alt = ""> <figCaption> </ Figcaption> </gigne>
 
-## 2. Select a Document Loader
+## 2. Sélectionnez un chargeur de documents
 
-Enter the Document Store that you just created and select the [Document Loader](../integrations/langchain/document-loaders/) you want to use. In our case, since our dataset is in PDF format, we'll use the [PDF Loader](../integrations/langchain/document-loaders/pdf-file.md).
+Entrez le magasin de documents que vous venez de créer et sélectionnez le[Document Loader](../integrations/langchain/document-loaders/)vous souhaitez utiliser. Dans notre cas, puisque notre ensemble de données est au format PDF, nous utiliserons le[PDF Loader](../integrations/langchain/document-loaders/pdf-file.md).
 
-Document Loaders are specialized nodes that handle the ingestion of various document formats.
+Les chargeurs de documents sont des nœuds spécialisés qui gèrent l'ingestion de divers formats de documents.
 
-<figure><img src="../.gitbook/assets/ds02.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / DS02.png" alt = ""> <figcaption> </gigcaption> </gigust>
 
-<figure><img src="../.gitbook/assets/ds03.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / DS03.png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-## 3. Prepare Your Data
+## 3. Préparez vos données
 
-### Step 1: Document Loader
+### Étape 1: chargeur de documents
 
-* First, we start by uploading our PDF file.
-* Then, we add a **unique metadata key**. This is optional, but a good practice as it allows us to target and filter down this same dataset later on if we need to.
-* Every loader comes with preconfigured metadata, in some cases you can use Omit Metadata Keys to remove unnecessary metadata.
+* Tout d'abord, nous commençons par télécharger notre fichier PDF.
+* Ensuite, nous ajoutons une ** clé de métadonnées uniques **. Ceci est facultatif, mais une bonne pratique car elle nous permet de cibler et de filtrer ce même ensemble de données plus tard si nous en avons besoin.
+* Chaque chargeur est livré avec des métadonnées préconfigurées, dans certains cas, vous pouvez utiliser des clés de métadonnées omit pour éliminer les métadonnées inutiles.
 
-<figure><img src="../.gitbook/assets/ds04.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / DS04.png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-### Step 2: Text Splitter
+### Étape 2: séparateur de texte
 
-* Select the [Text Splitter](../integrations/langchain/text-splitters/) you want to use to chunk your data. In our particular case, we will use the [Recursive Character Text Splitter](../integrations/langchain/text-splitters/recursive-character-text-splitter.md).
-*   Text splitter is used to split the loaded documents into smaller pieces, documents, or chunks. This is a crucial preprocessing step for 2 main reasons:
+* Sélectionnez le[Text Splitter](../integrations/langchain/text-splitters/)Vous souhaitez utiliser pour sélectionner vos données. Dans notre cas particulier, nous utiliserons le[Recursive Character Text Splitter](../integrations/langchain/text-splitters/recursive-character-text-splitter.md).
+*   Le séparateur de texte est utilisé pour diviser les documents chargés en pièces, documents ou morceaux plus petits. Il s'agit d'une étape de prétraitement cruciale pour 2 raisons principales:
 
-    * **Retrieval speed and relevance:** Storing and querying large documents as single entities in a vector database can lead to slower retrieval times and potentially less relevant results. Splitting the document into smaller chunks allows for more targeted retrieval. By querying against smaller, more focused units of information, we can achieve faster response times and improve the precision of the retrieved results.
-    * **Cost-effective:** Since we only retrieve relevant chunks rather than the entire document, the number of tokens processed by the LLM is significantly reduced. This targeted retrieval approach directly translates to lower usage costs for our LLM, as billing is typically based on token consumption. By minimizing the amount of irrelevant information sent to the LLM, we also optimize for cost.
+    * ** Vitesse et pertinence de récupération: ** Le stockage et l'interrogation de gros documents en tant qu'entités uniques dans une base de données vectorielle peuvent conduire à des temps de récupération plus lents et à des résultats potentiellement moins pertinents. La division du document en morceaux plus petits permet une récupération plus ciblée. En interrogeant contre des unités d'information plus petites et plus ciblées, nous pouvons atteindre des temps de réponse plus rapides et améliorer la précision des résultats récupérés.
+    * ** RETENDANT: ** Puisque nous ne récupérons que des morceaux pertinents plutôt que le document entier, le nombre de jetons traités par le LLM est considérablement réduit. Cette approche de récupération ciblée se traduit directement par une baisse des coûts d'utilisation de notre LLM, car la facturation est généralement basée sur la consommation de jetons. En minimisant la quantité d'informations non pertinentes envoyées à la LLM, nous optimisons également pour le coût.
 
-    There are different text chunking strategies, including:
+Il existe différentes stratégies de section de texte, notamment:
 
-    * **Character Text Splitting:** Dividing the text into chunks of a fixed number of characters. This method is straightforward but may split words or phrases across chunks, potentially disrupting context.
-    * **Token Text Splitting:** Segmenting the text based on word boundaries or tokenization schemes specific to the chosen embedding model. This approach often leads to more semantically coherent chunks, as it preserves word boundaries and considers the underlying linguistic structure of the text.
-    * **Recursive Character Text Splitting:** This strategy aims to divide text into chunks that maintain semantic coherence while staying within a specified size limit. It's particularly well-suited for hierarchical documents with nested sections or headings. Instead of blindly splitting at the character limit, it recursively analyzes the text to find logical breakpoints, such as sentence endings or section breaks. This approach ensures that each chunk represents a meaningful unit of information, even if it slightly exceeds the target size.
-    * **Markdown Text Splitter:** Designed specifically for markdown-formatted documents, this splitter logically segments the text based on markdown headings and structural elements, creating chunks that correspond to logical sections within the document.
-    * **Code Text Splitter:** Tailored for splitting code files, this strategy considers code structure, function definitions, and other programming language-specific elements to create meaningful chunks that are suitable for tasks like code search and documentation.
-    * **HTML-to-Markdown Text Splitter:** This specialized splitter first converts HTML content to Markdown and then applies the Markdown Text Splitter, allowing for structured segmentation of web pages and other HTML documents.
+    * ** Clissage du texte des caractères: ** Divide le texte en morceaux d'un nombre fixe de caractères. Cette méthode est simple mais peut diviser des mots ou des phrases sur des morceaux, perturbant potentiellement le contexte.
+    * ** Diffusion du texte de jeton: ** Segmentation du texte en fonction des limites des mots ou des schémas de tokenisation spécifiques au modèle d'intégration choisi. Cette approche conduit souvent à des morceaux plus cohérents sémantiquement, car il préserve les limites des mots et considère la structure linguistique sous-jacente du texte.
+    * ** Diffusion du texte récursif du caractère: ** Cette stratégie vise à diviser le texte en morceaux qui maintiennent la cohérence sémantique tout en restant dans une limite de taille spécifiée. Il est particulièrement bien adapté aux documents hiérarchiques avec des sections ou des titres imbriqués. Au lieu de se diviser aveuglément à la limite de caractère, il analyse récursivement le texte pour trouver des points d'arrêt logiques, tels que les fins de phrase ou les ruptures de section. Cette approche garantit que chaque morceau représente une unité d'information significative, même si elle dépasse légèrement la taille cible.
+    * ** Splitter de texte de marque: ** Conçu spécifiquement pour les documents formulés Markdown, ce séparateur segmente logiquement le texte basé sur des en-têtes de démarque et des éléments structurels, créant des morceaux qui correspondent à des sections logiques dans le document.
+    * ** Splitter de texte de code: ** Adapté pour la division des fichiers de code, cette stratégie considère la structure du code, les définitions de fonction et d'autres éléments spécifiques au langage de programmation pour créer des morceaux significatifs qui conviennent aux tâches telles que la recherche et la documentation de code.
+    * ** Splitter de texte HTML à markdown: ** Ce séparateur spécialisé convertit d'abord le contenu HTML à Markdown, puis applique le séparateur de texte Markdown, permettant une segmentation structurée des pages Web et d'autres documents HTML.
 
-    You can also customize the parameters such as:
+Vous pouvez également personnaliser les paramètres tels que:
 
-    * **Chunk Size:** The desired maximum size of each chunk, usually defined in characters or tokens.
-    * **Chunk Overlap:** The number of characters or tokens to overlap between consecutive chunks, useful for maintaining contextual flow across chunks.
+    * ** Taille du morceau: ** La taille maximale souhaitée de chaque morceau, généralement définie en caractères ou en jetons.
+    * ** chevauchement de morceaux: ** Le nombre de caractères ou de jetons à chevaucher entre des morceaux consécutifs, utile pour maintenir le flux contextuel à travers des morceaux.
 
-{% hint style="info" %}
-In this guide, we've added a generous **Chunk Overlap** size to ensure no relevant data gets missed between chunks. However, the optimal overlap size is dependent on the complexity of your data. You may need to adjust this value based on your specific dataset and the nature of the information you want to extract.
-{% endhint %}
+{% hint style = "info"%}
+Dans ce guide, nous avons ajouté une généreuse taille ** de chevauchement ** pour nous assurer qu'aucune donnée pertinente ne manque de morceaux. Cependant, la taille optimale du chevauchement dépend de la complexité de vos données. Vous devrez peut-être ajuster cette valeur en fonction de votre ensemble de données spécifique et de la nature des informations que vous souhaitez extraire.
+{% EndHint%}
 
-<figure><img src="../.gitbook/assets/ds05.png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / DS05.png" alt = "" width = "563"> <figcaption> </gigcaption> </gigust>
 
-## 4. Preview Your Data
+## 4. Aperçu de vos données
 
-We can now preview how our data will be chunked using our current [Text Splitter](../integrations/langchain/text-splitters/) configuration; `chunk_size=1500`and `chunk_overlap=750`.
+Nous pouvons désormais prévisualiser comment nos données seront ouvertes en utilisant notre actuel[Text Splitter](../integrations/langchain/text-splitters/)configuration;`chunk_size=1500`et`chunk_overlap=750`.
 
-<figure><img src="../.gitbook/assets/ds06.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / ds06.png" alt = ""> <figcaption> </gigcaption> </gigne>
 
-It's important to experiment with different [Text Splitters](../integrations/langchain/text-splitters/), Chunk Sizes, and Overlap values to find the optimal configuration for your specific dataset. This preview allows you to refine the chunking process and ensure that the resulting chunks are suitable for your RAG system.
+Il est important d'expérimenter avec différents[Text Splitters](../integrations/langchain/text-splitters/), Tailles de morceaux et se chevaucher des valeurs pour trouver la configuration optimale pour votre ensemble de données spécifique. Cet aperçu vous permet d'affiner le processus de chasse et de vous assurer que les morceaux résultants conviennent à votre système de chiffon.
 
-<figure><img src="../.gitbook/assets/ds07.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / DS07.png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-{% hint style="info" %}
-Note that our custom metadata `company: "liberty"` has been inserted into each chunk. This metadata allows us to easily filter and retrieve information from this specific dataset later on, even if we use the same vector store index for other datasets.
-{% endhint %}
+{% hint style = "info"%}
+Notez que nos métadonnées personnalisées`company: "liberty"`a été inséré dans chaque morceau. Ces métadonnées nous permettent de filtrer et de récupérer facilement des informations à partir de cet ensemble de données spécifiques plus tard, même si nous utilisons le même index de magasin vectoriel pour d'autres ensembles de données.
+{% EndHint%}
 
-### Understanding Chunk Overlap <a href="#understanding-chunk-overlap" id="understanding-chunk-overlap"></a>
+### Comprendre le chevauchement de morceaux <a href = "# compréhension-chunk-overl" id = "compréhension-chunk-overlap"> </a>
 
-In the context of vector-based retrieval and LLM querying, chunk overlap plays an **important role in maintaining contextual continuity** and **improving response accuracy**, especially when dealing with limited retrieval depth or **top K**, which is the parameter that determines the maximum number of most similar chunks that are retrieved from the [Vector Store](https://docs.flowiseai.com/integrations/langchain/vector-stores) in response to a query.
+Dans le contexte de la récupération basée sur les vecteurs et de la requête LLM, le chevauchement de morceaux joue un ** rôle important dans le maintien de la continuité contextuelle ** et ** Amélioration de la précision de la réponse **, en particulier lorsqu'il s'agit d'une profondeur de récupération limitée ou ** Top K **, qui est le paramètre qui détermine le nombre maximum de la plupart des morceaux similaires qui sont récupérés à partir de la[Vector Store](https://docs.flowiseai.com/integrations/langchain/vector-stores)en réponse à une requête.
 
-During query processing, the LLM executes a similarity search against the Vector Store to retrieve the most semantically relevant chunks to the given query. If the retrieval depth, represented by the top K parameter, is set to a small value, 4 for default, the LLM initially uses information only from these 4 chunks to generate its response.
+Pendant le traitement des requêtes, le LLM exécute une recherche de similitude contre le magasin vectoriel pour récupérer les morceaux les plus pertinents sémantiquement à la requête donnée. Si la profondeur de récupération, représentée par le paramètre K supérieur, est définie sur une petite valeur, 4 pour par défaut, le LLM utilise initialement des informations uniquement à partir de ces 4 morceaux pour générer sa réponse.
 
-This scenario presents us with a problem, since relying solely on a limited number of chunks without overlap can lead to incomplete or inaccurate answers, particularly when dealing with queries that require information spanning multiple chunks.
+Ce scénario nous présente un problème, car le fait de s'appuyer uniquement sur un nombre limité de morceaux sans chevauchement peut entraîner des réponses incomplètes ou inexactes, en particulier lorsqu'ils traitent des requêtes qui nécessitent des informations couvrant plusieurs morceaux.
 
-Chunk overlap helps with this issue by ensuring that a portion of the textual context is shared across consecutive chunks, **increasing the likelihood that all relevant information for a given query is contained within the retrieved chunks**.
+Le chevauchement des morceaux aide à ce problème en s'assurant qu'une partie du contexte textuel est partagée sur des morceaux consécutifs, ** augmentant la probabilité que toutes les informations pertinentes pour une requête donnée soient contenues dans les morceaux récupérés **.
 
-In other words, this overlap serves as a bridge between chunks, enabling the LLM to access a wider contextual window even when limited to a small set of retrieved chunks (top K). If a query relates to a concept or piece of information that extends beyond a single chunk, the overlapping regions increase the likelihood of capturing all the necessary context.
+En d'autres termes, ce chevauchement sert de pont entre des morceaux, permettant au LLM d'accéder à une fenêtre contextuelle plus large même lorsqu'elle est limitée à un petit ensemble de morceaux récupérés (haut K). Si une requête est liée à un concept ou à une information qui s'étend au-delà d'un seul morceau, les régions qui se chevauchent augmentent la probabilité de capturer tout le contexte nécessaire.
 
-Therefore, by introducing chunk overlap during the text splitting phase, we enhance the LLM's ability to:
+Par conséquent, en introduisant un chevauchement de morceaux pendant la phase de division du texte, nous améliorons la capacité du LLM à:
 
-1. **Preserve contextual continuity:** Overlapping chunks provide a smoother transition of information between consecutive segments, allowing the model to maintain a more coherent understanding of the text.
-2. **Improve retrieval accuracy:** By increasing the probability of capturing all relevant information within the target top K retrieved chunks, overlap contributes to more accurate and contextually appropriate responses.
+1. ** Préserver la continuité contextuelle: ** Les morceaux qui se chevauchent fournissent une transition plus fluide des informations entre les segments consécutifs, permettant au modèle de maintenir une compréhension plus cohérente du texte.
+2. ** Améliorer la précision de la récupération: ** En augmentant la probabilité de capturer toutes les informations pertinentes dans le top k cible k récupéré, le chevauchement contribue à des réponses plus précises et plus appropriées.
 
-### Accuracy vs. Cost <a href="#accuracy-vs.-cost" id="accuracy-vs.-cost"></a>
+### Précision vs coût <a href = "# précision-vs.-cost" id = "précision-vs.-cost"> </a>
 
-So, to further optimize the trade-off between retrieval accuracy and cost, two primary strategies can be used:
+Ainsi, pour optimiser davantage le compromis entre la précision de la récupération et le coût, deux stratégies primaires peuvent être utilisées:
 
-1. **Increase/Decrease Chunk Overlap:** Adjusting the overlap percentage during text splitting allows for fine-grained control over the amount of shared context between chunks. Higher overlap percentages generally lead to improved context preservation but may also increase costs since you would need to use more chunks to encompass the entire document. Conversely, lower overlap percentages can reduce costs but risk losing key contextual information between chunks, potentially leading to less accurate or incomplete answers from the LLM.
-2. **Increase/Decrease Top K:** Raising the default top K value (4) expands the number of chunks considered for response generation. While this can improve accuracy, it also increases cost.
+1. ** Le chevauchement d'augmentation / diminution du morceau: ** L'ajustement du pourcentage de chevauchement pendant la division de texte permet un contrôle à grain fin sur la quantité de contexte partagé entre les morceaux. Des pourcentages de chevauchement plus élevés entraînent généralement une amélioration de la préservation du contexte, mais peuvent également augmenter les coûts, car vous devez utiliser plus de morceaux pour englober l'ensemble du document. À l'inverse, des pourcentages de chevauchement plus faibles peuvent réduire les coûts, mais risquent de perdre des informations contextuelles clés entre les morceaux, conduisant potentiellement à des réponses moins précises ou incomplètes du LLM.
+2. ** Augmentation / diminution du top k: ** L'augmentation de la valeur K supérieure par défaut (4) élargit le nombre de morceaux considérés pour la génération de réponse. Bien que cela puisse améliorer la précision, cela augmente également les coûts.
 
-**Tip:** The choice of optimal **overlap** and **top K** values depends on factors such as document complexity, embedding model characteristics, and the desired balance between accuracy and cost. Experimentation with these values is important for finding the ideal configuration for a specific need.
+** Astuce: ** Le choix des valeurs optimales ** des chevauchement ** et ** Top K ** dépend de facteurs tels que la complexité du document, les caractéristiques du modèle d'intégration et l'équilibre souhaité entre la précision et le coût. L'expérimentation avec ces valeurs est importante pour trouver la configuration idéale pour un besoin spécifique.
 
-## 5. Process Your Data
+## 5. Traitez vos données
 
-Once you are satisfied with the chunking process, it's time to process your data.
+Une fois que vous êtes satisfait du processus de chasse, il est temps de traiter vos données.
 
-<figure><img src="../.gitbook/assets/ds08.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / DS08.png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-<figure><img src="../.gitbook/assets/ds09%20(1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / DS09% 20 (1) .png" alt = ""> <figcaption> </gigcaption> </gigust>
 
-After processing your data, you retain the ability to refine individual chunks by deleting or adding content. This granular control offers several advantages:
+Après avoir traité vos données, vous conservez la possibilité d'affiner des morceaux individuels en supprimant ou en ajoutant du contenu. Ce contrôle granulaire offre plusieurs avantages:
 
-* **Enhanced Accuracy:** Identify and rectify inaccuracies or inconsistencies present in the original data, ensuring the information used in your application is reliable.
-* **Improved Relevance:** Refine chunk content to emphasize key information and remove irrelevant sections, thereby increasing the precision and effectiveness of your retrieval process.
-* **Query Optimization:** Tailor chunks to better align with anticipated user queries, making them more targeted and improving the overall user experience.
+* ** Précision améliorée: ** Identifier et rectifier les inexactitudes ou les incohérences présentes dans les données d'origine, garantissant que les informations utilisées dans votre application sont fiables.
+* ** Amélioration de la pertinence: ** Affinez le contenu de morceaux pour souligner les informations clés et supprimer des sections non pertinentes, augmentant ainsi la précision et l'efficacité de votre processus de récupération.
+* ** Optimisation des requêtes: ** Taigor Chunks pour mieux s'aligner sur les requêtes utilisateur prévues, ce qui les rend plus ciblés et améliore l'expérience utilisateur globale.
 
-## 6. Configure the Upsert Process
+## 6. Configurez le processus Upsert
 
-With our data properly processed - loaded via a Document Loader and appropriately chunked -, we can now proceed to configure the upsert process.
+Avec nos données correctement traitées - chargées via un chargeur de documents et de manière appropriée - nous pouvons maintenant procéder à la configuration du processus Upsert.
 
-<figure><img src="../.gitbook/assets/dastore002.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Dastore002.png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-The upsert process comprises three fundamental steps:
+Le processus Upsert comprend trois étapes fondamentales:
 
-* **Embedding:** We begin by choosing the appropriate embedding model to encode our dataset. This model will transform our data into a numerical vector representation.
-* **Vector Store:** Next, we determine the Vector Store where our dataset will reside.
-* **Record Manager (Optional):** Finally, we have the option to implement a Record Manager. This component provides the functionalities for managing our dataset once it's stored within the Vector Store.
+* ** Incorporation: ** Nous commençons par choisir le modèle d'intégration approprié pour coder notre ensemble de données. Ce modèle transformera nos données en une représentation vectorielle numérique.
+* ** Store vectoriel: ** Ensuite, nous déterminons le magasin vectoriel où résidera notre ensemble de données.
+* ** Record Manager (facultatif): ** Enfin, nous avons la possibilité d'implémenter un gestionnaire d'enregistrements. Ce composant fournit les fonctionnalités pour gérer notre ensemble de données une fois qu'il est stocké dans le magasin vectoriel.
 
-<figure><img src="../.gitbook/assets/dastore003.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Dastore003.png" alt = ""> <figCaption> </gigcaption> </ figure>
 
-### Step 1: Select Embeddings
+### Étape 1: Sélectionnez des incorporations
 
-Click on the "Select Embeddings" card and choose your preferred [embedding model](../integrations/langchain/embeddings/). In our case, we will select OpenAI as the embedding provider and use the `text-embedding-ada-002` model with `1536` dimensions.
+Cliquez sur la carte "Sélectionner des incorporations" et choisissez votre préférée[embedding model](../integrations/langchain/embeddings/). Dans notre cas, nous sélectionnerons OpenAI comme fournisseur d'incorporation et utiliserons le`text-embedding-ada-002`modéliser avec`1536`dimensions.
 
-Embedding is the process of converting text into a numerical representation that captures its meaning. This numerical representation, also called the embedding vector, is a multi-dimensional array of numbers, where each dimension represents a specific aspect of the text's meaning.
+L'intégration est le processus de conversion du texte en une représentation numérique qui capture sa signification. Cette représentation numérique, également appelée vecteur d'intégration, est un tableau de nombres multidimensionnel, où chaque dimension représente un aspect spécifique de la signification du texte.
 
-These vectors allow LLMs to compare and search for similar pieces of text within the vector store by measuring the distance or similarity between them in this multi-dimensional space.
+Ces vecteurs permettent aux LLM de comparer et de rechercher des morceaux de texte similaires dans le magasin vectoriel en mesurant la distance ou la similitude entre eux dans cet espace multidimensionnel.
 
-#### Understanding Embeddings/Vector Store dimensions <a href="#understanding-embeddings-vector-store-dimensions" id="understanding-embeddings-vector-store-dimensions"></a>
+#### Comprendre les dimensions des intégres / vectoriels <a href = "# compréhension-embeddings-vector-store-dimensions" id = "compréhension-embeddings-vect-store-dimensions"> </a>
 
-The number of dimensions in a Vector Store index is determined by the embedding model used when we upsert our data, and vice versa. Each dimension represents a specific feature or concept within the data. For example, a **dimension** might **represent a particular topic, sentiment, or other aspect of the text**.
+Le nombre de dimensions dans un indice de magasin vectoriel est déterminé par le modèle d'incorporation utilisé lorsque nous augmentons nos données, et vice versa. Chaque dimension représente une fonction ou un concept spécifique dans les données. Par exemple, une ** dimension ** pourrait ** représenter un sujet, un sentiment ou un autre aspect particulier du texte **.
 
-The more dimensions we use to embed our data, the greater the potential for capturing nuanced meaning from our text. However, this increase comes at the cost of higher computational requirements per query.
+Plus nous utilisons de dimensions pour intégrer nos données, plus le potentiel de capture de sens nuancé de notre texte est grand. Cependant, cette augmentation se fait au prix des exigences de calcul plus élevées par requête.
 
-In general, a larger number of dimensions needs more resources to store, process, and compare the resulting embedding vectors. Therefore, embeddings models like the Google `embedding-001`, which uses 768 dimensions, are, in theory, cheaper than others like the OpenAI `text-embedding-3-large`, with 3072 dimensions.
+En général, un plus grand nombre de dimensions nécessite plus de ressources pour stocker, traiter et comparer les vecteurs d'intégration résultants. Par conséquent, des modèles intégrés comme le Google`embedding-001`, qui utilise 768 dimensions, sont, en théorie, moins chères que d'autres comme l'Openai`text-embedding-3-large`, avec 3072 dimensions.
 
-It's important to note that the **relationship between dimensions and meaning capture isn't strictly linear**; there's a point of diminishing returns where adding more dimensions provides negligible benefit for the added unnecessary cost.
+Il est important de noter que la ** relation entre les dimensions et la capture de sens n'est pas strictement linéaire **; Il y a un point de rendement décroissant où l'ajout de dimensions offre un avantage négligeable pour le coût inutile supplémentaire.
 
-{% hint style="warning" %}
-To ensure compatibility between an embedding model and a Vector Store index, dimensional alignment is essential. Both **the embedding model and the vector store index must have the same number of dimensions**. Dimensionality mismatch will result in upsertion errors, as the Vector Store is designed to handle vectors of a specific size determined by the chosen embedding model.
-{% endhint %}
+{% hint style = "avertissement"%}
+Pour garantir la compatibilité entre un modèle d'incorporation et un indice de magasin vectoriel, l'alignement dimensionnel est essentiel. Les deux ** Le modèle d'intégration et l'indice du magasin vectoriel doivent avoir le même nombre de dimensions **. L'inadéquation de la dimensionnalité entraînera des erreurs de mise en service, car le magasin vectoriel est conçu pour gérer les vecteurs d'une taille spécifique déterminée par le modèle d'incorporation choisi.
+{% EndHint%}
 
-<figure><img src="../.gitbook/assets/dastore004.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Dastore004.png" alt = ""> <Figcaption> </gigcaption> </ Figure>
 
-### Step 2: Select Vector Store
+### Étape 2: Sélectionnez le magasin vectoriel
 
-Click on the "Select Vector Store" card and choose your preferred [Vector Store](../integrations/langchain/vector-stores/). In our case, as we need a production-ready option, we will select Upstash.
+Cliquez sur la carte "Sélectionnez Vector Store" et choisissez votre préféré[Vector Store](../integrations/langchain/vector-stores/). Dans notre cas, comme nous avons besoin d'une option prête pour la production, nous sélectionnerons Upstash.
 
-Vector store is a special type of database that is used to store the vector embeddings. We can finetune parameters like "**top K**" that determines the maximum number of most similar chunks that are retrieved from the Vector Store in response to a query.
+Vector Store est un type spécial de base de données qui est utilisé pour stocker les incorporations vectorielles. Nous pouvons par des paramètres finetune comme "** top k **" qui détermine le nombre maximum des morceaux les plus similaires qui sont récupérés du magasin vectoriel en réponse à une requête.
 
-{% hint style="info" %}
-A lower top K value will yield fewer but potentially more relevant results, while a higher value will return a broader range of results, potentially capturing more information.
-{% endhint %}
+{% hint style = "info"%}
+Une valeur K supérieure inférieure donnera des résultats moins, mais potentiellement plus pertinents, tandis qu'une valeur plus élevée renverra une gamme plus large de résultats, capturant potentiellement plus d'informations.
+{% EndHint%}
 
-<figure><img src="../.gitbook/assets/dastore005.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Dastore0055.png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-### Step 3: Select Record Manager
+### Étape 3: Sélectionnez Record Manager
 
-Record Manager is an optional but incredibly useful addition to our upserting flow. It allows us to maintain records of all the chunks that have been upserted to our Vector Store, enabling us to efficiently add or delete chunks as needed.
+Record Manager est un ajout facultatif mais incroyablement utile à notre flux de mise en valeur. Il nous permet de maintenir des enregistrements de tous les morceaux qui ont été renversés vers notre magasin vectoriel, nous permettant d'ajouter ou de supprimer efficacement des morceaux au besoin.
 
-In other words, any changes to your documents during a new upsert will not result in duplicate vector embeddings being stored in the vector store.
+En d'autres termes, toute modification de vos documents lors d'un nouvel upsert n'entraînera pas les intérêts de vecteur en double stockés dans le magasin vectoriel.
 
-Detailed instructions on how to set up and utilize this feature can be found in the dedicated [guide](../integrations/langchain/record-managers.md).
+Des instructions détaillées sur la façon de configurer et d'utiliser cette fonctionnalité peuvent être trouvées dans le dédié[guide](../integrations/langchain/record-managers.md).
 
-<figure><img src="../.gitbook/assets/dastore006.png" alt=""><figcaption></figcaption></figure>
+<Figure> <img src = "../. GitBook / Assets / Dastore006.png" alt = ""> <Figcaption> </gigcaption> </ Figure>
 
-## 7. Upsert Your Data to a Vector Store
+## 7. Upser vos données à un magasin vectoriel
 
-To begin the upsert process and transfer your data to the Vector Store, click the "Upsert" button.
+Pour commencer le processus Upsert et transférer vos données dans le magasin vectoriel, cliquez sur le bouton "Upsert".
 
-<figure><img src="../.gitbook/assets/dastore013.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Dastore013.png" alt = ""> <figcaption> </gigcaption> </gigust>
 
-As illustrated in the image below, our data has been successfully upserted into the Upstash vector database. The data was divided into 85 chunks to optimize the upsertion process and ensure efficient storage and retrieval.
+Comme illustré dans l'image ci-dessous, nos données ont été déposées avec succès dans la base de données Vector Upstash. Les données ont été divisées en 85 morceaux pour optimiser le processus de mise en service et assurer un stockage et une récupération efficaces.
 
-<figure><img src="../.gitbook/assets/dastore007.png" alt="" width="375"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Dastore007.png" alt = "" width = "375"> <Figcaption> </gigcaption> </ Figure>
 
-## 8. Test Your Dataset
+## 8. Testez votre ensemble de données
 
-To quickly test the functionality of your dataset without navigating away from the Document Store, simply utilize the "Retrieval Query" button. This initiates a test query, allowing you to verify the accuracy and effectiveness of your data retrieval process.
+Pour tester rapidement les fonctionnalités de votre ensemble de données sans vous éloigner du magasin de documents, utilisez simplement le bouton "Retrouver Requête". Cela initie une requête de test, vous permettant de vérifier la précision et l'efficacité de votre processus de récupération de données.
 
-<figure><img src="../.gitbook/assets/dastore010.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Dastore010.png" alt = ""> <figcaption> </gigcaption> </gigust>
 
-In our case, we see that when querying for information about kitchen flooring coverage in our insurance policy, we retrieve 4 relevant chunks from Upstash, our designated Vector Store. This retrieval is limited to 4 chunks as per the defined "top k" parameter, ensuring we receive the most pertinent information without unnecessary redundancy.
+Dans notre cas, nous voyons que lorsque vous interrogez pour des informations sur la couverture des revêtements de sol de la cuisine dans notre police d'assurance, nous récupérons 4 morceaux pertinents de Upstash, notre magasin vectoriel désigné. Cette récupération est limitée à 4 morceaux selon le paramètre "Top K" défini, garantissant que nous recevons les informations les plus pertinentes sans redondance inutile.
 
-<figure><img src="../.gitbook/assets/dastore009.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Dastore009.png" alt = ""> <figCaption> </ Figcaption> </gigne>
 
-## 9. Test Your RAG
+## 9. Testez votre chiffon
 
-Finally, our Retrieval-Augmented Generation (RAG) system is operational. It's noteworthy how the LLM effectively interprets the query and successfully leverages relevant information from the chunked data to construct a comprehensive response.
+Enfin, notre système de génération (RAG) (RAG) de la récupération est opérationnel. Il convient de noter comment le LLM interprète efficacement la requête et exploite avec succès les informations pertinentes des données en morceaux pour construire une réponse complète.
 
-#### Agentflow
+#### Agent Flow
 
-With an Agent node, you can add the document store:
+Avec un nœud d'agent, vous pouvez ajouter la boutique de documents:
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1).png" alt="" width="300"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / image (4) (1) (1) (1) .png" alt = "" width = "300"> <figcaption> </gigcaption> </gigust>
 
-<figure><img src="../.gitbook/assets/image (5) (1) (1).png" alt="" width="407"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (5) (1) (1) .png" alt = "" width = "407"> <Figcaption> </gigcaption> </gigust>
 
-Or directly connect to vector database and embedding mode:
+Ou se connecter directement à la base de données vectorielle et au mode d'intégration:
 
-<figure><img src="../.gitbook/assets/image (6) (1) (1).png" alt="" width="394"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / image (6) (1) (1) .png" alt = "" width = "394"> <Figcaption> </ Figcaption> </gigne>
 
 #### Chatflow
 
-You can use the vector store that was configured earlier:
+Vous pouvez utiliser le magasin vectoriel configuré plus tôt:
 
-<figure><img src="../.gitbook/assets/dastore011.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Dastore011.png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-Or, use the Document Store (Vector):
+Ou utilisez la boutique de documents (vecteur):
 
-<figure><img src="../.gitbook/assets/image (215).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (215) .png" alt = ""> <figcaption> </gigcaption> </gigust>
 
 ## 10. API
 
-There are also APIs support for creating, updating and deleting document store. In this section, we are going to highlight the 2 of the most used APIs:
+Il existe également une prise en charge des API pour la création, la mise à jour et la suppression de la boutique de documents. Dans cette section, nous allons mettre en évidence les 2 des API les plus utilisées:
 
-* Upsert
-* Refresh
+* Ascension
+* Rafraîchir
 
-For details, see the [Document Store API Reference](../api-reference/document-store.md).
+Pour plus de détails, voir le[Document Store API Reference](../api-reference/document-store.md).
 
-### Upsert API
+### API Upsert
 
-There are a few different scenarios for upserting process, and each have different outcomes.
+Il existe quelques scénarios différents pour l'amélioration du processus, et chacun a des résultats différents.
 
-#### Scenario 1: In the same document store, use an existing document loader configuration, upsert as new document loader.
+#### Scénario 1: Dans le même magasin de documents, utilisez une configuration de chargeur de document existante, Upsert comme nouveau chargeur de documents.
 
-<figure><img src="../.gitbook/assets/Untitled-2025-02-02-1727.png" alt="" width="496"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Untitled-2025-02-02-1727.png" alt = "" width = "496"> <Figcaption> </ Figcaption> </ Figure>
 
-{% hint style="success" %}
-**`docId`** represents the existing document loader ID. It is required in the request body for this scenario.
-{% endhint %}
+{% Hint Style = "Success"%}
+**`docId`** représente l'ID de chargeur de document existant. Il est nécessaire dans le corps de la demande pour ce scénario.
+{% EndHint%}
 
-{% tabs %}
-{% tab title="Python" %}
+{% Tabs%}
+{% tab title = "python"%}
 ```python
 import requests
 import json
@@ -282,9 +282,9 @@ def query(form_data):
 output = query(form_data)
 print(output)
 ```
-{% endtab %}
+{% endtab%}
 
-{% tab title="Javascript" %}
+{% tab title = "javascript"%}
 ```javascript
 const DOC_STORE_ID = "your_doc_store_id"
 const DOC_LOADER_ID = "your_doc_loader_id"
@@ -312,19 +312,19 @@ query(formData).then((response) => {
     console.log(response);
 });
 ```
-{% endtab %}
-{% endtabs %}
+{% endtab%}
+{% endtabs%}
 
-#### Scenario 2: In the same document store, replace an existing document loader with new files.
+#### Scénario 2: Dans le même magasin de documents, remplacez un chargeur de document existant par de nouveaux fichiers.
 
-<figure><img src="../.gitbook/assets/Untitled-2025-03-02-1727.png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Untitled-2025-03-02-1727.png" alt = "" width = "563"> <figCaption> </gigcaption> </ Figure>
 
-{% hint style="success" %}
-**`docId`** and **`replaceExisting`** are both required in the request body for this scenario.
-{% endhint %}
+{% Hint Style = "Success"%}
+**`docId`** et **`replaceExisting`** sont tous deux requis dans le corps de la demande pour ce scénario.
+{% EndHint%}
 
-{% tabs %}
-{% tab title="Python" %}
+{% Tabs%}
+{% tab title = "python"%}
 ```python
 import requests
 import json
@@ -355,9 +355,9 @@ def query(form_data):
 output = query(form_data)
 print(output)
 ```
-{% endtab %}
+{% endtab%}
 
-{% tab title="Javascript" %}
+{% tab title = "javascript"%}
 ```javascript
 const DOC_STORE_ID = "your_doc_store_id";
 const DOC_LOADER_ID = "your_doc_loader_id";
@@ -386,19 +386,19 @@ query(formData).then((response) => {
     console.log(response);
 });
 ```
-{% endtab %}
-{% endtabs %}
+{% endtab%}
+{% endtabs%}
 
-#### Scenario 3: In the same document store, upsert as new document loader from scratch.
+#### Scénario 3: dans le même magasin de documents, Upsert que le nouveau chargeur de documents à partir de zéro.
 
-<figure><img src="../.gitbook/assets/Untitled-2025-04-02-1727.png" alt="" width="439"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Untitled-2025-04-02-1727.png" alt = "" width = "439"> <figcaption> </gigcaption> </ Figure>
 
-{% hint style="success" %}
-**`loader`, `splitter`, `embedding`, `vectorStore`** are all required in the request body for this scenario. **`recordManager`** is optional.
-{% endhint %}
+{% Hint Style = "Success"%}
+**`loader`, `splitter`, `embedding`, `vectorStore`** sont tous requis dans le corps de la demande pour ce scénario. **`recordManager`** est facultatif.
+{% EndHint%}
 
-{% tabs %}
-{% tab title="Python" %}
+{% Tabs%}
+{% tab title = "python"%}
 ```python
 import requests
 import json
@@ -461,9 +461,9 @@ def query(form_data):
 output = query(form_data)
 print(output)
 ```
-{% endtab %}
+{% endtab%}
 
-{% tab title="Javascript" %}
+{% tab title = "javascript"%}
 ```javascript
 const DOC_STORE_ID = "your_doc_store_id";
 const API_URL = `http://localhost:3000/api/v1/document-store/upsert/${DOC_STORE_ID}`;
@@ -533,23 +533,23 @@ async function query() {
 query();
 
 ```
-{% endtab %}
-{% endtabs %}
+{% endtab%}
+{% endtabs%}
 
-{% hint style="danger" %}
-Creating from scratch is not recommended as it exposes your credential ID. The recommended way is to create a placeholder document store and configure the parameters on the UI. Then use the placeholder as the base for adding new document loader or creating new document store.
-{% endhint %}
+{% hint style = "danger"%}
+La création à partir de zéro n'est pas recommandée car elle expose votre identifiant d'identification. Le moyen recommandé est de créer un magasin de documents d'espace réservé et de configurer les paramètres de l'interface utilisateur. Utilisez ensuite l'espace réservé comme base pour ajouter un nouveau chargeur de documents ou créer un nouveau magasin de documents.
+{% EndHint%}
 
-#### Scenario 4: Create new document store for every upsert
+#### Scénario 4: Créez une nouvelle boutique de documents pour chaque upsert
 
-<figure><img src="../.gitbook/assets/Untitled-2025-056-02-1727.png" alt="" width="533"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Untitled-2025-056-02-1727.png" alt = "" width = "533"> <Figcaption> </ Figcaption> </ Figure>
 
-{% hint style="success" %}
-**`createNewDocStore`** and **`docStore`** are both required in the request body for this scenario.
-{% endhint %}
+{% Hint Style = "Success"%}
+**`createNewDocStore`** et **`docStore`** sont tous deux requis dans le corps de la demande pour ce scénario.
+{% EndHint%}
 
-{% tabs %}
-{% tab title="Python" %}
+{% Tabs%}
+{% tab title = "python"%}
 ```python
 import requests
 import json
@@ -581,9 +581,9 @@ def query(form_data):
 output = query(form_data)
 print(output)
 ```
-{% endtab %}
+{% endtab%}
 
-{% tab title="Javascript" %}
+{% tab title = "javascript"%}
 ```javascript
 const DOC_STORE_ID = "your_doc_store_id";
 const DOC_LOADER_ID = "your_doc_loader_id";
@@ -613,24 +613,24 @@ query(formData).then((response) => {
     console.log(response);
 });
 ```
-{% endtab %}
-{% endtabs %}
+{% endtab%}
+{% endtabs%}
 
-#### Q: Where to find Document Store ID and Document Loader ID?
+#### Q: Où trouver l'ID de la boutique de documents et l'ID de chargeur de documents?
 
-A: You can find the respective IDs from the URL.
+R: Vous pouvez trouver les ID respectifs de l'URL.
 
-<figure><img src="../.gitbook/assets/Picture1 (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Picture1 (1) .png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-#### Q: Where can I find the available configs to override?
+#### Q: Où puis-je trouver les configurations disponibles pour remplacer?
 
-A: You can find the available configs from the **View API** button on each document loader:
+A: Vous pouvez trouver les configurations disponibles à partir du bouton API ** Affichage ** sur chaque chargeur de document:
 
-<figure><img src="../.gitbook/assets/image (4) (3).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (4) (3) .png" alt = ""> <FigCaption> </gigcaption> </gigust>
 
-<figure><img src="../.gitbook/assets/image (2) (6).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (2) (6) .png" alt = ""> <Figcaption> </ Figcaption> </gigne>
 
-For each upsert, there are 5 elements involved:
+Pour chaque usiser, il y a 5 éléments impliqués:
 
 * **`loader`**
 * **`splitter`**
@@ -638,10 +638,10 @@ For each upsert, there are 5 elements involved:
 * **`vectorStore`**
 * **`recordManager`**
 
-You can override existing configuration with the **`config`** body of the element. For example, using the screenshot above, you can create a new document loader with a new **`url`**:
+Vous pouvez remplacer la configuration existante avec le **`config`** Corps de l'élément. Par exemple, en utilisant la capture d'écran ci-dessus, vous pouvez créer un nouveau chargeur de document avec un nouveau **`url`**:
 
-{% tabs %}
-{% tab title="Python" %}
+{% Tabs%}
+{% tab title = "python"%}
 ```python
 import requests
 
@@ -662,9 +662,9 @@ output = query({
 })
 print(output)
 ```
-{% endtab %}
+{% endtab%}
 
-{% tab title="Javascript" %}
+{% tab title = "javascript"%}
 ```javascript
 async function query(data) {
     const response = await fetch(
@@ -693,17 +693,17 @@ query({
     console.log(response);
 });
 ```
-{% endtab %}
-{% endtabs %}
+{% endtab%}
+{% endtabs%}
 
-What if the loader has file upload? Yes, you guessed it right, we have to use form data as body!
+Et si le chargeur a le téléchargement de fichiers? Oui, vous l'avez bien deviné, nous devons utiliser les données de formulaire comme corps!
 
-Using the image below as an example, we can override the **`usage`** parameter of the PDF File Loader like so:
+En utilisant l'image ci-dessous comme exemple, nous pouvons remplacer le **`usage`** Paramètre du chargeur de fichiers PDF comme tel:
 
-<figure><img src="../.gitbook/assets/image (4) (3) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (4) (3) (1) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-{% tabs %}
-{% tab title="Python" %}
+{% Tabs%}
+{% tab title = "python"%}
 ```python
 import requests
 import json
@@ -738,9 +738,9 @@ def query(form_data):
 output = query(form_data)
 print(output)
 ```
-{% endtab %}
+{% endtab%}
 
-{% tab title="Javascript" %}
+{% tab title = "javascript"%}
 ```javascript
 const DOC_STORE_ID = "your_doc_store_id";
 const DOC_LOADER_ID = "your_doc_loader_id";
@@ -775,23 +775,23 @@ query(formData).then((response) => {
     console.log(response);
 });e
 ```
-{% endtab %}
-{% endtabs %}
+{% endtab%}
+{% endtabs%}
 
-#### Q: When to use Form Data vs JSON as the body of API request?
+#### Q: Quand utiliser les données de formulaire vs JSON comme le corps de la demande d'API?
 
-A: For [Document Loaders](../integrations/langchain/document-loaders/) that have File Upload functionality, such as PDF, DOCX, TXT, etc, body must be sent as Form Data.
+R: pour[Document Loaders](../integrations/langchain/document-loaders/)qui ont des fonctionnalités de téléchargement de fichiers, telles que PDF, DOCX, TXT, etc., le corps doit être envoyé sous forme de données de formulaire.
 
-{% hint style="warning" %}
-Make sure the sent file type is compatible with the expected file type from document loader.
+{% hint style = "avertissement"%}
+Assurez-vous que le type de fichier envoyé est compatible avec le type de fichier attendu à partir du chargeur de documents.
 
-For example, if a [PDF File Loader](../integrations/langchain/document-loaders/pdf-file.md) is being used, you should only send **.pdf** files.
+Par exemple, si un[PDF File Loader](../integrations/langchain/document-loaders/pdf-file.md)est utilisé, vous ne devriez envoyer que **. PDF ** Fichiers.
 
-To avoid having separate loaders for different file types, we recommend to use [File Loader](../integrations/langchain/document-loaders/file-loader.md)
-{% endhint %}
+Pour éviter d'avoir des chargeurs séparés pour différents types de fichiers, nous vous recommandons d'utiliser[File Loader](../integrations/langchain/document-loaders/file-loader.md)
+{% EndHint%}
 
-{% tabs %}
-{% tab title="Python API" %}
+{% Tabs%}
+{% Tab Title = "Python API"%}
 ```python
 import requests
 import json
@@ -815,9 +815,9 @@ def query(form_data):
 output = query(form_data)
 print(output)
 ```
-{% endtab %}
+{% endtab%}
 
-{% tab title="Javascript API" %}
+{% tab title = "JavaScript api"%}
 ```javascript
 // use FormData to upload files
 let formData = new FormData();
@@ -840,13 +840,13 @@ query(formData).then((response) => {
     console.log(response);
 });
 ```
-{% endtab %}
-{% endtabs %}
+{% endtab%}
+{% endtabs%}
 
-For other [Document Loaders](https://docs.flowiseai.com/integrations/langchain/document-loaders) nodes without Upload File functionality, the API body is in **JSON** format:
+Pour d'autres[Document Loaders](https://docs.flowiseai.com/integrations/langchain/document-loaders)Nœuds sans télécharger la fonctionnalité du fichier, le corps de l'API est au format ** json **:
 
-{% tabs %}
-{% tab title="Python API" %}
+{% Tabs%}
+{% Tab Title = "Python API"%}
 ```python
 import requests
 
@@ -861,9 +861,9 @@ output = query({
 })
 print(output)
 ```
-{% endtab %}
+{% endtab%}
 
-{% tab title="Javascript API" %}
+{% tab title = "JavaScript api"%}
 ```javascript
 async function query(data) {
     const response = await fetch(
@@ -886,12 +886,12 @@ query({
     console.log(response);
 });
 ```
-{% endtab %}
-{% endtabs %}
+{% endtab%}
+{% endtabs%}
 
-#### Q: Can I add new metadata?
+#### Q: Puis-je ajouter de nouvelles métadonnées?
 
-A: You can provide new metadata by passing the **`metadata`** inside the body request:
+R: Vous pouvez fournir de nouvelles métadonnées en passant le **`metadata`** À l'intérieur de la demande du corps:
 
 ```json
 {
@@ -902,12 +902,12 @@ A: You can provide new metadata by passing the **`metadata`** inside the body re
 }
 ```
 
-### Refresh API
+### API de rafraîchissement
 
-Often times you might want to re-process every documents loaders within document store to fetch the latest data, and upsert to vector store, to keep everything in sync. This can be done via Refresh API:
+Souvent, vous voudrez peut-être revoir tous les chargeurs de documents dans le magasin de documents pour récupérer les dernières données, et Upsert to Vector Store, pour tout garder en synchronisation. Cela peut être fait via une API de rafraîchissement:
 
-{% tabs %}
-{% tab title="Python API" %}
+{% Tabs%}
+{% Tab Title = "Python API"%}
 ```python
 import requests
 
@@ -920,9 +920,9 @@ def query():
 output = query()
 print(output)
 ```
-{% endtab %}
+{% endtab%}
 
-{% tab title="Javascript API" %}
+{% tab title = "JavaScript api"%}
 ```javascript
 async function query(data) {
     const response = await fetch(
@@ -942,13 +942,13 @@ query().then((response) => {
     console.log(response);
 });
 ```
-{% endtab %}
-{% endtabs %}
+{% endtab%}
+{% endtabs%}
 
-You can also override existing configuration of specific document loader:
+Vous pouvez également remplacer la configuration existante du chargeur de documents spécifique:
 
-{% tabs %}
-{% tab title="Python API" %}
+{% Tabs%}
+{% Tab Title = "Python API"%}
 ```python
 import requests
 
@@ -976,9 +976,9 @@ output = query(
 )
 print(output)
 ```
-{% endtab %}
+{% endtab%}
 
-{% tab title="Javascript API" %}
+{% tab title = "JavaScript api"%}
 ```javascript
 async function query(data) {
     const response = await fetch(
@@ -1012,25 +1012,25 @@ query({
     console.log(response);
 });
 ```
-{% endtab %}
-{% endtabs %}
+{% endtab%}
+{% endtabs%}
 
-## 11. Summary
+## 11. Résumé
 
-We started by creating a Document Store to organize the LibertyGuard Deluxe Homeowners Policy data. This data was then prepared by uploading, chunking, processing, and upserting it, making it ready for our RAG system.
+Nous avons commencé par créer un magasin de documents pour organiser les données politiques de LibertyGuard Deluxe Homeowners. Ces données ont ensuite été préparées en téléchargeant, en se répandant, en les traitementant et en les faisant augmenter, ce qui le prépare pour notre système de chiffon.
 
-**Advantages of the Document Store:**
+** Avantages du magasin de documents: **
 
-Document Stores offer several benefits for managing and preparing data for Retrieval Augmented Generation (RAG) systems:
+Les magasins de documents offrent plusieurs avantages pour la gestion et la préparation des données pour la récupération des systèmes de génération augmentée (RAG):
 
-* **Organization and Management:** They provide a central location for storing, managing, and preparing your data.
-* **Data Quality:** The chunking process helps structure data for accurate retrieval and analysis.
-* **Flexibility:** Document Stores allow for refining and adjusting data as needed, improving the accuracy and relevance of your RAG system.
+* ** Organisation et gestion: ** Ils fournissent un emplacement central pour stocker, gérer et préparer vos données.
+* ** Qualité des données: ** Le processus de chasse aide à structurer les données pour une récupération et une analyse précises.
+* ** Flexibilité: ** Les magasins de documents permettent d'affiner et d'ajuster les données au besoin, en améliorant la précision et la pertinence de votre système de chiffon.
 
-## 12. Video Tutorials
+## 12. Tutoriels vidéo
 
-### RAG Like a Boss - Flowise Document Store Tutorial
+### Raging Like a Boss - Flowise Document Store Tutorial
 
-In this video, [Leon](https://youtube.com/@leonvanzyl) provides a step by step tutorial on using Document Stores to easily manage your RAG knowledge bases in FlowiseAI.
+Dans cette vidéo,[Leon](https://youtube.com/@leonvanzyl)Fournit un tutoriel étape par étape sur l'utilisation des magasins de documents pour gérer facilement vos bases de connaissances de chiffon dans FlowiSeai.
 
-{% embed url="https://youtu.be/PLuSfAkOHOA" %}
+{% embed url = "https://youtu.be/plusfakohoa"%}

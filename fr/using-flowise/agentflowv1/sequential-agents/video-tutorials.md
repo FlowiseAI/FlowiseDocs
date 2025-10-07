@@ -2,34 +2,34 @@
 description: Learn Sequential Agents from the Community
 ---
 
-# Video Tutorials
+# Tutoriels vidéo
 
-### Build a Multi-Stage RAG Agent
+### Construisez un agent de chiffon à plusieurs étapes
 
-In this video, [Leon](https://youtube.com/@leonvanzyl) provides a step by step tutorial on creating an advanced RAG agent that incorporates routing, fallback and self-correction techniques.
+Dans cette vidéo,[Leon](https://youtube.com/@leonvanzyl)Fournit un tutoriel étape par étape sur la création d'un agent de chiffon avancé qui intègre des techniques de routage, de secours et d'auto-correction.
 
-{% embed url="https://youtu.be/OejuvdyN_U8" %}
+{% embed url = "https://youtu.be/oejuvdyn_u8"%}
 
-### Master Sequential Agents: Build Complex AI Apps with Flowise
+### Master Agents Sequential: Créez des applications AI complexes avec Flowise
 
-In this video, [Leon](https://youtube.com/@leonvanzyl) provides a **comprehensive introduction to the Sequential Agent** architecture and demonstrates how to manage custom state to build more dynamic applications.
+Dans cette vidéo,[Leon](https://youtube.com/@leonvanzyl)Fournit une ** introduction complète à l'architecture d'agent séquentiel ** et montre comment gérer l'état personnalisé pour créer des applications plus dynamiques.
 
-{% embed url="https://www.youtube.com/watch?v=6LbvgTbS0BE" %}
+{% embed url = "https://www.youtube.com/watch?v=6LBVGTBS0BE"%}
 
-### Sequential vs. Multi Agents: Which Flowise feature is right for you?
+### Séquentiel vs multi-agents: quelle fonction fluidise vous convient?
 
-In this video, [Leon](https://youtube.com/@leonvanzyl) looks at two different solutions in Flowise for creating multi-agent projects. He compares the **differences between Sequential Agents and Multi Agents** by recreating the same projects using both techniques.
+Dans cette vidéo,[Leon](https://youtube.com/@leonvanzyl)Semble deux solutions différentes en flux pour créer des projets multi-agents. Il compare les ** différences entre les agents séquentiels et les multi-agents ** en recréant les mêmes projets en utilisant les deux techniques.
 
-{% embed url="https://www.youtube.com/watch?v=3ZmBq8_4vCs" %}
+{% embed url = "https://www.youtube.com/watch?v=3ZMBQ8_4VCS"%}
 
-### Build Production-Ready Apps in Minutes: **Flowise's Sequential** Agents and n8n
+### Construisez les applications prêtes à la production en quelques minutes: ** Agents séquentiels de Flowise et N8N
 
-In this video, [Wntrmute AI](https://www.youtube.com/@WntrmuteAI) demonstrates how to quickly build a **production-ready application** in less than 30 minutes by combining **Flowise's Sequential Agents** and **n8n**.
+Dans cette vidéo,[Wntrmute AI](https://www.youtube.com/@WntrmuteAI)montre comment construire rapidement une application ** prête à la production ** en moins de 30 minutes en combinant ** les agents séquentiels de Flowise ** et ** n8n **.
 
-{% embed url="https://www.youtube.com/watch?v=DA_0eOTYnmc" %}
+{% embed url = "https://www.youtube.com/watch?v=da_0eotynmc"%}
 
-### How to Build a Self-Improving AI with Agentic RAG and Flowise
+### Comment construire une IA auto-améliorée avec un chiffon agentique et floquer
 
-In this video, [Leon](https://youtube.com/@leonvanzyl) will show you how to build a self-correcting RAG application using FlowiseAI's Sequential Agents. Agentic RAG is a powerful approach for creating AI solutions that can learn and improve their responses over time.
+Dans cette vidéo,[Leon](https://youtube.com/@leonvanzyl)Vous montrera comment construire une application de chiffon auto-corrigé à l'aide des agents séquentiels de Flowiseai. Le chiffon agentique est une approche puissante pour créer des solutions d'IA qui peuvent apprendre et améliorer leurs réponses au fil du temps.
 
-{% embed url="https://www.youtube.com/watch?v=SL77Ojbgy6U" %}
+{% embed url = "https://www.youtube.com/watch?v=SL77OJBGY6U"%}

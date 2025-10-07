@@ -1,86 +1,86 @@
-# File
+# Déposer
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2).png" alt="" width="282"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) .png" alt = "" width = "282"> <Figcaption> </figcaption>
 
-The File Loader is a versatile document loader that supports multiple file formats including TXT, JSON, CSV, DOCX, PDF, Excel, PowerPoint, and more. This module provides a unified interface for loading and processing various file types.
+Le chargeur de fichiers est un chargeur de document polyvalent qui prend en charge plusieurs formats de fichiers, notamment TXT, JSON, CSV, DOCX, PDF, Excel, PowerPoint, etc. Ce module fournit une interface unifiée pour le chargement et le traitement de divers types de fichiers.
 
-This module provides a sophisticated file loader that can:
+Ce module fournit un chargeur de fichiers sophistiqué qui peut:
 
-* Load multiple file formats
-* Support both base64-encoded files and files from storage
-* Handle PDF-specific processing options
-* Process JSON and JSONL with pointer extraction
-* Support text splitting
-* Customize metadata extraction
-* Handle file storage integration
+* Chargez plusieurs formats de fichiers
+* Prise en charge des fichiers et fichiers codés en base de base64 à partir du stockage
+* Gérer les options de traitement spécifiques au PDF
+* Traiter JSON et JSONL avec l'extraction du pointeur
+* Prise en charge du fractionnement du texte
+* Personnaliser l'extraction des métadonnées
+* Gérer l'intégration du stockage des fichiers
 
-## Inputs
+## Entrées
 
-### Required Parameters
+### Paramètres requis
 
-* **File**: The file(s) to process (supports multiple formats)
+* ** Fichier **: le (s) fichier (s) à traiter (prend en charge plusieurs formats)
 
-### Optional Parameters
+### Paramètres facultatifs
 
-* **Text Splitter**: A text splitter to process the extracted content
-* **PDF Usage**: Choose between:
-  * One document per page
-  * One document per file
-* **Use Legacy Build**: Use legacy build for PDF compatibility issues
-* **JSONL Pointer Extraction**: Pointer name for JSONL files
-* **Additional Metadata**: JSON object with additional metadata
-* **Omit Metadata Keys**: Comma-separated list of metadata keys to omit
+* ** Splitter du texte **: un séparateur de texte pour traiter le contenu extrait
+* ** Utilisation du PDF **: Choisissez entre:
+  * Un document par page
+  * Un document par fichier
+* ** Utilisez le héritage Build **: Utilisez la construction héritée pour les problèmes de compatibilité PDF
+* ** Extraction du pointeur JSONL **: Nom du pointeur pour les fichiers JSONL
+* ** Metadata supplémentaires **: objet JSON avec métadonnées supplémentaires
+* ** omettre les clés de métadonnées **: Liste des clés de métadonnées séparées par des virgules pour omettre
 
-## Outputs
+## Sorties
 
-* **Document**: Array of document objects containing metadata and pageContent
-* **Text**: Concatenated string from pageContent of documents
+* ** Document **: tableau d'objets de document contenant des métadonnées et un conceptent
+* ** Texte **: chaîne concaténée du conceptent de documents
 
-## Supported File Types
+## Types de fichiers pris en charge
 
-* Text Files (.txt)
-* JSON Files (.json)
-* JSONL Files (.jsonl)
-* CSV Files (.csv)
-* PDF Files (.pdf)
-* Word Documents (.docx)
-* Excel Files (.xlsx, .xls)
-* PowerPoint Files (.pptx, .ppt)
-* And more...
+* Fichiers texte (.txt)
+* Fichiers JSON (.json)
+* Fichiers JSONL (.jsonl)
+* Fichiers CSV (.csv)
+* Fichiers PDF (.pdf)
+* Documents de mots (.docx)
+* Files Excel (.xlsx, .xls)
+* Fichiers PowerPoint (.pptx, .ppt)
+* Et plus ...
 
-## Features
+## Caractéristiques
 
-* Multi-format support
-* Storage integration
-* PDF processing options
-* JSON pointer extraction
-* Text splitting support
-* Metadata customization
-* Error handling
-* MIME type detection
+* Support multi-format
+* Intégration de stockage
+* Options de traitement PDF
+* Extraction du pointeur JSON
+* Support de division de texte
+* Personnalisation des métadonnées
+* Gestion des erreurs
+* Détection de type mime
 
-## File Processing Options
+## Options de traitement de fichiers
 
-### PDF Processing
+### Traitement PDF
 
-* Per-page splitting
-* Single document mode
-* Legacy build support
-* OCR compatibility
+* Fractionnement par page
+* Mode de document unique
+* Support de construction hérité
+* Compatibilité OCR
 
-### JSON/JSONL Processing
+### Traitement JSON / JSONL
 
-* Pointer-based extraction
-* Structured data handling
-* Array processing
-* Nested object support
+* Extraction basée sur le pointeur
+* Gestion des données structurées
+* Traitement du tableau
+* Support d'objet imbriqué
 
 ## Notes
 
-* Automatically detects file type
-* Handles multiple files simultaneously
-* Supports file storage integration
-* Preserves file metadata
-* Handles large files efficiently
-* Error handling for invalid files
-* Memory-efficient processing
+* Détecte automatiquement le type de fichier
+* Gère plusieurs fichiers simultanément
+* Prend en charge l'intégration du stockage de fichiers
+* Préserve les métadonnées du fichier
+* Gère efficacement les fichiers volumineux
+* Gestion des erreurs pour les fichiers non valides
+* Traitement économe en mémoire

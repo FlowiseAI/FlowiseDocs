@@ -1,28 +1,28 @@
 ---
-description: LangChain Agent Nodes
+description: Nœuds d'Agent LangChain
 ---
 
 # Agents
 
 ***
 
-By themselves, language models can't take actions - they just output text.
+À eux seuls, les modèles de langage ne peuvent pas agir - ils se contentent de produire du texte.
 
-Agents are systems that use an LLM as a reasoning engine to determine which actions to take and what the inputs to those actions should be. The results of those actions can then be fed back into the agent and it determine whether more actions are needed, or whether it is okay to finish.
+Les agents sont des systèmes qui utilisent un LLM comme moteur de raisonnement pour déterminer quelles actions entreprendre et quels devraient être les inputs de ces actions. Les résultats de ces actions peuvent ensuite être réintroduits dans l'agent, qui détermine si d'autres actions sont nécessaires ou s'il est acceptable de terminer.
 
-### Agent Nodes:
+### Nœuds d'Agent :
 
-* [Airtable Agent](airtable-agent.md)
+* [Agent Airtable](airtable-agent.md)
 * [AutoGPT](autogpt.md)
 * [BabyAGI](babyagi.md)
-* [CSV Agent](csv-agent.md)
-* [Conversational Agent](conversational-agent.md)
-* [Conversational Retrieval Agent](conversational-retrieval-agent.md)
-* [MistralAI Tool Agent](mistralai-tool-agent.md)
-* [OpenAI Assistant](openai-assistant/)
-* [OpenAI Function Agent](openai-function-agent.md)
-* [OpenAI Tool Agent](../../llamaindex/agents/openai-tool-agent.md)
-* [ReAct Agent Chat](react-agent-chat.md)
-* [ReAct Agent LLM](react-agent-llm.md)
-* [Tool Agent](tool-agent.md)
-* [XML Agent](xml-agent.md)
+* [Agent CSV](csv-agent.md)
+* [Agent Conversationnel](conversational-agent.md)
+* [Agent de Récupération Conversationnelle](conversational-retrieval-agent.md)
+* [Agent Outil MistralAI](mistralai-tool-agent.md)
+* [Assistant OpenAI](openai-assistant/)
+* [Agent Fonction OpenAI](openai-function-agent.md)
+* [Agent Outil OpenAI](../../llamaindex/agents/openai-tool-agent.md)
+* [Chat d'Agent ReAct](react-agent-chat.md)
+* [LLM d'Agent ReAct](react-agent-llm.md)
+* [Agent Outil](tool-agent.md)
+* [Agent XML](xml-agent.md)

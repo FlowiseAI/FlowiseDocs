@@ -1,54 +1,54 @@
 # Google Drive
 
-<figure><img src="../../../.gitbook/assets/image (282).png" alt="" width="317"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (282) .png" alt = "" width = "317"> <Figcaption> </ Figcaption> </ Figure>
 
-Google Drive is a cloud storage and file synchronization service. This module provides functionality to load and process files from Google Drive, supporting various file formats and Google Workspace documents.
+Google Drive est un service de stockage et de synchronisation de fichiers cloud. Ce module fournit des fonctionnalités pour charger et traiter les fichiers de Google Drive, prenant en charge divers formats de fichiers et Google Workspace Documents.
 
-This module provides a sophisticated Google Drive document loader that can:
+Ce module fournit un chargeur de documents Google Drive sophistiqué qui peut:
 
-* Load multiple file types
-* Process Google Workspace documents
-* Handle folder-based loading
-* Support shared drives
-* Process files recursively
-* Customize file type filtering
-* Handle OAuth2 authentication
+* Chargez plusieurs types de fichiers
+* Traiter les documents Google Workspace
+* Gérer le chargement basé sur les dossiers
+* Soutenir les lecteurs partagés
+* Traiter les fichiers récursivement
+* Personnaliser le filtrage des types de fichiers
+* Gérer l'authentification OAuth2
 
-### Required Parameters
+### Paramètres requis
 
-* **Connect Credential**: Google Drive OAuth2 credentials. Refer to [#Google Drive](../tools/google-drive.md)
-* **Select Files** or **Folder ID**: Choose specific files or provide a folder ID
+* ** Connectez les informations d'identification **: Google Drive OAuth2 Informations d'identification. Se référer à[#Google Drive](../tools/google-drive.md)
+* ** Sélectionnez des fichiers ** ou ** ID de dossier **: Choisissez des fichiers spécifiques ou fournissez un ID de dossier
 
-### Optional Parameters
+### Paramètres facultatifs
 
-* **File Types**: Types of files to load:
+* ** Types de fichiers **: Types de fichiers à charger:
   * Google Docs
-  * Google Sheets
-  * Google Slides
-  * PDF Files
-  * Text Files
-  * Word Documents
+  * Feuilles Google
+  * Glissements Google
+  * Fichiers pdf
+  * Fichiers texte
+  * Documents de mots
   * PowerPoint
-  * Excel Files
-* **Include Subfolders**: Process files in subfolders
-* **Include Shared Drives**: Access files from shared drives
-* **Max Files**: Maximum number of files to load (default: 50)
-* **Text Splitter**: A text splitter to process the extracted content
-* **Additional Metadata**: JSON object with additional metadata
-* **Omit Metadata Keys**: Comma-separated list of metadata keys to omit
+  * Fichiers Excel
+* ** Inclure les sous-dossiers **: les fichiers de processus dans les sous-dossiers
+* ** Inclure les lecteurs partagés **: Accès aux fichiers à partir de lecteurs partagés
+* ** Fichiers max **: nombre maximum de fichiers à charger (par défaut: 50)
+* ** Splitter du texte **: un séparateur de texte pour traiter le contenu extrait
+* ** Metadata supplémentaires **: objet JSON avec métadonnées supplémentaires
+* ** omettre les clés de métadonnées **: Liste des clés de métadonnées séparées par des virgules pour omettre
 
-## Outputs
+## Sorties
 
-* **Document**: Array of document objects containing metadata and pageContent
-* **Text**: Concatenated string from pageContent of documents
+* ** Document **: tableau d'objets de document contenant des métadonnées et un conceptent
+* ** Texte **: chaîne concaténée du conceptent de documents
 
-## Supported File Types
+## Types de fichiers pris en charge
 
 ### Google Workspace
 
-* Google Docs (application/vnd.google-apps.document)
-* Google Sheets (application/vnd.google-apps.spreadsheet)
-* Google Slides (application/vnd.google-apps.presentation)
+* Google Docs (application / vnd.google-apps.document)
+* Google Sheets (application / vnd.google-apps.spreadsheet)
+* Google Slides (application / vnd.google-apps.presentation)
 
 ### Microsoft Office
 
@@ -56,56 +56,56 @@ This module provides a sophisticated Google Drive document loader that can:
 * Excel (.xlsx)
 * PowerPoint (.pptx)
 
-### Other Formats
+### Autres formats
 
 * PDF (.pdf)
-* Text Files (.txt)
+* Fichiers texte (.txt)
 
-## Features
+## Caractéristiques
 
-* OAuth2 authentication
-* Multiple file type support
-* Folder processing
-* Shared drive access
-* File type filtering
-* Text splitting support
-* Metadata customization
-* Error handling
+* Authentification OAuth2
+* Prise en charge du type de fichier multiple
+* Traitement des dossiers
+* Accès au lecteur partagé
+* Filtrage de type de fichier
+* Support de division de texte
+* Personnalisation des métadonnées
+* Gestion des erreurs
 
-## Loading Methods
+## Méthodes de chargement
 
-### File Selection Mode
+### Mode de sélection de fichiers
 
-* Direct file selection
-* Multiple file support
-* File type filtering
-* Metadata preservation
+* Sélection directe des fichiers
+* Prise en charge des fichiers multiples
+* Filtrage de type de fichier
+* Conservation des métadonnées
 
-### Folder Mode
+### Mode de dossier
 
-* Recursive folder processing
-* Subfolder support
-* File type filtering
-* Batch processing
+* Traitement des dossiers récursifs
+* Support de sous-dossier
+* Filtrage de type de fichier
+* Traitement par lots
 
-## Document Structure
+## Structure de document
 
-Each document contains:
+Chaque document contient:
 
-* **pageContent**: Extracted content from the file
-* **metadata**:
-  * fileName: Original file name
-  * fileType: MIME type
-  * fileId: Google Drive file ID
-  * source: File path/URL
-  * Additional custom metadata
+* ** PageContent **: Extrait du contenu du fichier
+* ** Metadata **:
+  * Nom de fichier: nom de fichier d'origine
+  * FileType: Type MIME
+  * FileID: ID de fichier Google Drive
+  * Source: chemin de fichier / URL
+  * Métadonnées personnalisées supplémentaires
 
 ## Notes
 
-* Requires OAuth2 authentication
-* Handles rate limiting
-* Supports large files
-* Temporary file management
-* Memory-efficient processing
-* Error handling for invalid files
-* Automatic token refresh
+* Nécessite une authentification OAuth2
+* Les manches limites de taux
+* Prend en charge les grands fichiers
+* Gestion temporaire des fichiers
+* Traitement économe en mémoire
+* Gestion des erreurs pour les fichiers non valides
+* Rafraîchissement automatique des jetons

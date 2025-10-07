@@ -2,10 +2,10 @@
 description: Execute HTTP GET requests.
 ---
 
-# Request Get
+# Demander obtenir
 
-<figure><img src="../../../.gitbook/assets/up-009.png" alt="" width="280"><figcaption><p>Request Get Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Up-009.png" alt = "" width = "280"> <figcaption> <p> request Obtenez le nœud </p> </gigcaption> </ figure>
 
-{% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
-{% endhint %}
+{% hint style = "info"%}
+Cette section est un travail en cours. Nous apprécions toute aide que vous pouvez fournir pour terminer cette section. Veuillez vérifier notre[Contribution Guide](broken-reference)Pour commencer.
+{% EndHint%}

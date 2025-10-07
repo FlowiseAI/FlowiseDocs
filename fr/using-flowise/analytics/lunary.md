@@ -1,9 +1,9 @@
-# Lunary
+# Lunaire
 
-[Lunary](https://lunary.ai/) is a monitoring and analytics platform for LLM chatbots.
+[Lunary](https://lunary.ai/)est une plate-forme de surveillance et d'analyse pour les chatbots LLM.
 
-Flowise has partnered with Lunary to provide a complete integration supporting user tracing, feedback tracking, conversation replays and detailed LLM analytics.
+Flowise s'est associé à Lunary pour fournir une intégration complète prenant en charge le traçage des utilisateurs, le suivi des commentaires, les rediffusions de conversation et l'analyse LLM détaillée.
 
-Flowise users can get a 30% discount on the Teams Plan using code `FLOWISEFRIENDS` during checkout.
+Les utilisateurs Flowise peuvent obtenir une réduction de 30% sur le plan des équipes en utilisant le code`FLOWISEFRIENDS`Pendant la caisse.
 
-Read more on how to setup Lunary with Flowise [here](https://lunary.ai/docs/integrations/flowise).
+En savoir plus sur la façon de configurer Lunary avec Flowise[here](https://lunary.ai/docs/integrations/flowise).

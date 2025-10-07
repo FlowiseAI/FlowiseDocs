@@ -1,76 +1,76 @@
 # Google Drive
 
-## Create credential in Flowise
+## Créer des informations d'identification dans Flowise
 
-1. Add a new Google Drive OAuth2 credential
-2. Enter a name for the credential.
-3. Copy the OAuth Redirect URL.
-4. Note that the following fields need to be filled in:
-   * Client ID
-   * Client Secret
+1. Ajouter un nouvel diplôme Google Drive OAuth2
+2. Entrez un nom pour les informations d'identification.
+3. Copiez l'URL de redirection OAuth.
+4. Notez que les champs suivants doivent être remplis:
+   * ID client
+   * Secret client
 
-<figure><img src="../../../.gitbook/assets/image (276).png" alt="" width="425"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (276) .png" alt = "" width = "425"> <Figcaption> </ Figcaption> </ Figure>
 
-## Create/Use Google Project
+## Créer / utiliser Google Project
 
-1. Log in to your [**Google Cloud**](https://console.cloud.google.com/) account.
-2. Navigate to [**Google Cloud Console > APIs & Services**](https://console.cloud.google.com/apis/credentials), and select the project you want to use from the dropdown at the top left (or create a new project and select it).
-3. Set up the **OAuth consent screen** if you haven't configured one before.
+1. Connectez-vous à votre[**Google Cloud**](https://console.cloud.google.com/)compte.
+2. Se diriger vers[**Google Cloud Console > APIs & Services**](https://console.cloud.google.com/apis/credentials), et sélectionnez le projet que vous souhaitez utiliser dans la liste déroulante en haut à gauche (ou créez un nouveau projet et sélectionnez-le).
+3. Configurez l'écran de consentement ** OAuth ** Si vous n'en avez pas confiuré auparavant.
 
-<figure><img src="../../../.gitbook/assets/image (256).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (256) .png" alt = "" width = "563"> <Figcaption> </ Figcaption> </ Figure>
 
-4. Go to **Credentials**, then click **+ CREATE CREDENTIALS > OAuth client ID**.
+4. Accédez à ** des informations d'identification **, puis cliquez sur ** + Créer des informations d'identification> ID client OAuth **.
 
-<figure><img src="../../../.gitbook/assets/image (257).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (257) .png" alt = "" width = "563"> <Figcaption> </ Figcaption> </ Figure>
 
-5. In the **Application type** dropdown, select **Web application**.
-6. Under **Authorized redirect URIs**, click **+ ADD URI** and paste the OAuth redirect URL copied earlier.
-7. Click **Create**.
+5. Dans le ** Type d'application ** Dropdown, sélectionnez ** Application Web **.
+6. Sous ** URIS REDIRECT AMÉCIRISÉ **, cliquez sur ** + Ajouter URI ** et collez l'URL de redirection OAuth copiée plus tôt.
+7. Cliquez sur ** Créer **.
 
-<figure><img src="../../../.gitbook/assets/image (258).png" alt="" width="407"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (258) .png" alt = "" width = "407"> <Figcaption> </gigcaption> </gigust>
 
-8. Copy the Client ID and Client Secret:
+8. Copiez l'ID client et le secret du client:
 
-<figure><img src="../../../.gitbook/assets/image (259).png" alt="" width="489"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (259) .png" alt = "" width = "489"> <Figcaption> </ Figcaption> </gigne>
 
-9. In **Enabled APIs & Services**, click **+ ENABLE APIS AND SERVICES**.
-10. Search for and enable the **Google Drive API**.
+9. Dans ** APPATIVE API & SERVICES **, cliquez sur ** + Activer les API et Services **.
+10. Recherchez et activez l'API ** Google Drive **.
 
-<figure><img src="../../../.gitbook/assets/image (277).png" alt="" width="550"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (277) .png" alt = "" width = "550"> <Figcaption> </gigcaption> </ figure>
 
-11. Return to **Credentials**, click the newly created credential under **OAuth 2.0 Client IDs**, and on the detail page, you’ll find the **Client ID** and **Client Secret**.
+11. Retour à ** Indementiels **, cliquez sur les informations d'identification nouvellement créées sous ** OAuth 2.0 Client IDS **, et sur la page de détail, vous trouverez le ** Client ID ** et ** Client Secret **.
 
-## Finish setup in Flowise
+## Terminer la configuration en flux
 
-1. Fill in all the values copied earlier. Then click "**Authenticate**":
+1. Remplissez toutes les valeurs copiées plus tôt. Puis cliquez sur "** Authenticiate **":
 
-<figure><img src="../../../.gitbook/assets/image (278).png" alt="" width="433"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (278) .png" alt = "" width = "433"> <Figcaption> </ Figcaption> </ Figure>
 
-2. A Google login window will pop up:
+2. Une fenêtre de connexion Google apparaîtra:
 
-<figure><img src="../../../.gitbook/assets/image (261).png" alt="" width="448"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (261) .png" alt = "" width = "448"> <Figcaption> </ Figcaption> </ Figure>
 
-3. Grant the permissions:
+3. Accorder les autorisations:
 
-<figure><img src="../../../.gitbook/assets/image (263).png" alt="" width="373"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (263) .png" alt = "" width = "373"> <Figcaption> </ Figcaption> </ Figure>
 
-4. Pop up window will be closed automatically and credential will be saved and ready to be used.
+4. La fenêtre pop-up sera fermée automatiquement et les informations d'identification seront enregistrées et prêtes à être utilisées.
 
-## Use as Agent Tool
+## Utiliser comme outil d'agent
 
-Multiple actions can be selected to let the Agent intelligently choose the appropriate one.\
-Parameters can be left empty to allow the Agent to determine the values on its own. However, if the user provides values, those will override the Agent's choices.
+Plusieurs actions peuvent être sélectionnées pour permettre à l'agent de choisir intelligemment celui approprié. \
+Les paramètres peuvent être laissés vides pour permettre à l'agent de déterminer les valeurs par elle-même. Cependant, si l'utilisateur fournit des valeurs, ceux-ci remplaceront les choix de l'agent.
 
-<figure><img src="../../../.gitbook/assets/image (279).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (279) .png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-## Use as Tool Node
+## Utiliser comme nœud d'outil
 
-It can also be used as a Tool Node in a determined workflow scenario. For example, get a specific spreadsheet before proceeding to the next step.\
-In this mode, **Tool Input Arguments must be explicitly defined and filled with values**.\
-Unlike the [**Use as Agent Tool**](google-drive.md#use-as-agent-tool) option, there is no Agent to automatically determine the inputs. The user must manually populate the fields, either by entering fixed values or using variables enclosed in double curly brackets `{{ }}`.
+Il peut également être utilisé comme nœud d'outil dans un scénario de flux de travail déterminé. Par exemple, obtenez une feuille de calcul spécifique avant de passer à l'étape suivante. \
+Dans ce mode, ** Les arguments d'entrée de l'outil doivent être explicitement définis et remplis de valeurs **. \
+Contrairement au[**Use as Agent Tool**](google-drive.md#use-as-agent-tool)Option, il n'y a pas d'agent pour déterminer automatiquement les entrées. L'utilisateur doit remplir manuellement les champs, soit en entrant des valeurs fixes, soit en utilisant des variables enfermées dans des supports doubles bouclés`{{ }}`.
 
-<figure><img src="../../../.gitbook/assets/image (280).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (280) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-Example PDF file created in Google Drive from above tool node:
+Exemple de fichier PDF créé dans Google Drive à partir du nœud d'outil ci-dessus:
 
-<figure><img src="../../../.gitbook/assets/image (281).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (281) .png" alt = ""> <Figcaption> </gigcaption> </ figure>

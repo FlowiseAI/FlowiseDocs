@@ -4,19 +4,19 @@ description: >-
   scalable open-source vector database.
 ---
 
-# Weaviate
+# Tisser
 
-<figure><img src="../../../.gitbook/assets/image (165).png" alt="" width="295"><figcaption><p>Weaviate Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (165) .png" alt = "" width = "295"> <Figcaption> <p> Tempsser le nœud </p> </gigcaption> </ Figure>
 
-## Filtering
+## Filtration
 
-Weaviate supports following [syntax](https://weaviate.io/developers/weaviate/search/filters) when it comes to filtering:
+Terminer les supports suivants[syntax](https://weaviate.io/developers/weaviate/search/filters)En ce qui concerne le filtrage:
 
-**UI**
+** ui **
 
-<figure><img src="../../../.gitbook/assets/image (5) (1) (1) (2).png" alt="" width="227"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (5) (1) (1) (2) .png" alt = "" width = "227"> <Figcaption> </ Figcaption> </ Figure>
 
-**API**
+** API **
 
 ```json
 "overrideConfig": {
@@ -32,11 +32,11 @@ Weaviate supports following [syntax](https://weaviate.io/developers/weaviate/sea
 }
 ```
 
-## Resources
+## Ressources
 
 * [LangchainJS Weaviate](https://js.langchain.com/v0.1/docs/integrations/vectorstores/weaviate/#usage-query-documents)
 * [Weaviate Filtering](https://weaviate.io/developers/weaviate/search/filters)
 
-{% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
-{% endhint %}
+{% hint style = "info"%}
+Cette section est un travail en cours. Nous apprécions toute aide que vous pouvez fournir pour terminer cette section. Veuillez vérifier notre[Contribution Guide](broken-reference)Pour commencer.
+{% EndHint%}

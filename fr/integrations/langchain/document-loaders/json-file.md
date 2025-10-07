@@ -2,45 +2,45 @@
 description: Load data from JSON files.
 ---
 
-# Json File
+# Fichier json
 
-<figure><img src="../../../.gitbook/assets/image (12) (1) (1) (1) (2).png" alt="" width="259"><figcaption><p>Json File Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (12) (1) (1) (1) (2) .png" alt = "" width = "259"> <Figcaption> <p> JSON Node de fichier </p> </ Figcaption> </figne>
 
-JSON (JavaScript Object Notation) is a lightweight data-interchange format that is easy for humans to read and write and easy for machines to parse and generate. This module provides advanced functionality to load and process JSON files within your workflow.
+JSON (Notation d'objet JavaScript) est un format d'interchange de données léger qui est facile à lire et à écrire pour les humains et facile à analyser et à générer. Ce module fournit des fonctionnalités avancées pour charger et traiter les fichiers JSON dans votre flux de travail.
 
-This module provides a sophisticated JSON document loader that can:
+Ce module fournit un chargeur de documents JSON sophistiqué qui peut:
 
-* Load single or multiple JSON files
-* Support both base64-encoded files and files from storage
-* Extract specific data using JSON pointers
-* Handle dynamic metadata extraction
-* Process nested JSON structures
+* Chargez des fichiers JSON simples ou multiples
+* Prise en charge des fichiers et fichiers codés en base de base64 à partir du stockage
+* Extraire des données spécifiques à l'aide de pointeurs JSON
+* Manipuler l'extraction des métadonnées dynamiques
+* Traiter les structures JSON imbriquées
 
-## Inputs
+## Entrées
 
-* **JSON File**: The JSON file(s) to process (.json extension required)
-* **Text Splitter** (optional): A text splitter to process the extracted content
-* **Pointers Extraction** (optional): Comma-separated list of JSON pointers to extract specific data
-* **Additional Metadata** (optional): JSON object for dynamic metadata extraction from the document
-* **Omit Metadata Keys** (optional): Comma-separated list of metadata keys to omit from the default metadata
+* ** Fichier JSON **: le (s) fichier (s) JSON (.
+* ** Splitter de texte ** (facultatif): un séparateur de texte pour traiter le contenu extrait
+* ** Extraction des pointeurs ** (Facultatif): Liste de pointeurs JSON séparée par des virgules pour extraire des données spécifiques
+* ** Métadonnées supplémentaires ** (Facultatif): objet JSON pour l'extraction des métadonnées dynamiques du document
+* ** omettre les clés de métadonnées ** (facultatif): liste de clés de métadonnées séparées par des virgules pour omettre à partir des métadonnées par défaut
 
-## Outputs
+## Sorties
 
-* **Document**: Array of document objects containing metadata and pageContent
-* **Text**: Concatenated string from pageContent of documents
+* ** Document **: tableau d'objets de document contenant des métadonnées et un conceptent
+* ** Texte **: chaîne concaténée du conceptent de documents
 
-## Features
+## Caractéristiques
 
-* Multiple file processing support
-* JSON pointer-based data extraction
-* Dynamic metadata mapping
-* Nested JSON structure handling
-* Storage integration support
-* Base64 and blob handling capabilities
+* Support de traitement de fichiers multiples
+* Extraction de données basée sur le pointeur JSON
+* Cartographie des métadonnées dynamiques
+* Manipulation de la structure JSON imbriquée
+* Prise en charge de l'intégration du stockage
+* Capacités de manutention de base64 et de blob
 
-## Example Usage
+## Exemple d'utilisation
 
-For a JSON document like:
+Pour un document JSON comme:
 
 ```json
 [
@@ -55,7 +55,7 @@ For a JSON document like:
 ]
 ```
 
-You can extract specific fields as metadata using:
+Vous pouvez extraire des champs spécifiques sous forme de métadonnées en utilisant:
 
 ```json
 {
@@ -63,4 +63,4 @@ You can extract specific fields as metadata using:
 }
 ```
 
-This will add the URL value as metadata with key "source" for each document.
+Cela ajoutera la valeur d'URL sous forme de métadonnées avec la clé "source" pour chaque document.

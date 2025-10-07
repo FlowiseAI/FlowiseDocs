@@ -1,13 +1,13 @@
 ---
 description: >-
-  QA Chain that automatically picks an appropriate vector store from multiple
-  retrievers.
+  Chaîne QA qui sélectionne automatiquement un magasin de vecteurs approprié parmi plusieurs
+  récupérateurs.
 ---
 
-# Multi Retrieval QA Chain
+# Chaîne QA de Multi Récupération
 
-<figure><img src="../../../.gitbook/assets/image (34).png" alt="" width="333"><figcaption><p>Multi Retrieval QA Chain Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (34).png" alt="" width="333"><figcaption><p>Noeud de la Chaîne QA de Multi Récupération</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
+Cette section est en cours de développement. Nous apprécions toute aide que vous pouvez apporter pour compléter cette section. Veuillez consulter notre [Guide de Contribution](broken-reference) pour commencer.
 {% endhint %}

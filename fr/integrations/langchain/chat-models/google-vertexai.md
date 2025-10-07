@@ -1,53 +1,53 @@
 # Google VertexAI
 
-## Prerequisites
+## Prérequis
 
-1. [Start your GCP](https://cloud.google.com/docs/get-started)
-2. Install the [Google Cloud CLI](https://cloud.google.com/sdk/docs/install-sdk)
+1. [Commencez votre GCP](https://cloud.google.com/docs/get-started)
+2. Installez le [Google Cloud CLI](https://cloud.google.com/sdk/docs/install-sdk)
 
-## Setup
+## Configuration
 
-### Enable vertex AI API
+### Activer l'API Vertex AI
 
-1. Go to Vertex AI on GCP and click **"ENABLE ALL RECOMMENDED API"**
+1. Allez sur Vertex AI dans GCP et cliquez sur **"ACTIVER TOUTES LES API RECOMMANDÉES"**
 
 <figure><img src="../../../.gitbook/assets/gcp_credential/vertex_AI_enable.png" alt="" width="563"><figcaption></figcaption></figure>
 
-## Create credential file _(Optional)_
+## Créer un fichier d'identification _(Optionnel)_
 
-There are 2 ways to create credential file
+Il existe 2 façons de créer un fichier d'identification
 
-### No. 1 : Use GCP CLI
+### No. 1 : Utiliser le GCP CLI
 
-1. Open terminal and run the following command
+1. Ouvrez le terminal et exécutez la commande suivante
 
 ```bash
 gcloud auth application-default login
 ```
+```markdown
+2. Connectez-vous à votre compte GCP
+3. Vérifiez votre fichier d'identification. Vous pouvez trouver votre fichier d'identification dans `~/.config/gcloud/application_default_credentials.json`
 
-2. Login to your GCP account
-3. Check your credential file. You can find your credential file in `~/.config/gcloud/application_default_credentials.json`
+### No. 2 : Utiliser la console GCP
 
-### No. 2 : Use GCP console
-
-1. Go to GCP console and click **"CREATE CREDENTIALS"**
+1. Allez sur la console GCP et cliquez sur **"CRÉER DES IDENTIFIANTS"**
 
 <figure><img src="../../../.gitbook/assets/gcp_credential/create_credential.png" alt="" width="563"><figcaption></figcaption></figure>
 
-2. Create service account
+2. Créez un compte de service
 
 <figure><img src="../../../.gitbook/assets/gcp_credential/create_service_account.png" alt="" width="563"><figcaption></figcaption></figure>
 
-3. Fill in the form of Service account details and click **"CREATE AND CONTINUE"**
-4. Select proper role (for example Vertex AI User) and click **"DONE"**
+3. Remplissez le formulaire des détails du compte de service et cliquez sur **"CRÉER ET CONTINUER"**
+4. Sélectionnez le rôle approprié (par exemple, Utilisateur Vertex AI) et cliquez sur **"FAIRE"**
 
 <figure><img src="../../../.gitbook/assets/gcp_credential/select_role.png" alt=""><figcaption></figcaption></figure>
 
-5. Click service account that you created and click **"ADD KEY" -> "Create new key"**
+5. Cliquez sur le compte de service que vous avez créé et cliquez sur **"AJOUTER UNE CLÉ" -> "Créer une nouvelle clé"**
 
 <figure><img src="../../../.gitbook/assets/gcp_credential/add_key.png" alt="" width="563"><figcaption></figcaption></figure>
 
-6. Select JSON and click **"CREATE"** then you can download your credential file
+6. Sélectionnez JSON et cliquez sur **"CRÉER"**, puis vous pourrez télécharger votre fichier d'identification
 
 <figure><img src="../../../.gitbook/assets/gcp_credential/create_key.png" alt="" width="563"><figcaption></figcaption></figure>
 
@@ -55,31 +55,32 @@ gcloud auth application-default login
 
 <figure><img src="../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-### Without credential file
+### Sans fichier d'identification
 
-If you are using a GCP service like Cloud Run, or if you have installed default credentials on your local machine, you do not need to set this credential.
+Si vous utilisez un service GCP comme Cloud Run, ou si vous avez installé des identifiants par défaut sur votre machine locale, vous n'avez pas besoin de définir cet identifiant.
 
-### With credential file
+### Avec fichier d'identification
 
-1. Go to Credential page on Flowise and click **"Add credential"**
-2. Click Google Vertex Auth
+1. Allez sur la page des identifiants sur Flowise et cliquez sur **"Ajouter un identifiant"**
+2. Cliquez sur Google Vertex Auth
 
 <figure><img src="../../../.gitbook/assets/gcp_credential/google_vertex_auth.png" alt="" width="563"><figcaption></figcaption></figure>
 
-3. Register your credential file. There are 2 ways to register your credential file.
+3. Enregistrez votre fichier d'identification. Il y a 2 façons d'enregistrer votre fichier d'identification.
 
 <figure><img src="../../../.gitbook/assets/gcp_credential/register_credential.png" alt="" width="563"><figcaption></figcaption></figure>
 
-* **Option 1 : Enter path of your credential file**
-  * If you have credential file on your machine, you can enter the path of your credential file into `Google Application Credential File Path`
-* **Option 2 : Paste text of your credential file**
-  * Or you can copy all text in the credential file and paste it into `Google Credential JSON Object`
+* **Option 1 : Entrez le chemin de votre fichier d'identification**
+  * Si vous avez un fichier d'identification sur votre machine, vous pouvez entrer le chemin de votre fichier d'identification dans `Chemin du fichier d'identification Google Application`
+* **Option 2 : Collez le texte de votre fichier d'identification**
+  * Ou vous pouvez copier tout le texte du fichier d'identification et le coller dans `Objet JSON d'identification Google`
 
-4. Finally, click "Add" button.
-5. **🎉**You can now use ChatGoogleVertexAI with the credential in Flowise now!
+4. Enfin, cliquez sur le bouton "Ajouter".
+5. **🎉**Vous pouvez maintenant utiliser ChatGoogleVertexAI avec l'identifiant dans Flowise !
 
-### Resources
+### Ressources
 
 * [LangChain JS GoogleVertexAI](https://js.langchain.com/docs/api/llms_googlevertexai/classes/GoogleVertexAI)
-* [Google Service accounts overview](https://cloud.google.com/iam/docs/service-account-overview?)
-* [Try Google Vertex AI Palm 2 with Flowise: Without Coding to Leverage Intuition](https://tech.beatrust.com/entry/2023/08/22/Try_Google_Vertex_AI_Palm_2_with_Flowise%3A_Without_Coding_to_Leverage_Intuition)
+* [Aperçu des comptes de service Google](https://cloud.google.com/iam/docs/service-account-overview?)
+* [Essayez Google Vertex AI Palm 2 avec Flowise : Sans coder pour tirer parti de l'intuition](https://tech.beatrust.com/entry/2023/08/22/Try_Google_Vertex_AI_Palm_2_with_Flowise%3A_Without_Coding_to_Leverage_Intuition)
+```

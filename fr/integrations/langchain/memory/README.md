@@ -2,21 +2,21 @@
 description: LangChain Memory Nodes
 ---
 
-# Memory
+# Mémoire
 
 ***
 
-Memory allow you to chat with AI as if AI has the memory of previous conversations.
+La mémoire vous permet de discuter avec l'IA comme si l'IA avait la mémoire des conversations précédentes.
 
-_<mark style="color:blue;">Human: hi i am bob</mark>_
+_ <Mark Style = "Color: Blue;"> humain: salut je suis bob </mark> _
 
-_<mark style="color:orange;">AI: Hello Bob! It's nice to meet you. How can I assist you today?</mark>_
+_ <Mark Style = "Color: Orange;"> AI: Bonjour Bob! Ravi de vous rencontrer. Comment puis-je vous aider aujourd'hui? </mark> _
 
-_<mark style="color:blue;">Human: what's my name?</mark>_
+_ <Mark Style = "Color: Blue;"> Human: quel est mon nom? </mark> _
 
-_<mark style="color:orange;">AI: Your name is Bob, as you mentioned earlier.</mark>_
+_ <Mark Style = "Color: Orange;"> AI: Votre nom est Bob, comme vous l'avez mentionné plus tôt. </mark> _
 
-Under the hood, these conversations are stored in arrays or databases, and provided as context to LLM. For example:
+Sous le capot, ces conversations sont stockées dans des tableaux ou des bases de données et fournies comme contexte à LLM. Par exemple:
 
 ```
 You are an assistant to a human, powered by a large language model trained by OpenAI.
@@ -27,7 +27,7 @@ Current conversation:
 {history}
 ```
 
-### Memory Nodes:
+### Nœuds de mémoire:
 
 * [Buffer Memory](buffer-memory.md)
 * [Buffer Window Memory](buffer-window-memory.md)
@@ -40,23 +40,23 @@ Current conversation:
 * [Upstash Redis-Backed Chat Memory](upstash-redis-backed-chat-memory.md)
 * [Zep Memory](zep-memory.md)
 
-## Separate conversations for multiple users
+## Conversations séparées pour plusieurs utilisateurs
 
-### UI & Embedded Chat
+### UI et chat embarqué
 
-By default, UI and Embedded Chat will automatically separate different users conversations. This is done by generating a unique **`chatId`** for each new interaction. That logic is handled under the hood by Flowise.
+Par défaut, l'interface utilisateur et le chat embarqué séparent automatiquement les différentes conversations d'utilisateurs. Cela se fait en générant un ** unique **`chatId`** Pour chaque nouvelle interaction. Cette logique est manipulée sous le capot en fluant.
 
-### Prediction API
+### API de prédiction
 
-You can separate the conversations for multiple users by specifying a unique **`sessionId`**
+Vous pouvez séparer les conversations pour plusieurs utilisateurs en spécifiant un ** unique`sessionId`**
 
-1. For every memory node, you should be able to see a input parameter **`Session ID`**
+1. Pour chaque nœud de mémoire, vous devriez pouvoir voir un paramètre d'entrée **`Session ID`**
 
-<figure><img src="../../../.gitbook/assets/image (76).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (76) .png" alt = "" width = "563"> <Figcaption> </ Figcaption> </ Figure>
 
-<figure><img src="../../../.gitbook/assets/Untitled (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Untitled (1) (1) (1) (1) (1) (1) .png" alt = "" width = "563"> <figcaption> </gigcaption> </ figure>
 
-2. In the `/api/v1/prediction/{your-chatflowid}` POST body request, specify the **`sessionId`** in **`overrideConfig`**
+2. Dans le`/api/v1/prediction/{your-chatflowid}`Demande post-corps, spécifiez le **`sessionId`** dans **`overrideConfig`**
 
 ```json
 {
@@ -67,15 +67,15 @@ You can separate the conversations for multiple users by specifying a unique **`
 }
 ```
 
-### Message API
+### API du message
 
-* GET `/api/v1/chatmessage/{your-chatflowid}`
-* DELETE `/api/v1/chatmessage/{your-chatflowid}`
+* OBTENIR`/api/v1/chatmessage/{your-chatflowid}`
+* SUPPRIMER`/api/v1/chatmessage/{your-chatflowid}`
 
-<table><thead><tr><th>Query Param</th><th width="192">Type</th><th>Value</th></tr></thead><tbody><tr><td>sessionId</td><td>string</td><td></td></tr><tr><td>sort</td><td>enum</td><td>ASC or DESC</td></tr><tr><td>startDate</td><td>string</td><td></td></tr><tr><td>endDate</td><td>string</td><td></td></tr></tbody></table>
+<ballage> <thead> <tr> <th> Query Param </th> <Th width = "192"> Type </ th> <th> value </ th> </tr> </ thead> <tbody> <tr> <td> sessiond </td> <td> string </td> <td> </td> </tr> <td> ASC Desc </td> </ tr> <tr> <td> startDate </td> <td> string </td> <td> </td> </tr> <tr> <td> enddate </td> <td> string </td> <td> </td> </tr> </tbody> </-table>
 
-All conversations can be visualized and managed from UI as well:
+Toutes les conversations peuvent également être visualisées et gérées à partir de l'interface utilisateur:
 
-<figure><img src="../../../.gitbook/assets/image (78).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (78) .png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-For OpenAI Assistant, [Threads](../agents/openai-assistant/threads.md) will be used to store conversations.
+Pour l'assistant openai,[Threads](../agents/openai-assistant/threads.md)sera utilisé pour stocker des conversations.

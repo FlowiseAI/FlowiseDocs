@@ -2,36 +2,36 @@
 description: Load data from DOCX files.
 ---
 
-# Docx File
+# Fichier docx
 
-<figure><img src="../../../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1) (1) (2).png" alt="" width="269"><figcaption><p>Docx File Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (7) (1) (1) (1) (1) (1) (1) (1) (2) .png" alt = "" width = "269"> <figcaption> <p> docx file node </p> </igcaption> </gigne>
 
-Microsoft Word Document (DOCX) is a widely used document format for creating and editing text documents. This module provides functionality to load and process DOCX files within your workflow.
+Microsoft Word Document (DOCX) est un format de document largement utilisé pour la création et l'édition de documents texte. Ce module fournit des fonctionnalités pour charger et traiter les fichiers docx dans votre workflow.
 
-This module provides a comprehensive DOCX document loader that can:
+Ce module fournit un chargeur de document DOCX complet qui peut:
 
-* Load single or multiple DOCX files
-* Support both base64-encoded files and files from storage
-* Extract text content with metadata
-* Integrate with text splitters for content processing
-* Handle custom metadata management
+* Chargez des fichiers Docx uniques ou multiples
+* Prise en charge des fichiers et fichiers codés en base de base64 à partir du stockage
+* Extraire le contenu du texte avec des métadonnées
+* Intégrer avec des séparateurs de texte pour le traitement du contenu
+* Gérer la gestion des métadonnées personnalisées
 
-## Inputs
+## Entrées
 
-* **DOCX File**: The DOCX file(s) to process (.docx extension required)
-* **Text Splitter** (optional): A text splitter to process the extracted content
-* **Additional Metadata** (optional): JSON object with additional metadata to add to documents
-* **Omit Metadata Keys** (optional): Comma-separated list of metadata keys to omit from the default metadata
+* ** Fichier Docx **: le (s) fichier (s) DOCX à traiter (extension .docx requise)
+* ** Splitter de texte ** (facultatif): un séparateur de texte pour traiter le contenu extrait
+* ** Métadonnées supplémentaires ** (Facultatif): objet JSON avec des métadonnées supplémentaires à ajouter aux documents
+* ** omettre les clés de métadonnées ** (facultatif): liste de clés de métadonnées séparées par des virgules pour omettre à partir des métadonnées par défaut
 
-## Outputs
+## Sorties
 
-* **Document**: Array of document objects containing metadata and pageContent
-* **Text**: Concatenated string from pageContent of all documents
+* ** Document **: tableau d'objets de document contenant des métadonnées et un conceptent
+* ** Texte **: chaîne concaténée du conceptent de tous les documents
 
-## Features
+## Caractéristiques
 
-* Multiple file processing support
-* Flexible text splitting options
-* Customizable metadata handling
-* Storage integration support
-* Base64 and blob handling capabilities
+* Support de traitement de fichiers multiples
+* Options de division de texte flexible
+* Manipulation des métadonnées personnalisables
+* Prise en charge de l'intégration du stockage
+* Capacités de manutention de base64 et de blob

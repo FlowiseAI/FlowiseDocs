@@ -1,20 +1,20 @@
-# Customer Support
+# Support client
 
-Customer support is one of the biggest use cases in AI right now. However, many people tend to overcomplicate it by introducing multiple agents. In many cases, you can achieve the desired outcome with a single agent, provided you have a well-crafted system prompt, carefully selected tools, and a curated knowledge base. A multi-agent architecture is typically only necessary if your system needs to handle a wide range of support areas. For example, you might have an HR agent that manages HR policies and executes tasks like submitting leave requests or updating employee records, and a finance agent that handles reimbursements, refunds, and other finance-related queries.
+Le support client est l'un des plus grands cas d'utilisation de l'IA en ce moment. Cependant, de nombreuses personnes ont tendance à la compliquer en introduisant plusieurs agents. Dans de nombreux cas, vous pouvez atteindre le résultat souhaité avec un seul agent, à condition que vous ayez une invite de système bien conçue, des outils soigneusement sélectionnés et une base de connaissances organisée. Une architecture multi-agents n'est généralement nécessaire que si votre système doit gérer une large gamme de zones de support. Par exemple, vous pouvez avoir un agent RH qui gère les politiques RH et exécute des tâches telles que la soumission des demandes de congé ou la mise à jour des dossiers des employés, et un agent financier qui gère les remboursements, les remboursements et d'autres requêtes liées aux finances.
 
-When your system involves more than 15 or 20 tools and knowledge sources, it's generally not advisable to overload a single agent. Instead, having dedicated agents for specific domains tends to perform better. Depending on your use case, we always recommend starting with a single agent, evaluating performance, identifying bottlenecks, and only then considering a multi-agent architecture.
+Lorsque votre système implique plus de 15 ou 20 outils et sources de connaissances, il n'est généralement pas conseillé de surcharger un seul agent. Au lieu de cela, avoir des agents dédiés pour des domaines spécifiques a tendance à mieux fonctionner. Selon votre cas d'utilisation, nous vous recommandons toujours de commencer avec un seul agent, d'évaluer les performances, d'identifier les goulots d'étranglement, et seulement alors en considérant une architecture multi-agents.
 
-Anthropic provides a good guide on this - [https://docs.anthropic.com/en/docs/about-claude/use-case-guides/customer-support-chat](https://docs.anthropic.com/en/docs/about-claude/use-case-guides/customer-support-chat)
+Anthropic offre un bon guide à ce sujet -[https://docs.anthropic.com/en/docs/about-claude/use-case-guides/customer-support-chat](https://docs.anthropic.com/en/docs/about-claude/use-case-guides/customer-support-chat)
 
-## Single Agent
+## Agent unique
 
-<figure><img src="../.gitbook/assets/image (331).png" alt="" width="361"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (331) .png" alt = "" width = "361"> <Figcaption> </gigcaption> </gigne>
 
-For a single-agent, prompting is the most crucial part. Every model behaves differently. For example, Claude performs best when task-specific instructions are placed in the "User" message rather than the "System" message (a technique known as [role prompting](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/system-prompts#legal-contract-analysis-with-role-prompting)). It's often a process of trial and error to determine what works best. Nevertheless, good prompts consist of the following fundamentals:
+Pour un seul agent, l'incitation est la partie la plus cruciale. Chaque modèle se comporte différemment. Par exemple, Claude fonctionne mieux lorsque des instructions spécifiques à la tâche sont placées dans le message "utilisateur" plutôt que le message "système" (une technique connue sous le nom[role prompting](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/system-prompts#legal-contract-analysis-with-role-prompting)). C'est souvent un processus d'essais et d'erreurs pour déterminer ce qui fonctionne le mieux. Néanmoins, les bonnes invites sont constituées des principes fondamentaux suivants:
 
-#### Step 1: Role
+#### Étape 1: rôle
 
-First step is to assign a role and personality to the agent. For example:
+La première étape consiste à attribuer un rôle et une personnalité à l'agent. Par exemple:
 
 ```
 You are John, a friendly, knowledgeable, and professional customer support agent for Acme Events, an event management company that has been delivering exceptional events since 1985.
@@ -32,9 +32,9 @@ Your job is to help customers with any inquiries related to Acme’s event servi
 You are warm, helpful, and solution-oriented. Always aim to resolve customer issues efficiently while maintaining a positive tone. If a question is outside your scope, politely inform the user and escalate the matter or suggest contacting the appropriate team.
 ```
 
-#### Step 2: Guidelines
+#### Étape 2: Lignes directrices
 
-How you want the agent to respond to a user query, a set of steps or guidelines to follow.
+Comment vous souhaitez que l'agent réponde à une requête utilisateur, un ensemble d'étapes ou de directives à suivre.
 
 ```
 Important guidelines:
@@ -50,13 +50,13 @@ Important guidelines:
 - For time-sensitive inquiries, suggest calling the customer service number if it's during business hours.
 ```
 
-{% hint style="success" %}
-If the agent is unable to call specific tools in response to certain user queries, you can include additional instructions here. For example: _“Use the quoting tool to generate a personalized quote.”_
-{% endhint %}
+{% Hint Style = "Success"%}
+Si l'agent n'est pas en mesure d'appeler des outils spécifiques en réponse à certaines requêtes utilisateur, vous pouvez inclure des instructions supplémentaires ici. Par exemple: _ «Utilisez l'outil de devis pour générer un devis personnalisé.» _
+{% EndHint%}
 
-#### Step 3: Business Context
+#### Étape 3: contexte commercial
 
-Provide general information of the company. For example:
+Fournir des informations générales de l'entreprise. Par exemple:
 
 ```
 About Acme Events:
@@ -81,64 +81,64 @@ Business hours: Monday–Friday, 9 AM – 5 PM EST
 Customer service number: 1-800-123-4567
 ```
 
-#### Step 4: Provide Examples
+#### Étape 4: Fournir des exemples
 
-It’s also very important to teach the agent how to respond to user queries by providing examples, a technique known as few-shot prompting.
+Il est également très important d'enseigner à l'agent comment répondre aux requêtes des utilisateurs en fournissant des exemples, une technique connue sous le nom d'invitation à quelques coups.
 
-<pre><code>Here are a few examples of how you can interact with customers:
+<pre> <code> Voici quelques exemples de la façon dont vous pouvez interagir avec les clients:
 
-&#x3C;example 1>
-H: Hi, do you organize birthday parties for kids?
+<Exemple 1>
+H: Salut, organisez-vous des fêtes d'anniversaire pour les enfants?
 
-A: Hi there! I'm John from Acme Events—thanks for reaching out. While we primarily focus on corporate events, weddings, and public festivals, we do occasionally organize private parties, including birthdays.
+R: Salut! Je suis John des événements Acme - merci pour avoir tendu la main. Bien que nous nous concentrions principalement sur les événements d'entreprise, les mariages et les festivals publics, nous organisons occasionnellement des fêtes privées, y compris les anniversaires.
 
-Could you share more details about the party you're planning (e.g., number of guests, location, and date)? I'd be happy to see how we can help!
-&#x3C;/example 1>
+Pourriez-vous partager plus de détails sur la fête que vous planifiez (par exemple, le nombre d'invités, l'emplacement et la date)? Je serais heureux de voir comment nous pouvons aider!
+</ Exemple 1>
 
-&#x3C;example 2>
-H: What are your business hours?
+<Exemple 2>
+H: Quelles sont vos heures d'ouverture?
 
-A: Our business hours are Monday to Friday, 9 AM to 5 PM EST.
+R: Nos heures d'ouverture sont du lundi au vendredi, de 9 h à 17 h HNE.
 
-If you have any event-related questions or need planning assistance, feel free to reach out during those hours. How can I assist you today?
-&#x3C;/example 2>
+Si vous avez des questions liées à l'événement ou si vous avez besoin d'aide à la planification, n'hésitez pas à vous contacter pendant ces heures. Comment puis-je vous aider aujourd'hui?
+</ Exemple 2>
 
-&#x3C;example 3>
-H: Do you handle hybrid conferences?
+<Exemple 3>
+H: Gérez-vous les conférences hybrides?
 
-A: Absolutely! We specialize in hybrid and virtual event solutions, perfect for engaging both in-person and remote audiences.
+R: Absolument! Nous nous spécialisons dans les solutions d'événements hybrides et virtuelles, parfaits pour engager à la fois un public en personne et à distance.
 
-We handle everything from live streaming and technical setup to audience interaction tools and post-event analytics. Are you planning a hybrid event soon? I’d love to hear more about your requirements.
-&#x3C;/example 3>
+Nous gérons tout, du streaming en direct et de la configuration technique aux outils d'interaction d'audience et à l'analyse post-événement. Planifiez-vous bientôt un événement hybride? Je serais ravi d'en savoir plus sur vos exigences.
+</ Exemple 3>
 
-&#x3C;example 4>
-H: I’m looking to plan a wedding. Can you help with that?
+<Exemple 4>
+H: Je cherche à planifier un mariage. Pouvez-vous vous aider?
 
-A: Congratulations! Yes, we’d love to help you plan your big day. At Acme Events, we offer full-service wedding planning—from venue selection and theme design to vendor coordination and on-the-day execution.
+R: Félicitations! Oui, nous aimerions vous aider à planifier votre grand jour. Lors des événements d'ACME, nous offrons une planification de mariage à service complet - de la sélection des lieux et de la conception du thème à la coordination des fournisseurs et à l'exécution le jour.
 
-Would you like to schedule a free consultation to discuss your vision and timeline?
-&#x3C;/example 4>
+Souhaitez-vous planifier une consultation gratuite pour discuter de votre vision et de votre calendrier?
+</ Exemple 4>
 
-&#x3C;example 5>
-H: Can I get a quote for a corporate event?
+<Exemple 5>
+H: Puis-je obtenir un devis pour un événement d'entreprise?
 
-A: Of course! To prepare an accurate quote, I’ll need a few details:
+R: Bien sûr! Pour préparer une citation précise, j'aurai besoin de quelques détails:
 
-1. What type of corporate event are you planning (e.g., seminar, gala, retreat)?
+1. Quel type d'événement d'entreprise planifiez-vous (par exemple, séminaire, gala, retraite)?
 
-<strong>2. Estimated number of attendees?
+<strong> 2. Nombre estimé de participants?
 </strong>
-3. Preferred date and location?
+3. Date et localisation préférés?
 
-4. Any specific services you need (e.g., catering, AV setup, branding)?
+4. Des services spécifiques dont vous avez besoin (par exemple, restauration, configuration AV, image de marque)?
 
-Once I have this info, I’ll use our quoting tool to generate a personalized quote for you.
-&#x3C;/example 5>
-</code></pre>
+Une fois que j'aurai ces informations, j'utiliserai notre outil de citation pour générer un devis personnalisé pour vous.
+</ Exemple 5>
+</code> </pre>
 
-#### Step 5: Guardrails and Notes
+#### Étape 5: garde-corps et notes
 
-Lastly, to prevent the agent from going off track, it’s recommended to outline clear Do’s and Don’ts for how the agent should interact with the customer.
+Enfin, pour empêcher l'agent de se déplacer, il est recommandé de décrire les DO et les choses à faire claires sur la façon dont l'agent doit interagir avec le client.
 
 ```
 Please adhere to the following guardrails:
@@ -152,56 +152,56 @@ Please adhere to the following guardrails:
 7. Always maintain a friendly, professional tone and ensure customer privacy is respected at all times.
 ```
 
-To help with prompting, you can use the "**Generate**" button, this will generate a system prompt following the best practices mentioned above:
+Pour vous aider à inciter, vous pouvez utiliser le bouton "** générer **", cela générera une invite système en suivant les meilleures pratiques mentionnées ci-dessus:
 
-<figure><img src="../.gitbook/assets/image (329).png" alt="" width="386"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (329) .png" alt = "" width = "386"> <Figcaption> </ Figcaption> </gigust>
 
-<figure><img src="../.gitbook/assets/image (328).png" alt="" width="563"><figcaption></figcaption></figure>
+<Figure> <img src = "../. GitBook / Assets / Image (328) .png" alt = "" width = "563"> <Figcaption> </gigcaption> </gigust>
 
-#### Step 6: Tools and Knowledge naming and description
+#### Étape 6: Outils et noms de connaissances et description
 
-Most prebuilt tools come with clear names and descriptions, so users typically don’t need to modify them. However, for custom tools and knowledge bases, providing a clear and descriptive name is essential to ensure the LLM knows when and how to use the appropriate tool. Refer to [best practices for defining functions](https://platform.openai.com/docs/guides/function-calling?api-mode=chat#best-practices-for-defining-functions). You can also use the "**Generate**" button to help with knowledge description:
+La plupart des outils prédéfinis sont livrés avec des noms et des descriptions clairs, donc les utilisateurs n'ont généralement pas besoin de les modifier. Cependant, pour les outils personnalisés et les bases de connaissances, fournir un nom clair et descriptif est essentiel pour s'assurer que le LLM sait quand et comment utiliser l'outil approprié. Se référer à[best practices for defining functions](https://platform.openai.com/docs/guides/function-calling?api-mode=chat#best-practices-for-defining-functions). Vous pouvez également utiliser le bouton "** générer **" pour aider à la connaissance de la connaissance:
 
-<figure><img src="../.gitbook/assets/image (330).png" alt="" width="397"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (330) .png" alt = "" width = "397"> <Figcaption> </gigcaption> </ Figure>
 
-## Multi Agents
+## Plusieurs agents
 
-For a multi-agent architecture, we will create a system that automatically triages customer inquiries and routes them to specialized agents based on the nature of the query.
+Pour une architecture multi-agents, nous créerons un système qui triage automatiquement les demandes des clients et les acheminerons vers des agents spécialisés en fonction de la nature de la requête.
 
-While this setup is intended to showcase the architecture's capabilities, it's worth noting that the example we’ll explore could realistically be handled by a single agent.
+Bien que cette configuration soit destinée à présenter les capacités de l'architecture, il convient de noter que l'exemple que nous explorerons pourrait être géré de manière réaliste par un seul agent.
 
-### Overview
+### Aperçu
 
-1. **Start Node**: Collects customer inquiry through a structured form
-2. **Condition Agent**: Analyzes the inquiry and determines the appropriate routing
-3. **HR Agent**: Handles human resources related queries with access to HR knowledge base
-4. **Event Manager**: Manages event-related requests with API integration capabilities
-5. **General Agent**: Handles general inquiries and provides broad assistance
+1. ** Démarrer le nœud **: recueille la demande des clients via un formulaire structuré
+2. ** Agent de condition **: analyse l'enquête et détermine le routage approprié
+3. ** Agent HR **: gère les requêtes liées aux ressources humaines avec accès à la base de connaissances RH
+4. ** Manager d'événements **: gère les demandes liées à l'événement avec des capacités d'intégration de l'API
+5. ** Agent général **: gère les demandes générales et fournit une grande assistance
 
-<figure><img src="../.gitbook/assets/image (317).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (317) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-#### Step 1: Create the Start Node
+#### Étape 1: Créez le nœud de démarrage
 
-<figure><img src="../.gitbook/assets/image (318).png" alt="" width="161"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (318) .png" alt = "" width = "161"> <figcaption> </gigcaption> </gigust>
 
-1. Begin by adding a **Start** node to your canvas
-2. Configure the Start node with **Form Input** to collect customer inquiries
-3. Set up the form with the following configuration:
-   * **Input Type**: Form Input
-   * **Form Title**: "Inquiry"
-   * **Form Description**: "Customer Inquiry"
-   * **Form Input Types**: Configure two string inputs:
-     * **Subject**: Variable name `subject`
-     * **Body**: Variable name `body`
+1. Commencez par ajouter un nœud ** start ** à votre toile
+2. Configurez le nœud de démarrage avec ** Entrée du formulaire ** pour collecter les demandes des clients
+3. Configurez le formulaire avec la configuration suivante:
+   * ** Type d'entrée **: entrée de formulaire
+   * ** Titre du formulaire **: "Enquête"
+   * ** DESCRIPTION DU FORME **: "Investiment client"
+   * ** Types d'entrées de formulaire **: Configurez deux entrées de chaîne:
+     * ** Sujet **: Nom de la variable`subject`
+     * ** corps **: nom de variable`body`
 
-<figure><img src="../.gitbook/assets/image (319).png" alt="" width="410"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (319) .png" alt = "" width = "410"> <figcaption> </gigcaption> </gigust>
 
-#### Step 2: Add the Condition Agent (Detect User Intention)
+#### Étape 2: Ajouter l'agent de condition (détecter l'intention de l'utilisateur)
 
-<figure><img src="../.gitbook/assets/image (320).png" alt="" width="216"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (320) .png" alt = "" width = "216"> <figcaption> </gigcaption> </ figure>
 
-1. Connect a **Condition Agent** node to the Start node
-2. Set up the system instructions to act as a customer support agent. You can also refer to the prompt used in [Single Agent](customer-support.md#single-agent). Here's a simple example:
+1. Connectez un nœud d'agent ** de condition ** au nœud de démarrage
+2. Configurez les instructions du système pour agir en tant qu'agent de support client. Vous pouvez également vous référer à l'invite utilisée dans[Single Agent](customer-support.md#single-agent). Voici un exemple simple:
 
 ```
 You are a customer support agent. Understand and process support tickets by automatically triaging them to the correct departments or individuals, generating immediate responses for common issues, and gathering necessary information for complex queries.
@@ -215,20 +215,20 @@ Follow the following routine with the user:
 Note: Transfers between agents are handled seamlessly in the background; do not mention or draw attention to these transfers in your conversation with the user
 ```
 
-4. Configure the **Input** to analyze the form subject: `{{ $form.subject }}`
-5. Set up **Scenarios** for routing:
-   * **Scenario 0**: "Query is related to HR"
-   * **Scenario 1**: "Query is related to events"
-   * **Scenario 2**: "Query is general query"
+4. Configurez la ** entrée ** pour analyser le sujet de formulaire:`{{ $form.subject }}`
+5. Configurer ** Scénarios ** pour le routage:
+   * ** Scénario 0 **: "La requête est liée aux RH"
+   * ** Scénario 1 **: "La requête est liée aux événements"
+   * ** Scénario 2 **: "La requête est une requête générale"
 
-<figure><img src="../.gitbook/assets/image (321).png" alt="" width="407"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (321) .png" alt = "" width = "407"> <Figcaption> </ Figcaption> </gigust>
 
-#### Step 3: Create the HR Agent
+#### Étape 3: Créez l'agent RH
 
-<figure><img src="../.gitbook/assets/image (322).png" alt="" width="217"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (322) .png" alt = "" width = "217"> <Figcaption> </ Figcaption> </gigust>
 
-1. Add an **Agent** node and connect it to **Condition 0** output
-2. Set up the system message for HR specialization:
+1. Ajoutez un nœud ** Agent ** et connectez-le à ** condition 0 ** sortie
+2. Configurez le message système pour la spécialisation RH:
 
 ```
 You are an HR agent responsible for retrieving and applying internal knowledge sources to answer employee queries about HR policies, procedures, and guidelines.
@@ -256,57 +256,57 @@ When responding to HR-related questions, you must first identify the relevant po
 - If insufficient information is available in internal sources, explicitly state this limitation and suggest alternative resources
 ```
 
-4. **Configure Knowledge Sources (RAG)**:
-   * Add **Document Store**: "Human Resources Law"
-   * **Description**: "This information is useful when determining the legal framework and implementation requirements for human resources management under the 2016 HR law and its 2020 implementing regulation."
-   * **Return Source Documents**: Enabled
+4. ** Configurer les sources de connaissances (RAG) **:
+   * Ajouter ** Store de document **: "Loi sur les ressources humaines"
+   * ** Description **: "Ces informations sont utiles lors de la détermination du cadre juridique et des exigences de mise en œuvre pour la gestion des ressources humaines en vertu de la loi RH de 2016 et de sa réglementation de mise en œuvre de 2020."
+   * ** Retour des documents source **: activé
 
-<figure><img src="../.gitbook/assets/image (323).png" alt="" width="400"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (323) .png" alt = "" width = "400"> <Figcaption> </gigcaption> </gigust>
 
-#### Step 4: Create the Event Manager
+#### Étape 4: Créez le gestionnaire d'événements
 
-<figure><img src="../.gitbook/assets/image (324).png" alt="" width="218"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (324) .png" alt = "" width = "218"> <Figcaption> </ Figcaption> </gigust>
 
-1. Add another **Agent** node and connect it to **Condition 1** output
-2. Set up the system message:
+1. Ajoutez un autre nœud d'agent ** ** et connectez-le à ** condition 1 ** sortie
+2. Configurer le message système:
 
 ```
 Act as an event manager that can determine actions on events such as create, update, get, list and delete.
 ```
 
-4. **Configure Tools**:
-   * Add **OpenAPI Toolkit** with event management API configuration. Refer to [OpenAPI Toolkit](interacting-with-api.md#tool-openapi-toolkit) for more details.
+4. ** Configurer les outils **:
+   * Ajouter ** OpenAPI Toolkit ** avec la configuration de l'API de gestion d'événements. Se référer à[OpenAPI Toolkit](interacting-with-api.md#tool-openapi-toolkit)pour plus de détails.
 
-<figure><img src="../.gitbook/assets/image (325).png" alt="" width="399"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (325) .png" alt = "" width = "399"> <Figcaption> </ Figcaption> </gigne>
 
-The Event Manager has access to a complete event management API that can:
+Le gestionnaire d'événements a accès à une API de gestion d'événements complète qui peut:
 
-* List all events
-* Create new events
-* Retrieve event details by ID
-* Update event information
-* Delete events
+* Énumérez tous les événements
+* Créer de nouveaux événements
+* Récupérer les détails de l'événement par id
+* Mettre à jour les informations sur l'événement
+* Supprimer les événements
 
-Refer to [Event Management Server](interacting-with-api.md#prerequisite) for the example code.
+Se référer à[Event Management Server](interacting-with-api.md#prerequisite)pour l'exemple de code.
 
-#### Step 5: Create the General Agent
+#### Étape 5: Créez l'agent général
 
-<figure><img src="../.gitbook/assets/image (326).png" alt="" width="204"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / image (326) .png" alt = "" width = "204"> <Figcaption> </gigcaption> </gigust>
 
-1. Add a third **Agent** node and connect it to **Condition 2** output. This will act as a fallback route that can answer any non-related query. Can also be replaced by [Direct Reply](../using-flowise/agentflowv2.md#id-12.-direct-reply-node) node if you would like to just return a default response.
+1. Ajoutez un troisième nœud d'agent ** ** et connectez-le à la sortie ** condition 2 **. Cela agira comme une voie de secours qui peut répondre à toute requête non liée. Peut également être remplacé par[Direct Reply](../using-flowise/agentflowv2.md#id-12.-direct-reply-node)Node si vous souhaitez simplement renvoyer une réponse par défaut.
 2. **Configuration**:
-   * No additional tools required for general inquiries
-   * No knowledge sources needed
+   * Aucun outil supplémentaire requis pour les demandes générales
+   * Aucune source de connaissances nécessaire
 
-### Testing the Flow
+### Tester le flux
 
-1. **Test HR Queries**: Submit inquiries about company policies, benefits, or HR procedures
-2. **Test Event Queries**: Try creating, updating, or querying about company events
-3. **Test General Queries**: Ask general questions to see how the system routes to the general agent
-4. **Observe Routing**: Notice how the condition agent seamlessly routes queries without exposing the transfer process
+1. ** Tester les requêtes RH **: Soumettre des demandes de renseignements sur les politiques de l'entreprise, les avantages sociaux ou les procédures RH
+2. ** Test des requêtes d'événements **: Essayez de créer, de mettre à jour ou d'interroger sur les événements de l'entreprise
+3. ** Testez les requêtes générales **: Posez des questions générales pour voir comment le système se rend vers l'agent général
+4. ** Observer le routage **: Remarquez comment l'agent de condition est de manière transparente des requêtes sans exposer le processus de transfert
 
-<figure><img src="../.gitbook/assets/image (327).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (327) .png" alt = ""> <figcaption> </gigcaption> </gigust>
 
-### Complete Flow Structure
+### Structure d'écoulement complète
 
-{% file src="../.gitbook/assets/Customer Support Agents.json" %}
+{% fichier src = "../. GitBook / Assets / Customer Support Agents.json"%}

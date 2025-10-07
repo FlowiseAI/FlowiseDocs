@@ -2,18 +2,18 @@
 description: Wrapper around TavilyAI API - real-time, accurate search results tailored for LLMs and RAG.
 ---
 
-# TavilyAI
+# Tavilyai
 
-<figure><img src="../../../.gitbook/assets/tavily.png" alt="" width="285"><figcaption><p>Tavily Node</p></figcaption></figure>
+<gigne> <img src = "../../../. gitbook / actifs / tavily.png" alt = "" width = "285"> <figcaption> <p> nœud tavily </p> </gigcaption> </ figure>
 
-## Setup
+## Installation
 
-1. To add the Tavily API node. click the Add Nodes button, **LangChain** > **Tools** > **Tavily API**
+1. Pour ajouter le nœud API Tavily. Cliquez sur le bouton Ajouter des nœuds, ** Langchain **> ** Outils **> ** API Tavily **
 
-2. Create credentials for Tavily. Refer to the [official guide](https://docs.tavily.com/guides/quickstart) on how to get the Tavily API key.
+2. Créez des informations d'identification pour Tavily. Reportez-vous au[official guide](https://docs.tavily.com/guides/quickstart)sur la façon d'obtenir la clé API Tavily.
 
-<figure><img src="../../../.gitbook/assets/tavily/tavily-1.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Tavily / Tavily-1.png" alt = ""> <figcaption> </gigcaption> </ figure>
 
-<figure><img src="../../../.gitbook/assets/tavily/tavily-2.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Tavily / Tavily-2.png" alt = ""> <figcaption> </ figcaption> </gigust>
 
-3. You can now connect this node to any node that accepts tool inputs to get real-time search results.
+3. Vous pouvez désormais connecter ce nœud à n'importe quel nœud qui accepte les entrées d'outil pour obtenir des résultats de recherche en temps réel.

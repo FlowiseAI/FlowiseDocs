@@ -2,17 +2,17 @@
 description: Learn how to use external API integrations with Flowise
 ---
 
-# Interacting with API
+# Interagir avec l'API
 
 ***
 
-The OpenAPI Specification (OAS) defines a standard, language-agnostic interface to HTTP APIs. The goal of this use case is to have the LLM automatically figure out which API to call, while still having a stateful conversation with user.
+La spécification OpenAPI (OAS) définit une interface standard et agnostique linguistique aux API HTTP. L'objectif de ce cas d'utilisation est que le LLM détermine automatiquement quelle API appelle, tout en ayant une conversation avec état avec l'utilisateur.
 
-## OpenAPI Chain
+## Chaîne OpenAPI
 
-1. In this tutorial, we are going to use [Klarna OpenAPI](https://gist.github.com/HenryHengZJ/b60f416c42cb9bcd3160fe797421119a)
+1. Dans ce tutoriel, nous allons utiliser[Klarna OpenAPI](https://gist.github.com/HenryHengZJ/b60f416c42cb9bcd3160fe797421119a)
 
-{% code overflow="wrap" %}
+{% code overflow = "wrap"%}
 ```json
 {
   "openapi": "3.0.1",
@@ -144,48 +144,48 @@ The OpenAPI Specification (OAS) defines a standard, language-agnostic interface 
   }
 }
 ```
-{% endcode %}
+{% Endcode%}
 
-2. You can use a [JSON to YAML converter](https://jsonformatter.org/json-to-yaml) and save it as a `.yaml` file, and upload it to **OpenAPI Chain**, then test by asking some questions. **OpenAPI Chain** will send the whole specs to LLM, and have the LLM automatically use the correct method and parameters for the API call.
+2. Vous pouvez utiliser un[JSON to YAML converter](https://jsonformatter.org/json-to-yaml)et enregistrer comme un`.yaml`Fixez et téléchargez-le sur ** OpenAPI Chain **, puis testez en posant des questions. ** OpenAPI Chain ** Enverra toutes les spécifications à LLM et que le LLM utilise automatiquement la méthode et les paramètres corrects pour l'appel API.
 
-<figure><img src="../.gitbook/assets/image (133).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (133) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-3. However, if you want to have a normal conversation chat, it is not able to do so. You will see the following error. This is because OpenAPI Chain has the following prompt:
+3. Cependant, si vous voulez avoir un chat de conversation normal, il ne peut pas le faire. Vous verrez l'erreur suivante. En effet, la chaîne OpenAPI a l'invite suivante:
 
 ```
 Use the provided API's to respond to this user query
 ```
 
-Since we "forced" it to always find the API to answer user query, in the cases of normal conversation that is irrelevant to the OpenAPI, it fails to do so.
+Puisque nous avons "forcé" qu'il trouve toujours l'API pour répondre à la requête utilisateur, dans les cas d'une conversation normale qui n'est pas pertinente pour l'OpenAPI, il ne le fait pas.
 
-<figure><img src="../.gitbook/assets/image (134).png" alt="" width="361"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (134) .png" alt = "" width = "361"> <figcaption> </gigcaption> </ figure>
 
-Using this method might not work well if you have large OpenAPI spec. This is because we are including all the specifications as part of the message sent to LLM. We then rely on LLM to figure out the correct URL, query parameters, request body, and other necessary parameters needed to answer user query. As you can imagine, if your OpenAPI specs are complicated, there is a higher chance LLM will hallucinates.
+L'utilisation de cette méthode peut ne pas fonctionner bien si vous avez de grandes spécifications OpenAPI. En effet, nous incluons toutes les spécifications dans le cadre du message envoyé à LLM. Nous comptons ensuite sur LLM pour déterminer l'URL, les paramètres de requête corrects, le corps de demande et les autres paramètres nécessaires nécessaires pour répondre à la requête utilisateur. Comme vous pouvez l'imaginer, si vos spécifications OpenAPI sont compliquées, il y a un risque plus élevé que LLM hallucine.
 
-## Tool Agent + OpenAPI Toolkit
+## Agent d'outils + boîte à outils OpenAPI
 
-In order to solve the above error, we can use Agent. From the official cookbook by OpenAI: [Function calling with an OpenAPI specification](https://cookbook.openai.com/examples/function_calling_with_an_openapi_spec), it is recommended to convert each API into a tool itself, instead of feeding all the APIs into LLM as single message. An agent is also capable of having human-like interaction, with the ability to decide which tool to use depending on user's query.
+Afin de résoudre l'erreur ci-dessus, nous pouvons utiliser l'agent. Du livre de cuisine officiel d'Openai:[Function calling with an OpenAPI specification](https://cookbook.openai.com/examples/function_calling_with_an_openapi_spec), il est recommandé de convertir chaque API en un outil lui-même, au lieu de nourrir toutes les API en LLM en tant que message unique. Un agent est également capable d'avoir une interaction humaine, avec la possibilité de décider quel outil utiliser en fonction de la requête de l'utilisateur.
 
-OpenAPI Toolkit will converts each of the API from YAML file into a set of tools. This way, users don't have to create a [Custom Tool](../integrations/langchain/tools/custom-tool.md) for each API.
+OpenAPI Toolkit convertira chacun des API du fichier YAML en un ensemble d'outils. De cette façon, les utilisateurs n'ont pas à créer un[Custom Tool](../integrations/langchain/tools/custom-tool.md)pour chaque API.
 
-1. Connect **ToolAgent** with **OpenAPI Toolkit**. Here, we upload the YAML spec for OpenAI API. The spec file can be found at the bottom of the page.
+1. Connectez ** Toolagent ** avec ** OpenAPI Toolkit **. Ici, nous téléchargeons la spécification YAML pour l'API OpenAI. Le fichier de spécifications peut être trouvé en bas de la page.
 
-<figure><img src="../.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (25) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-2. Let's try it!
+2. Essayons-le!
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. Gitbook / Assets / image (1) (1) (1) (1) (1) (1) (2) .png" alt = ""> <figcaption> </gigcaption> </stigual>
 
-As you can noticed from the chat, the agent is capable of carrying out normal conversation, and use appropriate tool to answer user query. If you are using Analytic Tool, you can see the list of tools we converted from the YAML file:
+Comme vous pouvez le remarquer à partir du chat, l'agent est capable de mener une conversation normale et d'utiliser un outil approprié pour répondre à la requête utilisateur. Si vous utilisez l'outil analytique, vous pouvez voir la liste des outils que nous avons convertis à partir du fichier YAML:
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. Gitbook / Assets / image (2) (1) (1) (1) (1) (1) (2) (1) .png" alt = ""> <figCaption> </gigcaption> </gigu
 
 ## Conclusion
 
-We've successfully created an agent that can interact with API when necessary, and still be able handle stateful conversations with users. Below are the templates used in this section:
+Nous avons réussi à créer un agent capable d'interagir avec l'API si nécessaire, tout en étant capable de gérer les conversations avec état avec les utilisateurs. Voici les modèles utilisés dans cette section:
 
-{% file src="../.gitbook/assets/OpenAPI Chatflow.json" %}
+{% fichier src = "../. gitbook / actifs / openapi chatflow.json"%}
 
-{% file src="../.gitbook/assets/OpenAPI Toolkit with ToolAgent Chatflow.json" %}
+{% fichier src = "../. GitBook / Assets / OpenAPI Toolkit avec ToolAgent Chatflow.json"%}
 
-{% file src="../.gitbook/assets/openai_openapi.yaml" %}
+{% fichier src = "../. gitbook / actifs / openai_openapi.yaml"%}

@@ -2,105 +2,105 @@
 description: Load data from Apify Website Content Crawler.
 ---
 
-# Apify Website Content Crawler
+# Crawler de contenu du site Web Apify
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2).png" alt="" width="266"><figcaption><p>Apify Website Content Crawler Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2). Nœud </p> </gigcaption> </ figure>
 
-[Apify](https://apify.com/) Website Content Crawler is a powerful web scraping tool that can extract content from websites using various crawling engines. This module provides integration with Apify's Website Content Crawler to load and process web content.
+[Apify](https://apify.com/)Le Crawler de contenu du site Web est un puissant outil de grattage Web qui peut extraire le contenu des sites Web à l'aide de divers moteurs rampants. Ce module fournit une intégration avec le robot de contenu du site Web d'Apify pour charger et traiter le contenu Web.
 
-This module provides a sophisticated web crawler that can:
+Ce module fournit un robot Web sophistiqué qui peut:
 
-* Crawl multiple websites from specified start URLs
-* Use different crawling engines (Chrome, Firefox, Cheerio, JSDOM)
-* Control crawling depth and page limits
-* Handle JavaScript-rendered content
-* Process extracted content with text splitters
-* Customize metadata extraction
+* Crawl plusieurs sites Web à partir d'URL de démarrage spécifiée
+* Utilisez différents moteurs rampants (Chrome, Firefox, Cheerio, JSDom)
+* Contrôler la profondeur de rampe et les limites de page
+* Gérer le contenu rendu javascript
+* Processus du contenu extrait avec des séparateurs de texte
+* Personnaliser l'extraction des métadonnées
 
-## Inputs
+## Entrées
 
-### Required Parameters
+### Paramètres requis
 
-* **Start URLs**: Comma-separated list of URLs where crawling will begin
-* **Connect Apify API**: Apify API credentials
-* **Crawler Type**: Choice of crawling engine:
-  * Headless web browser (Chrome+Playwright)
-  * Stealthy web browser (Firefox+Playwright)
-  * Raw HTTP client (Cheerio)
-  * Raw HTTP client with JavaScript execution (JSDOM)
+* ** Démarrer les URL **: Liste des URL séparée par des virgules où le rampage commencera
+* ** Connectez API APIFIE **: APIFIE API Identifiés
+* ** Type de chenille **: choix du moteur rampant:
+  * Browser Web sans tête (Chrome + dramaturge)
+  * Brefteur Web furtif (Firefox + Playwright)
+  * Client HTTP brut (Cheerio)
+  * Client HTTP brut avec exécution JavaScript (JSDom)
 
-### Optional Parameters
+### Paramètres facultatifs
 
-* **Text Splitter**: A text splitter to process the extracted content
-* **Max Crawling Depth**: Maximum depth of page links to follow (default: 1)
-* **Max Crawl Pages**: Maximum number of pages to crawl (default: 3)
-* **Additional Input**: JSON object with additional crawler configuration
-* **Additional Metadata**: JSON object with additional metadata
-* **Omit Metadata Keys**: Comma-separated list of metadata keys to omit
+* ** Splitter du texte **: un séparateur de texte pour traiter le contenu extrait
+* ** Profondeur maximale de rampe **: profondeur maximale des liens de page à suivre (par défaut: 1)
+* ** PAGES DE CRAWLS MAX **: Nombre maximum de pages à ramper (par défaut: 3)
+* ** Entrée supplémentaire **: objet JSON avec configuration supplémentaire de chenilles
+* ** Metadata supplémentaires **: objet JSON avec métadonnées supplémentaires
+* ** omettre les clés de métadonnées **: Liste des clés de métadonnées séparées par des virgules pour omettre
 
-## Outputs
+## Sorties
 
-* **Document**: Array of document objects containing metadata and pageContent
-* **Text**: Concatenated string from pageContent of documents
+* ** Document **: tableau d'objets de document contenant des métadonnées et un conceptent
+* ** Texte **: chaîne concaténée du conceptent de documents
 
-## Features
+## Caractéristiques
 
-* Multiple crawling engine support
-* Configurable crawling parameters
-* JavaScript rendering support
-* Depth and page limit controls
-* Metadata customization
-* Text splitting capabilities
-* Error handling
+* Prise en charge du moteur rampant multiple
+* Paramètres rampant configurables
+* Support de rendu javascript
+* Contrôles de limite de profondeur et de page
+* Personnalisation des métadonnées
+* Capacités de division de texte
+* Gestion des erreurs
 
-## Crawler Types
+## Types de chenilles
 
-### Headless Chrome (Playwright)
+### Chrome sans tête (dramaturge)
 
-* Best for modern web applications
-* Full JavaScript support
-* Higher resource usage
+* Meilleur pour les applications Web modernes
+* Prise en charge JavaScript complète
+* Utilisation des ressources plus élevée
 
-### Stealthy Firefox (Playwright)
+### Firefox furtif (dramaturge)
 
-* Good for sites with bot detection
-* Full JavaScript support
-* More stealthy operation
+* Bon pour les sites avec détection de bot
+* Prise en charge JavaScript complète
+* Fonctionnement plus furtif
 
-### Cheerio
+### Rafale
 
-* Fast and lightweight
-* No JavaScript support
-* Lower resource usage
+* Rapide et léger
+* Pas de support JavaScript
+* Utilisation des ressources inférieures
 
-### JSDOM (Experimental)
+### Jsdom (expérimental)
 
-* JavaScript execution support
-* Lightweight alternative to browsers
-* Experimental features
+* Prise en charge de l'exécution JavaScript
+* Alternative légère aux navigateurs
+* Caractéristiques expérimentales
 
 ## Notes
 
-* Requires valid Apify API token
-* Different crawler types have different capabilities
-* Resource usage varies by crawler type
-* JavaScript support depends on crawler type
-* Rate limiting may apply based on Apify plan
-* Additional configuration available through JSON input
+* Nécessite un jeton API APIFY valide
+* Différents types de chenilles ont des capacités différentes
+* L'utilisation des ressources varie selon le type de chenille
+* Le support JavaScript dépend du type de chenille
+* La limitation des taux peut s'appliquer sur la base du plan Apify
+* Configuration supplémentaire disponible via l'entrée JSON
 
-## Crawl Entire Website
+## Crawl entièrement le site Web
 
-1. _(Optional)_ Connect [**Text Splitter**](../text-splitters/).
-2. Connect Apify API (create a new credential with your [Apify API token](https://my.apify.com/account#/integrations)).
-3. Input one or more URLs (separated by commas) where the crawler will start, e.g `https://docs.flowiseai.com/`.
-4. Select the crawler type. Refer to [Website Content Crawler documentation for more information](https://apify.com/apify/website-content-crawler/input-schema#crawlerType).
-5. _(Optional)_ Specify additional parameters such as maximum crawling depth and the maximum number of pages to crawl.
+1. _ (Facultatif) _ Connectez-vous[**Text Splitter**](../text-splitters/).
+2. Connectez l'API APIFY (créez un nouvel titulaire avec votre[Apify API token](https://my.apify.com/account#/integrations)).
+3. Entrez une ou plusieurs URL (séparées par des virgules) où le robotage commencera, par exemple`https://docs.flowiseai.com/`.
+4. Sélectionnez le type de robot. Se référer à[Website Content Crawler documentation for more information](https://apify.com/apify/website-content-crawler/input-schema#crawlerType).
+5. _ (Facultatif) _ Spécifiez des paramètres supplémentaires tels que la profondeur de rampe maximale et le nombre maximal de pages à ramper.
 
-## Output
+## Sortir
 
-Loads website content as a Document.
+Charge le contenu du site Web en tant que document.
 
-## Resources
+## Ressources
 
 * [Apify-Flowise integration](https://docs.apify.com/platform/integrations/flowise)
 * [Website Content Crawler](https://apify.com/apify/website-content-crawler)

@@ -1,77 +1,77 @@
 # Microsoft Teams
 
-## Pre-requisite
+## Condition préalable
 
-A valid Microsoft 365 license assigned to the Azure Active Directory user. Refer: [https://learn.microsoft.com/en-us/answers/questions/761931/microsoft-graph-api-throws-the-mailbox-is-either-i](https://learn.microsoft.com/en-us/answers/questions/761931/microsoft-graph-api-throws-the-mailbox-is-either-i)
+Une licence Microsoft 365 valide attribuée à l'utilisateur Azure Active Directory. Référer:[https://learn.microsoft.com/en-us/answers/questions/761931/microsoft-graph-api-throws-the-mailbox-is-either-i](https://learn.microsoft.com/en-us/answers/questions/761931/microsoft-graph-api-throws-the-mailbox-is-either-i)
 
-## Create credential in Flowise
+## Créer des informations d'identification dans Flowise
 
-1. Add a new Microsoft Teams OAuth2 credential
-2. Enter a name for the credential.
-3. Copy the OAuth Redirect URL.
-4. Note that the following fields need to be filled in:
-   * Authorization URL
-   * Access Token URL
-   * Client ID
-   * Client Secret
+1. Ajouter un nouvel diplôme Microsoft Teams OAuth2
+2. Entrez un nom pour les informations d'identification.
+3. Copiez l'URL de redirection OAuth.
+4. Notez que les champs suivants doivent être remplis:
+   * URL d'autorisation
+   * URL du jeton d'accès
+   * ID client
+   * Secret client
 
-<figure><img src="../../../.gitbook/assets/image (209).png" alt="" width="436"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (209) .png" alt = "" width = "436"> <Figcaption> </ Figcaption> </ Figure>
 
-## Create an Azure application <a href="#h_8276f6aa94" id="h_8276f6aa94"></a>
+## Créez une application Azure <a href = "# h_8276f6aa94" id = "h_8276f6aa94"> </a>
 
-1. Login to your existing [Azure](https://login.microsoftonline.com/) account or [sign up](https://signup.live.com/signup) if you haven't already signed up
-2. Search for **App registrations**.
-3. Next, register a new Azure application in [app registrations](https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/CreateApplicationBlade/quickStartType~/null/isMSAApp~/false).
+1. Connectez-vous à votre existant[Azure](https://login.microsoftonline.com/)compte ou[sign up](https://signup.live.com/signup)Si vous ne vous êtes pas déjà inscrit
+2. Recherchez ** les inscriptions d'applications **.
+3. Ensuite, enregistrez une nouvelle application Azure dans[app registrations](https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/CreateApplicationBlade/quickStartType~/null/isMSAApp~/false).
 
-<figure><img src="../../../.gitbook/assets/image (192).png" alt="" width="304"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (192) .png" alt = "" width = "304"> <Figcaption> </ Figcaption> </ Figure>
 
-4. Under "Redirect URI (optional)", select "Web" and paste your "OAuth Redirect URL" you copied earlier.
+4. Sous "Redirection URI (Facultatif)", sélectionnez "Web" et collez votre "URL de redirection OAuth" que vous avez copié plus tôt.
 
-<figure><img src="../../../.gitbook/assets/image (197).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (197) .png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-5. After created application, navigate to **Certificates & secrets** > **Client secrets** and click on the "**New client secret**" button to create a client secret. Copy the secret to use later.
+5. Après une application créée, accédez à ** Certificats et secrets **> ** Secrets du client ** et cliquez sur le bouton "** Nouveau client Secret **" pour créer un secret client. Copiez le secret à utiliser plus tard.
 
-<figure><img src="../../../.gitbook/assets/image (200).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (200) .png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-6. Navigate to **Overview** and click "**Endpoints**". Copy the endpoints for "**OAuth 2.0 authorization endpoint (v2)**" and "**OAuth 2.0 token endpoint (v2)**".
+6. Naviguez vers ** Présentation ** et cliquez sur "** Points de terminaison **". Copiez les points de terminaison pour "** OAuth 2.0 Autorisation Endpoint (V2) **" et "** OAuth 2.0 Token Endpoint (V2) **".
 
-<figure><img src="../../../.gitbook/assets/image (202).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (202) .png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-7. Close the Endpoints popup, copy the **Application (client) ID**:
+7. Fermez la fenêtre contextuelle des points de terminaison, copiez l'application ** (client) ID **:
 
-<figure><img src="../../../.gitbook/assets/image (203).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (203) .png" alt = "" width = "563"> <Figcaption> </ Figcaption> </ Figure>
 
-## Finish setup in Flowise
+## Terminer la configuration en flux
 
-1. Fill in all the values copied earlier. Then click "**Authenticate**":
+1. Remplissez toutes les valeurs copiées plus tôt. Puis cliquez sur "** Authenticiate **":
 
-<figure><img src="../../../.gitbook/assets/image (212).png" alt="" width="437"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (212) .png" alt = "" width = "437"> <Figcaption> </ Figcaption> </ Figure>
 
-2. A Microsoft window will pop up, select the account.
+2. Une fenêtre Microsoft apparaîtra, sélectionnez le compte.
 
-{% hint style="warning" %}
-The account user must have a valid Microsoft 365 licensed
-{% endhint %}
+{% hint style = "avertissement"%}
+L'utilisateur du compte doit avoir une sous-licence Microsoft 365 valide
+{% EndHint%}
 
-<figure><img src="../../../.gitbook/assets/image (205).png" alt="" width="459"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (205) .png" alt = "" width = "459"> <Figcaption> </ Figcaption> </ Figure>
 
-3. Grant the required permissions:
+3. Accorder les autorisations requises:
 
-<figure><img src="../../../.gitbook/assets/image (237).png" alt="" width="445"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (237) .png" alt = "" width = "445"> <Figcaption> </ Figcaption> </ Figure>
 
-4. The pop up will automatically close, and credential will be saved afterwards.
+4. Le pop-up se fermera automatiquement et les informations d'identification seront enregistrées par la suite.
 
-## Use as Agent Tool
+## Utiliser comme outil d'agent
 
-Multiple actions can be selected to let the Agent intelligently choose the appropriate one.\
-Parameters can be left empty to allow the Agent to determine the values on its own. However, if the user provides values, those will override the Agent's choices.
+Plusieurs actions peuvent être sélectionnées pour permettre à l'agent de choisir intelligemment celui approprié. \
+Les paramètres peuvent être laissés vides pour permettre à l'agent de déterminer les valeurs par elle-même. Cependant, si l'utilisateur fournit des valeurs, ceux-ci remplaceront les choix de l'agent.
 
-<figure><img src="../../../.gitbook/assets/image (217).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (217) .png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-## Use as Tool Node
+## Utiliser comme nœud d'outil
 
-It can also be used as a Tool Node in a determined workflow scenario. For example, retrieving a list of Teams messages before proceeding to the next step.\
-In this mode, **Tool Input Arguments must be explicitly defined and filled with values**.\
-Unlike the [**Use as Agent Tool**](microsoft-teams.md#use-as-agent-tool) option, there is no Agent to automatically determine the inputs. The user must manually populate the fields, either by entering fixed values or using variables enclosed in double curly brackets `{{ }}`.
+Il peut également être utilisé comme nœud d'outil dans un scénario de flux de travail déterminé. Par exemple, récupérer une liste des messages d'équipe avant de passer à l'étape suivante. \
+Dans ce mode, ** Les arguments d'entrée de l'outil doivent être explicitement définis et remplis de valeurs **. \
+Contrairement au[**Use as Agent Tool**](microsoft-teams.md#use-as-agent-tool)Option, il n'y a pas d'agent pour déterminer automatiquement les entrées. L'utilisateur doit remplir manuellement les champs, soit en entrant des valeurs fixes, soit en utilisant des variables enfermées dans des supports doubles bouclés`{{ }}`.
 
-<figure><img src="../../../.gitbook/assets/image (223).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (223) .png" alt = ""> <Figcaption> </gigcaption> </gigne>

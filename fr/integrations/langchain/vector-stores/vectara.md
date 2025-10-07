@@ -1,52 +1,52 @@
 # Vectara
 
-## Quickstart Tutorial
+## Tutoriel QuickStart
 
-{% embed url="https://www.youtube.com/watch?v=rBqpvFcD5XY" %}
+{% embed url = "https://www.youtube.com/watch?v=rbqpvfcd5xy"%}
 
-## Prerequisite
+## Condition préalable
 
-1. Register an account for [Vectara](https://vectara.com/integrations/flowise)
-2. Click **Create Corpus**
+1. Enregistrer un compte pour[Vectara](https://vectara.com/integrations/flowise)
+2. Cliquez sur ** Créer un corpus **
 
-<figure><img src="../../../.gitbook/assets/vectara/1.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / Vectara / 1.png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-Name the corpus to be created and click **Create Corpus** then wait for the corpus to finish setting up.
+Nommez le corpus à créer et cliquez sur ** Créer un corpus ** puis attendez que le corpus termine la configuration.
 
-## Setup
+## Installation
 
-1. Click on the **"Access Control"** tab in the corpus view
+1. Cliquez sur l'onglet ** "Contrôle d'accès" ** dans la vue du corpus
 
-<figure><img src="../../../.gitbook/assets/vectara/2.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / Vectara / 2.png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-2. Click on the **"Create API Key"** button, choose a name for the API key and pick the **QueryService & IndexService** option
+2. Cliquez sur le bouton ** "Créer la touche API" **, choisissez un nom pour la touche API et choisissez l'option ** QuerryService & indexService **
 
-<figure><img src="../../../.gitbook/assets/vectara/3.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Vectara / 3.png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-3. Click **Create** to create the API key
-4. Get your **Corpus ID, API Key, and Customer ID** by clicking the down-arrow under "copy" for your new API key:
+3. Cliquez sur ** Créer ** pour créer la touche API
+4. Obtenez votre ID ** Corpus, votre clé API et votre ID client ** en cliquant sur la flèche vers le bas sous "Copie" pour votre nouvelle clé API:
 
-<figure><img src="../../../.gitbook/assets/vectara/4.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Vectara / 4.png" alt = ""> <Figcaption> </ Figcaption> </gigne>
 
-5. Back to Flowise canvas, and create your chatflow. Click **Create New** from the Credentials dropdown ane enter your Vectara credentials.
+5. Retour à Flowise Canvas et créez votre ChatFlow. Cliquez sur ** Créer un nouveau ** à partir de la liste déroulante des informations d'identification ANE Entrez vos informations d'identification Vectara.
 
-<figure><img src="../../../.gitbook/assets/vectara/5.png" alt="" width="500"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Vectara / 5.png" alt = "" width = "500"> <Figcaption> </ Figcaption> </ Figure>
 
-6. Enjoy!
+6. Apprécier!
 
-## Vectara Query Parameters
+## Paramètres de requête vectara
 
-For finer control over the Vectara query parameters, click on "**Additional Parameters**" and then you can update the following parameters from their default:
+Pour un contrôle plus fin sur les paramètres de requête Vectara, cliquez sur "** Paramètres supplémentaires **", puis vous pouvez mettre à jour les paramètres suivants à partir de leur défaut:
 
-* Metadata Filter: Vectara supports meta-data filtering. To use [filtering](https://docs.vectara.com/docs/common-use-cases/filtering-by-metadata/filter-overview), ensure that metadata fields you want to filter by are defined in your Vectara corpus.
-* "Sentences before" and "Sentences after": these control how many sentences before/after the matching text are returned as results from the Vectara retrieval engine
-* Lambda: defines the behavior of [hybrid search](https://docs.vectara.com/docs/learn/hybrid-search) in Vectara
-* Top-K: how many results to return from Vectara for the query
-* MMR-K: number of results to use for [MMR](https://docs.vectara.com/docs/api-reference/search-apis/reranking#maximal-marginal-relevance-mmr-reranker) (max marginal relvance)
+* Filtre de métadonnées: Vectara prend en charge le filtrage des méta-données. Pour utiliser[filtering](https://docs.vectara.com/docs/common-use-cases/filtering-by-metadata/filter-overview), assurez-vous que les champs de métadonnées que vous souhaitez filtrer sont définis dans votre corpus vectara.
+* "Sentiments avant" et "phrases après": Celles-ci contrôlent combien de phrases avant / après le texte de correspondance sont renvoyées en tant que résultats du moteur de récupération de Vectara
+* Lambda: définit le comportement de[hybrid search](https://docs.vectara.com/docs/learn/hybrid-search)à Vectara
+* Top-K: Combien de résultats retourner de Vectara pour la requête
+* MMR-K: nombre de résultats à utiliser pour[MMR](https://docs.vectara.com/docs/api-reference/search-apis/reranking#maximal-marginal-relevance-mmr-reranker)(Relvance marginale maximale)
 
-<figure><img src="../../../.gitbook/assets/vectara/6.png" alt="" width="500"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. gitbook / actifs / vectara / 6.png" alt = "" width = "500"> <Figcaption> </gigcaption> </ figure>
 
-## Resources
+## Ressources
 
 * [LangChain JS Vectara Blog Post](https://blog.langchain.dev/langchain-vectara-better-together/)
 * [5 Reasons to Use Vectara's Langchain Integration Blog Post](https://vectara.com/5-reasons-to-use-vectaras-langchain-integration/)

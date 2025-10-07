@@ -1,94 +1,94 @@
-# S3 File Loader
+# Chargeur de fichiers S3
 
-Amazon S3 (Simple Storage Service) is an object storage service offering industry-leading scalability, data availability, security, and performance. This module provides comprehensive functionality to load and process files stored in S3 buckets.
+Amazon S3 (Simple Storage Service) est un service de stockage d'objets offrant une évolutivité de pointe, une disponibilité des données, une sécurité et des performances. Ce module fournit des fonctionnalités complètes pour charger et traiter les fichiers stockés dans des seaux S3.
 
-This module provides a sophisticated S3 document loader that can:
-- Load files from S3 buckets using AWS credentials
-- Support multiple file formats (PDF, DOCX, CSV, Excel, PowerPoint, text files)
-- Process files using built-in loaders or Unstructured.io API
-- Handle text and binary files
-- Customize metadata extraction
+Ce module fournit un chargeur de document S3 sophistiqué qui peut:
+- Chargez des fichiers à partir de seaux S3 à l'aide d'identification AWS
+- Prise en charge de plusieurs formats de fichiers (PDF, DOCX, CSV, Excel, PowerPoint, Fichiers texte)
+- Processus de fichiers à l'aide de chargeurs intégrés ou non structurés.io API
+- Gérer le texte et les fichiers binaires
+- Personnaliser l'extraction des métadonnées
 
-## Inputs
+## Entrées
 
-### Required Parameters
-- **Bucket**: The name of the S3 bucket
-- **Object Key**: The unique identifier of the object in the S3 bucket
-- **Region**: AWS region where the bucket is located (default: us-east-1)
+### Paramètres requis
+- ** seau **: le nom du seau S3
+- ** Clé d'objet **: l'identifiant unique de l'objet dans le seau S3
+- ** Région **: Région AWS où se trouve le seau (par défaut: US-East-1)
 
-### Processing Options
-- **File Processing Method**: Choose between:
-  - Built In Loaders: Use native file format processors
-  - Unstructured: Use Unstructured.io API for advanced processing
-- **Text Splitter** (optional): Text splitter for built-in processing
-- **Additional Metadata** (optional): JSON object with additional metadata
-- **Omit Metadata Keys** (optional): Keys to omit from metadata
+### Options de traitement
+- ** Méthode de traitement des fichiers **: Choisissez entre:
+  - Intégrés de chargeurs: utilisez des processeurs de format de fichiers natifs
+  - Non structuré: utilisez une API non structurée.io pour un traitement avancé
+- ** Splitter de texte ** (facultatif): séparateur de texte pour le traitement intégré
+- ** Métadonnées supplémentaires ** (Facultatif): objet JSON avec métadonnées supplémentaires
+- ** omettre les clés de métadonnées ** (facultative): clés pour omettre des métadonnées
 
-### Unstructured.io Options
-- **Unstructured API URL**: Endpoint for Unstructured.io API
-- **Unstructured API KEY** (optional): API key for authentication
-- **Strategy**: Processing strategy (hi_res, fast, ocr_only, auto)
-- **Encoding**: Text encoding method (default: utf-8)
-- **Skip Infer Table Types**: Document types to skip table extraction
+### Options non structurées.io
+- ** URL API non structurée **: point de terminaison pour API non structuré.io
+- ** Clé API non structurée ** (facultatif): clé API pour l'authentification
+- ** Stratégie **: Stratégie de traitement (Hi_res, Fast, OCR_ONLY, AUTO)
+- ** Encodage **: Méthode de codage de texte (par défaut: UTF-8)
+- ** Sauter les types de tables inférieurs **: Types de documents pour sauter l'extraction de la table
 
-## Outputs
+## Sorties
 
-- **Document**: Array of document objects containing metadata and pageContent
-- **Text**: Concatenated string from pageContent of documents
+- ** Document **: tableau d'objets de document contenant des métadonnées et un conceptent
+- ** Texte **: chaîne concaténée du conceptent de documents
 
-## Features
-- AWS S3 integration
-- Multiple file format support
-- Built-in and Unstructured.io processing
-- Configurable AWS regions
-- Flexible metadata handling
-- Binary file processing
-- Temporary file management
-- MIME type detection
+## Caractéristiques
+- Intégration AWS S3
+- Prise en charge du format de fichier multiple
+- Traitement intégré et non structuré.io
+- Régions AWS configurables
+- Manipulation flexible des métadonnées
+- Traitement de fichiers binaires
+- Gestion temporaire des fichiers
+- Détection de type mime
 
-## Supported File Types
-- PDF documents
+## Types de fichiers pris en charge
+- Documents PDF
 - Microsoft Word (DOCX)
 - Microsoft Excel
 - Microsoft PowerPoint
-- CSV files
-- Text files
-- And more through Unstructured.io
+- Fichiers CSV
+- Fichiers texte
+- Et plus par non structuré.io
 
 ## Notes
-- Requires AWS credentials (optional if using IAM roles)
-- Some file types may require specific processing methods
-- Unstructured.io API requires separate setup and credentials
-- Temporary files are created and managed automatically
-- Error handling for unsupported file types
+- Nécessite des informations d'identification AWS (facultative si vous utilisez des rôles IAM)
+- Certains types de fichiers peuvent nécessiter des méthodes de traitement spécifiques
+- L'API non structurée.io nécessite une configuration et des informations d'identification distinctes
+- Les fichiers temporaires sont créés et gérés automatiquement
+- Gestion des erreurs pour les types de fichiers non pris en charge
 
-## Unstructured Setup
+## Configuration non structurée
 
-You can either use the hosted API or running locally via Docker.
+Vous pouvez soit utiliser l'API hébergé ou exécuter localement via Docker.
 
 * [Hosted API](https://unstructured-io.github.io/unstructured/api.html)
-* Docker: `docker run -p 8000:8000 -d --rm --name unstructured-api quay.io/unstructured-io/unstructured-api:latest --port 8000 --host 0.0.0.0`
+* Docker:`docker run -p 8000:8000 -d --rm --name unstructured-api quay.io/unstructured-io/unstructured-api:latest --port 8000 --host 0.0.0.0`
 
-## S3 File Loader Setup
+## Configuration du chargeur de fichiers S3
 
-1\. Drag and drop S3 file loader onto canvas:
+1 \ \. Faites glisser et déposez le chargeur de fichiers S3 sur Canvas:
 
-<figure><img src="../../../.gitbook/assets/image (71).png" alt="" width="234"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (71) .png" alt = "" width = "234"> <Figcaption> </gigcaption> </ figure>
 
-2\. AWS Credential: Create a new credential for your AWS account. You'll need the access and secret key. Remember to grant s3 bucket policy to the associated account. You can refer to the policy guide [here](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.IAM.S3CreatePolicy.html).
+2 \. Indemnité AWS: créez un nouvel diplôme pour votre compte AWS. Vous aurez besoin de l'accès et de la clé secrète. N'oubliez pas d'accorder la politique du seau S3 au compte associé. Vous pouvez vous référer au guide politique[here](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.IAM.S3CreatePolicy.html).
 
-<figure><img src="../../../.gitbook/assets/image (72).png" alt="" width="551"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (72) .png" alt = "" width = "551"> <Figcaption> </ Figcaption> </ Figure>
 
-3. Bucket: Login to your AWS console and navigate to S3. Get your bucket name:&#x20;
+3. Bodet: Connectez-vous à votre console AWS et accédez à S3. Obtenez le nom de votre seau:
 
-<figure><img src="../../../.gitbook/assets/image (73).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (73) .png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-4. Key: Click on the object you would like to use, and get the Key name:
+4. Clé: cliquez sur l'objet que vous souhaitez utiliser et obtenez le nom de la clé:
 
-<figure><img src="../../../.gitbook/assets/image (75).png" alt="" width="228"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (75) .png" alt = "" width = "228"> <Figcaption> </ Figcaption> </ Figure>
 
-5. Unstructured API URL: Depending on how you are using Unstructured, whether its through Hosted API or Docker, change the Unstructured API URL parameter. If you are using Hosted API, you'll need the API key as well.
-6. You can then start chatting with your file from S3. You don't have to specify the text splitter for chunking down the document because thats handled by Unstructured automatically.
+5. URL de l'API non structurée: Selon la façon dont vous utilisez non structuré, que ce soit via une API ou Docker hébergée, modifiez le paramètre URL de l'API non structuré. Si vous utilisez une API hébergée, vous aurez également besoin de la touche API.
+6. Vous pouvez ensuite commencer à discuter avec votre fichier depuis S3. Vous n'avez pas à spécifier le séparateur de texte pour la réduction du document car il est géré automatiquement par non-structuré.
 
-<figure><img src="../../../.gitbook/assets/screely-1698767992182.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Screly-1698767992182.png" alt = ""> <Figcaption> </ FigCaption> </gigust>
 

@@ -1,11 +1,11 @@
 ---
-description: QA chain for vector databases.
+description: Chaîne QA pour les bases de données vectorielles.
 ---
 
-# VectorDB QA Chain
+# Chaîne QA VectorDB
 
-<figure><img src="../../../.gitbook/assets/image (41).png" alt="" width="339"><figcaption><p>VectorDB QA Chain Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (41).png" alt="" width="339"><figcaption><p>Noeud de la chaîne QA VectorDB</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
+Cette section est en cours de développement. Nous apprécions toute aide que vous pouvez apporter pour compléter cette section. Veuillez consulter notre [Guide de Contribution](broken-reference) pour commencer.
 {% endhint %}

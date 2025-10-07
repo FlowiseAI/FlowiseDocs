@@ -2,10 +2,10 @@
 description: Use a chain as allowed tool for agent.
 ---
 
-# Chain Tool
+# Outil de chaîne
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2).png" alt="" width="307"><figcaption><p>Chain Tool Node</p></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) .png" alt = "" width = "307"> <Figcaption> <p> Node d'outil de chaîne </p> </figction>
 
-{% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
-{% endhint %}
+{% hint style = "info"%}
+Cette section est un travail en cours. Nous apprécions toute aide que vous pouvez fournir pour terminer cette section. Veuillez vérifier notre[Contribution Guide](broken-reference)Pour commencer.
+{% EndHint%}

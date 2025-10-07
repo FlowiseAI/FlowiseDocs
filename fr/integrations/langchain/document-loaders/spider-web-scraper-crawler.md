@@ -2,65 +2,65 @@
 description: Scrape & Crawl the web with Spider - the fastest open source web scraper & crawler.
 ---
 
-# Spider Web Scraper/Crawler
+# Spider web grattoir / Crawler
 
-<figure><img src="../../../.gitbook/assets/spider.png" alt="Spider Node" width="365"><figcaption><p>Spider Web Scraper/Crawler Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / spider.png" alt = "Spider Node" width = "365"> <figcaption> <p> spider web scraper / crawler nœud </p> </ figcaption> </pigucial>
 
-[Spider](https://spider.cloud/?ref=flowise) is the fastest open source web scraper & crawler that returns LLM-ready data. To get started using this node you need an API key from [Spider.cloud](https://spider.cloud/?ref=flowise).
+[Spider](https://spider.cloud/?ref=flowise)est le grattoir et le robot d'open source le plus rapide qui renvoie les données pratiquées par LLM. Pour commencer à utiliser ce nœud, vous avez besoin d'une clé API à partir de[Spider.cloud](https://spider.cloud/?ref=flowise).
 
-## Get Started
+## Commencer
 
-1. Go to the [Spider.cloud](https://spider.cloud/?ref=flowise) website and sign up for a free account.
-2. Then go to the [API Keys](https://spider.cloud/api-keys) and create a new API key.
-3. Copy the API key and paste it into the "Credential" field in the Spider node.
+1. Aller au[Spider.cloud](https://spider.cloud/?ref=flowise)Site Web et inscrivez-vous à un compte gratuit.
+2. Alors allez au[API Keys](https://spider.cloud/api-keys)et créer une nouvelle clé API.
+3. Copiez la touche API et collez-le dans le champ "Contalin" dans le nœud Spider.
 
-## Features
-- Two operation modes: Scrape and Crawl
-- Text splitting capabilities
-- Customizable metadata handling
-- Flexible parameter configuration
-- Multiple output formats
-- Markdown-formatted content
-- Rate limit handling
+## Caractéristiques
+- Deux modes d'opération: gratter et ramper
+- Capacités de division de texte
+- Manipulation des métadonnées personnalisables
+- Configuration des paramètres flexibles
+- Formats de sortie multiples
+- Contenu formulé Markdown
+- Manipulation des limites de taux
 
-## Inputs
+## Entrées
 
-### Required Parameters
-- **Mode**: Choose between:
-  - **Scrape**: Extract data from a single page
-  - **Crawl**: Extract data from multiple pages within the same domain
-- **Web Page URL**: The target URL to scrape or crawl (e.g., https://spider.cloud)
-- **Credential**: Spider API key
+### Paramètres requis
+- ** Mode **: Choisissez entre:
+  - ** Scrape **: Extraire les données d'une seule page
+  - ** Crawl **: Extraire les données de plusieurs pages dans le même domaine
+- ** URL de la page Web **: L'URL cible pour gratter ou ramper (par exemple, https://spider.cloud)
+- ** Prédiction **: clé API Spider
 
-### Optional Parameters
-- **Text Splitter**: A text splitter to process the extracted content
-- **Limit**: Maximum number of pages to crawl (default: 25, only applicable in crawl mode)
-- **Additional Metadata**: JSON object with additional metadata to add to documents
-- **Additional Parameters**: JSON object with [Spider API parameters](https://spider.cloud/docs/api)
-  - Example: `{ "anti_bot": true }`
-  - Note: `return_format` is always set to "markdown"
-- **Omit Metadata Keys**: Comma-separated list of metadata keys to exclude
-  - Format: `key1, key2, key3.nestedKey1`
-  - Use * to remove all default metadata
+### Paramètres facultatifs
+- ** Splitter du texte **: un séparateur de texte pour traiter le contenu extrait
+- ** Limite **: Nombre maximum de pages à ramper (par défaut: 25, uniquement applicable en mode crawl)
+- ** Métadonnées supplémentaires **: objet JSON avec des métadonnées supplémentaires à ajouter aux documents
+- ** Paramètres supplémentaires **: objet JSON avec[Spider API parameters](https://spider.cloud/docs/api)
+  - Exemple:`{ "anti_bot": true }`
+  - Note:`return_format`est toujours réglé sur "Markdown"
+- ** omettre les clés de métadonnées **: Liste des clés de métadonnées séparées par des virgules à exclure
+  - Format:`key1, key2, key3.nestedKey1`
+  - Utiliser * pour supprimer toutes les métadonnées par défaut
 
-## Outputs
+## Sorties
 
-- **Document**: Array of document objects containing:
-  - metadata: Page metadata and custom fields
-  - pageContent: Extracted content in markdown format
-- **Text**: Concatenated string of all extracted content
+- ** Document **: tableau d'objets de document contenant:
+  - métadonnées: métadonnées de page et champs personnalisés
+  - Concontent: Contenu extrait au format Markdown
+- ** Texte **: chaîne concaténée de tout contenu extrait
 
-## Document Structure
-Each document contains:
-- **pageContent**: The main content from the webpage in markdown format
-- **metadata**:
-  - source: The URL of the page
-  - Additional custom metadata (if specified)
-  - Filtered metadata (based on omitted keys)
+## Structure de document
+Chaque document contient:
+- ** PageContent **: Le contenu principal de la page Web au format Markdown
+- ** Metadata **:
+  - Source: L'URL de la page
+  - Métadonnées personnalisées supplémentaires (si spécifiées)
+  - Métadonnées filtrées (basées sur les clés omises)
 
-## Usage Examples
+## Exemples d'utilisation
 
-### Basic Scraping
+### Grattage de base
 ```json
 {
   "mode": "scrape",
@@ -69,7 +69,7 @@ Each document contains:
 }
 ```
 
-### Advanced Crawling
+### Rampant avancé
 ```json
 {
   "mode": "crawl",
@@ -86,15 +86,15 @@ Each document contains:
 }
 ```
 
-## Example
+## Exemple
 
-<figure><img src="../../../.gitbook/assets/spider_example_usage.png" alt="Example on using spider node" width="365"><figcaption><p>Example on using Spider node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Spider_Example_Usage.png" Alt = "Exemple sur Spider Node" Width = "365"> <Figcaption> <p> Exemple sur Spider Node </p> </gigcaption> </ Figure>
 
 ## Notes
-- The crawler respects the specified limit for crawl operations
-- All content is returned in markdown format
-- Error handling is built-in for both scraping and crawling operations
-- Invalid JSON configurations are handled gracefully
-- Memory-efficient processing of large websites
-- Supports both single-page and multi-page extraction
-- Automatic metadata handling and filtering
+- Le robotage respecte la limite spécifiée pour les opérations de crawl
+- Tout le contenu est renvoyé au format Markdown
+- La gestion des erreurs est intégrée à la fois pour les opérations de grattage et de rampe
+- Les configurations JSON non valides sont traitées gracieusement
+- Traitement économe en mémoire des grands sites Web
+- Prend en charge l'extraction à une seule page et à plusieurs pages
+- Manipulation automatique des métadonnées et filtrage

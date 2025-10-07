@@ -2,17 +2,17 @@
 description: LangChain Document Loader Nodes
 ---
 
-# Document Loaders
+# Chargeurs de documents
 
 ***
 
-Document loaders allow you to load documents from different sources like PDF, TXT, CSV, Notion, Confluence etc. They are often used together with [Vector Stores](../vector-stores/) to be upserted as embeddings, which can then retrieved upon query.
+Les chargeurs de documents vous permettent de charger des documents provenant de différentes sources comme PDF, TXT, CSV, notion, confluence, etc. Ils sont souvent utilisés avec[Vector Stores](../vector-stores/)à être mis en baisse comme des intérêts, qui peuvent ensuite récupérer sur la requête.
 
-### Watch an intro on Document Loaders
+### Regardez une introduction sur les chargeurs de documents
 
-{% embed url="https://youtu.be/kMtf9sNIcao" %}
+{% embed url = "https://youtu.be/kmtf9snicao"%}
 
-### Document Loader Nodes:
+### Nœuds de chargeur de documents:
 
 * [Airtable](airtable.md)
 * [API Loader](api-loader.md)

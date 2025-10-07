@@ -1,22 +1,22 @@
-# Query Engine
+# Moteur de requête
 
-A query engine serves as an end-to-end pipeline enabling users to ask questions about their data. It receives a natural language query and furnishes a response, accompanied by relevant context information retrieved and passed to the LLM (Large Language Model).
+Un moteur de requête sert de pipeline de bout en bout permet aux utilisateurs de poser des questions sur leurs données. Il reçoit une requête en langue naturelle et fournit une réponse, accompagnée d'informations de contexte pertinentes récupérées et transmises au LLM (modèle de grande langue).
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (3) (1) (1) (1) (1) (1) (1) (2) (1) .png" alt = ""> <figCaption> </FigCaption> </pigucial>
 
-## Inputs
+## Entrées
 
-* Vector Store Retriever
+* Retriever du magasin vectoriel
 * [Response Synthesizer](../response-synthesizer/)
 
-## Parameters
+## Paramètres
 
-| Name                    | Description                                                         |
+| Nom | Description |
 | ----------------------- | ------------------------------------------------------------------- |
-| Return Source Documents | To return citations/sources that were used to build up the response |
+| Retour des documents source | Pour retourner les citations / sources qui ont été utilisées pour construire la réponse |
 
-## Outputs
+## Sorties
 
-| Name        | Description                   |
+| Nom | Description |
 | ----------- | ----------------------------- |
-| QueryEngine | Final node to return response |
+| QueryEngine | Node final pour retourner la réponse |

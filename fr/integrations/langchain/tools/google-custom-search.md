@@ -4,10 +4,10 @@ description: >-
   search results.
 ---
 
-# Google Custom Search
+# Recherche personnalisée Google
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (2) (1).png" alt="" width="310"><figcaption><p>Google Custom Search Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (3) (1) (1) (1) (1) (1) (1) (1) (2) (1) .png" Alt = "" width = "310"> <pigcaption> <p> google meustrech nœud </p> </Figcaption> </gigu
 
-{% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
-{% endhint %}
+{% hint style = "info"%}
+Cette section est un travail en cours. Nous apprécions toute aide que vous pouvez fournir pour terminer cette section. Veuillez vérifier notre[Contribution Guide](broken-reference)Pour commencer.
+{% EndHint%}

@@ -1,59 +1,59 @@
-# Azure OpenAI Embeddings
+# Azure Openai Embeddings
 
-## Prerequisite
+## Condition préalable
 
-1. [Log in](https://portal.azure.com/) or [sign up](https://azure.microsoft.com/en-us/free/) to Azure
-2. [Create](https://portal.azure.com/#create/Microsoft.CognitiveServicesOpenAI) your Azure OpenAI and wait for approval approximately 10 business days
-3. Your API key will be available at **Azure OpenAI** > click **name\_azure\_openai** > click **Click here to manage keys**
+1. [Log in](https://portal.azure.com/)ou[sign up](https://azure.microsoft.com/en-us/free/)à Azure
+2. [Create](https://portal.azure.com/#create/Microsoft.CognitiveServicesOpenAI)Votre Azure Openai et attendez l'approbation d'environ 10 jours ouvrables
+3. Votre touche API sera disponible sur ** Azure Openai **> Cliquez sur ** Nom \ _Azure \ _Openai **> Cliquez sur ** Cliquez ici pour gérer les touches **
 
-<figure><img src="../../../.gitbook/assets/azure/azure-general/1.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / Azure / Azure-General / 1.png" alt = ""> <Figcaption> </gigcaption> </ figure>
 
-## Setup
+## Installation
 
-### Azure OpenAI Embeddings
+### Azure Openai Embeddings
 
-1. Click **Go to Azure OpenaAI Studio**
+1. Cliquez sur ** Accédez à Azure OpenAai Studio **
 
-<figure><img src="../../../.gitbook/assets/azure/azure-general/2.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / Azure / Azure-General / 2.png" alt = ""> <Figcaption> </gigcaption> </ figure>
 
-2. Click **Deployments**
+2. Cliquez sur ** Déploiements **
 
-<figure><img src="../../../.gitbook/assets/azure/azure-general/3.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Azure / Azure-General / 3.png" alt = ""> <Figcaption> </gigcaption> </ figure>
 
-3. Click **Create new deployment**
+3. Cliquez sur ** Créer un nouveau déploiement **
 
-<figure><img src="../../../.gitbook/assets/azure/azure-general/4.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / Azure / Azure-General / 4.png" alt = ""> <Figcaption> </gigcaption> </ figure>
 
-4. Select as shown below and click **Create**
+4. Sélectionnez comme indiqué ci-dessous et cliquez sur ** Créer **
 
-<figure><img src="../../../.gitbook/assets/azure/azure-openai-embeddings/1.png" alt="" width="559"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Azure / Azure-Openai-Embeddings / 1.png" alt = "" width = "559"> <Figcaption> </ Figcaption> </ Figure>
 
-5. Successfully created **Azure OpenAI Embeddings**
+5. Créé avec succès ** Azure Openai Embeddings **
 
-* Deployment name: `text-embedding-ada-002`
-* Instance name: `top right conner`
+* Nom du déploiement:`text-embedding-ada-002`
+* Nom de l'instance:`top right conner`
 
-<figure><img src="../../../.gitbook/assets/azure/azure-openai-embeddings/2.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. gitbook / actifs / azure / azure-openai-embeddings / 2.png" alt = ""> <figcaption> </gigcaption> </gigne>
 
-### Flowise
+### Couler
 
-1. **Embeddings** > drag **Azure OpenAI Embeddings** node
+1. ** Embeddings **> glisser ** Azure Openai Embeddings ** Node
 
-<figure><img src="../../../.gitbook/assets/azure/azure-openai-embeddings/3.png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Azure / Azure-Openai-Embeddings / 3.png" alt = "" width = "563"> <Figcaption> </gigCaption> </ Figure>
 
-2. **Connect Credential** > click **Create New**
+2. ** Connectez les informations d'identification **> Cliquez sur ** Créer un nouveau **
 
-<figure><img src="../../../.gitbook/assets/azure/azure-openai-embeddings/4.png" alt="" width="386"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Azure / Azure-Openai-Embeddings / 4.png" Alt = "" width = "386"> <Figcaption> </gigCaption> </ Figure>
 
-3. Copy & Paste each details (API Key, Instance & Deployment name, [API Version](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference#chat-completions)) into **Azure OpenAI Embeddings** credential
+3. Copier et coller chaque détail (clé API, instance et nom de déploiement,[API Version](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference#chat-completions)) dans ** azure openai embeddings ** titres d'identification
 
-<figure><img src="../../../.gitbook/assets/azure/azure-openai-embeddings/5.png" alt="" width="554"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Azure / Azure-Openai-Embeddings / 5.png" alt = "" width = "554"> <Figcaption> </ Figcaption> </ Figure>
 
-4. Voila [🎉](https://emojipedia.org/party-popper/), you have created **Azure OpenAI Embeddings node** in Flowise
+4. Tour[🎉](https://emojipedia.org/party-popper/), vous avez créé ** Azure Openai Embeddings Node ** en Flowise
 
-<figure><img src="../../../.gitbook/assets/azure/azure-general/5.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / Azure / Azure-General / 5.png" alt = ""> <Figcaption> </gigcaption> </ figure>
 
-## Resources
+## Ressources
 
 * [LangChain JS Azure OpenAI Embeddings](https://js.langchain.com/docs/modules/data\_connection/text\_embedding/integrations/azure\_openai)
 * [Azure OpenAI Service REST API reference](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference)

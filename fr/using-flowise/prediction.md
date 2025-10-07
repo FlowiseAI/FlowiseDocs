@@ -1,26 +1,26 @@
-# Prediction
+# Prédiction
 
-Prediction API is the primary endpoint for interacting with your Flowise flows and assistants. It allows you to send messages to your selected flow and receive responses back. This API handles the core chat functionality, including:
+L'API de prédiction est le principal critère d'évaluation pour interagir avec vos flux et assistants fluide. Il vous permet d'envoyer des messages à votre flux sélectionné et de recevoir des réponses. Cette API gère la fonctionnalité de chat de base, notamment:
 
-* **Chat Interactions**: Send questions or messages to your flow and receive AI-generated responses
-* **Streaming Responses**: Get real-time streaming responses for better user experience
-* **Conversation Memory**: Maintain context across multiple messages within a session
-* **File Processing**: Upload and process images, audio, and other files as part of your queries
-* **Dynamic Configuration**: Override chatflow settings and pass variables at runtime
+* ** Interactions de chat **: Envoyez des questions ou des messages à votre flux et recevez des réponses générées par l'AI-AI
+* ** Réponses en streaming **: Obtenez des réponses en streaming en temps réel pour une meilleure expérience utilisateur
+* ** Mémoire de conversation **: Maintenir le contexte sur plusieurs messages d'une session
+* ** Traitement de fichiers **: Télécharger et traiter les images, l'audio et autres fichiers dans le cadre de vos requêtes
+* ** Configuration dynamique **: remplacer les paramètres de chat et les variables de passes à l'exécution
 
-For details, see the [Prediction Endpoint API Reference](../api-reference/prediction.md).
+Pour plus de détails, voir le[Prediction Endpoint API Reference](../api-reference/prediction.md).
 
-## Base URL and Authentication
+## URL de base et authentification
 
-**Base URL**: `http://localhost:3000` (or your Flowise instance URL)
+** URL de base **:`http://localhost:3000`(ou votre URL d'instance fluide)
 
-**Endpoint**: `POST /api/v1/prediction/:id`
+** Point de terminaison **:`POST /api/v1/prediction/:id`
 
-**Authentication**: Refer [Authentication for Flows](../configuration/authorization/chatflow-level.md)
+** Authentification **: se référer[Authentication for Flows](../configuration/authorization/chatflow-level.md)
 
-## Request Format
+## Demander le format
 
-#### Basic Request Structure
+#### Structure de base de la demande
 
 ```json
 {
@@ -33,32 +33,32 @@ For details, see the [Prediction Endpoint API Reference](../api-reference/predic
 }
 ```
 
-#### Parameters
+#### Paramètres
 
-| Parameter        | Type    | Required                    | Description                                 |
+| Paramètre | Type | Requis | Description |
 | ---------------- | ------- | --------------------------- | ------------------------------------------- |
-| `question`       | string  | Yes                         | The message/question to send to the flow    |
-| `form`           | object  | Either `question` or `form` | The form object to send to the flow         |
-| `streaming`      | boolean | No                          | Enable streaming responses (default: false) |
-| `overrideConfig` | object  | No                          | Override flow configuration                 |
-| `history`        | array   | No                          | Previous conversation messages              |
-| `uploads`        | array   | No                          | Files to upload (images, audio, etc.)       |
-| `humanInput`     | object  | No                          | Return human feedback and resume execution  |
+| `question`| String | Oui | Le message / question à envoyer au flux |
+| `form`| Objet | Soit`question`ou`form`| L'objet formulaire à envoyer à l'écoulement |
+| `streaming`| booléen | Non | Activer les réponses en streaming (par défaut: false) |
+| `overrideConfig`| Objet | Non | Remplacez la configuration du flux |
+| `history`| tableau | Non | Messages de conversation précédents |
+| `uploads`| tableau | Non | Fichiers à télécharger (images, audio, etc.) |
+| `humanInput`| Objet | Non | Renvoie les commentaires humains et le curriculum vitae |
 
-## SDK Libraries
+## Bibliothèques SDK
 
-Flowise provides official SDKs for Python and TypeScript/JavaScript:
+Flowise fournit des SDK officiels pour Python et TypeScript / JavaScript:
 
 #### Installation
 
-**Python**: `pip install flowise`
+**Python**:`pip install flowise`
 
-**TypeScript/JavaScript**: `npm install flowise-sdk`
+** TypeScript / JavaScript **:`npm install flowise-sdk`
 
-#### Python SDK Usage
+#### Utilisation du SDK Python
 
-{% tabs %}
-{% tab title="Basic Usage" %}
+{% Tabs%}
+{% tab title = "USAGE BASIC"%}
 ```python
 from flowise import Flowise, PredictionData
 
@@ -82,9 +82,9 @@ try:
 except Exception as e:
     print(f"Error: {e}")
 ```
-{% endtab %}
+{% endtab%}
 
-{% tab title="Streaming" %}
+{% tab title = "streaming"%}
 ```python
 from flowise import Flowise, PredictionData
 
@@ -108,9 +108,9 @@ try:
 except Exception as e:
     print(f"Error: {e}")
 ```
-{% endtab %}
+{% endtab%}
 
-{% tab title="With Configuration" %}
+{% tab title = "avec configuration"%}
 ```python
 from flowise import Flowise, PredictionData
 
@@ -138,13 +138,13 @@ try:
 except Exception as e:
     print(f"Error: {e}")
 ```
-{% endtab %}
-{% endtabs %}
+{% endtab%}
+{% endtabs%}
 
-#### TypeScript/JavaScript SDK Usage
+#### Utilisation du SDK TypeScript / JavaScript
 
-{% tabs %}
-{% tab title="Basic Usage" %}
+{% Tabs%}
+{% tab title = "USAGE BASIC"%}
 ```typescript
 import { FlowiseClient } from 'flowise-sdk';
 
@@ -171,9 +171,9 @@ async function chatWithFlow() {
 
 chatWithFlow();
 ```
-{% endtab %}
+{% endtab%}
 
-{% tab title="Streaming" %}
+{% tab title = "streaming"%}
 ```typescript
 import { FlowiseClient } from 'flowise-sdk';
 
@@ -202,9 +202,9 @@ async function streamingChat() {
 
 streamingChat();
 ```
-{% endtab %}
+{% endtab%}
 
-{% tab title="With Configuration" %}
+{% tab title = "avec configuration"%}
 ```typescript
 import { FlowiseClient } from 'flowise-sdk';
 
@@ -236,17 +236,17 @@ async function advancedChat() {
 
 advancedChat();
 ```
-{% endtab %}
-{% endtabs %}
+{% endtab%}
+{% endtabs%}
 
-## Direct HTTP API Usage
+## Utilisation directe de l'API HTTP
 
-If you prefer to use the REST API directly without SDKs:
+Si vous préférez utiliser l'API REST directement sans SDKS:
 
-#### Basic Request
+#### Demande de base
 
-{% tabs %}
-{% tab title="Python (requests)" %}
+{% Tabs%}
+{% tab title = "python (requêtes)"%}
 ```python
 import requests
 import json
@@ -283,9 +283,9 @@ result = send_message(
 if result:
     print("Response:", result)
 ```
-{% endtab %}
+{% endtab%}
 
-{% tab title="JavaScript (fetch)" %}
+{% tab title = "javascript (fetch)"%}
 ```javascript
 async function sendMessage(chatflowId, question, streaming = false) {
     const url = `http://localhost:3000/api/v1/prediction/${chatflowId}`;
@@ -328,9 +328,9 @@ sendMessage(
     }
 });
 ```
-{% endtab %}
+{% endtab%}
 
-{% tab title="cURL" %}
+{% tab title = "curl"%}
 ```bash
 curl -X POST "http://localhost:3000/api/v1/prediction/your-chatflow-id" \
   -H "Content-Type: application/json" \
@@ -339,18 +339,18 @@ curl -X POST "http://localhost:3000/api/v1/prediction/your-chatflow-id" \
     "streaming": false
   }'
 ```
-{% endtab %}
-{% endtabs %}
+{% endtab%}
+{% endtabs%}
 
-## Advanced Features
+## Fonctionnalités avancées
 
-### Form Input
+### Entrée de formulaire
 
-In Agentflow V2, you can select `form` as input type.
+Dans AgentFlow v2, vous pouvez sélectionner`form`comme type d'entrée.
 
-<figure><img src="../.gitbook/assets/image (333).png" alt="" width="418"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (333) .png" alt = "" width = "418"> <Figcaption> </ Figcaption> </gigne>
 
-You can override the value by Variable Name of the Form Input
+Vous pouvez remplacer la valeur par nom de variable de l'entrée de formulaire
 
 ```json
 {
@@ -362,8 +362,8 @@ You can override the value by Variable Name of the Form Input
 }
 ```
 
-{% tabs %}
-{% tab title="Python" %}
+{% Tabs%}
+{% tab title = "python"%}
 ```python
 import requests
 
@@ -392,9 +392,9 @@ result = prediction(
 
 print(result)
 ```
-{% endtab %}
+{% endtab%}
 
-{% tab title="JavaScript" %}
+{% tab title = "javascript"%}
 ```javascript
 async function prediction(flowId, form) {
     const url = `http://localhost:3000/api/v1/prediction/${flowId}`;
@@ -434,19 +434,19 @@ prediction(
     console.log(result);
 });
 ```
-{% endtab %}
-{% endtabs %}
+{% endtab%}
+{% endtabs%}
 
-### Configuration Override
+### Remplacement de la configuration
 
-Override chatflow settings dynamically.
+Remplacez dynamiquement les paramètres de ChatFlow.
 
-Override config is **disabled** by default for security reasons. Enable it from the top right: **Settings** → **Configuration** → **Security** tab:
+La configuration de remplacement est ** désactivée ** Par défaut pour des raisons de sécurité. Activez-le en haut à droite: ** Paramètres ** → ** Configuration ** → ** Sécurité ** Tab:
 
-<div align="right" data-full-width="false"><figure><img src="../.gitbook/assets/image (21).png" alt=""><figcaption></figcaption></figure></div>
+<div align = "droite" data-ull-width = "false"> <gigne> <img src = "../. gitbook / actifs / image (21) .png" alt = ""> <figcaption> </gigcaption> </ fig> </div>
 
-{% tabs %}
-{% tab title="Python" %}
+{% Tabs%}
+{% tab title = "python"%}
 ```python
 import requests
 
@@ -479,9 +479,9 @@ result = query_with_config(
 
 print(result)
 ```
-{% endtab %}
+{% endtab%}
 
-{% tab title="JavaScript" %}
+{% tab title = "javascript"%}
 ```javascript
 async function queryWithConfig(flowId, question, config) {
     const url = `http://localhost:3000/api/v1/prediction/${flowId}`;
@@ -525,12 +525,12 @@ queryWithConfig(
     console.log(result);
 });
 ```
-{% endtab %}
-{% endtabs %}
+{% endtab%}
+{% endtabs%}
 
-For `array` type, hovering over the info icon will shows the schema that can be overriden.
+Pour`array`Type, survol de l'icône Info affichera le schéma qui peut être remplacé.
 
-Array value from overrideConfig will concatenate with existing array values. For example, if existing `startState` has:
+La valeur du tableau de OverRideConfig se concatera avec les valeurs de tableau existantes. Par exemple, si existant`startState`a:
 
 ```json
 {
@@ -539,9 +539,9 @@ Array value from overrideConfig will concatenate with existing array values. For
 }
 ```
 
-And if we enable override:
+Et si nous permettons de remplacer:
 
-<figure><img src="../.gitbook/assets/image (337).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (337) .png" alt = ""> <figcaption> </gigcaption> </gigust>
 
 ```json
 "overrideConfig": {
@@ -560,7 +560,7 @@ And if we enable override:
 }
 ```
 
-The final `startState` will be:
+La finale`startState`sera:
 
 ```json
 [
@@ -575,19 +575,19 @@ The final `startState` will be:
 ]
 ```
 
-### Overriding Specific Node
+### Overrifier le nœud spécifique
 
-By default, if multiple nodes share the same type and no node ID is specified, overriding a property will update that property across all matching nodes.
+Par défaut, si plusieurs nœuds partagent le même type et qu'aucun ID de nœud n'est spécifié, le remplacement d'une propriété mettra à jour cette propriété sur tous les nœuds correspondants.
 
-For example, there are 2 LLM nodes where I want to override the system message:
+Par exemple, il y a 2 nœuds LLM où je souhaite remplacer le message système:
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (3) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-After enabling the ability to override:
+Après avoir permis la possibilité de remplacer:
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (1) .png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-I can override the system message for both LLMs like so:
+Je peux remplacer le message système pour les deux LLM comme ainsi:
 
 ```json
 "overrideConfig": {
@@ -600,15 +600,15 @@ I can override the system message for both LLMs like so:
 }
 ```
 
-From the Execution, you can see the overriden system message:
+Depuis l'exécution, vous pouvez voir le message du système Overriden:
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (4) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (5) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-In some cases, you might want to just override config for specific node. You can do so by specifying the node id **inside** the property you want to override.
+Dans certains cas, vous voudrez peut-être simplement remplacer la configuration pour un nœud spécifique. Vous pouvez le faire en spécifiant l'ID de nœud ** à l'intérieur ** la propriété que vous souhaitez remplacer.
 
-For example:
+Par exemple:
 
 ```json
 "overrideConfig": {
@@ -629,17 +629,17 @@ For example:
 }
 ```
 
-If you head back to Execution, you can see each LLM has the correct overriden value:
+Si vous retournez à l'exécution, vous pouvez voir que chaque LLM a la valeur de dépassement correcte:
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (6) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (7) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-### Conversation History
+### Histoire de la conversation
 
-Provide conversation context by including previous messages in the history array.
+Fournir un contexte de conversation en incluant des messages précédents dans le tableau d'historique.
 
-**History Message Format**
+** Format de message d'histoire **
 
 ```json
 {
@@ -648,8 +648,8 @@ Provide conversation context by including previous messages in the history array
 }
 ```
 
-{% tabs %}
-{% tab title="Python" %}
+{% Tabs%}
+{% tab title = "python"%}
 ```python
 import requests
 
@@ -693,9 +693,9 @@ result = chat_with_history(
 
 print(result)
 ```
-{% endtab %}
+{% endtab%}
 
-{% tab title="JavaScript" %}
+{% tab title = "javascript"%}
 ```javascript
 async function chatWithHistory(flowId, question, history) {
     const url = `http://localhost:3000/api/v1/prediction/${flowId}`;
@@ -750,15 +750,15 @@ chatWithHistory(
     console.log(result);
 });
 ```
-{% endtab %}
-{% endtabs %}
+{% endtab%}
+{% endtabs%}
 
-### Session Management
+### Gestion de session
 
-Use `sessionId` to maintain conversation state across multiple API calls. Each session maintains its own conversation context and memory.
+Utiliser`sessionId`Pour maintenir l'état de conversation sur plusieurs appels d'API. Chaque session maintient son propre contexte de conversation et sa mémoire.
 
-{% tabs %}
-{% tab title="Python" %}
+{% Tabs%}
+{% tab title = "python"%}
 ```python
 import requests
 
@@ -805,9 +805,9 @@ print("Response 1:", response1)
 response2 = session.send_message("What's my name?")
 print("Response 2:", response2)
 ```
-{% endtab %}
+{% endtab%}
 
-{% tab title="JavaScript" %}
+{% tab title = "javascript"%}
 ```javascript
 class FlowiseSession {
     constructor(flowId, sessionId, baseUrl = 'http://localhost:3000') {
@@ -865,19 +865,19 @@ async function conversationExample() {
 
 conversationExample();
 ```
-{% endtab %}
-{% endtabs %}
+{% endtab%}
+{% endtabs%}
 
 ### Variables
 
-Pass dynamic variables to your flow using the `vars` property in `overrideConfig`. Variables can be used in your flow to inject dynamic content.
+Passer des variables dynamiques à votre flux en utilisant le`vars`propriété`overrideConfig`. Les variables peuvent être utilisées dans votre flux pour injecter un contenu dynamique.
 
-{% hint style="warning" %}
-Variables must be created first before you can override it. Refer to [Variables](variables.md)
-{% endhint %}
+{% hint style = "avertissement"%}
+Les variables doivent être créées avant de pouvoir la remplacer. Se référer à[Variables](variables.md)
+{% EndHint%}
 
-{% tabs %}
-{% tab title="Python" %}
+{% Tabs%}
+{% tab title = "python"%}
 ```python
 import requests
 
@@ -914,9 +914,9 @@ result = send_with_variables(
 
 print(result)
 ```
-{% endtab %}
+{% endtab%}
 
-{% tab title="JavaScript" %}
+{% tab title = "javascript"%}
 ```javascript
 async function sendWithVariables(flowId, question, variables) {
     const url = `http://localhost:3000/api/v1/prediction/${flowId}`;
@@ -964,14 +964,14 @@ sendWithVariables(
     console.log(result);
 });
 ```
-{% endtab %}
-{% endtabs %}
+{% endtab%}
+{% endtabs%}
 
-### Image Uploads
+### Téléchargements d'images
 
-Upload images for visual analysis when your flow supports image processing. Refer to [Image](uploads.md#image) for more reference.
+Téléchargez des images pour une analyse visuelle lorsque votre flux prend en charge le traitement d'image. Se référer à[Image](uploads.md#image)Pour plus de référence.
 
-**Upload Structure:**
+** Structure de téléchargement: **
 
 ```json
 {
@@ -982,16 +982,16 @@ Upload images for visual analysis when your flow supports image processing. Refe
 }
 ```
 
-**Data:** Base64 or URL of an image
+** Données: ** base64 ou URL d'une image
 
-**Type**: `url` or `file`
+**Taper**:`url`ou`file`
 
-**Name:** name of the image
+** Nom: ** Nom de l'image
 
-**Mime**: `image/png`, `image/jpeg`, `image/jpg`
+**Mime**:`image/png`, `image/jpeg`, `image/jpg`
 
-{% tabs %}
-{% tab title="Python (Base64)" %}
+{% Tabs%}
+{% Tab Title = "Python (base64)"%}
 ```python
 import requests
 import base64
@@ -1045,9 +1045,9 @@ result = upload_image(
 
 print(result)
 ```
-{% endtab %}
+{% endtab%}
 
-{% tab title="Python (URL)" %}
+{% Tab Title = "Python (URL)"%}
 ```python
 import requests
 import os
@@ -1116,9 +1116,9 @@ result2 = upload_image_url(
 
 print(result2)
 ```
-{% endtab %}
+{% endtab%}
 
-{% tab title="JavaScript (File Upload)" %}
+{% tab title = "JavaScript (Fichier Téléchargement)"%}
 ```javascript
 async function uploadImage(flowId, question, imageFile) {
     return new Promise((resolve, reject) => {
@@ -1185,9 +1185,9 @@ document.getElementById('imageInput').addEventListener('change', async function(
     }
 });
 ```
-{% endtab %}
+{% endtab%}
 
-{% tab title="JavaScript (URL)" %}
+{% tab title = "javascript (url)"%}
 ```javascript
 async function uploadImageUrl(flowId, question, imageUrl, imageName = null) {
     /**
@@ -1298,9 +1298,9 @@ async function analyzeMultipleImages() {
     });
 }
 ```
-{% endtab %}
+{% endtab%}
 
-{% tab title="JavaScript (Node.js)" %}
+{% tab title = "javascript (node.js)"%}
 ```javascript
 const fs = require('fs');
 const path = require('path');
@@ -1363,14 +1363,14 @@ uploadImage(
     console.log('Analysis result:', result);
 });
 ```
-{% endtab %}
-{% endtabs %}
+{% endtab%}
+{% endtabs%}
 
-### Audio Uploads (Speech to Text)
+### Téléchargements audio (discours au texte)
 
-Upload audio files for speech-to-text processing. Refer to [Audio](uploads.md#audio) for more reference.
+Téléchargez des fichiers audio pour le traitement de la parole à texte. Se référer à[Audio](uploads.md#audio)Pour plus de référence.
 
-**Upload Structure:**
+** Structure de téléchargement: **
 
 ```json
 {
@@ -1381,16 +1381,16 @@ Upload audio files for speech-to-text processing. Refer to [Audio](uploads.md#au
 }
 ```
 
-**Data:** Base64 or URL of an audio
+** Données: ** base64 ou URL d'un audio
 
-**Type**: `url` or `file`
+**Taper**:`url`ou`file`
 
-**Name:** name of the audio
+** Nom: ** Nom de l'audio
 
-**Mime**: `audio/mp4`, `audio/webm`, `audio/wav`, `audio/mpeg`
+**Mime**:`audio/mp4`, `audio/webm`, `audio/wav`, `audio/mpeg`
 
-{% tabs %}
-{% tab title="Python (Base64)" %}
+{% Tabs%}
+{% Tab Title = "Python (base64)"%}
 ```python
 import requests
 import base64
@@ -1446,9 +1446,9 @@ result = upload_audio(
 
 print(result)
 ```
-{% endtab %}
+{% endtab%}
 
-{% tab title="Python (URL)" %}
+{% Tab Title = "Python (URL)"%}
 ```python
 import requests
 import os
@@ -1530,9 +1530,9 @@ result3 = upload_audio_url(
 
 print(result3)
 ```
-{% endtab %}
+{% endtab%}
 
-{% tab title="JavaScript (File Upload)" %}
+{% tab title = "JavaScript (Fichier Téléchargement)"%}
 ```javascript
 async function uploadAudio(flowId, audioFile, question = null) {
     return new Promise((resolve, reject) => {
@@ -1603,9 +1603,9 @@ document.getElementById('audioInput').addEventListener('change', async function(
     }
 });
 ```
-{% endtab %}
+{% endtab%}
 
-{% tab title="JavaScript (URL)" %}
+{% tab title = "javascript (url)"%}
 ```javascript
 async function uploadAudioUrl(flowId, audioUrl, question = null, audioName = null) {
     /**
@@ -1745,18 +1745,18 @@ async function transcribeMultipleAudios() {
     });
 }
 ```
-{% endtab %}
-{% endtabs %}
+{% endtab%}
+{% endtabs%}
 
-### File Uploads
+### Téléchargements de fichiers
 
-Upload files to have LLM process the files and answer query related to the files. Refer to [Files](uploads.md#files) for more reference.
+Téléchargez des fichiers pour faire en sorte que LLM traite les fichiers et répond à la requête liée aux fichiers. Se référer à[Files](uploads.md#files)Pour plus de référence.
 
-### Human Input
+### Entrée humaine
 
-To resume the execution from a previously stopped checkpoint, `humanInput` needs to be provided. Refer [Human In The Loop](../tutorials/human-in-the-loop.md) for details.
+Pour reprendre l'exécution à partir d'un point de contrôle précédemment arrêté,`humanInput`doit être fourni. Référer[Human In The Loop](../tutorials/human-in-the-loop.md)pour plus de détails.
 
-**Human Input Structure**
+** Structure d'entrée humaine **
 
 ```json
 {
@@ -1765,12 +1765,12 @@ To resume the execution from a previously stopped checkpoint, `humanInput` needs
 }
 ```
 
-* **type**: Either `proceed` or `reject`
-* **feedback**: Feedback to the last output
+* ** Type **: Soit`proceed`ou`reject`
+* ** Feedback **: commentaires à la dernière sortie
 
-{% hint style="warning" %}
-Must specify the same `sessionId` where the execution was stopped
-{% endhint %}
+{% hint style = "avertissement"%}
+Doit spécifier la même chose`sessionId`où l'exécution a été arrêtée
+{% EndHint%}
 
 ```json
 {
@@ -1784,10 +1784,10 @@ Must specify the same `sessionId` where the execution was stopped
 }
 ```
 
-## Troubleshooting
+## Dépannage
 
-1. **404 Not Found**: Verify the flow ID is correct and the flow exists
-2. **401 Unauthorized Access**: Verify if the flow is API key protected
-3. **400 Bad Request**: Check request format and required fields
-4. **413 Payload Too Large**: Reduce file sizes or split large requests
-5. **500 Internal Server Error:** Check if there is any misconfiguration from the nodes in the flow
+1. ** 404 introuvable **: Vérifiez que l'ID de flux est correct et le flux existe
+2. ** 401 Accès non autorisé **: Vérifiez si le flux est protégé par la clé API
+3. ** 400 Bad Demande **: Format de demande de vérification et champs requis
+4. ** 413 charge utile trop grande **: réduire les tailles de fichiers ou diviser de grandes demandes
+5. ** 500 Erreur du serveur interne: ** Vérifiez s'il y a une mauvaise configuration des nœuds dans le flux

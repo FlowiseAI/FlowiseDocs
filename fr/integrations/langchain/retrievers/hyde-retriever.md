@@ -2,10 +2,10 @@
 description: Use HyDE retriever to retrieve from a vector store.
 ---
 
-# HyDE Retriever
+# Hyde Retriever
 
-<figure><img src="../../../.gitbook/assets/image (143).png" alt="" width="302"><figcaption><p>HyDE Retriever Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (143) .png" alt = "" width = "302"> <Figcaption> <p> Hyde Retriever Node </p> </gigcaption> </ figure>
 
-{% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
-{% endhint %}
+{% hint style = "info"%}
+Cette section est un travail en cours. Nous apprécions toute aide que vous pouvez fournir pour terminer cette section. Veuillez vérifier notre[Contribution Guide](broken-reference)Pour commencer.
+{% EndHint%}

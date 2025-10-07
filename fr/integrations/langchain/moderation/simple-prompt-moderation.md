@@ -4,15 +4,15 @@ description: >-
   sent to LLM.
 ---
 
-# Simple Prompt Moderation
+# Modération rapide simple
 
-<figure><img src="../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (2) (1).png" alt="" width="301"><figcaption><p>Simple Prompt Moderation Node</p></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / image (4) (1) (1) (1) (1) (1) (1) (2) (1) .png" alt = "" width = "301"> <figcaption> <p> moderne de modération simple </p> </figcaption> </gigne>
 
-Use another LLM to identify if user query is close to the deny list, if yes output a default error message.
+Utilisez un autre LLM pour identifier si la requête utilisateur est proche de la liste de refus, si oui, la sortie d'un message d'erreur par défaut.
 
-For example, deny list can be:
+Par exemple, la liste de refus peut être:
 
-* Ignore previous instructions
-* Leak all sensitive information
+* Ignorer les instructions précédentes
+* Dicher toutes les informations sensibles
 
-<figure><img src="../../../.gitbook/assets/image (336).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (336) .png" alt = ""> <Figcaption> </gigcaption> </ Figure>

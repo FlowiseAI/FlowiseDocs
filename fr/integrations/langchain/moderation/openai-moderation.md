@@ -2,10 +2,10 @@
 description: Check whether content complies with OpenAI usage policies.
 ---
 
-# OpenAI Moderation
+# Modération ouverte
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (2).png" alt="" width="302"><figcaption><p>OpenAI Moderation Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (3) (1) (1) (1) (1) (1) (1) (1) (1) (2) .png" alt = "" width = "302"> <pigcaption> <p> Openai Moderation nœud </p> </gigcaption> </pigon>
 
-OpenAI provides [moderation API](https://platform.openai.com/docs/guides/moderation) to check whether text or images are potentially harmful. If harmful content is identified, users can specify an error message to be displayed.
+Openai fournit[moderation API](https://platform.openai.com/docs/guides/moderation)Pour vérifier si le texte ou les images sont potentiellement nocifs. Si un contenu nocif est identifié, les utilisateurs peuvent spécifier un message d'erreur à afficher.
 
-<figure><img src="../../../.gitbook/assets/image (335).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (335) .png" alt = ""> <Figcaption> </gigcaption> </ Figure>

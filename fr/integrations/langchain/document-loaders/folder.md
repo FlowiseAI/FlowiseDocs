@@ -1,92 +1,92 @@
-# Folder with Files Loader
+# Dossier avec chargeur de fichiers
 
-<figure><img src="../../../.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="262"><figcaption><p>Folder with Files Node</p></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / Image (9) (1) (1) (1) (1) (1) (1) (1) .png" alt = "" width = "262"> <pigtion> <p> Folder avec fichiers nœud </p> </gigcution> </gigne>
 
-The Folder Loader provides functionality to load and process multiple files from a directory. This module supports a wide range of file formats and can recursively process subdirectories.
+Le chargeur de dossier fournit des fonctionnalités pour charger et traiter plusieurs fichiers à partir d'un répertoire. Ce module prend en charge une large gamme de formats de fichiers et peut traiter récursivement des sous-répertoires.
 
-This module provides a sophisticated folder loader that can:
-- Load multiple file types simultaneously
-- Process directories recursively
-- Handle various document formats
-- Support PDF-specific processing
-- Process structured data files
-- Customize metadata extraction
-- Support text splitting
+Ce module fournit un chargeur de dossier sophistiqué qui peut:
+- Charger plusieurs types de fichiers simultanément
+- Traiter les répertoires récursivement
+- Gérer divers formats de documents
+- Prise en charge du traitement spécifique au PDF
+- Traiter les fichiers de données structurées
+- Personnaliser l'extraction des métadonnées
+- Prise en charge du fractionnement du texte
 
-## Inputs
+## Entrées
 
-### Required Parameters
-- **Folder Path**: Path to the directory containing files
-- **Recursive**: Whether to process subdirectories
+### Paramètres requis
+- ** Chemin de dossier **: Chemin vers le répertoire contenant des fichiers
+- ** récursif **: s'il faut traiter les sous-répertoires
 
-### Optional Parameters
-- **Text Splitter**: A text splitter to process the extracted content
-- **PDF Usage**: Choose between:
-  - One document per page
-  - One document per file
-- **JSONL Pointer Extraction**: Pointer name for JSONL files
-- **Additional Metadata**: JSON object with additional metadata
-- **Omit Metadata Keys**: Comma-separated list of metadata keys to omit
+### Paramètres facultatifs
+- ** Splitter du texte **: un séparateur de texte pour traiter le contenu extrait
+- ** Utilisation du PDF **: Choisissez entre:
+  - Un document par page
+  - Un document par fichier
+- ** Extraction du pointeur JSONL **: Nom du pointeur pour les fichiers JSONL
+- ** Metadata supplémentaires **: objet JSON avec métadonnées supplémentaires
+- ** omettre les clés de métadonnées **: Liste des clés de métadonnées séparées par des virgules pour omettre
 
-## Outputs
+## Sorties
 
-- **Document**: Array of document objects containing metadata and pageContent
-- **Text**: Concatenated string from pageContent of documents
+- ** Document **: tableau d'objets de document contenant des métadonnées et un conceptent
+- ** Texte **: chaîne concaténée du conceptent de documents
 
-## Supported File Types
+## Types de fichiers pris en charge
 
 ### Documents
 - PDF (.pdf)
 - Word (.doc, .docx)
 - Excel (.xls, .xlsx, .xlsm, .xlsb)
 - PowerPoint (.ppt, .pptx)
-- Text (.txt)
+- Texte (.txt)
 - Markdown (.md, .markdown)
-- HTML (.html)
+- Html (.html)
 - XML (.xml)
 
-### Data Files
+### Fichiers de données
 - JSON (.json)
 - JSONL (.jsonl)
 - CSV (.csv)
 
-### Programming Languages
+### Langues de programmation
 - Python (.py, .python)
-- JavaScript (.js)
+- Javascript (.js)
 - TypeScript (.ts)
 - Java (.java)
-- C/C++ (.c, .cpp, .h)
-- C# (.cs)
-- Ruby (.rb, .ruby)
-- Go (.go)
-- PHP (.php)
+- C / c ++ (.c, .cpp, .h)
+- C # (.cs)
+- Ruby (.rb, .Ruby)
+- Aller (.go)
+- Php (.php)
 - Swift (.swift)
-- Rust (.rs)
+- Rust (.RS)
 - Scala (.scala, .sc)
 - Kotlin (.kt)
-- Solidity (.sol)
+- Solidité (.sol)
 
-### Web Technologies
+### Technologies Web
 - CSS (.css)
-- SCSS (.scss)
-- LESS (.less)
-- SQL (.sql)
-- Protocol Buffers (.proto)
+- SCSS (.SCSS)
+- Moins (.
+- SQL (.SQL)
+- Tampons de protocole (.proto)
 
-## Features
-- Multi-format support
-- Recursive directory processing
-- PDF processing options
-- Structured data handling
-- Text splitting support
-- Metadata customization
-- Error handling
+## Caractéristiques
+- Support multi-format
+- Traitement répertoire récursif
+- Options de traitement PDF
+- Gestion des données structurées
+- Support de division de texte
+- Personnalisation des métadonnées
+- Gestion des erreurs
 
 ## Notes
-- Automatically detects file types
-- Handles large directories
-- Preserves file metadata
-- Memory-efficient processing
-- Supports custom file extensions
-- Error handling for invalid files
-- Flexible output formats 
+- Détecte automatiquement les types de fichiers
+- Gère les grands répertoires
+- Préserve les métadonnées du fichier
+- Traitement économe en mémoire
+- Prend en charge les extensions de fichiers personnalisées
+- Gestion des erreurs pour les fichiers non valides
+- Formats de sortie flexibles

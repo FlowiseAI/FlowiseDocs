@@ -2,13 +2,13 @@
 description: LangChain LLM Nodes
 ---
 
-# LLMs
+# LLMS
 
 ***
 
-A large language model, LLM for short, is a AI system trained on massive amounts of text data. This allows them to communicate and generate human-like text in response to a wide range of prompts and questions. In essence, they can understand and respond to complex language.
+Un modèle grand langage, LLM pour faire court, est un système d'IA formé sur des quantités massives de données texte. Cela leur permet de communiquer et de générer du texte humain en réponse à un large éventail d'invites et de questions. Essentiellement, ils peuvent comprendre et répondre à un langage complexe.
 
-### LLM Nodes:
+### NODES LLM:
 
 * [AWS Bedrock](aws-bedrock.md)
 * [Azure OpenAI](azure-openai.md)

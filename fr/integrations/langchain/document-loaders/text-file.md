@@ -2,81 +2,81 @@
 description: Load data from text files.
 ---
 
-# Text File
+# Fichier texte
 
-<figure><img src="../../../.gitbook/assets/image (89).png" alt="" width="322"><figcaption><p>Text File Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (89) .png" alt = "" width = "322"> <figcaption> <p> Node de fichier texte </p> </gigcaption> </ figure>
 
-The Text File loader enables you to load and process content from various text-based file formats. It supports multiple file types and provides flexible options for text splitting and metadata handling.
+Le chargeur de fichiers texte vous permet de charger et de traiter le contenu à partir de divers formats de fichiers textuels. Il prend en charge plusieurs types de fichiers et fournit des options flexibles pour la division de texte et la gestion des métadonnées.
 
-## Features
-- Support for multiple text-based file formats
-- Multiple file loading capability
-- Text splitting support
-- Customizable metadata handling
-- Storage integration support
-- Base64 file handling
-- Multiple output formats
+## Caractéristiques
+- Prise en charge de plusieurs formats de fichiers textuels
+- Capacité de chargement de fichiers multiples
+- Support de division de texte
+- Manipulation des métadonnées personnalisables
+- Prise en charge de l'intégration du stockage
+- Gestion des fichiers Base64
+- Formats de sortie multiples
 
-## Supported File Types
-The loader supports a wide range of text-based file formats:
-- Text files (.txt)
-- Web files (.html, .aspx, .asp, .css)
-- Programming languages:
-  - C/C++ (.cpp, .c, .h)
-  - C# (.cs)
-  - Go (.go)
+## Types de fichiers pris en charge
+Le chargeur prend en charge une large gamme de formats de fichiers textuels:
+- Fichiers texte (.txt)
+- Fichiers Web (.html, .aspx, .asp, .css)
+- Langages de programmation:
+  - C / c ++ (.cpp, .c, .h)
+  - C # (.cs)
+  - Aller (.go)
   - Java (.java)
-  - JavaScript/TypeScript (.js, .ts)
-  - PHP (.php)
+  - JavaScript / TypeScript (.js, .ts)
+  - Php (.php)
   - Python (.py, .python)
-  - Ruby (.rb, .ruby)
-  - Rust (.rs)
+  - Ruby (.rb, .Ruby)
+  - Rust (.RS)
   - Scala (.sc, .scala)
-  - Solidity (.sol)
+  - Solidité (.sol)
   - Swift (.swift)
   - Visual Basic (.vb)
-- Markup/Style:
-  - CSS/LESS/SCSS (.css, .less, .scss)
+- Marquage / style:
+  - CSS / Moins / SCSS (.css, .less, .scss)
   - Markdown (.md, .markdown)
   - XML (.xml)
-  - LaTeX (.tex, .ltx)
-- Other:
-  - Protocol Buffers (.proto)
-  - SQL (.sql)
-  - RST (.rst)
+  - Latex (.tex, .ltx)
+- Autre:
+  - Tampons de protocole (.proto)
+  - SQL (.SQL)
+  - RST (.RST)
 
-## Inputs
+## Entrées
 
-### Required Parameters
-- **Txt File**: One or more text files to process
-  - Accepts files from local upload or storage
-  - Supports multiple file selection
+### Paramètres requis
+- ** Fichier TXT **: un ou plusieurs fichiers texte à traiter
+  - Accepte les fichiers du téléchargement local ou du stockage
+  - Prend en charge la sélection de fichiers multiples
 
-### Optional Parameters
-- **Text Splitter**: A text splitter to process the extracted content
-- **Additional Metadata**: JSON object with additional metadata to add to documents
-- **Omit Metadata Keys**: Comma-separated list of metadata keys to exclude
-  - Format: `key1, key2, key3.nestedKey1`
-  - Use * to remove all default metadata
+### Paramètres facultatifs
+- ** Splitter du texte **: un séparateur de texte pour traiter le contenu extrait
+- ** Métadonnées supplémentaires **: objet JSON avec des métadonnées supplémentaires à ajouter aux documents
+- ** omettre les clés de métadonnées **: Liste des clés de métadonnées séparées par des virgules à exclure
+  - Format:`key1, key2, key3.nestedKey1`
+  - Utiliser * pour supprimer toutes les métadonnées par défaut
 
-## Outputs
+## Sorties
 
-- **Document**: Array of document objects containing:
-  - metadata: File metadata and custom fields
-  - pageContent: Extracted text content
-- **Text**: Concatenated string of all extracted content
+- ** Document **: tableau d'objets de document contenant:
+  - métadonnées: fichiers de métadonnées et champs personnalisés
+  - contenu de contenu: contenu texte extrait
+- ** Texte **: chaîne concaténée de tout contenu extrait
 
-## Document Structure
-Each document contains:
-- **pageContent**: The main content from the text file
-- **metadata**:
-  - Default file metadata
-  - Additional custom metadata (if specified)
-  - Filtered metadata (based on omitted keys)
+## Structure de document
+Chaque document contient:
+- ** PageContent **: le contenu principal du fichier texte
+- ** Metadata **:
+  - Métadonnées de fichier par défaut
+  - Métadonnées personnalisées supplémentaires (si spécifiées)
+  - Métadonnées filtrées (basées sur les clés omises)
 
-## Usage Examples
+## Exemples d'utilisation
 
-### Single File Processing
+### Traitement de fichiers unique
 ```json
 {
   "txtFile": "example.txt",
@@ -87,7 +87,7 @@ Each document contains:
 }
 ```
 
-### Multiple Files Processing
+### Traitement de fichiers multiples
 ```json
 {
   "txtFile": ["doc1.txt", "doc2.md", "code.py"],
@@ -99,23 +99,23 @@ Each document contains:
 }
 ```
 
-## Storage Integration
-The loader supports two file source modes:
-1. **Direct Upload**: Files uploaded directly through the interface
-2. **Storage Integration**: Files accessed through the storage system
-   - Format: `FILE-STORAGE::filename.txt`
-   - Supports organization and chatflow-specific storage
+## Intégration de stockage
+Le chargeur prend en charge deux modes de source de fichiers:
+1. ** Téléchargement direct **: fichiers téléchargés directement via l'interface
+2. ** Intégration de stockage **: fichiers accessibles via le système de stockage
+   - Format:`FILE-STORAGE::filename.txt`
+   - Prend en charge l'organisation et le stockage spécifique à ChatFlow
 
 ## Notes
-- Handles both single and multiple file processing
-- Supports base64 encoded file content
-- Automatically handles different file encodings
-- Memory-efficient processing of large files
-- Preserves file metadata when needed
-- Supports text splitting for large documents
-- Handles escape characters in output text
-- Integrates with organization-specific storage
+- Gère le traitement de fichiers unique et multiple
+- Prend en charge le contenu de fichier codé Base64
+- Gère automatiquement différents encodages de fichiers
+- Traitement économe en mémoire des fichiers volumineux
+- Conserve les métadonnées de fichier en cas de besoin
+- Prend en charge le fractionnement du texte pour les grands documents
+- Gère les caractères d'échappement dans le texte de sortie
+- S'intègre au stockage spécifique à l'organisation
 
-{% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
-{% endhint %}
+{% hint style = "info"%}
+Cette section est un travail en cours. Nous apprécions toute aide que vous pouvez fournir pour terminer cette section. Veuillez vérifier notre[Contribution Guide](broken-reference)Pour commencer.
+{% EndHint%}

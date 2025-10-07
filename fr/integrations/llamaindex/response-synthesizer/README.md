@@ -2,13 +2,13 @@
 description: LlamaIndex Response Synthesizer Nodes
 ---
 
-# Response Synthesizer
+# Synthétiseur de réponse
 
 ***
 
-Response Synthesizer nodes are responsible for sending the query, nodes, and prompt templates to the LLM to generate a response. There are 4 modes for generating a response:
+Les nœuds de synthétiseur de réponse sont responsables de l'envoi de la requête, des nœuds et des modèles invite au LLM pour générer une réponse. Il existe 4 modes pour générer une réponse:
 
-### Synthesizer Nodes:
+### Nœuds de synthétiseur:
 
 * [Refine](refine.md)
 * [Compact and Refine](compact-and-refine.md)

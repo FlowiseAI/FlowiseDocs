@@ -1,41 +1,41 @@
-# Supervisor and Workers
+# Superviseur et travailleurs
 
-The Supervisor Worker pattern is a powerful workflow design where a supervisor agent coordinates multiple specialized worker agents to complete complex tasks. This pattern allows for better task delegation, specialized expertise, and iterative refinement of solutions.
+Le modèle de travailleur superviseur est une conception puissante de workflow où un agent superviseur coordonne plusieurs agents de travailleurs spécialisés pour effectuer des tâches complexes. Ce modèle permet une meilleure délégation des tâches, une expertise spécialisée et un raffinement itératif des solutions.
 
-## Overview
+## Aperçu
 
-In this tutorial, we'll build a collaborative system with:
+Dans ce tutoriel, nous allons créer un système collaboratif avec:
 
-* **Supervisor**: An LLM that analyzes tasks and decides which worker should act next
-* **Software Engineer**: Specialized in designing and implementing software solutions
-* **Code Reviewer**: Focused on reviewing code quality and providing feedback
-* **Final Answer Generator**: Compiles the collaborative work into a comprehensive solution
+* ** Superviseur **: un LLM qui analyse les tâches et décide quel travailleur doit agir ensuite
+* ** Ingénieur logiciel **: Spécialisé dans la conception et la mise en œuvre de solutions logicielles
+* ** Code Reviewer **: axé sur la révision de la qualité du code et la fourniture de commentaires
+* ** Générateur de réponses finales **: compile le travail collaboratif dans une solution complète
 
-<figure><img src="../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (19) .png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-### Step 1: Create the Start Node
+### Étape 1: Créez le nœud de démarrage
 
-<figure><img src="../.gitbook/assets/image (7) (1).png" alt="" width="160"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / image (7) (1) .png" alt = "" width = "160"> <Figcaption> </gigcaption> </ figure>
 
-The flow begins with a **Start** node that captures user input and initializes the workflow state.
+Le flux commence par un nœud ** start ** qui capture l'entrée utilisateur et initialise l'état de flux de travail.
 
-1. Add a **Start** node to your canvas
-2. Configure the **Input Type** as "Chat Input"
-3. Set up **Flow State** with these initial variables:
-   * `next`: To keep track of the next agent
-   * `instruction`: Instruction for the next agent on what to do
+1. Ajoutez un nœud ** start ** à votre toile
+2. Configurez le ** type d'entrée ** comme "entrée de chat"
+3. Configurer ** État de flux ** avec ces variables initiales:
+   * `next`: Pour garder une trace du prochain agent
+   * `instruction`: Instruction pour le prochain agent sur ce qu'il faut faire
 
-<figure><img src="../.gitbook/assets/image (6) (1).png" alt="" width="417"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (6) (1) .png" alt = "" width = "417"> <Figcaption> </ Figcaption> </gigne>
 
-### Step 2: Add the Supervisor LLM
+### Étape 2: Ajouter le superviseur LLM
 
-<figure><img src="../.gitbook/assets/image (8) (1).png" alt="" width="227"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (8) (1) .png" alt = "" width = "227"> <Figcaption> </gigcaption> </ figure>
 
-The **Supervisor** is the orchestrator that decides which worker should handle each part of the task.
+Le ** superviseur ** est l'orchestrateur qui décide quel travailleur doit gérer chaque partie de la tâche.
 
-1. Connect a **LLM** node after the Start node
-2. Label it "Supervisor"
-3. Configure the system message, for example:
+1. Connectez un nœud ** llm ** après le nœud de démarrage
+2. Étiquetez-le "superviseur"
+3. Configurez le message système, par exemple:
 
 ```
 You are a supervisor tasked with managing a conversation between the following workers:
@@ -48,41 +48,41 @@ When finished, respond with FINISH.
 Select strategically to minimize the number of steps taken.
 ```
 
-4. Set up **JSON Structured Output** with these fields:
-   * `next`: Enum with values "FINISH, SOFTWARE, REVIEWER"
-   * `instructions`: The specific instructions of the sub-task the next worker should accomplish
-   * `reasoning`: The reason why next worker is tasked to do the job
-5. Configure **Update Flow State** to store:
+4. Configurer ** Sortie structurée JSON ** avec ces champs:
+   * `next`: Enum avec les valeurs "Finition, logiciel, critique"
+   * `instructions`: Les instructions spécifiques du sous-tâche que le prochain travailleur devrait accomplir
+   * `reasoning`: La raison pour laquelle le prochain travailleur est chargé de faire le travail
+5. Configurer ** Mettre à jour l'état de flux ** pour stocker:
    * `next`: `{{ output.next }}`
    * `instruction`: `{{ output.instructions }}`
-6. Set the **Input Message** to: _"Given the conversation above, who should act next? Or should we FINISH? Select one of: SOFTWARE, REVIEWER."_ The Input Message will be inserted at the end, as if the user is asking the supervisor to assign the next agent.
+6. Définissez le ** Message d'entrée ** sur: _ "Compte tenu de la conversation ci-dessus, qui devrait agir ensuite? Ou devrions-nous terminer? Sélectionnez un de: logiciel, examinateur." _ Le message d'entrée sera inséré à la fin, comme si l'utilisateur demandait au superviseur d'attribuer le prochain agent.
 
-<figure><img src="../.gitbook/assets/Untitled-2025-06-19-1011.png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Untitled-2025-06-19-1011.png" alt = "" width = "563"> <Figcaption> </ Figcaption> </ Figure>
 
-### Step 3: Create the Routing Condition
+### Étape 3: Créez la condition de routage
 
-<figure><img src="../.gitbook/assets/image (10).png" alt="" width="323"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / image (10) .png" alt = "" width = "323"> <figcaption> </gigcaption> </ figure>
 
-The **Check next worker** condition node routes the flow based on the supervisor's decision.
+Le ** Vérifiez le nœud de condition du travailleur Next ** achemine le flux en fonction de la décision du superviseur.
 
-1. Add a **Condition** node after the Supervisor
-2. Set up two conditions:
-   * **Condition 0**: `{{ $flow.state.next }}` equals "SOFTWARE"
-   * **Condition 1**: `{{ $flow.state.next }}` equals "REVIEWER"
-3. The "Else" branch (Condition 2) will handle the "FINISH" case
+1. Ajouter un nœud ** condition ** après le superviseur
+2. Configurez deux conditions:
+   * ** Condition 0 **:`{{ $flow.state.next }}`est égal à "logiciel"
+   * ** Condition 1 **:`{{ $flow.state.next }}`est égal à "réviseur"
+3. La branche "Else" (condition 2) gérera le boîtier "Finish"
 
-This creates three output paths: one for each worker and one for completion.
+Cela crée trois chemins de sortie: un pour chaque travailleur et un pour l'achèvement.
 
-<figure><img src="../.gitbook/assets/image (11).png" alt="" width="395"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (11) .png" alt = "" width = "395"> <figcaption> </gigcaption> </gigust>
 
-### Step 4: Configure the Software Engineer Agent
+### Étape 4: Configurer l'agent d'ingénieur logiciel
 
-<figure><img src="../.gitbook/assets/image (12).png" alt="" width="296"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (12) .png" alt = "" width = "296"> <figcaption> </gigcaption> </gigu
 
-The **Software Engineer** specializes in designing and implementing software solutions.
+L'ingénieur logiciel ** se spécialise dans la conception et la mise en œuvre de solutions logicielles.
 
-1. Connect an **Agent** node to Condition 0 output
-2. Configure the system message:
+1. Connectez un nœud ** agent ** à la sortie de condition 0
+2. Configurer le message système:
 
 ```
 As a Senior Software Engineer, you are a pivotal part of our innovative development team. Your expertise and leadership drive the creation of robust, scalable software solutions that meet the needs of our diverse clientele.
@@ -94,20 +94,20 @@ Design and implement new features for the given task, ensuring it integrates sea
 The output should be a fully functional, well-documented feature that enhances our product's capabilities. Include detailed comments in the code.
 ```
 
-4. Set **Input Message** to: `{{ $flow.state.instruction }}` . The Input Message will be inserted at the end, as if the user is giving an instruction to the Software Engineer Agent.
+4. Définir ** Message d'entrée ** sur:`{{ $flow.state.instruction }}`. Le message d'entrée sera inséré à la fin, comme si l'utilisateur donne une instruction à l'agent de l'ingénieur logiciel.
 
-<figure><img src="../.gitbook/assets/image (13).png" alt="" width="397"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (13) .png" alt = "" width = "397"> <figcaption> </gigcaption> </gigust>
 
-<figure><img src="../.gitbook/assets/image (14).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (14) .png" alt = "" width = "563"> <figcaption> </gigcaption> </gigu
 
-### Step 5: Configure the Code Reviewer Agent
+### Étape 5: Configurer l'agent de réviseur de code
 
-<figure><img src="../.gitbook/assets/image (16).png" alt="" width="267"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (16) .png" alt = "" width = "267"> <figcaption> </gigcaption> </gigu
 
-The **Code Reviewer** focuses on quality assurance and code review.
+Le ** Code Reviewer ** se concentre sur l'assurance qualité et l'examen du code.
 
-1. Connect an **Agent** node to Condition 1 output
-2. Configure the system message:
+1. Connectez un nœud ** agent ** à la sortie de condition 1
+2. Configurer le message système:
 
 ```
 As a Quality Assurance Engineer, you are an integral part of our development team, ensuring that our software products are of the highest quality. Your meticulous attention to detail and expertise in testing methodologies are crucial in identifying defects and ensuring that our code meets the highest standards.
@@ -117,34 +117,34 @@ Your goal is to ensure the delivery of high-quality software through thorough co
 Review the codebase for the new feature designed and implemented by the Senior Software Engineer. Provide constructive feedback, guiding contributors towards best practices and fostering a culture of continuous improvement. Your approach ensures the delivery of high-quality software that is robust, scalable, and aligned with strategic goals.
 ```
 
-4. Set **Input Message** to: `{{ $flow.state.instruction }}` . The Input Message will be inserted at the end, as if the user is giving an instruction to the Code Reviewer Agent.
+4. Définir ** Message d'entrée ** sur:`{{ $flow.state.instruction }}`. Le message d'entrée sera inséré à la fin, comme si l'utilisateur donne une instruction à l'agent de réviseur de code.
 
-<figure><img src="../.gitbook/assets/image (15).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (15) .png" alt = "" width = "563"> <figcaption> </gigcaption> </ figure>
 
-### Step 6: Add Loop Back Connections
+### Étape 6: Ajoutez des connexions de retour en boucle
 
-<figure><img src="../.gitbook/assets/image (17).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (17) .png" alt = "" width = "563"> <figcaption> </gigcaption> </gigust>
 
-Both worker agents need to loop back to the Supervisor for continued coordination.
+Les deux agents des travailleurs doivent retourner au superviseur pour une coordination continue.
 
-1. Add a **Loop** node after the Software Engineer
-   * Set **Loop Back To** as "Supervisor"
-   * Set **Max Loop Count** to 5
-2. Add another **Loop** node after the Code Reviewer
-   * Set **Loop Back To** as "Supervisor"
-   * Set **Max Loop Count** to 5
+1. Ajouter un nœud ** boucle ** après l'ingénieur logiciel
+   * Définissez ** la boucle à ** en tant que "superviseur"
+   * Set ** MAX LOOP COUNT ** à 5
+2. Ajoutez un autre nœud ** LOOP ** après le réviseur de code
+   * Définissez ** la boucle à ** en tant que "superviseur"
+   * Set ** MAX LOOP COUNT ** à 5
 
-These loops enable iterative collaboration between the agents.
+Ces boucles permettent une collaboration itérative entre les agents.
 
-### Step 7: Create the Final Answer Generator
+### Étape 7: Créez le générateur de réponses final
 
-<figure><img src="../.gitbook/assets/image (18).png" alt="" width="436"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (18) .png" alt = "" width = "436"> <figcaption> </gigcaption> </gigu
 
-The final agent compiles all the collaborative work into a comprehensive solution.
+L'agent final compile tout le travail collaboratif dans une solution complète.
 
-1. Connect an **Agent** node to Condition 2 output (the "Else" branch)
-2. It is recommended to use a higher context size LLM like Gemini, due to the back-and-forth nature of the conversation, which consumes a large number of tokens.
-3. Set **Input Message.** This is important because Input Message will be inserted at the end, as if the user is giving an instruction to the Final Answer Generator to look at all the conversations, and generate a final response.
+1. Connectez un nœud ** Agent ** à la sortie de condition 2 (la branche "else")
+2. Il est recommandé d'utiliser une taille de contexte plus élevée LLM comme les Gémeaux, en raison de la nature des va-et-vient de la conversation, qui consomme un grand nombre de jetons.
+3. Définir ** Message d'entrée. ** Ceci est important car le message d'entrée sera inséré à la fin, comme si l'utilisateur donne une instruction au générateur de réponses final pour examiner toutes les conversations et générer une réponse finale.
 
 ```
 Given the above conversations, generate a detail solution developed by the software engineer and code reviewer.
@@ -157,49 +157,49 @@ Your guiding principles:
    Your final output must be in Markdown format.
 ```
 
-## How It Works
+## Comment ça marche
 
-The Supervisor Worker pattern enables several key benefits:
+Le modèle de travailleur superviseur permet plusieurs avantages clés:
 
-**Intelligent Task Delegation**: The supervisor uses context and reasoning to assign the most appropriate worker for each sub-task.
+** Délégation de tâche intelligente **: Le superviseur utilise le contexte et le raisonnement pour attribuer le travailleur le plus approprié pour chaque sous-tâche.
 
-**Iterative Refinement**: Workers can build upon each other's output, with the software engineer implementing features and the code reviewer providing feedback for improvements.
+** Raffinement itératif **: Les travailleurs peuvent s'appuyer sur la sortie de l'autre, l'ingénieur logiciel implémentant les fonctionnalités et le réviseur de code fournissant des commentaires pour les améliorations.
 
-**Stateful Coordination**: The flow maintains state across iterations, allowing the supervisor to make informed decisions about what should happen next.
+** Coordination avec état **: Le flux maintient l'état à travers les itérations, permettant au superviseur de prendre des décisions éclairées sur ce qui devrait arriver ensuite.
 
-**Specialized Expertise**: Each agent has a focused role and specialized prompt, leading to higher quality outputs in their domain.
+** Expertise spécialisée **: Chaque agent a un rôle ciblé et une invite spécialisée, conduisant à des résultats de meilleure qualité dans son domaine.
 
-## Example Interaction
+## Exemple d'interaction
 
-Here's how a typical interaction might flow:
+Voici comment une interaction typique pourrait couler:
 
-1. **User**: "Create a React component for user authentication with form validation"
-2. **Supervisor**: Decides SOFTWARE should act first to implement the component
-3. **Software Engineer**: Creates a React authentication component with validation logic
-4. **Supervisor**: Decides REVIEWER should examine the implementation
-5. **Code Reviewer**: Reviews the code and suggests improvements for security and UX
-6. **Supervisor**: Decides SOFTWARE should implement the suggested improvements
-7. **Software Engineer**: Updates the component based on feedback
-8. **Supervisor**: Determines the task is complete and routes to FINISH
-9. **Final Answer Generator**: Compiles the complete solution with implementation and review feedback
+1. ** Utilisateur **: "Créez un composant React pour l'authentification de l'utilisateur avec validation du formulaire"
+2. ** Superviseur **: Décide que le logiciel devrait d'abord agir pour implémenter le composant
+3. ** Ingénieur logiciel **: Crée un composant d'authentification React avec logique de validation
+4. ** Superviseur **: Décide que le réviseur doit examiner la mise en œuvre
+5. ** Code Reviewer **: examine le code et suggère des améliorations pour la sécurité et UX
+6. ** Superviseur **: Décide le logiciel devrait implémenter les améliorations suggérées
+7. ** Ingénieur logiciel **: met à jour le composant en fonction des commentaires
+8. ** Superviseur **: détermine que la tâche est complète et les routes pour terminer
+9. ** Générateur de réponses finales **: compile la solution complète avec la mise en œuvre et la révision des commentaires
 
-<figure><img src="../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (20) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-## Complete Flow Structure
+## Structure d'écoulement complète
 
-{% file src="../.gitbook/assets/Supervisor Worker Agents.json" %}
+{% fichier src = "../. GitBook / Assets / Superviseur Agents Worker.json"%}
 
-## Best Practices
+## Meilleures pratiques
 
-* This architecture consumes a lot of tokens due to the back and forth communications between agents, hence it is not suitable for every cases. It is particularly effective for:
-  * Software development tasks requiring both implementation and review
-  * Complex problem-solving that benefits from multiple perspectives
-  * Workflows where quality and iteration are important
-  * Tasks that require coordination between different types of expertise
-* Ensure each agent has a well-defined, specific role. Avoid overlapping responsibilities that could lead to confusion or redundant work.
-* Establish standard formats for how agents communicate their progress, findings, and recommendations. This helps the supervisor make better routing decisions.
-* Use memory settings appropriately to maintain conversation context while avoiding token limit issues. Consider using memory optimization settings like "Conversation Summary Buffer" for longer workflows.
+* Cette architecture consomme beaucoup de jetons en raison des communications de va-et-vient entre les agents, il ne convient donc pas à tous les cas. Il est particulièrement efficace pour:
+  * Tâches de développement de logiciels nécessitant à la fois la mise en œuvre et l'examen
+  * Résolution de problèmes complexes qui profite de plusieurs perspectives
+  * Les flux de travail où la qualité et l'itération sont importantes
+  * Tâches qui nécessitent une coordination entre les différents types d'expertise
+* Assurez-vous que chaque agent a un rôle spécifique bien défini. Évitez les responsabilités qui se chevauchent qui pourraient entraîner une confusion ou un travail redondant.
+* Établir des formats standard pour la façon dont les agents communiquent leurs progrès, leurs résultats et leurs recommandations. Cela aide le superviseur à prendre de meilleures décisions de routage.
+* Utilisez les paramètres de mémoire de manière appropriée pour maintenir le contexte de la conversation tout en évitant les problèmes de limite de jetons. Envisagez d'utiliser des paramètres d'optimisation de la mémoire comme le "tampon de résumé de conversation" pour les workflows plus longs.
 
-## Video Tutorial
+## Tutoriel vidéo
 
-{% embed url="https://youtu.be/TbZaj5SZcbM?si=E4nxn__HHzJbNwdf" %}
+{% embed url = "https://youtu.be/tbzaj5szcbm?si=e4nxn__hhzjbnwdf"%}

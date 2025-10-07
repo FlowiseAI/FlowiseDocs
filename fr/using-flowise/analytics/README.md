@@ -2,15 +2,15 @@
 description: Learn how to analyze and troubleshoot your chatflows and agentflows
 ---
 
-# Analytic
+# Analytique
 
 ***
 
-Flowise provides step by step tracing for [Agentflow V2](../agentflowv2.md):
+Flowise fournit un traçage étape par étape pour[Agentflow V2](../agentflowv2.md):
 
-<figure><img src="../../.gitbook/assets/image (332).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../. GitBook / Assets / Image (332) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-Besides, there are also several analytic providers Flowise integrates with:
+En outre, il existe également plusieurs fournisseurs d'analyse qui circulent avec:
 
 * [LunaryAI](https://lunary.ai/)
 * [Langsmith](https://smith.langchain.com/)
@@ -20,27 +20,27 @@ Besides, there are also several analytic providers Flowise integrates with:
 * [Phoenix](https://phoenix.arize.com/)
 * [Opik](https://www.comet.com/site/products/opik/)
 
-## Setup
+## Installation
 
-1. At the top right corner of your Chatflow or Agentflow, click **Settings** > **Configuration**
+1. Dans le coin supérieur droit de votre ChatFlow ou AgentFlow, cliquez sur ** Paramètres **> ** Configuration **
 
-<figure><img src="../../.gitbook/assets/analytic-1.webp" alt="Screenshot of user clicking in the configuration menu" width="375"><figcaption></figcaption></figure>
+<gigne> <img src = "../../. GitBook / Assets / analytic-1.webp" alt = "Capture d'écran de l'utilisateur cliquant dans le menu de configuration" width = "375"> <figCaption> </gigcaption> </ figure>
 
-2. Then go to the Analyse Chatflow section
+2. Ensuite, allez à la section Analyser Chatflow
 
-<figure><img src="../../.gitbook/assets/analytic-2.png" alt="Screenshot of the Analyse Chatflow section with the different Analytics providers"><figcaption></figcaption></figure>
+<Figure> <img src = "../../. GitBook / Assets / Analytic-2.png" alt = "Capture d'écran de la section Analyze Chatflow avec les différents fournisseurs d'analyses"> <FigCaption> </gigcaption> </ figure>
 
-3. You will see a list of providers, along with their configuration fields
+3. Vous verrez une liste des fournisseurs, ainsi que leurs champs de configuration
 
-<figure><img src="../../.gitbook/assets/image (82).png" alt="Screenshot of an analytics provider with credentials fields expanded"><figcaption></figcaption></figure>
+<gigne> <img src = "../../. GitBook / Assets / Image (82) .png" alt = "ScreenShot d'un fournisseur d'analyse avec des champs d'identification étendus"> <Figcaption> </Gigcaption> </ Figure>
 
-4. Fill in the credentials and other configuration details, then turn the provider **ON**. Click Save.
+4. Remplissez les informations d'identification et autres détails de configuration, puis allumez le fournisseur ** sur **. Cliquez sur Enregistrer.
 
-<figure><img src="../../.gitbook/assets/image (83).png" alt="Screenshot of analytics providers enabled"><figcaption></figcaption></figure>
+<gigne> <img src = "../../. GitBook / Assets / Image (83) .png" alt = "ScreenShot of Analytics Providers activé"> <Figcaption> </ Figcaption> </gistre>
 
 ## API
 
-Once the analytic has been turned ON from the UI, you can override or provide additional configuration in the body of the [Prediction API](api.md#prediction-api):
+Une fois l'analytique allumé de l'interface utilisateur, vous pouvez remplacer ou fournir une configuration supplémentaire dans le corps du[Prediction API](api.md#prediction-api):
 
 ```json
 {

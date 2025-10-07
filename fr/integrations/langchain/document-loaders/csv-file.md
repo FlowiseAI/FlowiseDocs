@@ -2,36 +2,36 @@
 description: Load data from CSV files.
 ---
 
-# CSV Files
+# Fichiers CSV
 
-<figure><img src="../../../.gitbook/assets/image_csv (1).png" alt="" width="271"><figcaption><p>Csv File Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image_CSV (1) .png" alt = "" width = "271"> <Figcaption> <p> CSV Node de fichier </p> </ figCaption> </ Figure>
 
-CSV (Comma-Separated Values) is a simple file format used to store tabular data, such as a spreadsheet or database. This module provides functionality to load and process CSV files within your workflow.
+CSV (valeurs séparées par les virgules) est un format de fichier simple utilisé pour stocker des données tabulaires, telles qu'une feuille de calcul ou une base de données. Ce module fournit des fonctionnalités pour charger et traiter les fichiers CSV dans votre flux de travail.
 
-This module provides a versatile CSV document loader that can:
-- Load single or multiple CSV files
-- Support both base64-encoded files and files from storage
-- Extract specific columns or entire content
-- Process large datasets efficiently
-- Handle custom metadata management
+Ce module fournit un chargeur de document CSV polyvalent qui peut:
+- Chargez des fichiers CSV uniques ou multiples
+- Prise en charge des fichiers et fichiers codés en base de base64 à partir du stockage
+- Extraire des colonnes spécifiques ou du contenu entier
+- Traiter efficacement de grands ensembles de données
+- Gérer la gestion des métadonnées personnalisées
 
-## Inputs
+## Entrées
 
-- **CSV File**: The CSV file(s) to process (.csv extension required)
-- **Text Splitter** (optional): A text splitter to process the extracted content
-- **Single Column Extraction** (optional): Name of a specific column to extract
-- **Additional Metadata** (optional): JSON object with additional metadata to add to documents
-- **Omit Metadata Keys** (optional): Comma-separated list of metadata keys to omit from the default metadata
+- ** Fichier CSV **: le (s) fichier (s) CSV (S) à traiter (extension .csv requise)
+- ** Splitter de texte ** (facultatif): un séparateur de texte pour traiter le contenu extrait
+- ** Extraction à colonne unique ** (facultatif): nom d'une colonne spécifique à extraire
+- ** Métadonnées supplémentaires ** (Facultatif): objet JSON avec des métadonnées supplémentaires à ajouter aux documents
+- ** omettre les clés de métadonnées ** (facultatif): liste de clés de métadonnées séparées par des virgules pour omettre à partir des métadonnées par défaut
 
-## Outputs
+## Sorties
 
-- **Document**: Array of document objects containing metadata and pageContent
-- **Text**: Concatenated string from pageContent of all documents
+- ** Document **: tableau d'objets de document contenant des métadonnées et un conceptent
+- ** Texte **: chaîne concaténée du conceptent de tous les documents
 
-## Features
-- Multiple file processing support
-- Single column extraction capability
-- Efficient handling of large datasets
-- Customizable metadata handling
-- Storage integration support
-- Base64 and blob handling capabilities
+## Caractéristiques
+- Support de traitement de fichiers multiples
+- Capacité d'extraction à colonne unique
+- Gestion efficace des grands ensembles de données
+- Manipulation des métadonnées personnalisables
+- Prise en charge de l'intégration du stockage
+- Capacités de manutention de base64 et de blob

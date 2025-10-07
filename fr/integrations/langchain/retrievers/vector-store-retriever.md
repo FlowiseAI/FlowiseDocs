@@ -2,10 +2,10 @@
 description: Store vector store as retriever to be later queried by MultiRetrievalQAChain.
 ---
 
-# Vector Store Retriever
+# Retriever du magasin vectoriel
 
-<figure><img src="../../../.gitbook/assets/image (148).png" alt="" width="301"><figcaption><p>Vector Store Retriever Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (148) .png" alt = "" width = "301"> <Figcaption> <p> Vector Store Retriever Node </p> </gigcaption> </ figure>
 
-{% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
-{% endhint %}
+{% hint style = "info"%}
+Cette section est un travail en cours. Nous apprécions toute aide que vous pouvez fournir pour terminer cette section. Veuillez vérifier notre[Contribution Guide](broken-reference)Pour commencer.
+{% EndHint%}

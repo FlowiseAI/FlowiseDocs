@@ -1,11 +1,11 @@
 ---
-description: Cache LLM response in Upstash Redis, serverless data for Redis and Kafka.
+description: Mise en cache des réponses LLM dans Upstash Redis, données sans serveur pour Redis et Kafka.
 ---
 
-# Upstash Redis Cache
+# Cache Upstash Redis
 
-<figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="328"><figcaption><p>Upstash Redis Cache Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="328"><figcaption><p>Noeud de cache Upstash Redis</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
+Cette section est en cours de développement. Nous apprécions toute aide que vous pouvez apporter pour compléter cette section. Veuillez consulter notre [Guide de contribution](broken-reference) pour commencer.
 {% endhint %}

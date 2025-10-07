@@ -2,10 +2,10 @@
 description: Schema to represent a basic prompt for an LLM.
 ---
 
-# Prompt Template
+# Modèle invite
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1).png" alt="" width="243"><figcaption><p>Prompt Template Node</p></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) .png" alt = "" width = "243"> <Figure> <p> TEMPLEME Impuet
 
-{% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
-{% endhint %}
+{% hint style = "info"%}
+Cette section est un travail en cours. Nous apprécions toute aide que vous pouvez fournir pour terminer cette section. Veuillez vérifier notre[Contribution Guide](broken-reference)Pour commencer.
+{% EndHint%}

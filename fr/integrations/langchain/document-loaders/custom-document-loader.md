@@ -2,46 +2,46 @@
 description: Custom function for loading documents.
 ---
 
-# Custom Document Loader
+# Chargeur de documents personnalisé
 
-<figure><img src="../../../.gitbook/assets/image_custom-loader (1).png" alt="" width="269"><figcaption><p>Custom Document Loader Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image_Custom-Wocher (1) .png" alt = "" width = "269"> <figcaption> <p> Node de chargeur de document personnalisé </p> </ figCaption> </pigucial>
 
-The Custom Document Loader provides the ability to create custom document loading functionality using JavaScript. This module enables flexible and customized document processing through user-defined functions.
+Le chargeur de documents personnalisé offre la possibilité de créer des fonctionnalités de chargement de documents personnalisées à l'aide de JavaScript. Ce module permet le traitement de documents flexible et personnalisé via des fonctions définies par l'utilisateur.
 
-This module provides a flexible document loader that can:
-- Execute custom JavaScript functions for document loading
-- Handle input variables dynamically
-- Support both document and text outputs
-- Run in a sandboxed environment
-- Access flow context and variables
-- Process custom metadata
+Ce module fournit un chargeur de documents flexible qui peut:
+- Exécuter des fonctions JavaScript personnalisées pour le chargement des documents
+- Gérer dynamiquement les variables d'entrée
+- Prise en charge des sorties de document et de texte
+- Exécuter dans un environnement en sable
+- Contexte de flux d'accès et variables
+- Traiter les métadonnées personnalisées
 
-## Inputs
+## Entrées
 
-### Required Parameters
-- **Javascript Function**: Custom code that returns either:
-  - Array of document objects (for Document output)
-  - String (for Text output)
+### Paramètres requis
+- ** Fonction JavaScript **: code personnalisé qui revient soit:
+  - Tableau d'objets de document (pour la sortie du document)
+  - String (pour la sortie du texte)
 
-### Optional Parameters
-- **Input Variables**: JSON object containing variables accessible in the function with $ prefix
+### Paramètres facultatifs
+- ** Variables d'entrée **: Variables JSON contenant des variables accessibles dans la fonction avec $ Prefix
 
-## Outputs
+## Sorties
 
-- **Document**: Array of document objects containing metadata and pageContent
-- **Text**: Concatenated string from pageContent of documents
+- ** Document **: tableau d'objets de document contenant des métadonnées et un conceptent
+- ** Texte **: chaîne concaténée du conceptent de documents
 
-## Features
-- Sandboxed execution environment
-- Variable injection support
-- Flow context access
-- Custom dependency support
-- Error handling
-- Timeout protection
-- Input validation
+## Caractéristiques
+- Environnement d'exécution de boîte à sable
+- Support d'injection variable
+- Accès au contexte de flux
+- Support de dépendance personnalisé
+- Gestion des erreurs
+- Protection contre le délai
+- Validation d'entrée
 
-## Document Structure
-When returning documents, each object must have:
+## Structure de document
+Lors du retour des documents, chaque objet doit avoir:
 ```javascript
 {
   pageContent: 'Document Content',
@@ -52,9 +52,9 @@ When returning documents, each object must have:
 }
 ```
 
-## Example Usage
+## Exemple d'utilisation
 
-### Document Output
+### Documer la sortie
 ```javascript
 return [
   {
@@ -67,25 +67,25 @@ return [
 ]
 ```
 
-### Text Output
+### Sortie de texte
 ```javascript
 return "Processed text content"
 ```
 
-## Available Context
-- **$input**: Input value passed to the function
-- **$vars**: Access to flow variables
-- **$flow**: Flow context object containing:
-  - chatflowId
-  - sessionId
-  - chatId
-  - input
+## Contexte disponible
+- ** $ entrée **: valeur d'entrée transmise à la fonction
+- ** $ vars **: Accès aux variables de flux
+- ** $ Flow **: Flow Context Object Contenant:
+  - chatflowid
+  - de session
+  - chatitide
+  - saisir
 
 ## Notes
-- Functions run in a secure sandbox
-- 10-second execution timeout
-- Built-in dependencies available
-- External dependencies configurable
-- Input variables must be valid JSON
-- Error handling for invalid returns
-- Supports async operations
+- Fonctions exécutées dans un bac à sable sécurisé
+- Tempsion d'exécution de 10 secondes
+- Dépendances intégrées disponibles
+- Dépendances externes configurables
+- Les variables d'entrée doivent être valides JSON
+- Gestion des erreurs pour les rendements non valides
+- Prend en charge les opérations asynchrones

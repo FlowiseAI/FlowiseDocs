@@ -1,11 +1,11 @@
 ---
-description: Chain that automatically select and call APIs based only on an OpenAPI spec.
+description: Chaîne qui sélectionne et appelle automatiquement des API uniquement sur la base d'une spécification OpenAPI.
 ---
 
-# OpenAPI Chain
+# Chaîne OpenAPI
 
-<figure><img src="../../../.gitbook/assets/image (25) (1).png" alt="" width="335"><figcaption><p>OpenAPI Chain Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (25) (1).png" alt="" width="335"><figcaption><p>Noeud de la Chaîne OpenAPI</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
+Cette section est en cours de développement. Nous apprécions toute aide que vous pouvez apporter pour compléter cette section. Veuillez consulter notre [Guide de Contribution](broken-reference) pour commencer.
 {% endhint %}

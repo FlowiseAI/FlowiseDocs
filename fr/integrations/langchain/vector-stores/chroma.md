@@ -1,43 +1,43 @@
-# Chroma
+# Chrome
 
-## Prerequisite
+## Condition préalable
 
-You need a Chroma server. You can:
+Vous avez besoin d'un serveur Chroma. Tu peux:
 
-1. Install Chroma CLI and run the server using `chroma run`
-2. Sign up for [Chroma Cloud](https://trychroma.com/home).
-3. Deploy your own Chroma instance in [Docker](https://docs.trychroma.com/guides/deploy/docker).
+1. Installez Chroma CLI et exécutez le serveur en utilisant`chroma run`
+2. S'inscrire à[Chroma Cloud](https://trychroma.com/home).
+3. Déployez votre propre instance chroma dans[Docker](https://docs.trychroma.com/guides/deploy/docker).
 
-## Setup
+## Installation
 
-| Input           | Description                                                                                                                                        | Default               | Cloud |
+| Entrée | Description | Par défaut | Cloud |
 | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | ----- |
-| Document        | Can be connected with nodes from [Document Loader](../document-loaders/)                                                                           |                       |       |
-| Embeddings      | Can be connected with nodes from [Embeddings](../embeddings/)                                                                                      |                       |       |
-| Collection Name | Chroma collection name. Refer to [here](https://docs.trychroma.com/usage-guide#creating-inspecting-and-deleting-collections) for naming convention |                       |       |
-| Chroma URL      | Specify the URL of your chroma instance                                                                                                            | http://localhost:8000 | https://api.trychroma.com:8000 |
+| Document | Peut être connecté avec les nœuds de[Document Loader](../document-loaders/)                                                                           |                       |       |
+| Intégres | Peut être connecté avec les nœuds de[Embeddings](../embeddings/)                                                                                      |                       |       |
+| Nom de la collection | Nom de la collection de chroma. Se référer à[here](https://docs.trychroma.com/usage-guide#creating-inspecting-and-deleting-collections)Pour la convention de dénomination |                       |       |
+| URL de chroma | Spécifiez l'URL de votre instance de chroma | http: // localhost: 8000 | https://api.trychroma.com:8000 |
 
-For Chroma Cloud, you will need to get your tenant ID, and create your database and API key.
+Pour Chroma Cloud, vous devrez obtenir votre identifiant de locataire et créer votre base de données et votre clé API.
 
-<figure><img src="../../../.gitbook/assets/image (6) (1) (1) (1) (1) (2) (1).png" alt="" width="238"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (6) (1) (1) (1) (1) (2) (1) .png" alt = "" width = "238"> <Figcaption> </ Figcaption> </ Figure>
 
-### Additional
+### Supplémentaire
 
-If you are running both Flowise and Chroma on Docker, there are additional steps involved.
+Si vous exécutez à la fois Flowise et Chrom sur Docker, des étapes supplémentaires sont impliquées.
 
-1. Spin up Chroma docker first
+1. Tournez d'abord Chroma Docker
 
 ```bash
 docker compose up -d --build
 ```
 
-2. Open `docker-compose.yml` in Flowise
+2. Ouvrir`docker-compose.yml`en flux
 
 ```bash
 cd Flowise && cd docker
 ```
 
-3. Modify the file to:
+3. Modifiez le fichier en:
 
 ```sh
 version: '3.1'
@@ -68,17 +68,17 @@ networks:
         external: true
 ```
 
-4. Spin up Flowise docker image
+4. Spin up Flowise Docker Image
 
 ```bash
 docker compose up -d
 ```
 
-5. On the Chroma URL, for Windows and MacOS Operating Systems specify [http://host.docker.internal:8000](http://host.docker.internal:8000/). For Linux based systems the default docker gateway should be used since host.docker.internal is not available: [http://172.17.0.1:8000](http://172.17.0.1:8000/)
+5. Sur l'URL chroma, pour les systèmes d'exploitation Windows et MacOS spécifiez[http://host.docker.internal:8000](http://host.docker.internal:8000/). Pour les systèmes basés sur Linux, la passerelle Docker par défaut doit être utilisée car host.docker.internal n'est pas disponible:[http://172.17.0.1:8000](http://172.17.0.1:8000/)
 
-<figure><img src="../../../.gitbook/assets/image (5) (5).png" alt="" width="256"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (5) (5) .png" alt = "" width = "256"> <Figcaption> </ Figcaption> </ Figure>
 
-## Resources
+## Ressources
 
 * [LangChain JS Chroma](https://js.langchain.com/docs/modules/indexes/vector_stores/integrations/chroma)
 * [Chroma Getting Started](https://docs.trychroma.com/getting-started)

@@ -2,10 +2,10 @@
 description: Execute another chatflow and get the response.
 ---
 
-# Chatflow Tool
+# Outil Chatflow
 
-<figure><img src="../../../.gitbook/assets/image (26).png" alt="" width="248"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (26) .png" alt = "" width = "248"> <Figcaption> </gigcaption> </ Figure>
 
-{% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
-{% endhint %}
+{% hint style = "info"%}
+Cette section est un travail en cours. Nous apprécions toute aide que vous pouvez fournir pour terminer cette section. Veuillez vérifier notre[Contribution Guide](broken-reference)Pour commencer.
+{% EndHint%}

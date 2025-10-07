@@ -1,72 +1,72 @@
-# Cloud Migration
+# Migration Cloud
 
-This guide is to help users to migrate from Cloud V1 to V2.
+Ce guide consiste à aider les utilisateurs à migrer du cloud V1 vers V2.
 
-In Cloud V1, the URL of the apps looks like <mark style="color:blue;">**https://\<your-instance-name>.app.flowiseai.com**</mark>
+Dans Cloud V1, l'URL des applications ressemble à <Mark Style = "Color: Blue;"> ** https: // \ <your-instance-name> .app.flowiseai.com ** </mark>
 
-In Cloud V2, the URL of the apps is <mark style="color:blue;">**https://cloud.flowiseai.com**</mark>
+Dans Cloud V2, l'URL des applications est <Mark Style = "Color: Blue;"> ** https: //cloud.flowiseai.com** </mark>
 
-Why Cloud V2? We have re-written cloud from scratch, that has 5x speed improvement, ability to have multiple workspaces, organization members, and most importantly it is highly scalable with [production-ready architecture](../configuration/running-in-production.md).
+Pourquoi Cloud V2? Nous avons réécrit un nuage à partir de zéro, qui a une amélioration de la vitesse 5X, la capacité d'avoir plusieurs espaces de travail, des membres de l'organisation et, surtout, il est très évolutif avec[production-ready architecture](../configuration/running-in-production.md).
 
-1. Login to Cloud V1 via [https://flowiseai.com/auth/login](https://flowiseai.com/auth/login)
-2. In your dashboard, at the top right corner:
+1. Connectez-vous à Cloud V1 via[https://flowiseai.com/auth/login](https://flowiseai.com/auth/login)
+2. Dans votre tableau de bord, dans le coin supérieur droit:
 
-<figure><img src="../.gitbook/assets/image (8) (2).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (8) (2) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-3. **Select Version, then update to the latest version.**
+3. ** Sélectionnez la version, puis mettez à jour vers la dernière version. **
 
-<figure><img src="../.gitbook/assets/migration-guide/cloud-migration/3.png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Migration-Guide / Cloud-Migration / 3.png" alt = "" width = "563"> <Figcaption> </ / Figcaption> </gigust>
 
-4. Select Export, select the data you would like to export:
+4. Sélectionnez Exporter, sélectionnez les données que vous souhaitez exporter:
 
-<figure><img src="../.gitbook/assets/image (20) (2).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (20) (2) .png" alt = "" width = "563"> <Figcaption> </ Figcaption> </gigne>
 
-5. Save the exported JSON file.
-6. Navigate to Cloud V2 [https://cloud.flowiseai.com](https://cloud.flowiseai.com/)
-7. Cloud V2 account does not sync with your existing account in Cloud V1, you'll have to register again or sign in with Google/Github.
+5. Enregistrez le fichier JSON exporté.
+6. Accédez à Cloud V2[https://cloud.flowiseai.com](https://cloud.flowiseai.com/)
+7. Le compte Cloud V2 ne se synchronise pas avec votre compte existant dans Cloud V1, vous devrez vous inscrire à nouveau ou vous connecter avec Google / GitHub.
 
-<figure><img src="../.gitbook/assets/image (37).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (37) .png" alt = "" width = "563"> <Figcaption> </ Figcaption> </gigust>
 
-8. Once logged in, from the dashboard top right corner, click Import and upload the exported JSON file.
+8. Une fois connecté, dans le coin du tableau de bord en haut à droite, cliquez sur Importer et téléchargez le fichier JSON exporté.
 
-<figure><img src="../.gitbook/assets/image (42).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (42) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-9. New user by default is on the **Free Plan** with a limitation of 2 flows and assistants (for each). If your exported data has more than that, importing the exported JSON file will throw an error. This is why we are giving <mark style="color:orange;">**FIRST MONTH FREE**</mark> on **Starter Plan** which has unlimited flows & assistants!
+9. Le nouvel utilisateur par défaut est sur le ** plan gratuit ** avec une limitation de 2 flux et assistants (pour chacun). Si vos données exportées en ont plus que cela, l'importation du fichier JSON exporté lancera une erreur. C'est pourquoi nous donnons <Mark Style = "Color: Orange;"> ** Premier mois gratuit ** </mark> sur ** Plan de démarrage ** qui a des flux et assistants illimités!
 
-<figure><img src="../.gitbook/assets/image (55).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (55) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-10. Click the **Get Started** button, and add your preferred payment method:
+10. Cliquez sur le bouton ** démarrage ** et ajoutez votre mode de paiement préféré:
 
-<figure><img src="../.gitbook/assets/image (67).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (67) .png" alt = "" width = "563"> <Figcaption> </gigcaption> </gigust>
 
-<figure><img src="../.gitbook/assets/image (80).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (80) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-11. After added payment method, navigate back to Flowise, click Get Started on the selected plan and Confirm Change:
+11. Après le mode de paiement supplémentaire, reviendrez pour couler, cliquez sur Démarrer sur le plan sélectionné et confirmez la modification:
 
-<figure><img src="../.gitbook/assets/image (95).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (95) .png" alt = "" width = "563"> <Figcaption> </gigcaption> </gigust>
 
-12. If everything goes smoothly, you should be on Starter Plan with unlimited flows & assistants! Hooray :tada: Try importing the JSON file again if it was failing previously due to the free plan limitation.
+12. Si tout se passe bien, vous devriez être sur le plan de démarrage avec des flux et assistants illimités! Hourra: Tada: essayez à nouveau d'importer le fichier JSON s'il échouait précédemment en raison de la limitation du plan libre.
 
-{% hint style="success" %}
-All the IDs from exported data remain the same, so you don't have to worry about updating the ID for the API, you just need to update the URL such as [https://cloud.flowiseai.com/api/v1/prediction/69fb1055-ghj324-ghj-0a4ytrerf](https://cloud.flowiseai.com/api/v1/prediction/69fb1055-ghj324-ghj-0a4ytrerf)
-{% endhint %}
+{% Hint Style = "Success"%}
+Tous les ID des données exportées restent les mêmes, vous n'avez donc pas à vous soucier de la mise à jour de l'ID pour l'API, il vous suffit de mettre à jour l'URL comme[https://cloud.flowiseai.com/api/v1/prediction/69fb1055-ghj324-ghj-0a4ytrerf](https://cloud.flowiseai.com/api/v1/prediction/69fb1055-ghj324-ghj-0a4ytrerf)
+{% EndHint%}
 
-{% hint style="warning" %}
-Credentials are not exported. You will have to create new credentials and use those in the flows and assistants.
-{% endhint %}
+{% hint style = "avertissement"%}
+Les informations d'identification ne sont pas exportées. Vous devrez créer de nouvelles informations d'identification et les utiliser dans les flux et les assistants.
+{% EndHint%}
 
-13. After you have verified everything is working as expected, you can now cancel the Cloud V1 subscription.
-14. From the left side panel, click Account Settings, scroll to the bottom, and you will see **Cancel Previous Subscription**:
+13. Après avoir vérifié que tout fonctionne comme prévu, vous pouvez désormais annuler l'abonnement Cloud V1.
+14. Dans le panneau du côté gauche, cliquez sur Paramètres du compte, faites défiler vers le bas et vous verrez ** Annuler l'abonnement précédent **:
 
-<figure><img src="../.gitbook/assets/image (135).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (135) .png" alt = ""> <figcaption> </gigcaption> </gigust>
 
-15. Enter your previous email that was used to sign up the Cloud V1, and hit **Send Instructions**.
-16. You will then receive an email to cancel your previous subscription:
+15. Entrez votre e-mail précédent qui a été utilisé pour inscrire le Cloud V1 et appuyez sur ** Envoyer des instructions **.
+16. Vous recevrez ensuite un e-mail pour annuler votre abonnement précédent:
 
-<figure><img src="../.gitbook/assets/image (136).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (136) .png" alt = "" width = "563"> <Figcaption> </gigcaption> </gigust>
 
-17. Clicking the **Manage Subscription** button will bring you to a portal where you can cancel the Cloud V1 subscription. Your Cloud V1 app will then get shut down on the next billing cycle.
+17. Cliquez sur le bouton ** Gérer l'abonnement ** vous amènera à un portail où vous pouvez annuler l'abonnement Cloud V1. Votre application Cloud V1 sera ensuite fermée sur le prochain cycle de facturation.
 
-<figure><img src="../.gitbook/assets/image (137).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (137) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-We sincerely apologize for any inconvenience we have caused during the process of migration. If anything we would love to help, don't hesitate to reach us at support@flowiseai.com.
+Nous nous excusons sincèrement pour tout inconvénient que nous avons causé au cours du processus de migration. Si quelque chose, nous aimerions aider, n'hésitez pas à nous joindre à support@flowiseai.com.

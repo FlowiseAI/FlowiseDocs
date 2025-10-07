@@ -2,10 +2,10 @@
 description: Generate embeddings for a given text using open source model on Ollama.
 ---
 
-# Ollama Embeddings
+# Olllama Embeddings
 
-<figure><img src="../../../.gitbook/assets/image (11) (1) (1) (1) (1) (1) (1).png" alt="" width="299"><figcaption><p>Ollama Embeddings Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (11) (1) (1) (1) (1) (1) (1) .png" alt = "" width = "299"> <gigcaption> <p> olllama embeddings node </p> </igcaption> </gigu
 
-{% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
-{% endhint %}
+{% hint style = "info"%}
+Cette section est un travail en cours. Nous apprécions toute aide que vous pouvez fournir pour terminer cette section. Veuillez vérifier notre[Contribution Guide](broken-reference)Pour commencer.
+{% EndHint%}

@@ -4,48 +4,48 @@ description: >-
   NoSQL cloud developer data platform for critical, AI-powered applications.
 ---
 
-# Couchbase
+# Canapé
 
-## Prerequisite
+## Condition préalable
 
-### Requirements
+### Exigences
 
-1. Couchbase Cluster (Self Managed or Capella) version **7.6+** with [Search Service](https://docs.couchbase.com/server/current/search/search.html).
-2.  Capella Setup: To know more about connecting to your Capella cluster, please follow the [instructions](https://docs.couchbase.com/cloud/get-started/connect.html?_gl=1*1yhpmel*_gcl_au*MTMzNDE3NTQxLjE3MzY5MjA5MzQ.).
+1. Couchbase Cluster (Version auto-gérée ou capella) ** 7.6 + ** avec[Search Service](https://docs.couchbase.com/server/current/search/search.html).
+2.  Configuration de Capella: Pour en savoir plus sur la connexion à votre cluster Capella, veuillez suivre le[instructions](https://docs.couchbase.com/cloud/get-started/connect.html?_gl=1*1yhpmel*_gcl_au*MTMzNDE3NTQxLjE3MzY5MjA5MzQ.).
 
-    Specifically, you need to do the following:
+Plus précisément, vous devez faire ce qui suit:
 
-    * Create the [database credentials](https://docs.couchbase.com/cloud/clusters/manage-database-users.html?_gl=1*19zk7vq*_gcl_au*MTMzNDE3NTQxLjE3MzY5MjA5MzQ.) to access cluster.
-    * [Allow access](https://docs.couchbase.com/cloud/clusters/allow-ip-address.html?_gl=1*19zk7vq*_gcl_au*MTMzNDE3NTQxLjE3MzY5MjA5MzQ.) to the Cluster from the IP on which the application is running.
+    * Créer le[database credentials](https://docs.couchbase.com/cloud/clusters/manage-database-users.html?_gl=1*19zk7vq*_gcl_au*MTMzNDE3NTQxLjE3MzY5MjA5MzQ.)pour accéder au cluster.
+    * [Allow access](https://docs.couchbase.com/cloud/clusters/allow-ip-address.html?_gl=1*19zk7vq*_gcl_au*MTMzNDE3NTQxLjE3MzY5MjA5MzQ.)au cluster à partir de l'IP sur lequel l'application est en cours d'exécution.
 
-    Self Managed Setup:
+Configuration auto-gérée:
 
-    * Follow [Couchbase Installation Options](https://developer.couchbase.com/tutorial-couchbase-installation-options) for installing the latest Couchbase Database Server Instance. Make sure to add the Search Service.
-3. Search Index Creation on the Full Text Service in Couchbase.
+    * Suivre[Couchbase Installation Options](https://developer.couchbase.com/tutorial-couchbase-installation-options)Pour l'installation de la dernière instance de serveur de base de données CouchBase. Assurez-vous d'ajouter le service de recherche.
+3. Recherchez la création d'index sur le service de texte intégral dans Couchbase.
 
-### Importing Search Index
+### Index d'importation de recherche
 
 #### [Couchbase Capella](\(https:/docs.couchbase.com/cloud/search/import-search-index.html)
 
-Follow these steps to import a Search Index in Capella:
+Suivez ces étapes pour importer un index de recherche dans Capella:
 
-* Copy the index definition to a new file named `index.json`.
-* Import the file in Capella following the instructions in the documentation.
-* Click Create Index to finalize the index creation.
+* Copiez la définition d'index dans un nouveau fichier nommé`index.json`.
+* Importez le fichier dans Capella suivant les instructions de la documentation.
+* Cliquez sur Créer l'index pour finaliser la création d'index.
 
 #### [Couchbase Server](\(https:/docs.couchbase.com/server/current/search/import-search-index.html)
 
-Follow these steps for Couchbase Server:
+Suivez ces étapes pour le serveur CouchBase:
 
-* Navigate to Search → Add Index → Import.
-* Copy the provided Index definition into the Import screen.
-* Click Create Index to finalize the index creation.
+* Naviguez vers la recherche → Ajouter un index → ​​l'importation.
+* Copiez la définition d'index fournie dans l'écran d'importation.
+* Cliquez sur Créer l'index pour finaliser la création d'index.
 
-You may also create a vector index using Search UI on both [Couchbase Capella](https://docs.couchbase.com/cloud/vector-search/create-vector-search-index-ui.html?_gl=1*1rglcpj*_gcl_au*MTMzNDE3NTQxLjE3MzY5MjA5MzQ.) and [Couchbase Self Managed Server](https://docs.couchbase.com/server/current/vector-search/create-vector-search-index-ui.html?_gl=1*t7aeet*_gcl_au*MTMzNDE3NTQxLjE3MzY5MjA5MzQ.).
+Vous pouvez également créer un index vectoriel à l'aide de l'interface utilisateur de recherche sur les deux[Couchbase Capella](https://docs.couchbase.com/cloud/vector-search/create-vector-search-index-ui.html?_gl=1*1rglcpj*_gcl_au*MTMzNDE3NTQxLjE3MzY5MjA5MzQ.)et[Couchbase Self Managed Server](https://docs.couchbase.com/server/current/vector-search/create-vector-search-index-ui.html?_gl=1*t7aeet*_gcl_au*MTMzNDE3NTQxLjE3MzY5MjA5MzQ.).
 
-### Index Definition
+### Définition d'index
 
-Here, we are creating the index `vector-index` on the documents. The Vector field is set to `embedding` with 1536 dimensions and the text field set to `text`. We are also indexing and storing all the fields under `metadata` in the document as a dynamic mapping to account for varying document structures. The similarity metric is set to `dot_product`. If there is a change in these parameters, please adapt the index accordingly.
+Ici, nous créons l'index`vector-index`sur les documents. Le champ vectoriel est défini sur`embedding`avec 1536 dimensions et le champ de texte réglé sur`text`. Nous indexons et stockons également tous les champs sous`metadata`dans le document en tant que mappage dynamique pour tenir compte des structures de documents variables. La métrique de similitude est définie sur`dot_product`. S'il y a un changement dans ces paramètres, veuillez adapter l'index en conséquence.
 
 ```json
 {
@@ -127,32 +127,32 @@ Here, we are creating the index `vector-index` on the documents. The Vector fiel
 
 ```
 
-## Setup
+## Installation
 
-1. Add a new **Couchbase** node on canvas and fill in the Bucket Name, Scope Name, Collection Name and Index Name
+1. Ajoutez un nouveau nœud ** Couchbase ** sur toile et remplissez le nom du seau, le nom de la portée, le nom de la collection et le nom d'index
 
-<figure><img src="../../../.gitbook/assets/couchbase_1.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Couchbase_1.png" alt = ""> <Figcaption> </gigcaption> </ Figure>
 
-2. Add new credential and fill in the parameters:
-   * Couchbase Connection String
-   * Cluster Username
-   * Cluster Password
+2. Ajoutez de nouveaux informations d'identification et remplissez les paramètres:
+   * Chaîne de connexion Couchbase
+   * Nom d'utilisateur en grappes
+   * Mot de passe du cluster
 
-<figure><img src="../../../.gitbook/assets/couchbase_2.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / CouchBase_2.png" alt = ""> <gignedcaption> </gigcaption> </gigust>
 
-3. Add additional nodes to canvas and start the upsert process
-   * **Document** can be connected with any node under [**Document Loader**](../document-loaders/) category
-   * **Embeddings** can be connected with any node under [**Embeddings** ](../embeddings/)category
+3. Ajouter des nœuds supplémentaires à la toile et démarrer le processus ussert
+   * ** Document ** peut être connecté à n'importe quel nœud sous[**Document Loader**](../document-loaders/)catégorie
+   * ** Embeddings ** peut être connecté à n'importe quel nœud sous[**Embeddings** ](../embeddings/)catégorie
 
-<figure><img src="../../../.gitbook/assets/couchbase_3.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / CouchBase_3.png" alt = ""> <Figcaption> </gigcaption> </ Figure>
 
-<figure><img src="../../../.gitbook/assets/couchbase_4.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Couchbase_4.png" alt = ""> <gignedcaption> </gigcaption> </gigust>
 
-5. Verify from the Couchbase UI to see if data has been successfully upserted!
+5. Vérifiez de l'interface utilisateur Couchbase pour voir si les données ont été renversées avec succès!
 
-## Resources
+## Ressources
 
-* LangChain Couchbase vectorstore integrations
+* Intégrations Langchain Couchbase Vectorstore
   * [Python](https://python.langchain.com/docs/integrations/vectorstores/couchbase/)
   * [NodeJS](https://js.langchain.com/docs/integrations/vectorstores/couchbase/)
-* Refer to the [Couchbase Documentation](https://docs.couchbase.com/home/index.html) to learn about Couchbase.
+* Reportez-vous au[Couchbase Documentation](https://docs.couchbase.com/home/index.html)Pour en savoir plus sur Couchbase.

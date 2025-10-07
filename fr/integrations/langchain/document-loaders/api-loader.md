@@ -2,50 +2,50 @@
 description: Load data from an API.
 ---
 
-# API Document Loader
+# Chargeur de documents API
 
-<figure><img src="../../../.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1).png" alt="" width="273"><figcaption><p>API Loader Node</p></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / Image (9) (1) (1) (1) (1) (1) (1) .png" alt = "" width = "273"> </ figure> <p> API Loder Node </p> </figcaption> </gigon>
 
-The API Document Loader provides functionality to load and process data from external APIs using HTTP requests. This module enables seamless integration with RESTful APIs and web services.
+Le chargeur de document API fournit des fonctionnalités pour charger et traiter les données des API externes à l'aide de requêtes HTTP. Ce module permet une intégration transparente avec des API et services Web RESTful.
 
-This module provides a versatile API document loader that can:
-- Make HTTP GET and POST requests
-- Handle custom headers and request bodies
-- Process API responses into documents
-- Support JSON data structures
-- Customize metadata extraction
-- Process responses with text splitters
+Ce module fournit un chargeur de document API polyvalent qui peut:
+- Faire obtenir HTTP et publier des demandes
+- Gérer les en-têtes personnalisés et les corps de demande
+- Traiter les réponses de l'API dans les documents
+- Soutenir les structures de données JSON
+- Personnaliser l'extraction des métadonnées
+- Traiter les réponses avec des séparateurs de texte
 
-## Inputs
+## Entrées
 
-### Required Parameters
-- **URL**: The API endpoint URL to call
-- **Method**: HTTP method to use (GET or POST)
+### Paramètres requis
+- ** URL **: L'URL de point de terminaison de l'API à appeler
+- ** Méthode **: Méthode HTTP à utiliser (obtenir ou publier)
 
-### Optional Parameters
-- **Headers**: JSON object containing HTTP headers
-- **Body**: JSON object for POST request body
-- **Text Splitter**: A text splitter to process the extracted content
-- **Additional Metadata**: JSON object with additional metadata
-- **Omit Metadata Keys**: Comma-separated list of metadata keys to omit
+### Paramètres facultatifs
+- ** En-têtes **: objet JSON contenant des en-têtes HTTP
+- ** Corps **: objet JSON pour le corps de la demande postale
+- ** Splitter du texte **: un séparateur de texte pour traiter le contenu extrait
+- ** Metadata supplémentaires **: objet JSON avec métadonnées supplémentaires
+- ** omettre les clés de métadonnées **: Liste des clés de métadonnées séparées par des virgules pour omettre
 
-## Outputs
+## Sorties
 
-- **Document**: Array of document objects containing metadata and pageContent
-- **Text**: Concatenated string from pageContent of documents
+- ** Document **: tableau d'objets de document contenant des métadonnées et un conceptent
+- ** Texte **: chaîne concaténée du conceptent de documents
 
-## Features
-- HTTP method support (GET/POST)
-- Custom header configuration
-- Request body customization
-- Response processing
-- Error handling
-- Metadata customization
-- Text splitting capabilities
+## Caractéristiques
+- Prise en charge de la méthode HTTP (GET / POST)
+- Configuration de l'en-tête personnalisée
+- Demander la personnalisation du corps
+- Traitement des réponses
+- Gestion des erreurs
+- Personnalisation des métadonnées
+- Capacités de division de texte
 
-## Example Usage
+## Exemple d'utilisation
 
-### GET Request
+### Faire une demande
 ```json
 {
     "method": "GET",
@@ -57,7 +57,7 @@ This module provides a versatile API document loader that can:
 }
 ```
 
-### POST Request
+### Demande de poste
 ```json
 {
     "method": "POST",
@@ -74,9 +74,9 @@ This module provides a versatile API document loader that can:
 ```
 
 ## Notes
-- Supports JSON request/response formats
-- Handles HTTP error responses
-- Automatically processes response data into documents
-- Can be combined with text splitters for content processing
-- Supports custom metadata addition and omission
-- Error responses are properly handled and reported
+- Prend en charge les formats de demande / réponse JSON
+- Gère les réponses d'erreur HTTP
+- Traite automatiquement les données de réponse dans les documents
+- Peut être combiné avec des séparateurs de texte pour le traitement du contenu
+- Prend en charge l'ajout et l'omission des métadonnées personnalisées
+- Les réponses d'erreur sont correctement gérées et signalées

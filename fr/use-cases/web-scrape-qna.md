@@ -2,92 +2,92 @@
 description: Learn how to scrape, upsert, and query a website
 ---
 
-# Web Scrape QnA
+# Web strecle qna
 
 ***
 
-Let's say you have a website (could be a store, an ecommerce site, a blog), and you want to scrap all the relative links of that website and have LLM answer any question on your website. In this tutorial, we are going to go through how to achieve that.
+Supposons que vous ayez un site Web (pourrait être un magasin, un site de commerce électronique, un blog), et que vous souhaitez supprimer tous les liens relatifs de ce site Web et demander à LLM de répondre à n'importe quelle question sur votre site Web. Dans ce tutoriel, nous allons passer par la façon d'y parvenir.
 
-You can find the example flow called - **WebPage QnA** from the marketplace templates.
+Vous pouvez trouver l'exemple de flux appelé - ** Page Web QNA ** à partir des modèles de marché.
 
-## Setup
+## Installation
 
-We are going to use **Cheerio Web Scraper** node to scrape links from a given URL and the **HtmlToMarkdown Text Splitter** to split the scraped content into smaller pieces.
+Nous allons utiliser ** Cheerio Web Scraper ** Node pour raconter des liens à partir d'une URL donnée et du séparateur de texte ** htmltomarkdown ** pour diviser le contenu gratté en petits morceaux.
 
-<figure><img src="../.gitbook/assets/image (86).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (86) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-If you do not specify anything, by default only the given URL page will be scraped. If you want to crawl the rest of relative links, click **Additional Parameters** of Cheerio Web Scraper.
+Si vous ne spécifiez rien, par défaut, seule la page URL donnée sera grattée. Si vous souhaitez ramper le reste des liens relatifs, cliquez sur ** Paramètres supplémentaires ** du grattoir Web Cheerio.
 
-## 1. Crawl Multiple Pages
+## 1. Crawl plusieurs pages
 
-1. Select `Web Crawl` or `Scrape XML Sitemap` in **Get Relative Links Method**.
-2. Input `0` in **Get Relative Links Limit** to retrieve all links available from the provided URL.
+1. Sélectionner`Web Crawl`ou`Scrape XML Sitemap`Dans ** Get Relative Links Method **.
+2. Saisir`0`Dans ** Obtenez des liens relatifs Limite ** Pour récupérer tous les liens disponibles à partir de l'URL fournie.
 
-<figure><img src="../.gitbook/assets/image (87).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (87) .png" alt = "" width = "563"> <Figcaption> </ Figcaption> </gigust>
 
-### Manage Links (Optional)
+### Gérer les liens (facultatif)
 
-1. Input desired URL to be crawled.
-2. Click **Fetch Links** to retrieve links based on the inputs of the **Get Relative Links Method** and **Get Relative Links Limit** in **Additional Parameters**.
-3. In **Crawled Links** section, remove unwanted links by clicking **Red Trash Bin Icon**.
-4. Lastly, click **Save**.
+1. Entrée URL souhaitée à ramper.
+2. Cliquez sur ** Répondre aux liens ** Pour récupérer les liens en fonction des entrées de la méthode ** Get Relative Links ** et ** Obtenir des liens relatifs Limite ** Dans ** Paramètres supplémentaires **.
+3. Dans ** Liens rampés ** Section, supprimez les liens indésirables en cliquant sur ** Icône de bac à ordures rouges **.
+4. Enfin, cliquez sur ** Enregistrer **.
 
-<figure><img src="../.gitbook/assets/image (88).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (88) .png" alt = "" width = "563"> <Figcaption> </ Figcaption> </gigust>
 
 ## 2. Upsert
 
-1. On the top right corner, you will notice a green button:
+1. Dans le coin supérieur droit, vous remarquerez un bouton vert:
 
-<figure><img src="../.gitbook/assets/Untitled (2).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Untitled (2) .png" alt = ""> <Figcaption> </ Figcaption> </gigne>
 
-2. A dialog will be shown that allow users to upsert data to Pinecone:
+2. Une boîte de dialogue sera affichée qui permettra aux utilisateurs d'infiltrer les données sur PineCone:
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. Gitbook / Assets / Image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) .png" alt = ""> <figCaption> </gigcaption> </ Figure>
 
-**Note:** Under the hood, following actions will be executed:
+** Remarque: ** Sous le capot, les actions suivantes seront exécutées:
 
-* Scraped all HTML data using Cheerio Web Scraper
-* Convert all scraped data from HTML to Markdown, then split it
-* Splitted data will be looped over, and converted to vector embeddings using OpenAI Embeddings
-* Vector embeddings will be upserted to Pinecone
+* Stracté toutes les données HTML à l'aide du grattoir Web Cheerio
+* Convertir toutes les données grattées de HTML à Markdown, puis les diviser
+* Les données divisées seront bouclées et converties en incorporations vectorielles à l'aide d'Openai Incorceddings
+* Les incorporations vectorielles seront renversées sur Pincecone
 
-3. On the [Pinecone console](https://app.pinecone.io) you will be able to see the new vectors that were added.
+3. Sur[Pinecone console](https://app.pinecone.io)Vous pourrez voir les nouveaux vecteurs qui ont été ajoutés.
 
-<figure><img src="../.gitbook/assets/web-scrape-pinecone.png" alt=""><figcaption></figcaption></figure>
+<Figure> <img src = "../. GitBook / Assets / Web-Scrapeconcone.png" Alt = ""> <Figcaption> </Figcaption> </Figge>
 
-## 3. Query
+## 3. Requête
 
-Querying is relatively straight-forward. After you have verified that data is upserted to vector database, you can start asking question in the chat:
+La question est relativement simple. Une fois que vous avez vérifié que les données ont été déposées à la base de données vectorielle, vous pouvez commencer à poser une question dans le chat:
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. Gitbook / Assets / image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) .png" alt = ""> <figcaption> </gigcaption> </ figure>
 
-In the Additional Parameters of Conversational Retrieval QA Chain, you can specify 2 prompts:
+Dans les paramètres supplémentaires de la chaîne QA de récupération conversationnelle, vous pouvez spécifier 2 invites:
 
-* **Rephrase Prompt:** Used to rephrase the question given the past conversation history
-* **Response Prompt:** Using the rephrased question, retrieve the context from vector database, and return a final response
+* ** Invite de reformularité: ** Utilisé pour reformuler la question compte tenu de l'historique de conversation passée
+* ** Invite de réponse: ** À l'aide de la question reformatique, récupérez le contexte de la base de données vectorielle et renvoyez une réponse finale
 
-<figure><img src="../.gitbook/assets/image (91).png" alt=""><figcaption></figcaption></figure>
+<Figure> <img src = "../. GitBook / Assets / Image (91) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-{% hint style="info" %}
-It is recommended to specify a detailed response prompt message. For example, you can specify the name of AI, the language to answer, the response when answer its not found (to prevent hallucination).
-{% endhint %}
+{% hint style = "info"%}
+Il est recommandé de spécifier un message d'invite de réponse détaillé. Par exemple, vous pouvez spécifier le nom de l'IA, la langue pour répondre, la réponse lorsque la réponse n'est pas trouvée (pour empêcher l'hallucination).
+{% EndHint%}
 
-You can also turn on the Return Source Documents option to return a list of document chunks where the AI's response is coming from.
+Vous pouvez également activer l'option Retour Source Documents pour renvoyer une liste de morceaux de document d'où vient la réponse de l'IA.
 
-<figure><img src="../.gitbook/assets/Untitled (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Untitled (1) (1) (1) (1) .png" alt = "" width = "563"> <Figcaption> </ Figcaption> </stigne>
 
-## Additional Web Scraping
+## Stracage Web supplémentaire
 
-Apart from Cheerio Web Scraper, there are other nodes that can perform web scraping as well:
+Outre le grattoir Web Cheerio, il existe également d'autres nœuds qui peuvent également effectuer le grattage Web:
 
-* **Puppeteer:** Puppeteer is a Node.js library that provides a high-level API for controlling headless Chrome or Chromium. You can use Puppeteer to automate web page interactions, including extracting data from dynamic web pages that require JavaScript to render.
-* **Playwright:** Playwright is a Node.js library that provides a high-level API for controlling multiple browser engines, including Chromium, Firefox, and WebKit. You can use Playwright to automate web page interactions, including extracting data from dynamic web pages that require JavaScript to render.
-* **Apify:** [Apify](https://apify.com/) is a cloud platform for web scraping and data extraction, which provides an [ecosystem](https://apify.com/store) of more than a thousand ready-made apps called _Actors_ for various web scraping, crawling, and data extraction use cases.
+* ** Puppeneer: ** Puppeteer est une bibliothèque Node.js qui fournit une API de haut niveau pour contrôler le chrome ou le chrome sans tête. Vous pouvez utiliser des marionnets pour automatiser les interactions de page Web, notamment l'extraction de données de pages Web dynamiques qui nécessitent un JavaScript.
+* ** Playwright: ** Playwright est une bibliothèque Node.js qui fournit une API de haut niveau pour contrôler plusieurs moteurs de navigateur, y compris Chromium, Firefox et WebKit. Vous pouvez utiliser Playwright pour automatiser les interactions de la page Web, notamment l'extraction de données de pages Web dynamiques qui nécessitent un JavaScript.
+* ** apify: **[Apify](https://apify.com/)est une plate-forme cloud pour le grattage Web et l'extraction de données, qui fournit un[ecosystem](https://apify.com/store)de plus d'un millier d'applications prêtes à l'emploi appelées _ACTORS_ pour divers cas d'utilisation de grattage Web, d'exploration et d'extraction de données.
 
-<figure><img src="../.gitbook/assets/image (92).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (92) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-{% hint style="info" %}
-The same logic can be applied to any document use cases, not just limited to web scraping!
-{% endhint %}
+{% hint style = "info"%}
+La même logique peut être appliquée à tous les cas d'utilisation de documents, et non seulement limitées au grattage Web!
+{% EndHint%}
 
-If you have any suggestion on how to improve the performance, we'd love your [contribution](broken-reference)!
+Si vous avez une suggestion sur la façon d'améliorer les performances, nous serions ravis de votre[contribution](broken-reference)!

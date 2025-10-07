@@ -2,13 +2,13 @@
 description: Learn to build your own Flowise solutions through practical examples
 ---
 
-# Use Cases
+# Cas d'utilisation
 
 ***
 
-This section provides a collection of practical examples to demonstrate how Flowise can be used to build a variety of solutions.
+Cette section fournit une collection d'exemples pratiques pour démontrer comment Flowise peut être utilisé pour construire une variété de solutions.
 
-Each use case will guide you through the process of designing, building, and deploying real-world applications using Flowise.
+Chaque cas d'utilisation vous guidera à travers le processus de conception, de construction et de déploiement d'applications du monde réel en utilisant Flowise.
 
 ## Guides
 

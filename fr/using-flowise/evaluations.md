@@ -1,104 +1,104 @@
-# Evaluations
+# Évaluations
 
-{% hint style="info" %}
-Evaluations are only available for Cloud and Enterprise plan
-{% endhint %}
+{% hint style = "info"%}
+Les évaluations ne sont disponibles que pour le cloud et le plan d'entreprise
+{% EndHint%}
 
-Evaluations help you monitor and understand the performance of your Chatflow/Agentflow application. On the high level, an evaluation is a process that takes a set of inputs and corresponding outputs from your Chatflow/Agentflow, and generates scores. These scores can be derived by comparing outputs to reference results, such as through string matching, numeric comparison, or even leveraging an LLM as a judge. These evaluations are conducted using Datasets and Evaluators.
+Les évaluations vous aident à surveiller et à comprendre les performances de votre application ChatFlow / AgentFlow. Au niveau élevé, une évaluation est un processus qui prend un ensemble d'entrées et de sorties correspondantes de votre ChatFlow / AgentFlow, et génère des scores. Ces scores peuvent être dérivés en comparant les sorties aux résultats de référence, tels que par correspondance de cordes, une comparaison numérique ou même en tirant parti d'un LLM en tant que juge. Ces évaluations sont effectuées à l'aide de ensembles de données et d'évaluateurs.
 
-## Datasets
+## Ensembles de données
 
-Datasets are the inputs that will be used to run your Chatflow/Agentflow, along with the corresponding outputs for comparison. User can add the input and anticipated output manually, or upload a CSV file with 2 columns: Input and Output.
+Les ensembles de données sont les entrées qui seront utilisées pour exécuter votre ChatFlow / AgentFlow, ainsi que les sorties correspondantes pour la comparaison. L'utilisateur peut ajouter manuellement l'entrée et la sortie prévue ou télécharger un fichier CSV avec 2 colonnes: entrée et sortie.
 
-<figure><img src="../.gitbook/assets/image (3) (3).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (3) (3) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-| Input                             | Output                       |
+| Entrée | Sortie |
 | --------------------------------- | ---------------------------- |
-| What is the capital of UK         | Capital of UK is London      |
-| How many days are there in a year | There are 365 days in a year |
+| Quelle est la capitale du Royaume-Uni | La capitale du Royaume-Uni est Londres |
+| Combien de jours y a-t-il dans un an | Il y a 365 jours par an |
 
-## Evaluators
+## Évaluateurs
 
-Evaluators are like unit tests. During an evaluation, the inputs from Datasets are ran on the selected flows and the outputs are evaluated using selected evaluators. There are 3 types of evaluators:
+Les évaluateurs sont comme des tests unitaires. Au cours d'une évaluation, les entrées des ensembles de données sont exécutées sur les flux sélectionnés et les sorties sont évaluées à l'aide d'évaluateurs sélectionnés. Il existe 3 types d'évaluateurs:
 
-* **Text Based**: string based checking:
-  * Contains Any
-  * Contains All
-  * Does Not Contains Any
-  * Does Not Contains All
-  * Starts With
-  * Does Not Starts With
+* ** basé sur le texte **: Vérification basée sur les chaînes:
+  * Contient tout
+  * Contient tout
+  * Ne contient aucun
+  * Ne contient pas tout
+  * Commence par
+  * Ne commence pas par
 
-<figure><img src="../.gitbook/assets/image (6) (2).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (6) (2) .png" alt = ""> <Figcaption> </ Figcaption> </gigne>
 
-* **Numeric Based:** numbers type checking:
-  * Total Tokens
-  * Prompt Tokens
-  * Completion Tokens
-  * API Latency
-  * LLM Latency
-  * Chatflow Latency
-  * Agentflow Latency (coming)
-  * Output Characters Length
+* ** Basée numérique: ** Type de nombres Vérification:
+  * Jetons totaux
+  * Jetons rapides
+  * Jetons d'achèvement
+  * Latence API
+  * Latence LLM
+  * Latence de chatflow
+  * LAFENCE DE LA FLOW Agent (à venir)
+  * Longueur de caractères de sortie
 
-<figure><img src="../.gitbook/assets/image (7) (2).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (7) (2) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-* **LLM Based**: using another LLM to grade the output
+* ** LLM basé sur LLM **: Utilisation d'un autre LLM pour noter la sortie
   * Hallucination
-  * Correctness
+  * Correction
 
-<figure><img src="../.gitbook/assets/image (9) (2).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (9) (2) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-## Evaluations
+## Évaluations
 
-Now that we have Datasets and Evaluators prepared, we can start running an evaluation.
+Maintenant que nous avons préparé des ensembles de données et des évaluateurs, nous pouvons commencer à exécuter une évaluation.
 
-1.) Select dataset and chatflow to evaluate. You can select multiple datasets and chatflows. Using the example below, every inputs from Dataset1 will be ran against 2 chatflows. Since Dataset1 has 2 inputs, a total of 4 outputs will be produced and evaluated.
+1.) Sélectionnez DataSet et ChatFlow pour évaluer. Vous pouvez sélectionner plusieurs ensembles de données et chatflows. En utilisant l'exemple ci-dessous, toutes les entrées de DataSet1 seront exécutées contre 2 ChatFlows. Étant donné que DataSet1 a 2 entrées, un total de 4 sorties seront produites et évaluées.
 
-<figure><img src="../.gitbook/assets/image (10) (2).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (10) (2) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-2.) Select the evaluators. Only string based and numeric based evaluators are available to be selected at this stage.
+2.) Sélectionnez les évaluateurs. Seuls des évaluateurs basés sur des chaînes et basés sur des chaînes sont disponibles pour être sélectionnés à ce stade.
 
-<figure><img src="../.gitbook/assets/image (11) (2).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (11) (2) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-3.) (Optional) Select LLM Based evaluator. Start Evaluation:
+3.) (Facultatif) Sélectionnez l'évaluateur basé sur LLM. Démarrer l'évaluation:
 
-<figure><img src="../.gitbook/assets/image (12) (2).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (12) (2) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-4.) Wait for evaluation to be completed:
+4.) Attendez que l'évaluation soit terminée:
 
-<figure><img src="../.gitbook/assets/image (13) (2).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (13) (2) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-5.) After evaluation is completed, click the graph icon at the right side to view the details:
+5.) Une fois l'évaluation terminée, cliquez sur l'icône du graphique sur le côté droit pour afficher les détails:
 
-<figure><img src="../.gitbook/assets/image (14) (2).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (14) (2) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-The 3 charts above show the summary of the evaluation:
+Les 3 graphiques ci-dessus montrent le résumé de l'évaluation:
 
-* Pass/fail rate
-* Average prompt and completion tokens used
-* Average latency of the request
+* Tarif de réussite / échouer
+* Invite moyen et jetons d'achèvement utilisés
+* Latence moyenne de la demande
 
-Table below the charts shows the details of each execution.
+Le tableau sous les graphiques montre les détails de chaque exécution.
 
-<figure><img src="../.gitbook/assets/image (15) (2).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (15) (2) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-<figure><img src="../.gitbook/assets/image (16) (2).png" alt="" width="355"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (16) (2) .png" alt = "" width = "355"> <Figcaption> </ Figcaption> </gigne>
 
-### Re-run evaluation
+### Réévaluer une réévaluation
 
-When the flows used on evaluation have been updated/modified, a warning message will be shown:
+Lorsque les flux utilisés sur l'évaluation ont été mis à jour / modifiés, un message d'avertissement sera affiché:
 
-<figure><img src="../.gitbook/assets/image (17) (2).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (17) (2) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-You can re-run the same evaluation using the Re-Run Evaluation button at the top right corner. You will be able to see the different versions:
+Vous pouvez réexaminer la même évaluation en utilisant le bouton d'évaluation à nouveau dans le coin supérieur droit. Vous pourrez voir les différentes versions:
 
-<figure><img src="../.gitbook/assets/image (18) (2).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (18) (2) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-You can also view and compare the results from different versions:
+Vous pouvez également afficher et comparer les résultats de différentes versions:
 
-<figure><img src="../.gitbook/assets/image (19) (2).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (19) (2) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-## Video Tutorial
+## Tutoriel vidéo
 
-{% embed url="https://youtu.be/kgUttHMkGFg?si=3rLplEp_0TI0p6UV&t=486" %}
+{% embed url = "https://youtu.be/kgutthmkgfg?si=3rlplep_0ti0p6uv&t=486"%}

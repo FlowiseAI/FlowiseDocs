@@ -1,85 +1,85 @@
-# PDF Document Loader
+# Chargeur de documents PDF
 
-PDF (Portable Document Format) is a file format developed by Adobe for presenting documents consistently across software platforms. This module provides functionality to load and process PDF files using pdf.js.
+PDF (Format de document portable) est un format de fichier développé par Adobe pour présenter des documents de manière cohérente sur les plateformes logicielles. Ce module fournit des fonctionnalités pour charger et traiter les fichiers PDF à l'aide de pdf.js.
 
-This module provides a sophisticated PDF document loader that can:
-- Load single or multiple PDF files
-- Split documents by page or file
-- Support base64 encoded files
-- Handle file storage integration
-- Process content with text splitters
-- Support legacy PDF versions
-- Customize metadata extraction
+Ce module fournit un chargeur de document PDF sophistiqué qui peut:
+- Chargez des fichiers PDF uniques ou multiples
+- Diviser les documents par page ou fichier
+- Prise en charge des fichiers codés Base64
+- Gérer l'intégration du stockage des fichiers
+- Traiter le contenu avec des séparateurs de texte
+- Prise en charge des versions PDF héritées
+- Personnaliser l'extraction des métadonnées
 
-## Inputs
+## Entrées
 
-### Required Parameters
-- **PDF File**: The PDF file(s) to process (.pdf extension)
-- **Usage**: Choose between:
-  - One document per page
-  - One document per file
+### Paramètres requis
+- ** Fichier PDF **: le (s) fichier (s) PDF à traiter (extension .pdf)
+- ** Utilisation **: Choisissez entre:
+  - Un document par page
+  - Un document par fichier
 
-### Optional Parameters
-- **Text Splitter**: A text splitter to process the extracted content
-- **Use Legacy Build**: Whether to use legacy PDF.js build
-- **Additional Metadata**: JSON object with additional metadata
-- **Omit Metadata Keys**: Comma-separated list of metadata keys to omit
+### Paramètres facultatifs
+- ** Splitter du texte **: un séparateur de texte pour traiter le contenu extrait
+- ** Utilisez le héritage Build **: s'il faut utiliser le héritage pdf.js build
+- ** Metadata supplémentaires **: objet JSON avec métadonnées supplémentaires
+- ** omettre les clés de métadonnées **: Liste des clés de métadonnées séparées par des virgules pour omettre
 
-## Outputs
+## Sorties
 
-- **Document**: Array of document objects containing metadata and pageContent
-- **Text**: Concatenated string from pageContent of documents
+- ** Document **: tableau d'objets de document contenant des métadonnées et un conceptent
+- ** Texte **: chaîne concaténée du conceptent de documents
 
-## Features
-- Multiple file support
-- Page-level splitting
-- Legacy version support
-- Text extraction
-- Metadata handling
-- Error handling
-- Memory-efficient processing
+## Caractéristiques
+- Prise en charge des fichiers multiples
+- Division au niveau de la page
+- Prise en charge de la version héritée
+- Extraction de texte
+- Manipulation des métadonnées
+- Gestion des erreurs
+- Traitement économe en mémoire
 
-## Processing Modes
+## Modes de traitement
 
-### Per Page Mode
-- Each page becomes a document
-- Preserves page numbers
-- Individual page metadata
-- Granular content access
+### En mode page
+- Chaque page devient un document
+- Conserve les numéros de page
+- Métadonnées de page individuelles
+- Accès de contenu granulaire
 
-### Per File Mode
-- Entire PDF as one document
-- Combined content
-- Single metadata set
-- Memory efficient
+### Par mode de fichier
+- PDF entier en un seul document
+- Contenu combiné
+- Ensemble de métadonnées uniques
+- Mémoire efficace
 
-## Document Structure
-Each document contains:
-- **pageContent**: Extracted text content
-- **metadata**:
-  - source: Original file path
-  - pdf: PDF-specific metadata
-  - page: Page number (in per-page mode)
-  - Additional custom metadata
+## Structure de document
+Chaque document contient:
+- ** PageContent **: Contenu texte extrait
+- ** Metadata **:
+  - Source: chemin d'origine du fichier
+  - PDF: métadonnées spécifiques au PDF
+  - Page: numéro de page (en mode par page)
+  - Métadonnées personnalisées supplémentaires
 
-## File Handling
+## Manutention de fichiers
 
-### Local Files
-- Direct file loading
-- Base64 encoded content
-- Multiple file support
+### Fichiers locaux
+- Chargement de fichier direct
+- Base64 Contenu codé
+- Prise en charge des fichiers multiples
 
-### Storage Integration
-- File storage system support
-- Organization-based storage
-- Chatflow-based storage
+### Intégration de stockage
+- Prise en charge du système de stockage de fichiers
+- Stockage basé sur l'organisation
+- Stockage basé sur Chatflow
 
 ## Notes
-- Uses pdf.js for extraction
-- Legacy version support
-- Memory-efficient processing
-- Error handling for invalid files
-- Support for large PDFs
-- Flexible output formats
-- Metadata customization
-- Text encoding handling
+- Utilise pdf.js pour l'extraction
+- Prise en charge de la version héritée
+- Traitement économe en mémoire
+- Gestion des erreurs pour les fichiers non valides
+- Prise en charge des grands PDF
+- Formats de sortie flexibles
+- Personnalisation des métadonnées
+- Manipulation du codage de texte

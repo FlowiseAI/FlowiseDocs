@@ -2,29 +2,29 @@
 description: Learn how to call a webhook on Make
 ---
 
-# Calling Webhook
+# Appeler webhook
 
 ***
 
-This tutorial walks you through creating a custom tool in FlowiseAI that calls a webhook endpoint, passing the necessary parameters in the request body. We will use [Make.com](https://www.make.com/en) to set up a webhook workflow that sends messages to a Discord channel.
+Ce tutoriel vous guide à travers la création d'un outil personnalisé dans Flowiseai qui appelle un point de terminaison WebHook, passant les paramètres nécessaires dans le corps de la demande. Nous utiliserons[Make.com](https://www.make.com/en)Pour configurer un flux de travail WebHook qui envoie des messages à un canal Discord.
 
-## Setting Up a Webhook in Make.com
+## Configuration d'un webhook dans Make.com
 
-1. Sign up or log in to [Make.com](https://www.make.com/en).
-2. Create a new workflow containing a **Webhook** module and a **Discord** module, as shown below:
+1. Inscrivez-vous ou connectez-vous à[Make.com](https://www.make.com/en).
+2. Créez un nouveau flux de travail contenant un module ** webhook ** et un module ** Discord **, comme indiqué ci-dessous:
 
-   <figure><img src="../.gitbook/assets/screely-1691756705932.png" alt="Workflow example"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Screly-1691756705932.png" alt = "Exemple de workflow"> <Figcaption> </ Figcaption> </gigust>
 
-3. From the **Webhook** module, copy the webhook URL:
+3. À partir du module ** webhook **, copiez l'URL WebHook:
 
-   <figure><img src="../.gitbook/assets/image (46).png" alt="Webhook URL" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / image (46) .png" alt = "webhook url" width = "563"> <figCaption> </ Figcaption> </gistre>
 
-4. In the **Discord** module, configure it to pass the `message` from the webhook body as the message sent to the Discord channel:
+4. Dans le module ** Discord **, configurez-le pour passer le`message`à partir du corps WebHook comme le message envoyé au canal Discord:
 
-   <figure><img src="../.gitbook/assets/image (47).png" alt="Discord module setup" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (47) .png" alt = "Discord Module Configuration" width = "563"> <Figcaption> </ Figcaption> </gistre>
 
-5. Click **Run Once** to start listening for incoming requests.
-6. Send a test POST request with the following JSON body:
+5. Cliquez sur ** Exécuter une fois ** pour commencer à écouter les demandes entrantes.
+6. Envoyez une demande de poste de test avec le corps JSON suivant:
 
    ```json
    {
@@ -32,40 +32,40 @@ This tutorial walks you through creating a custom tool in FlowiseAI that calls a
    }
    ```
 
-   <figure><img src="../.gitbook/assets/image (48).png" alt="Sending POST request" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / image (48) .png" alt = "Envoi de la demande de post" width = "563"> <Figcaption> </gigcaption> </gigust>
 
-7. If successful, you will see the message appear in your Discord channel:
+7. En cas de succès, vous verrez le message apparaître dans votre canal Discord:
 
-   <figure><img src="../.gitbook/assets/image (49).png" alt="Discord message" width="249"><figcaption></figcaption></figure>
+<Figure> <img src = "../. GitBook / Assets / Image (49) .png" alt = "Discord Message" width = "249"> <Figcaption> </gigcaption> </ Figure>
 
-Congratulations! You have successfully set up a webhook workflow that sends messages to Discord. 🎉
+Félicitations! Vous avez réussi à configurer un flux de travail WebHook qui envoie des messages à Discord. 🎉
 
-## Creating a Webhook Tool in FlowiseAI
+## Création d'un outil Webhook dans Flowiseai
 
-Next, we will create a custom tool in FlowiseAI to send webhook requests.
+Ensuite, nous créerons un outil personnalisé dans FlowiSeai pour envoyer des demandes WebHook.
 
-### Step 1: Add a New Tool
+### Étape 1: Ajouter un nouvel outil
 
-1. Open the **FlowiseAI** dashboard.
-2. Click **Tools**, then select **Create**.
+1. Ouvrez le tableau de bord ** Flowiseai **.
+2. Cliquez sur ** Outils **, puis sélectionnez ** Créer **.
 
-   <figure><img src="../.gitbook/assets/screely-1691758397783.png" alt="Creating tool in FlowiseAI"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Screly-1691758397783.png" alt = "Création de l'outil dans FlowiSeai"> <Figcaption> </gigcaption> </gistre>
 
-3. Fill in the following fields:
+3. Remplissez les champs suivants:
 
-   | Field | Value |
+| Champ | Valeur |
    |-------|-------|
-   | **Tool Name** | `make_webhook` (must be in snake_case) |
-   | **Tool Description** | Useful when you need to send messages to Discord |
-   | **Tool Icon Src** | [Flowise Tool Icon](https://github.com/FlowiseAI/Flowise/assets/26460777/517fdab2-8a6e-4781-b3c8-fb92cc78aa0b) |
+| ** Nom de l'outil ** |`make_webhook`(doit être dans Snake_case) |
+| ** Description de l'outil ** | Utile lorsque vous devez envoyer des messages à Discord |
+| ** Icône d'outil Src ** |[Flowise Tool Icon](https://github.com/FlowiseAI/Flowise/assets/26460777/517fdab2-8a6e-4781-b3c8-fb92cc78aa0b) |
 
-4. Define the **Input Schema**:
+4. Définissez le schéma de saisie ** **:
 
-   <figure><img src="../.gitbook/assets/image (167).png" alt="Input schema example"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (167) .png" alt = "Exemple de schéma de saisie"> <figcaption> </figcaption> </gigust>
 
-### Step 2: Add Webhook Request Logic
+### Étape 2: Ajouter la logique de demande de webhook
 
-Enter the following JavaScript function:
+Entrez la fonction JavaScript suivante:
 
 ```javascript
 const fetch = require('node-fetch');
@@ -90,55 +90,55 @@ try {
 }
 ```
 
-5. Click **Add** to save your custom tool.
+5. Cliquez sur ** Ajouter ** pour enregistrer votre outil personnalisé.
 
-   <figure><img src="../.gitbook/assets/image (51).png" alt="Tool added confirmation" width="279"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (51) .png" alt = "Tool Ajout Confirmation" width = "279"> <Figcaption> </gigcaption> </gigust>
 
-### Step 3: Build a Chatflow with Webhook Integration
+### Étape 3: Créez un ChatFlow avec l'intégration de webhook
 
-1. Create a new canvas and add the following nodes:
-   - **Buffer Memory**
-   - **ChatOpenAI**
-   - **Custom Tool** (select `make_webhook`)
-   - **OpenAI Function Agent**
+1. Créez une nouvelle toile et ajoutez les nœuds suivants:
+   - ** Mémoire de tampon **
+   - ** Chatopenai **
+   - ** Outil personnalisé ** (Sélectionner`make_webhook`)
+   - ** Agent de fonction Openai **
 
-2. Connect them as shown:
+2. Connectez-les comme indiqué:
 
-   <figure><img src="../.gitbook/assets/screely-1691758990676.png" alt="Chatflow setup"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Screly-1691758990676.png" alt = "ChatFlow Configuration"> <Figcaption> </gigcaption> </gistre>
 
-3. Save the chatflow and start testing it.
+3. Enregistrez le ChatFlow et commencez à le tester.
 
-### Step 4: Sending Messages via Webhook
+### Étape 4: Envoi de messages via webook
 
-Try asking the chatbot a question like:
+Essayez de poser au chatbot une question comme:
 
-> _"How to cook an egg?"_
+> _ "Comment faire cuire un œuf?" _
 
-Then, request the agent to send this information to Discord:
+Ensuite, demandez à l'agent d'envoyer ces informations à Discord:
 
-   <figure><img src="../.gitbook/assets/image (53).png" alt="Sending message via agent" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / image (53) .png" alt = "Envoi du message via l'agent" width = "563"> <Figcaption> </ / Figcaption> </ Figure>
 
-You should see the message appear in your Discord channel:
+Vous devriez voir le message apparaître dans votre canal Discord:
 
-   <figure><img src="../.gitbook/assets/image (54).png" alt="Final message in Discord"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (54) .png" alt = "Message final dans Discord"> <FigCaption> </Figcaption> </gigne>
 
-### Alternative Webhook Testing Tools
+### Outils de test de webhook alternatifs
 
-If you want to test webhooks without Make.com, consider using:
+Si vous souhaitez tester les webhooks sans Make.com, envisagez d'utiliser:
 
-- [Beeceptor](https://beeceptor.com) – Quickly set up a mock API endpoint.
-- [Webhook.site](https://webhook.site) – Inspect and debug HTTP requests in real-time.
-- [Pipedream RequestBin](https://pipedream.com/requestbin) – Capture and analyze incoming webhooks.
+- [Beeceptor](https://beeceptor.com)- Configurez rapidement un point de terminaison API simulé.
+- [Webhook.site](https://webhook.site)- Inspectez et déboguez les demandes HTTP en temps réel.
+- [Pipedream RequestBin](https://pipedream.com/requestbin)- Capturez et analysez les webhooks entrants.
 
-## More Tutorials
+## Plus de tutoriels
 
-- Watch a step-by-step guide on using webhooks with Flowise custom tools:
-  {% embed url="https://youtu.be/_K9xJqEgnrU" %}
+- Regardez un guide étape par étape sur l'utilisation de webhooks avec des outils personnalisés Flowise:
+{% embed url = "https://youtu.be/_k9xjqegnru"%}
 
-- Learn how to connect Flowise to Google Sheets using webhooks:
-  {% embed url="https://youtu.be/fehXLdRLJFo" %}
+- Apprenez à connecter Flowise aux feuilles Google à l'aide de webhooks:
+{% embed url = "https://youtu.be/fehxlDrljfo"%}
 
-- Learn how to connect Flowise to Microsoft Excel using webhooks:
-  {% embed url="https://youtu.be/cB2GC8JznJc" %}
+- Apprenez à connecter Flowise à Microsoft Excel à l'aide de webhooks:
+{% embed url = "https://youtu.be/cb2gc8jznjc"%}
 
-By following this guide, you can trigger webhook workflows dynamically and extend automation to various services like Gmail, Google Sheets, and more.
+En suivant ce guide, vous pouvez déclencher dynamiquement les workhook workflows et étendre l'automatisation à divers services comme Gmail, Google Sheets, etc.

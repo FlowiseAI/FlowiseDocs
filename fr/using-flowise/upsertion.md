@@ -1,101 +1,101 @@
-# Upsertion
+# Augmentation
 
-Upsert refers to the process of uploading and processing documents into vector stores, forming the foundation of Retrieval Augmented Generation (RAG) systems.
+Upsert fait référence au processus de téléchargement et de traitement des documents dans les magasins vectoriels, formant les bases des systèmes de génération augmentée (RAG) de récupération.
 
-There are two fundamental ways to upsert data into vector store:
+Il existe deux façons fondamentales de renverser les données dans Vector Store:
 
 * [Document Stores (Recommended)](document-stores.md)
-* Chatflow Upsert
+* ChatFlow Upsert
 
-We highly recommend using Document Stores as it provides a unified interface to help with the RAG pipelines - retrieveing data from different sources, chunking strategy, upserting to vector database, syncing with updated data.
+Nous vous recommandons fortement d'utiliser des magasins de documents car il fournit une interface unifiée pour aider avec les pipelines de chiffon - récupérer des données à partir de différentes sources, la stratégie de section, la mise en œuvre de la base de données vectorielle, la synchronisation avec les données mises à jour.
 
-In this guide, we are going to cover another method - Chatflow Upsert. This is an older method prior to Document Stores.
+Dans ce guide, nous allons couvrir une autre méthode - ChatFlow Upsert. Il s'agit d'une méthode plus ancienne avant les magasins de documents.
 
-For details, see the [Vector Upsert Endpoint API Reference](../api-reference/vector-upsert.md).
+Pour plus de détails, voir le[Vector Upsert Endpoint API Reference](../api-reference/vector-upsert.md).
 
-## Understanding the upserting process
+## Comprendre le processus de mise en service
 
-Chatflow allows you to create a flow that can do both upserting and RAG querying process, both can be run idenpendently.
+ChatFlow vous permet de créer un flux qui peut effectuer à la fois le processus de requête à la hausse et de requête RAG, les deux peuvent être exécutés de manière identique.
 
-<figure><img src="../.gitbook/assets/ud_01.png" alt=""><figcaption><p>Upsert vs. RAG</p></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / UD_01.png" alt = ""> <Figcaption> <p> Upsert vs Rag </p> </gigcaption> </gigne>
 
-## Setup
+## Installation
 
-For an upsert process to work, we would need to create an **upserting flow** with 5 different nodes:
+Pour qu'un processus Upsert fonctionne, nous aurions besoin de créer un ** Flow userting ** avec 5 nœuds différents:
 
-1. Document Loader
-2. Text Splitter
-3. Embedding  Model
-4. Vector Store
-5. Record Manager (Optional)
+1. Chargeur de documents
+2. Séparateur de texte
+3. Modèle d'incorporation
+4. Magasin vectoriel
+5. Record Manager (facultatif)
 
-All of the elements have been covered in [Document Stores](document-stores.md), refer there for more details.
+Tous les éléments ont été couverts par[Document Stores](document-stores.md), reportez-vous là pour plus de détails.
 
-Once flow is setup correctly, there will be a green button at the top right that allows user to start the upsert process.
+Une fois que le flux est correctement configuré, il y aura un bouton vert en haut à droite qui permet à l'utilisateur de démarrer le processus UPSERT.
 
-<figure><img src="../.gitbook/assets/Picture1.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Picture1.png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (1) (1) (1) (1) (1) .png" alt = "" width = "563"> <figCaption> </gigcaption> </gigu
 
-The upsert process can also be carried out via API:
+Le processus Upsert peut également être effectué via l'API:
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (2) (1) (1) (1) (1) .png" alt = "" width = "563"> <figCaption> </gigcaption> </gigu
 
-## Base URL and Authentication
+## URL de base et authentification
 
-**Base URL**: `http://localhost:3000` (or your Flowise instance URL)
+** URL de base **:`http://localhost:3000`(ou votre URL d'instance fluide)
 
-**Endpoint**: `POST /api/v1/vector/upsert/:id`
+** Point de terminaison **:`POST /api/v1/vector/upsert/:id`
 
-**Authentication**: Refer [Authentication for Flows](../configuration/authorization/chatflow-level.md)
+** Authentification **: se référer[Authentication for Flows](../configuration/authorization/chatflow-level.md)
 
-## Request Methods
+## Méthodes de demande
 
-The API supports two different request methods depending on your chatflow configuration:
+L'API prend en charge deux méthodes de demande différentes en fonction de votre configuration de chat:
 
-#### 1. Form Data (File Upload)
+#### 1. Données de formulaire (téléchargement de fichiers)
 
-Used when your chatflow contains Document Loaders with file upload capability.
+Utilisé lorsque votre ChatFlow contient des chargeurs de documents avec une capacité de téléchargement de fichiers.
 
-#### 2. JSON Body (No File Upload)
+#### 2. Body JSON (pas de téléchargement de fichiers)
 
-Used when your chatflow uses Document Loaders that don't require file uploads (e.g., web scrapers, database connectors).
+Utilisé lorsque votre ChatFlow utilise des chargeurs de documents qui ne nécessitent pas de téléchargements de fichiers (par exemple, les grattoirs Web, les connecteurs de base de données).
 
-{% hint style="warning" %}
-To override any node configurations such as files, metadata, etc., you must explicitly enable that option.
-{% endhint %}
+{% hint style = "avertissement"%}
+Pour remplacer toutes les configurations de nœud telles que les fichiers, les métadonnées, etc., vous devez activer explicitement cette option.
+{% EndHint%}
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / image (3) (1) (1) (1) .png" alt = ""> <figcaption> </gigcaption> </gigust>
 
-### Document Loaders with File Upload
+### Chargeurs de documents avec téléchargement de fichiers
 
-#### Supported Document Types
+#### Types de documents pris en charge
 
-| Document Loader   | File Types |
+| Chargeur de documents | Types de fichiers |
 | ----------------- | ---------- |
-| CSV File          | `.csv`     |
-| Docx/Word File    | `.docx`    |
-| JSON File         | `.json`    |
-| JSON Lines File   | `.jsonl`   |
-| PDF File          | `.pdf`     |
-| Text File         | `.txt`     |
-| Excel File        | `.xlsx`    |
-| Powerpoint File   | `.pptx`    |
-| File Loader       | Multiple   |
-| Unstructured File | Multiple   |
+| Fichier CSV |`.csv`     |
+| Docx / Word Fichier |`.docx`    |
+| Fichier JSON |`.json`    |
+| Fichier de lignes JSON |`.jsonl`   |
+| Fichier PDF |`.pdf`     |
+| Fichier texte |`.txt`     |
+| Fichier Excel |`.xlsx`    |
+| Fichier PowerPoint |`.pptx`    |
+| Chargeur de fichiers | Multiple |
+| Fichier non structuré | Multiple |
 
-{% hint style="info" %}
-**Important**: Ensure the file type matches your Document Loader configuration. For maximum flexibility, consider using the File Loader which supports multiple file types.
-{% endhint %}
+{% hint style = "info"%}
+** IMPORTANT **: Assurez-vous que le type de fichier correspond à votre configuration de chargeur de document. Pour une flexibilité maximale, envisagez d'utiliser le chargeur de fichiers qui prend en charge plusieurs types de fichiers.
+{% EndHint%}
 
-#### Request Format (Form Data)
+#### Demander le format (données de formulaire)
 
-When uploading files, use `multipart/form-data` instead of JSON:
+Lors du téléchargement de fichiers, utilisez`multipart/form-data`Au lieu de JSON:
 
-#### Examples
+#### Exemples
 
-{% tabs %}
-{% tab title="Python" %}
+{% Tabs%}
+{% tab title = "python"%}
 ```python
 import requests
 import os
@@ -157,9 +157,9 @@ if result:
 else:
     print("Upload failed")
 ```
-{% endtab %}
+{% endtab%}
 
-{% tab title="Javascript (Browser)" %}
+{% Tab Title = "JavaScript (Browser)"%}
 ```javascript
 class VectorUploader {
     constructor(baseUrl = 'http://localhost:3000') {
@@ -232,9 +232,9 @@ document.getElementById('fileInput').addEventListener('change', async function(e
     }
 });
 ```
-{% endtab %}
+{% endtab%}
 
-{% tab title="Javascript (Node.js)" %}
+{% tab title = "javascript (node.js)"%}
 ```javascript
 const fs = require('fs');
 const path = require('path');
@@ -333,9 +333,9 @@ if (require.main === module) {
 
 module.exports = { NodeVectorUploader };
 ```
-{% endtab %}
+{% endtab%}
 
-{% tab title="cURL" %}
+{% tab title = "curl"%}
 ```bash
 # Basic file upload with cURL
 curl -X POST "http://localhost:3000/api/v1/vector/upsert/your-chatflow-id" \
@@ -352,17 +352,17 @@ curl -X POST "http://localhost:3000/api/v1/vector/upsert/your-chatflow-id" \
   -F "files=@documents/faq.txt" \
   -F 'overrideConfig={"chunkSize": 800, "chunkOverlap": 150}'
 ```
-{% endtab %}
-{% endtabs %}
+{% endtab%}
+{% endtabs%}
 
-### Document Loaders without File Upload
+### Chargeurs de documents sans téléchargement de fichiers
 
-For Document Loaders that don't require file uploads (e.g., web scrapers, database connectors, API integrations), use JSON format similar to the Prediction API.
+Pour les chargeurs de documents qui ne nécessitent pas de téléchargements de fichiers (par exemple, les grabyers Web, les connecteurs de base de données, les intégrations API), utilisez le format JSON similaire à l'API de prédiction.
 
-#### Examples
+#### Exemples
 
-{% tabs %}
-{% tab title="Python" %}
+{% Tabs%}
+{% tab title = "python"%}
 ```python
 import requests
 from typing import Dict, Any, Optional
@@ -409,9 +409,9 @@ result = upsert(
 if result:
     print(f"Upsert completed: {result.get('numAdded', 0)} chunks added")
 ```
-{% endtab %}
+{% endtab%}
 
-{% tab title="JavaScript" %}
+{% tab title = "javascript"%}
 ```javascript
 class NoFileUploader {
     constructor(baseUrl = 'http://localhost:3000') {
@@ -517,9 +517,9 @@ const schedulerHandle = await uploader.scheduledUpsert(
 // To stop scheduled updates later:
 // clearInterval(schedulerHandle);
 ```
-{% endtab %}
+{% endtab%}
 
-{% tab title="cURL" %}
+{% tab title = "curl"%}
 ```bash
 # Basic upsert with cURL
 curl -X POST "http://localhost:3000/api/v1/vector/upsert/your-chatflow-id" \
@@ -539,21 +539,21 @@ curl -X POST "http://localhost:3000/api/v1/vector/upsert/your-chatflow-id" \
   -H "Authorization: Bearer your-api-token" \
   -H "Content-Type: application/json"
 ```
-{% endtab %}
-{% endtabs %}
+{% endtab%}
+{% endtabs%}
 
-## Response Fields
+## Champs de réponse
 
-| Field        | Type   | Description                                                 |
+| Champ | Type | Description |
 | ------------ | ------ | ----------------------------------------------------------- |
-| `numAdded`   | number | Number of new chunks added to vector store                  |
-| `numDeleted` | number | Number of chunks deleted (if using Record Manager)          |
-| `numSkipped` | number | Number of chunks skipped (if using Record Manager)          |
-| `numUpdated` | number | Number of existing chunks updated (if using Record Manager) |
+| `numAdded`| Numéro | Nombre de nouveaux morceaux ajoutés au magasin vectoriel |
+| `numDeleted`| Numéro | Nombre de morceaux supprimés (si vous utilisez Record Manager) |
+| `numSkipped`| Numéro | Nombre de morceaux sautés (si vous utilisez un gestionnaire d'enregistrements) |
+| `numUpdated`| Numéro | Nombre de morceaux existants mis à jour (si vous utilisez un gestionnaire d'enregistrements) |
 
-## Optimization Strategies
+## Stratégies d'optimisation
 
-### 1. Batch Processing Strategies
+### 1. Stratégies de traitement par lots
 
 ```python
 def intelligent_batch_processing(files: List[str], chatflow_id: str) -> Dict[str, Any]:
@@ -589,7 +589,7 @@ def intelligent_batch_processing(files: List[str], chatflow_id: str) -> Dict[str
     return results
 ```
 
-### 2. Metadata Optimization
+### 2. Optimisation des métadonnées
 
 ```python
 import requests
@@ -663,15 +663,15 @@ for i, result in enumerate(results):
     print(f"Upload {i+1}: {result.get('numAdded', 0)} chunks added")
 ```
 
-## Troubleshooting
+## Dépannage
 
-1. **File Upload Fails**
-   * Check file format compatibility
-   * Verify file size limits
-2. **Processing Timeout**
-   * Increase request timeout
-   * Break large files into smaller parts
-   * Optimize chunk size
-3. **Vector Store Errors**
-   * Check vector store connectivity
-   * Verify embedding model dimension compatibility
+1. ** le téléchargement de fichiers échoue **
+   * Vérifier la compatibilité du format de fichier
+   * Vérifiez les limites de taille du fichier
+2. ** Traitement de temps mort **
+   * Augmenter le délai de demande
+   * Cassez les fichiers volumineux en pièces plus petites
+   * Optimiser la taille du morceau
+3. ** Erreurs du magasin vectoriel **
+   * Vérifiez la connectivité du magasin vectoriel
+   * Vérifiez la compatibilité des dimensions du modèle d'intégration

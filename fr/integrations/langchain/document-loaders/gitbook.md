@@ -2,76 +2,76 @@
 description: Load data from GitBook.
 ---
 
-# GitBook
+# Gitbook
 
-<figure><img src="../../../.gitbook/assets/image (74).png" alt="" width="270"><figcaption><p>GitBook Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (74) .png" alt = "" width = "270"> <figcaption> <p> gitbook nœud </p> </gigcaption> </ figure>
 
-# GitBook Document Loader
+# Chargeur de documents gitbook
 
-GitBook is a modern documentation platform that helps teams share knowledge. This module provides functionality to load and process content from GitBook documentation sites.
+GitBook est une plate-forme de documentation moderne qui aide les équipes à partager les connaissances. Ce module fournit des fonctionnalités pour charger et traiter le contenu à partir des sites de documentation GitBook.
 
-This module provides a sophisticated GitBook document loader that can:
-- Load content from specific GitBook pages
-- Crawl entire GitBook documentation sites
-- Extract structured content
-- Process content with text splitters
-- Customize metadata extraction
-- Handle recursive page loading
+Ce module fournit un chargeur de documents Gitbook sophistiqué qui peut:
+- Chargez le contenu à partir de pages de gitbook spécifiques
+- Crawl des sites de documentation entièrement gitbook
+- Extrait de contenu structuré
+- Traiter le contenu avec des séparateurs de texte
+- Personnaliser l'extraction des métadonnées
+- Gérer le chargement récursif de la page
 
-## Inputs
+## Entrées
 
-### Required Parameters
-- **Web Path**: The URL to the GitBook page or root path
-  - Single page: e.g., https://docs.gitbook.com/product-tour/navigation
-  - Root path: e.g., https://docs.gitbook.com/
+### Paramètres requis
+- ** Chemin Web **: L'URL vers la page Gitbook ou le chemin racine
+  - Page unique: par exemple, https://docs.gitbook.com/product-tour/navigation
+  - Chemin racine: par exemple, https://docs.gitbook.com/
 
-### Optional Parameters
-- **Should Load All Paths**: Whether to recursively load all pages from the root path
-- **Text Splitter**: A text splitter to process the extracted content
-- **Additional Metadata**: JSON object with additional metadata
-- **Omit Metadata Keys**: Comma-separated list of metadata keys to omit
+### Paramètres facultatifs
+- ** devrait charger tous les chemins **: s'il faut charger de manière récursivement toutes les pages du chemin racine
+- ** Splitter du texte **: un séparateur de texte pour traiter le contenu extrait
+- ** Metadata supplémentaires **: objet JSON avec métadonnées supplémentaires
+- ** omettre les clés de métadonnées **: Liste des clés de métadonnées séparées par des virgules pour omettre
 
-## Outputs
+## Sorties
 
-- **Document**: Array of document objects containing metadata and pageContent
-- **Text**: Concatenated string from pageContent of documents
+- ** Document **: tableau d'objets de document contenant des métadonnées et un conceptent
+- ** Texte **: chaîne concaténée du conceptent de documents
 
-## Features
-- Single page loading
-- Recursive site crawling
-- Content extraction
-- Text splitting support
-- Metadata customization
-- Error handling
-- Path management
+## Caractéristiques
+- Chargement d'une page
+- Site récursif rampant
+- Extraction de contenu
+- Support de division de texte
+- Personnalisation des métadonnées
+- Gestion des erreurs
+- Gestion des chemins
 
-## Loading Modes
+## Modes de chargement
 
-### Single Page Mode
-- Loads content from a specific page
-- Extracts page content and metadata
-- Preserves page structure
-- Faster for single page access
+### Mode de page unique
+- Charge le contenu d'une page spécifique
+- Extrait le contenu de la page et les métadonnées
+- Conserve la structure de la page
+- Plus rapide pour un accès à une seule page
 
-### All Paths Mode
-- Recursively loads all pages from root
-- Maintains site hierarchy
-- Extracts all available content
-- Preserves navigation structure
+### Tous les chemins
+- Charge récursivement toutes les pages de la racine
+- Maintient la hiérarchie du site
+- Extrait tous les contenus disponibles
+- Conserve la structure de navigation
 
-## Document Structure
-Each document contains:
-- **pageContent**: Extracted content from the page
-- **metadata**:
-  - title: Page title
-  - url: Original page URL
-  - Additional custom metadata
+## Structure de document
+Chaque document contient:
+- ** PageContent **: Extrait du contenu de la page
+- ** Metadata **:
+  - Titre: Titre de la page
+  - URL: URL de la page d'origine
+  - Métadonnées personnalisées supplémentaires
 
 ## Notes
-- Supports both single page and full site loading
-- Handles GitBook's dynamic content
-- Preserves document structure
-- Supports custom metadata addition
-- Error handling for invalid URLs
-- Memory-efficient processing
-- Flexible output formats
+- Prend en charge le chargement unique de la page et du site complet
+- Gère le contenu dynamique de Gitbook
+- Préserve la structure du document
+- Prend en charge l'ajout de métadonnées personnalisées
+- Gestion des erreurs pour les URL non valides
+- Traitement économe en mémoire
+- Formats de sortie flexibles

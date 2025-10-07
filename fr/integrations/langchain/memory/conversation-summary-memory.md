@@ -1,15 +1,15 @@
-# Conversation Summary Memory
+# Réponse de la conversation Mémoire
 
-Use Flowise database table `chat_message` as the storage mechanism for storing/retrieving conversations.
+Utilisez la table de base de données Flowise`chat_message`comme mécanisme de stockage pour stocker / récupérer les conversations.
 
-This memory type creates a brief summary of the conversation over time. This is useful for shortening information from long discussions. It updates and saves a current summary as the conversation goes on. This is especially helpful in longer chats, where saving every past message would take up too much space.
+Ce type de mémoire crée un bref résumé de la conversation au fil du temps. Ceci est utile pour raccourcir les informations provenant de longues discussions. Il met à jour et enregistre un résumé actuel au fil de la conversation. Cela est particulièrement utile pour les chats plus longs, où la sauvegarde de chaque message passé prendrait trop de place.
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (2).png" alt="" width="296"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (3) (1) (1) (1) (2) .png" alt = "" width = "296"> <Figcaption> </ Figcaption> </ Figure>
 
-## Input
+## Saisir
 
-| Parameter  | Description                                                                   | Default       |
+| Paramètre | Description | Par défaut |
 | ---------- | ----------------------------------------------------------------------------- | ------------- |
-| Chat Model | LLM used to perform summarization                                             |               |
-| Session Id | An ID to retrieve/store messages. If not specified, a random ID will be used. |               |
-| Memory Key | A key used to format messages in prompt template                              | chat\_history |
+| Modèle de chat | LLM utilisé pour effectuer un résumé |               |
+| ID de session | Un identifiant pour récupérer / stocker les messages. S'il n'est pas spécifié, un ID aléatoire sera utilisé. |               |
+| Clé de mémoire | Une clé utilisée pour formater les messages dans le modèle d'invite | CHAT \ _History |

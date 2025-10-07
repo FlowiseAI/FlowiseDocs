@@ -2,10 +2,10 @@
 description: Wrapper around Azure OpenAI large language models.
 ---
 
-# Azure OpenAI
+# Azure Openai
 
-<figure><img src="broken-reference" alt="" width="336"><figcaption><p>Azure OpenAI Node</p></figcaption></figure>
+<gigne> <img src = "brisé-référence" alt = "" width = "336"> <gigcaption> <p> nœud openai azure </p> </gigcaption> </gigust>
 
-{% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
-{% endhint %}
+{% hint style = "info"%}
+Cette section est un travail en cours. Nous apprécions toute aide que vous pouvez fournir pour terminer cette section. Veuillez vérifier notre[Contribution Guide](broken-reference)Pour commencer.
+{% EndHint%}

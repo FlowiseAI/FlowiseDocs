@@ -4,10 +4,10 @@ description: >-
   the Markdown headers.
 ---
 
-# Html-To-Markdown Text Splitter
+# Splitter de texte HTML à markdown
 
-<figure><img src="../../../.gitbook/assets/image (152).png" alt="" width="301"><figcaption><p>Html-To-Markdown Text Splitter Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (152) .png" alt = "" width = "301"> <figcaption> <p> html-to-markdown Text Splitter du séparateur </p> </ figcaption> </piguré>
 
-{% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
-{% endhint %}
+{% hint style = "info"%}
+Cette section est un travail en cours. Nous apprécions toute aide que vous pouvez fournir pour terminer cette section. Veuillez vérifier notre[Contribution Guide](broken-reference)Pour commencer.
+{% EndHint%}

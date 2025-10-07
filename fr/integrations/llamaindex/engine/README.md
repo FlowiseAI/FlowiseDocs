@@ -2,13 +2,13 @@
 description: LlamaIndex Engine Nodes
 ---
 
-# Engine
+# Moteur
 
 ***
 
-In LlamaIndex, an engine node refers to two key components that handle information processing and user interaction.
+Dans Llamaindex, un nœud moteur fait référence à deux composants clés qui gèrent le traitement de l'information et l'interaction utilisateur.
 
-### Engine Nodes:
+### Nœuds de moteur:
 
 * [Query Engine](query-engine.md)
 * [Simple Chat Engine](simple-chat-engine.md)

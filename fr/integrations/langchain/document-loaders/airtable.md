@@ -2,65 +2,65 @@
 description: Load data from Airtable table.
 ---
 
-# Airtable Document Loader
+# Chargeur de documents Airtable
 
-<figure><img src="../../../.gitbook/assets/image_airtable (1).png" alt="" width="271"><figcaption><p>Airtable Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image_AirTable (1) .png" alt = "" width = "271"> <Figcaption> <p> nœud AirTable </p> </gigcaption> </ figure>
 
-Airtable is a cloud collaboration service that combines the functionality of a spreadsheet with a database. This module provides comprehensive functionality to load and process data from Airtable tables.
+AirTable est un service de collaboration cloud qui combine les fonctionnalités d'une feuille de calcul avec une base de données. Ce module fournit des fonctionnalités complètes pour charger et traiter les données des tables Airtable.
 
-This module provides a sophisticated Airtable document loader that can:
-- Load data from specific Airtable bases, tables, and views
-- Filter and select specific fields
-- Handle pagination and large datasets
-- Support custom filtering with formulas
-- Process data with text splitters
-- Customize metadata extraction
+Ce module fournit un chargeur de document Airtable sophistiqué qui peut:
+- Chargez des données à partir de bases, de tables et de vues à air spécifiques
+- Filtre et sélectionner des champs spécifiques
+- Gérer la pagination et les grands ensembles de données
+- Prise en charge du filtrage personnalisé avec des formules
+- Traiter les données avec des séparateurs de texte
+- Personnaliser l'extraction des métadonnées
 
-## Inputs
+## Entrées
 
-### Required Parameters
-- **Base Id**: The Airtable base identifier (e.g., app11RobdGoX0YNsC)
-- **Table Id**: The specific table identifier (e.g., tblJdmvbrgizbYICO)
-- **Connect Credential**: Airtable API credentials
+### Paramètres requis
+- ** ID de base **: l'identifiant de base Airtable (par exemple, app10ROBDGOX0YNSC)
+- ** ID de table **: l'identifiant de table spécifique (par exemple, tbljdmvbrgizbyico)
+- ** Connectez les informations d'identification **: AirTable API Credentials
 
-### Optional Parameters
-- **View Id**: Specific view identifier (e.g., viw9UrP77Id0CE4ee)
-- **Text Splitter**: A text splitter to process the extracted content
-- **Include Only Fields**: Comma-separated list of field names or IDs to include
-- **Return All**: Whether to return all results (default: true)
-- **Limit**: Number of results to return when Return All is false (default: 100)
-- **Filter By Formula**: Airtable formula to filter records
-- **Additional Metadata**: JSON object with additional metadata
-- **Omit Metadata Keys**: Comma-separated list of metadata keys to omit
+### Paramètres facultatifs
+- ** Voir ID **: Identificateur de vue spécifique (par exemple, viw9urp77id0ce4ee)
+- ** Splitter du texte **: un séparateur de texte pour traiter le contenu extrait
+- ** Inclure uniquement les champs **: Liste de noms ou identifiants séparés par des virgules à inclure
+- ** Renvoie tout **: s'il faut renvoyer tous les résultats (par défaut: true)
+- ** Limit **: Nombre de résultats à retourner lorsque le retour tout est faux (par défaut: 100)
+- ** Filtre par formule **: Formule AirTable pour filtrer les enregistrements
+- ** Metadata supplémentaires **: objet JSON avec métadonnées supplémentaires
+- ** omettre les clés de métadonnées **: Liste des clés de métadonnées séparées par des virgules pour omettre
 
-## Outputs
+## Sorties
 
-- **Document**: Array of document objects containing metadata and pageContent
-- **Text**: Concatenated string from pageContent of documents
+- ** Document **: tableau d'objets de document contenant des métadonnées et un conceptent
+- ** Texte **: chaîne concaténée du conceptent de documents
 
-## Features
-- API-based data retrieval
-- Field selection and filtering
-- Pagination support
-- Formula-based filtering
-- Customizable metadata handling
-- Text splitting capabilities
-- Error handling for invalid inputs
+## Caractéristiques
+- Récupération des données basée sur l'API
+- Sélection et filtrage des champs
+- Support de pagination
+- Filtrage basé sur la formule
+- Manipulation des métadonnées personnalisables
+- Capacités de division de texte
+- Gestion des erreurs pour les entrées non valides
 
 ## Notes
-- Requires valid Airtable API credentials
-- Base ID and Table ID are mandatory
-- Field names containing commas should use field IDs instead
-- Filter formulas must follow Airtable formula syntax
-- Rate limiting and API quotas apply
-- Supports both full and partial data retrieval
+- Nécessite des informations d'identification API Airtable valide
+- L'ID de base et l'ID de table sont obligatoires
+- Les noms de champ contenant des virgules doivent utiliser des ID de champ à la place
+- Les formules de filtre doivent suivre la syntaxe de formule Airtable
+- La limitation des taux et les quotas API s'appliquent
+- Prend en charge la récupération de données complète et partielle
 
-## URL Structure Example
-For a table URL like:
+## Exemple de structure d'URL
+Pour une URL de table comme:
 ```
 https://airtable.com/app11RobdGoX0YNsC/tblJdmvbrgizbYICO/viw9UrP77Id0CE4ee
 ```
-- Base ID: app11RobdGoX0YNsC
-- Table ID: tblJdmvbrgizbYICO
-- View ID: viw9UrP77Id0CE4ee
+- ID de base: app10ROBDGOX0YNSC
+- ID de table: tbljdmvbrgizbyico
+- Afficher l'ID: viw9urp77id0ce4ee
 

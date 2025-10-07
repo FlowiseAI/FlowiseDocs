@@ -4,52 +4,52 @@ description: >-
   a leading fully managed hosted vector database.
 ---
 
-# Pinecone
+# Pignon
 
-## Prerequisite
+## Condition préalable
 
-1. Register an account for [Pinecone](https://app.pinecone.io/)
-2. Click **Create index**
+1. Enregistrer un compte pour[Pinecone](https://app.pinecone.io/)
+2. Cliquez sur ** Créer un index **
 
-<figure><img src="../../../.gitbook/assets/pinecone_1.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / PineCone_1.png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-3. Fill in required fields:
-   * **Index Name**, name of the index to be created. (e.g. "flowise-test")
-   * **Dimensions**, size of the vectors to be inserted in the index. (e.g. 1536)
+3. Remplissez les champs requis:
+   * ** Nom de l'index **, nom de l'index à créer. (par exemple, "test fluide")
+   * ** Dimensions **, taille des vecteurs à insérer dans l'index. (par exemple 1536)
 
-<figure><img src="../../../.gitbook/assets/pinecone_2.png" alt="" width="527"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / PineCone_2.png" alt = "" width = "527"> <Figcaption> </ Figcaption> </ Figure>
 
-4. Click **Create Index**
+4. Cliquez sur ** Créer un index **
 
-## Setup
+## Installation
 
-1. Get/Create your **API Key**
+1. Obtenez / créez votre ** clé API **
 
-<figure><img src="../../../.gitbook/assets/pinecone_3.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / PineCone_3.png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-2. Add a new **Pinecone** node to canvas and fill in the parameters:
-   * Pinecone Index
-   * Pinecone namespace (optional)
+2. Ajoutez un nouveau nœud ** Pinecone ** à Canvas et remplissez les paramètres:
+   * Index de pince
+   * Espace de noms PineCone (facultatif)
 
-<figure><img src="../../../.gitbook/assets/pinecone_llamaindex.png" alt="" width="301"><figcaption><p>Pinecone Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / PineCone_Llamaindex.png" alt = "" width = "301"> <Figcaption> <p> Pinecone Node </p> </gigcaption> </pigucial>
 
-3. Create new Pinecone credential -> Fill in **API Key**
+3. Créer un nouvel identifiant PineCone -> Remplissez ** Clé API **
 
-<figure><img src="../../../.gitbook/assets/pinecone_5.png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / PineCone_5.png" alt = "" width = "563"> <Figcaption> </ Figcaption> </ Figure>
 
-4. Add additional nodes to canvas and start the upsert process
-   *   **Document** can be connected with any node under [**Document Loader**](../../langchain/document-loaders/) category
+4. Ajouter des nœuds supplémentaires à la toile et démarrer le processus ussert
+   *   ** Document ** peut être connecté à n'importe quel nœud sous[**Document Loader**](../../langchain/document-loaders/)catégorie
 
-       {% hint style="info" %}
-       Document loaders and text splitters for LlamaIndex are not yet available, but using one of the ones available under LangChain will still allow querying with LlamaIndex as normal.
-       {% endhint %}
+{% hint style = "info"%}
+Les chargeurs de documents et les séparateurs de texte pour Llamaindex ne sont pas encore disponibles, mais l'utilisation de l'une de celles disponibles sous Langchain permettra toujours la question avec Llamaindex comme d'habitude.
+{% EndHint%}
 
-\- \*\*Embeddings\*\* can be connected with any node under \[\*\*Embeddings\*\* ]\(../embeddings/)category
+\ - \ * \ * Embeddings \ * \ * peut être connecté à n'importe quel nœud sous \ [\ * \ * Embeddings \ * \ *] \ (../ Embeddings /)
 
-<figure><img src="../../../.gitbook/assets/pinecone_llama_chatflow.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / PineCone_llama_Chatflow.png" alt = ""> <Figcaption> </ Figcaption> </ Figure>
 
-<figure><img src="../../../.gitbook/assets/pinecone_llama_upsert.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / PineCone_llama_upsert.png" alt = ""> <figcaption> </ Figcaption> </ Figure>
 
-5. Verify on [Pinecone dashboard](https://app.pinecone.io) that data has been successfully upserted:
+5. Vérifier sur[Pinecone dashboard](https://app.pinecone.io)Ces données ont été renversées avec succès:
 
-<figure><img src="../../../.gitbook/assets/pinecone_8.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / PineCone_8.png" alt = ""> <Figcaption> </gigcaption> </gigne>

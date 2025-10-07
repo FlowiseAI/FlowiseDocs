@@ -2,10 +2,10 @@
 description: Wrapper around AWS Bedrock large language models.
 ---
 
-# AWS Bedrock
+# Bouilloire AWS
 
-<figure><img src="../../../.gitbook/assets/image (2) (5).png" alt="" width="275"><figcaption><p>AWS Bedrock Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (2) (5) .png" alt = "" width = "275"> <Figcaption> <p> AWS Boundrock Node </p> </gigcaption> </pigucial>
 
-{% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
-{% endhint %}
+{% hint style = "info"%}
+Cette section est un travail en cours. Nous apprécions toute aide que vous pouvez fournir pour terminer cette section. Veuillez vérifier notre[Contribution Guide](broken-reference)Pour commencer.
+{% EndHint%}

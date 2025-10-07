@@ -1,11 +1,11 @@
 # Langfuse
 
-[Langfuse](https://langfuse.com) is an open source LLM engineering platform that helps teams trace API calls, monitor performance, and debug issues in their AI applications.
+[Langfuse](https://langfuse.com)est une plate-forme d'ingénierie LLM open source qui aide les équipes à tracer les appels d'API, à surveiller les performances et à déboguer dans leurs applications d'IA.
 
-With the native integration, you can use Flowise to quickly create complex LLM applications in no-code and then use Langfuse to monitor and improve them.
+Avec l'intégration native, vous pouvez utiliser Flowise pour créer rapidement des applications LLM complexes dans sans code, puis utiliser Langfuse pour les surveiller et les améliorer.
 
-The integration supports all use cases of Flowise, including: interactively in the UI, API, and embeds.
+L'intégration prend en charge tous les cas d'utilisation de Flowise, notamment: interactivement dans l'interface utilisateur, l'API et les intégres.
 
-{% embed url="https://youtu.be/iFsSW6HHoa0" %}
+{% embed url = "https://youtu.be/ifssw6hhoa0"%}
 
-You can optionally add `release` to tag the current version of the flow. You usually don't need to change the other options.
+Vous pouvez éventuellement ajouter`release`Pour marquer la version actuelle du flux. Vous n'avez généralement pas besoin de modifier les autres options.

@@ -2,10 +2,10 @@
 description: Wrapper around ChatOllama LLM specific for LlamaIndex.
 ---
 
-# ChatOllama
+# Chatollame
 
-<figure><img src="../../../.gitbook/assets/up-012.png" alt="" width="299"><figcaption><p>ChatOllama Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / UP-012.png" alt = "" width = "299"> <figcaption> <p> nœud de chatollama </p> </gigcaption> </ figure>
 
-{% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
-{% endhint %}
+{% hint style = "info"%}
+Cette section est un travail en cours. Nous apprécions toute aide que vous pouvez fournir pour terminer cette section. Veuillez vérifier notre[Contribution Guide](broken-reference)Pour commencer.
+{% EndHint%}

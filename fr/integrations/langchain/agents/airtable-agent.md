@@ -1,34 +1,34 @@
 ---
-description: Agent used to to answer queries on Airtable table.
+description: Agent utilisé pour répondre aux requêtes sur la table Airtable.
 ---
 
-# Airtable Agent
+# Agent Airtable
 
-<figure><img src="../../../.gitbook/assets/image_airtable.png" alt="" width="271"><figcaption><p>Airtable Agent Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image_airtable.png" alt="" width="271"><figcaption><p>Node de l'Agent Airtable</p></figcaption></figure>
 
-## Airtable Agent Functionality
+## Fonctionnalité de l'Agent Airtable
 
-The Airtable Agent is designed to facilitate interactions between Flowise AI and Airtable tables, enabling users to query Airtable data in a conversational manner. By using this agent, users can ask questions about the contents of their Airtable base and receive relevant responses based on the stored data. This can be particularly useful for quickly extracting specific pieces of information, automating workflows, or generating summaries from the data stored in Airtable.
+L'Agent Airtable est conçu pour faciliter les interactions entre Flowise AI et les tables Airtable, permettant aux utilisateurs de consulter les données d'Airtable de manière conversationnelle. En utilisant cet agent, les utilisateurs peuvent poser des questions sur le contenu de leur base Airtable et recevoir des réponses pertinentes basées sur les données stockées. Cela peut être particulièrement utile pour extraire rapidement des informations spécifiques, automatiser des flux de travail ou générer des résumés à partir des données stockées dans Airtable.
 
-For example, the Airtable Agent can be used to answer questions like:
+Par exemple, l'Agent Airtable peut être utilisé pour répondre à des questions telles que :
 
-* "How many tasks are still incomplete in my project tracker table?"
-* "What are the contact details of the clients listed in the CRM?"
-* "Give me a summary of all records added in the past week."
+* "Combien de tâches sont encore incomplètes dans ma table de suivi de projet ?"
+* "Quels sont les détails de contact des clients listés dans le CRM ?"
+* "Donnez-moi un résumé de tous les enregistrements ajoutés au cours de la semaine dernière."
 
-This functionality helps users get insights from their Airtable bases without needing to navigate through the Airtable interface, making it easier to manage and analyze their data in a seamless, interactive way.
+Cette fonctionnalité aide les utilisateurs à obtenir des informations de leurs bases Airtable sans avoir besoin de naviguer dans l'interface Airtable, rendant ainsi la gestion et l'analyse de leurs données plus faciles et interactives.
 
-## Inputs
+## Entrées
 
-The Airtable Agent requires the following inputs to function effectively:
+L'Agent Airtable nécessite les entrées suivantes pour fonctionner efficacement :
 
-* **Language Model**: The language model to be used for processing queries. This input is required and helps determine the quality and accuracy of responses provided by the agent.
-* **Input Moderation**: Optional input that enables content moderation. This helps ensure that queries are appropriate and do not contain offensive or harmful content.
-* **Connect Credential**: Required input to connect to Airtable. Users must select the appropriate credential that has permissions to access their Airtable data.
-* **Base ID**: The ID of the Airtable base to connect to. This is a required field and can be found in the Airtable API documentation or the base settings. If your table URL looks like `https://airtable.com/app11RobdGoX0YNsC/tblJdmvbrgizbYlCO/viw9UrP77idOCE4ee`, `app11RobdGoX0YNsC` is the Base ID. It is used to specify which Airtable base contains the data to be queried.
-* **Table ID**: The ID of the specific table within the Airtable base. This is also a required field and helps the agent target the correct table for data retrieval. In the example URL `https://airtable.com/app11RobdGoX0YNsC/tblJdmvbrgizbYlCO/viw9UrP77idOCE4ee`, `tblJdmvbrgizbYlCO` is the Table ID.
-* **Additional Parameters**: Optional parameters that can be used to customize the behavior of the agent. These parameters can be configured based on specific use cases.
-  * **Return All**: This option allows users to return all records from the specified table. If enabled, all records will be retrieved, otherwise, only a limited number will be returned.
-  * **Limit**: Specifies the maximum number of records to be returned if **Return All** is not enabled. The default value is `100`.
+* **Modèle de Langue** : Le modèle de langue à utiliser pour traiter les requêtes. Cette entrée est requise et aide à déterminer la qualité et l'exactitude des réponses fournies par l'agent.
+* **Modération des Entrées** : Entrée optionnelle qui permet la modération du contenu. Cela aide à garantir que les requêtes sont appropriées et ne contiennent pas de contenu offensant ou nuisible.
+* **Identifiant de Connexion** : Entrée requise pour se connecter à Airtable. Les utilisateurs doivent sélectionner l'identifiant approprié qui a les permissions pour accéder à leurs données Airtable.
+* **ID de Base** : L'ID de la base Airtable à laquelle se connecter. C'est un champ requis et peut être trouvé dans la documentation API d'Airtable ou dans les paramètres de la base. Si l'URL de votre table ressemble à `https://airtable.com/app11RobdGoX0YNsC/tblJdmvbrgizbYlCO/viw9UrP77idOCE4ee`, `app11RobdGoX0YNsC` est l'ID de la Base. Il est utilisé pour spécifier quelle base Airtable contient les données à interroger.
+* **ID de Table** : L'ID de la table spécifique au sein de la base Airtable. C'est également un champ requis et aide l'agent à cibler la bonne table pour la récupération des données. Dans l'URL d'exemple `https://airtable.com/app11RobdGoX0YNsC/tblJdmvbrgizbYlCO/viw9UrP77idOCE4ee`, `tblJdmvbrgizbYlCO` est l'ID de la Table.
+* **Paramètres Supplémentaires** : Paramètres optionnels qui peuvent être utilisés pour personnaliser le comportement de l'agent. Ces paramètres peuvent être configurés en fonction de cas d'utilisation spécifiques.
+  * **Retourner Tout** : Cette option permet aux utilisateurs de retourner tous les enregistrements de la table spécifiée. Si activée, tous les enregistrements seront récupérés, sinon, seul un nombre limité sera retourné.
+  * **Limite** : Spécifie le nombre maximum d'enregistrements à retourner si **Retourner Tout** n'est pas activé. La valeur par défaut est `100`.
 
-**Note**: This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
+**Remarque** : Cette section est en cours de développement. Nous apprécions toute aide que vous pouvez fournir pour compléter cette section. Veuillez consulter notre [Guide de Contribution](broken-reference) pour commencer.

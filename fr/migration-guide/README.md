@@ -2,13 +2,13 @@
 description: Learn about legacy versions of Flowise
 ---
 
-# Migration Guide
+# Guide de migration
 
 ***
 
-Flowise typically offers backward compatibility, meaning its updates follow a continuous development path. However, sometimes there can be breaking changes.
+Flowise offre généralement une compatibilité vers l'arrière, ce qui signifie que ses mises à jour suivent un chemin de développement continu. Cependant, il peut parfois y avoir des changements de rupture.
 
-This section provides guidance when migrating to different breaking versions.
+Cette section fournit des conseils lors de la migration vers différentes versions de rupture.
 
 ## Versions
 

@@ -6,9 +6,9 @@ description: LangChain Retriever Nodes
 
 ***
 
-Retriever nodes return documents given an unstructured query. It is more general than a vector store. A retriever does not need to be able to store documents, only to return (or retrieve) them.
+Les nœuds de récupération renvoient des documents donnés par une requête non structurée. Il est plus général qu'un magasin vectoriel. Un retriever n'a pas besoin de pouvoir stocker des documents, seulement pour les retourner (ou les récupérer).
 
-### Retriever Nodes:
+### Nœuds de récupération:
 
 * [Cohere Rerank Retriever](cohere-rerank-retriever.md)
 * [Embeddings Filter Retriever](embeddings-filter-retriever.md)

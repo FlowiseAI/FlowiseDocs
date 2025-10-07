@@ -2,13 +2,13 @@
 description: LangChain Moderation Nodes
 ---
 
-# Moderation
+# Modération
 
 ***
 
-Moderation nodes are used to check whether the input or output consists of harmful or inappropriate content.
+Les nœuds de modération sont utilisés pour vérifier si l'entrée ou la sortie se compose d'un contenu nocif ou inapproprié.
 
-### Moderation Nodes:
+### Nœuds de modération:
 
 * [OpenAI Moderation](openai-moderation.md)
 * [Simple Prompt Moderation](simple-prompt-moderation.md)

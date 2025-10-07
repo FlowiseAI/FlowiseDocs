@@ -1,76 +1,76 @@
-# Jira Document Loader
+# Chargeur de documents Jira
 
-<figure><img src="../../../.gitbook/assets/image (284).png" alt="" width="234"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (284) .png" alt = "" width = "234"> <Figcaption> </gigcaption> </ figure>
 
-Jira is a popular issue tracking and project management tool. This module provides functionality to load and process issues from Jira projects, supporting various filtering options and metadata customization.
+Jira est un outil de suivi et de gestion de projet populaire. Ce module fournit des fonctionnalités pour charger et traiter les problèmes des projets JIRA, prenant en charge diverses options de filtrage et personnalisation des métadonnées.
 
-This module provides a sophisticated Jira document loader that can:
-- Load issues from Jira projects
-- Filter issues by creation date
-- Control batch size for requests
-- Process content with text splitters
-- Customize metadata extraction
-- Handle API authentication
+Ce module fournit un chargeur de document Jira sophistiqué qui peut:
+- Chargez les problèmes des projets Jira
+- Filtre les problèmes par date de création
+- Contrôler la taille du lot pour les demandes
+- Traiter le contenu avec des séparateurs de texte
+- Personnaliser l'extraction des métadonnées
+- Gérer l'authentification de l'API
 
-## Inputs
+## Entrées
 
-### Required Parameters
-- **Connect Credential**: Jira API credentials (username and access token)
-- **Host**: Jira instance URL (e.g., https://jira.example.com)
-- **Project Key**: The key of the Jira project to load issues from
+### Paramètres requis
+- ** Connectez les informations d'identification **: JIRA API Identifiés (nom d'utilisateur et jeton d'accès)
+- ** Hôte **: URL de l'instance Jira (par exemple, https://jira.example.com)
+- ** Clé du projet **: La clé du projet JIRA pour charger des problèmes de
 
-### Optional Parameters
-- **Limit Per Request**: Number of issues to fetch per API request (default: 100)
-- **Created After**: Filter issues created after a specific date (e.g., 2024-01-01)
-- **Text Splitter**: A text splitter to process the extracted content
-- **Additional Metadata**: JSON object with additional metadata
-- **Omit Metadata Keys**: Comma-separated list of metadata keys to omit
+### Paramètres facultatifs
+- ** Limite par demande **: Nombre de problèmes à récupérer par demande API (par défaut: 100)
+- ** Créé après **: Filtrez les problèmes créés après une date spécifique (par exemple, 2024-01-01)
+- ** Splitter du texte **: un séparateur de texte pour traiter le contenu extrait
+- ** Metadata supplémentaires **: objet JSON avec métadonnées supplémentaires
+- ** omettre les clés de métadonnées **: Liste des clés de métadonnées séparées par des virgules pour omettre
 
-## Outputs
+## Sorties
 
-- **Document**: Array of document objects containing metadata and pageContent
-- **Text**: Concatenated string from pageContent of documents
+- ** Document **: tableau d'objets de document contenant des métadonnées et un conceptent
+- ** Texte **: chaîne concaténée du conceptent de documents
 
-## Features
-- API token authentication
-- Project-based issue loading
-- Creation date filtering
-- Batch size control
-- Text splitting support
-- Metadata customization
-- Flexible output formats
+## Caractéristiques
+- Authentification des jetons API
+- Chargement du problème basé sur les projets
+- Filtrage de date de création
+- Contrôle de la taille du lot
+- Support de division de texte
+- Personnalisation des métadonnées
+- Formats de sortie flexibles
 
-## Authentication
-The loader requires:
-- Jira username
-- API access token
-- Host URL of your Jira instance
+## Authentification
+Le chargeur nécessite:
+- Nom d'utilisateur Jira
+- Token d'accès API
+- URL de l'hôte de votre instance Jira
 
-## Document Structure
-Each document contains:
-- **pageContent**: Issue content and description
-- **metadata**:
-  - Issue-specific metadata (customizable)
-  - Project information
-  - Creation dates
-  - Issue status
-  - Additional custom metadata
+## Structure de document
+Chaque document contient:
+- ** PageContent **: émettez le contenu et la description
+- ** Metadata **:
+  - Métadonnées spécifiques au problème (personnalisables)
+  - Informations sur le projet
+  - Dates de création
+  - Statut d'émission
+  - Métadonnées personnalisées supplémentaires
 
-## Metadata Handling
-Two ways to customize metadata:
-1. **Additional Metadata**: Add new metadata fields
-   - Specify as JSON object
-   - Merged with existing metadata
+## Manipulation des métadonnées
+Deux façons de personnaliser les métadonnées:
+1. ** Metadata supplémentaires **: Ajouter de nouveaux champs de métadonnées
+   - Spécifiez comme objet JSON
+   - Fusionné avec les métadonnées existantes
 
-2. **Omit Metadata Keys**: Remove unwanted metadata
-   - Comma-separated list of keys
-   - Use * to remove all default metadata
-   - Nested keys supported (e.g., key1, key2, key3.nestedKey1)
+2. ** omettre les clés de métadonnées **: supprimer les métadonnées indésirables
+   - Liste des clés séparées par des virgules
+   - Utiliser * pour supprimer toutes les métadonnées par défaut
+   - Clés imbriquées prises en charge (par exemple, Key1, Key2, Key3.NestedKey1)
 
 ## Notes
-- Handles API rate limiting
-- Efficient batch processing
-- Memory-efficient loading
-- Error handling for API requests
-- Supports both cloud and self-hosted Jira
-- Real-time issue data access
+- Gère la limitation du taux de l'API
+- Traitement efficace des lots
+- Chargement économe en mémoire
+- Gestion des erreurs pour les demandes d'API
+- Prend en charge Jira Cloud et auto-hébergé
+- Accès aux données du problème en temps réel

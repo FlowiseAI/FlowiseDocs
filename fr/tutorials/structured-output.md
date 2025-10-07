@@ -1,65 +1,65 @@
-# Structured Output
+# Sortie structurée
 
-In numerous use cases, such as chatbots, models are expected to reply to users in natural language. However, there are situations where natural language responses aren’t ideal. For instance, if we need to take the model’s output, pass it as a body for HTTP request, or store into a database, it's essential that the output aligns with a predefined schema. This requirement gives rise to the concept of **structured output**, where models are guided to generate responses in a specific, structured format.
+Dans de nombreux cas d'utilisation, tels que les chatbots, les modèles devraient répondre aux utilisateurs en langage naturel. Cependant, il existe des situations où les réponses du langage naturel ne sont pas idéales. Par exemple, si nous devons prendre la sortie du modèle, le passer en tant que corps pour la demande HTTP ou stocker dans une base de données, il est essentiel que la sortie s'aligne sur un schéma prédéfini. Cette exigence donne naissance au concept de ** sortie structurée **, où les modèles sont guidés pour générer des réponses dans un format structuré spécifique.
 
-In this tutorial we are going to take a look at how to generate a structured output from LLM, and pass it as the body for HTTP request.
+Dans ce tutoriel, nous allons jeter un œil à la façon de générer une sortie structurée à partir de LLM et de la passer comme le corps pour la demande HTTP.
 
-## Prerequisite
+## Condition préalable
 
-We are going to use the same [Event Management Server](interacting-with-api.md#prerequisite) for HTTP request.
+Nous allons utiliser le même[Event Management Server](interacting-with-api.md#prerequisite)pour la demande HTTP.
 
-Absolutely! Here’s a tutorial for your **Structured Output Flow** in a format consistent with your "Agent as Tool" documentation, including step-by-step explanations and image placeholders.
+Absolument! Voici un tutoriel pour votre ** flux de sortie structuré ** dans un format cohérent avec votre documentation "Agent As Tool", y compris les explications étape par étape et les espaces réservés d'image.
 
 ***
 
-## Overview
+## Aperçu
 
-1. Receives user input through a Start node.
-2. Uses an LLM to generate a structured JSON array.
-3. Loops through each item in the array.
-4. Sends each item via HTTP to an external endpoint.
+1. Reçoit l'entrée de l'utilisateur via un nœud de démarrage.
+2. Utilise un LLM pour générer un tableau JSON structuré.
+3. Boucle via chaque élément du tableau.
+4. Envoie chaque élément via HTTP à un point de terminaison externe.
 
-<figure><img src="../.gitbook/assets/image (306).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (306) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-### Step 1: Setting Up the Start Node
+### Étape 1: Configuration du nœud de démarrage
 
-Begin by adding a **Start** node to your canvas.
+Commencez par ajouter un nœud ** start ** à votre toile.
 
-<figure><img src="../.gitbook/assets/image (307).png" alt="" width="417"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (307) .png" alt = "" width = "417"> <Figcaption> </ Figcaption> </gigust>
 
-**Key Input Parameters:**
+** Paramètres d'entrée de clé: **
 
-* **Input Type:**
-  * `chatInput` (default): The flow starts with a chat message from the user.
-  * `formInput`: The flow starts with a form (if you want to collect structured data from the user).
-* **Ephemeral Memory:**
-  * (Optional) If enabled, the flow does not retain chat history between runs.
-* **Flow State:**
-  * (Optional) Pre-populate state variables.
-  *   Example:
+* ** Type d'entrée: **
+  * `chatInput`(par défaut): le flux commence par un message de chat de l'utilisateur.
+  * `formInput`: Le flux commence par un formulaire (si vous souhaitez collecter des données structurées de l'utilisateur).
+* ** Mémoire éphémère: **
+  * (Facultatif) Si activé, le flux ne conserve pas l'historique de chat entre les exécutions.
+* ** État de flux: **
+  * (Facultatif) Pré-pupuler les variables d'état.
+  *   Exemple:
 
       ```json
       [
         { "key": "answers", "value": "" }
       ]
       ```
-* **Persist State:**
-  * (Optional) If enabled, the state is persisted across the same session.
+* ** État persiste: **
+  * (Facultatif) Si activé, l'état est persisté sur la même session.
 
-### Step 2: Generating Structured Output with LLM
+### Étape 2: Génération de sortie structurée avec LLM
 
-Add a LLM node and connect it to the Start node.
+Ajoutez un nœud LLM et connectez-le au nœud de démarrage.
 
-<figure><img src="../.gitbook/assets/image (308).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (308) .png" alt = "" width = "563"> <Figcaption> </ Figcaption> </gigust>
 
-**Purpose:** Uses a language model to analyze the input and generate a structured JSON array.
+** Objectif: ** utilise un modèle de langue pour analyser l'entrée et générer un tableau JSON structuré.
 
-**Key Input Parameters:**
+** Paramètres d'entrée de clé: **
 
-* **JSON Structured Output:**
-  * **Key:** `answers`
-  * **Type:** `JSON Array`
-  *   **JSON Schema:**
+* ** Sortie structurée JSON: **
+  * **Clé:**`answers`
+  * **Taper:**`JSON Array`
+  *   ** schéma JSON: **
 
       ```json
       {
@@ -68,10 +68,10 @@ Add a LLM node and connect it to the Start node.
         "location": { "type": "string", "required": true, "description": "Location of the event" }
       }
       ```
-  * **Description:** "answer to user query"
-* **Update Flow State:**
-  * Updates the flow state with the generated JSON output.
-  *   Example:
+  * ** Description: ** "Réponse à la requête utilisateur"
+* ** Mettez à jour l'état du flux: **
+  * Met à jour l'état de flux avec la sortie JSON générée.
+  *   Exemple:
 
       ```json
       [
@@ -82,66 +82,66 @@ Add a LLM node and connect it to the Start node.
       ]
       ```
 
-### Step 3: Looping Through the JSON Array
+### Étape 3: faire une boucle dans le tableau JSON
 
-Add an Iteration node and connect it to the output of the LLM node.
+Ajoutez un nœud d'itération et connectez-le à la sortie du nœud LLM.
 
-<figure><img src="../.gitbook/assets/image (310).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (310) .png" alt = "" width = "563"> <Figcaption> </gigcaption> </ Figure>
 
-**Purpose:** Iterates over each item in the generated JSON array from LLM node.
+** Objectif: ** itère sur chaque élément du tableau JSON généré à partir du nœud LLM.
 
-**Key Input Parameters:**
+** Paramètres d'entrée de clé: **
 
-*   **Array Input:**
+*   ** Entrée du tableau: **
 
-    * The array to iterate over. Set to the answers from the saved state:
+    * Le tableau pour itérer. Réglé sur les réponses de l'état enregistré:
 
     ```html
     {{ $flow.state.answers }}
     ```
 
-    * This means the node will loop through each event in the answers array.
+    * Cela signifie que le nœud traversera chaque événement dans le tableau des réponses.
 
-### Step 4: Sending Each Item via HTTP
+### Étape 4: Envoi de chaque élément via HTTP
 
-Inside the loop, add a **HTTP** node.
+À l'intérieur de la boucle, ajoutez un nœud ** http **.
 
-<figure><img src="../.gitbook/assets/image (311).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (311) .png" alt = "" width = "563"> <Figcaption> </ Figcaption> </gigust>
 
-**Purpose:** For each item in the array, sends an HTTP POST request to a specified endpoint (e.g., `http://localhost:5566/events`).
+** Objectif: ** Pour chaque élément du tableau, envoie une demande de message HTTP à un point de terminaison spécifié (par exemple,`http://localhost:5566/events`).
 
-**Key Input Parameters:**
+** Paramètres d'entrée de clé: **
 
-* **Method:**
-  * `POST` (default for this use case).
-* **URL:**
-  * The endpoint to send data to.
-  *   Example:
+* **Méthode:**
+  * `POST`(par défaut pour ce cas d'utilisation).
+* ** URL: **
+  * Le point de terminaison pour envoyer des données.
+  *   Exemple:
 
       ```
       http://localhost:5566/events
       ```
-* **Headers:**
-  * (Optional) Add any required HTTP headers (e.g., for authentication).
-* **Query Params:**
-  * (Optional) Add any query parameters if needed.
-* **Body Type:**
-  * `json` (default): Sends the body as JSON.
-* **Body:**
-  * The data to send in the request body.
-  *   Set to the current item in the loop:
+* ** Headers: **
+  * (Facultatif) Ajouter tous les en-têtes HTTP requis (par exemple, pour l'authentification).
+* ** Paramètres de requête: **
+  * (Facultatif) Ajouter tous les paramètres de requête si nécessaire.
+* ** Type de corps: **
+  * `json`(par défaut): envoie le corps en JSON.
+* **Corps:**
+  * Les données à envoyer dans le corps de la demande.
+  *   Définir sur l'élément actuel dans la boucle:
 
       ```html
       {{ $iteration }}
       ```
-* **Response Type:**
-  * `json` (default): Expects a JSON response.
+* ** Type de réponse: **
+  * `json`(par défaut): attend une réponse JSON.
 
 ***
 
-## Example Interactions
+## Exemples d'interactions
 
-**User Input:**
+** Entrée utilisateur: **
 
 ```
 create 2 events:
@@ -149,33 +149,33 @@ create 2 events:
 2. GenAI meetup, Sept 19, in Dublin
 ```
 
-**Flow:**
+**Couler:**
 
-* Start node receives the input.
-* LLM node generates a JSON array of events.
-* Loop node iterates through each event.
-* HTTP node create each event via the API.
+* Le nœud de démarrage reçoit l'entrée.
+* Le nœud LLM génère un tableau JSON d'événements.
+* Le nœud de boucle itère dans chaque événement.
+* Le nœud http créez chaque événement via l'API.
 
-<figure><img src="../.gitbook/assets/image (304).png" alt=""><figcaption></figcaption></figure>
+<Figure> <img src = "../. GitBook / Assets / Image (304) .png" alt = ""> <figcaption> </gigcaption> </gigust>
 
-<figure><img src="../.gitbook/assets/image (305).png" alt=""><figcaption></figcaption></figure>
-
-***
-
-## Complete Flow Structure
-
-{% file src="../.gitbook/assets/Structured Output.json" %}
+<gigne> <img src = "../. GitBook / Assets / Image (305) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
 ***
 
-## Best Practices
+## Structure d'écoulement complète
 
-**Design Guidelines:**
+{% fichier src = "../. GitBook / Assets / Structured Output.json"%}
 
-1. **Clear Output Schema:** Define the expected structure for the LLM output to ensure reliable downstream processing.
+***
 
-**Common Use Cases:**
+## Meilleures pratiques
 
-* **Event Processing:** Collect and send event data to a calendar or event management system.
-* **Bulk Data Entry:** Generate and submit multiple records to a database or API.
-* **Automated Notifications:** Send personalized messages or alerts for each item in a list.
+** Directives de conception: **
+
+1. ** Schéma de sortie effacer: ** Définissez la structure attendue de la sortie LLM pour assurer un traitement fiable en aval.
+
+** Cas d'utilisation courants: **
+
+* ** Traitement des événements: ** Collectez et envoyez des données d'événements à un calendrier ou un système de gestion d'événements.
+* ** Entrée de données en masse: ** Générer et soumettre plusieurs enregistrements à une base de données ou à l'API.
+* ** Notifications automatisées: ** Envoyer des messages ou des alertes personnalisés pour chaque élément d'une liste.

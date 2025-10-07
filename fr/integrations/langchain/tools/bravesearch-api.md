@@ -4,10 +4,10 @@ description: >-
   results.
 ---
 
-# BraveSearch API
+# API Bravesearch
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (2).png" alt="" width="299"><figcaption><p>BraveSearch API Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (3) (1) (1) (1) (1) (1) (1) (1) (2) .png" alt = "" width = "299"> <figcaption> <p> Bravesearch API Node </p> </Figcaption> </piguge>
 
-{% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
-{% endhint %}
+{% hint style = "info"%}
+Cette section est un travail en cours. Nous apprécions toute aide que vous pouvez fournir pour terminer cette section. Veuillez vérifier notre[Contribution Guide](broken-reference)Pour commencer.
+{% EndHint%}

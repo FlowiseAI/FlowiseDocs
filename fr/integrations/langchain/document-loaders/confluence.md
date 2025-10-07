@@ -6,81 +6,81 @@ description: Load data from a Confluence Document
 
 ## Confluence
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2).png" alt="" width="263"><figcaption><p>Confluence Node</p></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / Image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) .png" alt = "" width = "263"> <Figcution> <p>
 
-## Confluence Document Loader
+## Chargeur de documents Confluence
 
-Confluence is Atlassian's enterprise wiki and collaboration platform. This module provides functionality to load and process content from Confluence spaces and pages.
+Confluence est le wiki et la plate-forme de collaboration d'Atlassian. Ce module fournit des fonctionnalités pour charger et traiter le contenu à partir des espaces et des pages de confluence.
 
-This module provides a sophisticated Confluence document loader that can:
+Ce module fournit un chargeur de document à confluence sophistiqué qui peut:
 
-* Load content from specific Confluence spaces
-* Support both Cloud and Server/Data Center deployments
-* Handle authentication with multiple methods
-* Limit the number of pages retrieved
-* Process content with text splitters
-* Customize metadata extraction
+* Chargez le contenu à partir d'espaces de confluence spécifiques
+* Prise en charge des déploiements Cloud et Server / Data Center
+* Gérer l'authentification avec plusieurs méthodes
+* Limiter le nombre de pages récupérées
+* Traiter le contenu avec des séparateurs de texte
+* Personnaliser l'extraction des métadonnées
 
-### Inputs
+### Entrées
 
-#### Required Parameters
+#### Paramètres requis
 
-* **Base URL**: The Confluence instance URL (e.g., https://example.atlassian.net/wiki)
-* **Space Key**: The unique identifier for the Confluence space
-* **Connect Credential**: Choose between:
-  * Confluence Cloud API credentials (username + access token)
-  * Confluence Server/DC API credentials (personal access token)
+* ** URL de base **: L'URL de l'instance de confluence (par exemple, https://example.atlassian.net/wiki)
+* ** Espace Key **: L'identifiant unique de l'espace de confluence
+* ** Connectez les informations d'identification **: Choisissez entre:
+  * Conditions d'identification de l'API Cloud Confluence (nom d'utilisateur + jeton d'accès)
+  * Informations sur l'api du serveur Confluence / DC (Token d'accès personnel)
 
-#### Optional Parameters
+#### Paramètres facultatifs
 
-* **Text Splitter**: A text splitter to process the extracted content
-* **Limit**: Maximum number of pages to retrieve (0 for unlimited)
-* **Additional Metadata**: JSON object with additional metadata
-* **Omit Metadata Keys**: Comma-separated list of metadata keys to omit
+* ** Splitter du texte **: un séparateur de texte pour traiter le contenu extrait
+* ** Limite **: Nombre maximum de pages à récupérer (0 pour illimité)
+* ** Metadata supplémentaires **: objet JSON avec métadonnées supplémentaires
+* ** omettre les clés de métadonnées **: Liste des clés de métadonnées séparées par des virgules pour omettre
 
-### Outputs
+### Sorties
 
-* **Document**: Array of document objects containing metadata and pageContent
-* **Text**: Concatenated string from pageContent of documents
+* ** Document **: tableau d'objets de document contenant des métadonnées et un conceptent
+* ** Texte **: chaîne concaténée du conceptent de documents
 
-### Features
+### Caractéristiques
 
-* Multi-deployment support (Cloud/Server/DC)
-* Flexible authentication options
-* Page limit controls
-* Content processing capabilities
-* Metadata customization
-* Error handling
-* Text splitting support
+* Prise en charge multi-déploiement (cloud / serveur / dc)
+* Options d'authentification flexibles
+* Contrôles de limite de page
+* Capacités de traitement du contenu
+* Personnalisation des métadonnées
+* Gestion des erreurs
+* Support de division de texte
 
-### Authentication Methods
+### Méthodes d'authentification
 
-#### Confluence Cloud
+#### Nuage de confluence
 
-* Requires username and access token
-* Access token generated from Atlassian account settings
-* Supports API token authentication
+* Nom d'utilisateur et jeton d'accès
+* Token d'accès généré à partir des paramètres du compte atlassian
+* Prend en charge l'authentification des jetons API
 
-#### Confluence Server/Data Center
+#### Serveur de confluence / centre de données
 
-* Uses personal access token
-* Token generated from Confluence instance
-* Supports direct server access
+* Utilise un jeton d'accès personnel
+* Jeton généré à partir de l'instance de confluence
+* Prend en charge l'accès direct au serveur
 
 ### Notes
 
-* Space Key can be found in Confluence space settings
-* Different authentication methods for Cloud vs Server
-* Rate limiting may apply based on instance
-* Content includes page text and metadata
-* Supports both full and partial content retrieval
-* Error handling for invalid credentials or URLs
+* La clé d'espace peut être trouvée dans les réglages d'espace Confluence
+* Différentes méthodes d'authentification pour le cloud vs serveur
+* La limitation des taux peut s'appliquer en fonction de l'instance
+* Le contenu comprend le texte et les métadonnées de la page
+* Prend en charge la récupération de contenu à la fois complète et partielle
+* Gestion des erreurs pour les informations d'identification ou URL non valides
 
-### Finding Space Key
+### Trouver une clé d'espace
 
-To find your Confluence Space Key:
+Pour trouver votre clé d'espace de confluence:
 
-1. Navigate to the space in Confluence
-2. Go to Space Settings
-3. Look for "Space Key" in the overview
-4. Format example: \~EXAMPLE362906de5d343d49dcdbae5dEXAMPLE
+1. Accédez à l'espace en confluence
+2. Aller dans les paramètres de l'espace
+3. Recherchez "Key Space" dans l'aperçu
+4. Exemple de format: \ ~ Exemple362906de5d343d49dcdbae5Dexample

@@ -2,10 +2,10 @@
 description: Wrapper around open source large language models on Ollama.
 ---
 
-# Ollama
+# Ollla
 
-<figure><img src="../../../.gitbook/assets/image (6) (1) (1) (1) (1) (2).png" alt="" width="340"><figcaption><p>Ollama Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (6) (1) (1) (1) (1) (2) .png" alt = "" width = "340"> </ figure> <p> ollama node </p> </ / Figcaption> </ Figure>
 
-{% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
-{% endhint %}
+{% hint style = "info"%}
+Cette section est un travail en cours. Nous apprécions toute aide que vous pouvez fournir pour terminer cette section. Veuillez vérifier notre[Contribution Guide](broken-reference)Pour commencer.
+{% EndHint%}

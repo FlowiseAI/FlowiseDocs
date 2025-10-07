@@ -1,11 +1,11 @@
 ---
-description: Agent that uses Function Calling to pick the tools and args to call.
+description: Agent qui utilise l'appel de fonction pour choisir les outils et les arguments à appeler.
 ---
 
-# Tool Agent
+# Agent d'Outils
 
-<figure><img src="../../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="337"><figcaption><p>Tool Agent Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="337"><figcaption><p>Noeud de l'Agent d'Outils</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
+Cette section est en cours de développement. Nous apprécions toute aide que vous pouvez apporter pour compléter cette section. Veuillez consulter notre [Guide de Contribution](broken-reference) pour commencer.
 {% endhint %}

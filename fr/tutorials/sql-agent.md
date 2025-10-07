@@ -1,42 +1,42 @@
-# SQL Agent
+# Agent SQL
 
-This tutorial will guide you through building an intelligent SQL Agent that can interact with databases, generate SQL queries, validate them, execute them, and self-correct when errors occur.
+Ce didacticiel vous guidera à travers la création d'un agent SQL intelligent qui peut interagir avec les bases de données, générer des requêtes SQL, les valider, les exécuter et s'auto-correction lorsque des erreurs se produisent.
 
-## Overview
+## Aperçu
 
-The SQL Agent flow implements a robust database interaction system that:
+Le flux d'agent SQL implémente un système d'interaction de base de données robuste qui:
 
-1. Retrieves database schema information
-2. Generates SQL queries based on user questions
-3. Validates generated queries for common mistakes
-4. Executes queries against the database
-5. Checks results for errors and self-corrects when needed
-6. Provides natural language responses based on query results
+1. Récupération des informations sur le schéma de la base de données
+2. Génère des requêtes SQL en fonction des questions des utilisateurs
+3. Valide les requêtes générées pour les erreurs courantes
+4. Exécute des requêtes contre la base de données
+5. Vérifie les résultats des erreurs et des auto-corrects en cas de besoin
+6. Fournit des réponses en langage naturel en fonction des résultats de la requête
 
-<figure><img src="../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. Gitbook / Assets / Image (5) (1) (1) (1) (1) (1) (1) .png" alt = ""> <figcaption> </gigcaption> </stigne>
 
-### Step 1: Setting Up the Start Node
+### Étape 1: Configuration du nœud de démarrage
 
-Begin by adding a **Start** node to your canvas. This serves as the entry point for your SQL agent.
+Commencez par ajouter un nœud ** start ** à votre toile. Cela sert de point d'entrée pour votre agent SQL.
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
-
-#### Configuration:
-
-* **Input Type**: Select "Chat Input" to accept user questions
-* **Flow State**: Add a state variable with key "`sqlQuery`" and empty value
-
-The Start node initializes the flow state with an empty `sqlQuery` variable that will store the generated SQL query throughout the process.
-
-### Step 2: Retrieving Database Schema
-
-Add a **Custom Function** node and connect it to the Start node.
-
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. Gitbook / Assets / image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) .png" alt = "" width = "563"> <figcaption> </ Figcaption> </gigne>
 
 #### Configuration:
 
-* **Javascript Function**: This is an example function that connects to your database and retrieves the complete schema including table structures, column definitions, and sample data.
+* ** Type d'entrée **: Sélectionnez "CHAT ENTRE" pour accepter les questions des utilisateurs
+* ** État de flux **: Ajoutez une variable d'état avec la clé "`sqlQuery`"Et une valeur vide
+
+Le nœud de démarrage initialise l'état de débit avec un vide`sqlQuery`variable qui stockera la requête SQL générée tout au long du processus.
+
+### Étape 2: Récupération du schéma de base de données
+
+Ajoutez un nœud de fonction ** personnalisé ** et connectez-le au nœud de démarrage.
+
+<gigne> <img src = "../. Gitbook / Assets / image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) .png" alt = "" width = "563"> <figcaption>
+
+#### Configuration:
+
+* ** Fonction JavaScript **: Il s'agit d'un exemple de fonction qui se connecte à votre base de données et récupère le schéma complet, y compris les structures de table, les définitions de colonnes et les données d'échantillons.
 
 ```javascript
 const { DataSource } = require('typeorm');
@@ -122,15 +122,15 @@ await getSQLPrompt();
 return sqlSchemaPrompt;
 ```
 
-### Step 3: Generating SQL Queries
+### Étape 3: Génération de requêtes SQL
 
-Add an **LLM** node connected to the "Get DB Schema" node.
+Ajoutez un nœud ** llm ** connecté au nœud "get db schéma".
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. Gitbook / Assets / image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) .png" alt = "" width = "563"> <figcaption>
 
 #### Configuration:
 
-* **Messages**: Add a system message:
+* ** Messages **: Ajouter un message système:
 
 ```
 You are an agent designed to interact with a SQL database. Given an input question, create a syntactically correct sqlite query to run, then look at the results of the query and return the answer. Unless the user specifies a specific number of examples they wish to obtain, always limit your query to at most 5 results. You can order the results by a relevant column to return the most interesting examples in the database. Never query for all the columns from a specific table, only ask for the relevant columns given the question. DO NOT make any DML statements (INSERT, UPDATE, DELETE, DROP etc.) to the database.
@@ -142,19 +142,19 @@ Note:
 - Only generate ONE SQL query
 ```
 
-* **JSON Structured Output**: Here we instruct the model only return structured output, to prevent LLM from including other text other than the SQL query.
-  * Key: "`sql_query`"
-  * Type: "string"
-  * Description: "SQL query"
-* **Update Flow State**: Set key "`sqlQuery`" with value `{{ output.sql_query }}`
+* ** Sortie structurée JSON **: Ici, nous instructons le modèle uniquement la sortie structurée, pour empêcher LLM d'inclure d'autres texte autres que la requête SQL.
+  * Clé: "`sql_query`"
+  * Type: "String"
+  * Description: "Query SQL"
+* ** Mettre à jour l'état de flux **: Set Key "`sqlQuery`"Avec valeur`{{ output.sql_query }}`
 
-This node transforms the user's natural language question into a structured SQL query using the database schema information.
+Ce nœud transforme la question du langage naturel de l'utilisateur en une requête SQL structurée à l'aide des informations de schéma de base de données.
 
-### Step 4: Validating SQL Query Syntax
+### Étape 4: validation de la syntaxe de requête SQL
 
-Add a **Condition Agent** node connected to the "Generate SQL Query" LLM.
+Ajoutez un nœud d'agent ** de condition ** connecté à la "Generate SQL Query" LLM.
 
-<figure><img src="../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (5) (1) (1) (1) (1) (1) (1) (1) .png" alt = "" width = "563"> <figcaption> </gigcaption> </pigucial>
 
 #### Configuration:
 
@@ -172,42 +172,42 @@ You are a SQL expert with a strong attention to detail. Double check the SQL que
 - Using the proper columns for joins
 ```
 
-* **Input**: `{{ $flow.state.sqlQuery }}`
-* **Scenarios**:
-  * Scenario 1: "SQL query is correct and does not contains mistakes"
-  * Scenario 2: "SQL query contains mistakes"
+* **Saisir**:`{{ $flow.state.sqlQuery }}`
+* ** Scénarios **:
+  * Scénario 1: "La requête SQL est correcte et ne contient pas d'erreurs"
+  * Scénario 2: "La requête SQL contient des erreurs"
 
-This validation step catches common SQL errors before execution.
+Cette étape de validation attrape les erreurs SQL courantes avant l'exécution.
 
-### Step 5: Handling Query Regeneration (Error Path)
+### Étape 5: Gestion de la régénération des requêtes (chemin d'erreur)
 
-For incorrect queries (output 1) from previous Condition Agent node, add a **Loop** node.
+Pour les requêtes incorrectes (sortie 1) du nœud de l'agent de condition précédente, ajoutez un nœud ** boucle **.
 
-<figure><img src="../.gitbook/assets/image (6) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
-
-#### Configuration:
-
-<figure><img src="../.gitbook/assets/image (7) (1) (1) (1) (1) (1).png" alt="" width="526"><figcaption></figcaption></figure>
-
-* **Loop Back To**: "Generate SQL Query"
-* **Max Loop Count**: Set to 5
-
-This creates a feedback loop that allows the system to retry query generation when validation fails.
-
-### Step 6: Executing Valid SQL Queries
-
-For correct queries (output 0), add a **Custom Function** node.
-
-<figure><img src="../.gitbook/assets/image (8) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<gigne> <img src = "../. Gitbook / Assets / image (6) (1) (1) (1) (1) (1) .png" alt = "" width = "375"> <figCaption> </gigcaption> </gigust>
 
 #### Configuration:
 
-<figure><img src="../.gitbook/assets/image (9) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / image (7) (1) (1) (1) (1) (1) .png" alt = "" width = "526"> <figCaption> </gigcaption> </gigust>
 
-* **Input Variables**: Here we pass in the generated SQL query as variable to be used in Function.
-  * Variable Name: "sqlQuery"
-  * Variable Value: `{{ $flow.state.sqlQuery }}`
-* **Javascript Function**: This function executes the validated SQL query against the database and formats the results.
+* ** Loop Retour à **: "Générer la requête SQL"
+* ** Count de boucle maximale **: réglé sur 5
+
+Cela crée une boucle de rétroaction qui permet au système de réessayer la génération de requête lorsque la validation échoue.
+
+### Étape 6: Exécution des requêtes SQL valides
+
+Pour les requêtes correctes (sortie 0), ajoutez un nœud de fonction ** personnalisé **.
+
+<gigne> <img src = "../. GitBook / Assets / Image (8) (1) (1) (1) (1) .png" alt = "" width = "375"> <Figcaption> </ Figcaption> </gigu
+
+#### Configuration:
+
+<gigne> <img src = "../. GitBook / Assets / Image (9) (1) (1) (1) .png" alt = "" width = "563"> <figcaption> </gigcaption> </stigne>
+
+* ** Variables d'entrée **: Ici, nous passons dans la requête SQL générée comme variable à utiliser dans la fonction.
+  * Nom de la variable: "SqlQuery"
+  * Valeur variable:`{{ $flow.state.sqlQuery }}`
+* ** Fonction JavaScript **: Cette fonction exécute la requête SQL validée par rapport à la base de données et formate les résultats.
 
 ```javascript
 const { DataSource } = require('typeorm');
@@ -266,46 +266,46 @@ await runSQLQuery(sqlQuery);
 return formattedResult;
 ```
 
-### Step 7: Checking Query Execution Results
+### Étape 7: Vérification des résultats de l'exécution des requêtes
 
-Add a **Condition Agent** node connected to the "Run SQL Query" function.
+Ajoutez un nœud d'agent ** de condition ** connecté à la fonction "Run SQL Query".
 
-<figure><img src="../.gitbook/assets/image (10) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
-
-#### Configuration:
-
-* **Instructions**: "You are a SQL expert. Check if the query result is correct or contains error."
-* **Input**: `{{ customFunctionAgentflow_1 }}`
-* **Scenarios**:
-  * Scenario 1: "Result is correct and does not contains error"
-  * Scenario 2: "Result query contains error"
-
-This step validates the execution results and determines if further correction is needed.
-
-### Step 8: Generating Final Response (Success Path)
-
-For successful results (output 0 from Condition Agent), add an **LLM** node.
-
-<figure><img src="../.gitbook/assets/image (11) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (10) (1) (1) (1) .png" alt = "" width = "563"> <figcaption> </gigcaption> </gigust>
 
 #### Configuration:
 
-* **Input Message**: `{{ customFunctionAgentflow_1 }}`
+* ** Instructions **: "Vous êtes un expert SQL. Vérifiez si le résultat de la requête est correct ou contient une erreur."
+* **Saisir**:`{{ customFunctionAgentflow_1 }}`
+* ** Scénarios **:
+  * Scénario 1: "Le résultat est correct et ne contient pas d'erreur"
+  * Scénario 2: "La requête du résultat contient une erreur"
 
-This node generates a natural language response based on the successful query results.
+Cette étape valide les résultats de l'exécution et détermine si une correction supplémentaire est nécessaire.
 
-### Step 9: Handling Query Regeneration (Runtime Error Path)
+### Étape 8: Génération de réponse finale (chemin de réussite)
 
-For failed executions (output 1 from Condition Agent), add an **LLM** node.
+Pour des résultats réussis (sortie 0 de Condition Agent), ajoutez un nœud ** llm **.
 
-<figure><img src="../.gitbook/assets/image (12) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / image (11) (1) (1) (1) .png" alt = "" width = "375"> <figcaption> </gigcaption> </ figure>
 
 #### Configuration:
 
-<figure><img src="../.gitbook/assets/image (13) (1) (1) (1).png" alt="" width="399"><figcaption></figcaption></figure>
+* ** Message d'entrée **:`{{ customFunctionAgentflow_1 }}`
 
-* **Messages**: Add the same system message as Step 3
-* **Input Message**:
+Ce nœud génère une réponse en langage naturel basé sur les résultats de la requête réussis.
+
+### Étape 9: Gestion de la régénération des requêtes (chemin d'erreur d'exécution)
+
+Pour les exécutions défaillantes (sortie 1 de l'agent de condition), ajoutez un nœud ** llm **.
+
+<gigne> <img src = "../. GitBook / Assets / image (12) (1) (1) (1) .png" alt = "" width = "375"> <figcaption> </gigcaption> </gigust>
+
+#### Configuration:
+
+<gigne> <img src = "../. Gitbook / Assets / image (13) (1) (1) (1) .png" alt = "" width = "399"> <figcaption> </gigcaption> </gigust>
+
+* ** Messages **: Ajoutez le même message système que l'étape 3
+* ** Message d'entrée **:
 
 ```
 Given the generated SQL Query: {{ $flow.state.sqlQuery }}
@@ -313,54 +313,54 @@ I have the following error: {{ customFunctionAgentflow_1 }}
 Regenerate a new SQL Query that will fix the error
 ```
 
-* **JSON Structured Output**: Same as Step 3
-* **Update Flow State**: Set key "`sqlQuery`" with value `{{ output.sql_query }}`
+* ** Sortie structurée JSON **: Identique à l'étape 3
+* ** Mettre à jour l'état de flux **: Set Key "`sqlQuery`"Avec valeur`{{ output.sql_query }}`
 
-This node analyzes runtime errors and generates corrected SQL queries.
+Ce nœud analyse les erreurs d'exécution et génère des requêtes SQL corrigées.
 
-### Step 10: Adding the Second Loop Back
+### Étape 10: ajout de la deuxième boucle
 
-Add a **Loop** node connected to the "Regenerate SQL Query" LLM.
+Ajoutez un nœud ** LOOP ** connecté au "Regenerate SQL Query" LLM.
 
-<figure><img src="../.gitbook/assets/image (14) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / image (14) (1) (1) (1) .png" alt = "" width = "563"> <figcaption> </gigcaption> </ figure>
 
 #### Configuration:
 
-* **Loop Back To**: "Check SQL Query"
-* **Max Loop Count**: Set to 5
+* ** Boucle de retour à **: "Vérifiez la requête SQL"
+* ** Count de boucle maximale **: réglé sur 5
 
-This creates a second feedback loop for runtime error correction.
-
-***
-
-## Complete Flow Structure
-
-{% file src="../.gitbook/assets/SQL Agent.json" %}
+Cela crée une deuxième boucle de rétroaction pour la correction d'erreur d'exécution.
 
 ***
 
-## Summary
+## Structure d'écoulement complète
 
-1. Start → Get DB Schema
-2. Get DB Schema → Generate SQL Query
-3. Generate SQL Query → Check SQL Query
-4. Check SQL Query (Correct) → Run SQL Query
-5. Check SQL Query (Incorrect) → Regenerate Query (Loop back)
-6. Run SQL Query → Check Result
-7. Check Result (Success) → Return Response
-8. Check Result (Error) → Regenerate SQL Query
-9. Regenerate SQL Query → Recheck SQL Query (Loop back)
+{% fichier src = "../. gitbook / actifs / sql agent.json"%}
 
 ***
 
-## Testing Your SQL Agent
+## Résumé
 
-Test your agent with various types of database questions:
+1. Démarrer → Obtenir le schéma DB
+2. Obtenez un schéma DB → Générer une requête SQL
+3. Générer la requête SQL → Vérifiez la requête SQL
+4. Vérifiez la requête SQL (correcte) → Exécuter la requête SQL
+5. Vérifiez la requête SQL (incorrecte) → Regérer la requête (boucle arrière)
+6. Exécuter la requête SQL → Vérifier le résultat
+7. Vérifier le résultat (succès) → Retour Response
+8. Vérifier le résultat (erreur) → Regérer la requête SQL
+9. Regenerate SQL Query → ReCheck SQL Query (boucle arrière)
 
-* Simple queries: "Show me all customers"
-* Complex queries: "What are the top 5 products by sales?"
-* Analytical queries: "Calculate the average order value by month"
+***
 
-<figure><img src="../.gitbook/assets/image (15) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+## Tester votre agent SQL
 
-This SQL Agent flow provides a robust, self-correcting system for database interactions that can handle SQL queries in natural language.
+Testez votre agent avec différents types de questions de base de données:
+
+* Requêtes simples: "Montrez-moi tous les clients"
+* Requêtes complexes: "Quels sont les 5 meilleurs produits par vente?"
+* Requêtes analytiques: "Calculez la valeur moyenne de l'ordre par mois"
+
+<gigne> <img src = "../. GitBook / Assets / Image (15) (1) (1) (1) .png" alt = "" width = "563"> <figcaption> </gigcaption> </gigust>
+
+Ce flux d'agent SQL fournit un système robuste et auto-corrigé pour les interactions de base de données qui peuvent gérer les requêtes SQL en langage naturel.

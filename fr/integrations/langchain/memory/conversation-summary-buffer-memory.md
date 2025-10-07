@@ -1,16 +1,16 @@
-# Conversation Summary Buffer Memory
+# Résumé de la conversation Mémoire de tampon
 
-Use Flowise database table `chat_message` as the storage mechanism for storing/retrieving conversations.
+Utilisez la table de base de données Flowise`chat_message`comme mécanisme de stockage pour stocker / récupérer les conversations.
 
-This memory keeps a buffer of recent interactions and compiles old ones into a summary, using both in its storage. Instead of flushing old interactions based solely on their number, it now considers the total length of tokens to decide when to clear them out.
+Cette mémoire garde un tampon d'interactions récentes et compile les anciennes en un résumé, en utilisant les deux dans son stockage. Au lieu de rincer les vieilles interactions basées uniquement sur leur nombre, il considère désormais la longueur totale des jetons pour décider quand les éliminer.
 
-<figure><img src="../../../.gitbook/assets/image (4) (1) (2) (1).png" alt="" width="297"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (4) (1) (2) (1) .png" alt = "" width = "297"> <Figcaption> </ Figcaption> </ Figure>
 
-## Input
+## Saisir
 
-| Parameter       | Description                                                                   | Default       |
+| Paramètre | Description | Par défaut |
 | --------------- | ----------------------------------------------------------------------------- | ------------- |
-| Chat Model      | LLM used to perform summarization                                             |               |
-| Max Token Limit | Summarize conversations once token limit is reached                           | 2000          |
-| Session Id      | An ID to retrieve/store messages. If not specified, a random ID will be used. |               |
-| Memory Key      | A key used to format messages in prompt template                              | chat\_history |
+| Modèle de chat | LLM utilisé pour effectuer un résumé |               |
+| Limite de jeton maximum | Résumez les conversations une fois que la limite de jeton est atteinte | 2000 |
+| ID de session | Un identifiant pour récupérer / stocker les messages. S'il n'est pas spécifié, un ID aléatoire sera utilisé. |               |
+| Clé de mémoire | Une clé utilisée pour formater les messages dans le modèle d'invite | CHAT \ _History |

@@ -6,11 +6,11 @@ description: >-
 
 # Postgres
 
-<figure><img src="../../../.gitbook/assets/image (163).png" alt="" width="292"><figcaption><p>Postgres Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (163) .png" alt = "" width = "292"> <figcaption> <p> Node postgres </p> </gigcaption> </ figure>
 
-There are multiple methods to connect to Postgres based on how your instance is set up. Below is an example of a local configuration using a prebuilt Docker image provided by the pgvector team.
+Il existe plusieurs méthodes pour se connecter à Postgres en fonction de la configuration de votre instance. Vous trouverez ci-dessous un exemple de configuration locale à l'aide d'une image Docker prédéfinie fournie par l'équipe PGVector.
 
-Create a file named `docker-compose.yml` with the content below:
+Créer un fichier nommé`docker-compose.yml`avec le contenu ci-dessous:
 
 ```yaml
 # Run this command to start the database:
@@ -31,16 +31,16 @@ services:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 ```
 
-`docker compose up` to start the Postgres container.
+`docker compose up`Pour démarrer le conteneur Postgres.
 
-Create new credential with the configured user and password:
+Créez de nouvelles informations d'identification avec l'utilisateur et le mot de passe configurés:
 
-<figure><img src="../../../.gitbook/assets/image (50).png" alt="" width="526"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (50) .png" alt = "" width = "526"> <Figcaption> </gigcaption> </gigust>
 
-Fill in the node's field with values configured in `docker-compose.yml`. For example:
+Remplissez le champ du nœud avec des valeurs configurées dans`docker-compose.yml`. Par exemple:
 
-* Host: **localhost**
-* Database: **api**
-* Port: **5432**
+* Hôte: ** LocalHost **
+* Base de données: ** API **
+* Port: ** 5432 **
 
-Voila! You have now successfully setup Postgres Vector ready to be used.
+Le tour est joué! Vous avez désormais réussi à configurer le vecteur postgres prêt à être utilisé.

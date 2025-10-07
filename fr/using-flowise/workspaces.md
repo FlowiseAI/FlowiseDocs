@@ -1,18 +1,18 @@
-# Workspaces
+# Espaces de travail
 
-{% hint style="info" %}
-Evaluations are only available for Cloud and Enterprise plan
-{% endhint %}
+{% hint style = "info"%}
+Les évaluations ne sont disponibles que pour le cloud et le plan d'entreprise
+{% EndHint%}
 
-Upon your initial login, a default workspace will be automatically generated for you. Workspaces serve to partition resources among various teams or business units. Inside each workspace, Role-Based Access Control (RBAC) is used to manage permissions and access, ensuring users have access only to the resources and settings required for their role.
+Lors de votre connexion initiale, un espace de travail par défaut sera généré automatiquement pour vous. Les espaces de travail servent à partitionner les ressources entre diverses équipes ou unités commerciales. À l'intérieur de chaque espace de travail, le contrôle d'accès basé sur les rôles (RBAC) est utilisé pour gérer les autorisations et l'accès, garantissant que les utilisateurs n'ont accès qu'aux ressources et paramètres requis pour leur rôle.
 
-<figure><img src="../.gitbook/assets/Untitled-2024-10-19-0050.png" alt=""><figcaption></figcaption></figure>
+<Figure> <img src = "../. GitBook / Assets / Untitled-2024-10-19-0050.png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-## Setting up Admin Account
+## Configuration du compte d'administration
 
-<details>
+<Dettots>
 
-<summary>For self-hosted enterprise, following env variables must be set</summary>
+<summary> Pour l'entreprise auto-hébergée, les variables Env suivantes doivent être définies </summary>
 
 ```
 JWT_AUTH_TOKEN_SECRET
@@ -26,45 +26,45 @@ PASSWORD_SALT_HASH_ROUNDS
 TOKEN_HASH_SECRET
 ```
 
-</details>
+</fords>
 
-By default, new installation of Flowise will require an admin setup, similar to how you have to setup a root user for your database initially.
+Par défaut, la nouvelle installation de Flowise nécessitera une configuration d'administration, similaire à la façon dont vous devez configurer un utilisateur racine pour votre base de données initialement.
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (2).png" alt="" width="478"><figcaption></figcaption></figure>
+<gigne> <img src = "../. Gitbook / Assets / image (2) (1) (1) (1) (1) (1) (2) .png" alt = "" width = "478"> <figCaption> </gigcaption> </gigu
 
-After setting up, user will be brought to Flowise dashboard. From the left side bar, you will see User & Workspace Management section. A default workspace was automatically created.
+Après la configuration, l'utilisateur sera amené au tableau de bord Flowise. Depuis la barre gauche, vous verrez la section de gestion des utilisateurs et de l'espace de travail. Un espace de travail par défaut a été automatiquement créé.
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. Gitbook / Assets / image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) (1).
 
-## Creating Workspace
+## Création d'espace de travail
 
-To create a new Workspace, click Add New:
+Pour créer un nouvel espace de travail, cliquez sur Ajouter un nouveau:
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. Gitbook / Assets / image (3) (1) (1) (2) .png" alt = ""> <figcaption> </gigcaption> </gigust>
 
-You will see yourself added as the Organization Admin in the workspace you created.
+Vous vous verrez ajouté en tant qu'administrateur de l'organisation dans l'espace de travail que vous avez créé.
 
-<figure><img src="../.gitbook/assets/image (4) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (4) (1) (2) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-To invite new users to the workspace, you need to create a Role first.
+Pour inviter de nouveaux utilisateurs dans l'espace de travail, vous devez d'abord créer un rôle.
 
-## Creating Role
+## Créer un rôle
 
-Navigate to Roles in the left side bar, and click Add Role:
+Accédez à des rôles dans la barre gauche et cliquez sur Ajouter un rôle:
 
-<figure><img src="../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. Gitbook / Assets / image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) .png" alt = ""> <figcaption> </gigcaption> </gigu
 
-User can specify granular control of permissions for each resources. The only exceptions are the resources in **User & Workspace Management** (Roles, Users, Workspaces, Login Activity). These are only available for Account Admin for now.
+L'utilisateur peut spécifier le contrôle granulaire des autorisations pour chaque ressource. Les seules exceptions sont les ressources de ** User & Workspace Management ** (rôles, utilisateurs, espaces de travail, activité de connexion). Ceux-ci ne sont disponibles que pour l'administrateur de compte pour l'instant.
 
-Here, we create an editor role which has access to everything. And another role with view-only permissions.
+Ici, nous créons un rôle d'éditeur qui a accès à tout. Et un autre rôle avec les autorisations de vue uniquement.
 
-<figure><img src="../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (6) (1) (1) (1) (1) (1) (1) (1) .png" alt = ""> <figCaption> </gigcaption> </ figure>
 
-## Invite User
+## Inviter l'utilisateur
 
-<details>
+<Dettots>
 
-<summary>For self-hosted enterprise, the following env variables must be set</summary>
+<summary> Pour l'entreprise auto-hébergée, les variables Env suivantes doivent être définies </summary>
 
 ```
 INVITE_TOKEN_EXPIRY_IN_HOURS
@@ -74,94 +74,94 @@ SMTP_USER
 SMTP_PASSWORD
 ```
 
-</details>
+</fords>
 
-Navigate to Users in left side bar, you will see yourself as the account admin. This is indicated by the person icon with a star:
+Accédez aux utilisateurs de la barre gauche, vous vous verrez comme l'administrateur du compte. Ceci est indiqué par l'icône de la personne avec une étoile:
 
-<figure><img src="../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. Gitbook / Assets / image (7) (1) (1) (1) (1) (1) (1) (1) .png" alt = ""> <figcaption> </gigcaption> </gigu
 
-Click Invite User, and enter email to be invited, the workspace to be assigned, and the role as well.
+Cliquez sur Inviter l'utilisateur et entrez les e-mails à inviter, l'espace de travail à être attribué et le rôle également.
 
-<figure><img src="../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. Gitbook / Assets / Image (8) (1) (1) (1) (1) (1) (1) .png" alt = ""> <figcaption> </gigcaption> </stigne>
 
-Click Send Invite. The invited email will receive an invitation:
+Cliquez sur Inviter. L'e-mail invité recevra une invitation:
 
-<figure><img src="../.gitbook/assets/image (9) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (9) (1) (1) (1) (1) (1) .png" alt = ""> <figCaption> </ / Figcaption> </ Figure>
 
-Upon clicking the invitation link, invited user will be brought to a Sign Up page.
+En cliquant sur le lien d'invitation, l'utilisateur invité sera amené à une page d'inscription.
 
-<figure><img src="../.gitbook/assets/image (10) (1) (1) (1) (1) (1).png" alt="" width="463"><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / image (10) (1) (1) (1) (1) (1) .png" alt = "" width = "463"> <figCaption> </gigcaption> </gigust>
 
-After signed up and logged in as invited user, you will be in the workspace assigned, and there will be no User & Workspace Management section:
+Après avoir été inscrit et connecté en tant qu'utilisateur invité, vous serez dans l'espace de travail attribué, et il n'y aura pas de section de gestion de l'utilisateur et de l'espace de travail:
 
-<figure><img src="../.gitbook/assets/image (11) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (11) (1) (1) (1) (1) (1) .png" alt = ""> <figcaption> </gigcaption> </gistre>
 
-If you are invited into multiple workspaces, you can switch to different workspaces from the top right dropdown button. Here we are assigned to Workspace 2 with **view only** permission. You can notice the Add New button for Chatflow is no longer visible. This ensure user can only view, not create, update nor delete. The same RBAC rules apply for API as well.
+Si vous êtes invité dans plusieurs espaces de travail, vous pouvez passer à différents espaces de travail à partir du bouton déroulant supérieur droit. Ici, nous sommes affectés à Workspace 2 avec ** Voir uniquement ** Permission. Vous pouvez remarquer que le bouton Ajouter un nouveau pour ChatFlow n'est plus visible. Cela garantit que l'utilisateur ne peut que visualiser, et non créer, mettre à jour ni supprimer. Les mêmes règles RBAC s'appliquent également à l'API.
 
-<figure><img src="../.gitbook/assets/image (12) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. Gitbook / Assets / image (12) (1) (1) (1) (1) (1) .png" alt = ""> <figcaption> </ / figCaption> </gigust>
 
-Now, back to Account Admin, you will be able to see the users invited, their status, roles, and active workspace:
+Maintenant, de retour à l'administrateur de compte, vous pourrez voir les utilisateurs invités, leur statut, leurs rôles et l'espace de travail actif:
 
-<figure><img src="../.gitbook/assets/image (14) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. Gitbook / Assets / image (14) (1) (1) (1) (1) (1) .png" alt = ""> <figCaption> </gigcaption> </gigne>
 
-Account admin can also modify the settings for other users:
+L'administrateur du compte peut également modifier les paramètres des autres utilisateurs:
 
-<figure><img src="../.gitbook/assets/image (15) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (15) (1) (1) (1) (1) (1) .png" alt = ""> <figCaption> </ / Figcaption> </ Figure>
 
-## Login Activity
+## Activité de connexion
 
-Admin will be able to see every login and logout from all users:
+L'administrateur pourra voir chaque connexion et déconnexion de tous les utilisateurs:
 
-<figure><img src="../.gitbook/assets/image (13) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / image (13) (1) (1) (2) .png" alt = ""> <figcaption> </gigcaption> </gigust>
 
-## Creating item in Workspace
+## Création d'un élément dans l'espace de travail
 
-Every items created in a workspace, are isolated from another workspace. Workspaces are a way to logically group users and resources within an organization, ensuring separate trust boundaries for resource management and access control. It is recommended to create distinct workspaces for each team.
+Tous les éléments créés dans un espace de travail sont isolés d'un autre espace de travail. Les espaces de travail sont un moyen de regrouper logiquement les utilisateurs et les ressources au sein d'une organisation, garantissant des limites de confiance distinctes pour la gestion des ressources et le contrôle d'accès. Il est recommandé de créer des espaces de travail distincts pour chaque équipe.
 
-Here, we create a Chatflow named **Chatflow1** in **Workspace1**:
+Ici, nous créons un chatflow nommé ** Chatflow1 ** dans ** workspace1 **:
 
-<figure><img src="../.gitbook/assets/image (16) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (16) (1) (1) (2) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-When we switch to **Workspace2**, **Chatflow1** will not be visible. This applies to every resources such as Agentflows, Tools, Assistants, etc.
+Lorsque nous passons à ** workspace2 **, ** Chatflow1 ** ne sera pas visible. Cela s'applique à toutes les ressources telles que les flux d'agent, les outils, les assistants, etc.
 
-<figure><img src="../.gitbook/assets/image (17) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (17) (1) (1) (1) .png" alt = ""> <Figcaption> </ Figcaption> </gigust>
 
-The diagram below illustrates the relationship between organizations, workspaces, and the various resources associated with and contained within a workspace.
+Le diagramme ci-dessous illustre la relation entre les organisations, les espaces de travail et les différentes ressources associées et contenues dans un espace de travail.
 
-<figure><img src="../.gitbook/assets/Untitled-2024-10-19-0050.png" alt=""><figcaption></figcaption></figure>
+<Figure> <img src = "../. GitBook / Assets / Untitled-2024-10-19-0050.png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-## Sharing Credential
+## Partage d'identification
 
-You can share credential to other workspaces. This allow users to reuse same set of credentials in different workspaces.
+Vous pouvez partager des informations d'identification à d'autres espaces de travail. Cela permet aux utilisateurs de réutiliser le même ensemble d'identification dans différents espaces de travail.
 
-After creating a credential, Account Admin or user with Share Credential permission from the RBAC will be able to click Share:
+Après avoir créé un diplôme, l'administrateur de compte ou l'utilisateur avec l'autorisation de partage des informations d'identification du RBAC pourra cliquer sur Partager:
 
-<figure><img src="../.gitbook/assets/image (18) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (18) (1) (1) (1) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-User can select the workspaces to share the credential with:
+L'utilisateur peut sélectionner les espaces de travail pour partager les informations d'identification avec:
 
-<figure><img src="../.gitbook/assets/image (19) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (19) (1) (1) .png" alt = ""> <Figcaption> </gigcaption> </ figure>
 
-Now, switch to the workspace where the credential was shared, you will see the Shared Credential. User is not able to edit shared credential.
+Maintenant, passez à l'espace de travail où les informations d'identification ont été partagées, vous verrez les informations d'identification partagées. L'utilisateur n'est pas en mesure de modifier les informations d'identification partagées.
 
-<figure><img src="../.gitbook/assets/image (20) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (20) (1) (1) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-## Deleting a Workspace
+## Suppression d'un espace de travail
 
-Currently only Account Admin can delete workspaces. By default, you are not able to delete a workspace if there are still users within that workspace.
+Actuellement, seul l'administrateur du compte peut supprimer les espaces de travail. Par défaut, vous n'êtes pas en mesure de supprimer un espace de travail s'il y a encore des utilisateurs dans cet espace de travail.
 
-<figure><img src="../.gitbook/assets/image (21) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (21) (1) (1) .png" alt = ""> <figcaption> </gigcaption> </gigust>
 
-You will need to unlink all of the invited users first. This allow flexibility in case you just want to remove certain users from a workspace. Note that Organization Owner who created the workspace is not able to be unlinked from a workspace.
+Vous devrez d'abord dissoudre tous les utilisateurs invités. Cela permettait de la flexibilité au cas où vous souhaitez simplement supprimer certains utilisateurs d'un espace de travail. Notez que le propriétaire de l'organisation qui a créé l'espace de travail n'est pas en mesure d'être non lié à un espace de travail.
 
-<figure><img src="../.gitbook/assets/image (22) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (22) (1) .png" alt = ""> <figcaption> </gigcaption> </gigust>
 
-After unlinking invited users, and the only user left within the workspace is the Organization Owner, delete button is now clickable:
+Après avoir désabillé les utilisateurs invités, et le seul utilisateur laissé dans l'espace de travail est le propriétaire de l'organisation, le bouton de suppression est maintenant cliquable:
 
-<figure><img src="../.gitbook/assets/image (23) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (23) (1) .png" alt = ""> <figcaption> </gigcaption> </gigust>
 
-Deleting a workspace is an irreversible action and will cascade delete all items within that workspace. You will see a warning box:
+La suppression d'un espace de travail est une action irréversible et sera en cascade de supprimer tous les éléments de cet espace de travail. Vous verrez une boîte d'avertissement:
 
-<figure><img src="../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../. GitBook / Assets / Image (24) .png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-After deleting a workspace, user will fallback to the Default workspace. Default workspace that was automatically created at the start is not able to be deleted.
+Après avoir supprimé un espace de travail, l'utilisateur se repliera à l'espace de travail par défaut. L'espace de travail par défaut qui a été automatiquement créé au début n'est pas en mesure d'être supprimé.

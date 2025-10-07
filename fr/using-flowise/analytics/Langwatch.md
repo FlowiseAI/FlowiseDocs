@@ -2,32 +2,32 @@
 description: Learn how to setup LangWatch to analyze and troubleshoot your chatflows and agentflows
 ---
 
-# LangWatch
+# Langwatch
 
 ---
 
-[Langwatch](https://langwatch.ai) is a production-grade observability and LLMOps platform designed to monitor, debug, and enhance LLM applications and AI Agents at scale.
+[Langwatch](https://langwatch.ai)est une observabilité de qualité de production et une plate-forme LLMOPS conçue pour surveiller, déboguer et améliorer les applications LLM et les agents d'IA à grande échelle.
 
-## Setup
+## Installation
 
-1. At the top right corner of your Chatflow or Agentflow, click **Settings** > **Configuration**
+1. Dans le coin supérieur droit de votre ChatFlow ou AgentFlow, cliquez sur ** Paramètres **> ** Configuration **
 
-<figure><img src="../../.gitbook/assets/analytic-1.webp" alt="Screenshot of user clicking in the configuration menu" width="375"><figcaption></figcaption></figure>
+<gigne> <img src = "../../. GitBook / Assets / analytic-1.webp" alt = "Capture d'écran de l'utilisateur cliquant dans le menu de configuration" width = "375"> <figCaption> </gigcaption> </ figure>
 
-2. Then go to the Analyse Chatflow section
+2. Ensuite, allez à la section Analyser Chatflow
 
-<figure><img src="../../.gitbook/assets/analytic-2.png" alt="Screenshot of the Analyse Chatflow section with the different Analytics providers"><figcaption></figcaption></figure>
+<Figure> <img src = "../../. GitBook / Assets / Analytic-2.png" alt = "Capture d'écran de la section Analyze Chatflow avec les différents fournisseurs d'analyses"> <FigCaption> </gigcaption> </ figure>
 
-3. You will see a list of providers, along with their configuration fields. Click on LangWatch.
+3. Vous verrez une liste de fournisseurs, ainsi que leurs champs de configuration. Cliquez sur Langwatch.
 
-<figure><img src="../../.gitbook/assets/langwatch/langwatch-creds.png" alt="Screenshot of an analytics provider with credentials fields expanded"><figcaption></figcaption></figure>
+<gigne> <img src = "../../. GitBook / Assets / Langwatch / Langwatch-Creds.png" alt = "ScreenShot d'un fournisseur d'analyse avec des champs d'identification étendus"> <figcaption> </gigcaption> </piguré>
 
-4. If you haven't already, sign up for a free account [here](https://app.langwatch.ai) to get your API key.
+4. Si vous ne l'avez pas déjà fait, inscrivez-vous pour un compte gratuit[here](https://app.langwatch.ai)Pour obtenir votre clé API.
 
-5. Fill in the configuration details, then turn the provider **ON** and click **Save**
+5. Remplissez les détails de la configuration, puis allumez le fournisseur ** sur ** et cliquez sur ** Enregistrer **
 
-<figure><img src="../../.gitbook/assets/langwatch/langwatch-input.png" alt="Screenshot of analytics providers enabled"><figcaption></figcaption></figure>
+<gigne> <img src = "../../. GitBook / Assets / Langwatch / Langwatch-input.png" alt = "Captures d'écran des fournisseurs d'analyse activé
 
-6. You can now use LangWatch to analyze and troubleshoot your chatflows and agentflows. Refer to the [official guide](https://docs.langwatch.ai) for more details.
+6. Vous pouvez désormais utiliser Langwatch pour analyser et dépanner vos chatflows et vos flux d'agents. Reportez-vous au[official guide](https://docs.langwatch.ai)pour plus de détails.
 
-<figure><img src="../../.gitbook/assets/langwatch/langwatch-screenshot.png" alt="Screenshot of analytics providers enabled"><figcaption></figcaption></figure>
+<gigne> <img src = "../../. GitBook / Assets / LangWatch / Langwatch-Screenshot.png" Alt = "Captures d'écran des fournisseurs d'analyse activé

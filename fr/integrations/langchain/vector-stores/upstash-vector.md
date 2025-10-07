@@ -1,40 +1,40 @@
-# Upstash
+# Aubier
 
-## Prequisites
+## Préquis
 
-1. Sign up or Sign In to [Upstash Console](https://console.upstash.com)
-2. Navigate to Vector page and click **Create Index**
-   <figure><img src="../../../.gitbook/assets/upstash/list-index.jpeg" alt=""><figcaption></figcaption></figure>
-3. Do the necessary configurations and create the index.
+1. Inscrivez-vous ou connectez-vous à[Upstash Console](https://console.upstash.com)
+2. Accédez à la page vectorielle et cliquez sur ** Créer un index **
+<gigne> <img src = "../../../. GitBook / Assets / Upstash / list-index.jpeg" alt = ""> <figcaption> </ figCaption> </gigust>
+3. Effectuez les configurations nécessaires et créez l'index.
 
-   1. **Index Name**, name of the index to be created. (e.g. "flowise-upstash-demo")
-   2. **Dimensions**, size of the vectors to be inserted in the index. (e.g. 1536)
-   3. **Embedding Model**, the model to be used in [Upstash Embeddings](https://upstash.com/docs/vector/features/embeddingmodels). This is optional. If you enable it, you don't need to provide embeddings model.
+   1. ** Nom de l'index **, nom de l'index à créer. (par exemple "Flowise Upstash-Demo")
+   2. ** Dimensions **, taille des vecteurs à insérer dans l'index. (par exemple 1536)
+   3. ** Modèle d'intégration **, le modèle à utiliser dans[Upstash Embeddings](https://upstash.com/docs/vector/features/embeddingmodels). C'est facultatif. Si vous l'activez, vous n'avez pas besoin de fournir un modèle d'intégration.
 
-   <figure><img src="../../../.gitbook/assets/upstash/create-index.jpeg" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Upstash / Create-index.jpeg" alt = ""> <figcaption> </gigcaption> </gigust>
 
-## Setup
+## Installation
 
-1.  Get your index credentials
+1.  Obtenez vos informations d'identification d'index
 
-<figure><img src="../../../.gitbook/assets/upstash/env-variables.jpeg" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Upstash / Env-Variables.jpeg" Alt = ""> <Figcaption> </gigcaption> </ Figure>
 
-1. Create new Upstash Vector credential and fill in
-   1. Upstash Vector REST URL from UPSTASH_VECTOR_REST_URL on console
-   2. Upstash Vector Rest Token from UPSTASH_VECTOR_REST_TOKEN on console
+1. Créez de nouveaux informations d'identification Upstash Vector et remplissez
+   1. URL de repos vectoriel upstash de Upstash_Vector_Rest_url sur la console
+   2. Jeton de repos vectoriel upstash de Upstash_Vector_Rest_Token sur la console
 
-<figure><img src="../../../.gitbook/assets/upstash/credentials.jpeg" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Upstash / Credentials.jpeg" alt = "" width = "563"> <Figcaption> </ Figcaption> </ Figure>
 
-1.  Add a new **Upstash Vector** node to canvas
+1.  Ajouter un nouveau nœud Vector ** Vector ** à toile
 
-<figure><img src="../../../.gitbook/assets/upstash/upstash-node.jpeg" alt="" width="279"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Upstash / Upstash-node.jpeg" alt = "" width = "279"> <Figcaption> </ Figcaption> </gistre>
 
-1. Add additional nodes to canvas and start the upsert process
-   - **Document** can be connected with any node under [**Document Loader**](../document-loaders/) category
-   - **Embeddings** can be connected with any node under [**Embeddings** ](../embeddings/)category
+1. Ajouter des nœuds supplémentaires à la toile et démarrer le processus ussert
+   - ** Document ** peut être connecté à n'importe quel nœud sous[**Document Loader**](../document-loaders/)catégorie
+   - ** Embeddings ** peut être connecté à n'importe quel nœud sous[**Embeddings** ](../embeddings/)catégorie
 
-<figure><img src="../../../.gitbook/assets/upstash/flowise-design.jpeg" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Upstash / Flowise-DeSign.jpeg" Alt = ""> <Figcaption> </gigcaption> </gigust>
 
-1. Verify from [Upstash dashboard](https://console.upstash.com) to see if data has been successfully updated:
+1. Vérifier[Upstash dashboard](https://console.upstash.com)Pour voir si les données ont été mises à jour avec succès:
 
-<figure><img src="../../../.gitbook/assets/upstash/databrowser.jpeg" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. gitbook / actifs / upstash / databrowser.jpeg" alt = ""> <figcaption> </gigcaption> </ figure>

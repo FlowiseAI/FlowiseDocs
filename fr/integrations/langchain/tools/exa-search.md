@@ -2,10 +2,10 @@
 description: Wrapper around Exa Search API - search engine fully designed for use by LLMs.
 ---
 
-# Exa Search
+# Recherche exa
 
-<figure><img src="../../../.gitbook/assets/up-007.png" alt="" width="285"><figcaption><p>Exa Search Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / up-007.png" alt = "" width = "285"> <figcaption> <p> nœud de recherche exa </p> </gigcaption> </ figure>
 
-{% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
-{% endhint %}
+{% hint style = "info"%}
+Cette section est un travail en cours. Nous apprécions toute aide que vous pouvez fournir pour terminer cette section. Veuillez vérifier notre[Contribution Guide](broken-reference)Pour commencer.
+{% EndHint%}

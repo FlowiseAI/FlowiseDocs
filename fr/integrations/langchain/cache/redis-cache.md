@@ -1,13 +1,13 @@
 ---
 description: >-
-  Cache LLM response in Redis, useful for sharing cache across multiple
-  processes or servers.
+  Mettre en cache la réponse LLM dans Redis, utile pour partager le cache
+  entre plusieurs processus ou serveurs.
 ---
 
-# Redis Cache
+# Cache Redis
 
-<figure><img src="../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="331"><figcaption><p>Redis Cache Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="331"><figcaption><p>Noeud de Cache Redis</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
+Cette section est en cours de développement. Nous apprécions toute aide que vous pouvez fournir pour compléter cette section. Veuillez consulter notre [Guide de Contribution](broken-reference) pour commencer.
 {% endhint %}

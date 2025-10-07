@@ -2,87 +2,87 @@
 description: Use Unstructured.io to load data from a file path.
 ---
 
-# Unstructured File Loader
+# Chargeur de fichiers non structuré
 
-<figure><img src="../../../.gitbook/assets/image (90).png" alt="" width="332"><figcaption><p>Unstructured File Loader Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (90) .png" alt = "" width = "332"> <Figcaption> <p> Node de chargeur de fichiers non structuré </p> </ Figcaption> </ Figure>
 
-The Unstructured File Loader uses [Unstructured.io](https://unstructured.io) to extract and process content from various file formats. It provides advanced document parsing capabilities with configurable options for OCR, chunking, and metadata extraction.
+Le chargeur de fichiers non structuré utilise[Unstructured.io](https://unstructured.io)pour extraire et traiter le contenu à partir de divers formats de fichiers. Il fournit des capacités d'analyse de document avancées avec des options configurables pour l'OCR, la chasse et l'extraction des métadonnées.
 
-## Features
-- Advanced document parsing
-- OCR support with multiple language options
-- Flexible chunking strategies
-- Table structure inference
-- Coordinate extraction
-- Page break handling
-- XML tag processing
-- Customizable model selection
-- Metadata extraction
+## Caractéristiques
+- Analyse avancée de documents
+- Prise en charge de l'OCR avec plusieurs options de langue
+- Stratégies de section flexibles
+- Inférence de la structure du tableau
+- Coordonnée
+- Gestion de la pause de la page
+- Traitement de la balise XML
+- Sélection de modèle personnalisable
+- Extraction de métadonnées
 
 ## Configuration
 
-### API Setup
-- Default API URL: `https://api.unstructuredapp.io/general/v0/general`
-- Requires API key from Unstructured.io
-- Can be configured via environment variables:
+### Configuration de l'API
+- URL de l'API par défaut:`https://api.unstructuredapp.io/general/v0/general`
+- Nécessite une clé API de non structurée.io
+- Peut être configuré via des variables d'environnement:
   - `UNSTRUCTURED_API_URL`
   - `UNSTRUCTURED_API_KEY`
 
-### Processing Strategies
-- **Strategy**: Default is "hi_res"
-  - Options include various processing strategies for different document types
-- **Chunking Strategy**:
-  - None (default)
-  - by_title (chunks text based on titles)
+### Stratégies de traitement
+- ** Stratégie **: la valeur par défaut est "Hi_res"
+  - Les options incluent diverses stratégies de traitement pour différents types de documents
+- ** Stratégie de chasse **:
+  - Aucun (par défaut)
+  - by_title (texte de morceaux basé sur des titres)
 
-## Parameters
+## Paramètres
 
-### Required Parameters
-- **File**: The document to process
-- **API Key**: Unstructured.io API key (if not set via environment)
+### Paramètres requis
+- ** Fichier **: le document à traiter
+- ** Clé API **: clé API non structurée.io (si elle n'est pas définie via l'environnement)
 
-### Optional Parameters
+### Paramètres facultatifs
 
-#### OCR Options
-- **OCR Languages**: Array of languages for OCR processing
-- **Encoding**: Specify document encoding
+#### Options OCR
+- ** Langues OCR **: tableau de langues pour le traitement OCR
+- ** Encodage **: Spécifiez le codage du document
 
-#### Processing Options
-- **Coordinates**: Extract element coordinates (true/false)
-- **PDF Table Structure**: Infer table structure in PDFs (true/false)
-- **XML Tags**: Keep XML tags in output (true/false)
-- **Skip Table Types**: Array of table types to skip inference
-- **Hi-Res Model**: Specify the high-resolution model name
-- **Include Page Breaks**: Include page break information (true/false)
+#### Options de traitement
+- ** Coordonnées **: Extraire les coordonnées des éléments (true / false)
+- ** Structure de la table PDF **: Structure de table inférieure dans les PDF (vrai / faux)
+- ** Tags XML **: Gardez les balises XML en sortie (true / false)
+- ** Sauter les types de tables **: tableau des types de table pour sauter l'inférence
+- ** modèle haute résolution **: spécifiez le nom du modèle haute résolution
+- ** Inclure les pauses de page **: Inclure des informations de pause de page (vrai / false)
 
-#### Text Chunking Options
-- **Multi-page Sections**: Handle sections across pages (true/false)
-- **Combine Under N Chars**: Combine elements under specified character count
-- **New After N Chars**: Create new element after specified character count
-- **Max Characters**: Maximum characters per element
+#### Options de section texte
+- ** Sections de plusieurs pages **: gérer les sections sur les pages (vrai / false)
+- ** Combinez sous N Chars **: Combinez des éléments sous le nombre de caractères spécifié
+- ** Nouveau après n Chars **: Créez un nouvel élément après le nombre spécifié de caractères
+- ** Caractères max **: caractères maximum par élément
 
-## Output Structure
+## Structure de sortie
 
-### Document Format
-Each processed element becomes a document with:
-- **pageContent**: Extracted text content
-- **metadata**: 
-  - category: Element type
-  - Additional metadata from the processing
+### Format de document
+Chaque élément traité devient un document avec:
+- ** PageContent **: Contenu texte extrait
+- ** Metadata **:
+  - Catégorie: Type d'élément
+  - Métadonnées supplémentaires du traitement
 
-### Element Types
-The loader can identify various element types:
-- Text blocks
+### Types d'éléments
+Le chargeur peut identifier divers types d'éléments:
+- Blocs de texte
 - Tables
-- Lists
-- Headers
-- Footers
-- Page breaks (if enabled)
-- Other structural elements
+- Listes
+- Têtes
+- Footters
+- Breaks de page (si activé)
+- Autres éléments structurels
 
-## Usage Examples
+## Exemples d'utilisation
 
-### Basic Configuration
+### Configuration de base
 ```typescript
 {
   "apiKey": "your-api-key",
@@ -91,7 +91,7 @@ The loader can identify various element types:
 }
 ```
 
-### Advanced Processing
+### Traitement avancé
 ```typescript
 {
   "apiKey": "your-api-key",
@@ -106,23 +106,23 @@ The loader can identify various element types:
 ```
 
 ## Notes
-- API calls are made for each file processing request
-- Response includes structured elements with text and metadata
-- Elements are filtered to ensure valid text content
-- Supports buffer-based processing
-- Error handling for API responses
-- Automatic metadata categorization
-- Memory-efficient processing
+- Les appels API sont effectués pour chaque demande de traitement de fichier
+- La réponse comprend des éléments structurés avec du texte et des métadonnées
+- Les éléments sont filtrés pour garantir un contenu texte valide
+- Prend en charge le traitement basé sur les tampons
+- Gestion des erreurs pour les réponses API
+- Catégorisation automatique des métadonnées
+- Traitement économe en mémoire
 
-## Best Practices
-1. Set appropriate chunking parameters for your use case
-2. Consider OCR language settings for non-English documents
-3. Enable table structure inference for documents with tables
-4. Use coordinates when spatial information is important
-5. Configure character limits based on your downstream processing needs
-6. Monitor API usage and response times
-7. Handle potential API errors in your workflow
+## Meilleures pratiques
+1. Définissez les paramètres de section appropriés pour votre cas d'utilisation
+2. Considérez les paramètres de langue OCR pour les documents non anglais
+3. Activer l'inférence de la structure du tableau pour les documents avec des tables
+4. Utiliser les coordonnées lorsque les informations spatiales sont importantes
+5. Configurer les limites de caractères en fonction de vos besoins de traitement en aval
+6. Surveiller l'utilisation et les temps de réponse de l'API
+7. Gérer les erreurs d'API potentielles dans votre flux de travail
 
-{% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
-{% endhint %}
+{% hint style = "info"%}
+Cette section est un travail en cours. Nous apprécions toute aide que vous pouvez fournir pour terminer cette section. Veuillez vérifier notre[Contribution Guide](broken-reference)Pour commencer.
+{% EndHint%}

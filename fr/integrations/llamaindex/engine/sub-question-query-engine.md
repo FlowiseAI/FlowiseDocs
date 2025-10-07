@@ -1,24 +1,24 @@
-# Sub-Question Query Engine
+# Moteur de requête de sous-question
 
-A query engine designed to solve problem of answering a complex query using multiple data sources. It first breaks down the complex query into sub questions for each relevant data source, then gather all the intermediate reponses and synthesizes a final response.
+Un moteur de requête conçu pour résoudre le problème de la réponse à une requête complexe à l'aide de plusieurs sources de données. Il décompose d'abord la requête complexe en sous-questions pour chaque source de données pertinente, puis recueille toutes les repres intermédiaires et synthétise une réponse finale.
 
-<figure><img src="../../../.gitbook/assets/image (4) (1) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (4) (1) (1) (1) (1) (2) (1) .png" alt = ""> <figCaption> </gigcaption> </ figure>
 
-## Inputs
+## Entrées
 
-* Query Engine Tools
-* Chat Model
-* Embeddings
+* Outils de moteur de requête
+* Modèle de chat
+* Incorporer
 * [Response Synthesizer](../response-synthesizer/)
 
-## Parameters
+## Paramètres
 
-| Name                    | Description                                                         |
+| Nom | Description |
 | ----------------------- | ------------------------------------------------------------------- |
-| Return Source Documents | To return citations/sources that were used to build up the response |
+| Retour des documents source | Pour retourner les citations / sources qui ont été utilisées pour construire la réponse |
 
-## Outputs
+## Sorties
 
-| Name                   | Description                   |
+| Nom | Description |
 | ---------------------- | ----------------------------- |
-| SubQuestionQueryEngine | Final node to return response |
+| SUBESTIONQUESQUEURYEngine | Node final pour retourner la réponse |

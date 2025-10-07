@@ -6,29 +6,29 @@ description: Learn how to setup Opik to analyze and troubleshoot your chatflows 
 
 ***
 
-## Setup
+## Installation
 
-1. At the top right corner of your Chatflow or Agentflow, click **Settings** > **Configuration**
+1. Dans le coin supérieur droit de votre ChatFlow ou AgentFlow, cliquez sur ** Paramètres **> ** Configuration **
 
-<figure><img src="../../.gitbook/assets/analytic-1.webp" alt="Screenshot of user clicking in the configuration menu" width="375"><figcaption></figcaption></figure>
+<gigne> <img src = "../../. GitBook / Assets / analytic-1.webp" alt = "Capture d'écran de l'utilisateur cliquant dans le menu de configuration" width = "375"> <figCaption> </gigcaption> </ figure>
 
-2. Then go to the Analyse Chatflow section
+2. Ensuite, allez à la section Analyser Chatflow
 
-<figure><img src="../../.gitbook/assets/analytic-2.png" alt="Screenshot of the Analyse Chatflow section with the different Analytics providers"><figcaption></figcaption></figure>
+<Figure> <img src = "../../. GitBook / Assets / Analytic-2.png" alt = "Capture d'écran de la section Analyze Chatflow avec les différents fournisseurs d'analyses"> <FigCaption> </gigcaption> </ figure>
 
-3. You will see a list of providers, along with their configuration fields. Click on Opik.
+3. Vous verrez une liste de fournisseurs, ainsi que leurs champs de configuration. Cliquez sur OPIK.
 
-<figure><img src="../../.gitbook/assets/opik-1.png" alt="Screenshot of an analytics provider with credentials fields expanded"><figcaption></figcaption></figure>
+<gigne> <img src = "../../. GitBook / Assets / opik-1.png" alt = "ScreenShot d'un fournisseur d'analyse avec des champs d'identification étendus"> <Figcaption> </ Figcaption> </ Figure>
 
-4. Create credentials for Opik. Refer to the [official guide](https://www.comet.com/docs/opik/tracing/sdk_configuration) on how to get the Opik API key.
+4. Créez des informations d'identification pour OPIK. Reportez-vous au[official guide](https://www.comet.com/docs/opik/tracing/sdk_configuration)Sur la façon d'obtenir la clé API OPIK.
 
-<figure><img src="../../.gitbook/assets/opik-2.png" alt="Screenshot of analytics providers enabled"><figcaption></figcaption></figure>
+<gigne> <img src = "../../. GitBook / Assets / OPIK-2.png" alt = "Capture d'écran des fournisseurs d'analyse activés"> <FigCaption> </ Figcaption> </gistre>
 
-5. Fill in other configuration details, then turn the provider **ON**
+5. Remplissez les autres détails de configuration, puis allumez le fournisseur ** sur **
 
-<figure><img src="../../.gitbook/assets/opik-3.png" alt="Screenshot of analytics providers enabled"><figcaption></figcaption></figure>
+<Figure> <img src = "../../. GitBook / Assets / OPIK -3.png" alt = "Capture d'écran des fournisseurs d'analyse activés"> <FigCaption> </ Figcaption> </gistre>
 
 
-Now you can analyze your chatflows and agentflows using Opik UI:
+Vous pouvez maintenant analyser vos chatflows et vos Agentflows à l'aide de l'interface utilisateur OPIK:
 
-<figure><img src="../../.gitbook/assets/opik-4.png" alt="Screenshot of Opik UI"><figcaption></figcaption></figure>
+<gigne> <img src = "../../. GitBook / Assets / OPIK-4.png" alt = "Capture d'écran d'Opik UI"> <Figcaption> </ Figcaption> </gigne>

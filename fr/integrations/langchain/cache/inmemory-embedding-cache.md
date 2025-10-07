@@ -1,11 +1,11 @@
 ---
-description: Cache generated Embeddings in memory to avoid needing to recompute them.
+description: Mettre en cache les embeddings générés en mémoire pour éviter de devoir les recalculer.
 ---
 
-# InMemory Embedding Cache
+# Cache d'Embedding en Mémoire
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2).png" alt="" width="340"><figcaption><p>InMemory Embedding Cache Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2).png" alt="" width="340"><figcaption><p>Noeud de Cache d'Embedding en Mémoire</p></figcaption></figure>
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
+Cette section est en cours de développement. Nous apprécions toute aide que vous pouvez apporter pour compléter cette section. Veuillez consulter notre [Guide de Contribution](broken-reference) pour commencer.
 {% endhint %}

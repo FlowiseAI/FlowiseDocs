@@ -2,17 +2,17 @@
 description: Wrapper around SearXNG - a free internet metasearch engine.
 ---
 
-# SearXNG
+# Searxng
 
-<figure><img src="../../../.gitbook/assets/up-011.png" alt="" width="283"><figcaption><p>SearXNG Node</p></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Up-011.png" alt = "" width = "283"> <Figcaption> <p> SearXng Node </p> </gigcaption> </gigust>
 
-### Setup SearXNG
+### Configuration de SearXng
 
-Follow [official documentation](https://docs.searxng.org/admin/installation.html) for setting up SearXNG locally. In this case, we will be using Docker Compose to set it up.
+Suivre[official documentation](https://docs.searxng.org/admin/installation.html)pour configurer SearXng localement. Dans ce cas, nous utiliserons Docker Compose pour le configurer.
 
-Navigate to [searxng-docker](https://github.com/searxng/searxng-docker) repository and follow the setup instructions.
+Se diriger vers[searxng-docker](https://github.com/searxng/searxng-docker)Référentiel et suivez les instructions de configuration.
 
-Make sure that you have `server.limiter` set to `false` and `json` is included in `search.formats`. These parameters can be defined in `searxng/settings.yml` :
+Assurez-vous que vous avez`server.limiter`se mettre à`false`et`json`est inclus dans`search.formats`. Ces paramètres peuvent être définis dans`searxng/settings.yml` :
 
 ```yaml
 server:
@@ -25,10 +25,10 @@ search:
     - json
 ```
 
-`docker-compose up -d` to start the container. Open web browser and go to **http://localhost:8080/search**, you will be able to see SearXNG page.
+`docker-compose up -d`Pour démarrer le conteneur. Ouvrez le navigateur Web et accédez à ** http: // localhost: 8080 / search **, vous pourrez voir la page SearXng.
 
-### Using in Flowise
+### Utilisation de Flowise
 
-Drag and drop SearXNG node onto canvas. Fill in the Base URL as **http://localhost:8080.** You can also specify other search parameters if needed. LLM will automatically figure out what to use for the search query question.
+Faites glisser et déposez le nœud SearXng sur le toile. Remplissez l'URL de base comme ** http: // localhost: 8080. ** Vous pouvez également spécifier d'autres paramètres de recherche si nécessaire. LLM déterminera automatiquement ce qu'il faut utiliser pour la question de la requête de recherche.
 
-<figure><img src="../../../.gitbook/assets/image (171).png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / Image (171) .png" alt = ""> <Figcaption> </gigcaption> </gigne>

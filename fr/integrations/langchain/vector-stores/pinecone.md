@@ -4,56 +4,56 @@ description: >-
   a leading fully managed hosted vector database.
 ---
 
-# Pinecone
+# Pignon
 
-## Prerequisite
+## Condition préalable
 
-1. Register an account for [Pinecone](https://app.pinecone.io/)
-2. Click **Create index**
+1. Enregistrer un compte pour[Pinecone](https://app.pinecone.io/)
+2. Cliquez sur ** Créer un index **
 
-<figure><img src="../../../.gitbook/assets/pinecone_1.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / PineCone_1.png" alt = ""> <Figcaption> </gigcaption> </gigust>
 
-3. Fill in required fields:
-   - **Index Name**, name of the index to be created. (e.g. "flowise-test")
-   - **Dimensions**, size of the vectors to be inserted in the index. (e.g. 1536)
+3. Remplissez les champs requis:
+   - ** Nom de l'index **, nom de l'index à créer. (par exemple, "test fluide")
+   - ** Dimensions **, taille des vecteurs à insérer dans l'index. (par exemple 1536)
 
-<figure><img src="../../../.gitbook/assets/pinecone_2.png" alt="" width="527"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / PineCone_2.png" alt = "" width = "527"> <Figcaption> </ Figcaption> </ Figure>
 
-4. Click **Create Index**
+4. Cliquez sur ** Créer un index **
 
-## Setup
+## Installation
 
-1.  Get/Create your **API Key**
+1.  Obtenez / créez votre ** clé API **
 
-<figure><img src="../../../.gitbook/assets/pinecone_3.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / PineCone_3.png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-2.  Add a new **Pinecone** node to canvas and fill in the parameters:
-    - Pinecone Index
-    - Pinecone namespace (optional)
+2.  Ajoutez un nouveau nœud ** Pinecone ** à Canvas et remplissez les paramètres:
+    - Index de pince
+    - Espace de noms PineCone (facultatif)
 
-<figure><img src="../../../.gitbook/assets/pinecone_4.png" alt="" width="279"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / PineCone_4.png" alt = "" width = "279"> <Figcaption> </gigcaption> </gigust>
 
-3. Create new Pinecone credential -> Fill in **API Key**
+3. Créer un nouvel identifiant PineCone -> Remplissez ** Clé API **
 
-<figure><img src="../../../.gitbook/assets/pinecone_5.png" alt="" width="563"><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / PineCone_5.png" alt = "" width = "563"> <Figcaption> </ Figcaption> </ Figure>
 
-4. Add additional nodes to canvas and start the upsert process
-   - **Document** can be connected with any node under [**Document Loader**](../document-loaders/) category
-   - **Embeddings** can be connected with any node under [**Embeddings** ](../embeddings/)category
+4. Ajouter des nœuds supplémentaires à la toile et démarrer le processus ussert
+   - ** Document ** peut être connecté à n'importe quel nœud sous[**Document Loader**](../document-loaders/)catégorie
+   - ** Embeddings ** peut être connecté à n'importe quel nœud sous[**Embeddings** ](../embeddings/)catégorie
 
-<figure><img src="../../../.gitbook/assets/pinecone_6.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / PineCone_6.png" alt = ""> <Figcaption> </gigcaption> </ Figure>
 
-<figure><img src="../../../.gitbook/assets/pinecone_7.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. GitBook / Assets / PineCone_7.png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
-5. Verify from [Pinecone dashboard](https://app.pinecone.io) to see if data has been successfully upserted:
+5. Vérifier[Pinecone dashboard](https://app.pinecone.io)Pour voir si les données ont été renversées avec succès:
 
-<figure><img src="../../../.gitbook/assets/pinecone_8.png" alt=""><figcaption></figcaption></figure>
+<gigne> <img src = "../../../. Gitbook / Assets / PineCone_8.png" alt = ""> <Figcaption> </gigcaption> </gigne>
 
 6.
 
-## Resources
+## Ressources
 
-- LangChain Pinecone vectorstore integrations
+- Intégrations Langchain Pinecone Vectorstore
   - [Python](https://python.langchain.com/v0.2/docs/integrations/providers/pinecone/)
   - [NodeJS](https://js.langchain.com/v0.2/docs/integrations/vectorstores/pinecone)
 - [Pinecone LangChain integration](https://docs.pinecone.io/integrations/langchain)
