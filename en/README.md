@@ -64,7 +64,7 @@ Agentflow is the superset of Chatflow & Assistant. It can be used to create chat
 
 ## Contributing
 
-If you want to help this project, please consider reviewing the [Contribution Guide](broken-reference/).
+If you want to help this project, please consider reviewing the [Contribution Guide](https://github.com/FlowiseAI/Flowise/blob/main/CONTRIBUTING.md).
 
 ## Need Help?
 
