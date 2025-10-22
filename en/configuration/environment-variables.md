@@ -134,6 +134,12 @@ ALLOW_BUILTIN_DEP=true
 ```
 {% endcode %}
 
+### Using Built In Dependencies
+
+{% hint style="warning" %}
+Some built-in dependencies, such as Puppeteer, may introduce potential security vulnerabilities. It is recommended to analyze and assess these risks carefully before using them.
+{% endhint %}
+
 ### NodeVM Execution Error: VMError: Cannot find module
 
 If you are using library that is not allowed by default, you can either:
