@@ -28,7 +28,7 @@ description: Learn how to deploy Flowise on Hugging Face
 2. Create a file called **Dockerfile** and paste the following:
 
 ```Dockerfile
-FROM node:18-alpine
+FROM node:20-alpine
 USER root
 
 # Arguments that can be passed at build time
