@@ -49,7 +49,7 @@ Ensure you initialize the vector store with field names that match your index an
 Once this is done, proceed to build the index.
 
 {% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](broken-reference) to get started.
+This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](/broken/pages/G48tdmpQ3z4CTWEspqkA) to get started.
 {% endhint %}
 
 ### Flowise Configuration

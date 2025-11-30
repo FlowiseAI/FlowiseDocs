@@ -28,7 +28,7 @@ Flowise store the following files under a local path folder by default.
 * Files uploaded on [Document Loaders](../integrations/langchain/document-loaders/)/Document Store
 * Image/Audio uploads from chat
 * Images/Files from Assistant
-* Files from [Vector Upsert API](broken-reference)
+* Files from [Vector Upsert API](/broken/pages/F2AfRpI7qYixNiBWpmIe#vector-upsert-api)
 
 User can specify `STORAGE_TYPE` to use AWS S3, Google Cloud Storage or local path
 

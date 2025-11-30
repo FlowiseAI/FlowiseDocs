@@ -40,9 +40,7 @@ description: >-
 4. Add additional nodes to canvas and start the upsert process
    *   **Document** can be connected with any node under [**Document Loader**](../../langchain/document-loaders/) category
 
-       {% hint style="info" %}
-       Document loaders and text splitters for LlamaIndex are not yet available, but using one of the ones available under LangChain will still allow querying with LlamaIndex as normal.
-       {% endhint %}
+       <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>Document loaders and text splitters for LlamaIndex are not yet available, but using one of the ones available under LangChain will still allow querying with LlamaIndex as normal.</p></div>
 
 \- \*\*Embeddings\*\* can be connected with any node under \[\*\*Embeddings\*\* ]\(../embeddings/)category
 

@@ -34,7 +34,7 @@ At each step, agents have access to the complete conversation history, enabling 
 
 This architecture enables **collaboration, delegation, and shared task management** across multiple agents, such capabilities are not typically offered by traditional automation tools.
 
-<figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-05-16 153946.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""></picture><figcaption></figcaption></figure>
+<figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-05-16 153946.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""></picture><figcaption></figcaption></figure>
 
 ### 🙋‍♂ Human-in-the-loop
 
@@ -44,7 +44,7 @@ The use of checkpoints enables **long-running, stateful agents**.
 
 Agents can also be configured to **request permission before executing tools**, similar to how Claude asks for user approval before using MCP tools. This helps prevent the autonomous execution of sensitive actions without explicit user approval.
 
-<figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-05-16 154908.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""></picture><figcaption></figcaption></figure>
+<figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-05-16 154908.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""></picture><figcaption></figcaption></figure>
 
 ### 📖  Shared State
 

@@ -35,7 +35,7 @@ Once flow is setup correctly, there will be a green button at the top right that
 
 <figure><img src="../.gitbook/assets/Picture1.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 The upsert process can also be carried out via API:
 

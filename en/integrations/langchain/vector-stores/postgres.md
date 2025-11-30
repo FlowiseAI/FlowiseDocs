@@ -44,3 +44,11 @@ Fill in the node's field with values configured in `docker-compose.yml`. For exa
 * Port: **5432**
 
 Voila! You have now successfully setup Postgres Vector ready to be used.
+
+### Troubleshooting
+
+If both Flowise and Postgres are running on Docker, you might see the error: <mark style="color:red;">**AggregateError**</mark>.
+
+Try to change the Host value from `localhost` to `host.docker.internal`
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>

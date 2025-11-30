@@ -12,7 +12,7 @@
 
 2. Open **Functions** tab, and add a new Function.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt="" width="423"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt="" width="423"><figcaption></figcaption></figure>
 
 3. Name the Function, and add the following code:
 

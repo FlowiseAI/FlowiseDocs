@@ -31,7 +31,7 @@ The Deep Research Agent workflow consists of several key components working toge
    * `subagents`: To store the list of research tasks to be carried out by subagents
    * `findings`: To accumulate research results
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt="" width="407"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt="" width="407"><figcaption></figcaption></figure>
 
 ### Step 2: Add the Planner Agent
 

@@ -37,7 +37,7 @@ The goal of this use case is to create an intelligent email reply system that:
    * **Body** (String): To capture the email content
    * **From** (String): To capture the sender's email address
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt="" width="398"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="398"><figcaption></figcaption></figure>
 
 #### Step 2: Creating the Email Reply Agent
 
