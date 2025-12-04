@@ -32,7 +32,7 @@ Add an initial or a new document loader. Then select Zendesk as the document loa
 
 * Give it a name
 * Enter the API key in the **Credential** field.
-* Enter the zendesk domain. An example is given below, but you may have a non-zendesk domain. That's fine.
+* Enter the Zendesk domain (e.g., `https://your-subdomain.zendesk.com`). An example is also given in the image below, but you may have a non-Zendesk domain. That's fine.
 * Enter the brand_id. If you don't have a brand_id, you can leave it blank
 * Enter the locale as a comma separated list of locales. For example, en-us, en-gb, en-ca. You can choose to create a document store for each locale or a single document store for all locales.
 * The characters per token can help you to adjust the number of tokens that are used per document. Entering a larger number will create larger documents.
