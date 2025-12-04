@@ -12,10 +12,10 @@ Pulling information from Zendesk is a common use case for document stores. This 
 
 Make sure that you have the information that you will need from Zendesk including:
 
-- base_url
-- api_key
-- brand_id
-- locale
+- Zendesk Domain
+- API Key
+- Brand ID
+- Locale
 
 ## Steps
 
