@@ -31,7 +31,7 @@ Add an initial or a new document loader. Then select Zendesk as the document loa
 <figure><img src="../.gitbook/assets/datastore-zendesk/zendesk-form-fields.png" alt=""><figcaption></figcaption></figure>
 
 * Give it a name
-* Enter the api key is the connection credential.
+* Enter the API key in the **Credential** field.
 * Enter the zendesk domain. An example is given below, but you may have a non-zendesk domain. That's fine.
 * Enter the brand_id. If you don't have a brand_id, you can leave it blank
 * Enter the locale as a comma separated list of locales. For example, en-us, en-gb, en-ca. You can choose to create a document store for each locale or a single document store for all locales.
