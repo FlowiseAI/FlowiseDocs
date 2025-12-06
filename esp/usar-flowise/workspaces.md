@@ -1,7 +1,7 @@
 # Espacios de Trabajo
 
 {% hint style="info" %}
-Los Espacios de Trabajo solo están disponibles para Empresas por ahora. Próximamente en el plan Cloud Pro
+Los Espacios de Trabajo solo están disponibles para los planes Cloud y Enterprise
 {% endhint %}
 
 Al iniciar sesión por primera vez, se generará automáticamente un espacio de trabajo predeterminado para ti. Los espacios de trabajo sirven para dividir recursos entre varios equipos o unidades de negocio. Dentro de cada espacio de trabajo, se utiliza el Control de Acceso Basado en Roles (RBAC) para gestionar permisos y accesos, asegurando que los usuarios tengan acceso solo a los recursos y configuraciones requeridos para su rol.
