@@ -28,3 +28,7 @@ When deployed to cloud/on-prem, most likely the instances are behind a proxy/loa
 ## Load Testing
 
 Artillery can be used to load testing your deployed Flowise application. Example script can be found [here](https://github.com/FlowiseAI/Flowise/blob/main/artillery-load-test.yml).
+
+## Security
+
+Refer to [#security-configuration](environment-variables.md#security-configuration "mention")
