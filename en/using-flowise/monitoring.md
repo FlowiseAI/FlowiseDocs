@@ -18,7 +18,7 @@ METRICS_INCLUDE_NODE_METRICS=true
 
 The `/api/v1/metrics` endpoint requires API key authentication. You'll need to:
 
-1. Generate an API key following the instructions [here](https://docs.flowiseai.com/configuration/authorization/chatflow-level#api-key)
+1. Generate an API key following the instructions [here](../configuration/authorization/chatflow-level#api-key)
 2. Save the API key to a file accessible by Prometheus (e.g., `/etc/prometheus/api_key.txt`)
 3. Configure Prometheus to use bearer token authentication
 
