@@ -14,7 +14,7 @@ METRICS_PROVIDER=prometheus
 METRICS_INCLUDE_NODE_METRICS=true
 ```
 
-## Configuración de Autenticación
+### Configuración de Autenticación
 
 El punto final `/api/v1/metrics` requiere autenticación con clave API. Necesitarás:
 
@@ -22,7 +22,7 @@ El punto final `/api/v1/metrics` requiere autenticación con clave API. Necesita
 2. Guardar la clave API en un archivo accesible por Prometheus (ej., `/etc/prometheus/api_key.txt`)
 3. Configurar Prometheus para usar autenticación con token bearer
 
-## Configuración de Prometheus
+### Configuración de Prometheus
 
 Después de instalar Prometheus, ejecútalo usando un archivo de configuración. Flowise proporciona un archivo de configuración predeterminado que se puede encontrar [aquí](https://github.com/FlowiseAI/Flowise/blob/main/metrics/prometheus/prometheus.config.yml).
 

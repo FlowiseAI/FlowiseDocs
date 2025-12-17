@@ -14,7 +14,7 @@ METRICS_PROVIDER=prometheus
 METRICS_INCLUDE_NODE_METRICS=true
 ```
 
-## Authentication Setup
+### Authentication Setup
 
 The `/api/v1/metrics` endpoint requires API key authentication. You'll need to:
 
@@ -22,7 +22,7 @@ The `/api/v1/metrics` endpoint requires API key authentication. You'll need to:
 2. Save the API key to a file accessible by Prometheus (e.g., `/etc/prometheus/api_key.txt`)
 3. Configure Prometheus to use bearer token authentication
 
-## Prometheus Configuration
+### Prometheus Configuration
 
 After Prometheus is installed, run it using a configuration file. Flowise provides a default configuration file that can be found [here](https://github.com/FlowiseAI/Flowise/blob/main/metrics/prometheus/prometheus.config.yml).
 
