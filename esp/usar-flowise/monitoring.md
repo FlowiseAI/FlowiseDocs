@@ -18,7 +18,7 @@ METRICS_INCLUDE_NODE_METRICS=true
 
 El punto final `/api/v1/metrics` requiere autenticación con clave API. Necesitarás:
 
-1. Generar una clave API siguiendo las instrucciones [aquí](../configuracion/autorizacion/nivel-chatflow#api-key)
+1. Generar una clave API siguiendo las instrucciones [aquí](https://docs.flowiseai.com/espanol/documentacion-oficial/configuracion/autorizacion/nivel-chatflow#api-key)
 2. Guardar la clave API en un archivo accesible por Prometheus (ej., `/etc/prometheus/api_key.txt`)
 3. Configurar Prometheus para usar autenticación con token bearer
 
