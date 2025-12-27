@@ -4,8 +4,32 @@ description: Wrapper around AWS Bedrock large language models.
 
 # AWS Bedrock
 
-<figure><img src="../../../.gitbook/assets/image (2) (5).png" alt="" width="275"><figcaption><p>AWS Bedrock Node</p></figcaption></figure>
 
-{% hint style="info" %}
-This section is a work in progress. We appreciate any help you can provide in completing this section. Please check our [Contribution Guide](/broken/pages/G48tdmpQ3z4CTWEspqkA) to get started.
-{% endhint %}
+AWS Bedrock Large Language Model provides access to Amazon Bedrock's Foundational Models and managed service for generative AI apps. 
+
+To use AWS Bedrock in Flowise, add the **AWS Bedrock LLM** node to your Chatflow. 
+
+# Setup
+
+1. Configure AWS credentials for Flowise.
+
+In Amazon Bedrock, ensure that your account has access to the model you want to use with Flowise. 
+
+2. Add the AWS Bedrock node to your Chatflow.
+
+In the Flowise canvas, drag and drop the AWS Bedrock LLM node into your Chatflow. 
+
+3. Configure the AWS Bedrock inputs:
+<figure><img src="../../../.gitbook/assets/image (2) (5).png" alt="" width="275"><figcaption><p>AWS Bedrock Node</p></figcaption></figure> 
+
+* AWS Credential: The AWS credential with your AWS access key. Select or create a new AWS credential. Ensure that your AWS credentials or IAM role has access to AWS Bedrock models and other required AWS services in your Chatflow.
+* Region: The region where your AWS Bedrock resources are located. Ensure that you select the region where your AWS Bedrock models and resources are deployed.
+* Model Name: The AWS Bedrock foundational model for your conversational AI.
+
+4. Connect the AWS Bedrock node in your Chatflow.
+
+After you add other Chatflow components (such as input nodes, output nodes, memory nodes), connect the AWS Bedrock LLM node to the appropriate components to create the Chatflow.
+
+For information about deploying Flowise on AWS, see [AWS](../../../configuration/deployment/aws.md).  
+
+
