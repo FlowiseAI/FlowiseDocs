@@ -5,7 +5,7 @@ description: Wrapper around AWS Bedrock large language models.
 # AWS Bedrock
 
 
-AWS Bedrock Large Language Model provides access to Amazon Bedrock's Foundational Models and managed service for generative AI apps. 
+The **AWS Bedrock LLM** node integrates with Amazon Bedrock, a managed service that provides access to foundation models for building generative AI applications. 
 
 To use AWS Bedrock in Flowise, add the **AWS Bedrock LLM** node to your Chatflow. 
 
