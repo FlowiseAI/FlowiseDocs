@@ -20,7 +20,7 @@ In Amazon Bedrock, ensure that your account has access to the model you want to 
 In the Flowise canvas, drag and drop the AWS Bedrock LLM node into your Chatflow. 
 
 3. Configure the AWS Bedrock inputs:
-<figure><img src="../../../.gitbook/assets/image (2) (5).png" alt="" width="275"><figcaption><p>AWS Bedrock Node</p></figcaption></figure> 
+<figure><img src="../../../.gitbook/assets/image (2) (5).png" alt="" width="275"><figcaption><p>AWS Bedrock Node</p></figcaption></figure>
 
 * AWS Credential: The AWS credential with your AWS access key. Select or create a new AWS credential. Ensure that your AWS credentials or IAM role has access to AWS Bedrock models and other required AWS services in your Chatflow.
 * Region: The region where your AWS Bedrock resources are located. Ensure that you select the region where your AWS Bedrock models and resources are deployed.
