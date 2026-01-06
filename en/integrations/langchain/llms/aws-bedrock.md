@@ -30,6 +30,6 @@ In the Flowise canvas, drag and drop the AWS Bedrock LLM node into your Chatflow
 
 After you add other Chatflow components (such as input nodes, output nodes, memory nodes), connect the AWS Bedrock LLM node to the appropriate components to create the Chatflow.
 
-For information about deploying Flowise on AWS, see [AWS](../../../configuration/deployment/aws.md).  
+For information about deploying Flowise on AWS, see [AWS](../../../configuration/deployment/aws.md).
 
 
