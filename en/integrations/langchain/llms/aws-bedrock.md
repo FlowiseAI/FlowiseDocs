@@ -23,7 +23,7 @@ In the Flowise canvas, drag and drop the AWS Bedrock LLM node into your Chatflow
 <figure><img src="../../../.gitbook/assets/image (2) (5).png" alt="" width="275"><figcaption><p>AWS Bedrock Node</p></figcaption></figure>
 
 * AWS Credential: Select an existing AWS credential or create a new one. The associated IAM user or role must have permissions for `bedrock:InvokeModel` and any other required AWS services in your Chatflow.
-* Region: The region where your AWS Bedrock resources are located. Ensure that you select the region where your AWS Bedrock models and resources are deployed.
+* Region: The AWS region where your Bedrock models are available.
 * Model Name: The AWS Bedrock foundational model for your conversational AI.
 
 4. Connect the AWS Bedrock node in your Chatflow.
