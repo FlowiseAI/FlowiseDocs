@@ -43,8 +43,7 @@ To create a chatflow in Flowise with a ChatHuggingFace chat model:
             Paste the model name from the clipboard (saved from the model page on Hugging Face).
             <figure><img src="../../../.gitbook/assets/huggingface/HF-node.png" alt="Screenshot of a Hugging Face Chatmodel node" width="259"><figcaption><p>ChatHuggingFace Node</p></figcaption></figure>
     4. Click **+** and drag **Prompts** > **Prompt Template**:
-        Expand the Template and enter an instruction.
-        Example: "User Question: {question}".
+        * Expand the Template and enter an instruction. Example: "User Question: {question}".
     5. Connect the **ChatHuggingFace** output to the **Language Model** input of the LLM Chain.
     6. Connect the **PromptTemplate** output to the **Prompt** input of the LLM Chain.
     <figure><img src="../../../.gitbook/assets/huggingface/HF-chain.png" alt="Screenshot of an LLM Chain with ChatHuggingFace chat model."><figcaption><p>Hugging Face Chatflow</p></figcaption></figure>
