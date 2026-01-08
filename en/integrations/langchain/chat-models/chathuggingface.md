@@ -9,7 +9,7 @@ description: Instructions for creating chatflows with a Hugging Face chat model.
 2. Create an API key if you haven't done so:
     1. From your Hugging Face profile, select **Access Tokens** > **Create new token**.
     2. Create a *Fine-grained* token. Select all the read and write access you need. Ensure that you also select either:
-        * *Make calls to Inference Providers* - to interact with the Serverless Inference API (formerly known as the "Inference API") from HuggingFace or other third-party providers (such as Together AI, Sambanova, or Replicate) through Hugging Face.
+        * *Make calls to Inference Providers* - to interact with the Serverless Inference API (formerly known as the "Inference API") from Hugging Face or other third-party providers (such as Together AI, Sambanova, or Replicate) through Hugging Face.
         * *Make calls to your Inference Endpoints* - to interact with a dedicated standalone Hugging Face instance that you’ve deployed on your own server.
         <figure><img src="../../../.gitbook/assets/huggingface/HF-token.png" alt="Screenshot of a Fine-Grained Hugging Face token creation page."><figcaption><p>Hugging Face Token Creation</p></figcaption></figure>
     3. Click **Copy** and save the API token in another location for later retrieval.
