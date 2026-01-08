@@ -47,7 +47,7 @@ To create a chatflow in Flowise with a ChatHuggingFace chat model:
         Example: "User Question: {question}".
     5. Connect the **ChatHuggingFace** output to the **Language Model** input of the LLM Chain.
     6. Connect the **PromptTemplate** output to the **Prompt** input of the LLM Chain.
-        <figure><img src="../../../.gitbook/assets/huggingface/HF-chain.png" alt="Screenshot of an LLM Chain with ChatHuggingFace chat model."><figcaption><p>Hugging Face Chatflow</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/huggingface/HF-chain.png" alt="Screenshot of an LLM Chain with ChatHuggingFace chat model."><figcaption><p>Hugging Face Chatflow</p></figcaption></figure>
     7. Save your configuration before running your chatflow.
     8. Voila [🎉](https://emojipedia.org/party-popper/), you have created a chatflow with a **ChatHuggingFace node** in Flowise.
 
