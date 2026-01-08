@@ -19,8 +19,7 @@
 ## Setup
 
 ### Flowise
-Set Up Flowise:
-    * Deploy Flowise: Install and run Flowise, either locally or on the cloud. You can follow the official Flowise documentation or tutorials for deployment.
+To get started, you need to deploy Flowise. Install and run Flowise, either locally or on the cloud. You can follow the official Flowise documentation or tutorials for deployment.
 
 To create a chatflow in Flowise with a ChatHuggingFace chat model:
     1. From **Chatflows**, click **+ Add New** to create a new chatflow.
