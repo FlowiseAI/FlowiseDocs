@@ -27,7 +27,7 @@ To create a chatflow in Flowise with a ChatHuggingFace chat model:
     2. Click **+** and drag **Chains** > **LLM Chain**.
     3. Click **+** and drag **Chat Models** > **ChatHuggingFace**.
         * **Connect Credential** > click **Create New**.
-        * Create a new credential and enter in the HuggingFace Api Key field the Hugging Face access token you saved previously.
+        * Create a new credential and enter in the HuggingFace API Key field the Hugging Face access token you saved previously.
         <figure><img src="../../../.gitbook/assets/huggingface/HF-credential.png" alt="Screenshot of a Hugging Face Connect credential."><figcaption><p>Hugging Face Connect Credential</p></figcaption></figure>
         * **Model**: Paste the model name from the clipboard (saved from the model page on Hugging Face).
         <figure><img src="../../../.gitbook/assets/huggingface/HF-node.png" alt="Screenshot of a Hugging Face Chatmodel node" width="259"><figcaption><p>ChatHuggingFace Node</p></figcaption></figure>
