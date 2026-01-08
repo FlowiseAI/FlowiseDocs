@@ -2,7 +2,7 @@
 
 ## Prerequisite
 
-1. [Log in](https://huggingface.co/login) or [sign up](https://huggingface.co/join) to [Hugging Face](http://huggingface.co).
+1. [Log in](https://huggingface.co/login) or [sign up](https://huggingface.co/join) to [Hugging Face](https://huggingface.co).
 2. Create an API key if you haven't done so:
     a. From your Hugging Face profile, select **Access Tokens** > **Create new token**.
     b. Create a *Fine-grained* token. Select all the read and write access you need. Ensure that you also select either:
