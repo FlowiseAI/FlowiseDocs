@@ -18,7 +18,7 @@ description: Instructions for creating chatflows with a Hugging Face chat model.
 4. On the LLM model page that opens:
     1. Click the icon next to the model name to copy the model name to the clipboard or save to another location for later retrieval.
     2. Note the default Inference Provider for the model.
-        <figure><img src="../../../.gitbook/assets/huggingface/HF-model.png" alt="Screenshot of a Hugging Face model page."><figcaption><p>Hugging Face Model Page</p></figcaption></figure>
+        <figure><img src="../../../.gitbook/assets/huggingface/HF-LLMmodel.png" alt="Screenshot of a Hugging Face LLM model page."><figcaption><p>Hugging Face LLM Model Page</p></figcaption></figure>
     3. If your provider is a third-party provider that requires a custom API key, first create the API key on the provider site, then copy and set the API key on your Hugging Face profile settings:
         1. Click **Settings** under your Hugging Face profile.
         2. Select **Inference Providers** on the left panel.
