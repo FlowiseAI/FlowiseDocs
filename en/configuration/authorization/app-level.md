@@ -55,6 +55,10 @@ These variables control authentication security, token expiration, and password 
 
 ### Security Best Practices
 
+{% hint style="warning" %}
+We recommend configuring your own JWT and Secret tokens environment variables; otherwise, default values will be used, which could increase the chances of attackers to forge valid tokens and impersonate users.
+{% endhint %}
+
 * Use strong, unique values for `TOKEN_HASH_SECRET` and store them securely
 * For production, use `SMTP_SECURE=true` and `ALLOW_UNAUTHORIZED_CERTS=false`
 * Set appropriate token expiry times based on your security requirements
