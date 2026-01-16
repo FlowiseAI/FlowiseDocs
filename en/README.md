@@ -25,7 +25,7 @@ There are 3 main visual builders namely:
 
 ## Assistant
 
-Assistant is the most begineer-friendly way of creating an AI Agent. Users can create chat assistant that is able to follow instructions, use tools when neccessary, and retrieve knowledge base from uploaded files ([RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)) to respond to user queries.
+Assistant is the most beginner-friendly way of creating an AI Agent. Users can create chat assistant that is able to follow instructions, use tools when neccessary, and retrieve knowledge base from uploaded files ([RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)) to respond to user queries.
 
 <figure><picture><source srcset=".gitbook/assets/Screenshot 2025-06-10 232758.png" media="(prefers-color-scheme: dark)"><img src=".gitbook/assets/image (303).png" alt=""></picture><figcaption></figcaption></figure>
 
