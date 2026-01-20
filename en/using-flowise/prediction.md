@@ -585,7 +585,7 @@ For example, there are 2 LLM nodes where I want to override the system message:
 
 After enabling the ability to override:
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 I can override the system message for both LLMs like so:
 

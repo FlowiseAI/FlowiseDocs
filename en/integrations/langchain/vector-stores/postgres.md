@@ -51,4 +51,4 @@ If both Flowise and Postgres are running on Docker, you might see the error: <ma
 
 Try to change the Host value from `localhost` to `host.docker.internal`
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>

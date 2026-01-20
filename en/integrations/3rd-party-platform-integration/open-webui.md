@@ -12,7 +12,7 @@
 
 2. Open **Functions** tab, and add a new Function.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt="" width="423"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt="" width="423"><figcaption></figcaption></figure>
 
 3. Name the Function, and add the following code:
 
@@ -195,7 +195,7 @@ class Pipe:
 
 4. After Function has been saved, enable it, and click the settings button to put in your Flowise URL and Flowise API Key:
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (3) (1) (1).png" alt="" width="431"><figcaption></figcaption></figure>
 
