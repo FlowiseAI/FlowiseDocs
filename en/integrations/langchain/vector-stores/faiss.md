@@ -9,7 +9,7 @@ Faiss is a library for efficient similarity search and clustering of dense vecto
 
 <figure><img src="../../../.gitbook/assets/image (158).png" alt="" width="307"><figcaption><p>Faiss Node</p></figcaption></figure>
 
-## Prerequisite
+## Prerequisites
 
 ### Method 1: NPM/Source Installation
 For local installations, ensure your machine can compile C++ modules.
