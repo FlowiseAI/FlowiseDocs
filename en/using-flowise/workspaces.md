@@ -1,7 +1,7 @@
 # Workspaces
 
 {% hint style="info" %}
-Evaluations are only available for Cloud and Enterprise plan
+Workspaces are only available for Cloud and Enterprise plan
 {% endhint %}
 
 Upon your initial login, a default workspace will be automatically generated for you. Workspaces serve to partition resources among various teams or business units. Inside each workspace, Role-Based Access Control (RBAC) is used to manage permissions and access, ensuring users have access only to the resources and settings required for their role.
