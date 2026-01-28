@@ -9,10 +9,10 @@ description: Wrapper around AWS ChatBedrock large language models that use the C
 
 1. [Create or log in](https://signin.aws.amazon.com/signup?request_type=register) to your AWS account.
 
-2. [Connect to Amazon Bedrock](https://docs.aws.amazon.com/appstudio/latest/userguide/connectors-bedrock.html) to enable model access.
+2. In the [Amazon Bedrock Console](https://console.aws.amazon.com/bedrock/), enable model access.
    <ol type="a">
    <li> Choose the region.</li>
-   <li> Enable the foundation models you intend to use in Flowise.
+   <li> Enable the foundation models you intend to use in Flowise. See [Access Amazon Bedrock foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html).</li>
    </ol>
 
 3. In the [IAM Console](https://console.aws.amazon.com/iam/), create an IAM User and API keys.
@@ -44,7 +44,7 @@ description: Wrapper around AWS ChatBedrock large language models that use the C
 
   <li>Model name that you enabled in Amazon Bedrock.
 
-   Alternatively, enter a custom model name.</li>
+   <p>Alternatively, enter a custom model name.</p></li>
 
   <li>If you intend to upload images from the chat interface, enable Allow Image Uploads.</li>
 
@@ -55,22 +55,24 @@ description: Wrapper around AWS ChatBedrock large language models that use the C
   <li>Max Tokens to Sample</li>
   <li>Latency Optimized</li>
   </ul>
-</li>
+  </li>
 </ol>
 5. Build a chatflow.
 <ol type="a">
   <li>Add an input node.
 
      Use a Chat Input or similar node to capture the user prompt.
-
+  </li>
   <li>Connect to AWS ChatBedrock.
 
     Wire the Chat Input node to the AWS ChatBedrock node.
-
+  </li>
   <li>Add an output node.
 
     To display the chat response, add a Chat Output node and connect it to the AWS ChatBedrock node.
+  </li>
   <li>Save and open the chat interface to test.
+  </li>
 </ol>
 
 For information about deploying Flowise on AWS, see [AWS](../../../configuration/deployment/aws.md).
