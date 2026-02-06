@@ -14,15 +14,36 @@ METRICS_PROVIDER=prometheus
 METRICS_INCLUDE_NODE_METRICS=true
 ```
 
+### Configuración de Autenticación
+
+El punto final `/api/v1/metrics` requiere autenticación con clave API. Necesitarás:
+
+1. Generar una clave API siguiendo las instrucciones [aquí](https://docs.flowiseai.com/espanol/documentacion-oficial/configuracion/autorizacion/nivel-chatflow#api-key)
+2. Guardar la clave API en un archivo accesible por Prometheus (ej., `/etc/prometheus/api_key.txt`)
+3. Configurar Prometheus para usar autenticación con token bearer
+
+### Configuración de Prometheus
+
 Después de instalar Prometheus, ejecútalo usando un archivo de configuración. Flowise proporciona un archivo de configuración predeterminado que se puede encontrar [aquí](https://github.com/FlowiseAI/Flowise/blob/main/metrics/prometheus/prometheus.config.yml).
 
-Recuerda tener la instancia de Flowise también en ejecución. Puedes abrir el navegador y navegar al puerto 9090. Desde el panel de control, deberías poder ver que el punto final de métricas - `/api/v1/metrics` está activo.
+Necesitarás agregar configuración de autenticación a tu archivo de configuración de Prometheus:
+
+```yaml
+scrape_configs:
+  - job_name: 'flowise'
+    static_configs:
+      - targets: ['localhost:3000']
+    metrics_path: '/api/v1/metrics'
+    authorization:
+      type: Bearer
+      credentials_file: '/etc/prometheus/api_key.txt'
+```
+
+Recuerda tener la instancia de Flowise también en ejecución. Puedes abrir el navegador y navegar al puerto 9090. Desde el panel de control, deberías poder ver que el punto final de métricas - `/api/v1/metrics` está activo con autenticación.
 
 <figure><img src="../.gitbook/assets/image (178).png" alt=""><figcaption></figcaption></figure>
 
-Por defecto, `/api/v1/metrics` está disponible para que Prometheus extraiga las métricas.
-
-<figure><img src="../.gitbook/assets/image (177).png" alt="" width="563"><figcaption></figcaption></figure>
+El punto final `/api/v1/metrics` está disponible para que Prometheus extraiga las métricas, pero requiere autenticación con clave API como se configuró anteriormente.
 
 ## Grafana
 
@@ -95,4 +116,3 @@ docker compose up -d
 El recolector utilizará el archivo [otel.config.yml](https://github.com/FlowiseAI/Flowise/blob/main/metrics/otel/otel.config.yml) bajo el mismo directorio para las configuraciones. Actualmente solo [Datadog](https://www.datadoghq.com/) y Prometheus son soportados, consulta la documentación de [Open Telemetry](https://opentelemetry.io/) para configurar diferentes herramientas APM como Zipkin, Jeager, New Relic, Splunk y otros.
 
 Asegúrate de reemplazar con la clave API necesaria para los exportadores dentro del archivo yml.
-

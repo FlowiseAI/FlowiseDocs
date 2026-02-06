@@ -178,7 +178,11 @@ CUSTOM_MCP_PROTOCOL=sse
 HTTP_DENY_LIST=localhost,127.0.0.1,internal.company.com
 ```
 
-> **Warning**: Disabling `CUSTOM_MCP_SECURITY_CHECK` allows arbitrary command execution and poses significant security risks in production environments.
+{% hint style="warning" %}
+**Warning**: Disabling `CUSTOM_MCP_SECURITY_CHECK` allows arbitrary command execution and poses significant security risks in production environments.
+
+By default `HTTP_DENY_LIST` does not block any request, so all HTTP requests are allowed unless you explicitly add rules or entries to the deny list
+{% endhint %}
 
 ## Examples of how to set environment variables
 

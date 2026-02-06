@@ -14,15 +14,36 @@ METRICS_PROVIDER=prometheus
 METRICS_INCLUDE_NODE_METRICS=true
 ```
 
+### Authentication Setup
+
+The `/api/v1/metrics` endpoint requires API key authentication. You'll need to:
+
+1. Generate an API key following the instructions [here](https://docs.flowiseai.com/configuration/authorization/chatflow-level#api-key)
+2. Save the API key to a file accessible by Prometheus (e.g., `/etc/prometheus/api_key.txt`)
+3. Configure Prometheus to use bearer token authentication
+
+### Prometheus Configuration
+
 After Prometheus is installed, run it using a configuration file. Flowise provides a default configuration file that can be found [here](https://github.com/FlowiseAI/Flowise/blob/main/metrics/prometheus/prometheus.config.yml).
 
-Remember to have Flowise instance also running. You can open browser and navigate to port 9090. From the dashboard, you should be able to see the metric endpoint - `/api/v1/metrics` is now live.
+You'll need to add authentication configuration to your Prometheus config file:
+
+```yaml
+scrape_configs:
+  - job_name: 'flowise'
+    static_configs:
+      - targets: ['localhost:3000']
+    metrics_path: '/api/v1/metrics'
+    authorization:
+      type: Bearer
+      credentials_file: '/etc/prometheus/api_key.txt'
+```
+
+Remember to have Flowise instance also running. You can open browser and navigate to port 9090. From the dashboard, you should be able to see the metric endpoint - `/api/v1/metrics` is now live with authentication.
 
 <figure><img src="../.gitbook/assets/image (178).png" alt=""><figcaption></figcaption></figure>
 
-By default, `/api/v1/metrics` is available for Prometheus to pull the metrics from.
-
-<figure><img src="../.gitbook/assets/image (177).png" alt="" width="563"><figcaption></figcaption></figure>
+The `/api/v1/metrics` endpoint is available for Prometheus to pull metrics from, but requires API key authentication as configured above.
 
 ## Grafana
 
