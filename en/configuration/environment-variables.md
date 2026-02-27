@@ -177,7 +177,7 @@ CUSTOM_MCP_PROTOCOL=sse
 # Block dangerous domains (example)
 HTTP_DENY_LIST=localhost,127.0.0.1,internal.company.com
 
-# Blocks a hardcoded list of dangerous domains by default, but be set to false to disable
+# Blocks a hardcoded list of dangerous domains by default, but can be set to false to disable
 HTTP_SECURITY_CHECK=true
 ```
 
