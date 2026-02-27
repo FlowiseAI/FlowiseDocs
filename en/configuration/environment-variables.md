@@ -184,9 +184,9 @@ HTTP_SECURITY_CHECK=true
 {% hint style="warning" %}
 **Warning**: Disabling `CUSTOM_MCP_SECURITY_CHECK` allows arbitrary command execution and poses significant security risks in production environments.
 
-`HTTP_SECURITY_CHECK` controls whether requests to a list of dangerous domains are blocked or not. This can only be disabled by setting `HTTP_SECURITY_CHECK=false`.
+`HTTP_SECURITY_CHECK` enables a built-in security feature that blocks a hardcoded list of dangerous domains. It is `true` by default and can be disabled by setting it to `false`.
 
-By default `HTTP_DENY_LIST` does not block any request, so all HTTP requests are allowed unless you explicitly add rules or entries to the deny list. However, a default list of dangerous domains is always blocked unless `HTTP_SECURITY_CHECK` is set to `false`.
+`HTTP_DENY_LIST` allows you to specify an additional, custom list of domains to block. This list is empty by default.
 {% endhint %}
 
 ## Examples of how to set environment variables
