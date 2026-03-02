@@ -176,12 +176,17 @@ CUSTOM_MCP_PROTOCOL=sse
 
 # Block dangerous domains (example)
 HTTP_DENY_LIST=localhost,127.0.0.1,internal.company.com
+
+# Blocks a hardcoded list of dangerous domains by default, but can be set to false to disable
+HTTP_SECURITY_CHECK=true
 ```
 
 {% hint style="warning" %}
 **Warning**: Disabling `CUSTOM_MCP_SECURITY_CHECK` allows arbitrary command execution and poses significant security risks in production environments.
 
-By default `HTTP_DENY_LIST` does not block any request, so all HTTP requests are allowed unless you explicitly add rules or entries to the deny list
+`HTTP_SECURITY_CHECK` enables a built-in security feature that blocks a hardcoded list of dangerous domains. It is `true` by default and can be disabled by setting it to `false`.
+
+`HTTP_DENY_LIST` allows you to specify an additional, custom list of domains to block. This list is empty by default.
 {% endhint %}
 
 ## Examples of how to set environment variables
