@@ -179,6 +179,9 @@ HTTP_DENY_LIST=localhost,127.0.0.1,internal.company.com
 
 # Blocks a hardcoded list of dangerous domains by default, but can be set to false to disable
 HTTP_SECURITY_CHECK=true
+
+# Enables checks on provided file and folder paths to prevent path traversal attacks
+PATH_TRAVERSAL_SAFETY=true
 ```
 
 {% hint style="warning" %}
@@ -187,6 +190,8 @@ HTTP_SECURITY_CHECK=true
 `HTTP_SECURITY_CHECK` enables a built-in security feature that blocks a hardcoded list of dangerous domains. It is `true` by default and can be disabled by setting it to `false`.
 
 `HTTP_DENY_LIST` allows you to specify an additional, custom list of domains to block. This list is empty by default.
+
+`PATH_TRAVERSAL_SAFETY` enables safety checks on provided file and folder paths. It is `true` by default and can be disabled by setting it to `false`.
 {% endhint %}
 
 ## Examples of how to set environment variables
