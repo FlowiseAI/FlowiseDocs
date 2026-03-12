@@ -191,7 +191,7 @@ PATH_TRAVERSAL_SAFETY=true
 
 `HTTP_DENY_LIST` allows you to specify an additional, custom list of domains to block. This list is empty by default.
 
-`PATH_TRAVERSAL_SAFETY` enables safety checks on provided file and folder paths. It is `true` by default and can be disabled by setting it to `false`.
+`PATH_TRAVERSAL_SAFETY` enables a built-in security feature to prevent path traversal attacks on file and folder paths. It is `true` by default and can be disabled by setting it to `false`.
 {% endhint %}
 
 ## Examples of how to set environment variables
