@@ -12,8 +12,8 @@ Deploy Flowise on Kubernetes using community-maintained Helm charts.
 
 [HelmForge](https://helmforge.dev) provides a Helm chart that supports both standalone and queue deployment modes.
 
-* Chart source: [github.com/helmforgedev/charts](https://github.com/helmforgedev/charts/tree/main/charts/flowise)
-* ArtifactHub: [artifacthub.io/packages/helm/helmforge/flowise](https://artifacthub.io/packages/helm/helmforge/flowise)
+* Chart source: [HelmForge Charts on GitHub](https://github.com/helmforgedev/charts/tree/main/charts/flowise)
+* ArtifactHub: [Flowise chart on ArtifactHub](https://artifacthub.io/packages/helm/helmforge/flowise)
 
 ### Prerequisites
 
@@ -77,7 +77,7 @@ ingress:
 ```
 
 ```bash
-helm install flowise helmforge/flowise -f values.yaml
+helm upgrade --install flowise helmforge/flowise -f values.yaml
 ```
 
 For full configuration options and architecture details, see the [chart documentation](https://helmforge.dev/docs/charts/flowise).
