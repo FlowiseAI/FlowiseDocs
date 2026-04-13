@@ -11,6 +11,7 @@ Tools are functions that agents can use to interact with the world. These tools 
 ### Tool Nodes:
 
 * [BraveSearch API](bravesearch-api.md)
+* [Browserless MCP](browserless-mcp.md)
 * [Calculator](calculator.md)
 * [Chain Tool](chain-tool.md)
 * [Chatflow Tool](chatflow-tool.md)
