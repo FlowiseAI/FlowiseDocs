@@ -1754,35 +1754,129 @@ Upload files to have LLM process the files and answer query related to the files
 
 ### Human Input
 
-To resume the execution from a previously stopped checkpoint, `humanInput` needs to be provided. Refer [Human In The Loop](../tutorials/human-in-the-loop.md) for details.
-
-**Human Input Structure**
-
-```json
-{
-    "type": "",
-    "feedback": ""
-}
-```
-
-* **type**: Either `proceed` or `reject`
-* **feedback**: Feedback to the last output
+When execution/conversation is halted requiring [human's input](../tutorials/human-in-the-loop.md), the response body will returns an `action` data. Users can use this to render specific actions from UI.
 
 {% hint style="warning" %}
-Must specify the same `sessionId` where the execution was stopped
+Remember to save `chatId` as it is needed to resume the execution/conversation.
 {% endhint %}
 
 ```json
 {
-    "humanInput": {
-        "type": "reject",
-        "feedback": "Include more emoji"
-    },
-    "overrideConfig": {
-        "sessionId": "abc"
+    "text": "I'm just a computer program, but I'm here and ready to help you! How can I assist you today?\n\nProceed?",
+    "question": "Hey, how are you?",
+    "chatId": "c5a49fa0-3609-448c-bb36-b9937a34390e",
+    "chatMessageId": "04fdaea7-276a-455c-9d18-479653b76c13",
+    "executionId": "2cee26fa-5d6d-472b-a82d-fe1a5e2cafeb",
+    "agentFlowExecutedData": [
+        ...
+    ],
+    "action": {
+        "id": "fcadd7ad-f5e0-4ca8-b11d-e2463aa20d0c",
+        "mapping": {
+            "approve": "Proceed",
+            "reject": "Reject"
+        },
+        "elements": [
+            {
+                "type": "agentflowv2-approve-button",
+                "label": "Proceed"
+            },
+            {
+                "type": "agentflowv2-reject-button",
+                "label": "Reject"
+            }
+        ],
+        "data": {
+            "nodeId": "humanInputAgentflow_0",
+            "nodeLabel": "Human Input 0",
+            "input": {
+                "messages": [
+                    {
+                        "role": "user",
+                        "content": "Hey, how are you?"
+                    },
+                    {
+                        "role": "user",
+                        "content": "I'm just a computer program, but I'm here and ready to help you! How can I assist you today?",
+                        "name": "agent_0"
+                    }
+                ],
+                "humanInputEnableFeedback": true
+            }
+        }
     }
 }
 ```
+
+#### How UI renders approve/reject/feedback
+
+Flowise Chat UI reads `action.elements` and renders buttons based on element `type`:
+
+* <mark style="color:$success;">**`agentflowv2-approve-button`**</mark> — green outlined button with a checkmark icon
+* <mark style="color:$danger;">**`agentflowv2-reject-button`**</mark> — red outlined button with an X icon
+
+When clicked, if `action.data.input.humanInputEnableFeedback` is `true`, a feedback dialog (text area) is shown before submitting. Otherwise it submits immediately.
+
+For your own Chat UI, render the action like this:
+
+```javascript
+// Pseudo-code for a custom UI
+if (response.action) {
+  const { elements, data } = response.action
+  const showFeedback = data?.input?.humanInputEnableFeedback
+
+  elements.forEach(elem => {
+    if (elem.type === 'agentflowv2-approve-button') {
+      // Render a green "Proceed" button
+    }
+    if (elem.type === 'agentflowv2-reject-button') {
+      // Render a red "Reject" button
+    }
+  })
+
+  // On button click:
+  //   - If showFeedback is true, show a text input for feedback first
+  //   - Then call the prediction API to resume (see below)
+}
+```
+
+#### How to resume the conversation
+
+When the user clicks approve or reject, send another `POST /api/v1/prediction/{chatflowId}` with the `humanInput` field:
+
+```json
+{
+  "chatId": "c5a49fa0-3609-448c-bb36-b9937a34390e",
+  "humanInput": {
+    "type": "proceed",
+    "startNodeId": "humanInputAgentflow_0",
+    "feedback": ""
+  }
+}
+```
+
+The three key fields in `humanInput`:
+
+| Field         | Value                     | Description                                                                |
+| ------------- | ------------------------- | -------------------------------------------------------------------------- |
+| `type`        | `"proceed"` or `"reject"` | Maps from the button type — `approve` → `"proceed"`, `reject` → `"reject"` |
+| `startNodeId` |                           | From `action.data.nodeId` — tells the server which node to resume          |
+| `feedback`    |                           | Optional feedback text if `humanInputEnableFeedback` was true              |
+
+**Example — reject with feedback:**
+
+```json
+{
+  "chatId": "c5a49fa0-3609-448c-bb36-b9937a34390e",
+  "humanInput": {
+    "type": "reject",
+    "startNodeId": "humanInputAgentflow_0",
+    "feedback": "I think we should use a different approach"
+  }
+}
+```
+
+The server will find the pending action, clear it, and resume the agentflow from the `startNodeId` with the user's decision.
 
 ## Troubleshooting
 
