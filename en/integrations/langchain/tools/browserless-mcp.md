@@ -52,7 +52,7 @@ Before using the Browserless MCP node, you need:
 
 ## 5. Selecting Actions
 
-Once you provide a valid credential, click the refresh icon next to **Available Actions**. The node will connect to the Browserless MCP server and retrieve all available tools.
+Once you provide a valid credential, click the **refresh** icon next to **Available Actions**. The node will connect to the Browserless MCP server and retrieve all available tools.
 
 Each action is listed with:
 
