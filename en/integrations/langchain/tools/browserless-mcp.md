@@ -46,7 +46,7 @@ Before using the Browserless MCP node, you need:
 | Parameter | Type | Required | Description |
 | :---- | :---- | :---- | :---- |
 | **Connect Credential** | Credential selector | Yes | Select the Browserless API credential you created in Step 2. |
-| **Available Actions** | Multi-select (async) | Yes | After connecting your credential, click the **refresh** button to load the list of available actions from the Browserless MCP server. Select the specific actions you want to expose to your agent. |
+| **Available Actions** | Multi-select (async) | Yes | After connecting your credential, click the **refresh** icon to load the list of available actions from the Browserless MCP server. Select the specific actions you want to expose to your agent. |
 
 ---
 
