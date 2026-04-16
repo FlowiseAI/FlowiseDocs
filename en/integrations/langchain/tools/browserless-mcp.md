@@ -10,7 +10,7 @@ The **Browserless MCP** node connects your Flowise agents to [Browserless](https
 
 ## 1. Prerequisites
 
-Before using the Browserless MCP node you need:
+Before using the Browserless MCP node, you need:
 
 - **A Browserless account**: sign up for free at [browserless.io](https://browserless.io).
 - **An API Token**: obtain your token from the Browserless dashboard.
