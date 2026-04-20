@@ -233,6 +233,7 @@
       * [Token Text Splitter](integrations/langchain/text-splitters/token-text-splitter.md)
     * [Tools](integrations/langchain/tools/README.md)
       * [BraveSearch API](integrations/langchain/tools/bravesearch-api.md)
+      * [Browserless MCP](integrations/langchain/tools/browserless-mcp.md)
       * [Calculator](integrations/langchain/tools/calculator.md)
       * [Chain Tool](integrations/langchain/tools/chain-tool.md)
       * [Chatflow Tool](integrations/langchain/tools/chatflow-tool.md)
