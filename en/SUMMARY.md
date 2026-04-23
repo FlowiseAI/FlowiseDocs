@@ -237,6 +237,7 @@
       * [Calculator](integrations/langchain/tools/calculator.md)
       * [Chain Tool](integrations/langchain/tools/chain-tool.md)
       * [Chatflow Tool](integrations/langchain/tools/chatflow-tool.md)
+      * [Code Interpreter by E2B](integrations/langchain/tools/python-interpreter.md)
       * [Custom Tool](integrations/langchain/tools/custom-tool.md)
       * [Exa Search](integrations/langchain/tools/exa-search.md)
       * [Gmail](integrations/langchain/tools/gmail.md)
@@ -247,7 +248,7 @@
       * [Microsoft Outlook](integrations/langchain/tools/microsoft-outlook.md)
       * [Microsoft Teams](integrations/langchain/tools/microsoft-teams.md)
       * [OpenAPI Toolkit](integrations/langchain/tools/openapi-toolkit.md)
-      * [Code Interpreter by E2B](integrations/langchain/tools/python-interpreter.md)
+      * [Pipedream MCP](integrations/langchain/tools/pipedream-mcp-user-guide.md)
       * [Read File](integrations/langchain/tools/read-file.md)
       * [Request Get](integrations/langchain/tools/request-get.md)
       * [Request Post](integrations/langchain/tools/request-post.md)
@@ -337,7 +338,6 @@
   * [Deep Research](tutorials/deep-research.md)
   * [Customer Support](tutorials/customer-support.md)
   * [Supervisor and Workers](tutorials/supervisor-and-workers.md)
-  * [Pipedream MCP](tutorials/pipedream-mcp-user-guide.md)
 
 ## Flowise
 

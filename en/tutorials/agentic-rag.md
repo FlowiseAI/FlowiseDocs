@@ -14,7 +14,7 @@ The Agentic RAG flow implements a multi-step process that:
 4. Self-corrects by regenerating queries when results are not relevant
 5. Provides contextual responses based on retrieved information
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (16) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Step 1: Setting Up the Start Node
 
@@ -49,7 +49,7 @@ This node acts as a router, determining whether the query requires specialized A
 
 For non-AI related queries, add an **LLM** node connected to output 1 of the condition agent.
 
-<figure><img src="../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 This provides direct responses for general queries without requiring document retrieval. You can also replace with Direct Reply node to return a predefined answer.
 

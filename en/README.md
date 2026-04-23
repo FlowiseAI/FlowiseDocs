@@ -4,7 +4,7 @@ description: Welcome to the official Flowise documentation
 
 # Introduction
 
-<figure><img src=".gitbook/assets/FlowiseIntro (1).gif" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/FlowiseIntro.gif" alt=""><figcaption></figcaption></figure>
 
 Flowise is an open source generative AI development platform for building AI Agents and LLM workflows.
 

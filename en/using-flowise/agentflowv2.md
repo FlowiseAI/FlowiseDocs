@@ -20,7 +20,7 @@ In this V2 architecture, each node functions as an independent unit, executing a
 
 V2 architecture implements a comprehensive node-dependency and execution queue system that precisely respects these defined pathways while maintaining clear separation between components, allowing workflows to become both more sophisticated and easier to design. This allow complex patterns like loops, conditional branching, human-in-the-loop interactions and others to be achievable. This makes it more adaptable to diverse use cases while remaining more maintainable and extensible.
 
-<div data-full-width="false"><figure><img src="../.gitbook/assets/agentflowv2/patterns.png" alt=""><figcaption></figcaption></figure></div>
+<div data-full-width="false"><figure><img src="../.gitbook/assets/Collage_Horizontal.png" alt=""><figcaption></figcaption></figure></div>
 
 ## Difference between Agentflow and Automation Platform
 
@@ -46,7 +46,7 @@ Agents can also be configured to **request permission before executing tools**, 
 
 <figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-05-16 154908.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""></picture><figcaption></figcaption></figure>
 
-### 📖  Shared State
+### 📖 Shared State
 
 Shared state enables data exchange between agents, especially useful for passing data across branches or non-adjacent steps in a flow. Refer to [#understanding-flow-state](agentflowv2.md#understanding-flow-state "mention")
 

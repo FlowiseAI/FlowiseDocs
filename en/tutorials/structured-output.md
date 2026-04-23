@@ -86,7 +86,7 @@ Add a LLM node and connect it to the Start node.
 
 Add an Iteration node and connect it to the output of the LLM node.
 
-<figure><img src="../.gitbook/assets/image (310).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (309).png" alt="" width="563"><figcaption></figcaption></figure>
 
 **Purpose:** Iterates over each item in the generated JSON array from LLM node.
 

@@ -116,8 +116,6 @@ Once you are satisfied with the chunking process, it's time to process your data
 
 <figure><img src="../.gitbook/assets/ds08.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/ds09%20(1).png" alt=""><figcaption></figcaption></figure>
-
 After processing your data, you retain the ability to refine individual chunks by deleting or adding content. This granular control offers several advantages:
 
 * **Enhanced Accuracy:** Identify and rectify inaccuracies or inconsistencies present in the original data, ensuring the information used in your application is reliable.
