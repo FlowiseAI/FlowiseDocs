@@ -337,6 +337,7 @@
   * [Deep Research](tutorials/deep-research.md)
   * [Customer Support](tutorials/customer-support.md)
   * [Supervisor and Workers](tutorials/supervisor-and-workers.md)
+  * [Pipedream MCP](tutorials/pipedream-mcp-user-guide.md)
 
 ## Flowise
 
