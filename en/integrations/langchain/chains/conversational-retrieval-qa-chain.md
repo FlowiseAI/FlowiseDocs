@@ -76,6 +76,7 @@ When a user asks a question, the Conversational Retrieval QA Chain retrieves the
 - Confusing embeddings with chat models
 - Forgetting to include required prompt variables such as `{context}` and `{question}`
 - Connecting incorrect node output types together
+- Forgetting to add a Memory node, which prevents the chain from remembering previous interactions
 
 ### Recommended Prompt Rules
 
