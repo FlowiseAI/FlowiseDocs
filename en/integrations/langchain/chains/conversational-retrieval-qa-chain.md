@@ -43,6 +43,7 @@ This example demonstrates a simple Retrieval-Augmented Generation (RAG) pipeline
 - In-Memory Vector Store
 - OpenAI Chat Model
 - Conversational Retrieval QA Chain
+- Buffer Memory (Recommended)
 
 ### Node Connections
 
