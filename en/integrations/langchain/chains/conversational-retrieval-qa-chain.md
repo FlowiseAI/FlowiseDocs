@@ -54,7 +54,7 @@ PDF File Loader → In-Memory Vector Store
 
 OpenAI Embeddings → In-Memory Vector Store
 
-In-Memory Vector Store → Conversational Retrieval QA Chain
+In-Memory Vector Store (Retriever) → Conversational Retrieval QA Chain
 
 OpenAI Chat Model → Conversational Retrieval QA Chain
 ```
