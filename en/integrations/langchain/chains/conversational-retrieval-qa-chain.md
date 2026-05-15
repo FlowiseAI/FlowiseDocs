@@ -57,6 +57,8 @@ OpenAI Embeddings → In-Memory Vector Store
 In-Memory Vector Store (Retriever) → Conversational Retrieval QA Chain
 
 OpenAI Chat Model → Conversational Retrieval QA Chain
+
+Buffer Memory → Conversational Retrieval QA Chain
 ```
 
 ### Explanation
