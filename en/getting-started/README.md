@@ -4,7 +4,7 @@
 
 ## Cloud
 
-Self-hosting requires more technical skill to setup instance, backing up database and maintaning updates. If you aren't experienced at managing servers and just want to use the webapp, we recommend using [Flowise Cloud](https://cloud.flowiseai.com).
+Self-hosting requires more technical skill to setup instance, backing up database and maintaining updates. If you aren't experienced at managing servers and just want to use the webapp, we recommend using [Flowise Cloud](https://cloud.flowiseai.com).
 
 ## Quick Start
 
