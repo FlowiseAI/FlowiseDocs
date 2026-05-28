@@ -9,7 +9,7 @@ Self-hosting requires more technical skill to set up an instance, back up the da
 ## Quick Start
 
 {% hint style="info" %}
-Pre-requisite: ensure [NodeJS](https://nodejs.org/en/download) is installed on machine. Node `v18.15.0` or `v20` and above is supported.
+Pre-requisite: ensure [NodeJS](https://nodejs.org/en/download) is installed on machine. Node `v18.15.0` or `v20+` is supported.
 {% endhint %}
 
 Install Flowise locally using NPM.
