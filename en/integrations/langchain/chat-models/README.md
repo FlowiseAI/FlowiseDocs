@@ -16,6 +16,7 @@ Chat models take a list of messages as input and return a model-generated messag
 * [ChatAnthropic](chatanthropic.md)
 * [ChatCohere](chatcohere.md)
 * [Chat Fireworks](chat-fireworks.md)
+* [ChatOrcaRouter](chatorcarouter.md)
 * [ChatGoogleGenerativeAI](google-ai.md)
 * [ChatGooglePaLM](broken-reference)
 * [Google VertexAI](google-vertexai.md)
