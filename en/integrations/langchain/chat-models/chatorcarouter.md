@@ -14,7 +14,7 @@ OrcaRouter is an OpenAI-compatible LLM router that exposes 150+ models behind a 
 
 1. **Chat Models** > Drag the **ChatOrcaRouter** node.
 2. Click **Connect Credential** and create a new credential with your OrcaRouter API key.
-3. Pick a model from the **Model Name** dropdown — it is fetched live from the OrcaRouter catalog and led by `orcarouter/auto` (the workspace router). You can also type any model id from the [OrcaRouter catalog](https://www.orcarouter.ai/models).
+3. Pick a model from the **Model Name** dropdown, which is fetched live from the OrcaRouter catalog and led by `orcarouter/auto` (the workspace router). You can also type any model id from the [OrcaRouter catalog](https://www.orcarouter.ai/models).
 4. Connect ChatOrcaRouter to an LLM Chain, Conversational Agent, or other downstream node and run the chatflow.
 
 ## Routing notes
