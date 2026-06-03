@@ -1,14 +1,14 @@
 ---
-description: Load data from URL using FireCrawl.
+description: Load data from URL using Firecrawl.
 ---
 
-# FireCrawl
+# Firecrawl
 
-<figure><img src="../../../.gitbook/assets/up-004.png" alt="" width="347"><figcaption><p>FireCrawl Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/up-004.png" alt="" width="347"><figcaption><p>Firecrawl Node</p></figcaption></figure>
 
-# FireCrawl Document Loader
+# Firecrawl Document Loader
 
-[FireCrawl](https://www.firecrawl.dev) is a powerful web crawling and scraping service that provides advanced capabilities for extracting content from websites. This module enables loading and processing web content through the FireCrawl API.
+[Firecrawl](https://www.firecrawl.dev) is a powerful web crawling and scraping service that provides advanced capabilities for extracting content from websites. This module enables loading and processing web content through the Firecrawl API.
 
 This module provides a sophisticated web crawler that can:
 - Scrape single web pages
@@ -23,7 +23,7 @@ This module provides a sophisticated web crawler that can:
 
 ### Required Parameters
 - **URL**: The webpage or website URL to process
-- **Connect Credential**: FireCrawl API credentials
+- **Connect Credential**: Firecrawl API credentials
 - **Mode**: Choose between:
   - Scrape: Single page extraction
   - Crawl: Multi-page website crawling
@@ -85,7 +85,7 @@ Each document contains:
   - Additional custom metadata
 
 ## Notes
-- Requires a valid [FireCrawl API key](https://www.firecrawl.dev/app/api-keys)
+- Requires a valid [Firecrawl API key](https://www.firecrawl.dev/app/api-keys)
 - Supports multiple content formats
 - Handles rate limiting
 - Job status monitoring
