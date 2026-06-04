@@ -13,7 +13,6 @@ description: Load data from URL using Firecrawl.
 This module provides a sophisticated web crawler that can:
 - Scrape single web pages
 - Crawl entire websites
-- Extract structured data
 - Search the web for relevant pages
 - Handle JavaScript-rendered content
 - Process content with text splitters
@@ -28,7 +27,6 @@ This module provides a sophisticated web crawler that can:
 - **Mode**: Choose between:
   - Scrape: Single page extraction
   - Crawl: Multi-page website crawling
-  - Extract: Structured data extraction
   - Search: Web search with content retrieval
 
 ### Optional Parameters
@@ -50,7 +48,6 @@ This module provides a sophisticated web crawler that can:
 ## Features
 - Multiple operation modes
 - Advanced scraping options
-- Structured data extraction
 - JavaScript rendering
 - Mobile device emulation
 - Custom timeout settings
@@ -69,12 +66,6 @@ This module provides a sophisticated web crawler that can:
 - Subdomain handling
 - Sitemap processing
 - Link extraction
-
-### Extract Mode
-- Structured data extraction
-- Schema-based parsing
-- LLM-powered extraction
-- Custom extraction prompts
 
 ### Search Mode
 - Web search with content retrieval
