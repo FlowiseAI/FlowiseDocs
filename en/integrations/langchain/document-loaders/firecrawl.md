@@ -14,6 +14,7 @@ This module provides a sophisticated web crawler that can:
 - Scrape single web pages
 - Crawl entire websites
 - Extract structured data
+- Search the web for relevant pages
 - Handle JavaScript-rendered content
 - Process content with text splitters
 - Customize metadata extraction
@@ -28,6 +29,7 @@ This module provides a sophisticated web crawler that can:
   - Scrape: Single page extraction
   - Crawl: Multi-page website crawling
   - Extract: Structured data extraction
+  - Search: Web search with content retrieval
 
 ### Optional Parameters
 - **Text Splitter**: A text splitter to process the extracted content
@@ -73,6 +75,11 @@ This module provides a sophisticated web crawler that can:
 - Schema-based parsing
 - LLM-powered extraction
 - Custom extraction prompts
+
+### Search Mode
+- Web search with content retrieval
+- Returns results with page content
+- Useful for query-driven data gathering
 
 ## Document Structure
 Each document contains:
