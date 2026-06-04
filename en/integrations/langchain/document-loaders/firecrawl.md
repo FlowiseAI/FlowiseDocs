@@ -1,19 +1,19 @@
 ---
-description: Load data from URL using FireCrawl.
+description: Load data from URL using Firecrawl.
 ---
 
-# FireCrawl
+# Firecrawl
 
-<figure><img src="../../../.gitbook/assets/up-004.png" alt="" width="347"><figcaption><p>FireCrawl Node</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/up-004.png" alt="" width="347"><figcaption><p>Firecrawl Node</p></figcaption></figure>
 
-# FireCrawl Document Loader
+# Firecrawl Document Loader
 
-[FireCrawl](https://www.firecrawl.dev) is a powerful web crawling and scraping service that provides advanced capabilities for extracting content from websites. This module enables loading and processing web content through the FireCrawl API.
+[Firecrawl](https://www.firecrawl.dev) is a powerful web crawling and scraping service that provides advanced capabilities for extracting content from websites. This module enables loading and processing web content through the Firecrawl API.
 
 This module provides a sophisticated web crawler that can:
 - Scrape single web pages
 - Crawl entire websites
-- Extract structured data
+- Search the web for relevant pages
 - Handle JavaScript-rendered content
 - Process content with text splitters
 - Customize metadata extraction
@@ -23,11 +23,11 @@ This module provides a sophisticated web crawler that can:
 
 ### Required Parameters
 - **URL**: The webpage or website URL to process
-- **Connect Credential**: FireCrawl API credentials
+- **Connect Credential**: Firecrawl API credentials
 - **Mode**: Choose between:
   - Scrape: Single page extraction
   - Crawl: Multi-page website crawling
-  - Extract: Structured data extraction
+  - Search: Web search with content retrieval
 
 ### Optional Parameters
 - **Text Splitter**: A text splitter to process the extracted content
@@ -48,7 +48,6 @@ This module provides a sophisticated web crawler that can:
 ## Features
 - Multiple operation modes
 - Advanced scraping options
-- Structured data extraction
 - JavaScript rendering
 - Mobile device emulation
 - Custom timeout settings
@@ -68,11 +67,10 @@ This module provides a sophisticated web crawler that can:
 - Sitemap processing
 - Link extraction
 
-### Extract Mode
-- Structured data extraction
-- Schema-based parsing
-- LLM-powered extraction
-- Custom extraction prompts
+### Search Mode
+- Web search with content retrieval
+- Returns results with page content
+- Useful for query-driven data gathering
 
 ## Document Structure
 Each document contains:
@@ -85,7 +83,7 @@ Each document contains:
   - Additional custom metadata
 
 ## Notes
-- Requires a valid [FireCrawl API key](https://www.firecrawl.dev/app/api-keys)
+- Requires a valid [Firecrawl API key](https://www.firecrawl.dev/app/api-keys)
 - Supports multiple content formats
 - Handles rate limiting
 - Job status monitoring
