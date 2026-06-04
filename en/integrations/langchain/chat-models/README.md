@@ -26,6 +26,7 @@ Chat models take a list of messages as input and return a model-generated messag
 * [ChatOllama Funtion](broken-reference)
 * [ChatOpenAI](azure-chatopenai.md)
 * [ChatOpenAI Custom](broken-reference)
+* [ChatOrcaRouter](chatorcarouter.md)
 * [ChatTogetherAI](chattogetherai.md)
 * [GroqChat](groqchat.md)
 * [ChatSambanova](chat-sambanova.md)

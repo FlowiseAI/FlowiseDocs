@@ -124,6 +124,7 @@
       * [IBM Watsonx](integrations/langchain/chat-models/ibm-watsonx.md)
       * [ChatOllama](integrations/langchain/chat-models/chatollama.md)
       * [ChatOpenAI](integrations/langchain/chat-models/azure-chatopenai.md)
+      * [ChatOrcaRouter](integrations/langchain/chat-models/chatorcarouter.md)
       * [ChatTogetherAI](integrations/langchain/chat-models/chattogetherai.md)
       * [GroqChat](integrations/langchain/chat-models/groqchat.md)
     * [Document Loaders](integrations/langchain/document-loaders/README.md)
