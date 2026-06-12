@@ -20,6 +20,7 @@ Chat models take a list of messages as input and return a model-generated messag
 * [ChatGooglePaLM](broken-reference)
 * [Google VertexAI](google-vertexai.md)
 * [ChatHuggingFace](chathuggingface.md)
+* [ChatInception](chatinception.md)
 * [ChatLocalAI](chatlocalai.md)
 * [ChatMistralAI](mistral-ai.md)
 * [ChatOllama](chatollama.md)
