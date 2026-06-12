@@ -119,6 +119,7 @@
       * [ChatGoogleGenerativeAI](integrations/langchain/chat-models/google-ai.md)
       * [Google VertexAI](integrations/langchain/chat-models/google-vertexai.md)
       * [ChatHuggingFace](integrations/langchain/chat-models/chathuggingface.md)
+      * [ChatInception](integrations/langchain/chat-models/chatinception.md)
       * [ChatLocalAI](integrations/langchain/chat-models/chatlocalai.md)
       * [ChatMistralAI](integrations/langchain/chat-models/mistral-ai.md)
       * [IBM Watsonx](integrations/langchain/chat-models/ibm-watsonx.md)
