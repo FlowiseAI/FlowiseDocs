@@ -7,7 +7,7 @@ description: Wrapper around Inception Mercury diffusion LLMs (OpenAI-compatible 
 ## Description
 [Inception](https://inceptionlabs.ai/) provides the Mercury family of diffusion LLMs, including **Mercury 2** — a fast reasoning model that supports tool calling and structured outputs. The API is OpenAI-compatible and served from `https://api.inceptionlabs.ai/v1`.
 
-## Prerequisite
+## Prerequisites
 1. Create an account on the [Inception Platform](https://platform.inceptionlabs.ai/).
 2. Get your API key from the [Inception Platform dashboard](https://platform.inceptionlabs.ai/). New accounts include free tokens to get started.
 
