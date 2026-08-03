@@ -54,6 +54,10 @@ Fill in the fields:
 * **Model Name**: The model you want to use. Note that it must be inside `/models` folder of LocalAI directory. For instance: `ggml-gpt4all-j.bin`
 
 {% hint style="info" %}
+The same **Base Path** pattern works with OpenAI-compatible multi-model gateways when you are not self-hosting LocalAI — for example [DaoXE](https://daoxe.com/?utm_source=github&utm_medium=organic&utm_campaign=flowise-docs&utm_content=chatlocalai) at `https://api.daoxe.com/v1`.
+{% endhint %}
+
+{% hint style="info" %}
 If you are running both Flowise and LocalAI on Docker, you might need to change the base path to [http://host.docker.internal:8080/v1](http://host.docker.internal:8080/v1). For Linux based systems the default docker gateway should be used since host.docker.internal is not available: [http://172.17.0.1:8080/v1](http://172.17.0.1:8080/v1)
 {% endhint %}
 
