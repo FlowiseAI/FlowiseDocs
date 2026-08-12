@@ -54,7 +54,7 @@ Fill in the fields:
 * **Model Name**: The model you want to use. Note that it must be inside `/models` folder of LocalAI directory. For instance: `ggml-gpt4all-j.bin`
 
 {% hint style="info" %}
-The same **Base Path** pattern works with OpenAI-compatible multi-model gateways when you are not self-hosting LocalAI — for example [DaoXE](https://daoxe.com/?utm_source=github&utm_medium=organic&utm_campaign=flowise-docs&utm_content=chatlocalai) at `https://api.daoxe.com/v1`.
+The same **Base Path** pattern works with OpenAI-compatible multi-model gateways when you are not self-hosting LocalAI — for example [DaoXE](https://daoxe.com/) at `https://api.daoxe.com/v1`.
 {% endhint %}
 
 {% hint style="info" %}
