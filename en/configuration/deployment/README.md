@@ -38,4 +38,4 @@ This complexity, however, also grants greater flexibility and control over your 
 * [Azure](azure.md)
 * [DigitalOcean](digital-ocean.md)
 * [GCP](gcp.md)
-* [Kubernetes using Helm](https://artifacthub.io/packages/helm/cowboysysop/flowise)
+* [Kubernetes using Helm](kubernetes.md)

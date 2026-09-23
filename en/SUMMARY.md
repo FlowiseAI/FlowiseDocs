@@ -56,7 +56,7 @@
     * [Elestio](https://elest.io/open-source/flowiseai)
     * [GCP](configuration/deployment/gcp.md)
     * [Hugging Face](configuration/deployment/hugging-face.md)
-    * [Kubernetes using Helm](https://artifacthub.io/packages/helm/cowboysysop/flowise)
+    * [Kubernetes using Helm](configuration/deployment/kubernetes.md)
     * [Northflank](https://northflank.com/stacks/deploy-flowiseai)
     * [Railway](configuration/deployment/railway.md)
     * [Render](configuration/deployment/render.md)
