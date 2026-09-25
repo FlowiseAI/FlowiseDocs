@@ -25,11 +25,35 @@ To get a Qdrant cloud instance:
 4. Enter the required info into the **Qdrant** node:
    * Qdrant server URL
    * Collection name
+   * Retrieval Mode
 
 <figure><img src="../../../.gitbook/assets/qdrant/3.png" alt="" width="239"><figcaption></figcaption></figure>
 
 5. **Document** input can be connected with any node under [**Document Loader**](../document-loaders/) category.
 6. **Embeddings** input can be connected with any node under [**Embeddings**](../embeddings/) category.
+
+## Retrieval Modes
+
+Dense (embeddings only), Sparse (BM25 only), or Hybrid (both, fused). Defaults to Dense — existing flows are unaffected.
+
+Pick Sparse for keyword-style relevance without embeddings, or Hybrid to combine both signals into one ranked result.
+
+When Retrieval Mode is Sparse or Hybrid, additional fields appear under Additional Parameters:
+
+* Dense Vector Name
+* Sparse Vector Name
+* Sparse Inference Model
+* Fusion Method
+
+<figure><img src="../../../.gitbook/assets/qdrant/4.png" alt="" width="536"><figcaption></figcaption></figure>
+
+Sparse Inference Model defaults to `qdrant/bm25`, the only supported value in this version — changing it is rejected when you run the flow.
+
+Fusion Method only appears in Hybrid mode.
+
+<figure><img src="../../../.gitbook/assets/qdrant/5.png" alt="" width="533"><figcaption></figcaption></figure>
+
+Creating a new collection in Sparse or Hybrid mode automatically configures both a named dense vector and a named sparse vector — no manual collection setup required.
 
 ## Filtering
 
@@ -73,3 +97,4 @@ Then, you want to filter by it. Qdrant supports following [syntax](https://qdran
 * [Qdrant documentation](https://qdrant.tech/documentation/)
 * [LangChain JS Qdrant](https://js.langchain.com/docs/integrations/vectorstores/qdrant)
 * [Qdrant Filter](https://qdrant.tech/documentation/concepts/filtering/#nested-key)
+* [Qdrant Hybrid Queries](https://qdrant.tech/documentation/concepts/hybrid-queries/)
