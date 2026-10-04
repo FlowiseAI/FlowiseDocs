@@ -1,10 +1,10 @@
 ---
-description: MCP Server for Browserless - scrape pages, take screenshots, generate PDFs, and more
+description: MCP Server for Browserless - an interactive web agent plus scraping, search, crawling, PDFs, and Lighthouse audits
 ---
 
 # Browserless MCP
 
-The **Browserless MCP** node connects your Flowise agents to [Browserless](https://browserless.io) through the Model Context Protocol (MCP). It enables browser automation capabilities such as web scraping, taking screenshots, generating PDFs, and more — all without managing headless browser infrastructure yourself.
+The **Browserless MCP** node connects your Flowise agents to [Browserless](https://browserless.io) through the Model Context Protocol (MCP). Beyond one-shot actions like scraping and PDFs, it exposes an **interactive web agent** that drives a persistent browser session — navigating, clicking, typing, solving captchas, and routing through residential proxies — all without managing headless browser infrastructure yourself.
 
 ---
 
@@ -67,16 +67,30 @@ Select only the actions your agent needs. Fewer tools help the LLM make better d
 
 The Browserless MCP server provides a range of browser automation tools, including:
 
-- **Web scraping** — extract content from web pages
-- **Screenshots** — capture page screenshots
-- **PDF generation** — generate PDFs from web pages
-- **Browser automation** — interact with pages programmatically
+- **Interactive web agent** — drive a persistent browser session through a multi-step ReAct loop: snapshot the page, plan, click/type/scroll, and re-snapshot. Handles multi-tab workflows, captcha solving, residential proxies, and file upload/download. This is what lets an agent *complete a task on the web* rather than fetch a single page.
+- **Skills** — on-demand recipes the agent loads to handle tricky page mechanics (cookie banners, modals, shadow DOM, dynamic content). They auto-inject when their triggers fire.
+- **Smart scraping** — extract page content as markdown, HTML, or links, with cascading fallback strategies (direct fetch → proxy → headless browser → captcha solving).
+- **Web search** — structured web, news, and image results.
+- **Crawling & site mapping** — follow links to a configurable depth, or discover every URL on a site.
+- **Custom functions** — run arbitrary Puppeteer scripts for complex automation.
+- **Lighthouse audits** — performance, accessibility, best-practices, and SEO scores.
+- **Export & PDF** — capture pages in their native format or as PDFs.
 
 The full list of available actions is dynamically loaded from the MCP server when you refresh the **Available Actions** dropdown.
 
 ---
 
-## 7. External References
+## 7. Example: running the web agent
+
+The interactive agent shines on multi-step tasks. Connect the Browserless MCP node to a Tool Agent, expose the agent action, and try a prompt like:
+
+> Go to news.ycombinator.com, open the top story, and summarize the linked article in three bullet points.
+
+The agent will navigate to the page, snapshot it, click the top story, follow through to the article, read it, and return the summary — solving any captchas or cookie banners it hits along the way.
+
+---
+
+## 8. External References
 
 | Resource | Link |
 | :---- | :---- |
