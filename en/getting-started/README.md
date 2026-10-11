@@ -4,12 +4,12 @@
 
 ## Cloud
 
-Self-hosting requires more technical skill to setup instance, backing up database and maintaning updates. If you aren't experienced at managing servers and just want to use the webapp, we recommend using [Flowise Cloud](https://cloud.flowiseai.com).
+Self-hosting requires more technical skill to set up an instance, back up the database, and maintain updates. If you aren't experienced at managing servers and just want to use the webapp, we recommend using [Flowise Cloud](https://cloud.flowiseai.com).
 
 ## Quick Start
 
 {% hint style="info" %}
-Pre-requisite: ensure [NodeJS](https://nodejs.org/en/download) is installed on machine. Node `v18.15.0` or `v20` and above is supported.
+Pre-requisite: ensure [NodeJS](https://nodejs.org/en/download) is installed on machine. Node `v18.15.0` or `v20+` is supported.
 {% endhint %}
 
 Install Flowise locally using NPM.
