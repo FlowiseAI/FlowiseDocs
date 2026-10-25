@@ -15,6 +15,7 @@ Chat models take a list of messages as input and return a model-generated messag
 * [NIBittensorChat](broken-reference)
 * [ChatAnthropic](chatanthropic.md)
 * [ChatCohere](chatcohere.md)
+* [ChatEmpirioLabs](chatempiriolabs.md)
 * [Chat Fireworks](chat-fireworks.md)
 * [ChatGoogleGenerativeAI](google-ai.md)
 * [ChatGooglePaLM](broken-reference)
